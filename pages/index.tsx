@@ -1,9 +1,11 @@
-import {FunctionComponent} from "react";
+import React, { FunctionComponent } from "react";
 
-const Index: FunctionComponent<{}> = () => (
+const Index: FunctionComponent<{ asd: number }> = props => {
+  return (
     <div>
-        <p>Hello Next.js</p>
+      <p>Hello Next.js</p>
     </div>
-);
+  );
+};
 
 export default Index;
