@@ -27,6 +27,7 @@
      */
     "import/export": "off",
     "import/prefer-default-export": "off", // Allow single Named-export
+    "arrow-body-style": ["error", "never"],
     "no-unused-expressions": [
       "warn",
       {
@@ -52,6 +53,7 @@
     ], // also want to use with ".tsx"
     "react/prop-types": "off", // Is this incompatible with TS props type?
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-no-bind": ["error", {}],
     /**
      * @description rules of eslint-plugin-react-hooks
      */
@@ -66,6 +68,11 @@
         "singleQuote": false,
         "semi": true
       }
-    ]
+    ],
+    /**
+     * @description rules for eslint-plugin-jsx-a11y
+     */
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn"
   }
 }
