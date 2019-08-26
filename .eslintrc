@@ -58,17 +58,6 @@
      * @description rules of eslint-plugin-react-hooks
      */
     "react-hooks/rules-of-hooks": "error",
-
-    /**
-     * @description rules of eslint-plugin-prettier
-     */
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": false,
-        "semi": true
-      }
-    ],
     /**
      * @description rules for eslint-plugin-jsx-a11y
      */
