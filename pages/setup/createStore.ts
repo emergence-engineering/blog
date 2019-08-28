@@ -20,6 +20,12 @@ const firebaseConfig = {
   messagingSenderId: FIREBASE_SENDER_ID,
   appID: FIREBASE_APP_ID,
 };
-
-firebase.initializeApp(firebaseConfig);
-firebase.firestore!().settings({});
+if (
+  FIREBASE_API_KEY &&
+  FIREBASE_PROJECT_ID &&
+  FIREBASE_SENDER_ID &&
+  FIREBASE_APP_ID
+) {
+  firebase.initializeApp(firebaseConfig);
+  firebase.firestore!().settings({});
+}

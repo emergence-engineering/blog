@@ -4,7 +4,7 @@
 - Next.js 9.0
 - Linting with `npm run lint` or `npm run lint:fix`.
 Uses eslint with typescript, extended by airbnb, prettier and react-hooks, with some additional magic
- to kepp the coding style as strict as possible
+ to keep the coding style as strict as possible
 - styled-components with server side rendering enabled
 
 ## How to set up
