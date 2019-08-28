@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint pages/** --ext .ts,.tsx",
-    "lint:fix": "lint --fix"
+    "lint:fix": "eslint pages/** --ext .ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
@@ -28,11 +29,17 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
+    "firebase-tools": "^7.2.4",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@firebase/app": "^0.4.15",
+    "@firebase/auth": "^0.11.8",
+    "@firebase/database": "^0.5.1",
+    "@firebase/firestore": "^1.4.12",
     "@types/styled-components": "^4.1.18",
+    "firebase": "^6.4.2",
     "next": "^9.0.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
