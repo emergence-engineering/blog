@@ -62,6 +62,7 @@
      * @description rules for eslint-plugin-jsx-a11y
      */
     "jsx-a11y/click-events-have-key-events": "warn",
-    "jsx-a11y/no-noninteractive-element-interactions": "warn"
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

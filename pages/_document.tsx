@@ -7,6 +7,14 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
+const bodyStyle = {
+  width: "100%",
+  height: "100vh",
+  padding: 0,
+  margin: 0,
+  overflowX: "hidden",
+};
+
 export default class MyDocument extends Document {
   // from https://github.com/zeit/next.js/tree/canary/examples/with-styled-components
   static async getInitialProps(ctx: DocumentContext) {
@@ -36,11 +44,11 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <html lang="en">
+      <html lang="en" style={bodyStyle as object}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <body>
+        <body style={bodyStyle as object}>
           <Main />
           <NextScript />
         </body>
