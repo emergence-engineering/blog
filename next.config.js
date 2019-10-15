@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   webpack: config => {
@@ -17,7 +18,16 @@ module.exports = {
         systemvars: true
       })
     ];
-
+    // Opt out from next typechecks
+    config.plugins = config.plugins.filter(plugin => {
+      return plugin.constructor.name !== "ForkTsCheckerWebpackPlugin";
+    });
+    // only report errors on a matcher that doesn't match anything
+    config.plugins.push(
+      new ForkTsCheckerWebpackPlugin({
+        reportFiles: ["does-not-exist"],
+      }),
+    );
     return config;
   },
   publicRuntimeConfig: {
