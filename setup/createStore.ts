@@ -1,8 +1,17 @@
 import getConfig from "next/config";
-import "@firebase/auth";
-import "@firebase/firestore";
-import "@firebase/database";
-import { firebase } from "@firebase/app";
+// import "@firebase/auth";
+// import "@firebase/firestore";
+// import "@firebase/database";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import { getFirebase } from "react-redux-firebase";
+import { getFirestore, createFirestoreInstance } from "redux-firestore";
+import { rootReducer } from "./reducers/rootReducer";
 
 const {
   FIREBASE_API_KEY,
@@ -20,12 +29,34 @@ const firebaseConfig = {
   messagingSenderId: FIREBASE_SENDER_ID,
   appID: FIREBASE_APP_ID,
 };
+
+const rrfConfig = {
+  userProfile: "users",
+  useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
+};
+
 if (
+  firebase.apps.length === 0 &&
   FIREBASE_API_KEY &&
   FIREBASE_PROJECT_ID &&
   FIREBASE_SENDER_ID &&
   FIREBASE_APP_ID
 ) {
   firebase.initializeApp(firebaseConfig);
-  firebase.firestore!().settings({});
+  firebase.firestore();
 }
+
+export const defaultStore = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    // reduxFirestore(fbConfig), // redux bindings for firestore
+  ),
+);
+
+export const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: defaultStore.dispatch,
+  createFirestoreInstance, // <- needed if using firestore
+};
