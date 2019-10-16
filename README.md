@@ -32,7 +32,7 @@ FIREBASE_SENDER_ID=<messagingSenderId>
 FIREBASE_APP_ID=<appId>
 ```
 
-TODO: Auth writeup / setup
+TODO: Auth wri**teup / setup
 
 ## How it works
 ### Redux-Next-Firebase integration
