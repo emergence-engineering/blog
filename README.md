@@ -52,7 +52,6 @@ BIG TODO here.
 
 - Database typings / figure out the best way to type firestore/firebase
 - Figure out best way to add pwa functionality
-- Precommit hook
 - Testing setup with jest / enzyme
 - Set up react-storybook
 
