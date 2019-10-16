@@ -39,7 +39,7 @@ TODO: Auth writeup / setup
 The store setup mostly follows 
 https://github.com/piotrwitek/react-redux-typescript-guide
 except for the Next.js integration, which is not discussed in the link above.
-BIG TODO here.
+Redux is integrated using the `next-redux-wrapper` package.
 
 ## Left to do
 
