@@ -32,7 +32,7 @@ FIREBASE_SENDER_ID=<messagingSenderId>
 FIREBASE_APP_ID=<appId>
 ```
 
-TODO: Auth wri**teup / setup
+TODO: Auth writeup / setup
 
 ## How it works
 ### Redux-Next-Firebase integration
@@ -40,13 +40,6 @@ The store setup mostly follows
 https://github.com/piotrwitek/react-redux-typescript-guide
 except for the Next.js integration, which is not discussed in the link above.
 BIG TODO here.
-## Issues
-
-- Fix failed builds when typescript has an issue. \
-  https://github.com/zeit/next.js/issues/7687 \
-  https://github.com/zeit/next.js/issues/8331 \
-  https://github.com/zeit/next.js/issues/6466 \
-  https://www.npmjs.com/package/fork-ts-checker-webpack-plugin
 
 ## Left to do
 
