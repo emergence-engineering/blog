@@ -10,7 +10,6 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { getFirebase } from "react-redux-firebase";
-import { createFirestoreInstance } from "redux-firestore";
 import { rootReducer } from "./reducers/rootReducer";
 
 const {
@@ -30,7 +29,7 @@ const firebaseConfig = {
   appID: FIREBASE_APP_ID,
 };
 
-const rrfConfig = {
+export const rrfConfig = {
   userProfile: "users",
   useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
 };
@@ -46,16 +45,12 @@ if (
   firebase.firestore();
 }
 
-export const defaultStore = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk.withExtraArgument({ getFirebase })),
-  ),
-);
-
-export const rrfProps = {
-  firebase,
-  config: rrfConfig,
-  dispatch: defaultStore.dispatch,
-  createFirestoreInstance, // <- needed if using firestore
-};
+// TODO: Type out initialState
+export const initStore = (initialState: object) =>
+  createStore(
+    rootReducer,
+    initialState,
+    composeWithDevTools(
+      applyMiddleware(thunk.withExtraArgument({ getFirebase })),
+    ),
+  );

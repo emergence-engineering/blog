@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers, createStore } from "redux";
 import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 
@@ -12,3 +12,4 @@ export const rootReducer = combineReducers({
 });
 
 export type RootState = StateType<typeof rootReducer>;
+export type ReduxStore = ReturnType<typeof createStore>;
