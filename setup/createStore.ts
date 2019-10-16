@@ -10,7 +10,7 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { getFirebase } from "react-redux-firebase";
-import { getFirestore, createFirestoreInstance } from "redux-firestore";
+import { createFirestoreInstance } from "redux-firestore";
 import { rootReducer } from "./reducers/rootReducer";
 
 const {
@@ -49,8 +49,7 @@ if (
 export const defaultStore = createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    // reduxFirestore(fbConfig), // redux bindings for firestore
+    applyMiddleware(thunk.withExtraArgument({ getFirebase })),
   ),
 );
 

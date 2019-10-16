@@ -2,24 +2,13 @@ import { combineReducers } from "redux";
 import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 
-import { actionTypes } from "../actions/actionTypes";
-
-const exampleInitialState = {
-  exampleData: 0,
-};
-
-// REDUCERS
-export const reducer = (state = exampleInitialState, action: any) => {
-  switch (action.type) {
-    case actionTypes.SAMPLE:
-      return { ...state, exampleData: action.payLoad };
-    default:
-      return state;
-  }
-};
+import { StateType } from "typesafe-actions";
+import { sampleReducer } from "./sampleReducer";
 
 export const rootReducer = combineReducers({
-  mainStore: reducer,
+  sample: sampleReducer,
   firebase: firebaseReducer,
   firestore: firestoreReducer,
 });
+
+export type RootState = StateType<typeof rootReducer>;

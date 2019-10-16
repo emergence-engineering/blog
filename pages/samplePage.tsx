@@ -1,10 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
+import { RootState } from "../setup/reducers/rootReducer";
 
 const SamplePage: FunctionComponent<{}> = () => {
   useFirestoreConnect([{ collection: "orders" }]);
-  const orders = useSelector(state => state.firestore.data.orders || {});
+  const orders = useSelector(
+    (state: RootState) => state.firestore.data.orders || {},
+  );
   return (
     <div>
       <div>Component with FirestoreConnect Feature</div>

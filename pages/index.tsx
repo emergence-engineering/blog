@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Link from "next/link";
-import { exampleDispatch } from "../setup/actions/mainActions";
+import { exampleDispatch } from "../setup/actions/sample/actions";
 
 const Root = styled.div`
   background-color: blue;
