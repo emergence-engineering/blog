@@ -12,7 +12,11 @@ function LoginPage() {
     firebase.login({ provider: "google", type: "popup" });
   }, []);
 
-  const logOut = useCallback((e: any) => {}, []);
+  const logOut = useCallback((e: any) => {
+    firebase.auth().signOut();
+  }, []);
+  const signUpWithPassword = useCallback((e: any) => {}, []);
+  const signInWithPassword = useCallback((e: any) => {}, []);
 
   return (
     <div>
@@ -21,9 +25,17 @@ function LoginPage() {
         {!isLoaded(auth) ? (
           <span>Loading...</span>
         ) : isEmpty(auth) ? (
-          <button type="button" onClick={loginWithGoogle}>
-            Login With Google
-          </button>
+          <StyledDiv>
+            <button type="button" onClick={loginWithGoogle}>
+              Login With Google
+            </button>
+            <button type="button" onClick={signUpWithPassword}>
+              Sign Up With Password
+            </button>
+            <button type="button" onClick={signInWithPassword}>
+              Sign In With Password
+            </button>
+          </StyledDiv>
         ) : (
           <StyledDiv>
             <button type="button" onClick={logOut}>
