@@ -22,15 +22,20 @@ a .env file.
    a new Firebase project
 3. Add app to your project by going to project Settings, and in the `Your apps` part
    click on the web app icon. Give a name to your new app ( the same as the project is ok ).
-   For development you don't need hosting. On the finishing screen you'll get all the necessary info.
+   For development you don't need hosting. 
+   On the finishing screen you'll get all the necessary info, that you will need to fill out
+   the .env file which you have to create on the root.
    The env file structure is the following:
-
-```
-FIREBASE_API_KEY=<apiKey>
-FIREBASE_PROJECT_ID=<projectId>
-FIREBASE_SENDER_ID=<messagingSenderId>
-FIREBASE_APP_ID=<appId>
-```
+   ```
+    FIREBASE_API_KEY=<apiKey>
+    FIREBASE_PROJECT_ID=<projectId>
+    FIREBASE_SENDER_ID=<messagingSenderId>
+    FIREBASE_APP_ID=<appId>
+    ```
+1. On the firease console, click on your project name. 
+That leads you to the firebase manager. Click on database in the `Develop` section.
+Click on Create database, select `Start in test mode`, on the next page, select a location close to your
+firebase db should be ready, and you can view all your data there.
 
 TODO: Auth writeup / setup
 
