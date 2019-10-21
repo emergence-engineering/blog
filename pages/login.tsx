@@ -1,25 +1,27 @@
-import React, { useCallback, useRef } from "react";
+import React, { FunctionComponent, useCallback, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useFirebase, isLoaded, isEmpty } from "react-redux-firebase";
 import styled from "styled-components";
 import { RootState } from "../setup/reducers/rootReducer";
 
-const LoginPage = () => {
+const LoginPage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore TODO
   const auth = useSelector((state: RootState) => state.firebase.auth);
-  const userNameRef = useRef();
-  const eMailRef = useRef();
-  const passwordRef = useRef();
+  const userNameRef = useRef<HTMLInputElement | null>(null);
+  const eMailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const loginWithGoogle = useCallback((e: any) => {
     firebase.login({ provider: "google", type: "popup" });
   }, []);
 
-  const logOut = useCallback((e: any) => {
+  const logOut = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     firebase.auth().signOut();
   }, []);
   const signUpWithPassword = useCallback((e: any) => {
-    if (userNameRef && eMailRef && passwordRef) {
+    if (userNameRef.current && eMailRef.current && passwordRef.current) {
       firebase.createUser(
         { email: eMailRef.current.value, password: passwordRef.current.value },
         { username: userNameRef.current.value, email: eMailRef.current.value },
@@ -27,16 +29,17 @@ const LoginPage = () => {
     }
   }, []);
   const loginWithPassword = useCallback((e: any) => {
-    firebase.login({
-      email: eMailRef.current.value,
-      password: passwordRef.current.value,
-    });
+    if (userNameRef.current && eMailRef.current && passwordRef.current) {
+      firebase.login({
+        email: eMailRef.current.value,
+        password: passwordRef.current.value,
+      });
+    }
   }, []);
 
   return (
-    <div>
-      <div>
-        <h2>Auth</h2>
+    <div style={{ width: "100vw" }}>
+      <div style={{ width: "100%" }}>
         {(() => {
           if (!isLoaded(auth)) return <span>Loading...</span>;
           if (isLoaded(auth) && !isEmpty(auth))
@@ -71,13 +74,14 @@ const LoginPage = () => {
 };
 const StyledDiv = styled.div`
   border: 1px solid #018dc4;
-  width: 80%;
+  width: 100%;
   background: gray;
-  margin: auto;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const StyledButton = styled.button`
-  padding: 10px 20px;
+  width: 20rem;
   border: 1px solid #018dc4;
   border-radius: 3px;
   font: ${props => props.theme.font};
@@ -87,7 +91,7 @@ const StyledButton = styled.button`
   text-shadow: -1px -1px 0 rgba(15, 73, 168, 0.66);
 `;
 const StyledInput = styled.input`
-  padding: 10px 20px;
+  width: 20rem;
   display: inline;
   border: 1px solid #b7b7b7;
   font: ${props => props.theme.font};
