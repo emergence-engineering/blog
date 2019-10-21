@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useFirebase, isLoaded, isEmpty } from "react-redux-firebase";
 import styled from "styled-components";
 import { RootState } from "../setup/reducers/rootReducer";
+import theme from "../toDoList/theme";
 
 const LoginPage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();
@@ -88,31 +89,27 @@ const LoginPage: FunctionComponent<{}> = () => {
   );
 };
 const StyledDiv = styled.div`
-  border: 1px solid #018dc4;
+  border: 1px solid ${theme.color.border};
   width: 100%;
-  background: gray;
+  background: ${theme.color.primary};
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 const StyledButton = styled.button`
   width: 20rem;
-  border: 1px solid #018dc4;
+  border: 1px solid ${theme.color.border};
   border-radius: 3px;
-  font: ${props => props.theme.font};
-  color: rgba(86, 86, 86, 0.9);
-  background: #ffc107;
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
-  text-shadow: -1px -1px 0 rgba(15, 73, 168, 0.66);
+  background: ${theme.color.button};
+  box-shadow: 2px 2px 2px 0 ${theme.color.shadow};
 `;
 const StyledInput = styled.input`
   width: 20rem;
   display: inline;
-  border: 1px solid #b7b7b7;
-  font: ${props => props.theme.font};
-  color: rgba(86, 86, 86, 0.9);
-  background: rgba(252, 252, 252, 1);
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+  border: 1px solid ${theme.color.border};
+  border-radius: 3px;
+  color: ${theme.color.shadow};
+  background: ${theme.color.inputBackground};
+  box-shadow: 2px 2px 2px 0 ${theme.color.shadow} outset;
 `;
 export default LoginPage;
