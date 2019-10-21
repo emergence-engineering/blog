@@ -13,29 +13,44 @@ const LoginPage: FunctionComponent<{}> = () => {
   const eMailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
-  const loginWithGoogle = useCallback((e: any) => {
-    firebase.login({ provider: "google", type: "popup" });
-  }, []);
+  const loginWithGoogle = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      firebase.login({ provider: "google", type: "popup" });
+    },
+    [],
+  );
 
   const logOut = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     firebase.auth().signOut();
   }, []);
-  const signUpWithPassword = useCallback((e: any) => {
-    if (userNameRef.current && eMailRef.current && passwordRef.current) {
-      firebase.createUser(
-        { email: eMailRef.current.value, password: passwordRef.current.value },
-        { username: userNameRef.current.value, email: eMailRef.current.value },
-      );
-    }
-  }, []);
-  const loginWithPassword = useCallback((e: any) => {
-    if (userNameRef.current && eMailRef.current && passwordRef.current) {
-      firebase.login({
-        email: eMailRef.current.value,
-        password: passwordRef.current.value,
-      });
-    }
-  }, []);
+  const signUpWithPassword = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (userNameRef.current && eMailRef.current && passwordRef.current) {
+        firebase.createUser(
+          {
+            email: eMailRef.current.value,
+            password: passwordRef.current.value,
+          },
+          {
+            username: userNameRef.current.value,
+            email: eMailRef.current.value,
+          },
+        );
+      }
+    },
+    [],
+  );
+  const loginWithPassword = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (userNameRef.current && eMailRef.current && passwordRef.current) {
+        firebase.login({
+          email: eMailRef.current.value,
+          password: passwordRef.current.value,
+        });
+      }
+    },
+    [],
+  );
 
   return (
     <div style={{ width: "100vw" }}>
