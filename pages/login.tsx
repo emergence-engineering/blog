@@ -1,12 +1,15 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useFirebase, isLoaded, isEmpty } from "react-redux-firebase";
 import styled from "styled-components";
 import { RootState } from "../setup/reducers/rootReducer";
 
-function LoginPage() {
+const LoginPage = () => {
   const firebase = useFirebase();
   const auth = useSelector((state: RootState) => state.firebase.auth);
+  const userNameRef = useRef();
+  const eMailRef = useRef();
+  const passwordRef = useRef();
 
   const loginWithGoogle = useCallback((e: any) => {
     firebase.login({ provider: "google", type: "popup" });
@@ -15,8 +18,20 @@ function LoginPage() {
   const logOut = useCallback((e: any) => {
     firebase.auth().signOut();
   }, []);
-  const signUpWithPassword = useCallback((e: any) => {}, []);
-  const signInWithPassword = useCallback((e: any) => {}, []);
+  const signUpWithPassword = useCallback((e: any) => {
+    if (userNameRef && eMailRef && passwordRef) {
+      firebase.createUser(
+        { email: eMailRef.current.value, password: passwordRef.current.value },
+        { username: userNameRef.current.value, email: eMailRef.current.value },
+      );
+    }
+  }, []);
+  const loginWithPassword = useCallback((e: any) => {
+    firebase.login({
+      email: eMailRef.current.value,
+      password: passwordRef.current.value,
+    });
+  }, []);
 
   return (
     <div>
@@ -35,14 +50,17 @@ function LoginPage() {
             );
           return (
             <StyledDiv>
+              <StyledInput ref={userNameRef} placeholder="Username" />
+              <StyledInput ref={eMailRef} placeholder="Email adress" />
+              <StyledInput ref={passwordRef} placeholder="Password" />
               <StyledButton type="button" onClick={loginWithGoogle}>
                 Login With Google
               </StyledButton>
               <StyledButton type="button" onClick={signUpWithPassword}>
                 Sign Up With Password
               </StyledButton>
-              <StyledButton type="button" onClick={signInWithPassword}>
-                Sign In With Password
+              <StyledButton type="button" onClick={loginWithPassword}>
+                Login With Password
               </StyledButton>
             </StyledDiv>
           );
@@ -50,7 +68,7 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 const StyledDiv = styled.div`
   border: 1px solid #018dc4;
   width: 80%;
