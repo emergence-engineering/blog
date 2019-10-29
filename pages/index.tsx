@@ -6,7 +6,6 @@ import { bindActionCreators, Dispatch } from "redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import { addSampleAction } from "../setup/actions/sample/actions";
 import { RootState } from "../setup/reducers/rootReducer";
-import ToDoApp from "../toDoList/ToDoApp";
 
 const Root = styled.div`
   background-color: white;
@@ -33,7 +32,6 @@ const Index: FunctionComponent<{} & ReturnType<typeof mapDispatchToProps>> = ({
   );
   return (
     <Root>
-      <ToDoApp />
       <div>My app</div>
       <Link href="/samplePage">
         <a href="/samplePage">Go to Sample Page</a>
@@ -54,11 +52,7 @@ const Index: FunctionComponent<{} & ReturnType<typeof mapDispatchToProps>> = ({
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  state,
-});
-
 export default connect(
-  mapStateToProps,
+  undefined,
   mapDispatchToProps,
 )(Index);

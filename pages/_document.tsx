@@ -5,7 +5,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import styled, { ServerStyleSheet, createGlobalStyle } from "styled-components";
 
 const bodyStyle = {
   width: "100%",
@@ -14,6 +14,28 @@ const bodyStyle = {
   margin: 0,
   overflowX: "hidden",
 };
+
+const Body = styled.body`
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+`;
+
+const HTMLRoot = styled.html`
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+`;
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+`;
 
 export default class MyDocument extends Document {
   // from https://github.com/zeit/next.js/tree/canary/examples/with-styled-components
@@ -44,15 +66,16 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <html lang="en" style={bodyStyle as object}>
+      <HTMLRoot lang="en" style={bodyStyle as object}>
+        <GlobalStyle />
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <body style={bodyStyle as object}>
+        <Body style={bodyStyle as object}>
           <Main />
           <NextScript />
-        </body>
-      </html>
+        </Body>
+      </HTMLRoot>
     );
   }
 }

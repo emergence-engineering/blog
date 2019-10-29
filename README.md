@@ -32,12 +32,14 @@ a .env file.
     FIREBASE_SENDER_ID=<messagingSenderId>
     FIREBASE_APP_ID=<appId>
     ```
-1. On the firease console, click on your project name. 
+1. On the firebase console, click on your project name. 
 That leads you to the firebase manager. Click on database in the `Develop` section.
 Click on Create database, select `Start in test mode`, on the next page, select a location close to your
 firebase db should be ready, and you can view all your data there.
 
-TODO: Auth writeup / setup
+2. Auth set-up: Go to firebase console, click on `Authentication`. Enable Email/Password login and Google login
+( select project support email too ).
+
 
 ## How it works
 ### Redux-Next-Firebase integration
