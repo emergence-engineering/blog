@@ -22,7 +22,7 @@ a .env file.
    a new Firebase project
 3. Add app to your project by going to project Settings, and in the `Your apps` part
    click on the web app icon. Give a name to your new app ( the same as the project is ok ).
-   For development you don't need hosting. 
+   For development you don't need hosting.
    On the finishing screen you'll get all the necessary info, that you will need to fill out
    the .env file which you have to create on the root.
    The env file structure is the following:
@@ -31,19 +31,20 @@ a .env file.
     FIREBASE_PROJECT_ID=<projectId>
     FIREBASE_SENDER_ID=<messagingSenderId>
     FIREBASE_APP_ID=<appId>
-    ```
-1. On the firebase console, click on your project name. 
-That leads you to the firebase manager. Click on database in the `Develop` section.
-Click on Create database, select `Start in test mode`, on the next page, select a location close to your
-firebase db should be ready, and you can view all your data there.
+   ```
+4. On the firebase console, click on your project name.
+   That leads you to the firebase manager. Click on database in the `Develop` section.
+   Click on Create database, select `Start in test mode`, on the next page, select a location close to your
+   firebase db should be ready, and you can view all your data there.
 
-2. Auth set-up: Go to firebase console, click on `Authentication`. Enable Email/Password login and Google login
-( select project support email too ).
-
+5. Auth set-up: Go to firebase console, click on `Authentication`. Enable Email/Password login and Google login
+   ( select project support email too ).
 
 ## How it works
+
 ### Redux-Next-Firebase integration
-The store setup mostly follows 
+
+The store setup mostly follows
 https://github.com/piotrwitek/react-redux-typescript-guide
 except for the Next.js integration, which is not discussed in the link above.
 Redux is integrated using the `next-redux-wrapper` package.
@@ -54,6 +55,9 @@ Redux is integrated using the `next-redux-wrapper` package.
 - Figure out best way to add pwa functionality
 - Testing setup with jest / enzyme
 - Set up react-storybook
+- Integrate redux-form
+- Set up server:
+    - Re-send password
 
 ## Webstorm tips
 

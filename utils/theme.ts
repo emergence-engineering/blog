@@ -2,6 +2,7 @@ export default {
   color: {
     primary: "#4488EE",
     secondary: "#AA2211",
+    error: "#EE3311",
     inputBackground: "#CCCCAA",
     shadow: "#222222",
     border: "#111111",
