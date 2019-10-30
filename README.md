@@ -40,6 +40,13 @@ a .env file.
 5. Auth set-up: Go to firebase console, click on `Authentication`. Enable Email/Password login and Google login
    ( select project support email too ).
 
+## Storybook
+Storybook is used to test componens in a separate environment, it's also a way of providing sample
+codes for using common components.
+
+To start it just type `npm run storybook` into the console, and it should 
+come up on `http://localhost:6006`
+
 ## How it works
 
 ### Redux-Next-Firebase integration
@@ -54,7 +61,6 @@ Redux is integrated using the `next-redux-wrapper` package.
 - Database typings / figure out the best way to type firestore/firebase
 - Figure out best way to add pwa functionality
 - Testing setup with jest / enzyme
-- Set up react-storybook
 - Integrate redux-form
 - Set up server:
     - Re-send password
