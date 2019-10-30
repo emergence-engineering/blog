@@ -58,6 +58,7 @@ Redux is integrated using the `next-redux-wrapper` package.
 - Integrate redux-form
 - Set up server:
     - Re-send password
+- Upgrade react-redux-firebase: latest throws `regeneratorRuntime is not defined` babel error.
 
 ## Webstorm tips
 
