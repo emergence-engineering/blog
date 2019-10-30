@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { bindActionCreators, Dispatch } from "redux";
 import { useFirestoreConnect } from "react-redux-firebase";
+
 import { addSampleAction } from "../setup/actions/sample/actions";
 import { RootState } from "../setup/reducers/rootReducer";
 
@@ -32,10 +33,14 @@ const Index: FunctionComponent<{} & ReturnType<typeof mapDispatchToProps>> = ({
   );
   return (
     <Root>
-      <div>My app</div>
       <Link href="/samplePage">
-        <a href="/samplePage">Go to Sample Page</a>
+        <a>Go to Sample Page</a>
       </Link>
+      <br />
+      <Link href="/auth/login">
+        <a>Go to Login Page</a>
+      </Link>
+      <br />
       <input type="text" ref={inputRef} />
       <button type="button" onClick={buttonClick}>
         Add sample

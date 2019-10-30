@@ -4,10 +4,9 @@ import React, {
   useCallback,
   useState,
 } from "react";
-import { useSelector } from "react-redux";
-import { isEmpty, isLoaded, useFirebase } from "react-redux-firebase";
+import { useFirebase } from "react-redux-firebase";
 import Link from "next/link";
-import { RootState } from "../../setup/reducers/rootReducer";
+
 import { Input } from "../../common/components/Input";
 import { Button } from "../../common/components/Button";
 import {
@@ -17,20 +16,16 @@ import {
   Root,
   SignInOrUpRoot,
 } from "../../auth/components/Common";
+import withRedirect from "../../auth/components/withRedirect";
+import { UserStatus } from "../../types/auth";
 
 const LoginPage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore TODO
-  const auth = useSelector((state: RootState) => state.firebase.auth);
   const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  const logOut = useCallback(() => {
-    firebase.auth().signOut();
-  }, []);
   const signUpWithPassword = useCallback(() => {
     if (userName && email && password) {
       setError("");
@@ -67,50 +62,34 @@ const LoginPage: FunctionComponent<{}> = () => {
   }, []);
   return (
     <Root>
-      {(() => {
-        if (!isLoaded(auth)) return <span>Loading...</span>;
-        if (isLoaded(auth) && !isEmpty(auth))
-          return (
-            <AuthPaper>
-              <Button type="button" onClick={logOut}>
-                Logout
-              </Button>
-              <pre>{JSON.stringify(auth, null, 2)}</pre>
-            </AuthPaper>
-          );
-        return (
-          <AuthPaper>
-            <Input
-              placeholder="Username"
-              value={userName}
-              onChange={changeName}
-            />
-            <Input
-              placeholder="Email address"
-              value={email}
-              onChange={changeEmail}
-              type="email"
-            />
-            <Input
-              placeholder="Password"
-              value={password}
-              onChange={changePassword}
-              type="password"
-            />
-            <Button type="button" onClick={signUpWithPassword}>
-              Sign Up
-            </Button>
-            <Error>{error}</Error>
-            <SignInOrUpRoot>
-              <Link href="/auth/login">
-                <RedirectLink>Already have an account?</RedirectLink>
-              </Link>
-            </SignInOrUpRoot>
-          </AuthPaper>
-        );
-      })()}
+      <AuthPaper>
+        <Input placeholder="Username" value={userName} onChange={changeName} />
+        <Input
+          placeholder="Email address"
+          value={email}
+          onChange={changeEmail}
+          type="email"
+        />
+        <Input
+          placeholder="Password"
+          value={password}
+          onChange={changePassword}
+          type="password"
+        />
+        <Button type="button" onClick={signUpWithPassword}>
+          Sign Up
+        </Button>
+        <Error>{error}</Error>
+        <SignInOrUpRoot>
+          <Link href="/auth/login">
+            <RedirectLink>Already have an account?</RedirectLink>
+          </Link>
+        </SignInOrUpRoot>
+      </AuthPaper>
     </Root>
   );
 };
 
-export default LoginPage;
+export default withRedirect({ [UserStatus.signedIn]: "/samplePage" })(
+  LoginPage,
+);

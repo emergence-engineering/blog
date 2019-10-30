@@ -5,6 +5,7 @@ import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import withReduxStore from "next-redux-wrapper";
 import firebase from "firebase/app";
 import { createFirestoreInstance } from "redux-firestore";
+
 import { initStore, rrfConfig } from "../setup/createStore";
 import { ReduxStore, RootState } from "../setup/reducers/rootReducer";
 

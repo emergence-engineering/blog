@@ -4,11 +4,10 @@ import React, {
   useCallback,
   useState,
 } from "react";
-import { useSelector } from "react-redux";
-import { isEmpty, isLoaded, useFirebase } from "react-redux-firebase";
+import { useFirebase } from "react-redux-firebase";
 import styled from "styled-components";
 import Link from "next/link";
-import { RootState } from "../../setup/reducers/rootReducer";
+
 import { Input } from "../../common/components/Input";
 import { Button } from "../../common/components/Button";
 import {
@@ -17,6 +16,8 @@ import {
   RedirectLink,
   SignInOrUpRoot,
 } from "../../auth/components/Common";
+import withRedirect from "../../auth/components/withRedirect";
+import { UserStatus } from "../../types/auth";
 
 const Root = styled.div`
   width: 100vw;
@@ -29,9 +30,6 @@ const Root = styled.div`
 
 const LoginPage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore TODO
-  const auth = useSelector((state: RootState) => state.firebase.auth);
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -39,10 +37,6 @@ const LoginPage: FunctionComponent<{}> = () => {
 
   const loginWithGoogle = useCallback(() => {
     firebase.login({ provider: "google", type: "popup" });
-  }, []);
-
-  const logOut = useCallback(() => {
-    firebase.auth().signOut();
   }, []);
 
   const loginWithPassword = useCallback(() => {
@@ -70,48 +64,36 @@ const LoginPage: FunctionComponent<{}> = () => {
 
   return (
     <Root>
-      {(() => {
-        if (!isLoaded(auth)) return <span>Loading...</span>;
-        if (isLoaded(auth) && !isEmpty(auth))
-          return (
-            <AuthPaper>
-              <Button type="button" onClick={logOut}>
-                Logout
-              </Button>
-              <pre>{JSON.stringify(auth, null, 2)}</pre>
-            </AuthPaper>
-          );
-        return (
-          <AuthPaper>
-            <Input
-              placeholder="Email address"
-              value={email}
-              onChange={changeEmail}
-              type="email"
-            />
-            <Input
-              placeholder="Password"
-              value={password}
-              onChange={changePassword}
-              type="password"
-            />
-            <Button type="button" onClick={loginWithPassword}>
-              Log In with Username
-            </Button>
-            <Button type="button" onClick={loginWithGoogle}>
-              Log In With Google
-            </Button>
-            <Error>{error}</Error>
-            <SignInOrUpRoot>
-              <Link href="/auth/signup">
-                <RedirectLink>Register here</RedirectLink>
-              </Link>
-            </SignInOrUpRoot>
-          </AuthPaper>
-        );
-      })()}
+      <AuthPaper>
+        <Input
+          placeholder="Email address"
+          value={email}
+          onChange={changeEmail}
+          type="email"
+        />
+        <Input
+          placeholder="Password"
+          value={password}
+          onChange={changePassword}
+          type="password"
+        />
+        <Button type="button" onClick={loginWithPassword}>
+          Log In with Username
+        </Button>
+        <Button type="button" onClick={loginWithGoogle}>
+          Log In With Google
+        </Button>
+        <Error>{error}</Error>
+        <SignInOrUpRoot>
+          <Link href="/auth/signup">
+            <RedirectLink>Register here</RedirectLink>
+          </Link>
+        </SignInOrUpRoot>
+      </AuthPaper>
     </Root>
   );
 };
 
-export default LoginPage;
+export default withRedirect({ [UserStatus.signedIn]: "/samplePage" })(
+  LoginPage,
+);

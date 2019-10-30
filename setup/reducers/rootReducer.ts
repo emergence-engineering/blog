@@ -11,5 +11,9 @@ export const rootReducer = combineReducers({
   firestore: firestoreReducer,
 });
 
-export type RootState = StateType<typeof rootReducer>;
+// BIG TODO!
+export interface RootState extends StateType<typeof rootReducer> {
+  firebase: any;
+  firestore: any;
+}
 export type ReduxStore = ReturnType<typeof createStore>;
