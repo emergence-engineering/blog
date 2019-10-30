@@ -21,7 +21,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
     "@types/node": "^12.11.7",
     "@types/react": "^16.9.7",
     "@types/react-alert": "^5.2.0",
@@ -31,9 +30,7 @@
     "@types/styled-components": "^4.1.19",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
-    "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.8.0",
-    "babel-preset-react-app": "^9.0.2",
     "dotenv-webpack": "^1.7.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
@@ -49,8 +46,6 @@
     "husky": "^3.0.9",
     "npm-check": "^5.9.0",
     "prettier": "^1.18.2",
-    "react-dev-utils": "^9.1.0",
-    "react-scripts": "^3.2.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
