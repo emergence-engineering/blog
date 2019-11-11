@@ -3,6 +3,8 @@ import React, { FunctionComponent } from "react";
 
 import { convertTimeStampToDateString } from "../../utils/time";
 
+import AsyncSVGIcon from "./AsyncSvgIcon";
+
 const Title = styled.h4`
   font-weight: bold;
   font-size: 1.5em;
@@ -50,7 +52,10 @@ const BlogPostIntro: FunctionComponent<{}> = () => {
     <Root>
       <Title>{title}</Title>
       <PostMetadataContainer>
-        <span>By {author}</span> on {postDate}
+        <span>
+          By {author} on <AsyncSVGIcon src="/material-calendar.svg" />
+          {postDate}
+        </span>
       </PostMetadataContainer>
       <Description>{introText}</Description>
       <ReadMoreLink href={`/article/${postId}`}>Read more...</ReadMoreLink>
