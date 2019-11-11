@@ -1,7 +1,8 @@
 export default {
   color: {
-    primary: "#4488EE",
-    secondary: "#AA2211",
+    primary: "#3fc2ff",
+    secondary: "#ffaf3f",
+    tertiary: "#ff4f3f",
     error: "#EE3311",
     inputBackground: "#CCCCAA",
     shadow: "#222222",
@@ -16,6 +17,9 @@ export default {
     gray8: "#CCCCCC",
     gray9: "#DDDDDD",
     gray10: "#FAFAFA",
+  },
+  fontFamily: {
+    general: "'Open Sans', sans-serif",
   },
 };
 
