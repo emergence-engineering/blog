@@ -1,4 +1,5 @@
 import { ThunkActionFiresbase } from "../../reduxTypes";
+
 import { addSample } from "./types";
 
 export const addSampleAction = (data: string): ThunkActionFiresbase<void> => (

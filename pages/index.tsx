@@ -57,7 +57,4 @@ const Index: FunctionComponent<{} & ReturnType<typeof mapDispatchToProps>> = ({
   );
 };
 
-export default connect(
-  undefined,
-  mapDispatchToProps,
-)(Index);
+export default connect(undefined, mapDispatchToProps)(Index);

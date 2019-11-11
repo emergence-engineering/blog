@@ -1,7 +1,10 @@
-import { createReducer } from "typesafe-actions";
+import { ActionType, createReducer } from "typesafe-actions";
+
 import { addSample } from "../actions/sample/types";
 
-export const sampleReducer = createReducer(null).handleAction(
-  addSample,
-  (state, action) => action.payload,
-);
+const actions = { addSample };
+
+export const sampleReducer = createReducer<
+  string | null,
+  ActionType<typeof actions>
+>(null).handleAction(addSample, (state, action) => action.payload);
