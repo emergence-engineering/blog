@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import Link from "next/link";
 import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../setup/actions/sample/actions";
-import theme from "../utils/theme";
+import LandingPageSection from "../common/components/LandingPageSection";
+import Header from "../common/components/Header";
 
 const Root = styled.div`
   display: flex;
@@ -15,14 +15,7 @@ const Root = styled.div`
   justify-content: center;
 `;
 
-const Header = styled.header`
-  flex-shrink: 0;
-  background-color: ${theme.color.gray1};
-  color: white;
-  height: 100px;
-`;
-
-const Section = styled.div`
+const LandingPageContent = styled.section`
   background-color: wheat;
   flex-grow: 1;
   margin-left: 25%;
@@ -47,13 +40,14 @@ const Index: FunctionComponent<
   {} & ReturnType<typeof mapDispatchToProps>
 > = () => (
   <Root>
-    <Header>TODO: header</Header>
-    <Section>
+    <Header />
+    <LandingPageContent>
       <h1>company landing page</h1>
-      <Link href="/blog">
-        <a>Go to Blog</a>
-      </Link>
-    </Section>
+      <LandingPageSection />
+      <LandingPageSection />
+      <LandingPageSection />
+      <LandingPageSection />
+    </LandingPageContent>
     <Footer>TODO: footer</Footer>
   </Root>
 );
