@@ -10,11 +10,14 @@ const Title = styled.h4`
 
 const Description = styled.p`
   font-weight: lighter;
+  text-align: justify;
   text-justify: distribute;
 `;
 
 const ReadMoreLink = styled.a`
   text-decoration: none;
+  cursor: pointer;
+  font-weight: 800;
 `;
 
 const PostMetadataContainer = styled.div``;
@@ -47,7 +50,7 @@ const BlogPostIntro: FunctionComponent<{}> = () => {
     <Root>
       <Title>{title}</Title>
       <PostMetadataContainer>
-        <span>Author: {author}</span> on {postDate}
+        <span>By {author}</span> on {postDate}
       </PostMetadataContainer>
       <Description>{introText}</Description>
       <ReadMoreLink href={`/article/${postId}`}>Read more...</ReadMoreLink>

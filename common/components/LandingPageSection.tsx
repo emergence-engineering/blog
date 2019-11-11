@@ -8,7 +8,8 @@ const Title = styled.h4`
 
 const Description = styled.p`
   font-weight: lighter;
-  text-justify: distribute;
+  text-align: justify;
+  text-justify: newspaper;
 `;
 
 const Container = styled.div``;
