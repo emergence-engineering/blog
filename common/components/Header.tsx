@@ -8,7 +8,7 @@ const Root = styled.header`
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
-  background-color: ${theme.color.gray1};
+  background-color: ${theme.color.primary};
   color: white;
   height: 100px;
   align-items: center;
