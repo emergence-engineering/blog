@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../setup/actions/sample/actions";
-import LandingPageSection from "../common/components/LandingPageSection";
 import Header from "../common/components/Header";
 import { Footer } from "../common/components/Footer";
+import BlogPostIntro from "../common/components/BlogPostIntro";
 
 const Root = styled.div`
   display: flex;
@@ -17,7 +17,6 @@ const Root = styled.div`
 `;
 
 const LandingPageContent = styled.section`
-  background-color: wheat;
   flex-grow: 1;
   margin-left: 25%;
   margin-right: 25%;
@@ -38,10 +37,10 @@ const Index: FunctionComponent<
     <Header />
     <LandingPageContent>
       <h1>blog main page</h1>
-      <LandingPageSection />
-      <LandingPageSection />
-      <LandingPageSection />
-      <LandingPageSection />
+      <BlogPostIntro />
+      <BlogPostIntro />
+      <BlogPostIntro />
+      <BlogPostIntro />
     </LandingPageContent>
     <Footer>TODO: footer</Footer>
   </Root>

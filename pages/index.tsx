@@ -16,7 +16,6 @@ const Root = styled.div`
 `;
 
 const LandingPageContent = styled.section`
-  background-color: wheat;
   flex-grow: 1;
   margin-left: 25%;
   margin-right: 25%;
