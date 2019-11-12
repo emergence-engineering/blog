@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-import { convertTimeStampToDateString } from "../../utils/time";
+import { convertTimestampToLocaleDateString } from "../../utils/time";
 
 import AsyncSVGIcon from "./AsyncSvgIcon";
 
@@ -47,7 +47,7 @@ const content: BlogPostIntro = {
 const BlogPostIntro: FunctionComponent<{}> = () => {
   const { introText, title, postId, author, timestamp } = content;
 
-  const postDate = convertTimeStampToDateString(timestamp);
+  const postDate = convertTimestampToLocaleDateString(timestamp);
   return (
     <Root>
       <Title>{title}</Title>
