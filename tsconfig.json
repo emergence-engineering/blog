@@ -17,5 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["pages"]
+  "include": [
+    "pages",
+    "type-declarations/*"
+  ]
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme, { screenSizes } from "../../utils/theme";
+import theme, { screenSizes } from "../../../utils/theme";
 
 export const Root = styled.div`
   width: 100vw;

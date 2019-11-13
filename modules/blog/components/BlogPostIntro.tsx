@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-import { convertTimestampToLocaleDateString } from "../../utils/time";
-
-import AsyncSVGIcon from "./AsyncSvgIcon";
+import { convertTimestampToLocaleDateString } from "../../../utils/time";
+import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
 
 const Title = styled.h4`
   font-weight: bold;

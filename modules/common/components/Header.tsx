@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 import Link from "next/link";
 
-import theme from "../../utils/theme";
+import theme from "../../../utils/theme";
 
 const Root = styled.header`
   flex-shrink: 0;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../utils/theme";
+import theme from "../../../utils/theme";
 
 export const Button = styled.button<{ color?: "primary" | "secondary" }>`
   border: 1px solid ${theme.color.gray2};

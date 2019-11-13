@@ -3,8 +3,8 @@ import React from "react";
 import { isLoaded } from "react-redux-firebase";
 import Router from "next/router";
 
-import { UserStatus } from "../../types/auth";
-import { RootState } from "../../setup/reducers/rootReducer";
+import { UserStatus } from "../../../types/auth";
+import { RootState } from "../../../setup/reducers/rootReducer";
 
 export default (options: { [key in UserStatus]?: string }) => (
   Component: React.ComponentType,

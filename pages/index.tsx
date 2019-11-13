@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../setup/actions/sample/actions";
-import LandingPageSection from "../common/components/LandingPageSection";
-import Header from "../common/components/Header";
+import LandingPageSection from "../modules/landingPage/components/LandingPageSection";
+import Header from "../modules/common/components/Header";
 
 const Root = styled.div`
   display: flex;
