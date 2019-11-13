@@ -38,6 +38,18 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: ${theme.fontFamily.general};
   };
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${theme.fontFamily.title};
+    font-weight: bold;
+  }
+  .articleWrapper h1 {
+    font-size: 2em;
+  }
 `;
 
 export default class MyDocument extends Document {
@@ -73,7 +85,7 @@ export default class MyDocument extends Document {
         <GlobalStyle />
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald"
             rel="stylesheet"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-const Title = styled.h4`
-  font-weight: bold;
-  font-size: 1.5em;
-`;
-
 const Description = styled.p`
   font-weight: lighter;
   text-align: justify;
@@ -18,7 +13,7 @@ const descContent = `Sed ut perspiciatis unde omnis iste natus error sit volupta
 
 const LandingPageSection: FunctionComponent<{}> = () => (
   <Container>
-    <Title>Section title</Title>
+    <h1>Section title</h1>
     <Description>{descContent}</Description>
   </Container>
 );

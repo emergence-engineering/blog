@@ -19,7 +19,8 @@ export default {
     gray10: "#FAFAFA",
   },
   fontFamily: {
-    general: "'Open Sans', sans-serif",
+    general: "'Open sans', sans-serif",
+    title: "'Oswald', sans-serif",
   },
 };
 

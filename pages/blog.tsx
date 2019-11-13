@@ -36,7 +36,7 @@ const Index: FunctionComponent<
   <Root>
     <Header />
     <LandingPageContent>
-      <h1>blog main page</h1>
+      <h1>BLOG MAIN PAGE</h1>
       <BlogPostIntro />
       <BlogPostIntro />
       <BlogPostIntro />

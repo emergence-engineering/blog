@@ -41,7 +41,7 @@ const Index: FunctionComponent<
   <Root>
     <Header />
     <LandingPageContent>
-      <h1>company landing page</h1>
+      <h1>LANDING PAGE</h1>
       <LandingPageSection />
       <LandingPageSection />
       <LandingPageSection />

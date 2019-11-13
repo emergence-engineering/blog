@@ -4,11 +4,6 @@ import React, { FunctionComponent } from "react";
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
 import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
 
-const Title = styled.h4`
-  font-weight: bold;
-  font-size: 1.5em;
-`;
-
 const Description = styled.p`
   font-weight: lighter;
   text-align: justify;
@@ -49,7 +44,7 @@ const BlogPostIntro: FunctionComponent<{}> = () => {
   const postDate = convertTimestampToLocaleDateString(timestamp);
   return (
     <Root>
-      <Title>{title}</Title>
+      <h1>{title}</h1>
       <PostMetadataContainer>
         <span>
           By {author} on <AsyncSVGIcon src="/material-calendar.svg" />
