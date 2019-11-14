@@ -6,6 +6,7 @@ import {
   InlineLatex,
   LatexSection,
 } from "../../modules/article/components/Latex";
+import CodeEditor from "../../modules/article/components/Code";
 
 const markdownContent = `
 # Markdown title
@@ -44,6 +45,7 @@ const Blog: FunctionComponent<{}> = () => (
     <LatexSection tex={latexContent} />
     <span>Inline LaTeX: </span>
     <InlineLatex tex={inlineLatexContent} />
+    <CodeEditor />
   </ArticleWrapper>
 );
 

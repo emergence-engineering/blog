@@ -56,6 +56,7 @@
     "next": "^9.1.2",
     "next-redux-wrapper": "^4.0.1",
     "react": "^16.11.0",
+    "react-ace": "^8.0.0",
     "react-alert": "^6.0.0",
     "react-dom": "^16.11.0",
     "react-markdown": "^4.2.2",
