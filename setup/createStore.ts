@@ -1,15 +1,12 @@
 import getConfig from "next/config";
-// import "@firebase/auth";
-// import "@firebase/firestore";
-// import "@firebase/database";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { getFirebase } from "react-redux-firebase";
+
 import { rootReducer } from "./reducers/rootReducer";
 
 const {

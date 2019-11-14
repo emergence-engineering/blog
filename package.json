@@ -7,8 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit && eslint pages/** --ext .ts,.tsx",
-    "lint:fix": "eslint pages/** --ext .ts,.tsx --fix",
+    "lint": "tsc --noEmit && eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "upgrade-interactive": "npm-check --update",
     "storybook": "start-storybook -p 6006 -c .storybook"
   },
@@ -49,6 +49,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
+    "@firebase/firestore-types": "^1.7.0",
     "@storybook/addon-knobs": "^5.2.6",
     "@storybook/react": "^5.2.6",
     "firebase": "^7.3.0",

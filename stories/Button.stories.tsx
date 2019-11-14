@@ -7,6 +7,7 @@ import {
   number,
   array,
 } from "@storybook/addon-knobs";
+
 import { Button } from "../common/components/Button";
 
 const stories = storiesOf("Storybook examples", module);
