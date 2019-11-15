@@ -98,6 +98,15 @@ Run this command from your app’s root directory:
 ```shell script
 firebase init
 ```
+
+When initializing the project choose "hosting" and for the hosting questions answer the following:
+```
+? What do you want to use as your public directory? static-export
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? File static-export/404.html already exists. Overwrite? No
+? File static-export/index.html already exists. Overwrite? No
+```
+
 #### Building for static deployment
 Just run
 
