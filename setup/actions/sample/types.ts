@@ -1,3 +1,3 @@
-import { createStandardAction } from "typesafe-actions";
+import { createAction } from "typesafe-actions";
 
-export const addSample = createStandardAction("sample/ADD")<string>();
+export const addSample = createAction("sample/ADD")<string>();

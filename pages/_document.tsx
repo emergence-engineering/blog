@@ -93,7 +93,6 @@ export default class MyDocument extends Document {
         <Body style={bodyStyle as object}>
           <Main />
           <NextScript />
-          <script src="https://pagecdn.io/lib/ace/1.4.6/ace.js" defer />
         </Body>
       </HTMLRoot>
     );

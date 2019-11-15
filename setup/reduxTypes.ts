@@ -1,5 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 import { getFirebase } from "react-redux-firebase";
+
 import { RootState } from "./reducers/rootReducer";
 
 export interface ThunkExtraArgument {

@@ -35,9 +35,9 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-const Index: FunctionComponent<
-  {} & ReturnType<typeof mapDispatchToProps>
-> = () => (
+const Index: FunctionComponent<{} & ReturnType<
+  typeof mapDispatchToProps
+>> = () => (
   <Root>
     <Header />
     <LandingPageContent>
@@ -51,7 +51,4 @@ const Index: FunctionComponent<
   </Root>
 );
 
-export default connect(
-  undefined,
-  mapDispatchToProps,
-)(Index);
+export default connect(undefined, mapDispatchToProps)(Index);

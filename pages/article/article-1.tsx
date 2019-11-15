@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import MarkDown from "../../modules/article/components/Markdown";
@@ -6,9 +6,9 @@ import {
   InlineLatex,
   LatexSection,
 } from "../../modules/article/components/Latex";
-import CodeEditor from "../../modules/article/components/Code";
+import CodeEditor from "../../modules/article/components/CodeEditor";
 
-const markdownContent = `
+const markdownContent = /* language=markdown */ `
 # Markdown title
 ## Paragraph section
 
@@ -39,14 +39,34 @@ const latexContent = `f(x) = \\int_{-\\infty}^\\infty
     \\,d\\xi`;
 
 const inlineLatexContent = "a = b";
-const Blog: FunctionComponent<{}> = () => (
-  <ArticleWrapper>
-    <MarkDown source={markdownContent} />
-    <LatexSection tex={latexContent} />
-    <span>Inline LaTeX: </span>
-    <InlineLatex tex={inlineLatexContent} />
-    <CodeEditor />
-  </ArticleWrapper>
-);
+const sharedCodeSnippet =
+  /* language=js */ "const testValue = 'The bestest testest'";
+const codeSnippet = /* language=js */ `for (var i=0; i < 10; i++) {
+console.log(i)
+}
+console.log(testValue)
+testValue`;
+
+const Blog: FunctionComponent<{}> = () => {
+  const [sharedCode, setSharedCode] = useState(sharedCodeSnippet);
+  return (
+    <ArticleWrapper>
+      <CodeEditor
+        value={sharedCode}
+        onChange={setSharedCode}
+        minHeight="2rem"
+      />
+      <CodeEditor
+        value={codeSnippet}
+        hiddenCode={sharedCode}
+        minHeight="7.5rem"
+      />
+      <MarkDown source={markdownContent} />
+      <LatexSection tex={latexContent} />
+      <span>Inline LaTeX: </span>
+      <InlineLatex tex={inlineLatexContent} />
+    </ArticleWrapper>
+  );
+};
 
 export default Blog;
