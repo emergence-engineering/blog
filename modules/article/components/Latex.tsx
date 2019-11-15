@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import MathJax from "react-mathjax";
 
-
 interface LatexProps {
   tex: string;
 }

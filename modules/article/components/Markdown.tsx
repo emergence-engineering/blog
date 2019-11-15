@@ -4,9 +4,7 @@ import ReactMarkdown from "react-markdown";
 interface MarkDownProps {
   source: string;
 }
-const Markdown: FunctionComponent<MarkDownProps> = (
-  props: MarkDownProps,
-) => {
+const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
   const { source } = props;
   return <ReactMarkdown source={source} />;
 };
