@@ -5,9 +5,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import styled, { ServerStyleSheet, createGlobalStyle } from "styled-components";
-
-import theme from "../utils/theme";
+import styled, { ServerStyleSheet } from "styled-components";
 
 const bodyStyle = {
   width: "100%",
@@ -31,25 +29,6 @@ const HTMLRoot = styled.html`
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-`;
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    font-family: ${theme.fontFamily.general};
-  };
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: ${theme.fontFamily.title};
-    font-weight: bold;
-  }
-  .articleWrapper h1 {
-    font-size: 2em;
-  }
 `;
 
 export default class MyDocument extends Document {
@@ -82,8 +61,8 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <HTMLRoot lang="en" style={bodyStyle as object}>
-        <GlobalStyle />
         <Head>
+          <link rel="stylesheet" type="text/css" href="/global.css" />
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald"
             rel="stylesheet"
