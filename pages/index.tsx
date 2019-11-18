@@ -17,7 +17,7 @@ import {
   CapabilityBoxContainer,
   CapabilitySection,
 } from "../modules/landingPage/components/Capability";
-import { TechnologySection } from "../modules/landingPage/components/Technology";
+import  TechnologySection  from "../modules/landingPage/components/Technology";
 import { SalesFormSection } from "../modules/landingPage/components/SalesMessageForm";
 
 const Root = styled.div`
@@ -116,9 +116,7 @@ const Index: FunctionComponent<{} & ReturnType<
           software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
         </IntroductionHeader>
       </IntroductionSection>
-      <TechnologySection>
-        <h1>Technology section</h1>
-      </TechnologySection>
+      <TechnologySection />
       <SalesFormSection>
         <h1>Sales form</h1>
       </SalesFormSection>
