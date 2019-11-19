@@ -17,7 +17,7 @@ import {
   CapabilityBoxContainer,
   CapabilitySection,
 } from "../modules/landingPage/components/Capability";
-import  TechnologySection  from "../modules/landingPage/components/Technology";
+import TechnologySection from "../modules/landingPage/components/Technology";
 import { SalesFormSection } from "../modules/landingPage/components/SalesMessageForm";
 
 const Root = styled.div`
