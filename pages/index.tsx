@@ -18,7 +18,7 @@ import {
   CapabilitySection,
 } from "../modules/landingPage/components/Capability";
 import TechnologySection from "../modules/landingPage/components/Technology";
-import { SalesFormSection } from "../modules/landingPage/components/SalesMessageForm";
+import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
 
 const Root = styled.div`
   display: flex;
@@ -117,9 +117,7 @@ const Index: FunctionComponent<{} & ReturnType<
         </IntroductionHeader>
       </IntroductionSection>
       <TechnologySection />
-      <SalesFormSection>
-        <h1>Sales form</h1>
-      </SalesFormSection>
+      <SalesFormSection />
       <Footer>TODO: footer</Footer>
     </LandingPageContent>
   </Root>
