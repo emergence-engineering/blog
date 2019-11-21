@@ -29,4 +29,9 @@ export enum screenSizes {
   medium = 768,
   large = 992,
   extraLarge = 1920,
+  maxWidth = 1000,
 }
+
+export const sizes = {
+  sidePadding: "1rem",
+};

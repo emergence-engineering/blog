@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import { bindActionCreators, Dispatch } from "redux";
 
+import Layout from "../modules/common/components/Layout";
 import { addSampleAction } from "../setup/actions/sample/actions";
-import Header from "../modules/common/components/Header";
 import CapabilityBox from "../modules/landingPage/components/CapabilityBox";
 import {
   MainTitle,
@@ -12,6 +11,7 @@ import {
   IntroductionHeader,
   IntroductionSection,
   SubTitle,
+  IntroductionSectionWrapper,
 } from "../modules/landingPage/components/Introduction";
 import {
   CapabilityBoxContainer,
@@ -19,25 +19,6 @@ import {
 } from "../modules/landingPage/components/Capability";
 import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
-
-const Root = styled.div`
-  display: flex;
-  background-color: white;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const LandingPageContent = styled.section`
-  flex-grow: 1;
-`;
-
-const Footer = styled.footer`
-  flex-shrink: 0;
-  background-color: black;
-  color: white;
-  height: 100px;
-`;
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
@@ -87,40 +68,38 @@ const CapabilityBoxes = [
 const Index: FunctionComponent<{} & ReturnType<
   typeof mapDispatchToProps
 >> = () => (
-  <Root>
-    <Header />
-    <LandingPageContent>
+  <Layout>
+    <IntroductionSectionWrapper>
       <IntroductionSection>
         <MainTitle>emergence</MainTitle>
         <SubTitle>noun [U] /ɪˈmɜː.dʒəns/</SubTitle>
         <IntroductionHeader>{mainParagraphContent}</IntroductionHeader>
       </IntroductionSection>
-      <CapabilitySection>
-        <CapabilityBoxContainer>
-          {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
-            <CapabilityBox
-              title={title}
-              content={content}
-              iconSrc={iconSrc}
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
-            />
-          ))}
-        </CapabilityBoxContainer>
-      </CapabilitySection>
-      <IntroductionSection>
-        <IntroductionHeader>
-          We are a software engineering firm that builds
-          <HeaderWordEmphasis> performant </HeaderWordEmphasis> and
-          <HeaderWordEmphasis> reliable </HeaderWordEmphasis>
-          software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
-        </IntroductionHeader>
-      </IntroductionSection>
-      <TechnologySection />
-      <SalesFormSection />
-      <Footer>TODO: footer</Footer>
-    </LandingPageContent>
-  </Root>
+    </IntroductionSectionWrapper>
+    <CapabilitySection>
+      <CapabilityBoxContainer>
+        {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
+          <CapabilityBox
+            title={title}
+            content={content}
+            iconSrc={iconSrc}
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+          />
+        ))}
+      </CapabilityBoxContainer>
+    </CapabilitySection>
+    <IntroductionSection>
+      <IntroductionHeader>
+        We are a software engineering firm that builds
+        <HeaderWordEmphasis> performant </HeaderWordEmphasis> and
+        <HeaderWordEmphasis> reliable </HeaderWordEmphasis>
+        software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
+      </IntroductionHeader>
+    </IntroductionSection>
+    <TechnologySection />
+    <SalesFormSection />
+  </Layout>
 );
 
 export default connect(undefined, mapDispatchToProps)(Index);
