@@ -1,16 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import theme from "../../../utils/theme";
+import theme, { sizes } from "../../../utils/theme";
 
 const BoxRoot = styled.div`
-  width: 400px;
-  height: 270px;
-  border: ${theme.color.gray6};
-  border-width: 1px;
-  border-style: solid;
-  margin: 25px;
-  padding: 10px;
+  width: 100%;
+  min-height: 10rem;
+  height: 100%;
+  border: 1px solid ${theme.color.gray6};
+  border-radius: 0.2rem 0.2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
 `;
@@ -22,13 +21,19 @@ const HeaderRow = styled.div`
 `;
 
 const SvgImg = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: auto;
   margin: 0 0.1em;
 `;
 
 const TitleContainer = styled.div`
   width: 100%;
+`;
+
+const BoxWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: ${sizes.sidePadding};
 `;
 
 interface SkillBoxProps {
@@ -42,15 +47,17 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
   content,
   iconSrc,
 }) => (
-  <BoxRoot>
-    <HeaderRow>
-      <TitleContainer>
-        <h1>{title}</h1>
-      </TitleContainer>
-      <SvgImg decoding="async" src={iconSrc} />
-    </HeaderRow>
-    <p>{content}</p>
-  </BoxRoot>
+  <BoxWrapper>
+    <BoxRoot>
+      <HeaderRow>
+        <TitleContainer>
+          <h1>{title}</h1>
+        </TitleContainer>
+        <SvgImg decoding="async" src={iconSrc} />
+      </HeaderRow>
+      <p>{content}</p>
+    </BoxRoot>
+  </BoxWrapper>
 );
 
 export default CapabilityBox;

@@ -29,6 +29,7 @@ export const IntroductionSection = styled.div`
   flex-direction: column;
   max-width: ${screenSizes.medium}px;
   height: 100%;
+  color: ${theme.color.accent};
 `;
 
 export const IntroductionHeader = styled.p`
@@ -47,7 +48,7 @@ export const MainTitle = styled.div`
   width: 50%;
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
-  color: white;
+  color: ${theme.color.accent};
 `;
 
 export const SubTitle = styled.span`

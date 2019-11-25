@@ -15,6 +15,7 @@ import {
 } from "../modules/landingPage/components/Introduction";
 import {
   CapabilityBoxContainer,
+  CapabilityBoxContainerWrapper,
   CapabilitySection,
 } from "../modules/landingPage/components/Capability";
 import TechnologySection from "../modules/landingPage/components/Technology";
@@ -35,7 +36,7 @@ components at a finer scale.`;
 
 const CapabilityBoxes = [
   {
-    title: "Fullstack web appication development",
+    title: "Fullstack web app development",
     content: `We can design the client application that faces your users and the
        complex backend architectures behind it.
        We are experienced industry leading cloud
@@ -77,17 +78,19 @@ const Index: FunctionComponent<{} & ReturnType<
       </IntroductionSection>
     </IntroductionSectionWrapper>
     <CapabilitySection>
-      <CapabilityBoxContainer>
-        {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
-          <CapabilityBox
-            title={title}
-            content={content}
-            iconSrc={iconSrc}
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-          />
-        ))}
-      </CapabilityBoxContainer>
+      <CapabilityBoxContainerWrapper>
+        <CapabilityBoxContainer>
+          {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
+            <CapabilityBox
+              title={title}
+              content={content}
+              iconSrc={iconSrc}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+            />
+          ))}
+        </CapabilityBoxContainer>
+      </CapabilityBoxContainerWrapper>
     </CapabilitySection>
     <IntroductionSection>
       <IntroductionHeader>
