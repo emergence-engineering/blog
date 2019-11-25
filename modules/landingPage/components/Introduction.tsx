@@ -45,7 +45,7 @@ export const MainTitle = styled.div`
   display: inline-block;
   text-align: left;
   font-size: 2rem;
-  width: 50%;
+  width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
   color: ${theme.color.accent};
@@ -54,7 +54,7 @@ export const MainTitle = styled.div`
 export const SubTitle = styled.span`
   text-align: left;
   font-size: 1rem;
-  width: 50%;
+  width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: lighter;
   color: white;
