@@ -22,7 +22,21 @@ const Layout: FunctionComponent<{ children: ReactNode }> = ({ children }) => (
   <Root>
     <Header />
     {children}
-    <Footer>TODO: footer</Footer>
+    <Footer>
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/popcorns-arts"
+          title="Icon Pond"
+        >
+          Icon Pond
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+    </Footer>
   </Root>
 );
 

@@ -36,33 +36,45 @@ components at a finer scale.`;
 
 const CapabilityBoxes = [
   {
-    title: "Fullstack web app development",
+    title: "Fullstack web development",
     content: `We can design the client application that faces your users and the
-       complex backend architectures behind it.
-       We are experienced industry leading cloud
-       technologies such as Amazon Web Services or Google Cloud Platform.`,
-    iconSrc: "/consulting.svg",
+       complex backend architectures behind it.`,
+    iconSrc: "/icons/api.svg",
   },
   {
-    title: "Mobile and PWA development",
+    title: "Mobile development",
     content: `We can build applications for all major mobile platforms with React
-    and Ionic. If you wan't your app to be also available in the browser then we can
-    build it as a Progressive Web Application by Google's PWA standards.`,
-    iconSrc: "/consulting.svg",
+    Native or Ionic. `,
+    iconSrc: "/icons/responsive-2.svg",
+  },
+  {
+    title: "PWA development",
+    content: `
+    If you wan't your app to be available on mobile and also in the browser then we can
+    build it as a Progressive Web Application by Google's PWA standards.
+    `,
+    iconSrc: "/icons/responsive.svg",
+  },
+  {
+    title: "Cloud development",
+    content: `
+       We are experienced industry leading cloud
+       technologies such as Google Cloud Platform and Amazon Web Services.`,
+    iconSrc: "/icons/cloud-computing.svg",
   },
   {
     title: "AI solutions",
     content: `We have experience in using cutting edge deep learning solutions.
     We are ready to deploy a neural network either to the backend or to the
     front-end using Google's TensorFlow.js`,
-    iconSrc: "/artificial-intelligence.svg",
+    iconSrc: "/icons/think.svg",
   },
   {
     title: "Trainings",
     content: `We can hold on-site trainings and extend your team's competitiveness by
       introducing best practices and and components that we utilise and perfected
       in our systems.`,
-    iconSrc: "/coaching.svg",
+    iconSrc: "/icons/presentation.svg",
   },
 ];
 

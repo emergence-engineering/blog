@@ -21,7 +21,7 @@ const HeaderRow = styled.div`
 `;
 
 const SvgImg = styled.img`
-  width: 3rem;
+  width: 5rem;
   height: auto;
   margin: 0 0.1em;
 `;
