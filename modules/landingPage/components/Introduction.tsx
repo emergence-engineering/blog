@@ -63,5 +63,5 @@ export const SubTitle = styled.span`
 export const HeaderWordEmphasis = styled.span`
   font-size: 1.5rem;
   font-family: ${theme.fontFamily.title};
-  color: ${theme.color.tertiary};
+  color: ${theme.color.accent};
 `;

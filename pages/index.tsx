@@ -92,14 +92,16 @@ const Index: FunctionComponent<{} & ReturnType<
         </CapabilityBoxContainer>
       </CapabilityBoxContainerWrapper>
     </CapabilitySection>
-    <IntroductionSection>
-      <IntroductionHeader>
-        We are a software engineering firm that builds
-        <HeaderWordEmphasis> performant </HeaderWordEmphasis> and
-        <HeaderWordEmphasis> reliable </HeaderWordEmphasis>
-        software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
-      </IntroductionHeader>
-    </IntroductionSection>
+    <IntroductionSectionWrapper>
+      <IntroductionSection>
+        <IntroductionHeader>
+          We are a software engineering firm that builds
+          <HeaderWordEmphasis> performant </HeaderWordEmphasis> and
+          <HeaderWordEmphasis> reliable </HeaderWordEmphasis>
+          software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
+        </IntroductionHeader>
+      </IntroductionSection>
+    </IntroductionSectionWrapper>
     <TechnologySection />
     <SalesFormSection />
   </Layout>
