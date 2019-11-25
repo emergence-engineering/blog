@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import theme from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
 
 export const IntroductionParagraph = styled.p`
   width: 50%;
@@ -12,18 +12,28 @@ export const IntroductionParagraph = styled.p`
   color: white;
 `;
 
+export const IntroductionSectionWrapper = styled.div`
+  width: 100%;
+  min-height: 20rem;
+  background-color: ${theme.color.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 ${sizes.sidePadding};
+`;
+
 export const IntroductionSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 40%;
-  background-color: ${theme.color.primary};
+  max-width: ${screenSizes.medium}px;
+  height: 100%;
+  color: ${theme.color.accent};
 `;
 
 export const IntroductionHeader = styled.p`
   font-size: 1.5rem;
-  width: 50%;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
   color: white;
@@ -38,7 +48,7 @@ export const MainTitle = styled.div`
   width: 50%;
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
-  color: white;
+  color: ${theme.color.accent};
 `;
 
 export const SubTitle = styled.span`

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 import Link from "next/link";
 
-import theme from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
 
 const Root = styled.header`
   flex-shrink: 0;
@@ -12,17 +12,15 @@ const Root = styled.header`
   color: white;
   height: 100px;
   align-items: center;
+  justify-content: center;
+  padding: 0 ${sizes.sidePadding};
 `;
 
-const LeftContainer = styled.div`
-  flex: 2;
-`;
+const LeftContainer = styled.div``;
 
 const RightContainer = styled.div`
-  flex: 3;
   display: flex;
   justify-content: flex-end;
-  margin-right: 15px;
 `;
 
 const SiteTitle = styled.a`
@@ -33,7 +31,14 @@ const SiteTitle = styled.a`
   text-decoration: none;
   color: white;
   height: 2em;
-  margin-left: 10px;
+`;
+
+const ContentWrapper = styled.div`
+  max-width: ${screenSizes.maxWidth}px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Anchor = styled.a`
@@ -59,13 +64,15 @@ const HeaderLink: FunctionComponent<HeaderLinkProps> = (
 
 const Header: FunctionComponent<{}> = () => (
   <Root>
-    <LeftContainer>
-      <SiteTitle href="/index">Emergence Engineering</SiteTitle>
-    </LeftContainer>
-    <RightContainer>
-      <HeaderLink href="/" caption="Home" />
-      <HeaderLink href="/blog" caption="Blog" />
-    </RightContainer>
+    <ContentWrapper>
+      <LeftContainer>
+        <SiteTitle href="/index">Emergence Engineering</SiteTitle>
+      </LeftContainer>
+      <RightContainer>
+        <HeaderLink href="/" caption="Home" />
+        <HeaderLink href="/blog" caption="Blog" />
+      </RightContainer>
+    </ContentWrapper>
   </Root>
 );
 
