@@ -7,6 +7,7 @@ export const CapabilitySection = styled.div`
   align-items: stretch;
   justify-content: center;
   min-height: 30rem;
+  padding: 3rem 0;
 `;
 
 export const CapabilityBoxContainer = styled.div`
