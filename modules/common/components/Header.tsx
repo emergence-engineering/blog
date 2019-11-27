@@ -83,7 +83,7 @@ const Header: FunctionComponent<{}> = () => (
     <Root>
       <ContentWrapper>
         <LeftContainer>
-          <SiteTitle href="/index">Emergence Engineering</SiteTitle>
+          <SiteTitle href="/">Emergence Engineering</SiteTitle>
         </LeftContainer>
         <RightContainer>
           <HeaderLink href="/" caption="Home" />
