@@ -1,6 +1,6 @@
 /* eslint-disable */
 require("dotenv").config();
-const withCSS = require('@zeit/next-css')
+const withCSS = require("@zeit/next-css");
 
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
@@ -31,8 +31,8 @@ module.exports = withCSS({
     );
 
     config.node = {
-      fs: 'empty'
-    }
+      fs: "empty",
+    };
     return config;
   },
   publicRuntimeConfig: {

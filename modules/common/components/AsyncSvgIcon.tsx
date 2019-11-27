@@ -7,10 +7,7 @@ const SvgImg = styled.img`
   margin: 0 0.1em;
 `;
 
-interface SVGProps {
-  src: string;
-}
-const AsyncSVGIcon: FunctionComponent<SVGProps> = (props: SVGProps) => {
+const AsyncSVGIcon: FunctionComponent<{ src: string }> = props => {
   const { src } = props;
   return <SvgImg decoding="async" src={src} />;
 };
