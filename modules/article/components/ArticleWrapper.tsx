@@ -1,13 +1,21 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import Header from "../../common/components/Header";
-import theme from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
+import Layout from "../../common/components/Layout";
 
 const Root = styled.div`
   display: flex;
-  background-color: white;
+  justify-content: center;
+`;
+
+const BlogContent = styled.section`
+  flex-grow: 1;
+  display: flex;
   min-height: 100vh;
+  max-width: ${screenSizes.maxWidth}px;
+  width: 100%;
+  padding: 2rem ${sizes.sidePadding};
   flex-direction: column;
   justify-content: center;
   text-align: justify;
@@ -25,17 +33,12 @@ const Root = styled.div`
   }
 `;
 
-const BlogContent = styled.section`
-  flex-grow: 1;
-  margin-left: 25%;
-  margin-right: 25%;
-`;
-
 const ArticleWrapper: FunctionComponent<{}> = ({ children }) => (
-  <Root>
-    <Header />
-    <BlogContent className="articleWrapper">{children}</BlogContent>
-  </Root>
+  <Layout>
+    <Root>
+      <BlogContent className="articleWrapper">{children}</BlogContent>
+    </Root>
+  </Layout>
 );
 
 export default ArticleWrapper;

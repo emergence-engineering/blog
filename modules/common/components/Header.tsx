@@ -68,8 +68,10 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps &
   WithRouterProps> = props => {
   const { href, caption, router } = props;
   return (
-    <Link href={href} prefetch>
-      <Anchor active={router.pathname === href}>{caption}</Anchor>
+    <Link href={href}>
+      <Anchor active={router.pathname.split("/")[1] === href.split("/")[1]}>
+        {caption}
+      </Anchor>
     </Link>
   );
 };

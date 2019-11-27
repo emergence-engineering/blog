@@ -10,6 +10,8 @@ export const FooterRoot = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  color: ${theme.color.gray8};
 `;
 
 const FooterWrapper = styled.div`
@@ -25,9 +27,10 @@ const IconsA = styled.a`
   :visited,
   :hover,
   :active {
-    color: white;
+    color: ${theme.color.gray10};
   }
-  color: white;
+  text-decoration: none;
+  color: ${theme.color.gray9};
 `;
 
 const Footer: FunctionComponent<{}> = () => (

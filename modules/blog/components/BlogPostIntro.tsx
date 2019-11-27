@@ -53,8 +53,8 @@ const BlogPostIntro: FunctionComponent<{}> = () => {
         </span>
       </PostMetadataContainer>
       <Description>{introText}</Description>
-      <Link href={`/article/${postId}`} prefetch>
-        <ReadMoreLink href={`/article/${postId}`}>Read more...</ReadMoreLink>
+      <Link href={`/blog/${postId}`}>
+        <ReadMoreLink>Read more...</ReadMoreLink>
       </Link>
     </Root>
   );

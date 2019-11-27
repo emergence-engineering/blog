@@ -67,6 +67,14 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald"
             rel="stylesheet"
           />
+          <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"
+            rel="stylesheet"
+          />
+          <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/material.min.css"
+            rel="stylesheet"
+          />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Body style={bodyStyle as object}>

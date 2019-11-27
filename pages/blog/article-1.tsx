@@ -47,19 +47,19 @@ console.log(i)
 console.log(testValue)
 testValue`;
 
-const Blog: FunctionComponent<{}> = () => {
+const Article: FunctionComponent<{}> = () => {
   const [sharedCode, setSharedCode] = useState(sharedCodeSnippet);
   return (
     <ArticleWrapper>
       <CodeEditor
         value={sharedCode}
         onChange={setSharedCode}
-        minHeight="2rem"
+        minHeight="5rem"
       />
       <CodeEditor
         value={codeSnippet}
         hiddenCode={sharedCode}
-        minHeight="7.5rem"
+        minHeight="10rem"
       />
       <MarkDown source={markdownContent} />
       <LatexSection tex={latexContent} />
@@ -69,4 +69,4 @@ const Blog: FunctionComponent<{}> = () => {
   );
 };
 
-export default Blog;
+export default Article;

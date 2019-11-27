@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { bindActionCreators, Dispatch } from "redux";
 
-import { addSampleAction } from "../setup/actions/sample/actions";
-import BlogPostIntro from "../modules/blog/components/BlogPostIntro";
-import Layout from "../modules/common/components/Layout";
-import { screenSizes, sizes } from "../utils/theme";
+import { addSampleAction } from "../../setup/actions/sample/actions";
+import BlogPostIntro from "../../modules/blog/components/BlogPostIntro";
+import Layout from "../../modules/common/components/Layout";
+import { screenSizes, sizes } from "../../utils/theme";
 
 const Root = styled.div`
   display: flex;
