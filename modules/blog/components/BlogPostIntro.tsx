@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
+import Link from "next/link";
 
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
 import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
@@ -52,7 +53,9 @@ const BlogPostIntro: FunctionComponent<{}> = () => {
         </span>
       </PostMetadataContainer>
       <Description>{introText}</Description>
-      <ReadMoreLink href={`/article/${postId}`}>Read more...</ReadMoreLink>
+      <Link href={`/article/${postId}`} prefetch>
+        <ReadMoreLink href={`/article/${postId}`}>Read more...</ReadMoreLink>
+      </Link>
     </Root>
   );
 };

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-import theme, { screenSizes } from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
 
 export const FooterRoot = styled.footer`
   max-width: ${screenSizes.maxWidth}px;
+  padding: 0 ${sizes.sidePadding};
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,6 +33,7 @@ const IconsA = styled.a`
 const Footer: FunctionComponent<{}> = () => (
   <FooterWrapper>
     <FooterRoot>
+      <div>Made by Emergence Engineering, 2019</div>
       <div>
         Icons made by{" "}
         <IconsA

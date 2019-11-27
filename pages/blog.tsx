@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../setup/actions/sample/actions";
-import Header from "../modules/common/components/Header";
 import BlogPostIntro from "../modules/blog/components/BlogPostIntro";
+import Layout from "../modules/common/components/Layout";
+import { screenSizes, sizes } from "../utils/theme";
 
 const Root = styled.div`
   display: flex;
@@ -13,12 +14,17 @@ const Root = styled.div`
   min-height: 100vh;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
-const LandingPageContent = styled.section`
-  flex-grow: 1;
-  margin-left: 25%;
-  margin-right: 25%;
+const ContentWrapper = styled.div`
+  padding: 2rem ${sizes.sidePadding};
+  max-width: ${screenSizes.maxWidth}px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
@@ -32,16 +38,16 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 const Index: FunctionComponent<{} & ReturnType<
   typeof mapDispatchToProps
 >> = () => (
-  <Root>
-    <Header />
-    <LandingPageContent>
-      <h1>BLOG MAIN PAGE</h1>
-      <BlogPostIntro />
-      <BlogPostIntro />
-      <BlogPostIntro />
-      <BlogPostIntro />
-    </LandingPageContent>
-  </Root>
+  <Layout>
+    <Root>
+      <ContentWrapper>
+        <BlogPostIntro />
+        <BlogPostIntro />
+        <BlogPostIntro />
+        <BlogPostIntro />
+      </ContentWrapper>
+    </Root>
+  </Layout>
 );
 
 export default connect(undefined, mapDispatchToProps)(Index);
