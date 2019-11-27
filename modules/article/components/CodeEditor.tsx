@@ -9,7 +9,6 @@ import styled from "styled-components";
 import dynamic from "next/dynamic";
 
 import { Button } from "../../common/components/Button";
-import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
 import theme from "../../../utils/theme";
 
 const Loading = styled.div`
@@ -62,7 +61,9 @@ const RunButton = styled(Button)`
   align-items: center;
 `;
 
-const RunIcon = styled(AsyncSVGIcon)``;
+const RunIcon = styled.img`
+  height: 1.3rem;
+`;
 
 const RunText = styled.span`
   margin-left: 0.2rem;
@@ -125,7 +126,7 @@ const CodeEditor: FunctionComponent<{
         <CodeMirror value={value} onChange={codeChange} />
         <SSRCode>{value}</SSRCode>
         <RunButton onClick={runCode}>
-          <RunIcon src="/play_circle_filled-24px.svg" />
+          <RunIcon decoding="async" src="/play_circle_filled-24px.svg" />
           <RunText>Run code</RunText>
         </RunButton>
       </EditorWrapper>
