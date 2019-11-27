@@ -65,6 +65,7 @@
     "react-alert": "^6.0.0",
     "react-codemirror2": "^6.0.0",
     "react-dom": "^16.11.0",
+    "react-headroom": "^3.0.0",
     "react-markdown": "^4.2.2",
     "react-mathjax": "^1.0.1",
     "react-redux": "^7.1.3",

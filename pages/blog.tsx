@@ -5,7 +5,6 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../setup/actions/sample/actions";
 import Header from "../modules/common/components/Header";
-import { Footer } from "../modules/common/components/Footer";
 import BlogPostIntro from "../modules/blog/components/BlogPostIntro";
 
 const Root = styled.div`
@@ -42,7 +41,6 @@ const Index: FunctionComponent<{} & ReturnType<
       <BlogPostIntro />
       <BlogPostIntro />
     </LandingPageContent>
-    <Footer>TODO: footer</Footer>
   </Root>
 );
 

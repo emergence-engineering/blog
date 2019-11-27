@@ -12,6 +12,18 @@ const BoxRoot = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  transition: box-shadow 0.15s ease-in-out;
+  :hover {
+    box-shadow: 5px 5px 5px ${theme.color.gray8};
+  }
+`;
+
+const ImgWrapper = styled.div`
+  flex: 1;
+  margin: 0 0.1em;
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const HeaderRow = styled.div`
@@ -21,13 +33,24 @@ const HeaderRow = styled.div`
 `;
 
 const SvgImg = styled.img`
-  width: 5rem;
+  max-width: 5rem;
   height: auto;
   margin: 0 0.1em;
 `;
 
+const Content = styled.p`
+  color: ${theme.color.primary1};
+  font-family: Tahoma, serif;
+  font-weight: 200;
+`;
+
 const TitleContainer = styled.div`
+  flex: 2;
+  color: ${theme.color.primary1};
   width: 100%;
+  font-weight: 900;
+  font-size: 1.7rem;
+  font-family: "Oswald", sans-serif;
 `;
 
 const BoxWrapper = styled.div`
@@ -50,12 +73,12 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
   <BoxWrapper>
     <BoxRoot>
       <HeaderRow>
-        <TitleContainer>
-          <h1>{title}</h1>
-        </TitleContainer>
-        <SvgImg decoding="async" src={iconSrc} />
+        <TitleContainer>{title}</TitleContainer>
+        <ImgWrapper>
+          <SvgImg decoding="async" src={iconSrc} />
+        </ImgWrapper>
       </HeaderRow>
-      <p>{content}</p>
+      <Content>{content}</Content>
     </BoxRoot>
   </BoxWrapper>
 );

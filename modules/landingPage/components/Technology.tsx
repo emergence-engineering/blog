@@ -1,22 +1,28 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-import { Direction, LogoColumnProps } from "./Logo";
-import LogoColumn from "./LogoColumn";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
+
+import LogoColumn, { Direction, LogoColumnProps } from "./LogoColumn";
 
 const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 55%;
   flex-direction: column;
+  padding: 0 ${sizes.sidePadding};
 `;
 
 const LogoTableContainer = styled.div`
-  width: 75%;
+  max-width: ${screenSizes.maxWidth}px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 const cloudTech: LogoColumnProps = {
@@ -76,9 +82,14 @@ const ai: LogoColumnProps = {
   ],
 };
 
+const Title = styled.h1`
+  color: ${theme.color.primary1};
+  font-family: "Oswald", sans-serif;
+`;
+
 const TechnologySection: FunctionComponent = () => (
   <Root>
-    <h1>Our competences</h1>
+    <Title>Our competences</Title>
     <LogoTableContainer>
       <LogoColumn {...cloudTech} />
       <LogoColumn {...languages} />

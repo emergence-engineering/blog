@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
-import theme from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
+import { Button } from "../../common/components/Button";
 
 export const Root = styled.div`
   display: flex;
@@ -12,33 +13,146 @@ export const Root = styled.div`
   background-color: ${theme.color.primary};
 `;
 
+const SalesRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    flex-direction: column;
+  }
+`;
+
+const InputWrapper = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
+const Label = styled.label`
+  flex: 1;
+  font-family: ${theme.fontFamily.title};
+  font-weight: 800;
+  letter-spacing: 0.08rem;
+  color: ${theme.color.gray10};
+`;
+
+const SalesSpan = styled.span`
+  flex: 1;
+  font-family: ${theme.fontFamily.title};
+  font-weight: 800;
+  letter-spacing: 0.08rem;
+  color: ${theme.color.gray10};
+`;
+
+const SalesForm = styled.form``;
+
+const ContentWrapper = styled.div`
+  padding: 0 ${sizes.sidePadding};
+  max-width: 40rem;
+  width: 100%;
+`;
+
+const TextArea = styled.textarea`
+  resize: none;
+  display: block;
+  margin: 0;
+  padding: 0.6rem;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: inherit;
+  border: none;
+  border-radius: 0.2rem;
+  transition: box-shadow 0.2s;
+`;
+
+const Title = styled.h1`
+  width: 100%;
+  text-align: center;
+  color: ${theme.color.gray10};
+`;
+
+const Input = styled.input`
+  display: block;
+  margin: 0;
+  padding: 0.6rem;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: inherit;
+  border: none;
+  border-radius: 0.2rem;
+  transition: box-shadow 0.2s;
+`;
+
+const SendButton = styled(Button)`
+  width: 7rem;
+  height 2.75rem;
+`;
+
 const SalesFormSection: FunctionComponent<{}> = () => (
   <Root>
-    <h1>Contact us</h1>
-    <form action="" method="post">
-      <div>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="name">What is your name?</label>
-        <input type="text" name="name" id="name" required />
-      </div>
-      <div>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="subject">What is the subject of your message?</label>
-        <input type="text" name="subject" id="subject" required />
-      </div>
-      <div>
-        <span>Please describe the issue we can help with.</span>
-        <textarea name="message" id="" cols={30} rows={10} />
-      </div>
-      <div>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="email">What is your email: </label>
-        <input type="email" name="email" id="email" required />
-      </div>
-      <div>
-        <input type="submit" value="Send message" />
-      </div>
-    </form>
+    <ContentWrapper>
+      <Title>Contact us</Title>
+      <SalesForm action="" method="post">
+        <SalesRow>
+          <Label htmlFor="name">Name</Label>
+          <InputWrapper>
+            <Input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="Rick Sanchez"
+            />
+          </InputWrapper>
+        </SalesRow>
+        <SalesRow>
+          <Label htmlFor="subject">Title</Label>
+          <InputWrapper>
+            <Input
+              type="text"
+              name="subject"
+              id="subject"
+              required
+              placeholder="Let me out"
+            />
+          </InputWrapper>
+        </SalesRow>
+        <SalesRow>
+          <SalesSpan>Message</SalesSpan>
+          <InputWrapper>
+            <TextArea
+              name="message"
+              id=""
+              rows={10}
+              placeholder="I want to get schwifty, can you help me?"
+            />
+          </InputWrapper>
+        </SalesRow>
+        <SalesRow>
+          <Label htmlFor="email">Email</Label>
+          <InputWrapper>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="simple@rick.com"
+            />
+          </InputWrapper>
+        </SalesRow>
+        <SalesRow>
+          <div />
+          <SendButton type="submit" color="secondary">
+            Send message
+          </SendButton>
+        </SalesRow>
+      </SalesForm>
+    </ContentWrapper>
   </Root>
 );
 
