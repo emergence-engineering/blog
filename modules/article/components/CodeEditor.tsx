@@ -81,7 +81,8 @@ const CodeEditor: FunctionComponent<{
   hiddenCode?: string;
   onChange?: (text: string) => void;
   minHeight?: string;
-}> = ({ value, hiddenCode, onChange, minHeight }) => {
+  noRun?: boolean;
+}> = ({ value, hiddenCode, onChange, minHeight, noRun }) => {
   let logArr: any[] = [];
   const [logResult, setLogResult] = useState<any[]>([]);
   const [code, setCode] = useState(value);
@@ -124,10 +125,12 @@ const CodeEditor: FunctionComponent<{
       <EditorWrapper minHeight={minHeight}>
         <CodeMirror value={value} onChange={codeChange} />
         <SSRCode>{value}</SSRCode>
-        <RunButton onClick={runCode}>
-          <RunIcon src="/play_circle_filled-24px.svg" />
-          <RunText>Run code</RunText>
-        </RunButton>
+        {!noRun && (
+          <RunButton onClick={runCode}>
+            <RunIcon src="/play_circle_filled-24px.svg" />
+            <RunText>Run code</RunText>
+          </RunButton>
+        )}
       </EditorWrapper>
       <ResultWrapper
         hasContent={!!(scriptResult || logResult.length || codeError)}
