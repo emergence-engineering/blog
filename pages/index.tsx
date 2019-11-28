@@ -7,8 +7,7 @@ import { addSampleAction } from "../setup/actions/sample/actions";
 import CapabilityBox from "../modules/landingPage/components/CapabilityBox";
 import {
   MainTitle,
-  HeaderWordEmphasis,
-  IntroductionHeader,
+  IntroductionParagraph,
   IntroductionSection,
   SubTitle,
   IntroductionSectionWrapper,
@@ -20,6 +19,7 @@ import {
 } from "../modules/landingPage/components/Capability";
 import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
+import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
@@ -86,7 +86,7 @@ const Index: FunctionComponent<{} & ReturnType<
       <IntroductionSection>
         <MainTitle>emergence</MainTitle>
         <SubTitle>noun [U] /ɪˈmɜː.dʒəns/</SubTitle>
-        <IntroductionHeader>{mainParagraphContent}</IntroductionHeader>
+        <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
       </IntroductionSection>
     </IntroductionSectionWrapper>
     <CapabilitySection>
@@ -104,16 +104,7 @@ const Index: FunctionComponent<{} & ReturnType<
         </CapabilityBoxContainer>
       </CapabilityBoxContainerWrapper>
     </CapabilitySection>
-    <IntroductionSectionWrapper>
-      <IntroductionSection>
-        <IntroductionHeader>
-          We are a software engineering firm that builds
-          <HeaderWordEmphasis> performant </HeaderWordEmphasis> and
-          <HeaderWordEmphasis> reliable </HeaderWordEmphasis>
-          software in a <HeaderWordEmphasis> clean </HeaderWordEmphasis> way.
-        </IntroductionHeader>
-      </IntroductionSection>
-    </IntroductionSectionWrapper>
+    <WhoAreWeSection />
     <TechnologySection />
     <SalesFormSection />
   </Layout>

@@ -2,16 +2,6 @@ import styled from "styled-components";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
-export const IntroductionParagraph = styled.p`
-  width: 50%;
-  background-color: rgba(0, 0, 0, 0.03);
-  text-align: center;
-  font-style: italic;
-  font-size: 1.5rem;
-  padding: 15px;
-  color: white;
-`;
-
 export const IntroductionSectionWrapper = styled.div`
   width: 100%;
   min-height: 20rem;
@@ -32,7 +22,7 @@ export const IntroductionSection = styled.div`
   color: ${theme.color.accent};
 `;
 
-export const IntroductionHeader = styled.p`
+export const IntroductionParagraph = styled.p`
   font-size: 1.5rem;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
