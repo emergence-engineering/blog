@@ -82,7 +82,8 @@ const CodeEditor: FunctionComponent<{
   hiddenCode?: string;
   onChange?: (text: string) => void;
   minHeight?: string;
-}> = ({ value, hiddenCode, onChange, minHeight }) => {
+  noRun?: boolean;
+}> = ({ value, hiddenCode, onChange, minHeight, noRun }) => {
   let logArr: any[] = [];
   const [logResult, setLogResult] = useState<any[]>([]);
   const [code, setCode] = useState(value);
