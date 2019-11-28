@@ -22,7 +22,8 @@ about every small detail of a given feature.
 `,
   postId: "everyday-javascript-1-spread-operator",
   timestamp: 1574971200000,
-  imgSrc: "https://commons.wikimedia.org/wiki/File:JavaScript-logo.png",
+  imgSrc:
+    "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
   url:
     "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
 };
