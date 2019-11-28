@@ -32,7 +32,7 @@ const InputWrapper = styled.div`
 const Label = styled.label`
   flex: 1;
   font-family: ${theme.fontFamily.title};
-  font-weight: 800;
+  font-size: 1.2rem;
   letter-spacing: 0.08rem;
   color: ${theme.color.gray10};
 `;
@@ -40,8 +40,8 @@ const Label = styled.label`
 const SalesSpan = styled.span`
   flex: 1;
   font-family: ${theme.fontFamily.title};
-  font-weight: 800;
   letter-spacing: 0.08rem;
+  font-size: 1.2rem;
   color: ${theme.color.gray10};
 `;
 
@@ -89,8 +89,8 @@ const Input = styled.input`
 `;
 
 const SendButton = styled(Button)`
-  width: 7rem;
-  height 2.75rem;
+  font-size: 1rem;
+  font-weight: 200;
 `;
 
 const SalesFormSection: FunctionComponent<{}> = () => (

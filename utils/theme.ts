@@ -1,7 +1,7 @@
 export default {
   // https://www.colourlovers.com/palette/92095/Giant_Goldfish
   color: {
-    primary: "#69D2E7",
+    primary: "#76b8cd",
     secondary: "#F38630",
     tertiary: "#ff4f3f",
     accent: "#E0E4CC",
