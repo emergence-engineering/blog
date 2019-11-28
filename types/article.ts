@@ -5,4 +5,6 @@ export interface ArticleIntro {
   authorLink: string | null;
   postId: string;
   timestamp: number;
+  imgSrc?: string;
+  url: string;
 }

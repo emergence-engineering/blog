@@ -3,6 +3,29 @@ import React, { FunctionComponent, useState } from "react";
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import MarkDown from "../../modules/article/components/Markdown";
 import CodeEditor from "../../modules/article/components/CodeEditor";
+import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
+import { ArticleIntro } from "../../types/article";
+
+export const article1Metadata: ArticleIntro = {
+  title: "Everyday javascript ep. 1: Rest/spread operator pt1.",
+  author: "Viktor",
+  authorLink: null,
+  introText: `
+Going trough the internet you'll find a lot of in-depth articles about specific issues,
+light tutorials, and everything in between. But the javascript landscape is vast, and
+sometimes too much information gets in the way of understanding.
+
+Even after years of professional development I see tricks every now and then
+which are straightforward conceptually, but easy to miss, and there's no place
+where I could read more about real usage, and not a 30 page long detailed article
+about every small detail of a given feature.
+`,
+  postId: "everyday-javascript-1-spread-operator",
+  timestamp: 1574971200000,
+  imgSrc: "https://commons.wikimedia.org/wiki/File:JavaScript-logo.png",
+  url:
+    "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
+};
 
 const MD1 = /* language=md */ `# Everyday javascript ep. 1: Rest/spread operator pt1.
 
@@ -239,35 +262,43 @@ const MD9 = /* language=md */ `
 const Article: FunctionComponent<{}> = () => {
   const [sharedCode, setSharedCode] = useState(SharedCode);
   return (
-    <ArticleWrapper>
-      <MarkDown source={MD1} />
-      <CodeEditor
-        value={Code1}
-        hiddenCode={Code1Hidden}
-        minHeight="5rem"
-        noRun
+    <>
+      <ArticleShareOgTags
+        url={article1Metadata.url}
+        title={article1Metadata.title}
+        description={article1Metadata.introText}
+        imgSrc={article1Metadata.imgSrc}
       />
-      <MarkDown source={MD2} />
-      <CodeEditor
-        value={sharedCode}
-        onChange={setSharedCode}
-        noRun
-        minHeight="10rem"
-      />
-      <MarkDown source={MD3} />
-      <CodeEditor value={Code2} hiddenCode={sharedCode} />
-      <MarkDown source={MD4} />
-      <CodeEditor value={Code3} hiddenCode={sharedCode} />
-      <MarkDown source={MD5} />
-      <CodeEditor value={Code4} hiddenCode={sharedCode} />
-      <MarkDown source={MD6} />
-      <CodeEditor value={Code5} hiddenCode={sharedCode} />
-      <MarkDown source={MD7} />
-      <CodeEditor value={Code6} hiddenCode={sharedCode} />
-      <MarkDown source={MD8} />
-      <CodeEditor value={Code7} hiddenCode={sharedCode} />
-      <MarkDown source={MD9} />
-    </ArticleWrapper>
+      <ArticleWrapper>
+        <MarkDown source={MD1} />
+        <CodeEditor
+          value={Code1}
+          hiddenCode={Code1Hidden}
+          minHeight="5rem"
+          noRun
+        />
+        <MarkDown source={MD2} />
+        <CodeEditor
+          value={sharedCode}
+          onChange={setSharedCode}
+          noRun
+          minHeight="10rem"
+        />
+        <MarkDown source={MD3} />
+        <CodeEditor value={Code2} hiddenCode={sharedCode} />
+        <MarkDown source={MD4} />
+        <CodeEditor value={Code3} hiddenCode={sharedCode} />
+        <MarkDown source={MD5} />
+        <CodeEditor value={Code4} hiddenCode={sharedCode} />
+        <MarkDown source={MD6} />
+        <CodeEditor value={Code5} hiddenCode={sharedCode} />
+        <MarkDown source={MD7} />
+        <CodeEditor value={Code6} hiddenCode={sharedCode} />
+        <MarkDown source={MD8} />
+        <CodeEditor value={Code7} hiddenCode={sharedCode} />
+        <MarkDown source={MD9} />
+      </ArticleWrapper>
+    </>
   );
 };
 
