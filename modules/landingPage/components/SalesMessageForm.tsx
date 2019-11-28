@@ -93,25 +93,41 @@ const SendButton = styled(Button)`
   font-weight: 200;
 `;
 
+const portalId = "6783875";
+const formGuid = "ec622a29-b5eb-4c37-85a6-ffcd612cef18";
+const formAddress = `https://forms.hubspot.com/uploads/form/v2/${portalId}/${formGuid}`;
+
 const SalesFormSection: FunctionComponent<{}> = () => (
   <Root>
     <ContentWrapper>
       <Title>Contact us</Title>
-      <SalesForm action="" method="post">
+      <SalesForm action={formAddress} method="post">
         <SalesRow>
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="firstname">First name</Label>
           <InputWrapper>
             <Input
               type="text"
-              name="name"
-              id="name"
+              name="firstname"
+              id="firstname"
               required
-              placeholder="Rick Sanchez"
+              placeholder="Rick"
             />
           </InputWrapper>
         </SalesRow>
         <SalesRow>
-          <Label htmlFor="subject">Title</Label>
+          <Label htmlFor="lastname">Last name</Label>
+          <InputWrapper>
+            <Input
+              type="text"
+              name="lastname"
+              id="lastname"
+              required
+              placeholder="Sanchez"
+            />
+          </InputWrapper>
+        </SalesRow>
+        <SalesRow>
+          <Label htmlFor="subject">Subject</Label>
           <InputWrapper>
             <Input
               type="text"
