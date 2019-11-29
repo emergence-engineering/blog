@@ -39,14 +39,16 @@ const SiteTitle = styled.a`
   text-decoration: none;
   color: ${theme.color.gray10};
   font-family: "Oswald", sans-serif;
-  height: 2em;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ContentWrapper = styled.div`
   max-width: ${screenSizes.maxWidth}px;
   flex-grow: 1;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 `;
 
@@ -58,6 +60,9 @@ const Anchor = styled.a<{ active: boolean }>`
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   transition: text-shadow 1s ease; // TODO!
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    font-size: 1rem;
+  }
 `;
 
 interface HeaderLinkProps {

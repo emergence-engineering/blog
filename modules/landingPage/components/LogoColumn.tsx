@@ -3,22 +3,27 @@ import React, { FunctionComponent } from "react";
 
 import theme, { screenSizes } from "../../../utils/theme";
 
-const HorizontalLogo = styled.img`
-  width: 100%;
+const Logo = styled.img<{ scale: number }>`
+  width: ${({ scale }) => scale * 100}%;
+  height: auto;
 `;
 
-const VerticalLogo = styled.img`
-  height: 100%;
+const LogoWrapper = styled.div<{}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 6rem;
+  padding: 0.8rem;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    height: 6rem;
+    width: 6rem;
+  }
 `;
-
-export enum Direction {
-  Vertical,
-  Horizontal,
-}
 
 interface Logo {
   src: string;
-  direction: Direction;
+  scale: number;
 }
 
 export interface LogoColumnProps {
@@ -26,30 +31,10 @@ export interface LogoColumnProps {
   logos: Logo[];
 }
 
-const LogoContainer = styled.div<{ horizontal: boolean }>`
-  height: 4.5rem;
-  width: 8rem;
-  padding: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @media screen and (max-width: ${screenSizes.medium}px) {
-    height: ${({ horizontal }) => (horizontal ? "4" : "6")};
-    width: ${({ horizontal }) => (horizontal ? "6" : "4")};
-  }
-`;
-
-export const renderLogo: FunctionComponent<Logo> = (
-  { direction, src },
-  index,
-) => (
-  <LogoContainer key={index} horizontal={direction === Direction.Horizontal}>
-    {direction === Direction.Horizontal ? (
-      <HorizontalLogo src={src} />
-    ) : (
-      <VerticalLogo src={src} />
-    )}
-  </LogoContainer>
+export const renderLogo: FunctionComponent<Logo> = ({ scale, src }, index) => (
+  <LogoWrapper key={index}>
+    <Logo src={src} scale={scale} />
+  </LogoWrapper>
 );
 
 const LogoListWrapper = styled.div`

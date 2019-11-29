@@ -70,11 +70,11 @@ const WhoAreWeSection: FunctionComponent<{}> = () => (
     <IntroductionSection>
       <QuestionRow
         question="What are we?"
-        answer="We are a software engineering firm from Budapest, Hungary"
+        answer="We are a software engineering firm."
       />
       <QuestionRow
         question="Why choose us?"
-        answer="We build performant, reliable and clean software"
+        answer="We build performant, reliable and clean software."
       />
       <QuestionRow question="How do we work?" answer={remoteAnswer} />
       <QuestionRow

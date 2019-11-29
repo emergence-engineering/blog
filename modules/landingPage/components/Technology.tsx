@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
-import LogoColumn, { Direction, LogoColumnProps } from "./LogoColumn";
+import LogoColumn, { LogoColumnProps } from "./LogoColumn";
 
 const Root = styled.div`
   display: flex;
@@ -28,57 +28,56 @@ const LogoTableContainer = styled.div`
 const cloudTech: LogoColumnProps = {
   columnName: "Cloud",
   logos: [
-    { src: "/amazon-web-services.svg", direction: Direction.Horizontal },
-    { src: "/google-cloud-platform.svg", direction: Direction.Vertical },
     {
       src: "/Firebase_Logo_Standard_Lockup.svg",
-      direction: Direction.Horizontal,
+      scale: 1.25,
     },
-    { src: "/heroku.svg", direction: Direction.Vertical },
+    { src: "/amazon-web-services.svg", scale: 1.2 },
+    { src: "/google-cloud-platform.svg", scale: 1.4 },
+    { src: "/heroku.svg", scale: 0.4 },
   ],
 };
 
 const languages: LogoColumnProps = {
   columnName: "Languages",
   logos: [
-    { src: "/typescript.svg", direction: Direction.Vertical },
-    { src: "/javascript.svg", direction: Direction.Vertical },
-    { src: "/Node.js_logo.svg", direction: Direction.Horizontal },
-    { src: "/go-6.svg", direction: Direction.Horizontal },
-    { src: "/c.svg", direction: Direction.Vertical },
-    { src: "/Python-logo-notext.svg", direction: Direction.Vertical },
-    { src: "/ruby.svg", direction: Direction.Vertical },
+    { src: "/typescript.svg", scale: 0.65 },
+    { src: "/javascript.svg", scale: 0.65 },
+    { src: "/Node.js_logo.svg", scale: 0.85 },
+    { src: "/go-6.svg", scale: 0.8 },
+    { src: "/c.svg", scale: 0.65 },
+    { src: "/Python-logo-notext.svg", scale: 0.7 },
   ],
 };
 
 const frameworks: LogoColumnProps = {
   columnName: "Frameworks",
   logos: [
-    { src: "/react.svg", direction: Direction.Vertical },
-    { src: "/redux.svg", direction: Direction.Vertical },
-    { src: "/next-js.svg", direction: Direction.Vertical },
-    { src: "/ionic.svg", direction: Direction.Horizontal },
-    { src: "/graphql.svg", direction: Direction.Vertical },
-    { src: "/apollo.svg", direction: Direction.Vertical },
+    { src: "/react.svg", scale: 0.75 },
+    { src: "/redux.svg", scale: 0.75 },
+    { src: "/next-js.svg", scale: 0.8 },
+    { src: "/ionic.svg", scale: 1 },
+    { src: "/graphql.svg", scale: 0.65 },
+    { src: "/apollo.svg", scale: 0.7 },
   ],
 };
 
 const databases: LogoColumnProps = {
   columnName: "Databases",
   logos: [
-    { src: "/postgres.svg", direction: Direction.Vertical },
-    { src: "/sqlite.svg", direction: Direction.Horizontal },
-    { src: "/mongodb.svg", direction: Direction.Horizontal },
-    { src: "/firebase-db.svg", direction: Direction.Vertical },
-    { src: "/couchdb.svg", direction: Direction.Vertical },
+    { src: "/firebase-db.svg", scale: 0.5 },
+    { src: "/postgres.svg", scale: 0.6 },
+    { src: "/sqlite.svg", scale: 0.9 },
+    { src: "/mongodb.svg", scale: 1.2 },
+    { src: "/couchdb.svg", scale: 0.8 },
   ],
 };
 
 const ai: LogoColumnProps = {
   columnName: "Machine Learning/ AI",
   logos: [
-    { src: "/tensorflow-2.svg", direction: Direction.Vertical },
-    { src: "/pytorch.svg", direction: Direction.Horizontal },
+    { src: "/tensorflow-2.svg", scale: 0.65 },
+    { src: "/pytorch.svg", scale: 1.2 },
   ],
 };
 
