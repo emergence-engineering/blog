@@ -1,4 +1,4 @@
-# Seven consulting nextjs-firebase starter kit
+# Emergence Engineering nextjs-firebase starter kit
 
 ## What this kit includes
 
