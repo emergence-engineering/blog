@@ -5,23 +5,9 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import styled, { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from "styled-components";
 
 import GeneralSEO from "../modules/common/components/GeneralSEO";
-
-const Body = styled.body`
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-  width: 100vw;
-  max-width: 100%;
-`;
-
-const HTMLRoot = styled.html`
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-`;
 
 export default class MyDocument extends Document {
   // from https://github.com/zeit/next.js/tree/canary/examples/with-styled-components
@@ -52,10 +38,7 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <HTMLRoot
-        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
-        lang="en"
-      >
+      <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
         <Head>
           <script
             async
@@ -77,11 +60,11 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <GeneralSEO />
         </Head>
-        <Body>
+        <body>
           <Main />
           <NextScript />
-        </Body>
-      </HTMLRoot>
+        </body>
+      </html>
     );
   }
 }
