@@ -7,6 +7,7 @@ import Layout from "../../common/components/Layout";
 const Root = styled.div`
   display: flex;
   justify-content: center;
+  flex-grow: 1;
 `;
 
 const BlogContent = styled.section`
@@ -14,6 +15,7 @@ const BlogContent = styled.section`
   display: flex;
   min-height: 100vh;
   max-width: ${screenSizes.maxWidth}px;
+  background-color: ${theme.color.gray11};
   width: 100%;
   padding: 2rem ${sizes.sidePadding};
   flex-direction: column;

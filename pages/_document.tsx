@@ -7,25 +7,17 @@ import Document, {
 } from "next/document";
 import styled, { ServerStyleSheet } from "styled-components";
 
-const bodyStyle = {
-  width: "100%",
-  height: "100vh",
-  padding: 0,
-  margin: 0,
-  overflowX: "hidden",
-};
+import GeneralSEO from "../modules/common/components/GeneralSEO";
 
 const Body = styled.body`
-  width: 100%;
-  min-height: 100vh;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  width: 100vw;
+  max-width: 100%;
 `;
 
 const HTMLRoot = styled.html`
-  width: 100%;
-  height: 100vh;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
@@ -60,8 +52,15 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <HTMLRoot lang="en" style={bodyStyle as object}>
+      <HTMLRoot
+        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+        lang="en"
+      >
         <Head>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-153510239-1"
+          />
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald"
@@ -76,8 +75,9 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <GeneralSEO />
         </Head>
-        <Body style={bodyStyle as object}>
+        <Body>
           <Main />
           <NextScript />
         </Body>

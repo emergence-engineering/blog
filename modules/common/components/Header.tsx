@@ -5,11 +5,14 @@ import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
-import Headroom from "react-headroom";
+import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
-const Root = styled.header`
+const Headroom = styled(ReactHeadroom)`
+  z-index: 5;
+`;
+const Root = styled.div`
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
@@ -19,9 +22,6 @@ const Root = styled.header`
   align-items: center;
   justify-content: center;
   padding: 0 ${sizes.sidePadding};
-  //position: -webkit-sticky; /* Safari */
-  //position: sticky;
-  //top: 0;
 `;
 
 const LeftContainer = styled.div``;

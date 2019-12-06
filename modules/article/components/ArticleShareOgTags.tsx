@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
 import Head from "next/dist/next-server/lib/head";
 
-const ArticleShareOgTags: FunctionComponent<{
-  url: string;
-  title: string;
-  description: string;
-  imgSrc: string | undefined;
-}> = ({ url, title, description, imgSrc }) => (
+import { OgTags } from "../../../types/ogTags";
+
+const ArticleShareOgTags: FunctionComponent<OgTags> = ({
+  url,
+  title,
+  description,
+  imgSrc,
+}) => (
   <Head>
     <meta property="og:url" content={url} />
     <meta property="og:type" content="article" />
