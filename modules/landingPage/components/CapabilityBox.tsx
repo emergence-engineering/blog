@@ -4,7 +4,6 @@ import styled from "styled-components";
 import theme, { sizes } from "../../../utils/theme";
 
 const BoxRoot = styled.div`
-  width: 100%;
   min-height: 10rem;
   height: 100%;
   border: 1px solid ${theme.color.gray6};
@@ -30,6 +29,7 @@ const HeaderRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-height: 5rem;
 `;
 
 const SvgImg = styled.img`
@@ -54,8 +54,6 @@ const TitleContainer = styled.div`
 `;
 
 const BoxWrapper = styled.div`
-  width: 100%;
-  height: 100%;
   padding: ${sizes.sidePadding};
 `;
 
