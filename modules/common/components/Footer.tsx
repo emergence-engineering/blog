@@ -33,11 +33,15 @@ const IconsA = styled.a`
   color: ${theme.color.gray9};
 `;
 
+const Centered = styled.div`
+  text-align: center;
+`;
+
 const Footer: FunctionComponent<{}> = () => (
   <FooterWrapper>
     <FooterRoot>
-      <div>Made by Emergence Engineering, 2019</div>
-      <div>
+      <Centered>Made by Emergence Engineering, 2019</Centered>
+      <Centered>
         Icons made by{" "}
         <IconsA
           href="https://www.flaticon.com/authors/popcorns-arts"
@@ -49,7 +53,7 @@ const Footer: FunctionComponent<{}> = () => (
         <IconsA href="https://www.flaticon.com/" title="Flaticon">
           www.flaticon.com
         </IconsA>
-      </div>
+      </Centered>
     </FooterRoot>
   </FooterWrapper>
 );
