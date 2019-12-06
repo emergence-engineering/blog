@@ -22,7 +22,6 @@ export const Root = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 40%;
   background-color: ${theme.color.primary};
 `;
 

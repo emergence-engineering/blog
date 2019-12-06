@@ -13,8 +13,7 @@ const Root = styled.div`
   width: 100%;
   min-height: 20rem;
   background-color: ${theme.color.primary};
-  padding: 0 ${sizes.sidePadding};
-  padding: 2rem 1rem;
+  padding: 2rem ${sizes.sidePadding};
 `;
 
 const QuestionRowRoot = styled.div`
