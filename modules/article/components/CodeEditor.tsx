@@ -56,7 +56,7 @@ const RunButton = styled(Button)`
   top: 0;
   right: 0;
   margin: 0.5rem 0.4rem;
-  z-index: 1000;
+  z-index: 2;
   display: flex;
   align-items: center;
 `;

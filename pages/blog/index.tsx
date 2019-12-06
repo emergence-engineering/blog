@@ -5,26 +5,27 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import { addSampleAction } from "../../setup/actions/sample/actions";
 import Layout from "../../modules/common/components/Layout";
-import { screenSizes, sizes } from "../../utils/theme";
+import theme, { screenSizes, sizes } from "../../utils/theme";
 import BlogPostIntro from "../../modules/blog/components/BlogPostIntro";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
 
 const Root = styled.div`
+  flex-grow: 1;
   display: flex;
-  background-color: white;
-  min-height: 100vh;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
 `;
 
 const ContentWrapper = styled.div`
+  background-color: ${theme.color.gray11};
+  flex-grow: 1;
   padding: 2rem ${sizes.sidePadding};
   max-width: ${screenSizes.maxWidth}px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 `;
