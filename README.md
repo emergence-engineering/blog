@@ -69,3 +69,60 @@ Redux is integrated using the `next-redux-wrapper` package.
 ## Webstorm tips
 
 - Enable eslint in settings to see linting issues on the fly
+
+## Deploying the project as a static website on Firebase Hosting
+
+### First steps
+To host your site with Firebase Hosting, you need the Firebase CLI (a command line tool).
+
+Run the following npm command to install the CLI or update to the latest CLI version.
+
+#### Set up Firebase and Firebase hosting
+```shell script
+npm install -g firebase-tools
+```
+
+Open a terminal window and navigate to or create a root directory for your web app
+
+Sign in to Google
+
+```shell script
+firebase login
+```
+
+Initiate your project
+This step is needed if the project folder is not associated with a FireBase project. If you want to change to another 
+FireBase project then run `firebase use <project name>`. To list available projects run `firebase projects:list` 
+Run this command from your app’s root directory:
+
+```shell script
+firebase init
+```
+
+When initializing the project choose "hosting" and for the hosting questions answer the following:
+```
+? What do you want to use as your public directory? static-export
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? File static-export/404.html already exists. Overwrite? No
+? File static-export/index.html already exists. Overwrite? No
+```
+
+#### Building for static deployment
+Just run
+
+```shell script
+npm run export-static
+```
+
+This command will create a the static-export folder and populate it with the statically rendered pages.
+
+When you’re ready, deploy your web app
+Put your static files (e.g., HTML, CSS, JS) in your app’s deploy directory (the default is “public”). Then, run this command from your app’s root directory:
+
+```shell script
+npm run deploy-static
+```
+
+(This uses shell `firebase deploy` under the hood)
+
+After deploying, view your app at https://<firebase-app-name>.firebaseapp.com

@@ -8,7 +8,7 @@ import {
   array,
 } from "@storybook/addon-knobs";
 
-import { Button } from "../common/components/Button";
+import { Button } from "../modules/common/components/Button";
 
 const stories = storiesOf("Storybook examples", module);
 stories.addDecorator(withKnobs);

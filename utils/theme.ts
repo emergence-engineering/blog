@@ -1,8 +1,11 @@
 export default {
+  // https://www.colourlovers.com/palette/92095/Giant_Goldfish
   color: {
-    primary: "#4488EE",
-    secondary: "#AA2211",
-    error: "#EE3311",
+    primary: "#76b8cd",
+    secondary: "#F38630",
+    tertiary: "#ff4f3f",
+    accent: "#E0E4CC",
+    error: "#FA6900",
     inputBackground: "#CCCCAA",
     shadow: "#222222",
     border: "#111111",
@@ -15,7 +18,18 @@ export default {
     gray7: "#BBBBBB",
     gray8: "#CCCCCC",
     gray9: "#DDDDDD",
-    gray10: "#FAFAFA",
+    gray10: "#f9f9f9",
+    gray11: "#FAFAFA",
+    primary1: "#233f4b",
+    primary2: "#377985",
+    primary3: "#4dc8d4",
+    primary4: "#54e4f0",
+    primary5: "#91f2fc",
+    primary6: "#bdf3f1",
+  },
+  fontFamily: {
+    general: "'Open sans', sans-serif",
+    title: "'Oswald', sans-serif",
   },
 };
 
@@ -24,4 +38,9 @@ export enum screenSizes {
   medium = 768,
   large = 992,
   extraLarge = 1920,
+  maxWidth = 1000,
 }
+
+export const sizes = {
+  sidePadding: "1rem",
+};

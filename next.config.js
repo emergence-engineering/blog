@@ -1,11 +1,12 @@
 /* eslint-disable */
 require("dotenv").config();
+const withCSS = require("@zeit/next-css");
 
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
-module.exports = {
+module.exports = withCSS({
   webpack: config => {
     config.plugins = config.plugins || [];
 
@@ -28,6 +29,10 @@ module.exports = {
         reportFiles: ["does-not-exist"],
       }),
     );
+
+    config.node = {
+      fs: "empty",
+    };
     return config;
   },
   publicRuntimeConfig: {
@@ -39,4 +44,4 @@ module.exports = {
     FIREBASE_SENDER_ID: process.env.FIREBASE_SENDER_ID,
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
   },
-};
+});
