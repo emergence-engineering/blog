@@ -59,6 +59,7 @@ const RunButton = styled(Button)`
   z-index: 2;
   display: flex;
   align-items: center;
+  height: 2.3rem;
 `;
 
 const RunIcon = styled.img`
@@ -100,7 +101,7 @@ const CodeEditor: FunctionComponent<{
     () => ({
       ...console,
       log: (...args: any[]) => {
-        logArr = [...logArr, ...args];
+        logArr = [...logArr, "\n", ...args]; // TODO
       },
     }),
     [logArr],
@@ -116,7 +117,11 @@ const CodeEditor: FunctionComponent<{
         `${hiddenCode || ""}\n${code}`.replace(/console/g, "newConsole"),
       );
       setScriptResult(result);
-      setLogResult(logArr.map(i => i.toString()));
+      setLogResult(
+        logArr.map(i =>
+          typeof i === "object" ? JSON.stringify(i) : i.toString(),
+        ),
+      );
     } catch (e) {
       setCodeError(e.message);
     }
@@ -126,10 +131,12 @@ const CodeEditor: FunctionComponent<{
       <EditorWrapper minHeight={minHeight}>
         <CodeMirror value={value} onChange={codeChange} />
         <SSRCode>{value}</SSRCode>
-        <RunButton onClick={runCode}>
-          <RunIcon decoding="async" src="/play_circle_filled-24px.svg" />
-          <RunText>Run code</RunText>
-        </RunButton>
+        {!noRun && (
+          <RunButton onClick={runCode}>
+            <RunIcon decoding="async" src="/play_circle_filled-24px.svg" />
+            <RunText>Run code</RunText>
+          </RunButton>
+        )}
       </EditorWrapper>
       <ResultWrapper
         hasContent={!!(scriptResult || logResult.length || codeError)}

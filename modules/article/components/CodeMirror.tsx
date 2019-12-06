@@ -1,5 +1,7 @@
 import { UnControlled as Editor } from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
 import React, { FunctionComponent } from "react";
 
 const CodeMirror: FunctionComponent<{
