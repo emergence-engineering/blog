@@ -28,7 +28,7 @@ about every small detail of a given feature.
     "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
 };
 
-const MD1 = /* language=md */ `# Everyday javascript ep. 1: Rest/spread operator pt1.
+const MD0 = /* language=md */ `# Everyday javascript ep. 1: Rest/spread operator pt1.
 
 Length: 15 minutes.
 
@@ -54,7 +54,20 @@ but in my experience it's better to experience a problem and then find a solutio
 - Spread/rest arrays, what it solves, with problems and solutions
 - Spread/rest with objects, in a similar fashion
 
-## The rest/spread operator
+The following variables are used in the examples:
+`;
+const SharedCode = /* language=js */ `// Shared variables
+const arrayReturningFunction = () => [1, 2, 3, 4, 5];
+const objectReturningFunction = () => ({ a: "aVal", b: "bVal", name: "rick" });
+const myArray = [1, 2];
+const arrayToConcat = [1, 2, 3, 4];
+const objectToClone = { a: "aVal", b: "bVal", c: "cVal" };
+const arrayToSpread = [1, 2, 3];
+const numberArr = [1, 2, 3, 4];
+const argumentList = ["Old", "Timer"];
+const rank = "Veteran";`;
+
+const MD1 = /* language=md */ `## The rest/spread operator
 
 The rest/spread operator looks like this: \`...\`. It is _always_ on a left side of an identifier ( a name for a variable etc... ),
 otherwise it would be easily confused with property access on objects ( plus \`2..toString()\` is a valid JS expression,
@@ -82,49 +95,41 @@ more intuitive. A good rule of thumb is the following:
 For example:
 `;
 
-const Code1Hidden = /* language=js */ `
-const arrayReturningFunction = () => [];
-const objectReturningFunction = () => ({});
-const myArray = [];
-const arrayToConcat = [];
-const objectToClone = {};
-const arrayToSpread = []
-`;
-
 const Code1 = /* language=js */ `// 1. rest
 const [headItem, ...restArray] = arrayReturningFunction();
 // 2. rest
 const { name, ...restObject } = objectReturningFunction();
 // 3. rest
 const functionWithRest = (firstArgument, ...restArguments) => {
+  console.log("functionWithRest", { firstArgument, restArguments });
   /* C.O.D.E */
 };
 // 4. rest
-const functionWithObjectArg = (
-  firstArgument,
-  { aFunction, ...otherParams },
-) => {
+const functionWithObjectArg = (firstArgument, { a, ...otherParams }) => {
+  console.log("functionWithObjectArg", firstArgument, a, otherParams);
   /* C.O.D.E */
 };
+functionWithObjectArg("firstArg", objectToClone);
 // 5. spread
 const resultArray = [myArray, ...arrayToConcat];
 // 6. spread
 const resultObject = {
-  name: 'The Impostor',
+  name: "The Impostor",
   ...objectToClone,
-  keyToOverwrite: 'Gotcha',
+  keyToOverwrite: "Gotcha",
 };
 // 7. spread
-functionWithRest('First argument value', ...arrayToSpread);
-`;
+functionWithRest("First argument value", ...arrayToSpread);
+console.log("resultArray", resultArray);
+console.log("headItem", headItem);
+console.log("resultArray", resultArray);
+console.log("restArray", restArray);
+console.log("name", name);
+console.log("restObject", restObject);`;
 
 const MD2 = /* language=md */ `
 I'll use the following variables in the examples:
 `;
-
-const SharedCode = /* language=js */ `const numberArr = [1, 2, 3, 4];
-const argumentList = ['Old', 'Timer'];
-const rank = 'Veteran';`;
 
 const MD3 = /* language=md */ `
 ## Spread operator on arrays
@@ -139,7 +144,7 @@ Let's see some examples for the first part, with-and-without:
 
 const Code2 = /* language=js */ `// The old way:
 const displayFn = (firstName, lastName, rank) =>
-  console.log('Name: ' + firstName + ' ' + lastName + ', rank: ' + rank);
+  console.log("Name: " + firstName + " " + lastName + ", rank: " + rank);
 // To pass an array to a function
 displayFn.apply(null, argumentList.concat([rank]));
 // Prints out "Name: Old Timer, rank: Veteran
@@ -173,7 +178,9 @@ const newArrayWithSpread = [...argumentList, rank];
 // We might want to put rank first, why not?
 const rankFirstArray = [rank, ...argumentList];
 // ["Veteran", "Old", "Timer"]
-console.log(newArray, newArrayWithSpread, rankFirstArray);`;
+console.log("newArray", newArray);
+console.log("newArrayWithSpread", newArrayWithSpread);
+console.log("rankFirstArray", rankFirstArray);`;
 
 const MD5 = /* language=md */ `
 Again, you don't have to remember _any_ built-in functions.
@@ -183,7 +190,8 @@ If you see it for the first time then it can get confusing for a moment, but aft
 You can also concat multiple arrays, with elements between arrays:
 `;
 
-const Code4 = /* language=js */ `console.log([1, ...[1, 2], 3, ...[5, 8, 13]]);`;
+const Code4 = /* language=js */ `// Fibonacci sequence start
+console.log([1, ...[1, 2], 3, ...[5, 8, 13]]);`;
 
 const MD6 = /* language=md */ `
 The line above prints out the fibonacci numbers up to \`13\`.
@@ -202,7 +210,7 @@ sum of the remaining items:
 `;
 
 const Code5 = /* language=js */ `// old
-function sumNumbersWithoutFirst ()  {
+function sumNumbersWithoutFirst() {
   const args = Array.prototype.slice.call(arguments);
   const firstArgument = args.pop(0);
   console.log(\`Removed \${firstArgument} from list\`);
@@ -211,7 +219,7 @@ function sumNumbersWithoutFirst ()  {
     0,
   );
   return sum;
-};
+}
 // new
 const sumNumbersWithoutFirstRest = (firstArgument, ...numbersRest) => {
   console.log(\`Removed \${firstArgument} from list\`);
@@ -222,8 +230,8 @@ const sumNumbersWithoutFirstRest = (firstArgument, ...numbersRest) => {
   );
   return sum;
 };
-sumNumbersWithoutFirst(1,2,3,4);
-sumNumbersWithoutFirstRest(1,2,3,4);
+console.log(sumNumbersWithoutFirst(1, 2, 3, 4));
+console.log(sumNumbersWithoutFirstRest(1, 2, 3, 4));
 // Does the same thing, prints out 1, returns 2+3+4 = 9`;
 
 const MD7 = /* language=md */ `
@@ -252,7 +260,10 @@ const headOld = numberArr.slice()[0];
 const remainingOld = numberArr.slice(1);
 // new
 const [head, ...remaining] = numberArr;
-// head is 1, remaining is [2,3,4]`;
+console.log("headOld", headOld);
+console.log("remainingOld", remainingOld);
+console.log("head", head);
+console.log("remaining", remaining);`;
 
 const MD9 = /* language=md */ `
   Again, numberArr is mutated. Of course you can get around the mutation issue even with "old" JS, but it will be messier.
@@ -271,20 +282,16 @@ const Article: FunctionComponent<{}> = () => {
         imgSrc={article1Metadata.imgSrc}
       />
       <ArticleWrapper>
-        <MarkDown source={MD1} />
-        <CodeEditor
-          value={Code1}
-          hiddenCode={Code1Hidden}
-          minHeight="5rem"
-          noRun
-        />
-        <MarkDown source={MD2} />
+        <MarkDown source={MD0} />
         <CodeEditor
           value={sharedCode}
           onChange={setSharedCode}
-          noRun
           minHeight="10rem"
+          noRun
         />
+        <MarkDown source={MD1} />
+        <CodeEditor value={Code1} hiddenCode={SharedCode} minHeight="5rem" />
+        <MarkDown source={MD2} />
         <MarkDown source={MD3} />
         <CodeEditor value={Code2} hiddenCode={sharedCode} />
         <MarkDown source={MD4} />
