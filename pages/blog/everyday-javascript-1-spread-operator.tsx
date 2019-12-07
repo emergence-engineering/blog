@@ -284,13 +284,13 @@ const Article: FunctionComponent<{}> = () => {
       <ArticleWrapper>
         <MarkDown source={MD0} />
         <CodeEditor
-          value={sharedCode}
+          value={SharedCode}
           onChange={setSharedCode}
           minHeight="10rem"
           noRun
         />
         <MarkDown source={MD1} />
-        <CodeEditor value={Code1} hiddenCode={SharedCode} minHeight="5rem" />
+        <CodeEditor value={Code1} hiddenCode={sharedCode} minHeight="5rem" />
         <MarkDown source={MD2} />
         <MarkDown source={MD3} />
         <CodeEditor value={Code2} hiddenCode={sharedCode} />
