@@ -58,7 +58,7 @@
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.0",
     "codemirror": "^5.49.2",
-    "css-loader": "^3.2.0",
+    "css-loader": "^3.2.1",
     "firebase": "^7.3.0",
     "firebase-tools": "^7.7.0",
     "form-data": "^3.0.0",
