@@ -31,11 +31,19 @@ const SaleOptions = styled.div`
   flex-direction: column;
 `;
 
-const SaleOption = styled.div`
+const SaleItemRoot = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0.5rem 1rem;
+  :hover {
+    border-style: solid;
+    border-color: ${theme.color.gray8};
+    border-width: 0.01rem;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px ${theme.color.gray8};
+  }
+  transition: box-shadow 0.5s, border-style 0.5s;
 `;
 
 const OptionTextRoot = styled.div`
@@ -63,13 +71,13 @@ const SalesItem: FunctionComponent<{
   optionTitle: string;
   optionDescription: string;
 }> = ({ imgSrc, optionDescription, optionTitle }) => (
-  <SaleOption>
+  <SaleItemRoot>
     <OptionIcon src={imgSrc} decoding="async" />
     <OptionTextRoot>
       <OptionTitle>{optionTitle}</OptionTitle>
       <OptionDescription>{optionDescription}</OptionDescription>
     </OptionTextRoot>
-  </SaleOption>
+  </SaleItemRoot>
 );
 
 const SalesBox: FunctionComponent<{}> = () => (
