@@ -25,8 +25,11 @@ const ModalWrapper = styled.div`
   opacity: 1;
 `;
 
-const Modal: FunctionComponent<{}> = ({ children }) => (
-  <Root>
+const Modal: FunctionComponent<{ onLoseFocus: () => void }> = ({
+  onLoseFocus,
+  children,
+}) => (
+  <Root onClick={onLoseFocus}>
     <ModalWrapper>{children}</ModalWrapper>
   </Root>
 );
