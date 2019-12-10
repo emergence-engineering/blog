@@ -5,5 +5,4 @@ node_modules
 static-export
 */**/.DS_Store
 .DS_Store
-.firebaserc
 .firebase
