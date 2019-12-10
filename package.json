@@ -10,7 +10,10 @@
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "upgrade-interactive": "npm-check --update",
-    "storybook": "start-storybook -p 6006 -c .storybook"
+    "storybook": "start-storybook -p 6006 -c .storybook",
+    "export-static": "next export -o static-export",
+    "deploy-static": "firebase deploy --only hosting -p static-export",
+    "build-and-deploy-static": "npm run build && npm run export-static && npm run deploy-static"
   },
   "husky": {
     "hooks": {
