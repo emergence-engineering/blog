@@ -108,7 +108,11 @@ When initializing the project choose "hosting" and for the hosting questions ans
 ```
 
 #### Building for static deployment
-Just run
+First run
+```
+npm run build
+```
+After that just run
 
 ```shell script
 npm run export-static
