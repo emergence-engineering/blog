@@ -130,3 +130,29 @@ npm run deploy-static
 (This uses shell `firebase deploy` under the hood)
 
 After deploying, view your app at https://<firebase-app-name>.firebaseapp.com
+
+## Gitlab CI setup
+
+Install firebase tools globally:
+```shell script
+sudo npm i -g firebase-tools
+```
+Log into firebase with
+```shell script
+firebase login
+```
+Get your firebase token. A browser will pop up, where you should log in, and accept that firebase-cli will
+have the right permissions.
+```shell script
+firebase login:ci
+```
+Copy the token, go to gitlab/settings/CI/CD and add a new variable named `FIREBASE_TOKEN` with
+the token value as protected and masked.
+
+Set up a new firebase project for the staing/prod environment and define the following variables
+in gitlab:
+- `STAGING_API_KEY` / `PROD_API_KEY`
+- `STAGING_PROJECT_ID` / `PROD_PROJECT_ID`
+- `STAGING_SENDER_ID` / `PROD_SENDER_ID`
+- `STAGING_APP_ID` / `PROD_APP_ID`
+
