@@ -35,7 +35,7 @@ const Input = styled.input`
   font-weight: inherit;
   border: solid;
   border-color: ${theme.color.secondary3};
-  border-width: 0.02rem;
+  border-width: thin;
   border-radius: 0.2rem;
   transition: box-shadow 0.2s;
 `;
@@ -52,7 +52,7 @@ const TextArea = styled.textarea`
   font-weight: inherit;
   border: solid;
   border-color: ${theme.color.secondary3};
-  border-width: 0.02rem;
+  border-width: thin;
   border-radius: 0.2rem;
   transition: box-shadow 0.2s;
 `;

@@ -6,11 +6,12 @@ import { convertTimestampToLocaleDateString } from "../../../utils/time";
 import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
 import Markdown from "../../article/components/Markdown";
 import { ArticleIntro } from "../../../types/article";
+import theme from "../../../utils/theme";
 
 const ReadMoreLink = styled.a`
   text-decoration: none;
   cursor: pointer;
-  font-weight: 800;
+  font-family: ${theme.fontFamily.title};
 `;
 
 const PostMetadataContainer = styled.div``;
