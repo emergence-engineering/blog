@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { ChangeEvent, FunctionComponent } from "react";
+
 import theme, { screenSizes } from "../../../../utils/theme";
 
 export const InputRow = styled.div`
@@ -32,7 +33,9 @@ const Input = styled.input`
   font-family: inherit;
   font-size: 1rem;
   font-weight: inherit;
-  border: none;
+  border: solid;
+  border-color: ${theme.color.secondary3};
+  border-width: 0.02rem;
   border-radius: 0.2rem;
   transition: box-shadow 0.2s;
 `;
@@ -47,7 +50,9 @@ const TextArea = styled.textarea`
   font-family: inherit;
   font-size: 1rem;
   font-weight: inherit;
-  border: none;
+  border: solid;
+  border-color: ${theme.color.secondary3};
+  border-width: 0.02rem;
   border-radius: 0.2rem;
   transition: box-shadow 0.2s;
 `;

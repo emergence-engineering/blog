@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
 import theme, { sizes } from "../../../utils/theme";
+
 import SalesForm from "./SalesForm";
 
 export const Root = styled.div`

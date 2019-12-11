@@ -8,13 +8,13 @@ import React, {
 } from "react";
 import styled from "styled-components";
 
-import {
-  createHubSpotFormBody,
-  formAddress,
-} from "../utils/hubSpotContatForm";
+import { createHubSpotFormBody, formAddress } from "../utils/hubSpotContatForm";
 import { Button } from "../../common/components/Button";
 import { post } from "../../../utils/xhr";
-import Notice, { NoticeProps, NoticeType } from "../../common/components/Notice";
+import Notice, {
+  NoticeProps,
+  NoticeType,
+} from "../../common/components/Notice";
 
 import { InputRow, TextAreaInputRow, TextInputRow } from "./TextInputRow";
 
@@ -134,4 +134,4 @@ const SalesForm: FunctionComponent<{}> = () => {
   );
 };
 
-export default SalesForm
+export default SalesForm;
