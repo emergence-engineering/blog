@@ -5,18 +5,15 @@ image: node:latest
 
 # Cache modules in between jobs
 cache:
-#  key: ${CI_COMMIT_REF_SLUG}
-  key: cache_npm
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+    - .next/cache/
 
 install:
   stage: build
   script:
     - npm i
-  only:
-    - staging
-    - production
 
 test:
   stage: test
