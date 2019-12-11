@@ -6,6 +6,7 @@ import CodeEditor from "../../modules/article/components/CodeEditor";
 import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
 import { ArticleIntro } from "../../types/article";
 import SalesBox from "../../modules/article/components/SalesBox/SalesBox";
+import Disqus from "../../modules/disqus/Disqus";
 
 export const article1Metadata: ArticleIntro = {
   title: "Everyday javascript ep. 1: Rest/spread operator pt1.",
@@ -307,6 +308,10 @@ const Article: FunctionComponent<{}> = () => {
         <CodeEditor value={Code7} hiddenCode={sharedCode} />
         <MarkDown source={MD9} />
         <SalesBox />
+        <Disqus
+          pageUrl={article1Metadata.url}
+          pageId={article1Metadata.postId}
+        />
       </ArticleWrapper>
     </>
   );
