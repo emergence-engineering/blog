@@ -5,6 +5,8 @@ interface XhrResponse {
   error: Error | null;
 }
 
+const logger = console;
+
 export const post = async (
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,6 +17,7 @@ export const post = async (
     const result = await axios.post(url, data, config);
     return { data: result, error: null };
   } catch (error) {
+    logger.error(error);
     return { data: null, error };
   }
 };
