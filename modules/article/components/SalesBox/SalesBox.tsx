@@ -3,7 +3,7 @@ import React, { FunctionComponent, useReducer } from "react";
 
 import theme from "../../../../utils/theme";
 
-import { articleSalesFormReducer, initialState } from "./state";
+import { articleSalesFormReducer, FormType, initialState } from "./state";
 import { SalesItem } from "./SalesItem";
 import { SalesModal } from "./SalesModal";
 
@@ -50,6 +50,7 @@ const SalesBox: FunctionComponent<{}> = () => {
           optionTitle="Video consultation"
           optionDescription="Book an interactive video consultation with us. Get an interactive one on one or team session with our experienced developers."
           dispatch={dispatch}
+          actionType={FormType.videoConsultation}
         />
         <SalesItem
           imgSrc="/icons/presentation.svg"
@@ -59,6 +60,7 @@ const SalesBox: FunctionComponent<{}> = () => {
         We can help your team to learn new technologies or master certain "grey area" aspects of already used tools.
         `}
           dispatch={dispatch}
+          actionType={FormType.training}
         />
         <SalesItem
           imgSrc="/icons/target.svg"
@@ -68,9 +70,14 @@ const SalesBox: FunctionComponent<{}> = () => {
         We can integrate into an ongoing project, or kick off and layout the foundations of an entirely new solution.
         `}
           dispatch={dispatch}
+          actionType={FormType.development}
         />
       </SaleOptions>
-      <SalesModal displayed={state.isFormDisplayed} dispatch={dispatch} />
+      <SalesModal
+        displayed={state.isFormDisplayed}
+        formType={state.formType}
+        dispatch={dispatch}
+      />
     </Root>
   );
 };

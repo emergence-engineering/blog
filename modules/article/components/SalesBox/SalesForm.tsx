@@ -20,6 +20,7 @@ import {
 import { post } from "../../../../utils/xhr";
 
 import { InputRow, TextAreaInputRow, TextInputRow } from "./TextInputRow";
+import { FormType } from "./state";
 
 const SendButton = styled(Button)`
   font-size: 1rem;
@@ -35,11 +36,38 @@ const createClickHandler = (callback: Dispatch<SetStateAction<string>>) => (
   callback(value);
 };
 
-const SalesForm: FunctionComponent<{}> = () => {
+interface ArticleSalesFormPlaceholders {
+  email: string;
+  firstName: string;
+  lastName: string;
+  message: string;
+}
+
+const articleSalesFormPlaceholders: ArticleSalesFormPlaceholders = {
+  email: "john@example.com",
+  firstName: "John",
+  lastName: "Doe",
+  message: "Please describe your issue here...",
+};
+
+type FormTypes =
+  | FormType.videoConsultation
+  | FormType.development
+  | FormType.training
+  | FormType.empty;
+type SubjectMap = { [formType in FormTypes]: string };
+
+const subjects: SubjectMap = {
+  [FormType.development]: "Development",
+  [FormType.training]: "Training",
+  [FormType.videoConsultation]: "Video consultation",
+  [FormType.empty]: "",
+};
+
+const SalesForm: FunctionComponent<{ formType: FormType }> = ({ formType }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
@@ -47,7 +75,6 @@ const SalesForm: FunctionComponent<{}> = () => {
   const lastNameChangeHandler = createClickHandler(setLastName);
   const emailChangeHandler = createClickHandler(setEmail);
   const messageChangeHandler = createClickHandler(setMessage);
-  const subjectChangeHandler = createClickHandler(setSubject);
 
   const [noticeVisibility, setNoticeVisibility] = useState<NoticeProps | null>(
     null,
@@ -59,7 +86,7 @@ const SalesForm: FunctionComponent<{}> = () => {
       email,
       firstName,
       lastName,
-      subject,
+      subjects[formType],
       message,
     );
 
@@ -84,7 +111,7 @@ const SalesForm: FunctionComponent<{}> = () => {
           name="firstname"
           isRequired
           onChange={firstNameChangeHandler}
-          placeholder="Rick"
+          placeholder={articleSalesFormPlaceholders.firstName}
           type="text"
           label="First name"
         />
@@ -92,15 +119,14 @@ const SalesForm: FunctionComponent<{}> = () => {
           name="lastname"
           isRequired
           onChange={lastNameChangeHandler}
-          placeholder="Sanchez"
+          placeholder={articleSalesFormPlaceholders.lastName}
           type="text"
           label="Last name"
         />
         <TextInputRow
           name="subject"
-          isRequired
-          onChange={subjectChangeHandler}
-          placeholder="I need more portal fluid"
+          value={subjects[formType]}
+          readonly
           type="text"
           label="Subject"
         />
@@ -108,7 +134,7 @@ const SalesForm: FunctionComponent<{}> = () => {
           name="email"
           isRequired
           onChange={emailChangeHandler}
-          placeholder="simple@rick.com"
+          placeholder={articleSalesFormPlaceholders.email}
           type="email"
           label="Email"
         />
@@ -116,7 +142,7 @@ const SalesForm: FunctionComponent<{}> = () => {
           name="message"
           isRequired
           onChange={messageChangeHandler}
-          placeholder="I want more portal fluid, can you help me?"
+          placeholder={articleSalesFormPlaceholders.message}
           label="Message"
         />
         <InputRow>

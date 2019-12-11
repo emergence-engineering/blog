@@ -1,4 +1,5 @@
 export enum FormType {
+  empty = 0,
   videoConsultation,
   training,
   development,
@@ -38,11 +39,11 @@ export type ArticleSalesFormAction = DisplayModalAction | HideModalAction;
 // reducer
 export const initialState: SalesFormState = {
   isFormDisplayed: false,
-  formType: null,
+  formType: FormType.empty,
 };
 
 interface SalesFormState {
-  formType: FormType | null;
+  formType: FormType;
   isFormDisplayed: boolean;
 }
 

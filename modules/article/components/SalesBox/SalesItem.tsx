@@ -3,7 +3,11 @@ import React, { FunctionComponent } from "react";
 
 import theme from "../../../../utils/theme";
 
-import { ArticleSalesFormAction, DISPLAY_MODAL, FormType } from "./state";
+import {
+  ArticleSalesFormAction,
+  createDisplayModalAction,
+  FormType,
+} from "./state";
 
 const SaleItemRoot = styled.div`
   display: flex;
@@ -40,12 +44,10 @@ export const SalesItem: FunctionComponent<{
   optionTitle: string;
   optionDescription: string;
   dispatch: (action: ArticleSalesFormAction) => void;
-}> = ({ imgSrc, optionDescription, optionTitle, dispatch }) => {
+  actionType: FormType;
+}> = ({ imgSrc, optionDescription, optionTitle, dispatch, actionType }) => {
   function dispatchShowModal() {
-    dispatch({
-      type: DISPLAY_MODAL,
-      payload: { formType: FormType.development },
-    });
+    dispatch(createDisplayModalAction(actionType));
   }
 
   return (

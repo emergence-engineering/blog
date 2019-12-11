@@ -67,11 +67,13 @@ const LabelSpan = styled.span`
 
 interface InputRowProps {
   name: string;
-  isRequired: boolean;
-  onChange: (evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  placeholder: string;
+  isRequired?: boolean;
+  onChange?: (evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  placeholder?: string;
   type: string;
   label: string;
+  readonly?: boolean;
+  value?: string;
 }
 
 interface TextAreaInputRowProps {
@@ -87,6 +89,8 @@ export const TextInputRow: FunctionComponent<InputRowProps> = ({
   type,
   label,
   placeholder,
+  readonly,
+  value,
 }) => (
   <InputRow>
     <Label htmlFor={name}>{label}</Label>
@@ -98,6 +102,8 @@ export const TextInputRow: FunctionComponent<InputRowProps> = ({
         required
         placeholder={placeholder}
         onChange={onChange}
+        readOnly={readonly}
+        value={value}
       />
     </InputWrapper>
   </InputRow>
