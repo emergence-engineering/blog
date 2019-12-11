@@ -27,6 +27,11 @@ export default {
     primary4: "#54e4f0",
     primary5: "#91f2fc",
     primary6: "#bdf3f1",
+    secondary1: "#f39046",
+    secondary2: "#ffbd75",
+    secondary3: "#ffcd90",
+    secondary4: "#ffdaa1",
+    secondary5: "#ffe7b2",
   },
   fontFamily: {
     general: "'Open sans', sans-serif",
