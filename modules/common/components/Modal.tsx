@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import theme from "../../../utils/theme";
+import theme, { screenSizes } from "../../../utils/theme";
 
 const Root = styled.div`
   position: fixed;
@@ -24,6 +24,10 @@ const ModalWrapper = styled.div`
   border-radius: 0.5em;
   opacity: 1;
   padding: 2rem;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    width: 100%;
+    min-height: 100%;
+  }
 `;
 
 const ModalHeaderRoot = styled.div`
