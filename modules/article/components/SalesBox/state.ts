@@ -1,8 +1,8 @@
 export enum FormType {
-  empty = 0,
-  videoConsultation,
-  training,
-  development,
+  empty = "empty",
+  videoConsultation = "videoConsultation",
+  training = "training",
+  development = "development",
 }
 
 // action types

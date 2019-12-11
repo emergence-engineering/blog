@@ -14,14 +14,13 @@ const SaleItemRoot = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 0.5rem 1rem;
+  border: 0.01rem solid transparent;
   :hover {
-    border-style: solid;
     border-color: ${theme.color.gray8};
-    border-width: 0.01rem;
     cursor: pointer;
-    box-shadow: 5px 5px 5px ${theme.color.gray8};
+    box-shadow: 0.3rem 0.3rem 0.3rem ${theme.color.gray8};
   }
-  transition: box-shadow 0.5s, border-style 0.5s;
+  transition: box-shadow 0.2s, border-style 0.2s;
 `;
 const OptionTextRoot = styled.div`
   padding-left: 1rem;
