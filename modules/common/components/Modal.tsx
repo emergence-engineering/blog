@@ -23,14 +23,42 @@ const ModalWrapper = styled.div`
   z-index: 101;
   border-radius: 0.5em;
   opacity: 1;
+  padding: 2rem;
 `;
 
-const Modal: FunctionComponent<{ onLoseFocus: () => void }> = ({
+const ModalHeaderRoot = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ModalTitle = styled.div`
+  font-family: ${theme.fontFamily.title};
+  font-weight: 800;
+  font-size: 2rem;
+`;
+const CloseIcon = styled.img``;
+
+const ModalHeader: FunctionComponent<{
+  title: string;
+  onClose: () => void;
+}> = ({ title, onClose }) => (
+  <ModalHeaderRoot>
+    <ModalTitle>{title}</ModalTitle>
+    <CloseIcon decoding="async" src="/material-close.svg" onClick={onClose} />
+  </ModalHeaderRoot>
+);
+
+const Modal: FunctionComponent<{ onLoseFocus: () => void; title: string }> = ({
   onLoseFocus,
+  title,
   children,
 }) => (
-  <Root onClick={onLoseFocus}>
-    <ModalWrapper>{children}</ModalWrapper>
+  <Root>
+    <ModalWrapper>
+      <ModalHeader title={title} onClose={onLoseFocus} />
+      {children}
+    </ModalWrapper>
   </Root>
 );
 

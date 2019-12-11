@@ -11,10 +11,10 @@ import styled from "styled-components";
 import {
   createHubSpotFormBody,
   formAddress,
-} from "../../../landingPage/utils/hubSpotContatForm";
-import { Button } from "../Button";
-import { post } from "../../../../utils/xhr";
-import Notice, { NoticeProps, NoticeType } from "../Notice";
+} from "../utils/hubSpotContatForm";
+import { Button } from "../../common/components/Button";
+import { post } from "../../../utils/xhr";
+import Notice, { NoticeProps, NoticeType } from "../../common/components/Notice";
 
 import { InputRow, TextAreaInputRow, TextInputRow } from "./TextInputRow";
 

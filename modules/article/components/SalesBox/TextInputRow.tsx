@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React, { ChangeEvent, FunctionComponent } from "react";
-
 import theme, { screenSizes } from "../../../../utils/theme";
 
 export const InputRow = styled.div`
@@ -22,7 +21,7 @@ const Label = styled.label`
   font-family: ${theme.fontFamily.title};
   font-size: 1.2rem;
   letter-spacing: 0.08rem;
-  color: ${theme.color.gray10};
+  color: ${theme.color.gray1};
 `;
 const Input = styled.input`
   display: block;
