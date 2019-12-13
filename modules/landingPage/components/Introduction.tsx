@@ -26,7 +26,7 @@ export const IntroductionParagraph = styled.p`
   font-size: 1.5rem;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
-  color: white;
+  color: ${theme.color.gray11};
   text-align: justify;
   text-justify: newspaper;
 `;
@@ -38,7 +38,7 @@ export const MainTitle = styled.div`
   width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
-  color: ${theme.color.accent};
+  color: ${theme.color.gray11};
 `;
 
 export const SubTitle = styled.span`
@@ -47,7 +47,7 @@ export const SubTitle = styled.span`
   width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: lighter;
-  color: white;
+  color: ${theme.color.gray11};
 `;
 
 export const HeaderWordEmphasis = styled.span`

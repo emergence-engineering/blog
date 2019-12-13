@@ -20,6 +20,7 @@ import {
 import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
 import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
+import AboutUsSection from "../modules/landingPage/components/AboutUsSection";
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
@@ -89,6 +90,8 @@ const Index: FunctionComponent<{} & ReturnType<
         <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
       </IntroductionSection>
     </IntroductionSectionWrapper>
+    <AboutUsSection />
+    <WhoAreWeSection />
     <CapabilitySection>
       <CapabilityBoxContainerWrapper>
         <CapabilityBoxContainer>
@@ -104,7 +107,6 @@ const Index: FunctionComponent<{} & ReturnType<
         </CapabilityBoxContainer>
       </CapabilityBoxContainerWrapper>
     </CapabilitySection>
-    <WhoAreWeSection />
     <TechnologySection />
     <SalesFormSection />
   </Layout>
