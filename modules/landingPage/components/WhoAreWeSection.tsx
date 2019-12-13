@@ -54,32 +54,45 @@ const SectionTitle = styled.h1`
   color: ${theme.color.gray10};
 `;
 
-const remoteAnswer = `
-We have experience in remotely work for clients inside the EU and the US, 
-either by integrating into an existing team or doing the job by only ourselves.
-`;
-const hardwareAnswer = `
-We can help you if you want your application to be able to communicate with
-special devices. We can design hardware that best fits needs.
-`;
+const title1 = `We can do complex things, in house`;
+const p1 = `Emergence Engineering is a web, mobile and hardware development agency. We plan out, design and build modern cloud based applications.`;
+
+const flexibleTitle = `We are flexible`;
+const flexibleText = `We can also integrate into ongoing projects with already established workflow and a sophisticated code base.`;
+
+const title2 = `We see the big picture`;
+const p2 = `We plan out our journey through the job to make the most out of our time.
+We break down the project into pieces that are easy to tackle in asynchronous way.
+We progress through the job in an efficient agile manner, finally connecting the pieces into a finished product.`;
+
+const title3 = `We deliver high quality products in a continuous and transparent manner`;
+const p3 = `You will see how your product is improved day by day. 
+Once the work plan has been established, we start to autonomously progress through.
+With our CI/CD tools, we are able to deliver the finished pieces as soon as they are done.
+We provide an environment where you can see the latest stable integrations,
+so you can share the latest improvements with your stakeholders, QA team and clients.`;
+
+const title4 = `We are a remote first team`;
+const p4 = `We value your time just as much as ours.
+We believe on on-demand meetings, there is no need meaningless waste of time.
+We tackle the pre-planned tasks asynchronously so our team members 
+don’t have to wait on each other, no time is wasted.`;
+
+const title5 = `We can do hardware`;
+const p5 = `If your mobile application needs to communicate with specific devices,
+we can design, prototype and build specific hardware and firmware. We can connect your
+mobile application to already existing hardware solution as well.`;
 
 const WhoAreWeSection: FunctionComponent<{}> = () => (
   <Root>
-    <SectionTitle>Who are we?</SectionTitle>
+    <SectionTitle>Why choose us?</SectionTitle>
     <IntroductionSection>
-      <QuestionRow
-        question="What are we?"
-        answer="We are a software engineering firm."
-      />
-      <QuestionRow
-        question="Why choose us?"
-        answer="We build performant, reliable and clean software."
-      />
-      <QuestionRow question="How do we work?" answer={remoteAnswer} />
-      <QuestionRow
-        question="What about specific hardware?"
-        answer={hardwareAnswer}
-      />
+      <QuestionRow question={title1} answer={p1} />
+      <QuestionRow question={flexibleTitle} answer={flexibleText} />
+      <QuestionRow question={title2} answer={p2} />
+      <QuestionRow question={title3} answer={p3} />
+      <QuestionRow question={title4} answer={p4} />
+      <QuestionRow question={title5} answer={p5} />
     </IntroductionSection>
   </Root>
 );
