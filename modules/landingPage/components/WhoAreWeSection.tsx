@@ -84,7 +84,8 @@ const p1 = `Emergence Engineering is a web, mobile and hardware development agen
 
 const businessTitle = `We focus on the goals of your business`;
 const businessText = `We care about your business. We are not just an other development firm that does the coding.
-We are keen on understanding your perspective and your business goals. We will do our best help you to achieve them.`;
+We are keen on understanding your perspective and your business goals. We will do our best to help you to achieve them.
+Apart from developing your solution, it is our job to help you in other fields of technology as well such as analytics and SEO.`;
 
 const flexibleTitle = `We are flexible`;
 const flexibleText = `We can also integrate into ongoing projects with already established workflow and a sophisticated code base.`;

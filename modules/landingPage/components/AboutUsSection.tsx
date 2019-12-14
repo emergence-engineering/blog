@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
@@ -81,7 +82,8 @@ const MemberLinkSection = styled.div`
   flex-direction: row;
 `;
 
-const MemberLink = styled.a`
+const MemberLinkAnchor = styled.a`
+  color: ${theme.color.gray1};
   text-decoration: none;
   cursor: pointer;
   padding: 0 0.2rem;
@@ -89,6 +91,14 @@ const MemberLink = styled.a`
     font-weight: 800;
   }
 `;
+const MemberLink: FunctionComponent<{ href: string; caption: string }> = ({
+  href,
+  caption,
+}) => (
+  <Link href={href} prefetch>
+    <MemberLinkAnchor>{caption}</MemberLinkAnchor>
+  </Link>
+);
 
 const Member: FunctionComponent<{
   src: string;
@@ -96,7 +106,17 @@ const Member: FunctionComponent<{
   memberRole: string;
   memberStack: string;
   memberWorkArea: string;
-}> = ({ src, memberName, memberRole, memberStack, memberWorkArea }) => (
+  cvLink: string;
+  linkedInLink: string;
+}> = ({
+  src,
+  memberName,
+  memberRole,
+  memberStack,
+  memberWorkArea,
+  cvLink,
+  linkedInLink,
+}) => (
   <MemberRoot>
     <FacePictureContainer>
       <FacePicture decoding="async" src={src} />
@@ -106,8 +126,10 @@ const Member: FunctionComponent<{
     <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
     <MemberStack>{memberStack}</MemberStack>
     <MemberLinkSection>
-      <MemberLink>LinkedIn</MemberLink>
-      <MemberLink>CV</MemberLink>
+      <MemberLink href={cvLink} caption="CV" />
+      <MemberLinkAnchor href={linkedInLink} target="_blank">
+        LinkedIn
+      </MemberLinkAnchor>
     </MemberLinkSection>
   </MemberRoot>
 );
@@ -122,6 +144,8 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         memberRole="Founder"
         memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
         memberStack="React.js Node.js Firebase"
+        cvLink="/cv/viktor"
+        linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
       />
       <Member
         src="/bio/balazs.jpg"
@@ -129,6 +153,8 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         memberRole="Founder"
         memberWorkArea="Fullstack JS | Microservices | Cloud"
         memberStack="React.js Node.js Go Firebase AWS"
+        cvLink="/cv/balazs"
+        linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
       />
     </SectionContentRoot>
   </Root>

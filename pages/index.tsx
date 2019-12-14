@@ -104,6 +104,11 @@ const Index: FunctionComponent<{} & ReturnType<
       backGroundColor={theme.color.gray11}
     />
     <WhoAreWeSection />
+    <Separator
+      height={0.2}
+      color={theme.color.tertiary}
+      backGroundColor={theme.color.gray11}
+    />
     <CapabilitySection>
       <CapabilityBoxContainerWrapper>
         <CapabilityBoxContainer>
