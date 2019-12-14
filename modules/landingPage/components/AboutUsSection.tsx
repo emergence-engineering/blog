@@ -42,12 +42,16 @@ const MemberRoot = styled.div`
 
 const FacePictureContainer = styled.div`
   width: 100%;
-  height: 7rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 `;
 const FacePicture = styled.img`
   height: 100%;
+  margin: 10px;
+  border: 10px;
+  border-radius: 25rem;
 `;
 
 const MemberName = styled.div`
@@ -59,6 +63,16 @@ const MemberName = styled.div`
 const MemberRole = styled.div`
   font-family: ${theme.fontFamily.title};
   font-size: 1.05rem;
+  color: ${theme.color.gray1};
+`;
+
+const MemberWorkArea = styled.div`
+  font-family: ${theme.fontFamily.title};
+  color: ${theme.color.gray1};
+`;
+
+const MemberStack = styled.div`
+  font-family: ${theme.fontFamily.title};
   color: ${theme.color.gray1};
 `;
 
@@ -80,13 +94,17 @@ const Member: FunctionComponent<{
   src: string;
   memberName: string;
   memberRole: string;
-}> = ({ src, memberName, memberRole }) => (
+  memberStack: string;
+  memberWorkArea: string;
+}> = ({ src, memberName, memberRole, memberStack, memberWorkArea }) => (
   <MemberRoot>
     <FacePictureContainer>
       <FacePicture decoding="async" src={src} />
     </FacePictureContainer>
     <MemberName>{memberName}</MemberName>
     <MemberRole>{memberRole}</MemberRole>
+    <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
+    <MemberStack>{memberStack}</MemberStack>
     <MemberLinkSection>
       <MemberLink>LinkedIn</MemberLink>
       <MemberLink>CV</MemberLink>
@@ -102,11 +120,15 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         src="/bio/viktor.png"
         memberName="Viktor Váczi"
         memberRole="Founder"
+        memberWorkArea="Electrical engineering | Fullstack JS | CI/CD"
+        memberStack="React.js Node.js Firebase"
       />
       <Member
         src="/bio/balazs.jpg"
         memberName="Balázs Horváth"
         memberRole="Founder"
+        memberWorkArea="Fullstack JS | Microservices | Cloud"
+        memberStack="React.js Node.js Go Firebase AWS"
       />
     </SectionContentRoot>
   </Root>
