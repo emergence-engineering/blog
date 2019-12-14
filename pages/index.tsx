@@ -94,19 +94,19 @@ const Index: FunctionComponent<{} & ReturnType<
     </IntroductionSectionWrapper>
     <Separator
       height={0.2}
-      color={theme.color.tertiary}
+      color={theme.color.primary}
       backGroundColor={theme.color.gray11}
     />
     <AboutUsSection />
     <Separator
       height={0.2}
-      color={theme.color.tertiary}
+      color={theme.color.primary}
       backGroundColor={theme.color.gray11}
     />
     <WhoAreWeSection />
     <Separator
       height={0.2}
-      color={theme.color.tertiary}
+      color={theme.color.primary}
       backGroundColor={theme.color.gray11}
     />
     <CapabilitySection>

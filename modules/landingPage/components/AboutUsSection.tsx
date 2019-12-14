@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import Link from "next/link";
+// import Link from "next/link";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
@@ -80,6 +80,7 @@ const MemberStack = styled.div`
 const MemberLinkSection = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 0.2rem;
 `;
 
 const MemberLinkAnchor = styled.a`
@@ -91,14 +92,24 @@ const MemberLinkAnchor = styled.a`
     font-weight: 800;
   }
 `;
-const MemberLink: FunctionComponent<{ href: string; caption: string }> = ({
-  href,
-  caption,
-}) => (
-  <Link href={href} prefetch>
-    <MemberLinkAnchor>{caption}</MemberLinkAnchor>
-  </Link>
-);
+const MemberLinkIcon = styled.i`
+  color: ${theme.color.gray1};
+  font-size: 1.6rem;
+  :hover {
+    color: ${theme.color.tertiary};
+  }
+`;
+
+// const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
+//   href,
+//   faClassName,
+// }) => (
+//   <Link href={href} prefetch>
+//     <MemberLinkAnchor>
+//       <MemberLinkIcon className={faClassName} />
+//     </MemberLinkAnchor>
+//   </Link>
+// );
 
 const Member: FunctionComponent<{
   src: string;
@@ -108,6 +119,7 @@ const Member: FunctionComponent<{
   memberWorkArea: string;
   cvLink: string;
   linkedInLink: string;
+  githubLink: string;
 }> = ({
   src,
   memberName,
@@ -116,6 +128,7 @@ const Member: FunctionComponent<{
   memberWorkArea,
   cvLink,
   linkedInLink,
+  githubLink,
 }) => (
   <MemberRoot>
     <FacePictureContainer>
@@ -126,9 +139,14 @@ const Member: FunctionComponent<{
     <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
     <MemberStack>{memberStack}</MemberStack>
     <MemberLinkSection>
-      <MemberLink href={cvLink} caption="CV" />
+      {/*
+      <MemberLink href={cvLink} faClassName="far fa-user" />
+*/}
       <MemberLinkAnchor href={linkedInLink} target="_blank">
-        LinkedIn
+        <MemberLinkIcon className="fab fa-linkedin" />
+      </MemberLinkAnchor>
+      <MemberLinkAnchor href={githubLink} target="_blank">
+        <MemberLinkIcon className="fab fa-github-square" />
       </MemberLinkAnchor>
     </MemberLinkSection>
   </MemberRoot>
@@ -146,6 +164,7 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         memberStack="React.js Node.js Firebase"
         cvLink="/cv/viktor"
         linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
+        githubLink="https://github.com/ViktorVaczi90"
       />
       <Member
         src="/bio/balazs.jpg"
@@ -155,6 +174,7 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         memberStack="React.js Node.js Go Firebase AWS"
         cvLink="/cv/balazs"
         linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
+        githubLink="https://github.com/horvath-balazs"
       />
     </SectionContentRoot>
   </Root>
