@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import theme, { sizes } from "../../../utils/theme";
+import { FAIcon } from "../../common/components/FAIcon";
 
 import { IntroductionSection } from "./Introduction";
 
@@ -16,18 +17,19 @@ const Root = styled.div`
   padding: 2rem ${sizes.sidePadding};
 `;
 
-const QuestionRowRoot = styled.div`
+const ContentRoot = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row;
   text-align: left;
+  padding: 1rem 0;
 `;
 
 const Question = styled.div`
   font-family: ${theme.fontFamily.title};
   font-size: 1.65rem;
   color: ${theme.color.gray1};
-  padding-bottom: 0.5rem;
+  margin-left: 0.5rem;
 `;
 
 const Answer = styled.div`
@@ -38,16 +40,39 @@ const Answer = styled.div`
   width: 100%;
   color: ${theme.color.gray1};
   padding-bottom: 1.2rem;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-top: 0.4rem;
+`;
+
+const TextRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const QuestionRow: FunctionComponent<{ question: string; answer: string }> = ({
   question,
   answer,
 }) => (
-  <QuestionRowRoot>
-    <Question>{question}</Question>
-    <Answer>{answer}</Answer>
-  </QuestionRowRoot>
+  <ContentRoot>
+    <TextRoot>
+      <TitleContainer>
+        <FAIcon
+          size={3}
+          color={theme.color.tertiary}
+          className="fas fa-chevron-circle-right"
+        />
+        <Question>{question}</Question>
+      </TitleContainer>
+      <Answer>{answer}</Answer>
+    </TextRoot>
+  </ContentRoot>
 );
 
 const SectionTitle = styled.h1`

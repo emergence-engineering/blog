@@ -46,6 +46,10 @@ export default class MyDocument extends Document {
           />
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+            rel="stylesheet"
+          />
+          <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300|Oswald"
             rel="stylesheet"
           />

@@ -53,7 +53,7 @@ const ContentWrapper = styled.div`
 `;
 
 const Anchor = styled.a<{ active: boolean }>`
-  color: ${({ active }) => (active ? theme.color.gray11 : theme.color.accent)};
+  color: ${({ active }) => (active ? theme.color.accent : theme.color.gray11)};
   cursor: pointer;
   margin: 0 10px;
   font-weight: 500;

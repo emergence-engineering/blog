@@ -9,7 +9,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: ${theme.color.gray10};
+  background-color: ${theme.color.gray11};
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
   padding: 2rem ${sizes.sidePadding};
@@ -49,9 +49,7 @@ const FacePictureContainer = styled.div`
 `;
 const FacePicture = styled.img`
   height: 100%;
-  margin: 10px;
-  border: 10px;
-  border-radius: 25rem;
+  border-radius: 50%;
 `;
 
 const MemberName = styled.div`
