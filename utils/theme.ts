@@ -32,6 +32,11 @@ export default {
     secondary3: "#ffcd90",
     secondary4: "#ffdaa1",
     secondary5: "#ffe7b2",
+    tertiary1: "#fa736e",
+    tertiary2: "#fa847c",
+    tertiary3: "#faa295",
+    tertiary4: "#fab7ab",
+    tertiary5: "#fac8be",
   },
   fontFamily: {
     general: "'Open sans', sans-serif",

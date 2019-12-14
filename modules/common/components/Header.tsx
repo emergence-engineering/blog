@@ -16,12 +16,15 @@ const Root = styled.div`
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
-  background-color: ${theme.color.primary};
+  background-color: ${theme.color.gray11};
   color: white;
   height: 100px;
   align-items: center;
   justify-content: center;
   padding: 0 ${sizes.sidePadding};
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: ${theme.color.gray8};
 `;
 
 const LeftContainer = styled.div``;
@@ -37,7 +40,7 @@ const SiteTitle = styled.a`
   font-weight: 700;
   font-variant: small-caps;
   text-decoration: none;
-  color: ${theme.color.gray10};
+  color: ${theme.color.gray1};
   font-family: "Oswald", sans-serif;
   @media screen and (max-width: ${screenSizes.medium}px) {
     font-size: 1.5rem;
@@ -53,15 +56,23 @@ const ContentWrapper = styled.div`
 `;
 
 const Anchor = styled.a<{ active: boolean }>`
-  color: ${({ active }) => (active ? theme.color.accent : theme.color.gray11)};
+  color: ${({ active }) => (active ? theme.color.gray11 : theme.color.gray1)};
   cursor: pointer;
   margin: 0 10px;
   font-weight: 500;
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
-  transition: text-shadow 1s ease; // TODO!
+  transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
+  border-radius: 0.3rem;
+  background-color: ${({ active }) =>
+    active ? theme.color.tertiary : theme.color.gray11};
+  padding: 0.3rem 1.2rem;
   @media screen and (max-width: ${screenSizes.medium}px) {
     font-size: 1rem;
+  }
+  :hover {
+    color: ${theme.color.gray11};
+    background-color: ${theme.color.tertiary5};
   }
 `;
 

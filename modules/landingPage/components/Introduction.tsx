@@ -5,7 +5,7 @@ import theme, { screenSizes, sizes } from "../../../utils/theme";
 export const IntroductionSectionWrapper = styled.div`
   width: 100%;
   min-height: 20rem;
-  background-color: ${theme.color.primary};
+  background-color: ${theme.color.gray11};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const IntroductionParagraph = styled.p`
   font-size: 1.5rem;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
-  color: ${theme.color.gray11};
+  color: ${theme.color.gray1};
   text-align: justify;
   text-justify: newspaper;
 `;
@@ -38,7 +38,7 @@ export const MainTitle = styled.div`
   width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
-  color: ${theme.color.gray11};
+  color: ${theme.color.gray1};
 `;
 
 export const SubTitle = styled.span`
@@ -47,7 +47,7 @@ export const SubTitle = styled.span`
   width: 100%;
   font-family: ${theme.fontFamily.title};
   font-weight: lighter;
-  color: ${theme.color.gray11};
+  color: ${theme.color.gray1};
 `;
 
 export const HeaderWordEmphasis = styled.span`
