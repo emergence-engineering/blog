@@ -67,11 +67,13 @@ const MemberRole = styled.div`
 const MemberWorkArea = styled.div`
   font-family: ${theme.fontFamily.title};
   color: ${theme.color.gray1};
+  text-align: center;
 `;
 
 const MemberStack = styled.div`
   font-family: ${theme.fontFamily.title};
   color: ${theme.color.gray1};
+  text-align: center;
 `;
 
 const MemberLinkSection = styled.div`
@@ -118,7 +120,7 @@ const AboutUsSection: FunctionComponent<{}> = () => (
         src="/bio/viktor.png"
         memberName="Viktor Váczi"
         memberRole="Founder"
-        memberWorkArea="Electrical engineering | Fullstack JS | CI/CD"
+        memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
         memberStack="React.js Node.js Firebase"
       />
       <Member

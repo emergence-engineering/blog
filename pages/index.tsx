@@ -66,11 +66,11 @@ const CapabilityBoxes = [
     iconSrc: "/icons/cloud-computing.svg",
   },
   {
-    title: "AI solutions",
-    content: `We have experience in using cutting edge deep learning solutions.
-    We are ready to deploy a neural network either to the backend or to the
-    front-end using Google's TensorFlow.js`,
-    iconSrc: "/icons/think.svg",
+    title: "Hardware solutions",
+    content: `
+    We can design and prototype new hardware or extend an already existing one.
+    We can connect your application to IoT devices, sensors or actuators.`,
+    iconSrc: "/icons/settings.svg",
   },
   {
     title: "Trainings",
