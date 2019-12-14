@@ -9,10 +9,10 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: ${theme.color.gray11};
+  background-color: #ecd2d20d;
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
-  padding: 2rem ${sizes.sidePadding};
+  padding: 4rem ${sizes.sidePadding};
 `;
 
 const SectionTitle = styled.h1`

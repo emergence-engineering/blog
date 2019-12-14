@@ -6,11 +6,11 @@ import Layout from "../modules/common/components/Layout";
 import { addSampleAction } from "../setup/actions/sample/actions";
 import CapabilityBox from "../modules/landingPage/components/CapabilityBox";
 import {
-  MainTitle,
   IntroductionParagraph,
   IntroductionSection,
-  SubTitle,
   IntroductionSectionWrapper,
+  MainTitle,
+  SubTitle,
 } from "../modules/landingPage/components/Introduction";
 import {
   CapabilityBoxContainer,
@@ -21,6 +21,8 @@ import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
 import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
 import AboutUsSection from "../modules/landingPage/components/AboutUsSection";
+import { Separator } from "../modules/common/components/Separator";
+import theme from "../utils/theme";
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
@@ -90,7 +92,17 @@ const Index: FunctionComponent<{} & ReturnType<
         <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
       </IntroductionSection>
     </IntroductionSectionWrapper>
+    <Separator
+      height={0.2}
+      color={theme.color.tertiary}
+      backGroundColor={theme.color.gray11}
+    />
     <AboutUsSection />
+    <Separator
+      height={0.2}
+      color={theme.color.tertiary}
+      backGroundColor={theme.color.gray11}
+    />
     <WhoAreWeSection />
     <CapabilitySection>
       <CapabilityBoxContainerWrapper>
