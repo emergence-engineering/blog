@@ -6,11 +6,11 @@ import Layout from "../modules/common/components/Layout";
 import { addSampleAction } from "../setup/actions/sample/actions";
 import CapabilityBox from "../modules/landingPage/components/CapabilityBox";
 import {
-  MainTitle,
   IntroductionParagraph,
   IntroductionSection,
-  SubTitle,
   IntroductionSectionWrapper,
+  MainTitle,
+  SubTitle,
 } from "../modules/landingPage/components/Introduction";
 import {
   CapabilityBoxContainer,
@@ -20,6 +20,9 @@ import {
 import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
 import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
+import AboutUsSection from "../modules/landingPage/components/AboutUsSection";
+import { Separator } from "../modules/common/components/Separator";
+import theme from "../utils/theme";
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
@@ -63,11 +66,11 @@ const CapabilityBoxes = [
     iconSrc: "/icons/cloud-computing.svg",
   },
   {
-    title: "AI solutions",
-    content: `We have experience in using cutting edge deep learning solutions.
-    We are ready to deploy a neural network either to the backend or to the
-    front-end using Google's TensorFlow.js`,
-    iconSrc: "/icons/think.svg",
+    title: "Hardware solutions",
+    content: `
+    We can design and prototype new hardware or extend an already existing one.
+    We can connect your application to IoT devices, sensors or actuators.`,
+    iconSrc: "/icons/settings.svg",
   },
   {
     title: "Trainings",
@@ -89,6 +92,23 @@ const Index: FunctionComponent<{} & ReturnType<
         <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
       </IntroductionSection>
     </IntroductionSectionWrapper>
+    <Separator
+      height={0.2}
+      color={theme.color.primary}
+      backGroundColor={theme.color.gray11}
+    />
+    <AboutUsSection />
+    <Separator
+      height={0.2}
+      color={theme.color.primary}
+      backGroundColor={theme.color.gray11}
+    />
+    <WhoAreWeSection />
+    <Separator
+      height={0.2}
+      color={theme.color.primary}
+      backGroundColor={theme.color.gray11}
+    />
     <CapabilitySection>
       <CapabilityBoxContainerWrapper>
         <CapabilityBoxContainer>
@@ -104,7 +124,6 @@ const Index: FunctionComponent<{} & ReturnType<
         </CapabilityBoxContainer>
       </CapabilityBoxContainerWrapper>
     </CapabilitySection>
-    <WhoAreWeSection />
     <TechnologySection />
     <SalesFormSection />
   </Layout>
