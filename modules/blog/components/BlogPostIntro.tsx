@@ -26,7 +26,7 @@ const PostTitle = styled.div`
   font-size: 2rem;
   text-decoration: underline;
   text-decoration-color: ${theme.color.tertiary};
-`
+`;
 
 const Root = styled.div``;
 
