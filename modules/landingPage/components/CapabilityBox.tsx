@@ -39,14 +39,14 @@ const SvgImg = styled.img`
 `;
 
 const Content = styled.p`
-  color: ${theme.color.primary1};
+  color: ${theme.color.gray1};
   font-family: Tahoma, serif;
   font-weight: 200;
 `;
 
 const TitleContainer = styled.div`
   flex: 2;
-  color: ${theme.color.primary1};
+  color: ${theme.color.gray1};
   width: 100%;
   font-weight: 900;
   font-size: 1.7rem;

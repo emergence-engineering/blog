@@ -57,7 +57,7 @@ const LogoColumnRoot = styled.div`
 `;
 
 const Title = styled.div`
-  color: ${theme.color.primary1};
+  color: ${theme.color.gray1};
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;

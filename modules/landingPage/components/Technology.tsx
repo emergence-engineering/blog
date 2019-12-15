@@ -82,7 +82,7 @@ const ai: LogoColumnProps = {
 };
 
 const Title = styled.h1`
-  color: ${theme.color.primary1};
+  color: ${theme.color.gray1};
   font-family: "Oswald", sans-serif;
 `;
 

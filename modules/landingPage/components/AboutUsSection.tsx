@@ -55,6 +55,7 @@ const FacePicture = styled.img`
 
 const MemberName = styled.div`
   font-family: ${theme.fontFamily.title};
+  font-weight: 800;
   font-size: 1.35rem;
   color: ${theme.color.gray1};
 `;
@@ -159,7 +160,7 @@ const AboutUsSection: FunctionComponent<{}> = () => (
       <Member
         src="/bio/viktor.png"
         memberName="Viktor Váczi"
-        memberRole="Founder"
+        memberRole="co-founder"
         memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
         memberStack="React.js Node.js Firebase"
         cvLink="/cv/viktor"
@@ -169,7 +170,7 @@ const AboutUsSection: FunctionComponent<{}> = () => (
       <Member
         src="/bio/balazs.jpg"
         memberName="Balázs Horváth"
-        memberRole="Founder"
+        memberRole="co-founder"
         memberWorkArea="Fullstack JS | Microservices | Cloud"
         memberStack="React.js Node.js Go Firebase AWS"
         cvLink="/cv/balazs"

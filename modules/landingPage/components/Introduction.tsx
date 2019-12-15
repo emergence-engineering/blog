@@ -39,6 +39,8 @@ export const MainTitle = styled.div`
   font-family: ${theme.fontFamily.title};
   font-weight: bold;
   color: ${theme.color.gray1};
+  text-decoration: underline;
+  text-decoration-color: ${theme.color.tertiary};
 `;
 
 export const SubTitle = styled.span`
