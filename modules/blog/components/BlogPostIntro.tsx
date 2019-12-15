@@ -12,9 +12,21 @@ const ReadMoreLink = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-family: ${theme.fontFamily.title};
+  font-size: 1.2rem;
+  :hover {
+    color: ${theme.color.tertiary};
+  }
 `;
 
 const PostMetadataContainer = styled.div``;
+
+const PostTitle = styled.div`
+  font-family: ${theme.fontFamily.title};
+  font-weight: 800;
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: ${theme.color.tertiary};
+`
 
 const Root = styled.div``;
 
@@ -24,7 +36,7 @@ const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
   const postDate = convertTimestampToLocaleDateString(timestamp);
   return (
     <Root>
-      <h1>{title}</h1>
+      <PostTitle>{title}</PostTitle>
       <PostMetadataContainer>
         <span>
           By {author} on <AsyncSVGIcon src="/material-calendar.svg" />
