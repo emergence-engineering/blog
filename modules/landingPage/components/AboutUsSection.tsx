@@ -41,14 +41,14 @@ const MemberRoot = styled.div`
   padding: 2rem 0;
 `;
 
-const FacePictureContainer = styled.div`
+export const FacePictureContainer = styled.div`
   width: 100%;
   height: 10rem;
   display: flex;
   justify-content: center;
   padding-bottom: 2rem;
 `;
-const FacePicture = styled.img`
+export const FacePicture = styled.img`
   height: 100%;
   border-radius: 50%;
 `;
