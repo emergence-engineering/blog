@@ -103,12 +103,6 @@ const Index: FunctionComponent<{} & ReturnType<
       color={theme.color.tertiary}
       backGroundColor={theme.color.gray11}
     />
-    <WhoAreWeSection />
-    <Separator
-      height={0.2}
-      color={theme.color.tertiary}
-      backGroundColor={theme.color.gray11}
-    />
     <CapabilitySection>
       <CapabilityBoxContainerWrapper>
         <CapabilityBoxContainer>
@@ -124,6 +118,17 @@ const Index: FunctionComponent<{} & ReturnType<
         </CapabilityBoxContainer>
       </CapabilityBoxContainerWrapper>
     </CapabilitySection>
+    <Separator
+      height={0.2}
+      color={theme.color.tertiary}
+      backGroundColor={theme.color.gray11}
+    />
+    <WhoAreWeSection />
+    <Separator
+      height={0.2}
+      color={theme.color.tertiary}
+      backGroundColor={theme.color.gray11}
+    />
     <TechnologySection />
     <SalesFormSection />
   </Layout>
