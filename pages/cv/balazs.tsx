@@ -58,6 +58,8 @@ const BalazsCV: FunctionComponent<{}> = () => (
           imgSrc={imgSrc}
           name="Balázs Horváth"
           roleText="co-founder"
+          linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
+          githubLink="https://github.com/horvath-balazs"
         />
         <Introduction>{introText}</Introduction>
         <TimelineContainerRoot>
@@ -71,26 +73,28 @@ const BalazsCV: FunctionComponent<{}> = () => (
             />
             <TimelineItem
               timelineLabel=">"
+              duration="~half year"
+              eventTitle="Blockchain project for a London based Advertising company"
+              eventDescription={`
+              Wanted to do something new, I was offered to learn IBM's HyperLedger Fabric blockchain system and
+              join an ongoing blockchain project. I developed chaincode in Go, and built an API with Fabric Node.js SDK.`}
+            />
+            <TimelineItem
+              timelineLabel="2018"
               duration=""
               eventTitle="AWS Certified Developer"
               eventDescription="Certification ID: 8F340GF1JJE11RCL"
             />
             <TimelineItem
               timelineLabel=">"
-              duration="~half year"
-              eventTitle="Blockchain developer for a London based Advertising company"
-              eventDescription="Wanted to do something new, I was offered to join an ongoing blockchain project. Chaincode development in Go."
-            />
-            <TimelineItem
-              timelineLabel=">"
               duration="~3 months"
-              eventTitle="Team lead developer for a London based multinational company"
+              eventTitle="Fullstack React project team lead for a London based multinational company"
               eventDescription="Lead developer of a small team. Fullstack work, porting old solutions to- and prototyping new thing in Node.js and React.js"
             />
             <TimelineItem
               timelineLabel=">"
               duration="~1 year"
-              eventTitle="Team lead developer for a London based Medical-Tech startup"
+              eventTitle="iOS app project team lead developer for a London based Medical-Tech startup"
               eventDescription="Web and iOS app development. Fullstack work: React.js, Node.js. In the second half of the project promotion to team lead developer for the project: sprint planning, task delegation, technology decisions,"
             />
             <TimelineItem

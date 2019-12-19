@@ -49,7 +49,7 @@ I'm a pro foosball player, and a hobby musician.
 `;
 const imgSrc = "/bio/viktor.png";
 
-const BalazsCV: FunctionComponent<{}> = () => (
+const ViktorCV: FunctionComponent<{}> = () => (
   <Layout>
     <Root>
       <Content>
@@ -57,6 +57,8 @@ const BalazsCV: FunctionComponent<{}> = () => (
           imgSrc={imgSrc}
           name="Viktor Váczi"
           roleText="co-founder"
+          linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
+          githubLink="https://github.com/ViktorVaczi90"
         />
         <Introduction>{introText}</Introduction>
         <TimelineContainerRoot>
@@ -69,19 +71,19 @@ const BalazsCV: FunctionComponent<{}> = () => (
               duration=""
             />
             <TimelineItem
-              timelineLabel="2018"
+              timelineLabel=">"
               duration="~1 year"
-              eventTitle="Full Stack developer at Chapterly"
+              eventTitle="Greenfield fullstack development project for Chapterly"
               eventDescription="As a part of a small but focused team helped to make Chapterly a reality. A really interesting PWA, involving an offline custom collaborative editor, an image editor, back-end document format conversion, LaTeX book generation and a lot of other things."
             />
             <TimelineItem
-              timelineLabel="2017"
+              timelineLabel=">"
               duration="1 year"
-              eventTitle="Front-end developer at pissup.com"
+              eventTitle="Front-end development project for pissup.com"
               eventDescription="Helped in the performance optimization of the existing back office site, developed a brand new customer site. Also helped a junior developer with essentially zero React experience to get up to speed, and be a valuable part of the team."
             />
             <TimelineItem
-              timelineLabel="2017"
+              timelineLabel=">"
               duration="~1 year"
               eventTitle="Enterprise investment platform development"
               eventDescription="Node.js backend with PostgreSQL, React front-end. It was a huge application with many contributors and interesting performance optimizations."
@@ -89,7 +91,8 @@ const BalazsCV: FunctionComponent<{}> = () => (
             <TimelineItem
               timelineLabel="2014"
               duration="2 years"
-              eventTitle="Lead developer for Tru2Air (US)"
+              eventTitle="Contract Lead developer for Tru2Air (US)"
+              specialEventText="First project together with Balázs the co-founder of Emergence Engineering"
               eventDescription="Developed a plug and play protocol over I2C and a custom protocol for accessing sensors over 6LoWPAN and RPL using RIOT and later Contiki OS. I've also worked on a Node.js backend and the React front-end. I've also created a lot of prototypes which involved a lot of SMD work, and designed / printed a custom 3d printed case."
             />
             <TimelineItem
@@ -99,7 +102,7 @@ const BalazsCV: FunctionComponent<{}> = () => (
               duration=""
             />
             <TimelineItem
-              timelineLabel="2012"
+              timelineLabel=">"
               eventTitle="FPGA competition 3rd place"
               eventDescription="At our university we had an FPGA competition with the end goal of a Tetris game. Created a VGA, synth and game logic with Verilog. For bitmap generation our two-person team made a C# application."
               duration=""
@@ -118,4 +121,4 @@ const BalazsCV: FunctionComponent<{}> = () => (
   </Layout>
 );
 
-export default BalazsCV;
+export default ViktorCV;
