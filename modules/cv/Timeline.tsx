@@ -55,6 +55,15 @@ const TimelineItemTitle = styled.div`
   text-decoration-color: ${theme.color.tertiary};
 `;
 
+const SpecialEventText = styled.div`
+  font-family: ${theme.fontFamily.title};
+  background-color: ${theme.color.tertiary};
+  color: ${theme.color.gray11};
+  display: inline-block;
+  padding: 0.15rem 0.25rem;
+  border-radius: 2rem%;
+`;
+
 const TimelineItemDuration = styled.div`
   font-family: ${theme.fontFamily.title};
   font-size: 1em;
@@ -70,14 +79,25 @@ export const TimelineItem: FunctionComponent<{
   eventTitle: string;
   eventDescription: string;
   duration: string;
-}> = ({ position, eventTitle, eventDescription, timelineLabel, duration }) => (
+  specialEventText?: string;
+}> = ({
+  position,
+  eventTitle,
+  eventDescription,
+  timelineLabel,
+  duration,
+  specialEventText,
+}) => (
   <TimelineItemContainer position={position}>
     <TimelineItemLabel>{timelineLabel}</TimelineItemLabel>
     <TimelineItemText>
       <TimelineItemTitle>{eventTitle}</TimelineItemTitle>
-      {duration === "" ? null : (
+      {specialEventText ? (
+        <SpecialEventText>{specialEventText}</SpecialEventText>
+      ) : null}
+      {duration !== "" ? (
         <TimelineItemDuration>Duration: {duration}</TimelineItemDuration>
-      )}
+      ) : null}
       <TimelineItemDescription>{eventDescription}</TimelineItemDescription>
     </TimelineItemText>
   </TimelineItemContainer>
