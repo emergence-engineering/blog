@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-// import Link from "next/link";
+import Link from "next/link";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
@@ -41,14 +41,14 @@ const MemberRoot = styled.div`
   padding: 2rem 0;
 `;
 
-const FacePictureContainer = styled.div`
+export const FacePictureContainer = styled.div`
   width: 100%;
   height: 10rem;
   display: flex;
   justify-content: center;
   padding-bottom: 2rem;
 `;
-const FacePicture = styled.img`
+export const FacePicture = styled.img`
   height: 100%;
   border-radius: 50%;
 `;
@@ -101,16 +101,16 @@ const MemberLinkIcon = styled.i`
   }
 `;
 
-// const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
-//   href,
-//   faClassName,
-// }) => (
-//   <Link href={href} prefetch>
-//     <MemberLinkAnchor>
-//       <MemberLinkIcon className={faClassName} />
-//     </MemberLinkAnchor>
-//   </Link>
-// );
+const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
+  href,
+  faClassName,
+}) => (
+  <Link href={href} prefetch>
+    <MemberLinkAnchor>
+      <MemberLinkIcon className={faClassName} />
+    </MemberLinkAnchor>
+  </Link>
+);
 
 const Member: FunctionComponent<{
   src: string;
@@ -140,9 +140,7 @@ const Member: FunctionComponent<{
     <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
     <MemberStack>{memberStack}</MemberStack>
     <MemberLinkSection>
-      {/*
-      <MemberLink href={cvLink} faClassName="far fa-user" />
-*/}
+      <MemberLink href={cvLink} faClassName="far fa-address-card" />
       <MemberLinkAnchor href={linkedInLink} target="_blank">
         <MemberLinkIcon className="fab fa-linkedin" />
       </MemberLinkAnchor>
