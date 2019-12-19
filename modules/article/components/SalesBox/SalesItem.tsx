@@ -28,8 +28,8 @@ const OptionTextRoot = styled.div`
   flex-direction: column;
 `;
 const OptionIcon = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 80px;
+  height: 80px;
 `;
 const OptionTitle = styled.div`
   font-family: ${theme.fontFamily.title};
