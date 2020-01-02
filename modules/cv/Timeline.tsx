@@ -9,7 +9,7 @@ const mapPositionToAlign = (position?: PositionType): string => {
     case "TOP":
       return "start";
     case "BOTTOM":
-      return "end";
+      return "flex-end";
     default:
       return "center";
   }
