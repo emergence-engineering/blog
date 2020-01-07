@@ -46,7 +46,7 @@ I am an open-source software and Linux enthusiast. Currently my main interests a
 I hold a masters degree in Molecular Biology from ELTE with specialization in Bioinformatics. 
 I spent my time in the IT and the Physics programmes of the same university before finally switching
 to bioinformatics. 
-I am dog person, my hobbies are photoraphy, a powerlifting and Brazilian Jiu Jitsu.
+I am dog person, my hobbies are photography, powerlifting and Brazilian Jiu Jitsu.
 `;
 const imgSrc = "/bio/balazs.jpg";
 

@@ -105,14 +105,14 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
   href,
   faClassName,
 }) => (
-  <Link href={href} prefetch>
+  <Link href={href}>
     <MemberLinkAnchor>
       <MemberLinkIcon className={faClassName} />
     </MemberLinkAnchor>
   </Link>
 );
 
-const Member: FunctionComponent<{
+export const Member: FunctionComponent<{
   src: string;
   memberName: string;
   memberRole: string;

@@ -76,6 +76,27 @@ const Anchor = styled.a<{ active: boolean }>`
   }
 `;
 
+const ContactUsLink = styled.a`
+  cursor: pointer;
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
+  border-radius: 0.3rem;
+  background-color: ${theme.color.primary};
+  color: ${theme.color.gray11};
+  padding: 0.3rem 1.2rem;
+  text-decoration: none;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    font-size: 1rem;
+  }
+  :hover {
+    color: ${theme.color.gray11};
+    background-color: ${theme.color.primary3};
+  }
+`;
+
 interface HeaderLinkProps {
   href: string;
   caption: string;
@@ -104,6 +125,9 @@ const Header: FunctionComponent<{}> = () => (
         <RightContainer>
           <HeaderLink href="/" caption="Home" />
           <HeaderLink href="/blog" caption="Blog" />
+          <HeaderLink href="/team" caption="Team" />
+          <HeaderLink href="/references" caption="References" />
+          <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
         </RightContainer>
       </ContentWrapper>
     </Root>
