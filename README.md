@@ -10,35 +10,41 @@
 
 ## How to set up
 
-Just run `npm i` in the root folder.
-You also should set the firebase connection. For that you either have to ask for a
-.env file which has all the necessary info, or create a new firebase project and
-a .env file.
+- Run `npm i` in the root folder.
+- Create '.env' file in the root folder ( or ask your team for one ) to confiugure firebase.
 
 ### How to set up firebase.
 
 1. [Register to firebase](firebase.google.com)
+
 2. [Go to the firebase console](https://console.firebase.google.com), and create
    a new Firebase project
-3. Add app to your project by going to project Settings, and in the `Your apps` part
-   click on the web app icon. Give a name to your new app ( the same as the project is ok ).
-   For development you don't need hosting.
-   On the finishing screen you'll get all the necessary info, that you will need to fill out
-   the .env file which you have to create on the root.
-   The env file structure is the following:
-   ```
-    FIREBASE_API_KEY=<apiKey>
-    FIREBASE_PROJECT_ID=<projectId>
-    FIREBASE_SENDER_ID=<messagingSenderId>
-    FIREBASE_APP_ID=<appId>
-   ```
-4. On the firebase console, click on your project name.
-   That leads you to the firebase manager. Click on database in the `Develop` section.
-   Click on Create database, select `Start in test mode`, on the next page, select a location close to your
-   firebase db should be ready, and you can view all your data there.
 
-5. Auth set-up: Go to firebase console, click on `Authentication`. Enable Email/Password login and Google login
-   ( select project support email too ).
+3. Add your app to your project:
+    - Click the gear icon and go to the project settings.
+    - Scroll down and, in the `Your apps` section, click on the `< \>` icon to add your first app.
+    - Set the name ( Best practice: Set it to the GitLab project name ).
+    - Hosting is NOT required for development.
+    - After clicking on Register App you will see the config settings. Use it to fill in the created `.env` file:
+      ```
+       FIREBASE_API_KEY=<apiKey>
+       FIREBASE_PROJECT_ID=<projectId>
+       FIREBASE_SENDER_ID=<messagingSenderId>
+       FIREBASE_APP_ID=<appId>
+      ```
+    - After exiting the app registration, you will arive on the project main screen.
+
+4. Create your database:
+    - In your project, on the sidebar, under `Development`, click `Database`.
+    - On top, in `Cloud Firestore`, click on `Create Database`.
+    - Choose `Start in test mode` and select a location.
+    - Click on next and done.
+    - Here you can see al the data you stored.
+
+5. Auth set-up: 
+    - In your project, on the sidebar, under `Development`, click `Authentication`.
+    - Click the `Sign-in Metod` tab.
+    - Enable `Email/Password` and `Google`
 
 ## Storybook
 Storybook is used to test componens in a separate environment, it's also a way of providing sample
