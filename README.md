@@ -11,7 +11,7 @@
 ## How to set up
 
 - Run `npm i` in the root folder.
-- Create '.env' file in the root folder ( or ask your team for one ) to confiugure firebase.
+- Create '.env' file in the root folder ( or ask your team for one ) to configure firebase.
 
 ### How to set up firebase.
 
