@@ -154,7 +154,13 @@ const Header: FunctionComponent<{}> = () => (
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
           </BigScreenContainer>
           <MobileContainer>
-            <HamburgerMenu />
+            <HamburgerMenu>
+              <HeaderLink href="/" caption="Home" />
+              <HeaderLink href="/blog" caption="Blog" />
+              <HeaderLink href="/team" caption="Team" />
+              <HeaderLink href="/references" caption="Open source projects" />
+              <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
+            </HamburgerMenu>
           </MobileContainer>
         </RightContainer>
       </ContentWrapper>

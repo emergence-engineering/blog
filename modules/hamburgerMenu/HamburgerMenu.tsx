@@ -13,7 +13,12 @@ export const HamburgerIcon = styled.i`
   }
 `;
 
-const HamburgerMenu: FunctionComponent<{}> = () => {
+const MenuItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const HamburgerMenu: FunctionComponent<{}> = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false);
   function closeMenu() {
     setIsOpened(false);
@@ -25,7 +30,11 @@ const HamburgerMenu: FunctionComponent<{}> = () => {
     <div>
       <HamburgerIcon className="fas fa-bars" onClick={openMenu} />
       {isOpened ? (
-        <Modal onLoseFocus={closeMenu} title="Menu" fillScreen />
+        <Modal onLoseFocus={closeMenu} title="Menu" fillScreen>
+          <MenuItemsContainer onClick={closeMenu}>
+            {children}
+          </MenuItemsContainer>
+        </Modal>
       ) : null}
     </div>
   );
