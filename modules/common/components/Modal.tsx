@@ -16,9 +16,17 @@ const Root = styled.div`
   align-items: center;
 `;
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<{ fillScreen?: boolean }>`
+  ${({ fillScreen }) =>
+    fillScreen
+      ? `
+  width: 100%;
+  min-height: 100%;
+  `
+      : `
   width: 55%;
   min-height: 20rem;
+  `}
   background-color: ${theme.color.gray10};
   z-index: 101;
   border-radius: 0.5em;
@@ -41,7 +49,9 @@ const ModalTitle = styled.div`
   font-weight: 800;
   font-size: 2rem;
 `;
-const CloseIcon = styled.img``;
+const CloseIcon = styled.img`
+  cursor: pointer;
+`;
 
 const ModalHeader: FunctionComponent<{
   title: string;
@@ -53,13 +63,13 @@ const ModalHeader: FunctionComponent<{
   </ModalHeaderRoot>
 );
 
-const Modal: FunctionComponent<{ onLoseFocus: () => void; title: string }> = ({
-  onLoseFocus,
-  title,
-  children,
-}) => (
+const Modal: FunctionComponent<{
+  onLoseFocus: () => void;
+  title: string;
+  fillScreen?: boolean;
+}> = ({ onLoseFocus, title, fillScreen, children }) => (
   <Root>
-    <ModalWrapper>
+    <ModalWrapper fillScreen={fillScreen}>
       <ModalHeader title={title} onClose={onLoseFocus} />
       {children}
     </ModalWrapper>

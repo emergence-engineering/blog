@@ -8,6 +8,7 @@ import { WithRouterProps } from "next/dist/client/with-router";
 import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
+import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -42,13 +43,23 @@ const SiteTitle = styled.a`
   text-decoration: none;
   color: ${theme.color.gray1};
   font-family: "Oswald", sans-serif;
-  @media screen and (max-width: ${screenSizes.medium}px) {
-    font-size: 1.5rem;
+  @media screen and (max-width: ${screenSizes.large}px) {
+    font-size: 1.4rem;
+  }
+  @media screen and (min-width: ${screenSizes.large}px) and (max-width: ${screenSizes.extraLarge}px) {
+    font-size: 2rem;
   }
 `;
 
 const ContentWrapper = styled.div`
-  max-width: ${screenSizes.maxWidth}px;
+  @media screen and (min-width: ${screenSizes.extraLarge}px) {
+    padding-left: 10.5%;
+    padding-right: 10.5%;
+  }
+  @media screen and (min-width: ${screenSizes.large}px) and (max-width: ${screenSizes.extraLarge}px) {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+  }
   flex-grow: 1;
   display: flex;
   align-items: baseline;
@@ -60,7 +71,7 @@ const Anchor = styled.a<{ active: boolean }>`
   cursor: pointer;
   margin: 0 10px;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-family: "Oswald", sans-serif;
   transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
   border-radius: 0.3rem;
@@ -73,6 +84,24 @@ const Anchor = styled.a<{ active: boolean }>`
   :hover {
     color: ${theme.color.gray11};
     background-color: ${theme.color.tertiary5};
+  }
+`;
+
+const ContactUsLink = styled.a`
+  cursor: pointer;
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
+  color: ${theme.color.tertiary};
+  padding: 0.3rem 1.2rem;
+  text-decoration: none;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    font-size: 1rem;
+  }
+  :hover {
+    color: ${theme.color.tertiary5};
   }
 `;
 
@@ -94,6 +123,21 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps &
 
 const HeaderLink = withRouter(HeaderLinkRoot);
 
+const MobileContainer = styled.div`
+  display: none;
+  @media screen and (max-width: ${screenSizes.large}px) {
+    display: block;
+  }
+`;
+
+const BigScreenContainer = styled.div`
+  display: none;
+  @media screen and (min-width: ${screenSizes.large}px) {
+    display: flex;
+    justify-items: flex-end;
+  }
+`;
+
 const Header: FunctionComponent<{}> = () => (
   <Headroom>
     <Root>
@@ -102,8 +146,22 @@ const Header: FunctionComponent<{}> = () => (
           <SiteTitle href="/">Emergence Engineering</SiteTitle>
         </LeftContainer>
         <RightContainer>
-          <HeaderLink href="/" caption="Home" />
-          <HeaderLink href="/blog" caption="Blog" />
+          <BigScreenContainer>
+            <HeaderLink href="/" caption="Home" />
+            <HeaderLink href="/blog" caption="Blog" />
+            <HeaderLink href="/team" caption="Team" />
+            <HeaderLink href="/references" caption="Open source projects" />
+            <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
+          </BigScreenContainer>
+          <MobileContainer>
+            <HamburgerMenu>
+              <HeaderLink href="/" caption="Home" />
+              <HeaderLink href="/blog" caption="Blog" />
+              <HeaderLink href="/team" caption="Team" />
+              <HeaderLink href="/references" caption="Open source projects" />
+              <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
+            </HamburgerMenu>
+          </MobileContainer>
         </RightContainer>
       </ContentWrapper>
     </Root>

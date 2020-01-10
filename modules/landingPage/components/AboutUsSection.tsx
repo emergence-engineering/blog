@@ -105,22 +105,22 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
   href,
   faClassName,
 }) => (
-  <Link href={href} prefetch>
+  <Link href={href}>
     <MemberLinkAnchor>
       <MemberLinkIcon className={faClassName} />
     </MemberLinkAnchor>
   </Link>
 );
 
-const Member: FunctionComponent<{
+export const Member: FunctionComponent<{
   src: string;
   memberName: string;
   memberRole: string;
   memberStack: string;
   memberWorkArea: string;
-  cvLink: string;
-  linkedInLink: string;
-  githubLink: string;
+  cvLink?: string;
+  linkedInLink?: string;
+  githubLink?: string;
 }> = ({
   src,
   memberName,
@@ -140,13 +140,19 @@ const Member: FunctionComponent<{
     <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
     <MemberStack>{memberStack}</MemberStack>
     <MemberLinkSection>
-      <MemberLink href={cvLink} faClassName="far fa-address-card" />
-      <MemberLinkAnchor href={linkedInLink} target="_blank">
-        <MemberLinkIcon className="fab fa-linkedin" />
-      </MemberLinkAnchor>
-      <MemberLinkAnchor href={githubLink} target="_blank">
-        <MemberLinkIcon className="fab fa-github-square" />
-      </MemberLinkAnchor>
+      {cvLink ? (
+        <MemberLink href={cvLink} faClassName="far fa-address-card" />
+      ) : null}
+      {linkedInLink ? (
+        <MemberLinkAnchor href={linkedInLink} target="_blank">
+          <MemberLinkIcon className="fab fa-linkedin" />
+        </MemberLinkAnchor>
+      ) : null}
+      {githubLink ? (
+        <MemberLinkAnchor href={githubLink} target="_blank">
+          <MemberLinkIcon className="fab fa-github-square" />
+        </MemberLinkAnchor>
+      ) : null}
     </MemberLinkSection>
   </MemberRoot>
 );

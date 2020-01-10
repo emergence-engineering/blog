@@ -26,7 +26,7 @@ const Title = styled.h1`
 `;
 
 const SalesFormSection: FunctionComponent<{}> = () => (
-  <Root>
+  <Root id="contactUs">
     <ContentWrapper>
       <Title>Contact us</Title>
       <SalesForm />
