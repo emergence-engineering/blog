@@ -8,6 +8,7 @@ import { WithRouterProps } from "next/dist/client/with-router";
 import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
+import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -137,11 +138,6 @@ const BigScreenContainer = styled.div`
   }
 `;
 
-const HamburgerIcon = styled.i`
-  color: ${theme.color.gray1};
-  font-size: 2rem;
-`;
-
 const Header: FunctionComponent<{}> = () => (
   <Headroom>
     <Root>
@@ -158,7 +154,7 @@ const Header: FunctionComponent<{}> = () => (
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
           </BigScreenContainer>
           <MobileContainer>
-            <HamburgerIcon className="fas fa-bars" />
+            <HamburgerMenu />
           </MobileContainer>
         </RightContainer>
       </ContentWrapper>

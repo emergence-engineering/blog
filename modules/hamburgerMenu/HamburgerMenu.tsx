@@ -1,0 +1,33 @@
+import styled from "styled-components";
+import React, { FunctionComponent, useState } from "react";
+
+import theme from "../../utils/theme";
+import Modal from "../common/components/Modal";
+
+export const HamburgerIcon = styled.i`
+  color: ${theme.color.gray1};
+  font-size: 2rem;
+  cursor: pointer;
+  :hover {
+    color: ${theme.color.tertiary};
+  }
+`;
+
+const HamburgerMenu: FunctionComponent<{}> = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  function closeMenu() {
+    setIsOpened(false);
+  }
+  function openMenu() {
+    setIsOpened(true);
+  }
+  return (
+    <div>
+      <HamburgerIcon className="fas fa-bars" onClick={openMenu} />
+      {isOpened ? (
+        <Modal onLoseFocus={closeMenu} title="Menu" fillScreen />
+      ) : null}
+    </div>
+  );
+};
+export default HamburgerMenu;
