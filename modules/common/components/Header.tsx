@@ -83,17 +83,14 @@ const ContactUsLink = styled.a`
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
-  border-radius: 0.3rem;
-  background-color: ${theme.color.primary};
-  color: ${theme.color.gray11};
+  color: ${theme.color.tertiary};
   padding: 0.3rem 1.2rem;
   text-decoration: none;
   @media screen and (max-width: ${screenSizes.medium}px) {
     font-size: 1rem;
   }
   :hover {
-    color: ${theme.color.gray11};
-    background-color: ${theme.color.primary3};
+    color: ${theme.color.tertiary5};
   }
 `;
 
@@ -126,7 +123,7 @@ const Header: FunctionComponent<{}> = () => (
           <HeaderLink href="/" caption="Home" />
           <HeaderLink href="/blog" caption="Blog" />
           <HeaderLink href="/team" caption="Team" />
-          <HeaderLink href="/references" caption="References" />
+          <HeaderLink href="/references" caption="Open source projects" />
           <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
         </RightContainer>
       </ContentWrapper>
