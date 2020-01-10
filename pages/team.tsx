@@ -60,24 +60,18 @@ const Team: FunctionComponent<{}> = () => (
             githubLink="https://github.com/horvath-balazs"
           />
           <Member
-            src="/bio/viktor.png"
-            memberName="Viktor Váczi"
-            memberRole="co-founder"
-            memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
-            memberStack="React.js Node.js Firebase"
-            cvLink="/cv/viktor"
-            linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
-            githubLink="https://github.com/ViktorVaczi90"
+            src="/bio/matejcsok.jpg"
+            memberName="István Matejcsók"
+            memberRole="developer"
+            memberWorkArea="Fullstack JS | UI"
+            memberStack="React.js Node.js Firebase CSS"
           />
           <Member
-            src="/bio/balazs.jpg"
-            memberName="Balázs Horváth"
-            memberRole="co-founder"
-            memberWorkArea="Fullstack JS | Microservices | Cloud"
-            memberStack="React.js Node.js Go Firebase AWS"
-            cvLink="/cv/balazs"
-            linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-            githubLink="https://github.com/horvath-balazs"
+            src="/bio/aron.jpg"
+            memberName="Áron Horváth"
+            memberRole="developer"
+            memberWorkArea="Java | Fullstack JS | UI"
+            memberStack="Java React.js Node.js Firebase CSS"
           />
         </TeamMembers>
       </Content>
