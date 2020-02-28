@@ -73,6 +73,13 @@ const Team: FunctionComponent<{}> = () => (
             memberWorkArea="Java | Fullstack JS | UI"
             memberStack="Java React.js Node.js Firebase CSS"
           />
+          <Member
+            src="/bio/ldavid.jpg"
+            memberName="Dávid Lázár"
+            memberRole="developer"
+            memberStack="Fullstack JS"
+            memberWorkArea="React.js Node.js"
+          />
         </TeamMembers>
       </Content>
     </Root>
