@@ -1,14 +1,19 @@
 import { useSelector } from "react-redux";
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { isLoaded } from "react-redux-firebase";
 import Router from "next/router";
 
 import { UserStatus } from "../../types/auth";
 import { RootState } from "../../setup/reducers/rootReducer";
 
-export default (options: { [key in UserStatus]?: string }) => (
-  Component: React.ComponentType,
-) => (props: React.ComponentProps<typeof Component>) => {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface WithRedirectProps {}
+
+export default (options: { [key in UserStatus]?: string }) => <
+  P extends object
+>(
+  Component: React.ComponentType<P & WithRedirectProps>,
+): FunctionComponent<P> => props => {
   const profile = useSelector((state: RootState) => state.firebase.profile);
 
   if (!isLoaded(profile)) {

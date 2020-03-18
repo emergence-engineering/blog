@@ -3,7 +3,6 @@ require("dotenv").config();
 
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
   webpack: config => {
@@ -18,17 +17,13 @@ module.exports = {
         systemvars: true,
       }),
     ];
-    // Opt out from next typechecks
-    config.plugins = config.plugins.filter(plugin => {
-      return plugin.constructor.name !== "ForkTsCheckerWebpackPlugin";
-    });
-    // only report errors on a matcher that doesn't match anything
-    config.plugins.push(
-      new ForkTsCheckerWebpackPlugin({
-        reportFiles: ["does-not-exist"],
-      }),
-    );
     return config;
+  },
+  experimental: {
+    granularChunks: true,
+  },
+  typescript: {
+    ignoreDevErrors: true,
   },
   publicRuntimeConfig: {
     // Will be available on both server and client
@@ -36,7 +31,5 @@ module.exports = {
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_DATABASE_NAME: process.env.FIREBASE_DATABASE_NAME,
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    FIREBASE_SENDER_ID: process.env.FIREBASE_SENDER_ID,
-    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
   },
 };

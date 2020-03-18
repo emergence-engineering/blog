@@ -11,7 +11,7 @@
 ## How to set up
 
 - Run `npm i` in the root folder.
-- Create '.env' file in the root folder ( or ask your team for one ) to configure firebase.
+- Check `scripts/config/README.md` to set up firebase, or just ask for a .env file..
 
 ### How to set up firebase.
 

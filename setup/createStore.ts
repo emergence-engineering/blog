@@ -12,18 +12,17 @@ import { rootReducer } from "./reducers/rootReducer";
 const {
   FIREBASE_API_KEY,
   FIREBASE_PROJECT_ID,
-  FIREBASE_SENDER_ID,
-  FIREBASE_APP_ID,
+  FIREBASE_DATABASE_NAME,
+  FIREBASE_MESSAGING_SENDER_ID,
 } = getConfig().publicRuntimeConfig;
 
 const firebaseConfig = {
   apiKey: FIREBASE_API_KEY,
   authDomain: `${FIREBASE_PROJECT_ID}.firebaseapp.com`,
-  databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
+  databaseURL: `https://${FIREBASE_DATABASE_NAME}.firebaseio.com`,
   projectId: FIREBASE_PROJECT_ID,
   storageBucket: `${FIREBASE_PROJECT_ID}.appspot.com`,
-  messagingSenderId: FIREBASE_SENDER_ID,
-  appID: FIREBASE_APP_ID,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
 };
 
 export const rrfConfig = {
@@ -35,8 +34,8 @@ if (
   firebase.apps.length === 0 &&
   FIREBASE_API_KEY &&
   FIREBASE_PROJECT_ID &&
-  FIREBASE_SENDER_ID &&
-  FIREBASE_APP_ID
+  FIREBASE_MESSAGING_SENDER_ID &&
+  FIREBASE_DATABASE_NAME
 ) {
   firebase.initializeApp(firebaseConfig);
   firebase.firestore();
