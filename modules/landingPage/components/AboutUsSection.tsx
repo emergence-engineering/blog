@@ -49,7 +49,9 @@ export const FacePictureContainer = styled.div`
   padding-bottom: 2rem;
 `;
 export const FacePicture = styled.img`
-  height: 100%;
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
   border-radius: 50%;
 `;
 

@@ -69,7 +69,7 @@ const Team: FunctionComponent<{}> = () => (
           <Member
             src="/bio/aron.jpg"
             memberName="Áron Horváth"
-            memberRole="developer"
+            memberRole="developer & chief designer"
             memberWorkArea="Java | Fullstack JS | UI"
             memberStack="Java React.js Node.js Firebase CSS"
           />
