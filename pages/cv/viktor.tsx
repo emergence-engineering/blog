@@ -13,9 +13,8 @@ const Root = styled.div`
   flex-direction: column;
   min-height: 20rem;
   background-color: #ecd2d20d;
-  padding: 2rem ${sizes.sidePadding};
+  padding: 0 ${sizes.sidePadding};
   width: 100%;
-  padding: 4rem ${sizes.sidePadding};
 `;
 
 const Content = styled.div`
