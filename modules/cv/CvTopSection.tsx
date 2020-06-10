@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import { FacePicture } from "../landingPage/components/AboutUsSection";
-import theme from "../../utils/theme";
+import theme, { screenSizes } from "../../utils/theme";
 
 const Name = styled.div`
   font-family: ${theme.fontFamily.title};
@@ -18,13 +18,21 @@ const RoleText = styled.div`
   color: ${theme.color.gray5};
   margin-bottom: 1.5rem;
 `;
-const TopSection = styled.div`
+const TopSectionColumn = styled.div`
+  display: flex;
+  flex-basis: content;
+  padding: 1rem 0;
+`;
+
+const TopSectionRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
 `;
 const FaceContainer = styled.div`
-  height: 7rem;
+  height: 10rem;
   padding-right: 1rem;
 `;
 const TextContaner = styled.div`
@@ -61,7 +69,17 @@ const IconLink: FunctionComponent<{ faClassName: string; href: string }> = ({
 const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+`;
+
+const LeftSide = styled.div`
+  display: flex;
+  @media screen and (max-width: ${screenSizes.small}px) {
+    text-align: center;
+    flex-direction: column;
+  }
 `;
 
 export const CvTopSection: FunctionComponent<{
@@ -71,17 +89,21 @@ export const CvTopSection: FunctionComponent<{
   linkedInLink: string;
   githubLink: string;
 }> = ({ imgSrc, name, roleText, linkedInLink, githubLink }) => (
-  <TopSection>
-    <FaceContainer>
-      <FacePicture decoding="async" src={imgSrc} />
-    </FaceContainer>
-    <TextContaner>
-      <Name>{name}</Name>
-      <RoleText>{roleText}</RoleText>
-    </TextContaner>
-    <LinkContainer>
-      <IconLink faClassName="fab fa-github-square" href={githubLink} />
-      <IconLink faClassName="fab fa-linkedin" href={linkedInLink} />
-    </LinkContainer>
-  </TopSection>
+  <TopSectionColumn>
+    <TopSectionRow>
+      <FaceContainer>
+        <FacePicture decoding="async" src={imgSrc} />
+      </FaceContainer>
+      <LeftSide>
+        <TextContaner>
+          <Name>{name}</Name>
+          <RoleText>{roleText}</RoleText>
+        </TextContaner>
+        <LinkContainer>
+          <IconLink faClassName="fab fa-github-square" href={githubLink} />
+          <IconLink faClassName="fab fa-linkedin" href={linkedInLink} />
+        </LinkContainer>
+      </LeftSide>
+    </TopSectionRow>
+  </TopSectionColumn>
 );
