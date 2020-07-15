@@ -5,8 +5,8 @@ import Link from "next/link";
 import { bindActionCreators, Dispatch } from "redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 
-import { addSampleAction } from "../setup/actions/sample/actions";
-import { RootState } from "../setup/reducers/rootReducer";
+import { addSampleAction } from "../utils/actions/sample/actions";
+import { RootState } from "../utils/reducers/rootReducer";
 
 const Root = styled.div`
   background-color: white;

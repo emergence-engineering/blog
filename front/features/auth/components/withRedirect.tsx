@@ -3,8 +3,8 @@ import React, { FunctionComponent } from "react";
 import { isLoaded } from "react-redux-firebase";
 import Router from "next/router";
 
-import { UserStatus } from "../../types/auth";
-import { RootState } from "../../setup/reducers/rootReducer";
+import { UserStatus } from "../modules/auth";
+import { RootState } from "../../../utils/reducers/rootReducer";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface WithRedirectProps {}

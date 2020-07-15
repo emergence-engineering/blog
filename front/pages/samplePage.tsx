@@ -2,10 +2,10 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useFirebase, useFirestoreConnect } from "react-redux-firebase";
 
-import { RootState } from "../setup/reducers/rootReducer";
-import { Button } from "../common/components/Button";
-import withRedirect from "../auth/components/withRedirect";
-import { UserStatus } from "../types/auth";
+import { RootState } from "../utils/reducers/rootReducer";
+import { Button } from "../ui/components/Button";
+import withRedirect from "../features/auth/components/withRedirect";
+import { UserStatus } from "../features/auth/modules/auth";
 
 const SamplePage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();

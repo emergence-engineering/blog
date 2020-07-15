@@ -6,8 +6,8 @@ import withReduxStore from "next-redux-wrapper";
 import firebase from "firebase/app";
 import { createFirestoreInstance } from "redux-firestore";
 
-import { initStore, rrfConfig } from "../setup/createStore";
-import { ReduxStore, RootState } from "../setup/reducers/rootReducer";
+import { initStore, rrfConfig } from "../utils/createStore";
+import { ReduxStore, RootState } from "../utils/reducers/rootReducer";
 
 interface MyAppProps extends AppProps, AppInitialProps {
   store: ReduxStore;
