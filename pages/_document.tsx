@@ -46,6 +46,10 @@ export default class MyDocument extends Document {
           />
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link
+            rel="stylesheet"
+            href="https://prosemirror.net/css/editor.css"
+          />
+          <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             rel="stylesheet"
           />
