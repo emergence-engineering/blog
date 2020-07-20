@@ -101,6 +101,11 @@ const EditorWrapper = styled.div`
   display: flex;
 `;
 
+const EditorDetailsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const mySchema = new Schema({
   nodes: schema.spec.nodes,
   marks: schema.spec.marks,
@@ -370,6 +375,9 @@ const Article: FunctionComponent<{}> = () => {
         });
     })();
   }, [DBS]);
+  console.log({ pmView1, pmState1 });
+  console.log({ pmView2, pmState2 });
+
   return (
     <>
       <ArticleShareOgTags
@@ -381,8 +389,28 @@ const Article: FunctionComponent<{}> = () => {
       <ArticleWrapper>
         <MarkDown source={MD0} />
         <EditorWrapper>
-          <div id="editor1" />
-          <div id="editor2" />
+          <EditorDetailsWrapper>
+            <div>
+              <h5>state.textContent</h5>
+              {pmView1 && pmView1.state.doc.textContent}
+            </div>
+            <div>
+              <h5>getVersion</h5>
+              {pmView1 && getVersion(pmView1.state)}
+            </div>
+            <div id="editor1" />
+          </EditorDetailsWrapper>
+          <EditorDetailsWrapper>
+            <div>
+              <h5>state.textContent</h5>
+              {pmView2 && pmView2.state.doc.textContent}
+            </div>
+            <div>
+              <h5>getVersion</h5>
+              {pmView2 && getVersion(pmView2.state)}
+            </div>
+            <div id="editor2" />
+          </EditorDetailsWrapper>
         </EditorWrapper>
         <button
           onClick={() => {
