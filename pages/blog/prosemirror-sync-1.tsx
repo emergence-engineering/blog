@@ -197,7 +197,7 @@ const Article: FunctionComponent<{}> = () => {
     })();
   }, [DBS, pmView2]);
 
-  // Fething steps for view 1
+  // Fethcing steps for view 1
   // TODO: Same as the one above
   useEffect(() => {
     (async () => {
@@ -215,6 +215,7 @@ const Article: FunctionComponent<{}> = () => {
       });
       listener.on("change", data => {
         const serverStep: ServerStep = data.doc as any;
+        console.log("Listener", serverStep.version);
         pmView1.dispatch(
           receiveTransaction(
             pmView1.state,
@@ -225,7 +226,7 @@ const Article: FunctionComponent<{}> = () => {
       });
     })();
   }, [DBS, pmView1]);
-
+  // Fetch initial document from DB
   useEffect(() => {
     (async () => {
       if (!DBS) return;
@@ -275,7 +276,6 @@ const Article: FunctionComponent<{}> = () => {
         view1.updateState(newState);
         const sendable = sendableSteps(newState);
         if (sendable && DBS) {
-          console.log({ sendable });
           const newStep: ClientStep = {
             steps: sendable.steps.map(step => step.toJSON()),
             version: sendable.version,
@@ -333,6 +333,7 @@ const Article: FunctionComponent<{}> = () => {
             const syncDoc: PMDocument = (await DBS.serverDB.get(
               clientStep.docId,
             )) as any;
+            console.log(syncDoc.version);
             if (clientStep.version !== syncDoc.version) {
               // TODO: Set status to StepStatus.REJECTED
               return;
@@ -361,12 +362,9 @@ const Article: FunctionComponent<{}> = () => {
               _rev: syncDoc._rev,
               updatedAt: Date.now().toString(),
             };
-            console.log("1", doc.textContent);
             await DBS.serverDB
               .put(newDoc)
               .then(() => DBS.serverDB.bulkDocs(serverSteps));
-            console.log("2", doc.textContent);
-            console.log({ clientStep, doc });
           } catch (e) {
             // TODO: Set status to StepStatus.REJECTED
             console.log(e);
@@ -375,8 +373,6 @@ const Article: FunctionComponent<{}> = () => {
         });
     })();
   }, [DBS]);
-  console.log({ pmView1, pmState1 });
-  console.log({ pmView2, pmState2 });
 
   return (
     <>
@@ -412,13 +408,6 @@ const Article: FunctionComponent<{}> = () => {
             <div id="editor2" />
           </EditorDetailsWrapper>
         </EditorWrapper>
-        <button
-          onClick={() => {
-            DBS.clientDB1.get("ee").then(console.log);
-          }}
-        >
-          asd
-        </button>
         <SalesBox />
         <Disqus
           pageUrl={article2Metadata.url}
