@@ -1,3 +1,5 @@
+import PouchDB from "pouchdb";
+
 export enum DBCollection {
   PMDocument = "PMDocument",
   ClientSteps = "ClientSteps",
@@ -37,3 +39,9 @@ export interface ServerStep {
 }
 
 export const DocID = "ee";
+
+export interface DBSI {
+  serverDB: PouchDB.Database<{}>;
+  clientDB1: PouchDB.Database<{}>;
+  clientDB2: PouchDB.Database<{}>;
+}

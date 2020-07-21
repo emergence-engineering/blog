@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { exampleSetup } from "prosemirror-example-setup";
-import PouchDB from "pouchdb";
 import styled from "styled-components";
 import {
   collab,
@@ -15,12 +14,14 @@ import { Step } from "prosemirror-transform";
 import {
   ClientStep,
   DBCollection,
+  DBSI,
   DocID,
   PMDocument,
   ServerStep,
   StepStatus,
 } from "./types";
 import { initialDoc, mySchema } from "./schema";
+import initializeDBS, { fillInitial } from "./initializeDB";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -38,56 +39,16 @@ const Editors: FunctionComponent<{}> = () => {
   const [pmView2, setPmView2] = useState();
   const [serverDoc, setServerDoc] = useState<PMDocument>();
   const [docListener, setDocListener] = useState();
-  const [DBS, setDBS] = useState<{
-    serverDB: PouchDB.Database<{}>;
-    clientDB1: PouchDB.Database<{}>;
-    clientDB2: PouchDB.Database<{}>;
-  }>();
+  const [DBS, setDBS] = useState<DBSI>();
 
   // Initialize PouchDB instances
   useEffect(() => {
-    (async () => {
-      if (DBS) {
-        await DBS.serverDB.destroy();
-        await DBS.clientDB1.destroy();
-        await DBS.clientDB2.destroy();
-      }
-
-      const serverDB = new PouchDB("server");
-      const clientDB1 = new PouchDB("client1");
-      const clientDB2 = new PouchDB("client2");
-
-      clientDB1.sync(serverDB, { live: true });
-      clientDB2.sync(serverDB, { live: true });
-
-      serverDB.setMaxListeners(20);
-      clientDB1.setMaxListeners(20);
-      clientDB2.setMaxListeners(20);
-
-      setDBS({
-        serverDB,
-        clientDB1,
-        clientDB2,
-      });
-    })();
+    initializeDBS(DBS, setDBS);
   }, []);
 
   // Fill initial serverDB data
   useEffect(() => {
-    (async () => {
-      if (!DBS) return;
-      const docRev = await DBS.serverDB.get(DocID).catch(() => {});
-      const doc: PMDocument = {
-        _id: DocID,
-        collection: DBCollection.PMDocument,
-        doc: initialDoc,
-        version: 0,
-        updatedAt: Date.now().toString(),
-        // eslint-disable-next-line no-underscore-dangle
-        ...(docRev ? { _rev: docRev._rev } : {}),
-      };
-      DBS.serverDB.put(doc);
-    })();
+    fillInitial(DBS);
   }, [DBS]);
   // Fetching steps for view 2
   useEffect(() => {
