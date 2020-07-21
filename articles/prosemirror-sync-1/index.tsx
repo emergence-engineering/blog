@@ -1,9 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
-import { schema } from "prosemirror-schema-basic";
 import { exampleSetup } from "prosemirror-example-setup";
-import { Schema } from "prosemirror-model";
 import PouchDB from "pouchdb";
 import styled from "styled-components";
 import {
@@ -14,58 +12,15 @@ import {
 } from "prosemirror-collab";
 import { Step } from "prosemirror-transform";
 
-enum DBCollection {
-  PMDocument = "PMDocument",
-  ClientSteps = "ClientSteps",
-  ServerSteps = "ServerSteps",
-}
-
-enum StepStatus {
-  NEW = "NEW",
-  ACCEPTED = "ACCEPTED",
-  REJECTED = "REJECTED",
-}
-
-interface PMDocument {
-  _id: string;
-  _rev?: string;
-  collection: DBCollection.PMDocument;
-  doc: object;
-  version: number;
-  updatedAt: string;
-}
-
-interface ClientStep {
-  collection: DBCollection.ClientSteps;
-  pmViewId: string | number;
-  status: StepStatus;
-  steps: object[];
-  version: number;
-  docId: string;
-}
-
-interface ServerStep {
-  collection: DBCollection.ServerSteps;
-  step: object;
-  version: number;
-  pmViewId: string | number;
-  docId: string;
-}
-
-const initialDoc = {
-  content: [
-    {
-      content: [
-        {
-          text: "Empty",
-          type: "text",
-        },
-      ],
-      type: "paragraph",
-    },
-  ],
-  type: "doc",
-};
+import {
+  ClientStep,
+  DBCollection,
+  DocID,
+  PMDocument,
+  ServerStep,
+  StepStatus,
+} from "./types";
+import { initialDoc, mySchema } from "./schema";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -75,11 +30,6 @@ const EditorDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-const mySchema = new Schema({
-  nodes: schema.spec.nodes,
-  marks: schema.spec.marks,
-});
 
 const Editors: FunctionComponent<{}> = () => {
   const [pmState1, setPmState1] = useState();
@@ -126,9 +76,9 @@ const Editors: FunctionComponent<{}> = () => {
   useEffect(() => {
     (async () => {
       if (!DBS) return;
-      const docRev = await DBS.serverDB.get("ee").catch(() => {});
+      const docRev = await DBS.serverDB.get(DocID).catch(() => {});
       const doc: PMDocument = {
-        _id: "ee",
+        _id: DocID,
         collection: DBCollection.PMDocument,
         doc: initialDoc,
         version: 0,
@@ -151,7 +101,7 @@ const Editors: FunctionComponent<{}> = () => {
         // eslint-disable-next-line @typescript-eslint/camelcase
         filter: data =>
           data.collection === DBCollection.ServerSteps &&
-          (data as ServerStep).docId === "ee" &&
+          (data as ServerStep).docId === DocID &&
           (data as ServerStep).version === getVersion(pmView2.state),
       });
       listener.on("change", data => {
@@ -180,7 +130,7 @@ const Editors: FunctionComponent<{}> = () => {
         // eslint-disable-next-line @typescript-eslint/camelcase
         filter: data =>
           data.collection === DBCollection.ServerSteps &&
-          (data as ServerStep).docId === "ee" &&
+          (data as ServerStep).docId === DocID &&
           (data as ServerStep).version === getVersion(pmView1.state),
       });
       listener.on("change", data => {
@@ -207,7 +157,7 @@ const Editors: FunctionComponent<{}> = () => {
           // eslint-disable-next-line @typescript-eslint/camelcase
           include_docs: true,
           // eslint-disable-next-line @typescript-eslint/camelcase
-          doc_ids: ["ee"],
+          doc_ids: [DocID],
         });
         setDocListener(listener);
         listener.on("change", data => {
@@ -251,7 +201,7 @@ const Editors: FunctionComponent<{}> = () => {
             version: sendable.version,
             status: StepStatus.NEW,
             collection: DBCollection.ClientSteps,
-            docId: "ee", // TODO
+            docId: DocID, // TODO
             pmViewId: sendable.clientID,
           };
           DBS.clientDB1.post(newStep);
@@ -273,7 +223,7 @@ const Editors: FunctionComponent<{}> = () => {
             version: sendable.version,
             status: StepStatus.NEW,
             collection: DBCollection.ClientSteps,
-            docId: "ee", // TODO
+            docId: DocID, // TODO
             pmViewId: sendable.clientID,
           };
           DBS.clientDB2.post(newStep);
