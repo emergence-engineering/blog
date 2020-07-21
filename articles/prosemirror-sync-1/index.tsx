@@ -23,6 +23,7 @@ import {
 import { initialDoc, mySchema } from "./schema";
 import initializeDBS, { fillInitial } from "./initializeDB";
 import fetchNewStepsClient from "./fetchNewStepsClient";
+import fetchDocument from "./fetchDocument";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -64,27 +65,14 @@ const Editors: FunctionComponent<{}> = () => {
 
   // Fetch initial document from DB
   useEffect(() => {
-    (async () => {
-      if (!DBS) return;
-      if (!docListener && !serverDoc) {
-        const listener = DBS.clientDB1.changes({
-          since: "now",
-          live: true,
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          include_docs: true,
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          doc_ids: [DocID],
-        });
-        setDocListener(listener);
-        listener.on("change", data => {
-          // TODO: Don't listen to it after it is fetched
-          setServerDoc(data.doc as any);
-        });
-      }
-      if (docListener && serverDoc) {
-        docListener.cancel();
-      }
-    })();
+    fetchDocument(
+      DBS,
+      setDocListener,
+      setServerDoc,
+      DocID,
+      docListener,
+      serverDoc,
+    );
   }, [DBS, serverDoc]);
   // Create prosemirror views
   useEffect(() => {
