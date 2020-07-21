@@ -22,6 +22,7 @@ import {
 } from "./types";
 import { initialDoc, mySchema } from "./schema";
 import initializeDBS, { fillInitial } from "./initializeDB";
+import fetchNewStepsClient from "./fetchNewStepsClient";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -50,63 +51,17 @@ const Editors: FunctionComponent<{}> = () => {
   useEffect(() => {
     fillInitial(DBS);
   }, [DBS]);
+
   // Fetching steps for view 2
   useEffect(() => {
-    (async () => {
-      if (!DBS || !pmView2) return;
-      const listener = DBS.clientDB2.changes({
-        since: "now",
-        live: true,
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        include_docs: true,
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        filter: data =>
-          data.collection === DBCollection.ServerSteps &&
-          (data as ServerStep).docId === DocID &&
-          (data as ServerStep).version === getVersion(pmView2.state),
-      });
-      listener.on("change", data => {
-        const serverStep: ServerStep = data.doc as any;
-        pmView2.dispatch(
-          receiveTransaction(
-            pmView2.state,
-            [Step.fromJSON(mySchema, serverStep.step)],
-            [serverStep.pmViewId],
-          ),
-        );
-      });
-    })();
+    fetchNewStepsClient(DBS, pmView2);
   }, [DBS, pmView2]);
 
-  // Fethcing steps for view 1
-  // TODO: Same as the one above
+  // Fetching steps for view 1
   useEffect(() => {
-    (async () => {
-      if (!DBS || !pmView1) return;
-      const listener = DBS.clientDB1.changes({
-        since: "now",
-        live: true,
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        include_docs: true,
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        filter: data =>
-          data.collection === DBCollection.ServerSteps &&
-          (data as ServerStep).docId === DocID &&
-          (data as ServerStep).version === getVersion(pmView1.state),
-      });
-      listener.on("change", data => {
-        const serverStep: ServerStep = data.doc as any;
-        console.log("Listener", serverStep.version);
-        pmView1.dispatch(
-          receiveTransaction(
-            pmView1.state,
-            [Step.fromJSON(mySchema, serverStep.step)],
-            [serverStep.pmViewId],
-          ),
-        );
-      });
-    })();
+    fetchNewStepsClient(DBS, pmView1);
   }, [DBS, pmView1]);
+
   // Fetch initial document from DB
   useEffect(() => {
     (async () => {
