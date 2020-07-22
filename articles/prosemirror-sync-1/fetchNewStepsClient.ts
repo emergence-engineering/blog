@@ -3,11 +3,11 @@ import { Step } from "prosemirror-transform";
 import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
-import { DBCollection, DBSI, DocID, ServerStep } from "./types";
+import { DBCollection, DocID, ServerStep } from "./types";
 
-export default async (DBS?: DBSI, pmView?: EditorView) => {
-  if (!DBS || !pmView) return;
-  const listener = DBS.clientDB2.changes({
+export default async (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
+  if (!DB || !pmView) return;
+  const listener = DB.changes({
     since: "now",
     live: true,
     // eslint-disable-next-line @typescript-eslint/camelcase

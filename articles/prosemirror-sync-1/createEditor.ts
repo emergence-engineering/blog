@@ -15,9 +15,11 @@ export default (
   editorID: string,
   serverDoc?: PMDocument,
   DB?: PouchDB.Database<{}>,
+  outerView?: EditorView,
 ) => {
   const editorNode = document.querySelector(editorID);
-  if (!serverDoc || !DB || !editorNode) return;
+  // If there is no data yet or already initialized
+  if (!serverDoc || !DB || !editorNode || outerView) return;
   const doc: PMDocument = serverDoc.doc as any;
   const state = EditorState.create({
     doc: mySchema.nodeFromJSON(doc),

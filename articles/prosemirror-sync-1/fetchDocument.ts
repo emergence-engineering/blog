@@ -25,6 +25,7 @@ export default async (
     });
   }
   if (docListener && serverDoc) {
-    docListener.cancel();
+    // TODO: remove
+    // docListener.cancel();
   }
 };

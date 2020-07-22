@@ -7,7 +7,8 @@ import fetchNewStepsClient from "./fetchNewStepsClient";
 import fetchDocument from "./fetchDocument";
 import processSteps from "./processSteps";
 import createEditor from "./createEditor";
-import Editor from "./Editor";
+import Editor from "./components/Editor";
+import StateDisplay from "./components/StateDisplay";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -34,12 +35,12 @@ const Editors: FunctionComponent<{}> = () => {
 
   // Fetching steps for view 2
   useEffect(() => {
-    fetchNewStepsClient(DBS, pmView2);
+    fetchNewStepsClient(DBS?.clientDB2, pmView2);
   }, [DBS, pmView2]);
 
   // Fetching steps for view 1
   useEffect(() => {
-    fetchNewStepsClient(DBS, pmView1);
+    fetchNewStepsClient(DBS?.clientDB1, pmView1);
   }, [DBS, pmView1]);
 
   // Fetch initial document from DB
@@ -68,6 +69,7 @@ const Editors: FunctionComponent<{}> = () => {
         "#editor1",
         serverDoc,
         DBS?.clientDB1,
+        pmView1,
       ),
     [serverDoc],
   );
@@ -81,15 +83,18 @@ const Editors: FunctionComponent<{}> = () => {
         "#editor2",
         serverDoc,
         DBS?.clientDB2,
+        pmView2,
       ),
     [serverDoc],
   );
-
   return (
-    <EditorWrapper>
-      <Editor id="editor1" view={pmView1} />
-      <Editor id="editor2" view={pmView2} />
-    </EditorWrapper>
+    <>
+      <StateDisplay serverDoc={serverDoc} />
+      <EditorWrapper>
+        <Editor id="editor1" view={pmView1} />
+        <Editor id="editor2" view={pmView2} />
+      </EditorWrapper>
+    </>
   );
 };
 

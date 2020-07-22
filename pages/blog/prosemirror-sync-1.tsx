@@ -1,11 +1,17 @@
 import React, { FunctionComponent } from "react";
+import dynamic from "next/dynamic";
 
 import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
 import { ArticleIntro } from "../../types/article";
-import Editors from "../../articles/prosemirror-sync-1";
+// import Editors from "../../articles/prosemirror-sync-1";
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import SalesBox from "../../modules/article/components/SalesBox";
 import Disqus from "../../modules/disqus/Disqus";
+
+const EditorsDynamic = dynamic(
+  () => import("../../articles/prosemirror-sync-1"),
+  { ssr: false },
+);
 
 export const article2Metadata: ArticleIntro = {
   title: "Prosemirror Collab",
@@ -40,7 +46,7 @@ const Article: FunctionComponent<{}> = () => (
       description={article2Metadata.introText}
       imgSrc={article2Metadata.imgSrc}
     />
-    <Editors />
+    <EditorsDynamic />
     <SalesBox />
     <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />
   </ArticleWrapper>
