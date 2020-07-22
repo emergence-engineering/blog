@@ -19,6 +19,7 @@ const SamplePage: FunctionComponent<{}> = () => {
   }, []);
   return (
     <div>
+      <h1>Welcome to Emergence Engineering Client Base project!</h1>
       <Button type="button" onClick={logOut}>
         Logout
       </Button>
