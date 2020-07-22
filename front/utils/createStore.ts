@@ -59,6 +59,7 @@ if (
 }
 
 // TODO: Type out initialState
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const initStore = (initialState: object) =>
   createStore(
     rootReducer,
