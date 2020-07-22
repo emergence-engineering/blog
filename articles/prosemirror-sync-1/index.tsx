@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
-import { getVersion } from "prosemirror-collab";
 
 import { DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
@@ -10,6 +9,7 @@ import processSteps from "./processSteps";
 import createEditor from "./createEditor";
 import Editor from "./components/Editor";
 import StateDisplay from "./components/StateDisplay";
+import { getVersion } from "prosemirror-collab";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -34,15 +34,18 @@ const Editors: FunctionComponent<{}> = () => {
     fillInitial(DBS);
   }, [DBS]);
 
-  // Fetching steps for view 2
-  useEffect(() => {
-    fetchNewStepsClient(DBS?.clientDB2, pmView2);
-  }, [DBS, pmView2]);
-
   // Fetching steps for view 1
-  useEffect(() => {
-    fetchNewStepsClient(DBS?.clientDB1, pmView1);
-  }, [DBS, pmView1]);
+  useEffect(() => fetchNewStepsClient(DBS?.clientDB1, pmView1), [
+    DBS,
+    pmView1,
+    pmState1 && getVersion(pmState1),
+  ]);
+  // Fetching steps for view 2
+  useEffect(() => fetchNewStepsClient(DBS?.clientDB2, pmView2), [
+    DBS,
+    pmView2,
+    pmState2 && getVersion(pmState2),
+  ]);
 
   // Fetch initial document from DB
   useEffect(() => {
@@ -88,7 +91,6 @@ const Editors: FunctionComponent<{}> = () => {
       ),
     [serverDoc],
   );
-  pmState2 && console.log({ version: getVersion(pmState2) });
   return (
     <>
       <StateDisplay serverDoc={serverDoc} />

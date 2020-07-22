@@ -1,5 +1,5 @@
 import { EditorState, Transaction } from "prosemirror-state";
-import { getVersion, sendableSteps } from "prosemirror-collab";
+import { sendableSteps } from "prosemirror-collab";
 import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
@@ -16,13 +16,6 @@ export default (
 
   view.updateState(newState);
   const sendable = sendableSteps(newState);
-  console.log({
-    editorId,
-    newState,
-    tr,
-    sendable,
-    version: getVersion(newState),
-  });
   if (sendable) {
     const newStep: ClientStep = {
       steps: sendable.steps.map(step => step.toJSON()),

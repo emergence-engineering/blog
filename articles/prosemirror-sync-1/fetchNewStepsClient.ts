@@ -5,10 +5,9 @@ import { EditorView } from "prosemirror-view";
 import { mySchema } from "./schema";
 import { DBCollection, DocID, ServerStep } from "./types";
 
-export default async (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
+export default (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
   if (!DB || !pmView) return;
   const listener = DB.changes({
-    since: "now",
     live: true,
     // eslint-disable-next-line @typescript-eslint/camelcase
     include_docs: true,
@@ -20,12 +19,15 @@ export default async (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
   });
   listener.on("change", data => {
     const serverStep: ServerStep = data.doc as any;
-    pmView.dispatch(
-      receiveTransaction(
-        pmView.state,
-        [Step.fromJSON(mySchema, serverStep.step)],
-        [serverStep.pmViewId],
-      ),
-    );
+    getVersion(pmView.state) === serverStep.version &&
+      pmView.dispatch(
+        receiveTransaction(
+          pmView.state,
+          [Step.fromJSON(mySchema, serverStep.step)],
+          [serverStep.pmViewId],
+        ),
+      );
   });
+  // eslint-disable-next-line consistent-return
+  return () => listener.cancel();
 };

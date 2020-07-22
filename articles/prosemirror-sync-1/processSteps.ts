@@ -28,18 +28,18 @@ export default async (DBS: DBSI | undefined) => {
         const syncDoc: PMDocument = (await DBS.serverDB.get(
           clientStep.docId,
         )) as any;
-        console.log(syncDoc.version);
         if (clientStep.version !== syncDoc.version) {
           // TODO: Set status to StepStatus.REJECTED
           return;
         }
-        let doc = mySchema.nodeFromJSON(syncDoc.doc);
+
         const { steps } = clientStep;
-        // TODO: Reduce BALAZS!!!
-        for (let i = 0; i < steps.length; i += 1) {
-          const result = Step.fromJSON(mySchema, steps[i]).apply(doc);
-          doc = result.doc;
-        }
+        const doc = steps.reduce(
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore TODO: Typing
+          (acc, curr) => Step.fromJSON(mySchema, curr).apply(acc).doc,
+          mySchema.nodeFromJSON(syncDoc.doc),
+        );
 
         const newVersion = syncDoc.version + steps.length;
         const serverSteps: ServerStep[] = steps.map((step, index) => ({
@@ -53,6 +53,8 @@ export default async (DBS: DBSI | undefined) => {
         const newDoc: PMDocument = {
           ...syncDoc,
           version: newVersion,
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
           doc: doc.toJSON(),
           // eslint-disable-next-line no-underscore-dangle
           _rev: syncDoc._rev,
