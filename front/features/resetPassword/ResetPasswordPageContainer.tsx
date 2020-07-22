@@ -17,7 +17,6 @@ import {
   Row,
   StyledForm,
 } from "../auth/components/EmailSignUp";
-import { TwoRowHeader } from "../../ui/components/Header";
 
 interface ResetPasswordProps {
   code: string | undefined;
@@ -28,9 +27,7 @@ const Root = styled(RootDiv)`
 `;
 
 const Schema = Yup.object().shape({
-  email: Yup.string()
-    .email("Invalid email")
-    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
     .min(5, "Too Short!")
     .max(50, "Too Long!")
@@ -51,7 +48,7 @@ const ResetPasswordPageContainer: FunctionComponent<ResetPasswordProps> = ({
       firebase
         .auth()
         .verifyPasswordResetCode(code)
-        .then(verification => {
+        .then((verification) => {
           console.log("verification", verification);
           if (verification === values.email) {
             firebase
@@ -63,13 +60,12 @@ const ResetPasswordPageContainer: FunctionComponent<ResetPasswordProps> = ({
               });
           }
         })
-        .catch(err => toast.error(err.message));
+        .catch((err) => toast.error(err.message));
     },
     [code],
   );
   return (
     <Root>
-      <TwoRowHeader title="Password reset" />
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={Schema}
