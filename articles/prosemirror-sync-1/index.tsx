@@ -1,38 +1,16 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { EditorState } from "prosemirror-state";
-import { EditorView } from "prosemirror-view";
 import styled from "styled-components";
-import {
-  collab,
-  getVersion,
-  receiveTransaction,
-  sendableSteps,
-} from "prosemirror-collab";
-import { Step } from "prosemirror-transform";
 
-import {
-  ClientStep,
-  DBCollection,
-  DBSI,
-  DocID,
-  PMDocument,
-  ServerStep,
-  StepStatus,
-} from "./types";
-import { initialDoc, mySchema } from "./schema";
+import { DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
 import fetchNewStepsClient from "./fetchNewStepsClient";
 import fetchDocument from "./fetchDocument";
 import processSteps from "./processSteps";
 import createEditor from "./createEditor";
+import Editor from "./Editor";
 
 const EditorWrapper = styled.div`
   display: flex;
-`;
-
-const EditorDetailsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 const Editors: FunctionComponent<{}> = () => {
@@ -109,29 +87,8 @@ const Editors: FunctionComponent<{}> = () => {
 
   return (
     <EditorWrapper>
-      <EditorDetailsWrapper>
-        <div>
-          <h5>state.textContent</h5>
-          {pmView1 && pmView1.state.doc.textContent}
-        </div>
-        <div>
-          <h5>getVersion</h5>
-          {pmView1 && getVersion(pmView1.state)}
-        </div>
-        {/* TODO: ref? */}
-        <div id="editor1" />
-      </EditorDetailsWrapper>
-      <EditorDetailsWrapper>
-        <div>
-          <h5>state.textContent</h5>
-          {pmView2 && pmView2.state.doc.textContent}
-        </div>
-        <div>
-          <h5>getVersion</h5>
-          {pmView2 && getVersion(pmView2.state)}
-        </div>
-        <div id="editor2" />
-      </EditorDetailsWrapper>
+      <Editor id="editor1" view={pmView1} />
+      <Editor id="editor2" view={pmView2} />
     </EditorWrapper>
   );
 };

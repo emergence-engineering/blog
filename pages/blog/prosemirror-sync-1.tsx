@@ -19,7 +19,8 @@ export const article2Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
-const MD0 = /* language=md */ `# Prosemirror Collab.
+/*
+const MD0 = /!* language=md *!/ `# Prosemirror Collab.
 
 Length: 15 minutes.
 
@@ -29,6 +30,7 @@ Going trough the internet you'll find a lot of in-depth articles about specific 
 light tutorials, and everything in between. But the javascript landscape is vast, and
 sometimes too much information gets in the way of understanding.
 `;
+*/
 
 const Article: FunctionComponent<{}> = () => (
   <ArticleWrapper>
