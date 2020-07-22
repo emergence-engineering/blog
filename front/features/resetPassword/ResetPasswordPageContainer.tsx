@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useFirebase } from "react-redux-firebase";
 import { toast } from "react-toastify";
 
-import { RootDiv } from "../auth/components/SignupPageContainer";
+import { RootDiv } from "../auth/components/SignUpPageContainer";
 import { Button } from "../../ui/components/Button";
 import {
   EmailInput,
@@ -16,7 +16,7 @@ import {
   PassInput,
   Row,
   StyledForm,
-} from "../auth/components/EmailSignup";
+} from "../auth/components/EmailSignUp";
 import { TwoRowHeader } from "../../ui/components/Header";
 
 interface ResetPasswordProps {

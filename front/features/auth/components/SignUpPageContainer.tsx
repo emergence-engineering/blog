@@ -8,12 +8,11 @@ import Router from "next/router";
 
 import GoogleSVG from "../../../ui/assets/icons/google.svg";
 import FacebookSVG from "../../../ui/assets/icons/facebook.svg";
-import { SharedItemHeader } from "../../../ui/components/Header";
-import { FlexRow } from "../../../ui/components/Layout";
 import { IconButton } from "../../../ui/components/IconButton";
 import { createFunction } from "../../../utils";
+import { FlexRow } from "../../../ui/components/Layout";
 
-import EmailSignup from "./EmailSignup";
+import EmailSignUp from "./EmailSignUp";
 
 export const RootDiv = styled.div`
   display: flex;
@@ -39,19 +38,19 @@ export const Row = styled(FlexRow)`
   height: 3.1875rem;
 `;
 
-const SignupPageContainer: FunctionComponent<{}> = () => {
-  const d = useDispatch();
+const SignUpPageContainer: FunctionComponent = () => {
+  const dispatch = useDispatch();
   const firebase = useFirebase();
 
   const loginWithProvider = useCallback((provider: "google" | "facebook") => {
-    d({ type: actionTypes.CLEAR_DATA });
+    dispatch({ type: actionTypes.CLEAR_DATA });
     firebase
       .login({ provider, type: "popup" })
       .then(() => {
         toast.success("Logged in successfully.");
         Router.push("/dashboard");
       })
-      .catch(err => toast.error(err.message));
+      .catch((err) => toast.error(err.message));
   }, []);
 
   const loginWithGoogle = useCallback(() => loginWithProvider("google"), []);
@@ -60,26 +59,25 @@ const SignupPageContainer: FunctionComponent<{}> = () => {
     [],
   );
   const loginWithEmail = useCallback((email: string, password) => {
-    // d({ type: actionTypes.CLEAR_DATA });
+    // dispatch({ type: actionTypes.CLEAR_DATA });
     firebase
       .login({ email, password })
       .then(() => {
         toast.success("Logged in successfully.");
         Router.push("/dashboard");
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.code === "auth/user-not-found") {
-          console.log("creating new user");
-          const signupCallable = createFunction<
+          const signUpCallable = createFunction<
             { email: string; password: string },
-            {}
+            void
           >("signup");
-          return signupCallable({ email, password })
+          return signUpCallable({ email, password })
             .then(() => {
               toast.success("Sign up successful");
               firebase.login({ email, password });
             })
-            .catch(error => toast.error(error.message));
+            .catch((error) => toast.error(error.message));
         }
         return toast.error(err.message);
       });
@@ -90,13 +88,12 @@ const SignupPageContainer: FunctionComponent<{}> = () => {
       .auth()
       .sendPasswordResetEmail(email)
       .then(() => toast.success("Email sent"))
-      .catch(err => toast.error(err.message));
+      .catch((err) => toast.error(err.message));
   }, []);
 
   return (
     <RootDiv>
-      <SharedItemHeader />
-      <EmailSignup login={loginWithEmail} resetEmail={resetEmail} />
+      <EmailSignUp login={loginWithEmail} resetEmail={resetEmail} />
       <Wrapper>
         <Row>
           <IconButton
@@ -121,4 +118,4 @@ const SignupPageContainer: FunctionComponent<{}> = () => {
   );
 };
 
-export default SignupPageContainer;
+export default SignUpPageContainer;

@@ -9,7 +9,7 @@ import {
   InputWrapper,
   Label,
   Row,
-} from "../../auth/components/EmailSignup";
+} from "../../auth/components/EmailSignUp";
 import { CollaboratorRole } from "../../../utils/database/types";
 import { SelectField } from "../../form/components";
 import { AddItemFormValues } from "../../addItem/modules/types";

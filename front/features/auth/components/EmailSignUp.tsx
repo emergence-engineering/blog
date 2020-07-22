@@ -76,7 +76,7 @@ const Text = styled.div`
   margin-top: 3rem;
 `;
 
-const SignupSchema = Yup.object().shape({
+const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
     .min(5, "Too Short!")
@@ -84,7 +84,7 @@ const SignupSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const EmailSignup: FunctionComponent<EmailSignUpProps> = ({
+const EmailSignUp: FunctionComponent<EmailSignUpProps> = ({
   login,
   resetEmail,
 }) => {
@@ -100,7 +100,7 @@ const EmailSignup: FunctionComponent<EmailSignUpProps> = ({
     <>
       <Formik
         initialValues={{ email: "", password: "" }}
-        validationSchema={SignupSchema}
+        validationSchema={SignUpSchema}
         onSubmit={submit}
       >
         {({
@@ -149,4 +149,4 @@ const EmailSignup: FunctionComponent<EmailSignUpProps> = ({
   );
 };
 
-export default EmailSignup;
+export default EmailSignUp;

@@ -6,7 +6,7 @@ import { Root } from "../../../ui/components/Layout";
 import { IconButton } from "../../../ui/components/IconButton";
 import GoogleSVG from "../../../ui/assets/icons/google.svg";
 import FacebookSVG from "../../../ui/assets/icons/facebook.svg";
-import { Row } from "../../auth/components/SignupPageContainer";
+import { Row } from "../../auth/components/SignUpPageContainer";
 import { acceptInvitationWithProvider } from "../modules/utils";
 
 export default () => {
