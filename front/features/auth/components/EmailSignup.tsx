@@ -1,20 +1,19 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import styled from "styled-components";
 import { Formik, Form, FormikProps } from "formik";
 import * as Yup from "yup";
 
 import { Button } from "../../../ui/components/Button";
-import { FlexRow } from "../../../ui/components/Layout";
 import { text } from "../../../utils/mixins";
 import theme from "../../../utils/theme";
-import { PasswordInput, TextInput } from "../../form/components/Input";
+import { PasswordInput, TextInput } from "../../../ui/components/Input";
 
-interface EmailSignupProps {
+interface EmailSignUpProps {
   resetEmail: (email: string) => void;
   login: (email: string, password: string) => void;
 }
 
-interface EmailSignupValues {
+interface EmailSignUpValues {
   email: string;
   password: string;
 }
@@ -36,7 +35,8 @@ export const PassInput = styled(PasswordInput)`
   width: 100%;
 `;
 
-export const Row = styled(FlexRow)`
+export const Row = styled.div`
+  display: flex;
   width: 19.9375rem;
   justify-content: center;
   margin-bottom: 2rem;
@@ -77,24 +77,22 @@ const Text = styled.div`
 `;
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Invalid email")
-    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
     .min(5, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
 });
 
-const EmailSignup: FunctionComponent<EmailSignupProps> = ({
+const EmailSignup: FunctionComponent<EmailSignUpProps> = ({
   login,
   resetEmail,
 }) => {
-  const submit = (values: EmailSignupValues) => {
+  const submit = useCallback((values: EmailSignUpValues) => {
     login(values.email, values.password);
-  };
+  }, []);
 
-  const sendResetEmail = (values: EmailSignupValues) => () => {
+  const sendResetEmail = (values: EmailSignUpValues) => () => {
     resetEmail(values.email);
   };
 
@@ -112,7 +110,7 @@ const EmailSignup: FunctionComponent<EmailSignupProps> = ({
           handleChange,
           handleBlur,
         }: /* and other goodies */
-        FormikProps<EmailSignupValues>) => (
+        FormikProps<EmailSignUpValues>) => (
           <StyledForm>
             <InputWrapper>
               <Label>E-mail</Label>
