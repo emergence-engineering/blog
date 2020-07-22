@@ -18,7 +18,7 @@ export const UserStatusContext = createContext<UserStatus | null>(null);
 export interface WithRedirectProps {}
 
 export default (options: { [key in UserStatus]?: string }) => <
-  P extends object
+  P extends Record<string, unknown>
 >(
   Component: React.ComponentType<P & WithRedirectProps>,
 ): FunctionComponent<P> => props => {

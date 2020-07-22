@@ -7,7 +7,7 @@ import Document, {
 } from "next/document";
 import styled, { ServerStyleSheet } from "styled-components";
 
-const bodyStyle = {
+const bodyStyle: Record<string, string | number> = {
   width: "100%",
   height: "100vh",
   padding: 0,
@@ -40,7 +40,8 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -60,7 +61,7 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <HTMLRoot lang="en" style={bodyStyle as object}>
+      <HTMLRoot lang="en" style={bodyStyle}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
@@ -69,7 +70,7 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <Body style={bodyStyle as object}>
+        <Body style={bodyStyle}>
           <Main />
           <NextScript />
         </Body>

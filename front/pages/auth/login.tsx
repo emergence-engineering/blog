@@ -28,7 +28,7 @@ const Root = styled.div`
   align-items: center;
 `;
 
-const LoginPage: FunctionComponent<{}> = () => {
+const LoginPage: FunctionComponent = () => {
   const firebase = useFirebase();
 
   const [email, setEmail] = useState<string>("");

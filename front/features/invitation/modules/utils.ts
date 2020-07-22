@@ -8,11 +8,11 @@ export const acceptInvitationWithEmail = async (
   email: string,
   password: string,
   invitationId: string,
-) => {
+): Promise<void> => {
   try {
     const acceptInvitationCallable = createFunction<
       { email?: string; password?: string; invitationId: string },
-      {}
+      void
     >("acceptInvitation");
     await acceptInvitationCallable({ email, password, invitationId });
     await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -25,7 +25,7 @@ export const acceptInvitationWithEmail = async (
 export const acceptInvitationWithProvider = async (
   sharedItemId: string,
   invitationId: string,
-) => {
+): Promise<void> => {
   try {
     const acceptInvitationCallable = createFunction<
       {
@@ -34,7 +34,7 @@ export const acceptInvitationWithProvider = async (
         invitationId: string;
         sharedItemId: string;
       },
-      {}
+      void
     >("acceptInvitation");
     await acceptInvitationCallable({ invitationId, sharedItemId });
     Router.push(`/sharedItem/${sharedItemId}`);

@@ -11,7 +11,7 @@ const ResetPasswordPage: NextPage<ResetPasswordPageProps> = ({ code }) => (
   <ResetPasswordPageContainer code={code} />
 );
 
-ResetPasswordPage.getInitialProps = async ctx => {
+ResetPasswordPage.getInitialProps = async (ctx) => {
   const code = ctx.query.oobCode as string | undefined;
   return { code };
 };

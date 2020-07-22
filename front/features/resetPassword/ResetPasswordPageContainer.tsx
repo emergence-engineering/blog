@@ -49,7 +49,6 @@ const ResetPasswordPageContainer: FunctionComponent<ResetPasswordProps> = ({
         .auth()
         .verifyPasswordResetCode(code)
         .then((verification) => {
-          console.log("verification", verification);
           if (verification === values.email) {
             firebase
               .auth()

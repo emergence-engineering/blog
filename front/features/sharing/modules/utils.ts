@@ -1,15 +1,24 @@
 import { toast } from "react-toastify";
 
 import { SharedItemId, InvitationStatus } from "../../../utils/database/types";
+import {
+  ItemId,
+  InvitationStatus,
+  CollaboratorRole,
+} from "../../../utils/database/types";
 import { getServerTimestamp } from "../../../utils";
-import { SharingValues } from "../components/SharingForm";
 
 import { addInvite, getSharedItemTitleById } from "./database";
 
 interface AddInvitationParams extends SharingValues {
-  sharedItemId: SharedItemId;
+  email: string;
+  role: CollaboratorRole;
+  sharedItemId: ItemId;
 }
-export const addInvitation = async (invitation: AddInvitationParams) => {
+
+export const addInvitation = async (
+  invitation: AddInvitationParams,
+): Promise<void> => {
   try {
     const { name } = await getSharedItemTitleById(invitation.sharedItemId);
     await addInvite({

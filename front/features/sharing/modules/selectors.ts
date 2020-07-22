@@ -10,5 +10,9 @@ export const getCollaborators = createSelector(getFirestoreData, data => {
   const sharedItem = data[CollectionNames.sharedItems]
     ? (Object.values(data[CollectionNames.sharedItems])[0] as SharedItem)
     : null;
+
+  // TODO: use the type of the shared item
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return sharedItem?.collaborators ? withKey(sharedItem.collaborators) : [];
 });

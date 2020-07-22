@@ -7,7 +7,7 @@ import { Button } from "../ui/components/Button";
 import withRedirect from "../features/auth/components/withRedirect";
 import { UserStatus } from "../features/auth/modules/types";
 
-const SamplePage: FunctionComponent<{}> = () => {
+const SamplePage: FunctionComponent = () => {
   const firebase = useFirebase();
   useFirestoreConnect([{ collection: "orders" }]);
   const orders = useSelector(
@@ -28,7 +28,7 @@ const SamplePage: FunctionComponent<{}> = () => {
         Just create an a collection named `owners` in Firestore to see how it
         works!
       </div>
-      {Object.keys(orders).map(orderId => (
+      {Object.keys(orders).map((orderId) => (
         <div key={orderId}>
           {orderId}: {orders[orderId].owner}
         </div>

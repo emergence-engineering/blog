@@ -9,19 +9,21 @@ import FacebookSVG from "../../../ui/assets/icons/facebook.svg";
 import { Row } from "../../auth/components/SignUpPageContainer";
 import { acceptInvitationWithProvider } from "../modules/utils";
 
-export default () => {
+// TODO: early termination is required, something should be displayed to the user
+// when error happens...
+export default function InvitationPageContainer() {
   const router = useRouter();
   const {
     query: { sharedItemId, invitationId },
   } = router;
 
-  if (!sharedItemId || !invitationId) {
-    return null; // TODO: something with better ux, maybe loading bar...
-  }
 
   const firebase = useFirebase();
 
   const acceptWithGoogle = useCallback(async () => {
+    if (!sharedItemId || !invitationId) {
+      return; // TODO*
+    }
     await firebase.login({ provider: "google", type: "popup" });
     await acceptInvitationWithProvider(
       sharedItemId as string,
@@ -30,6 +32,9 @@ export default () => {
   }, []);
 
   const acceptWithFacebook = useCallback(async () => {
+    if (!sharedItemId || !invitationId) {
+      return; // TODO*
+    }
     await firebase.login({ provider: "facebook", type: "popup" });
     await acceptInvitationWithProvider(
       sharedItemId as string,
@@ -55,4 +60,4 @@ export default () => {
       </Row>
     </Root>
   );
-};
+}

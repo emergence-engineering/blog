@@ -53,7 +53,6 @@ export interface AddNewRecord {
 export interface SharedItemItem {
   sharedItemId: SharedItemId;
   owner: UserId;
-  ingredient: Ingredient;
   fields: Record<FieldId, ItemField>;
   fieldOrder: string[];
   createdAt: Timestamp;
@@ -137,6 +136,15 @@ export enum FieldTypes {
 export enum CollaboratorRole {
   Edit = "Edit",
   View = "View",
+}
+
+/**
+ * Create sharing based on SharedItem and exampleSharedItems
+ */
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface SharedItem {
+  collaborators: Collaborator[];
 }
 
 export enum CollectionNames {
