@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
+import { getVersion } from "prosemirror-collab";
 
 import { DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
@@ -87,12 +88,13 @@ const Editors: FunctionComponent<{}> = () => {
       ),
     [serverDoc],
   );
+  pmState2 && console.log({ version: getVersion(pmState2) });
   return (
     <>
       <StateDisplay serverDoc={serverDoc} />
       <EditorWrapper>
-        <Editor id="editor1" view={pmView1} />
-        <Editor id="editor2" view={pmView2} />
+        <Editor id="editor1" view={pmView1} state={pmState1} />
+        <Editor id="editor2" view={pmView2} state={pmState2} />
       </EditorWrapper>
     </>
   );

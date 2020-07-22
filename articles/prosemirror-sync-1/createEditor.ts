@@ -31,7 +31,7 @@ export default (
   const view: EditorView = new EditorView(editorNode, {
     state,
     dispatchTransaction: (tr: Transaction<typeof mySchema>) =>
-      postNewSteps(view, setPmState, DB, tr),
+      postNewSteps(view, setPmState, DB, tr, editorID),
   });
   setPmView(view);
 };
