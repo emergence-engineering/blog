@@ -1,4 +1,4 @@
-import React, { ReactChild } from "react";
+import React, { FunctionComponent, ReactChild } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -11,17 +11,23 @@ export const StyledAnchor = styled.a`
   height: inherit;
 `;
 
-const Anchor = ({
-  href,
-  children,
-  handleClick,
-}: {
+interface AnchorProps {
   href: string;
   children: ReactChild;
   handleClick?: () => void;
+}
+
+const Anchor: FunctionComponent<AnchorProps> = ({
+  href,
+  children,
+  handleClick,
 }) => (
   <Link href={href} passHref>
-    <StyledAnchor onClick={handleClick}>{children}</StyledAnchor>
+    {handleClick ? (
+      <StyledAnchor onClick={handleClick}>{children}</StyledAnchor>
+    ) : (
+      <StyledAnchor>{children}</StyledAnchor>
+    )}
   </Link>
 );
 

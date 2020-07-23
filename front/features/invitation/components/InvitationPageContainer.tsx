@@ -17,7 +17,6 @@ export default function InvitationPageContainer() {
     query: { sharedItemId, invitationId },
   } = router;
 
-
   const firebase = useFirebase();
 
   const acceptWithGoogle = useCallback(async () => {

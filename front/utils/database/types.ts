@@ -38,7 +38,6 @@ export interface SharedItem {
 export type fieldId = string;
 export type formatId = string;
 
-
 export type formats = Record<formatId, Format>;
 
 export interface Format {

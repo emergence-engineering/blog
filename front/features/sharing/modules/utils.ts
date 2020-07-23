@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 
-import { SharedItemId, InvitationStatus } from "../../../utils/database/types";
 import {
   ItemId,
   InvitationStatus,
@@ -8,9 +7,9 @@ import {
 } from "../../../utils/database/types";
 import { getServerTimestamp } from "../../../utils";
 
-import { addInvite, getSharedItemTitleById } from "./database";
+import { addInvite, getSharedItemById } from "./database";
 
-interface AddInvitationParams extends SharingValues {
+interface AddInvitationParams {
   email: string;
   role: CollaboratorRole;
   sharedItemId: ItemId;
@@ -20,7 +19,7 @@ export const addInvitation = async (
   invitation: AddInvitationParams,
 ): Promise<void> => {
   try {
-    const { name } = await getSharedItemTitleById(invitation.sharedItemId);
+    const { name } = await getSharedItemById(invitation.sharedItemId);
     await addInvite({
       ...invitation,
       sharedItemTitle: name,

@@ -5,7 +5,6 @@ import {
   SharedItem,
   SharedItemId,
   Invitation,
-  SharedItem,
 } from "../../../utils/database/types";
 
 export const addInvite = async (invite: Invitation): Promise<void> => {
@@ -17,7 +16,9 @@ export const addInvite = async (invite: Invitation): Promise<void> => {
     .add(invite);
 };
 
-export const getSharedItemTitleById = async (sharedItemId: SharedItemId): Promise<SharedItem> => {
+export const getSharedItemById = async (
+  sharedItemId: SharedItemId,
+): Promise<SharedItem> => {
   const firestore = getFirebase().firestore();
   const snapshot = await firestore
     .collection(CollectionNames.sharedItems)

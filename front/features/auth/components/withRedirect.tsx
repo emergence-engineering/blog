@@ -21,7 +21,7 @@ export default (options: { [key in UserStatus]?: string }) => <
   P extends Record<string, unknown>
 >(
   Component: React.ComponentType<P & WithRedirectProps>,
-): FunctionComponent<P> => props => {
+): FunctionComponent<P> => (props) => {
   const [userStatus, setUserStatus] = useState<UserStatus | null>(null);
 
   const profile = useSelector(getUserProfile);
