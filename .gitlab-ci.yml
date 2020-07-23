@@ -14,6 +14,8 @@ install:
   stage: build
   script:
     - npm i
+    - cd functions && npm i
+    - cd ..
 
 test:
   stage: test
