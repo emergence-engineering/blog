@@ -17,8 +17,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": [
-    "front/pages",
-    "type-declarations/*"
-  ]
+  "include": ["front/pages", "type-declarations/*"],
+  "exclude": ["node_modules"]
 }
