@@ -162,3 +162,8 @@ in gitlab:
 - `STAGING_SENDER_ID` / `PROD_SENDER_ID`
 - `STAGING_APP_ID` / `PROD_APP_ID`
 
+## Error tracking, logging
+
+By default, we use Sentry.js for errors. Please read the 
+specific readme file [here]("/front/features/sentry/README.md")
+
