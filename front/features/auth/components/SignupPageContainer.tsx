@@ -8,7 +8,7 @@ import Router from "next/router";
 
 import GoogleSVG from "../../../ui/assets/icons/google.svg";
 import FacebookSVG from "../../../ui/assets/icons/facebook.svg";
-import { FridgeHeader } from "../../../ui/components/Header";
+import { SharedItemHeader } from "../../../ui/components/Header";
 import { FlexRow } from "../../../ui/components/Layout";
 import { IconButton } from "../../../ui/components/IconButton";
 import { createFunction } from "../../../utils";
@@ -95,7 +95,7 @@ const SignupPageContainer: FunctionComponent<{}> = () => {
 
   return (
     <RootDiv>
-      <FridgeHeader />
+      <SharedItemHeader />
       <EmailSignup login={loginWithEmail} resetEmail={resetEmail} />
       <Wrapper>
         <Row>

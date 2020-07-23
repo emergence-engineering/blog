@@ -1,20 +1,20 @@
 import { toast } from "react-toastify";
 
-import { FridgeId, InvitationStatus } from "../../../utils/database/types";
+import { SharedItemId, InvitationStatus } from "../../../utils/database/types";
 import { getServerTimestamp } from "../../../utils";
 import { SharingValues } from "../components/SharingForm";
 
-import { addInvite, getFridgeTitleById } from "./database";
+import { addInvite, getSharedItemTitleById } from "./database";
 
 interface AddInvitationParams extends SharingValues {
-  fridgeId: FridgeId;
+  sharedItemId: SharedItemId;
 }
 export const addInvitation = async (invitation: AddInvitationParams) => {
   try {
-    const { name } = await getFridgeTitleById(invitation.fridgeId);
+    const { name } = await getSharedItemTitleById(invitation.sharedItemId);
     await addInvite({
       ...invitation,
-      fridgeTitle: name,
+      sharedItemTitle: name,
       createdAt: getServerTimestamp(),
       updatedAt: getServerTimestamp(),
       status: InvitationStatus.new,

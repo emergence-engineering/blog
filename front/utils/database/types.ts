@@ -1,10 +1,8 @@
 import { Timestamp } from "@firebase/firestore-types";
 
-export type Id = string; // TODO: export this maybe to utils -> types
-export type CategoryId = Id; // TODO: categoryId vs CategoryId
-export type IngredientId = Id;
+export type Id = string;
 export type UserId = string;
-export type FridgeId = string;
+export type SharedItemId = string;
 export type ItemId = string;
 export type FieldId = string;
 export type ItemField =
@@ -16,7 +14,7 @@ export type ItemField =
   | CategorySelectionField;
 export type CollaboratorId = UserId;
 
-export type FridgeCollection = Record<FridgeId, Fridge>;
+export type SharedItemCollection = Record<SharedItemId, SharedItem>;
 
 export interface User {
   uid: UserId;
@@ -26,9 +24,7 @@ export interface User {
   createdAt: Timestamp;
 }
 
-export type CustomCategories = Record<CategoryId, CustomIngredientCategory>;
-
-export interface Fridge {
+export interface SharedItem {
   owner: UserId;
   name: string;
   itemOrder: string[];
@@ -39,42 +35,10 @@ export interface Fridge {
   createdAt: Timestamp;
 }
 
-export type ingredientId = string;
-export type categoryId = string;
-export type unitId = string;
 export type fieldId = string;
 export type formatId = string;
 
-export type IngredientCategories = Record<CategoryId, IngredientCategory>;
-export type Ingredients = Record<IngredientId, Ingredient>;
 
-export interface Ingredient {
-  categoryId: CategoryId;
-  id: Id;
-  name: string;
-  createdAt: Timestamp;
-  owner?: UserId;
-  unit: Unit;
-  amount: number;
-  isDeleted: boolean;
-}
-
-export interface IngredientCategory {
-  id: CategoryId;
-  name: string;
-  ingredients: Ingredients;
-}
-
-/* The following two types are used for creating custom ingredient categories
- * (=user defined). We omit ingredients from user defined categories since they
- * are already stored in a separate record.
- * */
-export type CustomIngredientCategory = Pick<IngredientCategory, "id" | "name">;
-
-// TODO: remove the redundant ones from the following:
-export type ingredientCategories = Record<categoryId, IngredientCategory>;
-export type ingredients = Record<ingredientId, Ingredient>;
-export type unitList = Record<unitId, Unit>;
 export type formats = Record<formatId, Format>;
 
 export interface Format {
@@ -82,32 +46,12 @@ export interface Format {
   decimal: 0 | 1 | 2;
 }
 
-export interface Unit {
-  unitId?: unitId;
-  name: string;
-  maxValue: number;
-  decimal: 0 | 1 | 2;
-}
-
-// TODO: what if category is deleted? -> Ingredient & IngredientCategory is only
-// used as a template to create a FridgeItem -> verify if there are items in that
-// category
-export interface Ingredient {
-  categoryId: categoryId;
-  name: string;
-  createdAt: Timestamp;
-  owner?: UserId;
-  unit: Unit;
-  amount: number;
-  isDeleted: boolean;
-}
-
 export interface AddNewRecord {
   name: string;
 }
 
-export interface FridgeItem {
-  fridgeId: FridgeId;
+export interface SharedItemItem {
+  sharedItemId: SharedItemId;
   owner: UserId;
   ingredient: Ingredient;
   fields: Record<FieldId, ItemField>;
@@ -173,9 +117,9 @@ export enum InvitationStatus {
 
 export interface Invitation {
   email: string;
-  fridgeTitle: string;
+  sharedItemTitle: string;
   role: CollaboratorRole;
-  fridgeId: FridgeId;
+  sharedItemId: SharedItemId;
   status: InvitationStatus;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -195,15 +139,8 @@ export enum CollaboratorRole {
   View = "View",
 }
 
-export enum UnitEnum {
-  gramm = "gramm",
-  kilogramm = "kilogramm",
-  liter = "liter",
-  piece = "piece",
-}
-
 export enum CollectionNames {
-  fridges = "fridges",
+  sharedItems = "sharedItems",
   users = "users",
   invites = "invites",
 }

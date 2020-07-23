@@ -2,26 +2,26 @@ import { getFirebase } from "react-redux-firebase";
 
 import {
   CollectionNames,
-  Fridge,
-  FridgeId,
+  SharedItem,
+  SharedItemId,
   Invitation,
 } from "../../../utils/database/types";
 
 export const addInvite = async (invite: Invitation) => {
   const firestore = getFirebase().firestore();
   await firestore
-    .collection(CollectionNames.fridges)
-    .doc(invite.fridgeId)
+    .collection(CollectionNames.sharedItems)
+    .doc(invite.sharedItemId)
     .collection(CollectionNames.invites)
     .add(invite);
 };
 
-export const getFridgeTitleById = async (fridgeId: FridgeId) => {
+export const getSharedItemTitleById = async (sharedItemId: SharedItemId) => {
   const firestore = getFirebase().firestore();
   const snapshot = await firestore
-    .collection(CollectionNames.fridges)
-    .doc(fridgeId)
+    .collection(CollectionNames.sharedItems)
+    .doc(sharedItemId)
     .get();
 
-  return snapshot.data() as Fridge;
+  return snapshot.data() as SharedItem;
 };

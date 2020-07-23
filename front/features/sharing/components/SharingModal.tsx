@@ -12,7 +12,7 @@ import {
 } from "../../../utils/database/types";
 import SharingHeader from "../../../ui/components/Header/SharingHeader";
 import { addInvitation } from "../modules/utils";
-import { getFridgeId } from "../../fridgeView/modules/utils";
+import { getSharedItemId } from "../../sharedItemView/modules/utils";
 import { RootState } from "../../../utils/reducers/rootReducer";
 import { getCollaborators } from "../modules/selectors";
 
@@ -37,11 +37,11 @@ const CollabContainer = styled.div`
 `;
 const SharingPageContainer: FunctionComponent<unknown> = () => {
   const router = useRouter();
-  const fridgeId = getFridgeId(router);
+  const sharedItemId = getSharedItemId(router);
   const uid = useSelector((state: RootState) => state.firebase.auth.uid);
   useFirestoreConnect([
     {
-      collection: CollectionNames.fridges,
+      collection: CollectionNames.sharedItems,
       where: [
         ["owner", "==", uid || ""],
         ["isDeleted", "==", false],
@@ -50,7 +50,7 @@ const SharingPageContainer: FunctionComponent<unknown> = () => {
   ]);
   const collaborators = useSelector(getCollaborators);
   const submit = async (values: SharingValues) => {
-    await addInvitation({ ...values, fridgeId });
+    await addInvitation({ ...values, sharedItemId });
   };
   return (
     <Root>

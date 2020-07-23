@@ -23,7 +23,7 @@ export const acceptInvitationWithEmail = async (
 };
 
 export const acceptInvitationWithProvider = async (
-  fridgeId: string,
+  sharedItemId: string,
   invitationId: string,
 ) => {
   try {
@@ -32,12 +32,12 @@ export const acceptInvitationWithProvider = async (
         email?: string;
         password?: string;
         invitationId: string;
-        fridgeId: string;
+        sharedItemId: string;
       },
       {}
     >("acceptInvitation");
-    await acceptInvitationCallable({ invitationId, fridgeId });
-    Router.push(`/fridge/${fridgeId}`);
+    await acceptInvitationCallable({ invitationId, sharedItemId });
+    Router.push(`/sharedItem/${sharedItemId}`);
     toast.success("Invitation accepted.");
   } catch (err) {
     toast.error(err.message);

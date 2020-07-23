@@ -12,10 +12,10 @@ import { acceptInvitationWithProvider } from "../modules/utils";
 export default () => {
   const router = useRouter();
   const {
-    query: { fridgeId, invitationId },
+    query: { sharedItemId, invitationId },
   } = router;
 
-  if (!fridgeId || !invitationId) {
+  if (!sharedItemId || !invitationId) {
     return null; // TODO: something with better ux, maybe loading bar...
   }
 
@@ -24,7 +24,7 @@ export default () => {
   const acceptWithGoogle = useCallback(async () => {
     await firebase.login({ provider: "google", type: "popup" });
     await acceptInvitationWithProvider(
-      fridgeId as string,
+      sharedItemId as string,
       invitationId as string,
     );
   }, []);
@@ -32,7 +32,7 @@ export default () => {
   const acceptWithFacebook = useCallback(async () => {
     await firebase.login({ provider: "facebook", type: "popup" });
     await acceptInvitationWithProvider(
-      fridgeId as string,
+      sharedItemId as string,
       invitationId as string,
     );
   }, []);
