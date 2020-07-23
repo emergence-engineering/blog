@@ -5,7 +5,7 @@ import { useFirebase, useFirestoreConnect } from "react-redux-firebase";
 import { RootState } from "../utils/reducers/rootReducer";
 import { Button } from "../ui/components/Button";
 import withRedirect from "../features/auth/components/withRedirect";
-import { UserStatus } from "../features/auth/modules/auth";
+import { UserStatus } from "../features/auth/modules/types";
 
 const SamplePage: FunctionComponent<{}> = () => {
   const firebase = useFirebase();

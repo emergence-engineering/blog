@@ -5,7 +5,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import styled, { ServerStyleSheet, createGlobalStyle } from "styled-components";
+import styled, { ServerStyleSheet } from "styled-components";
 
 const bodyStyle = {
   width: "100%",
@@ -29,12 +29,6 @@ const HTMLRoot = styled.html`
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-`;
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-  }
 `;
 
 export default class MyDocument extends Document {
@@ -67,9 +61,13 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <HTMLRoot lang="en" style={bodyStyle as object}>
-        <GlobalStyle />
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+          />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <Body style={bodyStyle as object}>
           <Main />
