@@ -28,7 +28,7 @@ const ContentWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 `;
 
