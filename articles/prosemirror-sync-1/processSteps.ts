@@ -29,7 +29,11 @@ export default async (DBS: DBSI | undefined) => {
           clientStep.docId,
         )) as any;
         if (clientStep.version !== syncDoc.version) {
-          // TODO: Set status to StepStatus.REJECTED
+          // Setting status to StepStatus.REJECTED
+          DBS.serverDB.put({
+            ...clientStep,
+            status: StepStatus.REJECTED,
+          });
           return;
         }
 
