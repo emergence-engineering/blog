@@ -5,19 +5,14 @@ import JsonView from "react-json-view";
 
 import { ServerStep } from "../types";
 
+import { Cell } from "./common";
+
 const TriggerRoot = styled.button`
   cursor: pointer;
 `;
 
 const StepRoot = styled.div`
   display: flex;
-`;
-
-const Cell = styled.div`
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  border-bottom: 1px solid lightgray;
-  flex: 1;
 `;
 
 const StepsWrapper = styled(Cell)`
