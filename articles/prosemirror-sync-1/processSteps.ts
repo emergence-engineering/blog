@@ -10,6 +10,17 @@ import {
 } from "./types";
 import { mySchema } from "./schema";
 
+async function syncClientStep(
+  DBS: DBSI,
+  clientStep: ClientStep,
+  newStatus: StepStatus,
+) {
+  DBS.serverDB.put({
+    ...clientStep,
+    status: newStatus,
+  });
+}
+
 export default async (DBS: DBSI | undefined) => {
   if (!DBS) return;
   DBS.serverDB
@@ -29,11 +40,7 @@ export default async (DBS: DBSI | undefined) => {
           clientStep.docId,
         )) as any;
         if (clientStep.version !== syncDoc.version) {
-          // Setting status to StepStatus.REJECTED
-          DBS.serverDB.put({
-            ...clientStep,
-            status: StepStatus.REJECTED,
-          });
+          syncClientStep(DBS, clientStep, StepStatus.REJECTED);
           return;
         }
 
@@ -66,11 +73,14 @@ export default async (DBS: DBSI | undefined) => {
         };
         await DBS.serverDB
           .put(newDoc)
-          .then(() => DBS.serverDB.bulkDocs(serverSteps));
+          .then(() => DBS.serverDB.bulkDocs(serverSteps))
+          .then(() => syncClientStep(DBS, clientStep, StepStatus.ACCEPTED));
       } catch (e) {
-        // TODO: Set status to StepStatus.REJECTED
-        console.log(e);
-        // TODO
+        console.log("[CAUGHT ERROR] processSteps, ", e);
+
+        const clientStep: ClientStep = data.doc as any;
+        // Setting status to StepStatus.REJECTED
+        syncClientStep(DBS, clientStep, StepStatus.REJECTED);
       }
     });
 };
