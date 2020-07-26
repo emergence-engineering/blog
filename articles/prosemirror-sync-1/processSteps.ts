@@ -1,7 +1,6 @@
 import { Step } from "prosemirror-transform";
 
 import {
-  ClientStep,
   DBCollection,
   DBSI,
   PMDocument,
@@ -24,11 +23,15 @@ export default async (DBS: DBSI | undefined) => {
     })
     .on("change", async data => {
       try {
-        const clientStep: ClientStep = data.doc as any;
-        const syncDoc: PMDocument = (await DBS.serverDB.get(
-          clientStep.docId,
-        )) as any;
-        if (clientStep.version !== syncDoc.version) {
+        const clientStep = data.doc;
+        if (clientStep?.collection !== DBCollection.ClientSteps) {
+          return;
+        }
+        const syncDoc = await DBS.serverDB.get(clientStep.docId);
+        if (
+          clientStep.version !== syncDoc.version ||
+          syncDoc.collection !== DBCollection.PMDocument
+        ) {
           // TODO: Set status to StepStatus.REJECTED
           return;
         }

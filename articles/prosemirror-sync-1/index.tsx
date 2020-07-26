@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
 import { getVersion } from "prosemirror-collab";
+import { EditorState } from "prosemirror-state";
+import { EditorView } from "prosemirror-view";
 
-import { DBSI, DocID, PMDocument } from "./types";
+import { DBSchema, DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
 import fetchNewStepsClient from "./fetchNewStepsClient";
 import fetchDocument from "./fetchDocument";
@@ -10,18 +12,21 @@ import processSteps from "./processSteps";
 import createEditor from "./createEditor";
 import Editor from "./components/Editor";
 import StateDisplay from "./components/StateDisplay";
+import { mySchema } from "./schema";
 
 const EditorWrapper = styled.div`
   display: flex;
 `;
 
 const Editors: FunctionComponent<{}> = () => {
-  const [pmState1, setPmState1] = useState();
-  const [pmView1, setPmView1] = useState();
-  const [pmState2, setPmState2] = useState();
-  const [pmView2, setPmView2] = useState();
+  const [pmState1, setPmState1] = useState<EditorState<typeof mySchema>>();
+  const [pmView1, setPmView1] = useState<EditorView<typeof mySchema>>();
+  const [pmState2, setPmState2] = useState<EditorState<typeof mySchema>>();
+  const [pmView2, setPmView2] = useState<EditorView<typeof mySchema>>();
   const [serverDoc, setServerDoc] = useState<PMDocument>();
-  const [docListener, setDocListener] = useState();
+  const [docListener, setDocListener] = useState<
+    PouchDB.Core.Changes<DBSchema>
+  >();
   const [DBS, setDBS] = useState<DBSI>();
 
   // Initialize PouchDB instances

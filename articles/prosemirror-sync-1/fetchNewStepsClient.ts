@@ -3,9 +3,12 @@ import { Step } from "prosemirror-transform";
 import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
-import { DBCollection, DocID, ServerStep } from "./types";
+import { DBCollection, DBSchema, DocID, ServerStep } from "./types";
 
-export default (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
+export default (
+  DB?: PouchDB.Database<DBSchema>,
+  pmView?: EditorView<typeof mySchema>,
+) => {
   if (!DB || !pmView) return;
   const listener = DB.changes({
     live: true,
@@ -18,7 +21,10 @@ export default (DB?: PouchDB.Database<{}>, pmView?: EditorView) => {
       (data as ServerStep).version === getVersion(pmView.state),
   });
   listener.on("change", data => {
-    const serverStep: ServerStep = data.doc as any;
+    const serverStep = data.doc;
+    if (serverStep?.collection !== DBCollection.ServerSteps) {
+      return;
+    }
     getVersion(pmView.state) === serverStep.version &&
       pmView.dispatch(
         receiveTransaction(

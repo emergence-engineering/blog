@@ -1,11 +1,11 @@
-import { DBSI, PMDocument } from "./types";
+import { DBCollection, DBSI, PMDocument, DBSchema } from "./types";
 
 export default async (
   DBS: DBSI | undefined,
-  setDocListener: (listener: PouchDB.Core.Changes<{}>) => void,
+  setDocListener: (listener: PouchDB.Core.Changes<DBSchema>) => void,
   setServerDoc: (doc: PMDocument) => void,
   id: string,
-  docListener?: PouchDB.Core.Changes<{}>,
+  docListener?: PouchDB.Core.Changes<DBSchema>,
   serverDoc?: PMDocument,
 ) => {
   if (!DBS) return;
@@ -21,11 +21,12 @@ export default async (
     setDocListener(listener);
     listener.on("change", data => {
       // TODO: Don't listen to it after it is fetched
-      setServerDoc(data.doc as any);
+      data.doc?.collection === DBCollection.PMDocument &&
+        setServerDoc(data.doc);
     });
   }
   if (docListener && serverDoc) {
-    // TODO: remove
+    // In a real time environment the doc should only be fetched once, thus the listener should be cancelled
     // docListener.cancel();
   }
 };

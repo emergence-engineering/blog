@@ -3,14 +3,13 @@ import { sendableSteps } from "prosemirror-collab";
 import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
-import { ClientStep, DBCollection, DocID, StepStatus } from "./types";
+import { ClientStep, DBCollection, DBSchema, DocID, StepStatus } from "./types";
 
 export default (
   view: EditorView,
   setPmState: (state: EditorState) => void,
-  DB: PouchDB.Database<{}>,
+  DB: PouchDB.Database<DBSchema>,
   tr: Transaction<typeof mySchema>,
-  editorId: string,
 ) => {
   const newState = view.state.apply(tr);
 

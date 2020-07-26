@@ -1,12 +1,12 @@
 import PouchDB from "pouchdb";
 
-import { DBCollection, DBSI, DocID, PMDocument } from "./types";
+import { DBCollection, DBSI, DocID, PMDocument, DBSchema } from "./types";
 import { initialDoc } from "./schema";
 
 export default async (DBS: DBSI | undefined, setDBS: (dbs: DBSI) => void) => {
-  let serverDB = new PouchDB("server");
-  let clientDB1 = new PouchDB("client1");
-  let clientDB2 = new PouchDB("client2");
+  let serverDB = new PouchDB<DBSchema>("server");
+  let clientDB1 = new PouchDB<DBSchema>("client1");
+  let clientDB2 = new PouchDB<DBSchema>("client2");
 
   // Cleaning old data
   await serverDB.destroy();

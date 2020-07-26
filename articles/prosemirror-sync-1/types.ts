@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import PouchDB from "pouchdb";
 
 export enum DBCollection {
@@ -38,10 +40,12 @@ export interface ServerStep {
   docId: string;
 }
 
+export type DBSchema = ServerStep | ClientStep | PMDocument;
+
 export const DocID = "ee";
 
 export interface DBSI {
-  serverDB: PouchDB.Database<{}>;
-  clientDB1: PouchDB.Database<{}>;
-  clientDB2: PouchDB.Database<{}>;
+  serverDB: PouchDB.Database<DBSchema>;
+  clientDB1: PouchDB.Database<DBSchema>;
+  clientDB2: PouchDB.Database<DBSchema>;
 }

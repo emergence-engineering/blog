@@ -6,32 +6,32 @@ import { collab } from "prosemirror-collab";
 import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
-import { PMDocument } from "./types";
+import { PMDocument, DBSchema } from "./types";
 import postNewSteps from "./postNewSteps";
 
 export default (
-  setPmState: (state: EditorState) => void,
-  setPmView: (view: EditorView) => void,
+  setPmState: (state: EditorState<typeof mySchema>) => void,
+  setPmView: (view: EditorView<typeof mySchema>) => void,
   editorID: string,
   serverDoc?: PMDocument,
-  DB?: PouchDB.Database<{}>,
+  DB?: PouchDB.Database<DBSchema>,
   outerView?: EditorView,
 ) => {
   const editorNode = document.querySelector(editorID);
   // If there is no data yet or already initialized
   if (!serverDoc || !DB || !editorNode || outerView) return;
-  const doc: PMDocument = serverDoc.doc as any;
-  const state = EditorState.create({
+  const { doc } = serverDoc;
+  const state = EditorState.create<typeof mySchema>({
     doc: mySchema.nodeFromJSON(doc),
     plugins: [
       ...exampleSetup({ schema: mySchema }),
-      collab({ version: doc.version }),
+      collab({ version: serverDoc.version }),
     ],
   });
-  const view: EditorView = new EditorView(editorNode, {
+  const view: EditorView<typeof mySchema> = new EditorView(editorNode, {
     state,
     dispatchTransaction: (tr: Transaction<typeof mySchema>) =>
-      postNewSteps(view, setPmState, DB, tr, editorID),
+      postNewSteps(view, setPmState, DB, tr),
   });
   setPmView(view);
 };
