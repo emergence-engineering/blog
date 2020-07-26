@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { EditorView } from "prosemirror-view";
 import { EditorState } from "prosemirror-state";
 
+import ProseMirrorDiv from "../../../modules/prosemirror/ProseMirrorDiv";
+
 const EditorDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,7 +26,7 @@ const Editor: FunctionComponent<{
       <h5>getVersion</h5>
       {view && getVersion(view.state)}
     </div>
-    <div id={id} />
+    <ProseMirrorDiv id={id} />
   </EditorDetailsWrapper>
 );
 

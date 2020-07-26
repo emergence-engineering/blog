@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
+import { getVersion } from "prosemirror-collab";
 
 import { DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
@@ -9,7 +10,6 @@ import processSteps from "./processSteps";
 import createEditor from "./createEditor";
 import Editor from "./components/Editor";
 import StateDisplay from "./components/StateDisplay";
-import { getVersion } from "prosemirror-collab";
 
 const EditorWrapper = styled.div`
   display: flex;
