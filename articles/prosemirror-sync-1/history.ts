@@ -5,10 +5,17 @@ enum StepHistoryActionType {
   "ADD_CLIENT_STEP",
 }
 
-export interface StepHistoryAction {
-  type: StepHistoryActionType;
-  payload: ServerStep | ClientStep;
+interface ServerStepAction {
+  type: StepHistoryActionType.ADD_SERVER_STEP;
+  payload: ServerStep;
 }
+
+interface ClientStepAction {
+  type: StepHistoryActionType.ADD_CLIENT_STEP;
+  payload: ClientStep;
+}
+
+export type StepHistoryAction = ClientStepAction | ServerStepAction;
 
 export interface StepHistoryState {
   client: ClientStep[];
@@ -55,7 +62,7 @@ export const defaultHistoryState: StepHistoryState = {
   server: [],
 };
 
-type Step = ClientStep & ServerStep;
+type Step = ClientStep | ServerStep;
 
 function sortSteps<Item extends Step>(a: Item, b: Item): number {
   return a.updatedAt - b.updatedAt;
@@ -75,12 +82,12 @@ export function stepHistoryReducer(
     case StepHistoryActionType.ADD_CLIENT_STEP:
       return {
         server: state.server,
-        client: getLast10Steps([...state.client, action.payload] as Step[]),
+        client: getLast10Steps([...state.client, action.payload]),
       };
     case StepHistoryActionType.ADD_SERVER_STEP:
       return {
         client: state.client,
-        server: getLast10Steps([...state.server, action.payload] as Step[]),
+        server: getLast10Steps([...state.server, action.payload]),
       };
     default:
       return state;
