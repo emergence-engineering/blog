@@ -129,7 +129,7 @@ const Index: FunctionComponent<{} & ReturnType<
       color={theme.color.tertiary}
       backGroundColor={theme.color.gray11}
     />
-    <TechnologySection />
+    {/*<TechnologySection />*/}
     <SalesFormSection />
   </Layout>
 );
