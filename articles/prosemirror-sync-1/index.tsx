@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, {
+  FunctionComponent,
+  Reducer,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { getVersion } from "prosemirror-collab";
 import { EditorState } from "prosemirror-state";
@@ -13,6 +19,15 @@ import createEditor from "./createEditor";
 import Editor from "./components/Editor";
 import StateDisplay from "./components/StateDisplay";
 import { mySchema } from "./schema";
+import {
+  defaultHistoryState,
+  fetchStepHistory,
+  StepHistoryAction,
+  stepHistoryReducer,
+  StepHistoryState,
+} from "./history";
+import ClientStepWatcher from "./components/ClientStepWatcher";
+import ServerStepWatcher from "./components/ServerStepWatcher";
 
 const EditorWrapper = styled.div`
   display: flex;
@@ -25,6 +40,12 @@ const Editors: FunctionComponent<{}> = () => {
   const [pmView2, setPmView2] = useState<EditorView<typeof mySchema>>();
   const [serverDoc, setServerDoc] = useState<PMDocument>();
   const [docListener, setDocListener] = useState<
+    PouchDB.Core.Changes<DBSchema>
+  >();
+  const [stepHistory, stepHistoryDispatch] = useReducer<
+    Reducer<StepHistoryState, StepHistoryAction>
+  >(stepHistoryReducer, defaultHistoryState);
+  const [stepHistoryListener, setStepHistoryListener] = useState<
     PouchDB.Core.Changes<DBSchema>
   >();
   const [DBS, setDBS] = useState<DBSI>();
@@ -56,11 +77,27 @@ const Editors: FunctionComponent<{}> = () => {
   useEffect(() => {
     fetchDocument(
       DBS,
+      // TODO
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       setDocListener,
       setServerDoc,
       DocID,
       docListener,
       serverDoc,
+    );
+  }, [DBS, serverDoc]);
+
+  // Fetch step history
+  useEffect(() => {
+    fetchStepHistory(
+      DBS,
+      setStepHistoryListener,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      stepHistoryDispatch,
+      stepHistoryListener,
+      stepHistory,
     );
   }, [DBS, serverDoc]);
 
@@ -99,6 +136,10 @@ const Editors: FunctionComponent<{}> = () => {
   return (
     <>
       <StateDisplay serverDoc={serverDoc} />
+      <div>
+        <ClientStepWatcher steps={stepHistory.client} />
+        <ServerStepWatcher steps={stepHistory.server} />
+      </div>
       <EditorWrapper>
         <Editor id="editor1" view={pmView1} state={pmState1} />
         <Editor id="editor2" view={pmView2} state={pmState2} />

@@ -32,7 +32,7 @@ export interface ClientStep {
   version: number;
   docId: string;
   createdAt: Timestamp;
-  updatedAt: Timestamp | null;
+  updatedAt: Timestamp;
 }
 
 export interface ServerStep {
@@ -42,7 +42,7 @@ export interface ServerStep {
   pmViewId: string | number;
   docId: string;
   createdAt: Timestamp;
-  updatedAt: Timestamp | null;
+  updatedAt: Timestamp;
 }
 
 export type DBSchema = ServerStep | ClientStep | PMDocument;

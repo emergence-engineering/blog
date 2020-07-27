@@ -7,6 +7,7 @@ import { ArticleIntro } from "../../types/article";
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import SalesBox from "../../modules/article/components/SalesBox";
 import Disqus from "../../modules/disqus/Disqus";
+import Markdown from "../../modules/article/components/Markdown";
 
 const EditorsDynamic = dynamic(
   () => import("../../articles/prosemirror-sync-1"),
@@ -25,8 +26,7 @@ export const article2Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
-/*
-const MD0 = /!* language=md *!/ `# Prosemirror Collab.
+const MD0 = /* language=md */ `# Prosemirror Collab.
 
 Length: 15 minutes.
 
@@ -36,7 +36,6 @@ Going trough the internet you'll find a lot of in-depth articles about specific 
 light tutorials, and everything in between. But the javascript landscape is vast, and
 sometimes too much information gets in the way of understanding.
 `;
-*/
 
 const Article: FunctionComponent<{}> = () => (
   <ArticleWrapper>
@@ -46,6 +45,7 @@ const Article: FunctionComponent<{}> = () => (
       description={article2Metadata.introText}
       imgSrc={article2Metadata.imgSrc}
     />
+    <Markdown source={MD0} />
     <EditorsDynamic />
     <SalesBox />
     <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />

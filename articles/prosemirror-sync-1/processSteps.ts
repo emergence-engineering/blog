@@ -61,6 +61,7 @@ export default async function processSteps(DBS: DBSI | undefined) {
         );
 
         const newVersion = syncDoc.version + steps.length;
+        const timestamp = getTimestamp();
         const serverSteps: ServerStep[] = steps.map((step, index) => ({
           collection: DBCollection.ServerSteps,
           step,
@@ -68,8 +69,8 @@ export default async function processSteps(DBS: DBSI | undefined) {
           version: syncDoc.version + index,
           // eslint-disable-next-line no-underscore-dangle
           docId: syncDoc._id,
-          createdAt: getTimestamp(),
-          updatedAt: null,
+          createdAt: timestamp,
+          updatedAt: timestamp,
         }));
         logger.log({ syncDoc });
         const newDoc: PMDocument = {

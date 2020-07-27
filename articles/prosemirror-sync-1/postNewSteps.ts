@@ -17,6 +17,7 @@ export default (
   view.updateState(newState);
   const sendable = sendableSteps(newState);
   if (sendable) {
+    const timestamp = getTimestamp();
     const newStep: ClientStep = {
       steps: sendable.steps.map(step => step.toJSON()),
       version: sendable.version,
@@ -24,8 +25,8 @@ export default (
       collection: DBCollection.ClientSteps,
       docId: DocID,
       pmViewId: sendable.clientID,
-      createdAt: getTimestamp(),
-      updatedAt: null,
+      createdAt: timestamp,
+      updatedAt: timestamp,
     };
     DB.post(newStep);
   }

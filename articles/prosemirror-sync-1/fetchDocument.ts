@@ -1,13 +1,13 @@
 import { DBCollection, DBSI, PMDocument, DBSchema } from "./types";
 
-export default async (
+export default async function fetchDocument(
   DBS: DBSI | undefined,
   setDocListener: (listener: PouchDB.Core.Changes<DBSchema>) => void,
   setServerDoc: (doc: PMDocument) => void,
   id: string,
   docListener?: PouchDB.Core.Changes<DBSchema>,
   serverDoc?: PMDocument,
-) => {
+) {
   if (!DBS) return;
   if (!docListener && !serverDoc) {
     const listener = DBS.clientDB1.changes({
@@ -29,4 +29,4 @@ export default async (
     // In a real time environment the doc should only be fetched once, thus the listener should be cancelled
     // docListener.cancel();
   }
-};
+}
