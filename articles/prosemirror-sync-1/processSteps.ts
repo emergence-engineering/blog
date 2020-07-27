@@ -9,6 +9,8 @@ import {
   StepStatus,
 } from "./types";
 import { mySchema } from "./schema";
+import { getTimestamp } from "./time";
+import { logger } from "./logger";
 
 async function syncClientStep(
   DBS: DBSI,
@@ -21,7 +23,7 @@ async function syncClientStep(
   });
 }
 
-export default async (DBS: DBSI | undefined) => {
+export default async function processSteps(DBS: DBSI | undefined) {
   if (!DBS) return;
   DBS.serverDB
     .changes({
@@ -45,10 +47,11 @@ export default async (DBS: DBSI | undefined) => {
           syncDoc.collection !== DBCollection.PMDocument
         ) {
           // Set status to StepStatus.REJECTED
-          syncClientStep(DBS, clientStep, StepStatus.REJECTED);
+          await syncClientStep(DBS, clientStep, StepStatus.REJECTED);
           return;
         }
 
+        logger.log({ clientStep });
         const { steps } = clientStep;
         const doc = steps.reduce(
           // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -65,7 +68,10 @@ export default async (DBS: DBSI | undefined) => {
           version: syncDoc.version + index,
           // eslint-disable-next-line no-underscore-dangle
           docId: syncDoc._id,
+          createdAt: getTimestamp(),
+          updatedAt: null,
         }));
+        logger.log({ syncDoc });
         const newDoc: PMDocument = {
           ...syncDoc,
           version: newVersion,
@@ -74,18 +80,19 @@ export default async (DBS: DBSI | undefined) => {
           doc: doc.toJSON(),
           // eslint-disable-next-line no-underscore-dangle
           _rev: syncDoc._rev,
-          updatedAt: Date.now().toString(),
+          updatedAt: getTimestamp(),
         };
         await DBS.serverDB
           .put(newDoc)
           .then(() => DBS.serverDB.bulkDocs(serverSteps))
           .then(() => syncClientStep(DBS, clientStep, StepStatus.ACCEPTED));
       } catch (e) {
-        console.log("[CAUGHT ERROR] processSteps, ", e);
+        logger.info("[CAUGHT ERROR] processSteps, ", e);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const clientStep: ClientStep = data.doc as any;
         // Setting status to StepStatus.REJECTED
-        syncClientStep(DBS, clientStep, StepStatus.REJECTED);
+        await syncClientStep(DBS, clientStep, StepStatus.REJECTED);
       }
     });
-};
+}

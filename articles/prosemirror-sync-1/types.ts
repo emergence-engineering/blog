@@ -2,6 +2,7 @@
 // @ts-ignore
 import PouchDB from "pouchdb";
 
+type Timestamp = number;
 export enum DBCollection {
   PMDocument = "PMDocument",
   ClientSteps = "ClientSteps",
@@ -20,7 +21,7 @@ export interface PMDocument {
   collection: DBCollection.PMDocument;
   doc: object;
   version: number;
-  updatedAt: string;
+  updatedAt: Timestamp;
 }
 
 export interface ClientStep {
@@ -30,6 +31,8 @@ export interface ClientStep {
   steps: object[];
   version: number;
   docId: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp | null;
 }
 
 export interface ServerStep {
@@ -38,6 +41,8 @@ export interface ServerStep {
   version: number;
   pmViewId: string | number;
   docId: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp | null;
 }
 
 export type DBSchema = ServerStep | ClientStep | PMDocument;

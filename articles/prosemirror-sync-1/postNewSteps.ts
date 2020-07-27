@@ -4,6 +4,7 @@ import { EditorView } from "prosemirror-view";
 
 import { mySchema } from "./schema";
 import { ClientStep, DBCollection, DBSchema, DocID, StepStatus } from "./types";
+import { getTimestamp } from "./time";
 
 export default (
   view: EditorView,
@@ -23,6 +24,8 @@ export default (
       collection: DBCollection.ClientSteps,
       docId: DocID,
       pmViewId: sendable.clientID,
+      createdAt: getTimestamp(),
+      updatedAt: null,
     };
     DB.post(newStep);
   }
