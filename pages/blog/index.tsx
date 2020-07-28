@@ -10,6 +10,7 @@ import BlogPostIntro from "../../modules/blog/components/BlogPostIntro";
 // } from "../../modules/blog/components/CommunityBlogSite";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
+import { article2Metadata } from "./prosemirror-sync-1";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -27,7 +28,7 @@ const ContentWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 `;
 
@@ -61,6 +62,9 @@ const ContentWrapper = styled.div`
 const Blog: FunctionComponent<{}> = () => (
   <Layout>
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...article2Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article1Metadata} />
       </ContentWrapper>
