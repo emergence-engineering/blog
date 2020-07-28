@@ -18,13 +18,8 @@ const Editor: FunctionComponent<{
   state?: EditorState<typeof mySchema>;
 }> = ({ id, view }) => (
   <EditorDetailsWrapper>
-    {id}
     <div>
-      <h5>state.textContent</h5>
-      {view?.state.doc.textContent}
-    </div>
-    <div>
-      <h5>getVersion</h5>
+      <em>version: </em>
       {view && getVersion(view.state)}
     </div>
     <ProseMirrorDiv id={id} />

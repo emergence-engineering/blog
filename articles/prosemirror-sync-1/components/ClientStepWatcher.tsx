@@ -1,29 +1,25 @@
 import React, { FunctionComponent } from "react";
-import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import JsonView from "react-json-view";
 
 import { ClientStep, StepStatus } from "../types";
 
-import { Cell } from "./common";
-
-const TriggerRoot = styled.button`
-  cursor: pointer;
-`;
+import { Cell, HeaderCell, VersionCell, WatcherHeader } from "./common";
 
 const StepRoot = styled.div`
   display: flex;
 `;
 
-const StepsWrapper = styled(Cell)`
+const StepsWrapper = styled(HeaderCell)`
   flex: 2;
 `;
 
-const StatusWidth = styled(Cell)`
+const StatusWidth = styled(HeaderCell)`
   min-width: 6.5rem;
 `;
 
-const Status = styled(StatusWidth)<{ status: StepStatus }>`
+const Status = styled(Cell)<{ status: StepStatus }>`
+  min-width: 6.5rem;
   color: ${({ status }) =>
     (() => {
       switch (status) {
@@ -39,29 +35,28 @@ const Status = styled(StatusWidth)<{ status: StepStatus }>`
     })()};
 `;
 
-const Trigger = () => <TriggerRoot>ClientSteps list</TriggerRoot>;
-
 const ClientStepWatcher: FunctionComponent<{ steps: ClientStep[] }> = ({
   steps,
 }) => (
-  <Collapsible trigger={<Trigger />}>
+  <div>
+    <WatcherHeader>ClientSteps list</WatcherHeader>
     <StepRoot>
       <StatusWidth>Status</StatusWidth>
-      <Cell>Editor ID</Cell>
-      <Cell>Version</Cell>
+      <HeaderCell>Editor ID</HeaderCell>
+      <HeaderCell>Version</HeaderCell>
       <StepsWrapper>Steps</StepsWrapper>
     </StepRoot>
     {steps.map((step, index) => (
-      // TODO: Use updatedAt
+      // eslint-disable-next-line react/no-array-index-key
       <StepRoot key={index}>
         <Status status={step.status}>{step.status}</Status>
         <Cell>{step.pmViewId}</Cell>
-        <Cell>{step.version}</Cell>
+        <VersionCell>{step.version}</VersionCell>
         <StepsWrapper>
           <JsonView src={step.steps} collapsed />
         </StepsWrapper>
       </StepRoot>
     ))}
-  </Collapsible>
+  </div>
 );
 export default ClientStepWatcher;

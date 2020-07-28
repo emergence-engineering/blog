@@ -33,6 +33,16 @@ const EditorWrapper = styled.div`
   display: flex;
 `;
 
+const StepsDisplayWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const StepWatcherWrapper = styled.div`
+  flex: 1;
+  flex-basis: 20rem;
+`;
+
 const Editors: FunctionComponent<{}> = () => {
   const [pmState1, setPmState1] = useState<EditorState<typeof mySchema>>();
   const [pmView1, setPmView1] = useState<EditorView<typeof mySchema>>();
@@ -136,10 +146,14 @@ const Editors: FunctionComponent<{}> = () => {
   return (
     <>
       <StateDisplay serverDoc={serverDoc} />
-      <div>
-        <ClientStepWatcher steps={stepHistory.client} />
-        <ServerStepWatcher steps={stepHistory.server} />
-      </div>
+      <StepsDisplayWrapper>
+        <StepWatcherWrapper>
+          <ClientStepWatcher steps={stepHistory.client} />
+        </StepWatcherWrapper>
+        <StepWatcherWrapper>
+          <ServerStepWatcher steps={stepHistory.server} />
+        </StepWatcherWrapper>
+      </StepsDisplayWrapper>
       <EditorWrapper>
         <Editor id="editor1" view={pmView1} state={pmState1} />
         <Editor id="editor2" view={pmView2} state={pmState2} />
