@@ -22,23 +22,24 @@ const BlogContent = styled.section`
   justify-content: center;
   text-align: justify;
   text-justify: inter-word;
-  .articleWrapper a {
+  a {
     color: ${theme.color.tertiary};
     font-weight: bold;
     text-decoration: none;
   }
-  .articleWrapper blockquote {
+  blockquote {
     font-style: italic;
   }
-  .articleWrapper p {
-    font-weight: 400;
+  p,
+  li {
+    font-weight: 300;
   }
 `;
 
 const ArticleWrapper: FunctionComponent<{}> = ({ children }) => (
   <Layout>
     <Root>
-      <BlogContent className="articleWrapper">{children}</BlogContent>
+      <BlogContent>{children}</BlogContent>
     </Root>
   </Layout>
 );
