@@ -7,8 +7,10 @@ const StateDisplay: FunctionComponent<{ serverDoc?: PMDocument }> = ({
   serverDoc,
 }) => (
   <div>
-    <div>version: {serverDoc?.version}</div>
-    <div>{serverDoc && <JsonView src={serverDoc.doc} collapsed={false} />}</div>
+    <div>
+      <em>Server version</em>: {serverDoc?.version}
+    </div>
+    <div>{serverDoc && <JsonView src={serverDoc.doc} collapsed={2} />}</div>
   </div>
 );
 

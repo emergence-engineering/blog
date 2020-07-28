@@ -41,7 +41,9 @@ This approach has also been tested with Firestore.
 
 All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
 
-**TLDR**: Create a web based collaborative editor with a communication layer provided by a sync database`;
+**TLDR**: Create a web based collaborative editor with a communication layer provided by a sync database
+# Demo
+`;
 
 const MD1 = /* language=md */ `
 # Prerequisites
@@ -114,8 +116,7 @@ This example runs in just a single browser instance, but if one moves the server
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
 offline use and it is possible to lose some information ( for example in a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
-but in general, it works great.`
-;
+but in general, it works great.`;
 
 export default function Article() {
   return (

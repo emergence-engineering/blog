@@ -31,6 +31,7 @@ import ServerStepWatcher from "./components/ServerStepWatcher";
 
 const EditorWrapper = styled.div`
   display: flex;
+  flex-flow: wrap;
 `;
 
 const StepsDisplayWrapper = styled.div`
@@ -107,7 +108,6 @@ const Editors: FunctionComponent<{}> = () => {
       // @ts-ignore
       stepHistoryDispatch,
       stepHistoryListener,
-      stepHistory,
     );
   }, [DBS, serverDoc]);
 
