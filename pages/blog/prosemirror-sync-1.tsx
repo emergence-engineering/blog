@@ -29,9 +29,9 @@ const MD0 = /* language=md */ `# Collaborative text editor with ProseMirror and 
 
 Length: 15 minutes.
 
-## What's this about?
+# What's this about?
 
-With the collaborative editing functionality in ProseMirror it's possible to create documents which are
+With the collaborative editing functionality in ProseMirror it's possible to create documents that are
 editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
 This is usually done with WebSockets, which adds another layer in the stack where bugs can hide.
@@ -41,22 +41,26 @@ This approach has also been tested with Firestore.
 
 All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
 
-**TLDR**: Create a collaborative editor with a communication layer provided by a sync database`;
+**TLDR**: Create a web based collaborative editor with a communication layer provided by a sync database`;
 
 const MD1 = /* language=md */ `
-# Things to know
+# Prerequisites
+## ProseMirror
 - *ProseMirror*: a framework / toolkit with which one can create custom text editors
 - *collaborative editor*: A text editor where multiple people can edit the same document, for example, Google docs
-- *ProseMirror document / doc*: An object which describes the contents of a document
+- *ProseMirror document / doc*: An object which describes the contents of a rich text document 
 - *step*: an object which describes the necessary information to update a document ( like add/delete a letter from a given
 position in a document.
-- *Sync database*: A database which is capable of syncing up to a remote database, so they both contain the same content eventually.
-For example CouchDB, Firestore etc... These are all NoSQL databases ( as far as I know )
+- *ProseMirror document version*: A version of the document starts from 0 and incremented every time a new step is applied.
+
+## Sync database
+- *Sync database*: A database which is capable of automatically replicate the state of a remote database, s
+o they both contain the same content eventually. For example CouchDB, Google Firestore etc... 
+These are all NoSQL databases ( as far as I know )
 - *PouchDB*: A JS implementation of the CouchDB protocol. This means that it can run in the browser, and sync up to another database which
 implements the CouchDB protocol.
 - *listener*: A callback which is called every the there is new data in the database
 - *collection*: to separate different kinds of data stored in the database a **collection** field is added, with different values, depending on the type.
-- *ProseMirror document version*: A version of the document starts from 0 and incremented every time a new step is applied.
 
 # How everything comes together
 
@@ -75,15 +79,16 @@ Our implementations root file is **index.ts** in the repo linked earlier.
 
 A very good explanation of the collaborative algorithm used by ProseMirror can be found at https://prosemirror.net/docs/guide/#collab
 
-In this demo, there are two editors which have their PouchDB database instance, which sync up to a third database, which 
-belongs to a "server". 
+In this demo ther are two ProseMirror editors and each of them has a dedicated PouchDB instance.
+These databases sync up to a third database, which belongs to a "server". If client A is updated, then the server
+is updated which ideally propagates client B.
 
 There are three collections:
 - **PMDocument** stores the ProseMirror document
 - **ClientSteps** stores the steps coming from the clients
 - **ServerSteps** stores the steps accepted by the server 
 
-### Data flow on the server
+## Data flow on the server
 - the server listens to new documents in **ClientSteps**
 - If the version of the steps is correct ( the client is synced up to the server ), then it
 1. Updates the ProseMirror document stored in **PMDocument** ( referenced by the incoming step )
@@ -91,15 +96,15 @@ There are three collections:
     
 The server functionality is implemented in **processSteps.ts**
 
-### Data flow on the clients
+## Data flow on the clients
 
-#### Sending new steps
+### Sending new steps
 The function in **postNewsteps.ts** is called by ProseMirror whenever there is an incoming ProseMirror transaction ( either the user did something in the editor, or the server
 sent new steps coming from another user ). In that function, sendable steps are calculated by the **prosemirror-collab** module, and if there's any then they are written to the database as **ClientSteps**. The ProseMirror view is also updated.
 
-#### Receiving new steps
+### Receiving new steps
 
-The **fetchNewStepsClient.ts** contains a function which is used in a react **useEffect** in **index.ts**, and gets reloaded every time the version of the document is updated.
+The **fetchNewStepsClient.ts** contains a function which is used in a React **useEffect** in **index.ts**, and gets reloaded every time the version of the document is updated.
 This is necessary since this function only listens to the step in **ServerSteps** which has the version that updates the current document. If there is a new step then
 new ProseMirror transaction is sent to the ProseMirror view, which contains all the necessary information to both updates the view and the collab state.
 
