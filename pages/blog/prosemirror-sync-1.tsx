@@ -19,7 +19,7 @@ export const article2Metadata: ArticleIntro = {
   authorLink: null,
   introText: ``,
   postId: "prosemirror-sync-1",
-  timestamp: 1574971200000,
+  timestamp: 1595947851782,
   imgSrc:
     "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
