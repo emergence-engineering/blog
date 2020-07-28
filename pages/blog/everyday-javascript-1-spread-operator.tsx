@@ -1,11 +1,10 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import MarkDown from "../../modules/article/components/Markdown";
 import CodeEditor from "../../modules/article/components/CodeEditor";
 import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
 import { ArticleIntro } from "../../types/article";
-import SalesBox from "../../modules/article/components/SalesBox/SalesBox";
 import Disqus from "../../modules/disqus/Disqus";
 
 export const article1Metadata: ArticleIntro = {
@@ -273,7 +272,7 @@ const MD9 = /* language=md */ `
 
     Usage with object is coming up in the next part!`;
 
-const Article: FunctionComponent<{}> = () => {
+export default function Article() {
   const [sharedCode, setSharedCode] = useState(SharedCode);
   return (
     <>
@@ -307,7 +306,6 @@ const Article: FunctionComponent<{}> = () => {
         <MarkDown source={MD8} />
         <CodeEditor value={Code7} hiddenCode={sharedCode} />
         <MarkDown source={MD9} />
-        <SalesBox />
         <Disqus
           pageUrl={article1Metadata.url}
           pageId={article1Metadata.postId}
@@ -315,6 +313,4 @@ const Article: FunctionComponent<{}> = () => {
       </ArticleWrapper>
     </>
   );
-};
-
-export default Article;
+}

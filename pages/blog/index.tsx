@@ -63,10 +63,10 @@ const Blog: FunctionComponent<{}> = () => (
   <Layout>
     <Root>
       <ContentWrapper>
-        <BlogPostIntro {...article1Metadata} />
+        <BlogPostIntro {...article2Metadata} />
       </ContentWrapper>
       <ContentWrapper>
-        <BlogPostIntro {...article2Metadata} />
+        <BlogPostIntro {...article1Metadata} />
       </ContentWrapper>
     </Root>
   </Layout>

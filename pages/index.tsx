@@ -17,7 +17,6 @@ import {
   CapabilityBoxContainerWrapper,
   CapabilitySection,
 } from "../modules/landingPage/components/Capability";
-import TechnologySection from "../modules/landingPage/components/Technology";
 import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
 import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
 import AboutUsSection from "../modules/landingPage/components/AboutUsSection";
@@ -129,7 +128,6 @@ const Index: FunctionComponent<{} & ReturnType<
       color={theme.color.tertiary}
       backGroundColor={theme.color.gray11}
     />
-    {/*<TechnologySection />*/}
     <SalesFormSection />
   </Layout>
 );
