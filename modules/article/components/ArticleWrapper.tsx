@@ -22,23 +22,42 @@ const BlogContent = styled.section`
   justify-content: center;
   text-align: justify;
   text-justify: inter-word;
-  .articleWrapper a {
+  h1 {
+    text-decoration: underline;
+    text-decoration-color: ${theme.color.tertiary};
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.5rem;
+  }
+  h4 {
+    font-size: 1.15rem;
+    margin: 0.5rem 0 0.5rem;
+  }
+  a {
     color: ${theme.color.tertiary};
     font-weight: bold;
     text-decoration: none;
   }
-  .articleWrapper blockquote {
+  blockquote {
     font-style: italic;
   }
-  .articleWrapper p {
-    font-weight: 400;
+  p,
+  li {
+    font-weight: 300;
+  }
+  p {
+    margin: 0.25rem 0 0.25rem;
   }
 `;
 
 const ArticleWrapper: FunctionComponent<{}> = ({ children }) => (
   <Layout>
     <Root>
-      <BlogContent className="articleWrapper">{children}</BlogContent>
+      <BlogContent>{children}</BlogContent>
     </Root>
   </Layout>
 );
