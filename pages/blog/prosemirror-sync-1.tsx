@@ -17,7 +17,16 @@ export const article2Metadata: ArticleIntro = {
   title: "Collaborative text editor with ProseMirror and a sync database",
   author: "Viktor & Balazs",
   authorLink: null,
-  introText: ``,
+  introText: `
+ With the collaborative editing functionality in ProseMirror it's possible to create documents that are
+editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
+a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
+This is usually done with WebSockets, which adds another layer in the stack where bugs can hide.
+This article shows a path to get rid of that layer by using a well-tested layer in the form as a syncing database.
+In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
+This approach has also been tested with Firestore.
+ 
+  `,
   postId: "prosemirror-sync-1",
   timestamp: 1595947851782,
   imgSrc:
