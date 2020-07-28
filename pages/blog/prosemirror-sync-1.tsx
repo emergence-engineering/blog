@@ -25,7 +25,7 @@ export const article2Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
-const MD0 = /* language=md */ `# Prosemirror Collab with a sync database
+const MD0 = /* language=md */ `# Collaborative text editor with ProseMirror and a sync database
 
 Length: 15 minutes.
 
@@ -87,8 +87,8 @@ There are three collections:
 ### Data flow on the server
 - the server listens to new documents in **ClientSteps**
 - If the version of the steps is correct ( the client is synced up to the server ), then it
-    - Updates the ProseMirror document stored in **PMDocument** ( referenced by the incoming step )
-    - saves the accepted steps to **ServerSteps**
+1. Updates the ProseMirror document stored in **PMDocument** ( referenced by the incoming step )
+2. saves the accepted steps to **ServerSteps**
     
 The server functionality is implemented in **processSteps.ts**
 
@@ -117,7 +117,6 @@ but in general it works great.
 export default function Article() {
   return (
     <ArticleWrapper>
-      <MarkDown source={MD0} />
       <ArticleShareOgTags
         url={article2Metadata.url}
         title={article2Metadata.title}
