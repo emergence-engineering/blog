@@ -9,7 +9,9 @@ import { ServerStyleSheet } from "styled-components";
 
 import GeneralSEO from "../modules/common/components/GeneralSEO";
 
-export default class MyDocument extends Document {
+export default class MyDocument extends Document<{
+  shouldRenderGeneralSEO: boolean;
+}> {
   // from https://github.com/zeit/next.js/tree/canary/examples/with-styled-components
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -24,6 +26,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
+        shouldRenderGeneralSEO: !ctx.pathname.includes("blog"),
         styles: (
           <>
             {initialProps.styles}
@@ -54,7 +57,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <GeneralSEO />
+          {this.props.shouldRenderGeneralSEO ? <GeneralSEO /> : null}
         </Head>
         <body>
           <Main />

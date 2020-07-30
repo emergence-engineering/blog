@@ -17,7 +17,7 @@ export const article2Metadata: ArticleIntro = {
   title: "Collaborative text editor with ProseMirror and a sync database",
   author: "Viktor & Balazs",
   authorLink: null,
-  introText: `
+  introText: /* language=md */ `
  With the collaborative editing functionality in ProseMirror it's possible to create documents that are
 editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.

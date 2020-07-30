@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 const title = "Emergence Engineering";
 const description =
-  "Emergence Engineering is a software engineering company from Budapest. Feel free to contact us!";
+  "Emergence Engineering is a software engineering company from Budapest (EU).";
 const url = "https://emergence-engineering.com";
 
 const GeneralSEO: FunctionComponent<{}> = () => (
