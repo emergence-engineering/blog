@@ -30,7 +30,7 @@ This approach has also been tested with Firestore.
   postId: "prosemirror-sync-1",
   timestamp: 1595947851782,
   imgSrc:
-    "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
