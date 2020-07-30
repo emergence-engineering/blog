@@ -54,7 +54,20 @@ In this article PouchDB/CouchDB is used, so the emulated "server" can also live 
 This approach has also been tested with Firestore.
 
 All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
+`;
+
+const demo = /* language=md */ `
 # Demo
+### Client steps
+Try typing in any of the editors! You can follow the steps (changes) that is emitted from the active editor in the
+*ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
+
+### Server steps
+The *ServerSteps list* table displays the history of documents with the list of the valid conflict free documents.
+Each of these documents have a version just like git commits.
+
+### Server document
+The JSON object below displays the latest state of the document on the server.
 `;
 
 const MD1 = /* language=md */ `
@@ -141,6 +154,7 @@ export default function Article() {
       />
       <ArticleHeadline tldr={tldrContent} {...article2Metadata} />
       <MarkDown source={MD0} />
+      <MarkDown source={demo} />
       <EditorsDynamic />
       <MarkDown source={MD1} />
       <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />

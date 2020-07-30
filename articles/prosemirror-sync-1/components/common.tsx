@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import theme from "../../../utils/theme";
 
 export const Cell = styled.div`
-  border-left: 2px solid black;
+  border-left: 1px solid ${theme.color.gray8};
   :first-child {
     border-left: none;
   }
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${theme.color.gray8};
   flex: 1;
 `;
 
