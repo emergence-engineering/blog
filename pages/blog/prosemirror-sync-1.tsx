@@ -3,10 +3,10 @@ import dynamic from "next/dynamic";
 
 import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
 import { ArticleIntro } from "../../types/article";
-// import Editors from "../../articles/prosemirror-sync-1";
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import Disqus from "../../modules/disqus/Disqus";
 import MarkDown from "../../modules/article/components/Markdown";
+import { ArticleHeadline } from "../../modules/article/components/ArticleHeadline";
 
 const EditorsDynamic = dynamic(
   () => import("../../articles/prosemirror-sync-1"),
@@ -34,10 +34,15 @@ This approach has also been tested with Firestore.
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
-const MD0 = /* language=md */ `# Collaborative text editor with ProseMirror and a sync database
+const tldrContent = /* language=md */ `
+# TLDR
 
-Length: 15 minutes.
+* We introduce a method to create a web based collaborative editor based on ProseMirror
+* We use PouchDB (CouchDB) to abstract away all the hassle that comes with directly managing WebSockets
+* Any database with real time syncing functionality can be used
+`;
 
+const MD0 = /* language=md */ `
 # What's this about?
 
 With the collaborative editing functionality in ProseMirror it's possible to create documents that are
@@ -49,8 +54,6 @@ In this article PouchDB/CouchDB is used, so the emulated "server" can also live 
 This approach has also been tested with Firestore.
 
 All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
-
-**TLDR**: Create a web based collaborative editor with a communication layer provided by a sync database
 # Demo
 `;
 
@@ -136,6 +139,7 @@ export default function Article() {
         description={article2Metadata.introText}
         imgSrc={article2Metadata.imgSrc}
       />
+      <ArticleHeadline tldr={tldrContent} {...article2Metadata} />
       <MarkDown source={MD0} />
       <EditorsDynamic />
       <MarkDown source={MD1} />

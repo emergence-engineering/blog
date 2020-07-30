@@ -38,12 +38,20 @@ const BlogPostIntroText = styled.div`
 
 const Root = styled.div``;
 
-export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
-  const { introText, title, postId, author, timestamp } = props;
+export interface BlogPostHeadlineProps {
+  title: string;
+  author: string;
+  timestamp: number;
+}
 
+export function BlogPostHeadLine({
+  author,
+  timestamp,
+  title,
+}: BlogPostHeadlineProps) {
   const postDate = convertTimestampToLocaleDateString(timestamp);
   return (
-    <Root>
+    <>
       <PostTitle>{title}</PostTitle>
       <PostMetadataContainer>
         <span>
@@ -51,6 +59,16 @@ export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
           {postDate}
         </span>
       </PostMetadataContainer>
+    </>
+  );
+}
+
+export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
+  const { introText, title, postId, author, timestamp } = props;
+
+  return (
+    <Root>
+      <BlogPostHeadLine title={title} author={author} timestamp={timestamp} />
       <BlogPostIntroText>
         <Markdown source={introText} />
       </BlogPostIntroText>
@@ -60,4 +78,3 @@ export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
     </Root>
   );
 };
-

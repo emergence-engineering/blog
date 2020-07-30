@@ -13,19 +13,22 @@ const EditorDetailsWrapper = styled.div`
   flex-direction: column;
   flex: 1;
   flex-basis: 20rem;
-  border-radius: 0.2rem;
   margin: 1rem 0.5rem;
   padding: 0.2rem;
-  border: 0.15rem solid ${theme.color.tertiary4};
+  border: 1px solid ${theme.color.gray8};
+  border-radius: 0.1rem;
+  background-color: ${theme.color.gray10};
 `;
 
 const Editor: FunctionComponent<{
+  name: string;
   id: string;
   view?: EditorView<typeof mySchema>;
   state?: EditorState<typeof mySchema>;
-}> = ({ id, view }) => (
+}> = ({ id, view, name }) => (
   <EditorDetailsWrapper>
     <div>
+      <h3>{name}</h3>
       <em>version: </em>
       {view && getVersion(view.state)}
     </div>
