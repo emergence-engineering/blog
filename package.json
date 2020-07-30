@@ -69,7 +69,7 @@
     "firebase": "^7.5.2",
     "firebase-tools": "^7.9.0",
     "form-data": "^3.0.0",
-    "next": "^9.1.5",
+    "next": "9.5.1",
     "next-redux-wrapper": "^4.0.1",
     "pouchdb": "^7.2.1",
     "prosemirror-collab": "^1.2.2",

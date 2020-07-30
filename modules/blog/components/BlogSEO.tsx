@@ -1,13 +1,14 @@
 import React from "react";
+import Head from "next/head";
 
-const title = "Emergence Engineering";
+const title = "Emergence Engineering - Blog";
 const description =
   "Emergence Engineering is a software engineering company from Budapest (EU).";
-const url = "https://emergence-engineering.com";
+const url = "https://emergence-engineering.com/blog";
 
-export default function GeneralSEO() {
+export function BlogSEO() {
   return (
-    <>
+    <Head>
       <title>{title}</title>
       <meta key="og:url" name="og:url" property="og:url" content={url} />
       <meta key="og:type" name="og:type" property="og:type" content="website" />
@@ -29,7 +30,6 @@ export default function GeneralSEO() {
         property="og:image"
         content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
       />
-    </>
+    </Head>
   );
 }
-

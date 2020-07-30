@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 import Layout from "../../modules/common/components/Layout";
 import theme, { screenSizes, sizes } from "../../utils/theme";
-import BlogPostIntro from "../../modules/blog/components/BlogPostIntro";
 // import {
 //   CommunityBlogItem,
 //   CommunityBlogs,
 // } from "../../modules/blog/components/CommunityBlogSite";
+
+import { BlogPostIntro, BlogSEO } from "../../modules/blog/components";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
 import { article2Metadata } from "./prosemirror-sync-1";
@@ -61,6 +62,7 @@ const ContentWrapper = styled.div`
 
 const Blog: FunctionComponent<{}> = () => (
   <Layout>
+    <BlogSEO />
     <Root>
       <ContentWrapper>
         <BlogPostIntro {...article2Metadata} />

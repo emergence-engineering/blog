@@ -38,7 +38,7 @@ const BlogPostIntroText = styled.div`
 
 const Root = styled.div``;
 
-const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
+export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
   const { introText, title, postId, author, timestamp } = props;
 
   const postDate = convertTimestampToLocaleDateString(timestamp);
@@ -61,4 +61,3 @@ const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
   );
 };
 
-export default BlogPostIntro;
