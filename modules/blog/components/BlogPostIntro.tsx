@@ -28,6 +28,14 @@ const PostTitle = styled.div`
   text-decoration-color: ${theme.color.tertiary};
 `;
 
+const BlogPostIntroText = styled.div`
+  p {
+    font-family: ${theme.fontFamily.general};
+    font-weight: 300;
+    font-size: 1.15rem;
+  }
+`;
+
 const Root = styled.div``;
 
 const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
@@ -43,7 +51,9 @@ const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
           {postDate}
         </span>
       </PostMetadataContainer>
-      <Markdown source={introText} />
+      <BlogPostIntroText>
+        <Markdown source={introText} />
+      </BlogPostIntroText>
       <Link href={`/blog/${postId}`}>
         <ReadMoreLink>Read more...</ReadMoreLink>
       </Link>
