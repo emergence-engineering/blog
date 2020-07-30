@@ -2,6 +2,7 @@ import React from "react";
 import App, { AppInitialProps, AppProps } from "next/app";
 import { Provider } from "react-redux";
 import withReduxStore from "next-redux-wrapper";
+import Head from "next/head";
 
 import { initStore } from "../setup/createStore";
 import { ReduxStore, RootState } from "../setup/reducers/rootReducer";
@@ -29,9 +30,14 @@ class MyApp extends App<MyAppProps> {
   render() {
     const { Component, pageProps, store } = this.props;
     return (
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </>
     );
   }
 }

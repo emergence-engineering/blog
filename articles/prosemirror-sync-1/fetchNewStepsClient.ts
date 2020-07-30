@@ -5,7 +5,7 @@ import { EditorView } from "prosemirror-view";
 import { mySchema } from "./schema";
 import { DBCollection, DBSchema, DocID, ServerStep } from "./types";
 
-export default (
+const fetchNewStepsClient = (
   DB?: PouchDB.Database<DBSchema>,
   pmView?: EditorView<typeof mySchema>,
 ) => {
@@ -37,3 +37,5 @@ export default (
   // eslint-disable-next-line consistent-return
   return () => listener.cancel();
 };
+
+export default fetchNewStepsClient;

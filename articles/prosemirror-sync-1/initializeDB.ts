@@ -4,7 +4,10 @@ import { DBCollection, DBSI, DocID, PMDocument, DBSchema } from "./types";
 import { initialDoc } from "./schema";
 import { getTimestamp } from "./time";
 
-export default async (DBS: DBSI | undefined, setDBS: (dbs: DBSI) => void) => {
+const intializeDB = async (
+  DBS: DBSI | undefined,
+  setDBS: (dbs: DBSI) => void,
+) => {
   let serverDB = new PouchDB<DBSchema>("server");
   let clientDB1 = new PouchDB<DBSchema>("client1");
   let clientDB2 = new PouchDB<DBSchema>("client2");
@@ -46,3 +49,5 @@ export const fillInitial = async (DBS?: DBSI) => {
   };
   DBS.serverDB.put(doc);
 };
+
+export default intializeDB;

@@ -53,7 +53,7 @@ This article shows a path to get rid of that layer by using a well-tested layer 
 In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
 This approach has also been tested with Firestore.
 
-All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
+[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1)
 `;
 
 const demo = /* language=md */ `
@@ -63,8 +63,8 @@ Try typing in any of the editors! You can follow the steps (changes) that is emi
 *ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
 
 ### Server steps
-The *ServerSteps list* table displays the history of documents with the list of the valid conflict free documents.
-Each of these documents have a version just like git commits.
+The *ServerSteps list* table displays the history of the valid conflict free steps ( changes ).
+Each of these steps have a version just like git commits.
 
 ### Server document
 The JSON object below displays the latest state of the document on the server.
@@ -137,7 +137,7 @@ new ProseMirror transaction is sent to the ProseMirror view, which contains all 
 
 # Improvements, challenges and everything else
 
-This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB** ), removes one
+This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB.ts** ), removes one
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
 offline use and it is possible to lose some information ( for example in a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 

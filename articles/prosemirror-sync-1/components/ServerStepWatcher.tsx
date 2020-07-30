@@ -4,11 +4,7 @@ import JsonView from "react-json-view";
 
 import { ServerStep } from "../types";
 
-import { Cell, HeaderCell, VersionCell, WatcherHeader } from "./common";
-
-const StepRoot = styled.div`
-  display: flex;
-`;
+import { Cell, HeaderCell, StepRoot, CenteredCell, WatcherHeader } from "./common";
 
 const StepsWrapper = styled(Cell)`
   flex: 2;
@@ -31,8 +27,8 @@ const ServerStepWatcher: FunctionComponent<{ steps: ServerStep[] }> = ({
     {steps.map((step, index) => (
       // eslint-disable-next-line react/no-array-index-key
       <StepRoot key={index}>
-        <Cell>{step.pmViewId}</Cell>
-        <VersionCell>{step.version}</VersionCell>
+        <CenteredCell>{step.pmViewId}</CenteredCell>
+        <CenteredCell>{step.version}</CenteredCell>
         <StepsWrapper>
           <JsonView src={step.step} collapsed />
         </StepsWrapper>
