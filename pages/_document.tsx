@@ -69,6 +69,11 @@ export default class MyDocument extends Document<{
           defer
           src="https://js.hs-scripts.com/6783875.js"
         />
+        <script
+          src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+          async
+          defer
+        />
       </html>
     );
   }

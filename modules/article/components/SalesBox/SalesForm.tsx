@@ -4,9 +4,11 @@ import React, {
   FunctionComponent,
   SetStateAction,
   SyntheticEvent,
+  useCallback,
   useState,
 } from "react";
 import styled from "styled-components";
+import Recaptcha from "react-recaptcha";
 
 import { Button } from "../../../common/components/Button";
 import Notice, {
@@ -18,6 +20,7 @@ import {
   formAddress,
 } from "../../../landingPage/utils/hubSpotContatForm";
 import { post } from "../../../../utils/xhr";
+import { LabelSpan } from "../../../landingPage/components/TextInputRow";
 
 import { InputRow, TextAreaInputRow, TextInputRow } from "./TextInputRow";
 import { FormType } from "./state";
@@ -75,13 +78,31 @@ const SalesForm: FunctionComponent<{ formType: FormType }> = ({ formType }) => {
   const lastNameChangeHandler = createClickHandler(setLastName);
   const emailChangeHandler = createClickHandler(setEmail);
   const messageChangeHandler = createClickHandler(setMessage);
+  const [isCaptchaVerified, setCaptchaVerified] = useState(false);
 
   const [noticeVisibility, setNoticeVisibility] = useState<NoticeProps | null>(
     null,
   );
 
+  const verifyCallback = useCallback(() => {
+    setCaptchaVerified(true);
+  }, []);
+
+  // this function magically stops an error that is being thrown
+  // from the official google reCAPTCHA API...
+  const onCaptchaLoad = useCallback(() => console.info("reCAPTCHA loaded"), []);
+
   const submitHandler = async (evt: SyntheticEvent) => {
     evt.preventDefault();
+
+    if (!isCaptchaVerified) {
+      setNoticeVisibility({
+        message: "Please verify that you are not a bot!",
+        type: NoticeType.error,
+      });
+      return;
+    }
+
     const formBody = createHubSpotFormBody(
       email,
       firstName,
@@ -145,6 +166,15 @@ const SalesForm: FunctionComponent<{ formType: FormType }> = ({ formType }) => {
           placeholder={articleSalesFormPlaceholders.message}
           label="Message"
         />
+        <InputRow>
+          <LabelSpan>Verification</LabelSpan>
+          <Recaptcha
+            sitekey="6LffkrgZAAAAAABzuwhbunyE9-nEHncoNze7B6O0"
+            render="explicit"
+            verifyCallback={verifyCallback}
+            onloadCallback={onCaptchaLoad}
+          />
+        </InputRow>
         <InputRow>
           <div />
           <SendButton type="submit" color="secondary">

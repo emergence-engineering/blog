@@ -4,9 +4,11 @@ import React, {
   FunctionComponent,
   SetStateAction,
   SyntheticEvent,
+  useCallback,
   useState,
 } from "react";
 import styled from "styled-components";
+import Recaptcha from "react-recaptcha";
 
 import { createHubSpotFormBody, formAddress } from "../utils/hubSpotContatForm";
 import { Button } from "../../common/components/Button";
@@ -16,7 +18,12 @@ import Notice, {
   NoticeType,
 } from "../../common/components/Notice";
 
-import { InputRow, TextAreaInputRow, TextInputRow } from "./TextInputRow";
+import {
+  InputRow,
+  LabelSpan,
+  TextAreaInputRow,
+  TextInputRow,
+} from "./TextInputRow";
 
 const SendButton = styled(Button)`
   font-size: 1rem;
@@ -38,7 +45,7 @@ const SalesForm: FunctionComponent<{}> = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [isCaptchaVerified, setCaptchaVerified] = useState(false);
 
   const firstNameChangeHandler = createClickHandler(setFirstName);
   const lastNameChangeHandler = createClickHandler(setLastName);
@@ -52,6 +59,14 @@ const SalesForm: FunctionComponent<{}> = () => {
 
   const submitHandler = async (evt: SyntheticEvent) => {
     evt.preventDefault();
+    if (!isCaptchaVerified) {
+      setNoticeVisibility({
+        message: "Please verify that you are not a bot!",
+        type: NoticeType.error,
+      });
+      return;
+    }
+
     const formBody = createHubSpotFormBody(
       email,
       firstName,
@@ -73,6 +88,14 @@ const SalesForm: FunctionComponent<{}> = () => {
       type: NoticeType.success,
     });
   };
+
+  const verifyCallback = useCallback(() => {
+    setCaptchaVerified(true);
+  }, []);
+
+  // this function magically stops an error that is being thrown
+  // from the official google reCAPTCHA API...
+  const onCaptchaLoad = useCallback(() => console.info("reCAPTCHA loaded"), []);
 
   return (
     <>
@@ -116,6 +139,15 @@ const SalesForm: FunctionComponent<{}> = () => {
           placeholder="I want more portal fluid, can you help me?"
           label="Message"
         />
+        <InputRow>
+          <LabelSpan>Verification</LabelSpan>
+          <Recaptcha
+            sitekey="6LffkrgZAAAAAABzuwhbunyE9-nEHncoNze7B6O0"
+            render="explicit"
+            verifyCallback={verifyCallback}
+            onloadCallback={onCaptchaLoad}
+          />
+        </InputRow>
         <InputRow>
           <div />
           <SendButton type="submit" color="secondary">
