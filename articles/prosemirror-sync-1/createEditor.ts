@@ -9,7 +9,7 @@ import { mySchema } from "./schema";
 import { PMDocument, DBSchema } from "./types";
 import postNewSteps from "./postNewSteps";
 
-export default (
+const createEditor = (
   setPmState: (state: EditorState<typeof mySchema>) => void,
   setPmView: (view: EditorView<typeof mySchema>) => void,
   editorID: string,
@@ -25,7 +25,10 @@ export default (
     doc: mySchema.nodeFromJSON(doc),
     plugins: [
       ...exampleSetup({ schema: mySchema }),
-      collab({ version: serverDoc.version }),
+      collab({
+        version: serverDoc.version,
+        clientID: editorID === "#editor1" ? "1" : "2",
+      }),
     ],
   });
   const view: EditorView<typeof mySchema> = new EditorView(editorNode, {
@@ -35,3 +38,5 @@ export default (
   });
   setPmView(view);
 };
+
+export default createEditor;

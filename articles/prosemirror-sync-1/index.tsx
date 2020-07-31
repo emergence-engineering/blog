@@ -10,6 +10,8 @@ import { getVersion } from "prosemirror-collab";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 
+import theme from "../../utils/theme";
+
 import { DBSchema, DBSI, DocID, PMDocument } from "./types";
 import initializeDBS, { fillInitial } from "./initializeDB";
 import fetchNewStepsClient from "./fetchNewStepsClient";
@@ -41,7 +43,12 @@ const StepsDisplayWrapper = styled.div`
 
 const StepWatcherWrapper = styled.div`
   flex: 1;
-  flex-basis: 20rem;
+  flex-basis: 29rem;
+  margin: 1rem 0.5rem;
+  padding: 0.2rem;
+  border: 1px solid ${theme.color.gray8};
+  border-radius: 0.1rem;
+  background-color: ${theme.color.gray10};
 `;
 
 const Editors: FunctionComponent<{}> = () => {
@@ -155,8 +162,8 @@ const Editors: FunctionComponent<{}> = () => {
         </StepWatcherWrapper>
       </StepsDisplayWrapper>
       <EditorWrapper>
-        <Editor id="editor1" view={pmView1} state={pmState1} />
-        <Editor id="editor2" view={pmView2} state={pmState2} />
+        <Editor name="Editor 1." id="editor1" view={pmView1} state={pmState1} />
+        <Editor name="Editor 2." id="editor2" view={pmView2} state={pmState2} />
       </EditorWrapper>
     </>
   );

@@ -6,7 +6,7 @@ export const initialDoc = {
     {
       content: [
         {
-          text: "Empty",
+          text: "Start typing!",
           type: "text",
         },
       ],

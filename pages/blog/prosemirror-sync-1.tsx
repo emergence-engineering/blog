@@ -3,10 +3,11 @@ import dynamic from "next/dynamic";
 
 import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
 import { ArticleIntro } from "../../types/article";
-// import Editors from "../../articles/prosemirror-sync-1";
 import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import Disqus from "../../modules/disqus/Disqus";
 import MarkDown from "../../modules/article/components/Markdown";
+import { ArticleHeadline } from "../../modules/article/components/ArticleHeadline";
+import SalesBox from "../../modules/article/components/SalesBox";
 
 const EditorsDynamic = dynamic(
   () => import("../../articles/prosemirror-sync-1"),
@@ -17,7 +18,7 @@ export const article2Metadata: ArticleIntro = {
   title: "Collaborative text editor with ProseMirror and a sync database",
   author: "Viktor & Balazs",
   authorLink: null,
-  introText: `
+  introText: /* language=md */ `
  With the collaborative editing functionality in ProseMirror it's possible to create documents that are
 editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
@@ -30,14 +31,19 @@ This approach has also been tested with Firestore.
   postId: "prosemirror-sync-1",
   timestamp: 1595947851782,
   imgSrc:
-    "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
 };
 
-const MD0 = /* language=md */ `# Collaborative text editor with ProseMirror and a sync database
+const tldrContent = /* language=md */ `
+# TLDR
 
-Length: 15 minutes.
+* We introduce a method to create a web based collaborative editor based on ProseMirror
+* We use PouchDB (CouchDB) to abstract away all the hassle that comes with directly managing WebSockets
+* Any database with real time syncing functionality can be used
+`;
 
+const MD0 = /* language=md */ `
 # What's this about?
 
 With the collaborative editing functionality in ProseMirror it's possible to create documents that are
@@ -48,10 +54,23 @@ This article shows a path to get rid of that layer by using a well-tested layer 
 In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
 This approach has also been tested with Firestore.
 
-All the necessary code can be found at https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1
+[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1)
+`;
 
-**TLDR**: Create a web based collaborative editor with a communication layer provided by a sync database
+const demo = /* language=md */ `
 # Demo
+Try typing in any of the editors below!
+
+### Client steps
+ You can follow the steps (changes) that is emitted from the active editor in the
+*ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
+
+### Server steps
+The *ServerSteps list* table displays the history of the valid conflict free steps ( changes ).
+Each of these steps have a version just like git commits.
+
+### Server document
+The JSON object below displays the latest state of the document on the server.
 `;
 
 const MD1 = /* language=md */ `
@@ -121,7 +140,7 @@ new ProseMirror transaction is sent to the ProseMirror view, which contains all 
 
 # Improvements, challenges and everything else
 
-This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB** ), removes one
+This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB.ts** ), removes one
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
 offline use and it is possible to lose some information ( for example in a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
@@ -136,9 +155,12 @@ export default function Article() {
         description={article2Metadata.introText}
         imgSrc={article2Metadata.imgSrc}
       />
+      <ArticleHeadline tldr={tldrContent} {...article2Metadata} />
       <MarkDown source={MD0} />
+      <MarkDown source={demo} />
       <EditorsDynamic />
       <MarkDown source={MD1} />
+      <SalesBox />
       <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />
     </ArticleWrapper>
   );

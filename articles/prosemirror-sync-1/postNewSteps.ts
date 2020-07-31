@@ -6,7 +6,7 @@ import { mySchema } from "./schema";
 import { ClientStep, DBCollection, DBSchema, DocID, StepStatus } from "./types";
 import { getTimestamp } from "./time";
 
-export default (
+const postNewSteps = (
   view: EditorView,
   setPmState: (state: EditorState) => void,
   DB: PouchDB.Database<DBSchema>,
@@ -32,3 +32,5 @@ export default (
   }
   setPmState(newState);
 };
+
+export default postNewSteps;

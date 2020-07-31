@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
+import theme from "../../../utils/theme";
+
 export const Cell = styled.div`
-  border-left: 2px solid black;
+  border-left: 1px solid ${theme.color.gray8};
   :first-child {
-    border-left: none;
+    border: none;
   }
-  border-bottom: 1px solid lightgray;
   flex: 1;
 `;
 
@@ -21,6 +22,13 @@ export const WatcherHeader = styled.div`
   font-size: 1.4rem;
   font-weight: 500;
 `;
-export const VersionCell = styled(Cell)`
+export const CenteredCell = styled(Cell)`
   text-align: center;
+`;
+export const StepRoot = styled.div`
+  display: flex;
+  border-bottom: 1px solid ${theme.color.gray8};
+  :last-child {
+    border: none;
+  }
 `;
