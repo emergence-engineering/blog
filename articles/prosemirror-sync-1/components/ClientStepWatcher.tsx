@@ -4,22 +4,24 @@ import JsonView from "react-json-view";
 
 import { ClientStep, StepStatus } from "../types";
 
-import { Cell, HeaderCell, VersionCell, WatcherHeader } from "./common";
-
-const StepRoot = styled.div`
-  display: flex;
-`;
+import {
+  Cell,
+  HeaderCell,
+  CenteredCell,
+  WatcherHeader,
+  StepRoot,
+} from "./common";
 
 const StepsWrapper = styled(HeaderCell)`
-  flex: 2;
+  flex: 2.5;
 `;
 
 const StatusWidth = styled(HeaderCell)`
-  min-width: 6.5rem;
+  min-width: 5rem;
 `;
 
 const Status = styled(Cell)<{ status: StepStatus }>`
-  min-width: 6.5rem;
+  min-width: 5rem;
   color: ${({ status }) =>
     (() => {
       switch (status) {
@@ -50,8 +52,8 @@ const ClientStepWatcher: FunctionComponent<{ steps: ClientStep[] }> = ({
       // eslint-disable-next-line react/no-array-index-key
       <StepRoot key={index}>
         <Status status={step.status}>{step.status}</Status>
-        <Cell>{step.pmViewId}</Cell>
-        <VersionCell>{step.version}</VersionCell>
+        <CenteredCell>{step.pmViewId}</CenteredCell>
+        <CenteredCell>{step.version}</CenteredCell>
         <StepsWrapper>
           <JsonView src={step.steps} collapsed />
         </StepsWrapper>

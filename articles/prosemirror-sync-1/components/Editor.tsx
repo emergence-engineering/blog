@@ -12,7 +12,7 @@ const EditorDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  flex-basis: 20rem;
+  flex-basis: 29rem;
   margin: 1rem 0.5rem;
   padding: 0.2rem;
   border: 1px solid ${theme.color.gray8};
