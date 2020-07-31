@@ -7,6 +7,7 @@ import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
 import Disqus from "../../modules/disqus/Disqus";
 import MarkDown from "../../modules/article/components/Markdown";
 import { ArticleHeadline } from "../../modules/article/components/ArticleHeadline";
+import SalesBox from "../../modules/article/components/SalesBox";
 
 const EditorsDynamic = dynamic(
   () => import("../../articles/prosemirror-sync-1"),
@@ -58,8 +59,10 @@ This approach has also been tested with Firestore.
 
 const demo = /* language=md */ `
 # Demo
+Try typing in any of the editors below!
+
 ### Client steps
-Try typing in any of the editors! You can follow the steps (changes) that is emitted from the active editor in the
+ You can follow the steps (changes) that is emitted from the active editor in the
 *ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
 
 ### Server steps
@@ -157,6 +160,7 @@ export default function Article() {
       <MarkDown source={demo} />
       <EditorsDynamic />
       <MarkDown source={MD1} />
+      <SalesBox />
       <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />
     </ArticleWrapper>
   );
