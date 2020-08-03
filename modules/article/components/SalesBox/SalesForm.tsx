@@ -90,6 +90,7 @@ const SalesForm: FunctionComponent<{ formType: FormType }> = ({ formType }) => {
 
   // this function magically stops an error that is being thrown
   // from the official google reCAPTCHA API...
+  // eslint-disable-next-line no-console
   const onCaptchaLoad = useCallback(() => console.info("reCAPTCHA loaded"), []);
 
   const submitHandler = async (evt: SyntheticEvent) => {
