@@ -53,7 +53,7 @@ const TextArea = styled.textarea`
   transition: box-shadow 0.2s;
 `;
 
-const LabelSpan = styled.span`
+export const LabelSpan = styled.span`
   flex: 1;
   font-family: ${theme.fontFamily.title};
   letter-spacing: 0.08rem;

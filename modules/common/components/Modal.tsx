@@ -33,8 +33,10 @@ const ModalWrapper = styled.div<{ fillScreen?: boolean }>`
   opacity: 1;
   padding: 2rem;
   @media screen and (max-width: ${screenSizes.medium}px) {
+    height: 100vh;
+    border-radius: 0;
+    overflow: scroll;
     width: 100%;
-    min-height: 100%;
   }
 `;
 
@@ -42,6 +44,7 @@ const ModalHeaderRoot = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const ModalTitle = styled.div`
