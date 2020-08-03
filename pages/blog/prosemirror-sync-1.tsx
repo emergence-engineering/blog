@@ -15,7 +15,7 @@ const EditorsDynamic = dynamic(
 );
 
 export const article2Metadata: ArticleIntro = {
-  title: "Collaborative text editor with ProseMirror and a sync database",
+  title: "Collaborative text editor with ProseMirror and a syncing database",
   author: "Viktor & Balazs",
   authorLink: null,
   introText: /* language=md */ `
@@ -23,7 +23,7 @@ export const article2Metadata: ArticleIntro = {
 editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
 This is usually done with WebSockets, which adds another layer in the stack where bugs can hide.
-This article shows a path to get rid of that layer by using a well-tested layer in the form as a syncing database.
+This article shows a path to get rid of that layer by using a well-tested layer in the form of a syncing database.
 In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
 This approach has also been tested with Firestore.
  
@@ -62,12 +62,12 @@ const demo = /* language=md */ `
 Try typing in any of the editors below!
 
 ### Client steps
- You can follow the steps (changes) that is emitted from the active editor in the
+ You can follow the steps (changes) that are emitted from the active editor in the
 *ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
 
 ### Server steps
 The *ServerSteps list* table displays the history of the valid conflict free steps ( changes ).
-Each of these steps have a version just like git commits.
+Each of these steps has a version just like git commits.
 
 ### Server document
 The JSON object below displays the latest state of the document on the server.
@@ -84,13 +84,11 @@ position in a document.
 - *ProseMirror document version*: A version of the document starts from 0 and incremented every time a new step is applied.
 
 ## Sync database
-- *Sync database*: A database which is capable of automatically replicate the state of a remote database, s
-o they both contain the same content eventually. For example CouchDB, Google Firestore etc... 
-These are all NoSQL databases ( as far as I know )
+- *Sync database*: A database which is capable of automatically replicating the state of a remote database, so they both contain the same content eventually. For example CouchDB, Google Firestore etc... 
 - *PouchDB*: A JS implementation of the CouchDB protocol. This means that it can run in the browser, and sync up to another database which
 implements the CouchDB protocol.
-- *listener*: A callback which is called every the there is new data in the database
-- *collection*: to separate different kinds of data stored in the database a **collection** field is added, with different values, depending on the type.
+- *listener*: A callback which is called every time the there is new data in the database
+- *collection*: A collection field is added to every entry in the database. This field helps marks items that belong in the same category. A collection is somewhat analogous to a table in relational databases.
 
 # How everything comes together
 
@@ -109,7 +107,7 @@ Our implementations root file is **index.ts** in the repo linked earlier.
 
 A very good explanation of the collaborative algorithm used by ProseMirror can be found at https://prosemirror.net/docs/guide/#collab
 
-In this demo ther are two ProseMirror editors and each of them has a dedicated PouchDB instance.
+In this demo there are two ProseMirror editors and each of them has a dedicated PouchDB instance.
 These databases sync up to a third database, which belongs to a "server". If client A is updated, then the server
 is updated which ideally propagates client B.
 
@@ -143,7 +141,7 @@ new ProseMirror transaction is sent to the ProseMirror view, which contains all 
 This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB.ts** ), removes one
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
-offline use and it is possible to lose some information ( for example in a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
+offline use and it is possible to lose some information ( for example if a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
 but in general, it works great.`;
 
 export default function Article() {
