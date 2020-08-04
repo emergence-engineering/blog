@@ -41,6 +41,7 @@ const tldrContent = /* language=md */ `
 * We introduce a method to create a web based collaborative editor based on ProseMirror
 * We use PouchDB (CouchDB) to abstract away all the hassle that comes with directly managing WebSockets
 * Any database with real time syncing functionality can be used
+* For the interactive demo we used React and TypeScript
 `;
 
 const MD0 = /* language=md */ `
@@ -111,26 +112,21 @@ In this demo there are two ProseMirror editors and each of them has a dedicated 
 These databases sync up to a third database, which belongs to a "server". If client A is updated, then the server
 is updated which ideally propagates client B.
 
-There are three collections:
-- **PMDocument** stores the ProseMirror document
-- **ClientSteps** stores the steps coming from the clients
-- **ServerSteps** stores the steps accepted by the server 
+## The database layer
 
+As we mentioned above we use PouchDB for this demo which is a JavaScript implementation of the CouchDB protocol.
+There are three collections:
 \`\`\`typescript
-type Timestamp = number;
-export enum DBCollection {
+enum DBCollection {
   PMDocument = "PMDocument",
   ClientSteps = "ClientSteps",
   ServerSteps = "ServerSteps",
 }
+\`\`\`
 
-export enum StepStatus {
-  NEW = "NEW",
-  ACCEPTED = "ACCEPTED",
-  REJECTED = "REJECTED",
-}
-
-export interface PMDocument {
+**1. PMDocument**: stores the ProseMirror document
+\`\`\`typescript
+interface PMDocument {
   _id: string;
   _rev?: string;
   collection: DBCollection.PMDocument;
@@ -138,7 +134,10 @@ export interface PMDocument {
   version: number;
   updatedAt: Timestamp;
 }
+\`\`\`
 
+**2. ClientSteps**: stores the steps coming from the clients
+\`\`\`typescript
 export interface ClientStep {
   collection: DBCollection.ClientSteps;
   pmViewId: string | number;
@@ -149,8 +148,13 @@ export interface ClientStep {
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }
+\`\`\`
 
-export interface ServerStep {
+
+**3. ServerSteps**: stores the steps accepted by the server 
+
+\`\`\`typescript
+interface ServerStep {
   collection: DBCollection.ServerSteps;
   step: object;
   version: number;
@@ -159,15 +163,52 @@ export interface ServerStep {
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }
-
-export type DBSchema = ServerStep | ClientStep | PMDocument;
   \`\`\`
 
 ## Data flow on the server
-- the server listens to new documents in **ClientSteps**
-- If the version of the steps is correct ( the client is synced up to the server ), then it
-1. Updates the ProseMirror document stored in **PMDocument** ( referenced by the incoming step )
-2. saves the accepted steps to **ServerSteps**
+1. The server listens to new documents in **ClientSteps**
+\`\`\`typescript
+  //listening to ClientSteps
+  DBS.serverDB
+    .changes({
+      since: "now",
+      live: true,
+      filter: data =>
+        data.collection === DBCollection.ClientSteps &&
+        data.status === StepStatus.NEW,
+    })
+\`\`\`
+2. If the version of the steps is correct the client is synced up to the server
+\`\`\`typescript
+        if (clientStep?.collection !== DBCollection.ClientSteps) {
+          return;
+        }
+        const syncDoc = await DBS.serverDB.get(clientStep.docId);
+        if (
+          clientStep.version !== syncDoc.version ||
+          syncDoc.collection !== DBCollection.PMDocument
+        ) {
+          // Set status to StepStatus.REJECTED
+          await syncClientStep(DBS, clientStep, StepStatus.REJECTED);
+          return;
+        }
+\`\`\`
+3. And finally: the server updates the ProseMirror document stored in **PMDocument**
+( referenced by the incoming step ) and saves the accepted steps to **ServerSteps**
+
+\`\`\`typescript
+        const newDoc: PMDocument = {
+          ...syncDoc,
+          version: newVersion,
+          doc: doc.toJSON(),
+          _rev: syncDoc._rev,
+          updatedAt: getTimestamp(),
+        };
+        await DBS.serverDB
+          .put(newDoc)
+          .then(() => DBS.serverDB.bulkDocs(serverSteps))
+          .then(() => syncClientStep(DBS, clientStep, StepStatus.ACCEPTED));
+\`\`\`
     
 The server functionality is implemented in [ processSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/processSteps.ts)
 
@@ -178,16 +219,7 @@ The function in [ postSteps.ts ](https://gitlab.com/emergence-engineering/blog/-
 sent new steps coming from another user ). In that function, sendable steps are calculated by the **prosemirror-collab** module, and if there's any then they are written to the database as **ClientSteps**. The ProseMirror view is also updated.
 
 \`\`\`typescript
-export default function postNewSteps(
-  view: EditorView,
-  setPmState: (state: EditorState) => void,
-  DB: PouchDB.Database<DBSchema>,
-  tr: Transaction<typeof mySchema>,
-) {
-  const newState = view.state.apply(tr);
-
-  view.updateState(newState);
-  const sendable = sendableSteps(newState);
+  //body of the postNewSteps function
   if (sendable) {
     const timestamp = getTimestamp();
     const newStep: ClientStep = {
@@ -203,7 +235,6 @@ export default function postNewSteps(
     DB.post(newStep);
   }
   setPmState(newState);
-}
 \`\`\`
 
 ### Receiving new steps
