@@ -56,9 +56,9 @@ const CapabilityBoxes = [
     iconSrc: "/icons/api.svg",
   },
   {
-    title: "Mobile development",
+    title: "Cross Platform App development",
     content: `We can build applications for all major mobile platforms with React
-    Native or Ionic. `,
+    Native or Ionic.`,
     iconSrc: "/icons/responsive-2.svg",
   },
   {
