@@ -219,7 +219,21 @@ The function in [ postSteps.ts ](https://gitlab.com/emergence-engineering/blog/-
 sent new steps coming from another user ). In that function, sendable steps are calculated by the **prosemirror-collab** module, and if there's any then they are written to the database as **ClientSteps**. The ProseMirror view is also updated.
 
 \`\`\`typescript
+  import { sendableSteps } from "prosemirror-collab";
+\`\`\`
+
+A ProseMirror editor state is created from the transaction:
+\`\`\`typescript
   //body of the postNewSteps function
+  const newState = view.state.apply(tr); // transaction
+\`\`\`
+
+This newly created state is then passed into the *sendableSteps* function provided 
+by the **[ prosemirror-collab ](https://prosemirror.net/docs/guide/#collab)** module:
+
+\`\`\`typescript
+  //body of the postNewSteps function
+  const sendable = sendableSteps(newState);
   if (sendable) {
     const timestamp = getTimestamp();
     const newStep: ClientStep = {
