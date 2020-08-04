@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 import Layout from "../../modules/common/components/Layout";
 import theme, { screenSizes, sizes } from "../../utils/theme";
-// import {
-//   CommunityBlogItem,
-//   CommunityBlogs,
-// } from "../../modules/blog/components/CommunityBlogSite";
-
+import {
+  CommunityBlogItem,
+  CommunityBlogs,
+} from "../../modules/blog/components/CommunityBlogSite";
 import { BlogPostIntro, BlogSEO } from "../../modules/blog/components";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
@@ -33,37 +32,38 @@ const ContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-// const CommunityBlogRoot = styled.div`
-//   padding: 0.5rem 2rem;
-//   border-radius: 0.2rem;
-//   border-style: solid;
-//   border-color: ${theme.color.gray7};
-//   border-width: thin;
-//   margin-top: 4rem;
-// `;
+const CommunityBlogRoot = styled.div`
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  border-style: solid;
+  border-color: ${theme.color.gray7};
+  border-width: thin;
+  margin-top: 4rem;
+`;
 
-// const CommunityBlogSection: FunctionComponent<{}> = () => (
-//   <CommunityBlogRoot>
-//     <h1>Follow us on community blog sites as well</h1>
-//     <CommunityBlogs>
-//       <CommunityBlogItem
-//         faIconName="fab fa-medium"
-//         caption="On Medium.com"
-//         href="https://medium.com/@emergence_engineering"
-//       />
-//       <CommunityBlogItem
-//         faIconName="fab fa-dev"
-//         caption="On Dev.to"
-//         href="https://dev.to/emergence"
-//       />
-//     </CommunityBlogs>
-//   </CommunityBlogRoot>
-// );
+const CommunityBlogSection: FunctionComponent<{}> = () => (
+  <CommunityBlogRoot>
+    <h1>Follow us on community blog sites as well</h1>
+    <CommunityBlogs>
+      <CommunityBlogItem
+        faIconName="fab fa-medium"
+        caption="On Medium.com"
+        href="https://medium.com/@emergence_engineering"
+      />
+      <CommunityBlogItem
+        faIconName="fab fa-dev"
+        caption="On Dev.to"
+        href="https://dev.to/emergence"
+      />
+    </CommunityBlogs>
+  </CommunityBlogRoot>
+);
 
 const Blog: FunctionComponent<{}> = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <CommunityBlogSection />
       <ContentWrapper>
         <BlogPostIntro {...article2Metadata} />
       </ContentWrapper>
