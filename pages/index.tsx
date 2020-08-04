@@ -38,15 +38,27 @@ components at a finer scale.`;
 
 const CapabilityBoxes = [
   {
+    title: "ProseMirror consulting",
+    content: `ProseMirror is a powerful toolkit to build custom web based rich-text
+     editors. It is used by companies like The New York Times, Overleaf and many others.`,
+    iconSrc: "https://avatars0.githubusercontent.com/u/13659461?s=200&v=4",
+  },
+  {
+    title: "Collaborative Web UIs",
+    content: `Sometimes UIs have to sync up instantly based on the actions of other users maybe a thousand miles away. In some cases
+    there is a need for multiple users to see the same document and be able to edit it together.`,
+    iconSrc: "/icons/group.svg",
+  },
+  {
     title: "Fullstack web development",
     content: `We can design the client application that faces your users and the
        complex backend architectures behind it.`,
     iconSrc: "/icons/api.svg",
   },
   {
-    title: "Mobile development",
+    title: "Cross Platform App development",
     content: `We can build applications for all major mobile platforms with React
-    Native or Ionic. `,
+    Native or Ionic.`,
     iconSrc: "/icons/responsive-2.svg",
   },
   {

@@ -15,15 +15,15 @@ const EditorsDynamic = dynamic(
 );
 
 export const article2Metadata: ArticleIntro = {
-  title: "Collaborative text editor with ProseMirror and a sync database",
+  title: "Collaborative text editor with ProseMirror and a syncing database",
   author: "Viktor & Balazs",
   authorLink: null,
   introText: /* language=md */ `
  With the collaborative editing functionality in ProseMirror it's possible to create documents that are
-editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
+editable by multiple users at the same time. Although the **[ prosemirror-collab ]** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
 This is usually done with WebSockets, which adds another layer in the stack where bugs can hide.
-This article shows a path to get rid of that layer by using a well-tested layer in the form as a syncing database.
+This article shows a path to get rid of that layer by using a well-tested layer in the form of a syncing database.
 In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
 This approach has also been tested with Firestore.
  
@@ -41,13 +41,14 @@ const tldrContent = /* language=md */ `
 * We introduce a method to create a web based collaborative editor based on ProseMirror
 * We use PouchDB (CouchDB) to abstract away all the hassle that comes with directly managing WebSockets
 * Any database with real time syncing functionality can be used
+* For the interactive demo we used React and TypeScript
 `;
 
 const MD0 = /* language=md */ `
 # What's this about?
 
 With the collaborative editing functionality in ProseMirror it's possible to create documents that are
-editable by multiple users at the same time. Although the **prosemirror-collab** module is not very hard to use, 
+editable by multiple users at the same time. Although the **[ prosemirror-collab ](https://prosemirror.net/docs/guide/#collab)** module is not very hard to use, 
 a communication layer is necessary for the clients to receive new steps to update their local document, keeping them in sync.
 This is usually done with WebSockets, which adds another layer in the stack where bugs can hide.
 This article shows a path to get rid of that layer by using a well-tested layer in the form as a syncing database.
@@ -62,12 +63,12 @@ const demo = /* language=md */ `
 Try typing in any of the editors below!
 
 ### Client steps
- You can follow the steps (changes) that is emitted from the active editor in the
+ You can follow the steps (changes) that are emitted from the active editor in the
 *ClientSteps list* table. Here you can see all the steps that are being sent from the clients.
 
 ### Server steps
 The *ServerSteps list* table displays the history of the valid conflict free steps ( changes ).
-Each of these steps have a version just like git commits.
+Each of these steps has a version just like git commits.
 
 ### Server document
 The JSON object below displays the latest state of the document on the server.
@@ -84,13 +85,11 @@ position in a document.
 - *ProseMirror document version*: A version of the document starts from 0 and incremented every time a new step is applied.
 
 ## Sync database
-- *Sync database*: A database which is capable of automatically replicate the state of a remote database, s
-o they both contain the same content eventually. For example CouchDB, Google Firestore etc... 
-These are all NoSQL databases ( as far as I know )
+- *Sync database*: A database which is capable of automatically replicating the state of a remote database, so they both contain the same content eventually. For example CouchDB, Google Firestore etc... 
 - *PouchDB*: A JS implementation of the CouchDB protocol. This means that it can run in the browser, and sync up to another database which
 implements the CouchDB protocol.
-- *listener*: A callback which is called every the there is new data in the database
-- *collection*: to separate different kinds of data stored in the database a **collection** field is added, with different values, depending on the type.
+- *listener*: A callback which is called every time the there is new data in the database
+- *collection*: A collection field is added to every entry in the database. This field helps marks items that belong in the same category. A collection is somewhat analogous to a table in relational databases.
 
 # How everything comes together
 
@@ -105,45 +104,182 @@ to the server by:
 This is very similar to a REST API, but the server now can push data to the clients directly. Of course
 this can be done with just WebSockets ( and that's what behind the implementation of most sync databases ), but that's usually
 a quite complex hard-to-test part, and using a well-tested database has some obvious benefits in that sense. 
-Our implementations root file is **index.ts** in the repo linked earlier.
+Our implementations root file is [ index.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/index.tsx) in the repo linked earlier.
 
-A very good explanation of the collaborative algorithm used by ProseMirror can be found at https://prosemirror.net/docs/guide/#collab
+A very good explanation of the collaborative algorithm used by ProseMirror can be found [here](https://prosemirror.net/docs/guide/#collab).
 
-In this demo ther are two ProseMirror editors and each of them has a dedicated PouchDB instance.
+In this demo there are two ProseMirror editors and each of them has a dedicated PouchDB instance.
 These databases sync up to a third database, which belongs to a "server". If client A is updated, then the server
 is updated which ideally propagates client B.
 
+## The database layer
+
+As we mentioned above we use PouchDB for this demo which is a JavaScript implementation of the CouchDB protocol.
 There are three collections:
-- **PMDocument** stores the ProseMirror document
-- **ClientSteps** stores the steps coming from the clients
-- **ServerSteps** stores the steps accepted by the server 
+\`\`\`typescript
+enum DBCollection {
+  PMDocument = "PMDocument",
+  ClientSteps = "ClientSteps",
+  ServerSteps = "ServerSteps",
+}
+\`\`\`
+
+**1. PMDocument**: stores the ProseMirror document
+\`\`\`typescript
+interface PMDocument {
+  _id: string;
+  _rev?: string;
+  collection: DBCollection.PMDocument;
+  doc: object;
+  version: number;
+  updatedAt: Timestamp;
+}
+\`\`\`
+
+**2. ClientSteps**: stores the steps coming from the clients
+\`\`\`typescript
+export interface ClientStep {
+  collection: DBCollection.ClientSteps;
+  pmViewId: string | number;
+  status: StepStatus;
+  steps: object[];
+  version: number;
+  docId: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+}
+\`\`\`
+
+
+**3. ServerSteps**: stores the steps accepted by the server 
+
+\`\`\`typescript
+interface ServerStep {
+  collection: DBCollection.ServerSteps;
+  step: object;
+  version: number;
+  pmViewId: string | number;
+  docId: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+}
+  \`\`\`
 
 ## Data flow on the server
-- the server listens to new documents in **ClientSteps**
-- If the version of the steps is correct ( the client is synced up to the server ), then it
-1. Updates the ProseMirror document stored in **PMDocument** ( referenced by the incoming step )
-2. saves the accepted steps to **ServerSteps**
+1. The server listens to new documents in **ClientSteps**
+\`\`\`typescript
+  //listening to ClientSteps
+  DBS.serverDB
+    .changes({
+      since: "now",
+      live: true,
+      filter: data =>
+        data.collection === DBCollection.ClientSteps &&
+        data.status === StepStatus.NEW,
+    })
+\`\`\`
+2. If the version of the steps is correct the client is synced up to the server
+\`\`\`typescript
+        if (clientStep?.collection !== DBCollection.ClientSteps) {
+          return;
+        }
+        const syncDoc = await DBS.serverDB.get(clientStep.docId);
+        if (
+          clientStep.version !== syncDoc.version ||
+          syncDoc.collection !== DBCollection.PMDocument
+        ) {
+          // Set status to StepStatus.REJECTED
+          await syncClientStep(DBS, clientStep, StepStatus.REJECTED);
+          return;
+        }
+\`\`\`
+3. And finally: the server updates the ProseMirror document stored in **PMDocument**
+( referenced by the incoming step ) and saves the accepted steps to **ServerSteps**
+
+\`\`\`typescript
+        const newDoc: PMDocument = {
+          ...syncDoc,
+          version: newVersion,
+          doc: doc.toJSON(),
+          _rev: syncDoc._rev,
+          updatedAt: getTimestamp(),
+        };
+        await DBS.serverDB
+          .put(newDoc)
+          .then(() => DBS.serverDB.bulkDocs(serverSteps))
+          .then(() => syncClientStep(DBS, clientStep, StepStatus.ACCEPTED));
+\`\`\`
     
-The server functionality is implemented in **processSteps.ts**
+The server functionality is implemented in [ processSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/processSteps.ts)
 
 ## Data flow on the clients
 
 ### Sending new steps
-The function in **postNewsteps.ts** is called by ProseMirror whenever there is an incoming ProseMirror transaction ( either the user did something in the editor, or the server
+The function in [ postSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/postNewSteps.ts) is called by ProseMirror whenever there is an incoming ProseMirror transaction ( either the user did something in the editor, or the server
 sent new steps coming from another user ). In that function, sendable steps are calculated by the **prosemirror-collab** module, and if there's any then they are written to the database as **ClientSteps**. The ProseMirror view is also updated.
+
+\`\`\`typescript
+  import { sendableSteps } from "prosemirror-collab";
+\`\`\`
+
+A ProseMirror editor state is created from the transaction:
+\`\`\`typescript
+  //body of the postNewSteps function
+  const newState = view.state.apply(tr); // transaction
+\`\`\`
+
+This newly created state is then passed into the *sendableSteps* function provided 
+by the **[ prosemirror-collab ](https://prosemirror.net/docs/guide/#collab)** module:
+
+\`\`\`typescript
+  //body of the postNewSteps function
+  const sendable = sendableSteps(newState);
+  if (sendable) {
+    const timestamp = getTimestamp();
+    const newStep: ClientStep = {
+      steps: sendable.steps.map(step => step.toJSON()),
+      version: sendable.version,
+      status: StepStatus.NEW,
+      collection: DBCollection.ClientSteps,
+      docId: DocID,
+      pmViewId: sendable.clientID,
+      createdAt: timestamp,
+      updatedAt: timestamp,
+    };
+    DB.post(newStep);
+  }
+  setPmState(newState);
+\`\`\`
 
 ### Receiving new steps
 
-The **fetchNewStepsClient.ts** contains a function which is used in a React **useEffect** in **index.ts**, and gets reloaded every time the version of the document is updated.
+The [ fetchNewStepsClient.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/fetchNewStepsClient.ts) contains a function which is used in a React **useEffect** in [ index.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/index.tsx), and gets reloaded every time the version of the document is updated.
 This is necessary since this function only listens to the step in **ServerSteps** which has the version that updates the current document. If there is a new step then
 new ProseMirror transaction is sent to the ProseMirror view, which contains all the necessary information to both updates the view and the collab state.
 
+\`\`\`typescript
+  listener.on("change", data => {
+    const serverStep = data.doc;
+    if (serverStep?.collection !== DBCollection.ServerSteps) {
+      return;
+    }
+    getVersion(pmView.state) === serverStep.version &&
+      pmView.dispatch(
+        receiveTransaction(
+          pmView.state,
+          [Step.fromJSON(mySchema, serverStep.step)],
+          [serverStep.pmViewId],
+        ),
+      );
+  });
+\`\`\`
+
 # Improvements, challenges and everything else
 
-This example runs in just a single browser instance, but if one moves the server-side code ( mostly **processSteps.ts** and some parts of **initializeDB.ts** ), removes one
+This example runs in just a single browser instance, but if one moves the server-side code ( mostly [ processSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/processSteps.ts) and some parts of **[ initializeDB.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/initializeDB.ts )** ), removes one
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
-offline use and it is possible to lose some information ( for example in a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
+offline use and it is possible to lose some information ( for example if a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
 but in general, it works great.`;
 
 export default function Article() {
