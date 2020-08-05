@@ -15,9 +15,9 @@ export const AuthPaper = styled.div`
   width: 30rem;
   height: 40rem;
   padding: 6rem 5rem 6rem 5rem;
-  border: 1px solid ${theme.color.gray9};
-  box-shadow: 0.5rem 0.5rem 0.25rem ${theme.color.gray8};
-  background: ${theme.color.gray10};
+  border: 1px solid ${theme.color.gray3};
+  box-shadow: 0.25rem 0.25rem 0.5rem ${theme.color.gray3};
+  background: ${theme.color.gray0};
   display: flex;
   flex-direction: column;
   align-items: stretch;

@@ -1,17 +1,19 @@
 import React from "react";
 import App, { AppInitialProps, AppProps } from "next/app";
 import { Provider } from "react-redux";
-import withReduxStore from "next-redux-wrapper";
 import Head from "next/head";
 
-import { initStore } from "../../setup/createStore";
-import { ReduxStore, RootState } from "../../setup/reducers/rootReducer";
 import { initializeGA } from "../../utils/google-analytics";
+import { createGlobalStyle } from "styled-components";
 
 interface MyAppProps extends AppProps, AppInitialProps {
-  store: ReduxStore;
-  initialState: RootState;
 }
+
+const GlobalStyle = createGlobalStyle`
+* {
+box-sizing: border-box;
+}
+`;
 
 class MyApp extends App<MyAppProps> {
   state = {
@@ -31,7 +33,8 @@ class MyApp extends App<MyAppProps> {
     const { Component, pageProps, store } = this.props;
     return (
       <>
-        <Head>
+  <GlobalStyle />
+  <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Provider store={store}>
@@ -42,4 +45,4 @@ class MyApp extends App<MyAppProps> {
   }
 }
 
-export default withReduxStore(initStore)(MyApp);
+export default MyApp;

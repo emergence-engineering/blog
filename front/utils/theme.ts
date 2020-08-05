@@ -44,6 +44,11 @@ export default {
   },
 };
 
+export enum layers {
+  CONTENT = 0,
+  ABOVE_CONTENT = 1,
+}
+
 export enum screenSizes {
   small = 375,
   medium = 768,

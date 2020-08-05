@@ -11,21 +11,12 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": [
-    "front/pages",
-    "type-declarations/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["front/pages", "type-declarations/*"],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,49 @@
+#
+# https://gitlab.com/gitlab-org/gitlab-foss/tree/master/lib/gitlab/ci/templates/Nodejs.gitlab-ci.yml
+#
+image: node:latest
+
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
+
+install:
+  stage: build
+  script:
+    - npm i
+    - cd functions && npm i
+    - cd ..
+
+test:
+  stage: test
+  script:
+    - npm run lint
+
+deploy_staging_static:
+  stage: deploy
+  only:
+    - staging
+  environment:
+    name: staging
+    url: https://$FIREBASE_PROJECT_ID.firebaseapp.com
+  script:
+    - ./createFirebaserc.sh
+    - npm run build
+    - npm run export-static
+    - npm run deploy-static -- --token "$FIREBASE_TOKEN"
+
+deploy_production_static:
+  stage: deploy
+  only:
+    - production
+  environment:
+    name: production
+    url: https://$FIREBASE_PROJECT_ID.firebaseapp.com
+  script:
+    - ./createFirebaserc.sh
+    - npm run build
+    - npm run export-static
+    - npm run deploy-static -- --token "$FIREBASE_TOKEN"
