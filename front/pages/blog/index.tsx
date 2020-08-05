@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import Layout from "../../modules/common/components/Layout";
-import theme, { screenSizes, sizes } from "../../utils/theme";
+import Layout from "../../../modules/common/components/Layout";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
 import {
   CommunityBlogItem,
   CommunityBlogs,
-} from "../../modules/blog/components/CommunityBlogSite";
-import { BlogPostIntro, BlogSEO } from "../../modules/blog/components";
+} from "../../../modules/blog/components/CommunityBlogSite";
+import { BlogPostIntro, BlogSEO } from "../../../modules/blog/components";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
 import { article2Metadata } from "./prosemirror-sync-1";

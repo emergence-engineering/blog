@@ -7,7 +7,7 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-import GeneralSEO from "../modules/common/components/GeneralSEO";
+import GeneralSEO from "../../modules/common/components/GeneralSEO";
 
 export default class MyDocument extends Document<{
   shouldRenderGeneralSEO: boolean;

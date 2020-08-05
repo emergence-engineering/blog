@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
-import MarkDown from "../../modules/article/components/Markdown";
-import CodeEditor from "../../modules/article/components/CodeEditor";
-import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
-import { ArticleIntro } from "../../types/article";
-import Disqus from "../../modules/disqus/Disqus";
-import SalesBox from "../../modules/article/components/SalesBox";
+import ArticleWrapper from "../../../modules/article/components/ArticleWrapper";
+import MarkDown from "../../../modules/article/components/Markdown";
+import CodeEditor from "../../../modules/article/components/CodeEditor";
+import ArticleShareOgTags from "../../../modules/article/components/ArticleShareOgTags";
+import { ArticleIntro } from "../../../types/article";
+import Disqus from "../../../modules/disqus/Disqus";
+import SalesBox from "../../../modules/article/components/SalesBox";
 
 export const article1Metadata: ArticleIntro = {
   title: "Everyday javascript ep. 1: Rest/spread operator pt1.",

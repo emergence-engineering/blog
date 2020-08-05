@@ -4,9 +4,9 @@ import { Provider } from "react-redux";
 import withReduxStore from "next-redux-wrapper";
 import Head from "next/head";
 
-import { initStore } from "../setup/createStore";
-import { ReduxStore, RootState } from "../setup/reducers/rootReducer";
-import { initializeGA } from "../utils/google-analytics";
+import { initStore } from "../../setup/createStore";
+import { ReduxStore, RootState } from "../../setup/reducers/rootReducer";
+import { initializeGA } from "../../utils/google-analytics";
 
 interface MyAppProps extends AppProps, AppInitialProps {
   store: ReduxStore;

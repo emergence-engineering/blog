@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import Layout from "../modules/common/components/Layout";
-import { screenSizes, sizes } from "../utils/theme";
-import { Member } from "../modules/landingPage/components/AboutUsSection";
+import Layout from "../../modules/common/components/Layout";
+import { screenSizes, sizes } from "../../utils/theme";
+import { Member } from "../../modules/landingPage/components/AboutUsSection";
 
 const Root = styled.div`
   display: flex;

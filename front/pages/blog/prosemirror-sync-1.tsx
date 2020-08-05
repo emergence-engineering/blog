@@ -1,16 +1,16 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-import ArticleShareOgTags from "../../modules/article/components/ArticleShareOgTags";
-import { ArticleIntro } from "../../types/article";
-import ArticleWrapper from "../../modules/article/components/ArticleWrapper";
-import Disqus from "../../modules/disqus/Disqus";
-import MarkDown from "../../modules/article/components/Markdown";
-import { ArticleHeadline } from "../../modules/article/components/ArticleHeadline";
-import SalesBox from "../../modules/article/components/SalesBox";
+import ArticleShareOgTags from "../../../modules/article/components/ArticleShareOgTags";
+import { ArticleIntro } from "../../../types/article";
+import ArticleWrapper from "../../../modules/article/components/ArticleWrapper";
+import Disqus from "../../../modules/disqus/Disqus";
+import MarkDown from "../../../modules/article/components/Markdown";
+import { ArticleHeadline } from "../../../modules/article/components/ArticleHeadline";
+import SalesBox from "../../../modules/article/components/SalesBox";
 
 const EditorsDynamic = dynamic(
-  () => import("../../articles/prosemirror-sync-1"),
+  () => import("../../../articles/prosemirror-sync-1"),
   { ssr: false },
 );
 

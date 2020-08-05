@@ -2,26 +2,26 @@ import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 
-import Layout from "../modules/common/components/Layout";
-import { addSampleAction } from "../setup/actions/sample/actions";
-import CapabilityBox from "../modules/landingPage/components/CapabilityBox";
+import Layout from "../../modules/common/components/Layout";
+import { addSampleAction } from "../../setup/actions/sample/actions";
+import CapabilityBox from "../../modules/landingPage/components/CapabilityBox";
 import {
   IntroductionParagraph,
   IntroductionSection,
   IntroductionSectionWrapper,
   MainTitle,
   SubTitle,
-} from "../modules/landingPage/components/Introduction";
+} from "../../modules/landingPage/components/Introduction";
 import {
   CapabilityBoxContainer,
   CapabilityBoxContainerWrapper,
   CapabilitySection,
-} from "../modules/landingPage/components/Capability";
-import SalesFormSection from "../modules/landingPage/components/SalesMessageForm";
-import WhoAreWeSection from "../modules/landingPage/components/WhoAreWeSection";
-import AboutUsSection from "../modules/landingPage/components/AboutUsSection";
-import { Separator } from "../modules/common/components/Separator";
-import theme from "../utils/theme";
+} from "../../modules/landingPage/components/Capability";
+import SalesFormSection from "../../modules/landingPage/components/SalesMessageForm";
+import WhoAreWeSection from "../../modules/landingPage/components/WhoAreWeSection";
+import AboutUsSection from "../../modules/landingPage/components/AboutUsSection";
+import { Separator } from "../../modules/common/components/Separator";
+import theme from "../../utils/theme";
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
