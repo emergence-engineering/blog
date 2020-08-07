@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { EditorView } from "prosemirror-view";
 import { EditorState } from "prosemirror-state";
 
-import ProseMirrorDiv from "../../../modules/prosemirror/ProseMirrorDiv";
 import { mySchema } from "../schema";
 import theme from "../../../utils/theme";
+import ProseMirrorDiv from "../../../features/prosemirror/ProseMirrorDiv";
 
 const EditorDetailsWrapper = styled.div`
   display: flex;

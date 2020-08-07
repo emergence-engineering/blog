@@ -3,18 +3,18 @@ import { css } from "styled-components";
 import theme from "./theme";
 
 export const font = css`
-  font-family: ${theme.font.poppins};
+  font-family: ${theme.fontFamily.general};
   color: ${theme.color.gray6};
 `;
 
 export const error = css`
-  font-family: ${theme.font.poppins};
+  font-family: ${theme.fontFamily.general};
   font-size: ${theme.fontSize.error};
   color: ${theme.color.error};
 `;
 
 export const text = css`
-  font-family: ${theme.font.poppins};
+  font-family: ${theme.fontFamily.general};
   font-size: ${theme.fontSize.small};
   line-height: ${theme.lineHeight.normal};
   font-style: normal;
@@ -23,7 +23,7 @@ export const text = css`
 `;
 
 export const titleText = css`
-  font-family: ${theme.font.poppins};
+  font-family: ${theme.fontFamily.general};
   font-size: ${theme.fontSize.large};
   color: ${theme.color.gray6};
 `;

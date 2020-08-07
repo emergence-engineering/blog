@@ -42,6 +42,15 @@ export default {
     general: "'Open sans', sans-serif",
     title: "'Oswald', sans-serif",
   },
+  fontSize: {
+    small: "0.875rem",
+    normal: "1.125rem",
+    large: "1.25rem",
+    error: "0.75rem",
+  },
+  lineHeight: {
+    normal: "1rem",
+  },
 };
 
 export enum layers {

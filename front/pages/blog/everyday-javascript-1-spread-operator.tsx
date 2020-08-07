@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import ArticleWrapper from "../../../modules/article/components/ArticleWrapper";
-import MarkDown from "../../../modules/article/components/Markdown";
-import CodeEditor from "../../../modules/article/components/CodeEditor";
-import ArticleShareOgTags from "../../../modules/article/components/ArticleShareOgTags";
-import { ArticleIntro } from "../../../types/article";
-import Disqus from "../../../modules/disqus/Disqus";
-import SalesBox from "../../../modules/article/components/SalesBox";
+import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
+import ArticleWrapper from "../../features/article/components/ArticleWrapper";
+import CodeEditor from "../../features/article/components/CodeEditor";
+import Markdown from "../../features/article/components/Markdown";
+import SalesBox from "../../features/article/components/SalesBox";
+import Disqus from "../../features/disqus/Disqus";
+import { ArticleIntro } from "../../features/article/types";
 
 export const article1Metadata: ArticleIntro = {
   title: "Everyday javascript ep. 1: Rest/spread operator pt1.",
@@ -284,29 +284,29 @@ export default function Article() {
         imgSrc={article1Metadata.imgSrc}
       />
       <ArticleWrapper>
-        <MarkDown source={MD0} />
+        <Markdown source={MD0} />
         <CodeEditor
           value={SharedCode}
           onChange={setSharedCode}
           minHeight="10rem"
           noRun
         />
-        <MarkDown source={MD1} />
+        <Markdown source={MD1} />
         <CodeEditor value={Code1} hiddenCode={sharedCode} minHeight="5rem" />
-        <MarkDown source={MD2} />
-        <MarkDown source={MD3} />
+        <Markdown source={MD2} />
+        <Markdown source={MD3} />
         <CodeEditor value={Code2} hiddenCode={sharedCode} />
-        <MarkDown source={MD4} />
+        <Markdown source={MD4} />
         <CodeEditor value={Code3} hiddenCode={sharedCode} />
-        <MarkDown source={MD5} />
+        <Markdown source={MD5} />
         <CodeEditor value={Code4} hiddenCode={sharedCode} />
-        <MarkDown source={MD6} />
+        <Markdown source={MD6} />
         <CodeEditor value={Code5} hiddenCode={sharedCode} />
-        <MarkDown source={MD7} />
+        <Markdown source={MD7} />
         <CodeEditor value={Code6} hiddenCode={sharedCode} />
-        <MarkDown source={MD8} />
+        <Markdown source={MD8} />
         <CodeEditor value={Code7} hiddenCode={sharedCode} />
-        <MarkDown source={MD9} />
+        <Markdown source={MD9} />
         <SalesBox />
         <Disqus
           pageUrl={article1Metadata.url}

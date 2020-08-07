@@ -1,16 +1,24 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import ClientStepWatcher from "../articles/prosemirror-sync-1/components/ClientStepWatcher";
 import {
   ClientStep,
   DBCollection,
   ServerStep,
   StepStatus,
-} from "../articles/prosemirror-sync-1/types";
-import ServerStepWatcher from "../articles/prosemirror-sync-1/components/ServerStepWatcher";
+} from "../front/articles/prosemirror-sync-1/types";
+import ClientStepWatcher from "../front/articles/prosemirror-sync-1/components/ClientStepWatcher";
+import ServerStepWatcher from "../front/articles/prosemirror-sync-1/components/ServerStepWatcher";
 
 const stories = storiesOf("Prosemirror Collab", module);
+
+function* generateDate(): Generator<number> {
+  const baseDate = Date.now();
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; true; i++) {
+    yield baseDate + i;
+  }
+}
 
 const clientSteps: ClientStep[] = [
   {
@@ -20,6 +28,8 @@ const clientSteps: ClientStep[] = [
     status: StepStatus.ACCEPTED,
     steps: [{ test: "test" }],
     version: 1,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
   {
     collection: DBCollection.ClientSteps,
@@ -28,6 +38,8 @@ const clientSteps: ClientStep[] = [
     status: StepStatus.REJECTED,
     steps: [{ test: "test" }],
     version: 2,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
   {
     collection: DBCollection.ClientSteps,
@@ -36,6 +48,8 @@ const clientSteps: ClientStep[] = [
     status: StepStatus.NEW,
     steps: [{ test: "test" }],
     version: 3,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
 ];
 
@@ -46,6 +60,8 @@ const serverSteps: ServerStep[] = [
     pmViewId: 1,
     step: { test: "test" },
     version: 1,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
   {
     collection: DBCollection.ServerSteps,
@@ -53,6 +69,8 @@ const serverSteps: ServerStep[] = [
     pmViewId: 1,
     step: { test: "test" },
     version: 2,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
   {
     collection: DBCollection.ServerSteps,
@@ -60,6 +78,8 @@ const serverSteps: ServerStep[] = [
     pmViewId: 1,
     step: { test: "test" },
     version: 3,
+    createdAt: generateDate().next().value,
+    updatedAt: generateDate().next().value,
   },
 ];
 

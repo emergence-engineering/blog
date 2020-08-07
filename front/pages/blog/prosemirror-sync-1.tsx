@@ -1,16 +1,16 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-import ArticleShareOgTags from "../../../modules/article/components/ArticleShareOgTags";
-import { ArticleIntro } from "../../../types/article";
-import ArticleWrapper from "../../../modules/article/components/ArticleWrapper";
-import Disqus from "../../../modules/disqus/Disqus";
-import MarkDown from "../../../modules/article/components/Markdown";
-import { ArticleHeadline } from "../../../modules/article/components/ArticleHeadline";
-import SalesBox from "../../../modules/article/components/SalesBox";
+import { ArticleIntro } from "../../features/article/types";
+import ArticleWrapper from "../../features/article/components/ArticleWrapper";
+import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
+import { ArticleHeadline } from "../../features/article/components/ArticleHeadline";
+import SalesBox from "../../features/article/components/SalesBox";
+import Disqus from "../../features/disqus/Disqus";
+import Markdown from "../../features/article/components/Markdown";
 
 const EditorsDynamic = dynamic(
-  () => import("../../../articles/prosemirror-sync-1"),
+  () => import("../../articles/prosemirror-sync-1"),
   { ssr: false },
 );
 
@@ -292,10 +292,10 @@ export default function Article() {
         imgSrc={article2Metadata.imgSrc}
       />
       <ArticleHeadline tldr={tldrContent} {...article2Metadata} />
-      <MarkDown source={MD0} />
-      <MarkDown source={demo} />
+      <Markdown source={MD0} />
+      <Markdown source={demo} />
       <EditorsDynamic />
-      <MarkDown source={MD1} />
+      <Markdown source={MD1} />
       <SalesBox />
       <Disqus pageUrl={article2Metadata.url} pageId={article2Metadata.postId} />
     </ArticleWrapper>

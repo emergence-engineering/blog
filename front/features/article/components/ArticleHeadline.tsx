@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import theme from "../../../utils/theme";
-import { ArticleIntro } from "../../../types/article";
 import { BlogPostHeadLine } from "../../blog/components";
+import { ArticleIntro } from "../types";
 
 import Markdown, { MarkdownText } from "./Markdown";
 

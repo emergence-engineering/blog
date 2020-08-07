@@ -1,10 +1,13 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import theme, { screenSizes, sizes } from "../../../utils/theme";
-import Layout from "../../../modules/common/components/Layout";
-import { CvTopSection } from "../../../modules/cv/CvTopSection";
-import { TimelineContainerRoot, TimelineItem } from "../../../modules/cv/Timeline";
+import theme, { screenSizes, sizes } from "../../utils/theme";
+import Layout from "../../features/common/components/Layout";
+import {
+  TimelineContainerRoot,
+  TimelineItem,
+} from "../../features/cv/Timeline";
+import { CvTopSection } from "../../features/cv/CvTopSection";
 
 const Root = styled.div`
   display: flex;

@@ -1,35 +1,24 @@
-import React, { FunctionComponent } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators, Dispatch } from "redux";
+import React from "react";
 
-import Layout from "../../modules/common/components/Layout";
-import { addSampleAction } from "../../setup/actions/sample/actions";
-import CapabilityBox from "../../modules/landingPage/components/CapabilityBox";
+import CapabilityBox from "../features/landingPage/components/CapabilityBox";
 import {
   IntroductionParagraph,
   IntroductionSection,
   IntroductionSectionWrapper,
   MainTitle,
   SubTitle,
-} from "../../modules/landingPage/components/Introduction";
+} from "../features/landingPage/components/Introduction";
+import WhoAreWeSection from "../features/landingPage/components/WhoAreWeSection";
 import {
   CapabilityBoxContainer,
   CapabilityBoxContainerWrapper,
   CapabilitySection,
-} from "../../modules/landingPage/components/Capability";
-import SalesFormSection from "../../modules/landingPage/components/SalesMessageForm";
-import WhoAreWeSection from "../../modules/landingPage/components/WhoAreWeSection";
-import AboutUsSection from "../../modules/landingPage/components/AboutUsSection";
-import { Separator } from "../../modules/common/components/Separator";
-import theme from "../../utils/theme";
-
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(
-    {
-      addSample: addSampleAction,
-    },
-    dispatch,
-  );
+} from "../features/landingPage/components/Capability";
+import AboutUsSection from "../features/landingPage/components/AboutUsSection";
+import Layout from "../features/common/components/Layout";
+import SalesFormSection from "../features/landingPage/components/SalesMessageForm";
+import theme from "../utils/theme";
+import { Separator } from "../features/common/components/Separator";
 
 const mainParagraphContent = `
 Emergence refers to how collective properties of a system arise from the properties of it's parts.
@@ -92,56 +81,54 @@ const CapabilityBoxes = [
   },
 ];
 
-const Index: FunctionComponent<{} & ReturnType<
-  typeof mapDispatchToProps
->> = () => (
-  <Layout>
-    <IntroductionSectionWrapper>
-      <IntroductionSection>
-        <MainTitle>emergence</MainTitle>
-        <SubTitle>noun [U] /ɪˈmɜː.dʒəns/</SubTitle>
-        <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
-      </IntroductionSection>
-    </IntroductionSectionWrapper>
-    <Separator
-      height={0.2}
-      color={theme.color.tertiary}
-      backGroundColor={theme.color.gray11}
-    />
-    <AboutUsSection />
-    <Separator
-      height={0.2}
-      color={theme.color.tertiary}
-      backGroundColor={theme.color.gray11}
-    />
-    <CapabilitySection>
-      <CapabilityBoxContainerWrapper>
-        <CapabilityBoxContainer>
-          {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
-            <CapabilityBox
-              title={title}
-              content={content}
-              iconSrc={iconSrc}
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
-            />
-          ))}
-        </CapabilityBoxContainer>
-      </CapabilityBoxContainerWrapper>
-    </CapabilitySection>
-    <Separator
-      height={0.2}
-      color={theme.color.tertiary}
-      backGroundColor={theme.color.gray11}
-    />
-    <WhoAreWeSection />
-    <Separator
-      height={0.2}
-      color={theme.color.tertiary}
-      backGroundColor={theme.color.gray11}
-    />
-    <SalesFormSection />
-  </Layout>
-);
-
-export default connect(undefined, mapDispatchToProps)(Index);
+export default function Index() {
+  return (
+    <Layout>
+      <IntroductionSectionWrapper>
+        <IntroductionSection>
+          <MainTitle>emergence</MainTitle>
+          <SubTitle>noun [U] /ɪˈmɜː.dʒəns/</SubTitle>
+          <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
+        </IntroductionSection>
+      </IntroductionSectionWrapper>
+      <Separator
+        height={0.2}
+        color={theme.color.tertiary}
+        backGroundColor={theme.color.gray11}
+      />
+      <AboutUsSection />
+      <Separator
+        height={0.2}
+        color={theme.color.tertiary}
+        backGroundColor={theme.color.gray11}
+      />
+      <CapabilitySection>
+        <CapabilityBoxContainerWrapper>
+          <CapabilityBoxContainer>
+            {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
+              <CapabilityBox
+                title={title}
+                content={content}
+                iconSrc={iconSrc}
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+              />
+            ))}
+          </CapabilityBoxContainer>
+        </CapabilityBoxContainerWrapper>
+      </CapabilitySection>
+      <Separator
+        height={0.2}
+        color={theme.color.tertiary}
+        backGroundColor={theme.color.gray11}
+      />
+      <WhoAreWeSection />
+      <Separator
+        height={0.2}
+        color={theme.color.tertiary}
+        backGroundColor={theme.color.gray11}
+      />
+      <SalesFormSection />
+    </Layout>
+  );
+}

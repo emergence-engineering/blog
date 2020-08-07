@@ -1,7 +1,12 @@
 import React, { FunctionComponent } from "react";
 import Head from "next/dist/next-server/lib/head";
 
-import { OgTags } from "../../../types/ogTags";
+export interface OgTags {
+  url: string;
+  title: string;
+  description: string;
+  imgSrc: string | undefined;
+}
 
 const ArticleShareOgTags: FunctionComponent<OgTags> = ({
   url,

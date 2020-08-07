@@ -4,7 +4,13 @@ import JsonView from "react-json-view";
 
 import { ServerStep } from "../types";
 
-import { Cell, HeaderCell, StepRoot, CenteredCell, WatcherHeader } from "./common";
+import {
+  Cell,
+  HeaderCell,
+  StepRoot,
+  CenteredCell,
+  WatcherHeader,
+} from "./common";
 
 const StepsWrapper = styled(Cell)`
   flex: 2;
