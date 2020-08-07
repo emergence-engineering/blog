@@ -1,12 +1,22 @@
 /* eslint-disable */
 require("dotenv").config();
-const withCSS = require("@zeit/next-css");
+const {name} = require("./package.json")
 
+const gitCommitId = require('git-commit-id')
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const withCSS = require("@zeit/next-css");
+const withPlugins = require("next-compose-plugins");
+const withOptimizedImages = require("next-optimized-images");
 
-module.exports = withCSS({
+
+function getReleaseId(environment, commitId, appName) {
+  return `${appName}-${environment}-${commitId}`
+}
+
+const COMMIT_ID = gitCommitId()
+
+const nextConfig = {
   webpack: config => {
     config.plugins = config.plugins || [];
 
@@ -19,21 +29,13 @@ module.exports = withCSS({
         systemvars: true,
       }),
     ];
-    // Opt out from next typechecks
-    config.plugins = config.plugins.filter(plugin => {
-      return plugin.constructor.name !== "ForkTsCheckerWebpackPlugin";
-    });
-    // only report errors on a matcher that doesn't match anything
-    config.plugins.push(
-      new ForkTsCheckerWebpackPlugin({
-        reportFiles: ["does-not-exist"],
-      }),
-    );
-
-    config.node = {
-      fs: "empty",
-    };
     return config;
+  },
+  experimental: {
+    granularChunks: true,
+  },
+  typescript: {
+    ignoreDevErrors: true,
   },
   publicRuntimeConfig: {
     // Will be available on both server and client
@@ -43,5 +45,14 @@ module.exports = withCSS({
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
     FIREBASE_SENDER_ID: process.env.FIREBASE_SENDER_ID,
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+    FUNCTIONS_EMULATOR_HOST: process.env.FUNCTIONS_EMULATOR_HOST,
+    FIRESTORE_EMULATOR_HOST: process.env.FIRESTORE_EMULATOR_HOST,
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    NODE_ENV: process.env.NODE_ENV,
+    COMMIT_ID,
+    RELEASE_ID: getReleaseId(process.env.NODE_ENV, COMMIT_ID, name)
   },
-});
+};
+
+module.exports = withPlugins([withCSS, withOptimizedImages ], nextConfig);
+

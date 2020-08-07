@@ -65,6 +65,11 @@
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "react/jsx-one-expression-per-line": "off",
-    "jsx-a11y/anchor-is-valid": "off" // We're using next.js, no need for hrefs in <a> tags, only in <Link>s
+    "jsx-a11y/anchor-is-valid": "off", // We're using next.js, no need for hrefs in <a> tags, only in <Link>s
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "ts": "never", "tsx": "never", "js": "never" }
+    ]
   }
 }

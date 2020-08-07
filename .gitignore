@@ -1,4 +1,4 @@
-.next
+front/.next
 node_modules
 .idea
 .env
@@ -7,3 +7,18 @@ static-export
 .DS_Store
 .firebase
 .firebaserc
+.vscode
+functions/firebase-debug.log
+functions/node_modules
+functions/lib
+functions/.runtimeconfig.json
+functions/database-debug.log
+functions/firestore-debug.log
+database-debug.log
+firestore-debug.log
+firebase-debug.log
+front/next-env.d.ts
+dist-tasks
+
+front/public/sw.*
+front/public/workbox-*
