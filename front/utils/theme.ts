@@ -1,6 +1,9 @@
 export default {
   // https://www.colourlovers.com/palette/92095/Giant_Goldfish
   color: {
+    background: "#FBFBFB",
+    white: "#ffffff",
+    fontWhite: "#FEFEFE",
     primary: "#76b8cd",
     secondary: "#F38630",
     tertiary: "#ff4f3f",
@@ -50,6 +53,17 @@ export default {
   },
   lineHeight: {
     normal: "1rem",
+  },
+  iconSize: {
+    small: "25",
+    normal: "35",
+  },
+  buttonHeight: {
+    normal: "3.125rem",
+  },
+  buttonWidth: {
+    normal: "16rem",
+    large: "17.4rem",
   },
 };
 

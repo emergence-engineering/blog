@@ -25,7 +25,7 @@ export const Input = styled.input`
 `;
 
 const inputText = css`
-  font: ${theme.font.poppins};
+  font: ${theme.fontFamily.general};
   font-size: ${theme.fontSize.normal};
 `;
 

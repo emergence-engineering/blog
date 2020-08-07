@@ -37,6 +37,7 @@
     "@types/react": "^16.9.11",
     "@types/react-alert": "^5.2.0",
     "@types/react-dom": "^16.9.4",
+    "@types/react-mathjax": "^1.0.0",
     "@types/react-recaptcha": "^2.3.3",
     "@types/react-redux": "^7.1.5",
     "@types/react-syntax-highlighter": "^11.0.4",
