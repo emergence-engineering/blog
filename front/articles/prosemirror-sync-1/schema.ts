@@ -1,5 +1,6 @@
 import { Schema } from "prosemirror-model";
 import { schema } from "prosemirror-schema-basic";
+import { addListNodes } from "prosemirror-schema-list";
 
 export const initialDoc = {
   content: [
@@ -15,7 +16,10 @@ export const initialDoc = {
   ],
   type: "doc",
 };
+
 export const mySchema = new Schema({
-  nodes: schema.spec.nodes,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
   marks: schema.spec.marks,
 });

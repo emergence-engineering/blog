@@ -25,12 +25,13 @@ const Editor: FunctionComponent<{
   id: string;
   view?: EditorView<typeof mySchema>;
   state?: EditorState<typeof mySchema>;
-}> = ({ id, view, name }) => (
+  withoutCollab?: boolean;
+}> = ({ id, view, name,withoutCollab }) => (
   <EditorDetailsWrapper>
     <div>
       <h3>{name}</h3>
       <em>version: </em>
-      {view && getVersion(view.state)}
+      {view && !withoutCollab && getVersion(view.state)}
     </div>
     <ProseMirrorDiv id={id} />
   </EditorDetailsWrapper>
