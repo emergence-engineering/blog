@@ -26,7 +26,7 @@ const Editor: FunctionComponent<{
   view?: EditorView<typeof mySchema>;
   state?: EditorState<typeof mySchema>;
   withoutCollab?: boolean;
-}> = ({ id, view, name,withoutCollab }) => (
+}> = ({ id, view, name, withoutCollab }) => (
   <EditorDetailsWrapper>
     <div>
       <h3>{name}</h3>
