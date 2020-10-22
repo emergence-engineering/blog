@@ -83,6 +83,7 @@
     "form-data": "^3.0.0",
     "next": "^9.5.5",
     "next-optimized-images": "^2.6.0",
+    "orderedmap": "^1.1.1",
     "pouchdb": "^7.2.2",
     "prosemirror-collab": "^1.2.2",
     "prosemirror-commands": "^1.1.4",
