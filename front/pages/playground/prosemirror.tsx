@@ -125,63 +125,6 @@ const nodeViews: {
   },
 };
 
-// const isEmptySelection = (selection: Selection) =>
-//   selection.from === selection.to;
-
-// const listBackspaceFix = new Plugin({
-//   props: {
-//     handleKeyDown: (view, event) => {
-//       // console.log("wtf");
-//       if (event.key === "Backspace" && isEmptySelection(view.state.selection)) {
-//         // If the current node is the last item in a list_item then lift out of it
-//         console.log(view.state.doc.resolve(view.state.selection.from));
-//       }
-//       return false;
-//     },
-//   },
-//   appendTransaction: (transactions, state, newState) => {
-//     const tr = transactions[0];
-//     if (!tr) return;
-//     if (tr.steps.length !== 1) return;
-//     const step = tr.steps[0];
-//     if (!(step instanceof ReplaceStep)) return;
-//     const { from } = step;
-//     const { to } = step;
-//     if (!from || !to || to - from !== 2) return;
-//     if (
-//       state.doc.nodeAt(from) === null &&
-//       state.doc.nodeAt(from + 1)?.lastChild === state.doc.nodeAt(to) &&
-//       state.doc.nodeAt(from + 1)?.type === mySchema.nodes.list_item
-//     ) {
-//       const retval = (num, size, depth) =>
-//         newState.tr.lift(
-//           new NodeRange(
-//             newState.doc.resolve(num),
-//             newState.doc.resolve(num + size),
-//             depth,
-//             // newState.doc.resolve(num).depth,
-//           ),
-//           depth - 1,
-//           // newState.doc.resolve(num).depth - 1,
-//         );
-//       console.log({
-//         state,
-//         newState,
-//         lift,
-//         NodeRange,
-//         liftTarget,
-//         retval,
-//         from,
-//         to,
-//         transactions
-//       });
-//       // return retval(from, 0, newState.doc.resolve(from).depth);
-//       // eslint-disable-next-line consistent-return
-//       // return retval;
-//     }
-//   },
-// });
-
 export default function Article() {
   const [pmState, setPmState] = useState<EditorState<typeof mySchema>>();
   const [pmView, setPmView] = useState<EditorView<typeof mySchema>>();
@@ -199,7 +142,7 @@ export default function Article() {
             sinkListItem(mySchema.nodes.list_item),
           ),
         }),
-        latexPlugin()
+        latexPlugin(),
         // listBackspaceFix,
       ],
     });

@@ -8,6 +8,7 @@ static-export
 .firebase
 .firebaserc
 .vscode
+.gitattributes
 functions/firebase-debug.log
 functions/node_modules
 functions/lib
