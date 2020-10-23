@@ -1,6 +1,7 @@
 import { Schema } from "prosemirror-model";
 import { schema } from "prosemirror-schema-basic";
 import { addListNodes } from "prosemirror-schema-list";
+// @ts-ignore
 import { addLatexNode } from "prosemirror-latex";
 import OrderedMap from "orderedmap";
 
