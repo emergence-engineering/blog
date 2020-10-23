@@ -20,6 +20,16 @@ export const initialDoc = {
       ],
       type: "paragraph",
     },
+    {
+      content: [
+        {
+          text: "Start typing!",
+          type: "text",
+        },
+      ],
+      type: "latexEditor",
+      attrs: { open: true },
+    },
   ],
   type: "doc",
 };
