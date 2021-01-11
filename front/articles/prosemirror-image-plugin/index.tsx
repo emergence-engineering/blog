@@ -2,33 +2,25 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { exampleSetup, buildMenuItems } from "prosemirror-example-setup";
+import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import applyDevTools from "prosemirror-dev-tools";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import {
-  updateImageNode,
+  defaultSettings,
   imageAlign,
   imagePlugin,
   startImageUpload,
-  defaultSettings,
 } from "prosemirror-image-plugin";
-import { NodeType, Schema } from "prosemirror-model";
+import { NodeType } from "prosemirror-model";
 import { MenuItem } from "prosemirror-menu";
-import { schema } from "prosemirror-schema-basic";
 import styled from "styled-components";
 
-import { initialDoc } from "./schema";
-import Editor from "./Editor";
+import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 
-export const mySchema = new Schema({
-  nodes: updateImageNode(schema.spec.nodes, {
-    ...defaultSettings,
-  }),
-  marks: schema.spec.marks,
-});
+import { initialDoc, mySchema } from "./schema";
 
 const canInsert = (state: EditorState, nodeType: NodeType) => {
   const { $from } = state.selection;
@@ -123,8 +115,8 @@ const Root = styled.div`
   }
 `;
 
-export default function ProsemirrorLatex() {
-  const [pmState] = useState<EditorState<typeof mySchema>>();
+const ProseMirrorLatex = () => {
+  const [pmState, setPmState] = useState<EditorState<typeof mySchema>>();
   const [pmView, setPmView] = useState<EditorView<typeof mySchema>>();
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
@@ -146,10 +138,11 @@ export default function ProsemirrorLatex() {
       state,
       dispatchTransaction: (tr) => {
         try {
-          console.log({ state: view.state, tr });
           const newState = view.state.apply(tr);
           view.updateState(newState);
+          setPmState(newState);
         } catch (e) {
+          console.log(pmState);
           console.log(e);
         }
       },
@@ -185,7 +178,10 @@ export default function ProsemirrorLatex() {
   return (
     <Root>
       <input type="file" id="imageselector" onChange={onInputChange} />
-      <Editor name="Editor 1." id="editor" view={pmView} state={pmState} />
+      <ProseMirrorDiv id="editor" />
+      nextline
     </Root>
   );
-}
+};
+
+export default ProseMirrorLatex;
