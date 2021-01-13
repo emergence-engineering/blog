@@ -75,7 +75,7 @@ const CapabilityBoxes = [
   {
     title: "Trainings",
     content: `We can hold on-site trainings and extend your team's competitiveness by
-      introducing best practices and and components that we utilise and perfected
+      introducing best practices and components that we utilise and perfected
       in our systems.`,
     iconSrc: "/icons/presentation.svg",
   },
