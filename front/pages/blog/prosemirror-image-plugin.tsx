@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
+import Markdown from "../../features/article/components/Markdown";
+import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 
 const DynamicEditor = dynamic(
   () => import("../../articles/prosemirror-image-plugin/"),
@@ -17,11 +19,11 @@ const EditorStyling = styled.div`
 
 export const article3Metadata: ArticleIntro = {
   title:
-    "Image plugin for ProseMirror with upload handling, alignment selector and title",
+    "Image plugin for ProseMirror with drop & paste handling, easy uploading, alignment selector and title",
   author: "Viktor",
   authorLink: null,
   introText: /* language=md */ `
-Most production editors need functionality to show images with titles, and these images have to be uploaded & stored on a server. 
+Most production editors need functionality to drop or paste images, have editable titles, and these images have to be uploaded & stored on a server. 
 Managing this from the ground up takes a lot of time, so I wrote a plugin for ProseMirror which makes this very easy, and is flexible
 enough to handle a lot of use cases.
  
@@ -33,11 +35,95 @@ enough to handle a lot of use cases.
   url: "https://emergence-engineering.com/blog/prosemirror-image-plugin",
 };
 
+const MD0 = /* language=md */ `
+# What's this about?
+
+A ProseMirror image plugin with a lot of features:
+- Optional image title
+- Customizable image overlay
+- Image alignment ( center, full width, left and right are default )
+- Easy image uploading trough a HTTP endpoint
+- Optionally removing deleted images
+- Image drop & data URL paste handling
+
+Check it out! The editor below does not upload the images anywhere, just inserts the dataURI into the ProseMirror document.
+[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin)
+`;
+
+const MD1 = /* language=md */ `
+# How to use?
+
+1. Import \`defaultSettings\` from the plugin ( and modify it if you want )
+2. Update the image node in the ProseMirror schema to have all the necessary properties 
+3. Initialize the editor with the plugin
+
+In codespeak:
+\`\`\`typescript
+import { schema } from "prosemirror-schema-basic";
+import { EditorState } from "prosemirror-state";
+import { EditorView } from "prosemirror-view";
+import { defaultSettings } from "prosemirror-image-plugin";
+
+// Update your settings here!
+const imageSettings = {...defaultSettings};
+
+const imageSchema = new Schema({
+  nodes: updateImageNode(schema.spec.nodes, {
+    ...imageSettings,
+  }),
+  marks: schema.spec.marks,
+});
+
+const initialDoc = {
+  content: [
+    {
+      content: [
+        {
+          text: "Start typing!",
+          type: "text",
+        },
+      ],
+      type: "paragraph",
+    },
+  ],
+  type: "doc",
+};
+
+const state = EditorState.create({
+  doc: imageSchema.nodeFromJSON(initialDoc),
+  plugins: [
+    ...exampleSetup({
+      schema: imageSchema,
+      menuContent: menu,
+    }),
+    imagePlugin(imageSchema, { ...imageSettings }),
+  ],
+});
+
+const view: EditorView = new EditorView(document.getElementById("editor"), {
+  state,
+});
+\`\`\`
+
+After that you need to add some CSS ( TODO! ) and then the editor is ready.
+`;
+
+// TODO:
+// Link the default CSS from the plugin README
+
 const Article = () => (
   <ArticleWrapper>
+    <ArticleShareOgTags
+      url={article3Metadata.url}
+      title={article3Metadata.title}
+      description={article3Metadata.introText}
+      imgSrc={article3Metadata.imgSrc}
+    />
+    <Markdown source={MD0} />
     <EditorStyling>
       <DynamicEditor />
     </EditorStyling>
+    <Markdown source={MD1} />
   </ArticleWrapper>
 );
 export default Article;

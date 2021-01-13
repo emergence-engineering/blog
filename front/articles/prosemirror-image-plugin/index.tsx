@@ -20,7 +20,7 @@ import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 
-import { initialDoc, mySchema } from "./schema";
+import { initialDoc, imageSchema } from "./schema";
 
 const canInsert = (state: EditorState, nodeType: NodeType) => {
   const { $from } = state.selection;
@@ -33,7 +33,7 @@ const canInsert = (state: EditorState, nodeType: NodeType) => {
 
 const imageMenuItem = new MenuItem({
   label: "upload image",
-  select: (state) => canInsert(state, mySchema.nodes.image),
+  select: (state) => canInsert(state, imageSchema.nodes.image),
 
   run(p1, p2, p3, p4) {
     document.getElementById("imageselector")?.click();
@@ -86,6 +86,13 @@ const Root = styled.div`
     clear: both;
   }
 
+  .alignFullWidthButton,
+  .alignRightButton,
+  .alignLeftButton,
+  .alignCenterButton {
+    width: 5rem;
+  }
+
   .imagePluginRoot[imageplugin-align=${imageAlign.left}] [imagealign=${imageAlign.left}] {
     background-color: red;
   }
@@ -108,7 +115,7 @@ const Root = styled.div`
     position: absolute;
     justify-content: center;
     transition: all 0.3s ease;
-    opacity: 0;
+    opacity: 1; // TODO
   }
   .imagePluginRoot .text {
     text-align: center;
@@ -116,25 +123,25 @@ const Root = styled.div`
 `;
 
 const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<typeof mySchema>>();
-  const [pmView, setPmView] = useState<EditorView<typeof mySchema>>();
+  const [pmState, setPmState] = useState<EditorState<typeof imageSchema>>();
+  const [pmView, setPmView] = useState<EditorView<typeof imageSchema>>();
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const menu = buildMenuItems(mySchema).fullMenu;
+    const menu = buildMenuItems(imageSchema).fullMenu;
     menu[1][0].content.push(imageMenuItem);
     menu[1][0].content.shift();
-    const state = EditorState.create<typeof mySchema>({
-      doc: mySchema.nodeFromJSON(initialDoc),
+    const state = EditorState.create<typeof imageSchema>({
+      doc: imageSchema.nodeFromJSON(initialDoc),
       plugins: [
         ...exampleSetup({
-          schema: mySchema,
+          schema: imageSchema,
           menuContent: menu,
         }),
-        imagePlugin(mySchema, { ...defaultSettings }),
+        imagePlugin(imageSchema, { ...defaultSettings }),
       ],
     });
-    const view: EditorView<typeof mySchema> = new EditorView(editorNode, {
+    const view: EditorView<typeof imageSchema> = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {
@@ -167,7 +174,7 @@ const ProseMirrorLatex = () => {
           file,
           file.name,
           defaultSettings,
-          mySchema,
+          imageSchema,
           pmView.state.selection.from,
         );
       }
@@ -179,7 +186,6 @@ const ProseMirrorLatex = () => {
     <Root>
       <input type="file" id="imageselector" onChange={onInputChange} />
       <ProseMirrorDiv id="editor" />
-      nextline
     </Root>
   );
 };

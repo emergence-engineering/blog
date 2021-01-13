@@ -37,7 +37,7 @@ export const initialDoc = {
   type: "doc",
 };
 
-export const mySchema = new Schema({
+export const imageSchema = new Schema({
   nodes: updateImageNode(schema.spec.nodes, {
     ...defaultSettings,
   }),
