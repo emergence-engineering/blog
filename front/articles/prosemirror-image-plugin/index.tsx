@@ -115,11 +115,30 @@ const Root = styled.div`
     position: absolute;
     justify-content: center;
     transition: all 0.3s ease;
-    opacity: 1; // TODO
+    opacity: 0;
   }
   .imagePluginRoot .text {
     text-align: center;
   }
+
+  // PM Devtools hack
+  .__prosemirror-dev-tools__ > div {
+    position: static;
+  }
+`;
+
+const DevtoolsWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
+const DevtoolsRoot = styled.div`
+  position: relative;
+  padding-bottom: 2rem;
+`;
+
+const DevtoolsLink = styled.a`
+  margin: 0 0.5rem;
 `;
 
 const ProseMirrorLatex = () => {
@@ -156,6 +175,13 @@ const ProseMirrorLatex = () => {
     });
     setPmView(view);
     applyDevTools(view);
+    // Mount PMDevtools into a div instead of showing in the bottom right corner.
+    const devtools = document.querySelector(".__prosemirror-dev-tools__");
+    const devtoolsRoot = document.getElementById("pmdevtools");
+    if (devtools instanceof HTMLElement && devtoolsRoot) {
+      devtoolsRoot.appendChild(devtools);
+      devtools.style.position = "absolute";
+    }
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -186,6 +212,13 @@ const ProseMirrorLatex = () => {
     <Root>
       <input type="file" id="imageselector" onChange={onInputChange} />
       <ProseMirrorDiv id="editor" />
+      <DevtoolsWrapper>
+        Check out the document structure with
+        <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">
+          prosemirror-dev-tools:
+        </DevtoolsLink>
+        <DevtoolsRoot id="pmdevtools" />
+      </DevtoolsWrapper>
     </Root>
   );
 };
