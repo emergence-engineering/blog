@@ -38,7 +38,7 @@ export async function fetchStepHistory(
       // eslint-disable-next-line @typescript-eslint/camelcase
     });
     setHistoryListener(listener);
-    listener.on("change", data => {
+    listener.on("change", (data) => {
       if (data?.doc?.collection === DBCollection.ServerSteps)
         dispatchHistoryAction({
           type: StepHistoryActionType.ADD_SERVER_STEP,

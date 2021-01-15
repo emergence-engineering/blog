@@ -55,7 +55,7 @@ I am dog person, my hobbies are photography, powerlifting and Brazilian Jiu Jits
 `;
 const imgSrc = "/bio/balazs.jpg";
 
-const BalazsCV: FunctionComponent<{}> = () => (
+const BalazsCV: FunctionComponent = () => (
   <Layout>
     <Root>
       <Content>

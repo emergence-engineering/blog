@@ -118,7 +118,7 @@ const CodeEditor: FunctionComponent<{
       );
       setScriptResult(result);
       setLogResult(
-        logArr.map(i =>
+        logArr.map((i) =>
           typeof i === "object" ? JSON.stringify(i) : i.toString(),
         ),
       );

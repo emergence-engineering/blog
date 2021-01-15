@@ -19,7 +19,7 @@ export default async function fetchDocument(
       doc_ids: [id],
     });
     setDocListener(listener);
-    listener.on("change", data => {
+    listener.on("change", (data) => {
       // TODO: Don't listen to it after it is fetched
       data.doc?.collection === DBCollection.PMDocument &&
         setServerDoc(data.doc);

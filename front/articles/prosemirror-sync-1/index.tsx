@@ -51,7 +51,7 @@ const StepWatcherWrapper = styled.div`
   background-color: ${theme.color.gray10};
 `;
 
-const Editors: FunctionComponent<{}> = () => {
+const Editors: FunctionComponent = () => {
   const [pmState1, setPmState1] = useState<EditorState<typeof mySchema>>();
   const [pmView1, setPmView1] = useState<EditorView<typeof mySchema>>();
   const [pmState2, setPmState2] = useState<EditorState<typeof mySchema>>();

@@ -159,7 +159,7 @@ export const Member: FunctionComponent<{
   </MemberRoot>
 );
 
-const AboutUsSection: FunctionComponent<{}> = () => (
+const AboutUsSection: FunctionComponent = () => (
   <Root>
     <SectionTitle>About us</SectionTitle>
     <SectionContentRoot>

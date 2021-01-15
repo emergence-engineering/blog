@@ -39,7 +39,7 @@ const createClickHandler = (callback: Dispatch<SetStateAction<string>>) => (
   callback(value);
 };
 
-const SalesForm: FunctionComponent<{}> = () => {
+const SalesForm: FunctionComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

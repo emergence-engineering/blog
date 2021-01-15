@@ -66,6 +66,7 @@
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "react/jsx-one-expression-per-line": "off",
     "jsx-a11y/anchor-is-valid": "off", // We're using next.js, no need for hrefs in <a> tags, only in <Link>s
+    "no-use-before-define": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

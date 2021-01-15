@@ -43,7 +43,7 @@ const CommunityBlogRoot = styled.div`
   margin-top: 4rem;
 `;
 
-const CommunityBlogSection: FunctionComponent<{}> = () => (
+const CommunityBlogSection: FunctionComponent = () => (
   <CommunityBlogRoot>
     <h1>Follow us on community blog sites as well</h1>
     <CommunityBlogs>
@@ -61,7 +61,7 @@ const CommunityBlogSection: FunctionComponent<{}> = () => (
   </CommunityBlogRoot>
 );
 
-const Blog: FunctionComponent<{}> = () => (
+const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>

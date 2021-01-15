@@ -25,7 +25,7 @@ const Title = styled.h1`
   color: ${theme.color.gray10};
 `;
 
-const SalesFormSection: FunctionComponent<{}> = () => (
+const SalesFormSection: FunctionComponent = () => (
   <Root id="contactUs">
     <ContentWrapper>
       <Title>Contact us</Title>

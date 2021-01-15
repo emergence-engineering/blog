@@ -113,7 +113,7 @@ const p5 = `If your mobile application needs to communicate with specific device
 we can design, prototype and build specific hardware and firmware. We can connect your
 mobile application to already existing hardware solution as well.`;
 
-const WhoAreWeSection: FunctionComponent<{}> = () => (
+const WhoAreWeSection: FunctionComponent = () => (
   <Root>
     <SectionTitle>Why choose us?</SectionTitle>
     <IntroductionSection>

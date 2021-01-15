@@ -8,7 +8,7 @@ const Logo = styled.img<{ scale: number }>`
   height: auto;
 `;
 
-const LogoWrapper = styled.div<{}>`
+const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,17 +21,20 @@ const LogoWrapper = styled.div<{}>`
   }
 `;
 
-interface Logo {
+interface LogoProps {
   src: string;
   scale: number;
 }
 
 export interface LogoColumnProps {
   columnName: string;
-  logos: Logo[];
+  logos: LogoProps[];
 }
 
-export const renderLogo: FunctionComponent<Logo> = ({ scale, src }, index) => (
+export const renderLogo: FunctionComponent<LogoProps> = (
+  { scale, src },
+  index,
+) => (
   <LogoWrapper key={index}>
     <Logo src={src} scale={scale} />
   </LogoWrapper>

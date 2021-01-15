@@ -35,7 +35,7 @@ const SaleOptions = styled.div`
   flex-direction: column;
 `;
 
-const SalesBox: FunctionComponent<{}> = () => {
+const SalesBox: FunctionComponent = () => {
   const [state, dispatch] = useReducer(articleSalesFormReducer, initialState);
 
   return (

@@ -54,7 +54,7 @@ const BlogContent = styled.section`
   }
 `;
 
-const ArticleWrapper: FunctionComponent<{}> = ({ children }) => (
+const ArticleWrapper: FunctionComponent = ({ children }) => (
   <Layout>
     <Root>
       <BlogContent>{children}</BlogContent>

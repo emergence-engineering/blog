@@ -18,7 +18,7 @@ const MenuItemsContainer = styled.div`
   flex-direction: column;
 `;
 
-const HamburgerMenu: FunctionComponent<{}> = ({ children }) => {
+const HamburgerMenu: FunctionComponent = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false);
   function closeMenu() {
     setIsOpened(false);
