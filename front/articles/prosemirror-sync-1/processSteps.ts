@@ -31,11 +31,11 @@ export default async function processSteps(DBS: DBSI | undefined) {
       live: true,
       // eslint-disable-next-line @typescript-eslint/camelcase
       include_docs: true,
-      filter: data =>
+      filter: (data) =>
         data.collection === DBCollection.ClientSteps &&
         data.status === StepStatus.NEW,
     })
-    .on("change", async data => {
+    .on("change", async (data) => {
       try {
         const clientStep = data.doc;
         if (clientStep?.collection !== DBCollection.ClientSteps) {

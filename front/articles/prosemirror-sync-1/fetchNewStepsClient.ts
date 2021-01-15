@@ -15,12 +15,12 @@ const fetchNewStepsClient = (
     // eslint-disable-next-line @typescript-eslint/camelcase
     include_docs: true,
     // eslint-disable-next-line @typescript-eslint/camelcase
-    filter: data =>
+    filter: (data) =>
       data.collection === DBCollection.ServerSteps &&
       (data as ServerStep).docId === DocID &&
       (data as ServerStep).version === getVersion(pmView.state),
   });
-  listener.on("change", data => {
+  listener.on("change", (data) => {
     const serverStep = data.doc;
     if (serverStep?.collection !== DBCollection.ServerSteps) {
       return;

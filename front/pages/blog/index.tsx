@@ -12,6 +12,7 @@ import theme, { screenSizes, sizes } from "../../utils/theme";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
 import { article2Metadata } from "./prosemirror-sync-1";
+import { article3Metadata } from "./prosemirror-image-plugin";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -42,7 +43,7 @@ const CommunityBlogRoot = styled.div`
   margin-top: 4rem;
 `;
 
-const CommunityBlogSection: FunctionComponent<{}> = () => (
+const CommunityBlogSection: FunctionComponent = () => (
   <CommunityBlogRoot>
     <h1>Follow us on community blog sites as well</h1>
     <CommunityBlogs>
@@ -60,11 +61,14 @@ const CommunityBlogSection: FunctionComponent<{}> = () => (
   </CommunityBlogRoot>
 );
 
-const Blog: FunctionComponent<{}> = () => (
+const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
       <CommunityBlogSection />
+      <ContentWrapper>
+        <BlogPostIntro {...article3Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article2Metadata} />
       </ContentWrapper>

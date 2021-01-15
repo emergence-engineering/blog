@@ -63,7 +63,7 @@ export function BlogPostHeadLine({
   );
 }
 
-export const BlogPostIntro: FunctionComponent<ArticleIntro> = props => {
+export const BlogPostIntro: FunctionComponent<ArticleIntro> = (props) => {
   const { introText, title, postId, author, timestamp } = props;
 
   return (

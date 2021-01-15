@@ -7,7 +7,7 @@ const appendFile = util.promisify(fs.appendFile);
 const execFilePromise = promisify(execFile);
 
 export const camelToSnake = (input: string) =>
-  input.replace(/[a-z]([A-Z])/g, m => `${m[0]}_${m[1]}`).toUpperCase();
+  input.replace(/[a-z]([A-Z])/g, (m) => `${m[0]}_${m[1]}`).toUpperCase();
 
 interface FirebaseConfig {
   projectId: string;
@@ -64,7 +64,7 @@ const getConfig = async () => {
       "--iam-account",
       adminEmail,
     ]);
-    serviceAccountKey = await readFile("./key.json", "utf-8").then(key =>
+    serviceAccountKey = await readFile("./key.json", "utf-8").then((key) =>
       key.replace(/\n/g, ""),
     );
     await execFilePromise("rm", ["./key.json"]);

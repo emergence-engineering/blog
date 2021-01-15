@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import theme from "../../../utils/theme";
 
-export const Input = styled.input<{}>`
+export const Input = styled.input`
   border: 1px solid ${theme.color.gray2};
   height: 2.5rem;
   border-radius: 0.125rem;

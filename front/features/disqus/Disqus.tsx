@@ -13,7 +13,7 @@ const Disqus: FunctionComponent<{ pageUrl: string; pageId: string }> = ({
     // eslint-disable-next-line @typescript-eslint/camelcase,@typescript-eslint/ban-ts-ignore
     // @ts-ignore
     // eslint-disable-next-line @typescript-eslint/camelcase
-    window.disqus_config = function() {
+    window.disqus_config = function () {
       // eslint-disable-next-line react/no-this-in-sfc,@typescript-eslint/ban-ts-ignore
       // @ts-ignore
       // eslint-disable-next-line react/no-this-in-sfc
@@ -23,7 +23,7 @@ const Disqus: FunctionComponent<{ pageUrl: string; pageId: string }> = ({
       // eslint-disable-next-line react/no-this-in-sfc
       this.page.identifier = pageId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    (function() {
+    (function () {
       // DON'T EDIT BELOW THIS LINE
       const d = document;
       const s = d.createElement("script");

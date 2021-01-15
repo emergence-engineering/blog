@@ -37,7 +37,7 @@ const Centered = styled.div`
   text-align: center;
 `;
 
-const Footer: FunctionComponent<{}> = () => (
+const Footer: FunctionComponent = () => (
   <FooterWrapper>
     <FooterRoot>
       <Centered>Made by Emergence Engineering, 2019</Centered>

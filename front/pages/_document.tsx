@@ -4,6 +4,7 @@ import Document, {
   Head,
   Main,
   NextScript,
+  Html,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -20,7 +21,8 @@ export default class MyDocument extends Document<{
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -41,7 +43,7 @@ export default class MyDocument extends Document<{
 
   render(): JSX.Element {
     return (
-      <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
+      <Html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
         <Head>
           <script
             async
@@ -62,19 +64,19 @@ export default class MyDocument extends Document<{
           <Main />
           <NextScript />
         </body>
-        <script
+        {/* <script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="https://js.hs-scripts.com/6783875.js"
-        />
+        /> */}
         <script
           src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
           async
           defer
         />
-      </html>
+      </Html>
     );
   }
 }

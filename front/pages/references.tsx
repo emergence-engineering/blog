@@ -27,7 +27,7 @@ const Content = styled.div`
 //   text-decoration-color: ${theme.color.tertiary};
 // `;
 
-const References: FunctionComponent<{}> = () => (
+const References: FunctionComponent = () => (
   <Layout>
     <Root>
       <Content>

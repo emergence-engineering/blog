@@ -109,8 +109,9 @@ interface HeaderLinkProps {
   href: string;
   caption: string;
 }
-const HeaderLinkRoot: FunctionComponent<HeaderLinkProps &
-  WithRouterProps> = props => {
+const HeaderLinkRoot: FunctionComponent<HeaderLinkProps & WithRouterProps> = (
+  props,
+) => {
   const { href, caption, router } = props;
   return (
     <Link href={href}>
@@ -138,7 +139,7 @@ const BigScreenContainer = styled.div`
   }
 `;
 
-const Header: FunctionComponent<{}> = () => (
+const Header: FunctionComponent = () => (
   <Headroom>
     <Root>
       <ContentWrapper>

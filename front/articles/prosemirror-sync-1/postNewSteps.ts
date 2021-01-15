@@ -19,7 +19,7 @@ export default function postNewSteps(
   if (sendable) {
     const timestamp = getTimestamp();
     const newStep: ClientStep = {
-      steps: sendable.steps.map(step => step.toJSON()),
+      steps: sendable.steps.map((step) => step.toJSON()),
       version: sendable.version,
       status: StepStatus.NEW,
       collection: DBCollection.ClientSteps,

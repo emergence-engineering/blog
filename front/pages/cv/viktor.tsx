@@ -54,7 +54,7 @@ I'm a pro foosball player, and a hobby musician.
 `;
 const imgSrc = "/bio/viktor.png";
 
-const ViktorCV: FunctionComponent<{}> = () => (
+const ViktorCV: FunctionComponent = () => (
   <Layout>
     <Root>
       <Content>
