@@ -38,16 +38,20 @@ enough to handle a lot of use cases.
 const MD0 = /* language=md */ `
 # What's this about?
 
-A (ProseMirror image plugin)[https://gitlab.com/emergence-engineering/prosemirror-image-plugin] with a lot of features:
-- Optional image title
-- Customizable image overlay
-- Image alignment ( center, full width, left and right are default )
-- Easy image uploading trough a HTTP endpoint
+A [ProseMirror image plugin](https://gitlab.com/emergence-engineering/prosemirror-image-plugin) with a lot of features:
+- Optional **image title**
+- Customizable image **overlay**
+- Image **alignment** ( center, full width, left and right are default )
+- Easy **image uploading** trough a HTTP endpoint
 - Optionally removing deleted images
-- Image drop & data URL paste handling
+- Image **drop** & data URL **paste** handling
 
 Check it out! The editor below does not upload the images anywhere, just inserts the dataURI into the ProseMirror document, which can freeze the browser up, it
 works fine if you host the images.
+
+Try out with
+[this image](https://www.google.com/search?q=image&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjww8mck57uAhWJ4YUKHbAIAb0Q_AUoAXoECBMQAw&biw=1745&bih=881#imgrc=-VCM1w56w6u5VM),
+drag it in or save it and pick it with the file selector.
 
 [The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin)
 `;
@@ -55,8 +59,8 @@ works fine if you host the images.
 const MD1 = /* language=md */ `
 # How to use?
 
-1. Install the plugin: \`npm i -S prosemirror-image-plugin\`
-2. Import \`defaultSettings\` from the plugin ( and modify it if you want )
+1. Install the plugin: **npm i -S prosemirror-image-plugin**
+2. Import **defaultSettings** from the plugin ( and modify it if you want )
 3. Update the image node in the ProseMirror schema to have all the necessary properties 
 4. Initialize the editor with the plugin
 
