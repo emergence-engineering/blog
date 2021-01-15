@@ -20,6 +20,7 @@ firestore-debug.log
 firebase-debug.log
 front/next-env.d.ts
 dist-tasks
+.gitattributes
 
 front/public/sw.*
 front/public/workbox-*
