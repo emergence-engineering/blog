@@ -33,9 +33,7 @@ export async function fetchStepHistory(
     const listener = DBS.serverDB.changes({
       since: "now",
       live: true,
-      // eslint-disable-next-line @typescript-eslint/camelcase
       include_docs: true,
-      // eslint-disable-next-line @typescript-eslint/camelcase
     });
     setHistoryListener(listener);
     listener.on("change", (data) => {

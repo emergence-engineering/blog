@@ -1,3 +1,16 @@
+export enum layers {
+  CONTENT = 0,
+  ABOVE_CONTENT = 1,
+}
+
+export enum screenSizes {
+  small = 375,
+  medium = 768,
+  large = 992,
+  extraLarge = 1920,
+  maxWidth = 1000,
+}
+
 export default {
   // https://www.colourlovers.com/palette/92095/Giant_Goldfish
   color: {
@@ -66,19 +79,6 @@ export default {
     large: "17.4rem",
   },
 };
-
-export enum layers {
-  CONTENT = 0,
-  ABOVE_CONTENT = 1,
-}
-
-export enum screenSizes {
-  small = 375,
-  medium = 768,
-  large = 992,
-  extraLarge = 1920,
-  maxWidth = 1000,
-}
 
 export const sizes = {
   sidePadding: "1rem",

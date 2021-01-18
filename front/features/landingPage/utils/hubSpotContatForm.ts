@@ -8,7 +8,7 @@ export const createHubSpotFormBody = (
   lastName: string,
   subject: string,
   message: string,
-): object => {
+): Record<string, unknown> => {
   const milliseconds = Date.now();
 
   return {

@@ -71,6 +71,11 @@
       "error",
       "ignorePackages",
       { "ts": "never", "tsx": "never", "js": "never" }
-    ]
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "off"
   }
 }
