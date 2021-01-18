@@ -72,7 +72,7 @@ export const BlogPostIntro: FunctionComponent<ArticleIntro> = (props) => {
       <BlogPostIntroText>
         <Markdown source={introText} />
       </BlogPostIntroText>
-      <Link href={`/blog/${postId}`}>
+      <Link href={`/blog/${postId}`} passHref>
         <ReadMoreLink>Read more...</ReadMoreLink>
       </Link>
     </Root>
