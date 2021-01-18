@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
+import Image from "next/image";
 
 import theme from "../../../../utils/theme";
 
@@ -26,10 +27,12 @@ const OptionTextRoot = styled.div`
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
-const OptionIcon = styled.img`
+const OptionIcon = styled.div`
   width: 80px;
   height: 80px;
+  position: relative;
 `;
 const OptionTitle = styled.div`
   font-family: ${theme.fontFamily.title};
@@ -51,7 +54,9 @@ export const SalesItem: FunctionComponent<{
 
   return (
     <SaleItemRoot onClick={dispatchShowModal}>
-      <OptionIcon src={imgSrc} decoding="async" />
+      <OptionIcon>
+        <Image src={imgSrc} layout="fill" />
+      </OptionIcon>
       <OptionTextRoot>
         <OptionTitle>{optionTitle}</OptionTitle>
         <OptionDescription>{optionDescription}</OptionDescription>

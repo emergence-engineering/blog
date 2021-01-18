@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import Link from "next/link";
 
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
-import AsyncSVGIcon from "../../common/components/AsyncSvgIcon";
+import SVGIcon from "../../common/components/SVGIcon";
 import Markdown from "../../article/components/Markdown";
 import theme from "../../../utils/theme";
 import { ArticleIntro } from "../../article/types";
@@ -55,7 +55,7 @@ export function BlogPostHeadLine({
       <PostTitle>{title}</PostTitle>
       <PostMetadataContainer>
         <span>
-          By {author} on <AsyncSVGIcon src="/material-calendar.svg" />
+          By {author} on <SVGIcon src="/material-calendar.svg" />
           {postDate}
         </span>
       </PostMetadataContainer>

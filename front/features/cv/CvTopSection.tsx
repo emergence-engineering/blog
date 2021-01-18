@@ -92,7 +92,7 @@ export const CvTopSection: FunctionComponent<{
   <TopSectionColumn>
     <TopSectionRow>
       <FaceContainer>
-        <FacePicture decoding="async" src={imgSrc} />
+        <FacePicture src={imgSrc} />
       </FaceContainer>
       <LeftSide>
         <TextContaner>

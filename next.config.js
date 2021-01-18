@@ -1,23 +1,21 @@
 /* eslint-disable */
 require("dotenv").config();
-const {name} = require("./package.json")
+const { name } = require("./package.json");
 
-const gitCommitId = require('git-commit-id')
+const gitCommitId = require("git-commit-id");
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const withCSS = require("@zeit/next-css");
 const withPlugins = require("next-compose-plugins");
-const withOptimizedImages = require("next-optimized-images");
-
 
 function getReleaseId(environment, commitId, appName) {
-  return `${appName}-${environment}-${commitId}`
+  return `${appName}-${environment}-${commitId}`;
 }
 
-const COMMIT_ID = gitCommitId()
+const COMMIT_ID = gitCommitId();
 
 const nextConfig = {
-  webpack: config => {
+  webpack: (config) => {
     config.plugins = config.plugins || [];
 
     config.plugins = [
@@ -50,9 +48,8 @@ const nextConfig = {
     SENTRY_DSN: process.env.SENTRY_DSN,
     NODE_ENV: process.env.NODE_ENV,
     COMMIT_ID,
-    RELEASE_ID: getReleaseId(process.env.NODE_ENV, COMMIT_ID, name)
+    RELEASE_ID: getReleaseId(process.env.NODE_ENV, COMMIT_ID, name),
   },
 };
 
-module.exports = withPlugins([withCSS, withOptimizedImages ], nextConfig);
-
+module.exports = withPlugins([withCSS], nextConfig);

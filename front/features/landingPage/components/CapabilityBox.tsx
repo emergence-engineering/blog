@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 import theme, { sizes } from "../../../utils/theme";
 
@@ -32,12 +33,6 @@ const HeaderRow = styled.div`
   max-height: 5rem;
 `;
 
-const SvgImg = styled.img`
-  max-width: 5rem;
-  height: auto;
-  margin: 0 0.1em;
-`;
-
 const Content = styled.p`
   color: ${theme.color.gray1};
   font-family: Tahoma, serif;
@@ -60,7 +55,7 @@ const BoxWrapper = styled.div`
 interface SkillBoxProps {
   title: string;
   content: string;
-  iconSrc?: string;
+  iconSrc: string;
 }
 
 const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
@@ -73,7 +68,7 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
       <HeaderRow>
         <TitleContainer>{title}</TitleContainer>
         <ImgWrapper>
-          <SvgImg decoding="async" src={iconSrc} />
+          <Image src={iconSrc} height={75} width={75} />
         </ImgWrapper>
       </HeaderRow>
       <Content>{content}</Content>

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 import theme, { screenSizes } from "../../../utils/theme";
 
@@ -52,7 +53,7 @@ const ModalTitle = styled.div`
   font-weight: 800;
   font-size: 2rem;
 `;
-const CloseIcon = styled.img`
+const CloseIcon = styled(Image)`
   cursor: pointer;
 `;
 
@@ -62,7 +63,12 @@ const ModalHeader: FunctionComponent<{
 }> = ({ title, onClose }) => (
   <ModalHeaderRoot>
     <ModalTitle>{title}</ModalTitle>
-    <CloseIcon decoding="async" src="/material-close.svg" onClick={onClose} />
+    <CloseIcon
+      src="/material-close.svg"
+      onClick={onClose}
+      width="24"
+      height="24"
+    />
   </ModalHeaderRoot>
 );
 

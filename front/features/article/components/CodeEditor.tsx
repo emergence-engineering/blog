@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import { Button } from "../../common/components/Button";
 import theme from "../../../utils/theme";
@@ -62,10 +63,6 @@ const RunButton = styled(Button)`
   height: 2.3rem;
 `;
 
-const RunIcon = styled.img`
-  height: 1.3rem;
-`;
-
 const RunText = styled.span`
   margin-left: 0.2rem;
 `;
@@ -94,9 +91,8 @@ const CodeEditor: FunctionComponent<{
     setCode(text);
     if (onChange) onChange(text);
   }, []);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-comment
   // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const newConsole = useMemo(
     () => ({
       ...console,
@@ -133,7 +129,7 @@ const CodeEditor: FunctionComponent<{
         <SSRCode>{value}</SSRCode>
         {!noRun && (
           <RunButton onClick={runCode}>
-            <RunIcon decoding="async" src="/play_circle_filled-24px.svg" />
+            <Image src="/play_circle_filled-24px.svg" width={21} height={21} />
             <RunText>Run code</RunText>
           </RunButton>
         )}

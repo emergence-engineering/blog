@@ -30,7 +30,7 @@ const CapabilityBoxes = [
     title: "ProseMirror consulting",
     content: `ProseMirror is a powerful toolkit to build custom web based rich-text
      editors. It is used by companies like The New York Times, Overleaf and many others.`,
-    iconSrc: "https://avatars0.githubusercontent.com/u/13659461?s=200&v=4",
+    iconSrc: "/icons/prosemirror.png",
   },
   {
     title: "Collaborative Web UIs",
@@ -105,13 +105,12 @@ export default function Index() {
       <CapabilitySection>
         <CapabilityBoxContainerWrapper>
           <CapabilityBoxContainer>
-            {CapabilityBoxes.map(({ title, content, iconSrc }, index) => (
+            {CapabilityBoxes.map(({ title, content, iconSrc }) => (
               <CapabilityBox
                 title={title}
                 content={content}
                 iconSrc={iconSrc}
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
+                key={title}
               />
             ))}
           </CapabilityBoxContainer>

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 
@@ -48,12 +49,21 @@ export const FacePictureContainer = styled.div`
   justify-content: center;
   padding-bottom: 2rem;
 `;
-export const FacePicture = styled.img`
+
+export const FacePictureWrapper = styled.div`
+  position: relative;
   height: 10rem;
   width: 10rem;
-  object-fit: cover;
-  border-radius: 50%;
+  img {
+    border-radius: 50%;
+  }
 `;
+
+export const FacePicture: FunctionComponent<{ src: string }> = ({ src }) => (
+  <FacePictureWrapper>
+    <Image src={src} layout="fill" />
+  </FacePictureWrapper>
+);
 
 const MemberName = styled.div`
   font-family: ${theme.fontFamily.title};
@@ -135,7 +145,7 @@ export const Member: FunctionComponent<{
 }) => (
   <MemberRoot>
     <FacePictureContainer>
-      <FacePicture decoding="async" src={src} />
+      <FacePicture src={src} />
     </FacePictureContainer>
     <MemberName>{memberName}</MemberName>
     <MemberRole>{memberRole}</MemberRole>
