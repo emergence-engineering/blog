@@ -107,7 +107,7 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
   href,
   faClassName,
 }) => (
-  <Link href={href}>
+  <Link href={href} passHref>
     <MemberLinkAnchor>
       <MemberLinkIcon className={faClassName} />
     </MemberLinkAnchor>

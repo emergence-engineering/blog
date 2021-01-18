@@ -114,7 +114,7 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps & WithRouterProps> = (
 ) => {
   const { href, caption, router } = props;
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <Anchor active={router.pathname.split("/")[1] === href.split("/")[1]}>
         {caption}
       </Anchor>
