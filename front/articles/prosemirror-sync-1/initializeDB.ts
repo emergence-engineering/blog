@@ -37,7 +37,7 @@ const intializeDB = async (
 
 export const fillInitial = async (DBS?: DBSI) => {
   if (!DBS) return;
-  const docRev = await DBS.serverDB.get(DocID).catch(() => {});
+  const docRev = await DBS.serverDB.get(DocID).catch((e) => console.log(e));
   const doc: PMDocument = {
     _id: DocID,
     collection: DBCollection.PMDocument,

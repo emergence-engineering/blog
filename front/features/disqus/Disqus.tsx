@@ -10,20 +10,19 @@ const Disqus: FunctionComponent<{ pageUrl: string; pageId: string }> = ({
   pageUrl,
 }) => {
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/camelcase,@typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    window.disqus_config = function () {
-      // eslint-disable-next-line react/no-this-in-sfc,@typescript-eslint/ban-ts-ignore
+    window.disqus_config = function createConfig() {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       // eslint-disable-next-line react/no-this-in-sfc
       this.page.url = pageUrl; // Replace PAGE_URL with your page's canonical URL variable
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       // eslint-disable-next-line react/no-this-in-sfc
       this.page.identifier = pageId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    (function () {
+    (function loadDisqus() {
       // DON'T EDIT BELOW THIS LINE
       const d = document;
       const s = d.createElement("script");

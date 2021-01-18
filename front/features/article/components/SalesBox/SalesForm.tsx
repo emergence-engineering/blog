@@ -93,38 +93,41 @@ const SalesForm: FunctionComponent<{ formType: FormType }> = ({ formType }) => {
   // eslint-disable-next-line no-console
   const onCaptchaLoad = useCallback(() => console.info("reCAPTCHA loaded"), []);
 
-  const submitHandler = async (evt: SyntheticEvent) => {
-    evt.preventDefault();
+  const submitHandler = useCallback(
+    async (evt: SyntheticEvent) => {
+      evt.preventDefault();
 
-    if (!isCaptchaVerified) {
+      if (!isCaptchaVerified) {
+        setNoticeVisibility({
+          message: "Please verify that you are not a bot!",
+          type: NoticeType.error,
+        });
+        return;
+      }
+
+      const formBody = createHubSpotFormBody(
+        email,
+        firstName,
+        lastName,
+        subjects[formType],
+        message,
+      );
+
+      const { error } = await post(formAddress, formBody);
+      if (error) {
+        setNoticeVisibility({
+          message: "Failure: couldn't send message, please try again.",
+          type: NoticeType.error,
+        });
+        return;
+      }
       setNoticeVisibility({
-        message: "Please verify that you are not a bot!",
-        type: NoticeType.error,
+        message: "Success: Message sent, we will contact you shortly!",
+        type: NoticeType.success,
       });
-      return;
-    }
-
-    const formBody = createHubSpotFormBody(
-      email,
-      firstName,
-      lastName,
-      subjects[formType],
-      message,
-    );
-
-    const { error } = await post(formAddress, formBody);
-    if (error) {
-      setNoticeVisibility({
-        message: "Failure: couldn't send message, please try again.",
-        type: NoticeType.error,
-      });
-      return;
-    }
-    setNoticeVisibility({
-      message: "Success: Message sent, we will contact you shortly!",
-      type: NoticeType.success,
-    });
-  };
+    },
+    [email, firstName, lastName, message, formType, isCaptchaVerified],
+  );
 
   return (
     <>

@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 interface XhrResponse {
-  data: string | object | null;
+  data: string | AxiosResponse | null;
   error: Error | null;
 }
 

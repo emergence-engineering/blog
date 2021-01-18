@@ -29,7 +29,6 @@ export default async function processSteps(DBS: DBSI | undefined) {
     .changes({
       since: "now",
       live: true,
-      // eslint-disable-next-line @typescript-eslint/camelcase
       include_docs: true,
       filter: (data) =>
         data.collection === DBCollection.ClientSteps &&
@@ -54,8 +53,8 @@ export default async function processSteps(DBS: DBSI | undefined) {
         logger.log({ clientStep });
         const { steps } = clientStep;
         const doc = steps.reduce(
-          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-          // @ts-ignore TODO: Typing
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           (acc, curr) => Step.fromJSON(mySchema, curr).apply(acc).doc,
           mySchema.nodeFromJSON(syncDoc.doc),
         );
@@ -76,8 +75,6 @@ export default async function processSteps(DBS: DBSI | undefined) {
         const newDoc: PMDocument = {
           ...syncDoc,
           version: newVersion,
-          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-          // @ts-ignore
           doc: doc.toJSON(),
           // eslint-disable-next-line no-underscore-dangle
           _rev: syncDoc._rev,

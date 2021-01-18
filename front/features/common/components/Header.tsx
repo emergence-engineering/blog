@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactHeadroom from "react-headroom";
 
