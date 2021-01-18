@@ -35,7 +35,7 @@ const imageMenuItem = new MenuItem({
   label: "upload image",
   select: (state) => canInsert(state, imageSchema.nodes.image),
 
-  run(p1, p2, p3, p4) {
+  run() {
     document.getElementById("imageselector")?.click();
   },
 });

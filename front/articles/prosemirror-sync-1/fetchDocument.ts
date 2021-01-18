@@ -13,9 +13,7 @@ export default async function fetchDocument(
     const listener = DBS.clientDB1.changes({
       since: "now",
       live: true,
-      // eslint-disable-next-line @typescript-eslint/camelcase
       include_docs: true,
-      // eslint-disable-next-line @typescript-eslint/camelcase
       doc_ids: [id],
     });
     setDocListener(listener);

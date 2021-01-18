@@ -1,7 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-import PouchDB from "pouchdb";
-
 type Timestamp = number;
 export enum DBCollection {
   PMDocument = "PMDocument",
@@ -19,7 +15,7 @@ export interface PMDocument {
   _id: string;
   _rev?: string;
   collection: DBCollection.PMDocument;
-  doc: object;
+  doc: Record<any, any>;
   version: number;
   updatedAt: Timestamp;
 }
@@ -28,7 +24,7 @@ export interface ClientStep {
   collection: DBCollection.ClientSteps;
   pmViewId: string | number;
   status: StepStatus;
-  steps: object[];
+  steps: Record<any, any>[];
   version: number;
   docId: string;
   createdAt: Timestamp;
@@ -37,7 +33,7 @@ export interface ClientStep {
 
 export interface ServerStep {
   collection: DBCollection.ServerSteps;
-  step: object;
+  step: Record<any, any>;
   version: number;
   pmViewId: string | number;
   docId: string;

@@ -23,7 +23,7 @@ interface FirebaseConfig {
 const getConfig = async () => {
   const projectsCMD = await execFilePromise("firebase", ["projects:list"]);
   const projectId = projectsCMD.stdout
-    .match(/.* \(current\)/g)![0]
+    .match(/.* \(current\)/g)?.[0]
     .split(" ")[1];
   console.log(`projectId: ${projectId}`);
 
@@ -40,7 +40,7 @@ const getConfig = async () => {
   ]);
 
   const config: FirebaseConfig = JSON.parse(
-    configCMD.stdout.replace(/\n/g, "").match(/\{.*\}/)![0],
+    configCMD.stdout.replace(/\n/g, "").match(/\{.*\}/)?.[0] || "{}",
   );
 
   let serviceAccountKey = "";

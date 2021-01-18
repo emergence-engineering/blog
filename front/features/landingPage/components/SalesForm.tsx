@@ -57,37 +57,40 @@ const SalesForm: FunctionComponent = () => {
     null,
   );
 
-  const submitHandler = async (evt: SyntheticEvent) => {
-    evt.preventDefault();
-    if (!isCaptchaVerified) {
-      setNoticeVisibility({
-        message: "Please verify that you are not a bot!",
-        type: NoticeType.error,
-      });
-      return;
-    }
+  const submitHandler = useCallback(
+    async (evt: SyntheticEvent) => {
+      evt.preventDefault();
+      if (!isCaptchaVerified) {
+        setNoticeVisibility({
+          message: "Please verify that you are not a bot!",
+          type: NoticeType.error,
+        });
+        return;
+      }
 
-    const formBody = createHubSpotFormBody(
-      email,
-      firstName,
-      lastName,
-      subject,
-      message,
-    );
+      const formBody = createHubSpotFormBody(
+        email,
+        firstName,
+        lastName,
+        subject,
+        message,
+      );
 
-    const { error } = await post(formAddress, formBody);
-    if (error) {
+      const { error } = await post(formAddress, formBody);
+      if (error) {
+        setNoticeVisibility({
+          message: "Failure: couldn't send message, please try again.",
+          type: NoticeType.error,
+        });
+        return;
+      }
       setNoticeVisibility({
-        message: "Failure: couldn't send message, please try again.",
-        type: NoticeType.error,
+        message: "Success: Message sent, we will contact you shortly!",
+        type: NoticeType.success,
       });
-      return;
-    }
-    setNoticeVisibility({
-      message: "Success: Message sent, we will contact you shortly!",
-      type: NoticeType.success,
-    });
-  };
+    },
+    [isCaptchaVerified, email, firstName, lastName, subject, message],
+  );
 
   const verifyCallback = useCallback(() => {
     setCaptchaVerified(true);

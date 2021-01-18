@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore TODO d.ts
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
 import { EditorState, Transaction } from "prosemirror-state";
 import { collab } from "prosemirror-collab";

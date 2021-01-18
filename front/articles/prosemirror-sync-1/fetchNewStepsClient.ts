@@ -12,9 +12,7 @@ const fetchNewStepsClient = (
   if (!DB || !pmView) return;
   const listener = DB.changes({
     live: true,
-    // eslint-disable-next-line @typescript-eslint/camelcase
     include_docs: true,
-    // eslint-disable-next-line @typescript-eslint/camelcase
     filter: (data) =>
       data.collection === DBCollection.ServerSteps &&
       (data as ServerStep).docId === DocID &&
