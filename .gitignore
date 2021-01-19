@@ -1,4 +1,4 @@
-front/.next
+.next
 node_modules
 .idea
 .env
@@ -18,9 +18,9 @@ functions/firestore-debug.log
 database-debug.log
 firestore-debug.log
 firebase-debug.log
-front/next-env.d.ts
+next-env.d.ts
 dist-tasks
 .gitattributes
 
-front/public/sw.*
-front/public/workbox-*
+public/sw.*
+public/workbox-*

@@ -165,5 +165,5 @@ in gitlab:
 ## Error tracking, logging
 
 By default, we use Sentry.js for errors. Please read the 
-specific readme file [here]("/front/features/sentry/README.md")
+specific readme file [here]("/features/sentry/README.md")
 
