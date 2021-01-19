@@ -6,9 +6,9 @@ import {
   DBCollection,
   ServerStep,
   StepStatus,
-} from "../front/articles/prosemirror-sync-1/types";
-import ClientStepWatcher from "../front/articles/prosemirror-sync-1/components/ClientStepWatcher";
-import ServerStepWatcher from "../front/articles/prosemirror-sync-1/components/ServerStepWatcher";
+} from "../articles/prosemirror-sync-1/types";
+import ClientStepWatcher from "../articles/prosemirror-sync-1/components/ClientStepWatcher";
+import ServerStepWatcher from "../articles/prosemirror-sync-1/components/ServerStepWatcher";
 
 const stories = storiesOf("Prosemirror Collab", module);
 
