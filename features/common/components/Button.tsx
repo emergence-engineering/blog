@@ -14,4 +14,7 @@ export const Button = styled.button<{ color?: "primary" | "secondary" }>`
   font-weight: 800;
   letter-spacing: 0.05rem;
   color: ${theme.color.gray10};
+  :hover {
+    background-color: ${theme.color.secondary2};
+  }
 `;

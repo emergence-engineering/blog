@@ -26,6 +26,7 @@ import {
 } from "./TextInputRow";
 
 const SendButton = styled(Button)`
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 200;
 `;
