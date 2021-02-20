@@ -75,6 +75,7 @@ const Anchor = styled.a<{ active: boolean }>`
   font-family: "Oswald", sans-serif;
   transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
   border-radius: 0.3rem;
+  text-decoration: none;
   background-color: ${({ active }) =>
     active ? theme.color.tertiary : theme.color.gray11};
   padding: 0.3rem 1.2rem;

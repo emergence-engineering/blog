@@ -89,7 +89,7 @@ const Notice: FunctionComponent<NoticeProps> = ({
       setDisplayed(true);
     };
     removeAfterAnimation();
-  });
+  }, [displayed, type, message]);
   return (
     <Root>{displayed ? null : <Message type={type}>{message}</Message>}</Root>
   );
