@@ -13,6 +13,7 @@ import theme, { screenSizes, sizes } from "../../utils/theme";
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
 import { article2Metadata } from "./prosemirror-sync-1";
 import { article3Metadata } from "./prosemirror-image-plugin";
+import { article4Metadata } from "./prosemirror-link-plugin";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -66,6 +67,9 @@ const Blog: FunctionComponent = () => (
     <BlogSEO />
     <Root>
       <CommunityBlogSection />
+      <ContentWrapper>
+        <BlogPostIntro {...article4Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article3Metadata} />
       </ContentWrapper>
