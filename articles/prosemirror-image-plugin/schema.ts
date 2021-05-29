@@ -1,7 +1,11 @@
 import { Schema } from "prosemirror-model";
 import { schema } from "prosemirror-schema-basic";
 import OrderedMap from "orderedmap";
-import { defaultSettings, updateImageNode } from "prosemirror-image-plugin";
+import {
+  defaultSettings,
+  ImagePluginSettings,
+  updateImageNode,
+} from "prosemirror-image-plugin";
 
 // Ugly hack for checking schema spec type..
 if (!(schema.spec.nodes instanceof OrderedMap))
@@ -26,20 +30,19 @@ export const initialDoc = {
         alt: "Image",
         align: "center",
       },
-      content: [
-        {
-          text: "ProseMirror is _AMAZING_",
-          type: "text",
-        },
-      ],
     },
   ],
   type: "doc",
 };
 
+export const imagePluginSettings: ImagePluginSettings = {
+  ...defaultSettings,
+  hasTitle: false,
+};
+
 export const imageSchema = new Schema({
   nodes: updateImageNode(schema.spec.nodes, {
-    ...defaultSettings,
+    ...imagePluginSettings,
   }),
   marks: schema.spec.marks,
 });

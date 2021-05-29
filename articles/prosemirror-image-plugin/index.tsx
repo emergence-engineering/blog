@@ -9,7 +9,6 @@ import applyDevTools from "prosemirror-dev-tools";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import {
-  defaultSettings,
   imageAlign,
   imagePlugin,
   startImageUpload,
@@ -20,7 +19,7 @@ import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 
-import { initialDoc, imageSchema } from "./schema";
+import { initialDoc, imageSchema, imagePluginSettings } from "./schema";
 
 const canInsert = (state: EditorState, nodeType: NodeType) => {
   const { $from } = state.selection;
@@ -130,6 +129,7 @@ const Root = styled.div`
 const DevtoolsWrapper = styled.div`
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
 `;
 
 const DevtoolsRoot = styled.div`
@@ -157,7 +157,7 @@ const ProseMirrorLatex = () => {
           schema: imageSchema,
           menuContent: menu,
         }),
-        imagePlugin(imageSchema, { ...defaultSettings }),
+        imagePlugin(imageSchema, { ...imagePluginSettings }),
       ],
     });
     const view: EditorView<typeof imageSchema> = new EditorView(editorNode, {
@@ -199,7 +199,7 @@ const ProseMirrorLatex = () => {
           pmView,
           file,
           file.name,
-          defaultSettings,
+          imagePluginSettings,
           imageSchema,
           pmView.state.selection.from,
         );

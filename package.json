@@ -91,6 +91,7 @@
     "prosemirror-example-setup": "^1.1.2",
     "prosemirror-image-plugin": "^1.1.0",
     "prosemirror-keymap": "^1.1.4",
+    "prosemirror-link-plugin": "^1.2.0",
     "prosemirror-menu": "^1.1.4",
     "prosemirror-model": "^1.13.1",
     "prosemirror-schema-basic": "^1.1.2",
