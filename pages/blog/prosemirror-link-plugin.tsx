@@ -44,14 +44,81 @@ const MD1 = /* language=md */ `
 # How to use?
 
 1. Install the plugin: **npm i -S prosemirror-link-plugin**
-2. Add 
+2. Add the plugin to the editor
 
 In codespeak:
 \`\`\`typescript
-TODO
+import { schema } from "prosemirror-schema-basic";
+import { exampleSetup } from "prosemirror-example-setup";
+import { Decoration } from "prosemirror-view";
+import { EditorState } from "prosemirror-state";
+import { EditorView } from "prosemirror-view";
+import {
+    autoLinkingPlugin,
+    LinksKeyState,
+} from "prosemirror-link-plugin";
+
+export interface LinkSpec {
+    id: number;
+    alias: string;
+}
+
+export const aliasDecoration = (
+    start: number,
+    end: number,
+    alias: string,
+    matchPos: number,
+    pluginState: LinksKeyState<LinkSpec>,
+) => {
+    const spec = pluginState.aliasToSpec[alias];
+    return Decoration.inline(
+        start,
+        end,
+
+        {
+            class: "autoLink",
+            onclick: \`alert('You clicked on "\${alias}"')\`,
+        },
+        { id: spec?.id, alias },
+    );
+};
+
+let aliases = { alias: "typing", id: 1 };
+
+const initialDoc = {
+    content: [
+        {
+            content: [
+                {
+                    text: "Start typing!",
+                    type: "text",
+                },
+            ],
+            type: "paragraph",
+        },
+    ],
+    type: "doc",
+};
+
+const state = EditorState.create<typeof schema>({
+    doc: schema.nodeFromJSON(initialDoc),
+    plugins: [
+        ...exampleSetup({
+            schema,
+        }),
+        autoLinkingPlugin(
+            aliases,
+            aliasDecoration,
+        ),
+    ],
+});
+
+const view: EditorView = new EditorView(document.getElementById("editor"), {
+    state,
+});
 \`\`\`
 
-You might want to add some CSS around your decoration, you can do it by targeting its class.
+Add some CSS around your decoration, you can do it by targeting its class ( \`autoLink\` in the example above ).
 
 You can check out the docs at <https://gitlab.com/emergence-engineering/prosemirror-link-plugin>
 `;

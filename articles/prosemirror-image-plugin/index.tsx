@@ -129,6 +129,7 @@ const Root = styled.div`
 const DevtoolsWrapper = styled.div`
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
 `;
 
 const DevtoolsRoot = styled.div`
