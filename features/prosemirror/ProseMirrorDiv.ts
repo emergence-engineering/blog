@@ -7,6 +7,7 @@ import styled from "styled-components";
 // It is from https://prosemirror.net/css/editor.css
 
 export default styled.div`
+  display: flow-root;
   .ProseMirror {
     position: relative;
   }
