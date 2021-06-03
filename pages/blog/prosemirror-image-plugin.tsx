@@ -114,6 +114,13 @@ const view: EditorView = new EditorView(document.getElementById("editor"), {
 });
 \`\`\`
 
+You might also want to add
+\`\`\`css
+display: flow-root;
+\`\`\`
+to the editor style in order to have correct floating images.
+
+
 After that you need to [add some CSS from here](https://gitlab.com/emergence-engineering/prosemirror-image-plugin#example-css)
 and voila! You have better images now, and the world just got a bit better.
 
