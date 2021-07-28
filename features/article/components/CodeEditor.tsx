@@ -11,6 +11,7 @@ import Image from "next/image";
 
 import { Button } from "../../common/components/Button";
 import theme from "../../../utils/theme";
+import CircleFilled from "../../../public/play_circle_filled-24px.png";
 
 const Loading = styled.div`
   height: 100%;
@@ -131,7 +132,12 @@ const CodeEditor: FunctionComponent<{
         <SSRCode>{value}</SSRCode>
         {!noRun && (
           <RunButton onClick={runCode}>
-            <Image src="/play_circle_filled-24px.svg" width={21} height={21} />
+            <Image
+              src={CircleFilled}
+              width={21}
+              height={21}
+              placeholder="blur"
+            />
             <RunText>Run code</RunText>
           </RunButton>
         )}

@@ -52,14 +52,13 @@ Worked with a lot of different sides of tech, from GPU programming to FPGAs, ARM
 I always look at things from the business side too, it's not enough for me for something to be interesting, the end-goal should also make sense. My goal when working for any business is to help that business achieve its goals, and not just writing code, but providing valuable feedback.
 I'm a pro foosball player, and a hobby musician.
 `;
-const imgSrc = "/bio/viktor.png";
 
 const ViktorCV: FunctionComponent = () => (
   <Layout>
     <Root>
       <Content>
         <CvTopSection
-          imgSrc={imgSrc}
+          imgSrc="viktor"
           name="Viktor Váczi"
           roleText="co-founder"
           linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"

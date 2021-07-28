@@ -3,6 +3,25 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import theme, { sizes } from "../../../utils/theme";
+import ProsemirrorImage from "../../../public/icons/prosemirror.png";
+import GroupImage from "../../../public/icons/group.png";
+import APIImage from "../../../public/icons/api.png";
+import ResponsiveImage from "../../../public/icons/responsive.png";
+import Responsive2Image from "../../../public/icons/responsive-2.png";
+import CloudImage from "../../../public/icons/cloud-computing.png";
+import SettingsImage from "../../../public/icons/settings.png";
+import PresentationImage from "../../../public/icons/presentation.png";
+
+export enum CapabilityImages {
+  ProsemirrorImg = "ProsemirrorImg",
+  GroupImg = "GroupImg",
+  APIImg = "APIImg",
+  ResponsiveImg = "ResponsiveImg",
+  Responsive2Img = "Responsive2Img",
+  CloudImg = "CloudImg",
+  SettingsImg = "SettingsImg",
+  PresentationImg = "PresentationImg",
+}
 
 const BoxRoot = styled.div`
   min-height: 10rem;
@@ -52,10 +71,21 @@ const BoxWrapper = styled.div`
   padding: ${sizes.sidePadding};
 `;
 
+const images = {
+  [CapabilityImages.ProsemirrorImg]: ProsemirrorImage,
+  [CapabilityImages.GroupImg]: GroupImage,
+  [CapabilityImages.APIImg]: APIImage,
+  [CapabilityImages.ResponsiveImg]: ResponsiveImage,
+  [CapabilityImages.Responsive2Img]: Responsive2Image,
+  [CapabilityImages.CloudImg]: CloudImage,
+  [CapabilityImages.SettingsImg]: SettingsImage,
+  [CapabilityImages.PresentationImg]: PresentationImage,
+};
+
 interface SkillBoxProps {
   title: string;
   content: string;
-  iconSrc: string;
+  iconSrc: CapabilityImages;
 }
 
 const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
@@ -68,7 +98,12 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
       <HeaderRow>
         <TitleContainer>{title}</TitleContainer>
         <ImgWrapper>
-          <Image src={iconSrc} height={75} width={75} />
+          <Image
+            src={images[iconSrc]}
+            height={75}
+            width={75}
+            placeholder="blur"
+          />
         </ImgWrapper>
       </HeaderRow>
       <Content>{content}</Content>

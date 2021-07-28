@@ -11,7 +11,7 @@ import SalesBox from "../../features/article/components/SalesBox";
 import Disqus from "../../features/disqus/Disqus";
 
 const DynamicEditor = dynamic(
-  () => import("../../articles/prosemirror-image-plugin/"),
+  () => import("../../articles/prosemirror-image-plugin"),
   { ssr: false },
 );
 

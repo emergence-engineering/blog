@@ -33,12 +33,12 @@ const SendButton = styled(Button)`
 
 const FormRoot = styled.form``;
 
-const createClickHandler = (callback: Dispatch<SetStateAction<string>>) => (
-  evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-) => {
-  const { value } = evt.target;
-  callback(value);
-};
+const createClickHandler =
+  (callback: Dispatch<SetStateAction<string>>) =>
+  (evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { value } = evt.target;
+    callback(value);
+  };
 
 const SalesForm: FunctionComponent = () => {
   const [firstName, setFirstName] = useState("");

@@ -68,6 +68,30 @@ const DevtoolsLink = styled.a`
   margin: 0 0.5rem;
 `;
 
+const VerticalWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 30rem;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+`;
+
+const ChangedAliasWrapper = styled.div`
+  display: flex;
+  border-radius: 0.5rem;
+  background-color: ${theme.color.primary};
+  padding: 0.3rem;
+  color: ${theme.color.fontWhite};
+`;
+
+const ChangeListWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  min-height: 2rem;
+`;
+
 export interface LinkSpec {
   id: number;
   alias: string;
@@ -119,30 +143,6 @@ const AddedLink: FunctionComponent<{ link: LinkSpec }> = ({ link }) => (
 const RemovedLink: FunctionComponent<{ link: LinkSpec }> = ({ link }) => (
   <ChangedAliasWrapper>{`alias: ${link.alias}, id: ${link.id}`}</ChangedAliasWrapper>
 );
-
-const VerticalWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 30rem;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 0.5rem 0;
-`;
-
-const ChangedAliasWrapper = styled.div`
-  display: flex;
-  border-radius: 0.5rem;
-  background-color: ${theme.color.primary};
-  padding: 0.3rem;
-  color: ${theme.color.fontWhite};
-`;
-
-const ChangeListWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 1rem;
-  min-height: 2rem;
-`;
 
 const ProseMirrorLink = () => {
   const [addInput, setAddInput] = useState("new alias");

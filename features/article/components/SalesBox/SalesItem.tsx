@@ -3,6 +3,9 @@ import React, { FunctionComponent } from "react";
 import Image from "next/image";
 
 import theme from "../../../../utils/theme";
+import VideoChat from "../../../../public/icons/video-chat.png";
+import Presentation from "../../../../public/icons/presentation.png";
+import Target from "../../../../public/icons/target.png";
 
 import {
   ArticleSalesFormAction,
@@ -41,8 +44,14 @@ const OptionTitle = styled.div`
   margin-bottom: 0.2rem;
 `;
 const OptionDescription = styled.div``;
+const images = {
+  videoChat: VideoChat,
+  presentation: Presentation,
+  target: Target,
+};
+
 export const SalesItem: FunctionComponent<{
-  imgSrc: string;
+  imgSrc: "videoChat" | "presentation" | "target";
   optionTitle: string;
   optionDescription: string;
   dispatch: (action: ArticleSalesFormAction) => void;
@@ -55,7 +64,7 @@ export const SalesItem: FunctionComponent<{
   return (
     <SaleItemRoot onClick={dispatchShowModal}>
       <OptionIcon>
-        <Image src={imgSrc} layout="fill" />
+        <Image src={images[imgSrc]} layout="fill" placeholder="blur" />
       </OptionIcon>
       <OptionTextRoot>
         <OptionTitle>{optionTitle}</OptionTitle>

@@ -83,7 +83,7 @@ const LeftSide = styled.div`
 `;
 
 export const CvTopSection: FunctionComponent<{
-  imgSrc: string;
+  imgSrc: "balazs" | "viktor";
   name: string;
   roleText: string;
   linkedInLink: string;
