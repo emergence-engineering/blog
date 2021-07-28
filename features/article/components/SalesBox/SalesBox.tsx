@@ -46,14 +46,14 @@ const SalesBox: FunctionComponent = () => {
       </SubTitle>
       <SaleOptions>
         <SalesItem
-          imgSrc="/icons/video-chat.svg"
+          imgSrc="videoChat"
           optionTitle="Video consultation"
           optionDescription="Book an interactive video consultation with us. Get an interactive one on one or team session with our experienced developers."
           dispatch={dispatch}
           actionType={FormType.videoConsultation}
         />
         <SalesItem
-          imgSrc="/icons/presentation.svg"
+          imgSrc="presentation"
           optionTitle="Educate your team"
           optionDescription={`
         We can hold on-site (in the EU) or online trainings. 
@@ -63,7 +63,7 @@ const SalesBox: FunctionComponent = () => {
           actionType={FormType.training}
         />
         <SalesItem
-          imgSrc="/icons/target.svg"
+          imgSrc="target"
           optionTitle="Hire us to build the product you desire"
           optionDescription={`
         Hire an individual or a team of developers to solve build your product. 

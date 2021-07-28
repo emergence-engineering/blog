@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
+import ViktorImage from "../../../public/bio/viktor.png";
+import BalazsImage from "../../../public/bio/balazs.jpg";
+import MatejcsokImage from "../../../public/bio/matejcsok.jpg";
+import AronImage from "../../../public/bio/aron.jpg";
+import DavidImage from "../../../public/bio/ldavid.jpg";
 
 const Root = styled.div`
   display: flex;
@@ -58,13 +63,21 @@ export const FacePictureWrapper = styled.div`
     border-radius: 50%;
   }
 `;
+const images = {
+  viktor: ViktorImage,
+  balazs: BalazsImage,
+  matejcsok: MatejcsokImage,
+  aron: AronImage,
+  ldavid: DavidImage,
+};
 
-export const FacePicture: FunctionComponent<{ src: string }> = ({ src }) => (
+export const FacePicture: FunctionComponent<{
+  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid";
+}> = ({ src }) => (
   <FacePictureWrapper>
-    <Image src={src} layout="fill" />
+    <Image src={images[src]} layout="fill" placeholder="blur" />
   </FacePictureWrapper>
 );
-
 const MemberName = styled.div`
   font-family: ${theme.fontFamily.title};
   font-weight: 800;
@@ -125,7 +138,7 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
 );
 
 export const Member: FunctionComponent<{
-  src: string;
+  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid";
   memberName: string;
   memberRole: string;
   memberStack: string;
@@ -174,7 +187,7 @@ const AboutUsSection: FunctionComponent = () => (
     <SectionTitle>About us</SectionTitle>
     <SectionContentRoot>
       <Member
-        src="/bio/viktor.png"
+        src="viktor"
         memberName="Viktor Váczi"
         memberRole="co-founder"
         memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
@@ -184,7 +197,7 @@ const AboutUsSection: FunctionComponent = () => (
         githubLink="https://github.com/ViktorVaczi90"
       />
       <Member
-        src="/bio/balazs.jpg"
+        src="balazs"
         memberName="Balázs Horváth"
         memberRole="co-founder"
         memberWorkArea="Fullstack JS | Microservices | Cloud"

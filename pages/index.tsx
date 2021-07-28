@@ -1,6 +1,8 @@
 import React from "react";
 
-import CapabilityBox from "../features/landingPage/components/CapabilityBox";
+import CapabilityBox, {
+  CapabilityImages,
+} from "../features/landingPage/components/CapabilityBox";
 import {
   IntroductionParagraph,
   IntroductionSection,
@@ -30,25 +32,25 @@ const CapabilityBoxes = [
     title: "ProseMirror consulting",
     content: `ProseMirror is a powerful toolkit to build custom web based rich-text
      editors. It is used by companies like The New York Times, Overleaf and many others.`,
-    iconSrc: "/icons/prosemirror.png",
+    iconSrc: CapabilityImages.ProsemirrorImg,
   },
   {
     title: "Collaborative Web UIs",
     content: `Sometimes UIs have to sync up instantly based on the actions of other users maybe a thousand miles away. In some cases
     there is a need for multiple users to see the same document and be able to edit it together.`,
-    iconSrc: "/icons/group.svg",
+    iconSrc: CapabilityImages.GroupImg,
   },
   {
     title: "Fullstack web development",
     content: `We can design the client application that faces your users and the
        complex backend architectures behind it.`,
-    iconSrc: "/icons/api.svg",
+    iconSrc: CapabilityImages.APIImg,
   },
   {
     title: "Cross Platform App development",
     content: `We can build applications for all major mobile platforms with React
     Native or Ionic.`,
-    iconSrc: "/icons/responsive-2.svg",
+    iconSrc: CapabilityImages.Responsive2Img,
   },
   {
     title: "PWA development",
@@ -56,28 +58,28 @@ const CapabilityBoxes = [
     If you wan't your app to be available on mobile and also in the browser then we can
     build it as a Progressive Web Application by Google's PWA standards.
     `,
-    iconSrc: "/icons/responsive.svg",
+    iconSrc: CapabilityImages.ResponsiveImg,
   },
   {
     title: "Cloud development",
     content: `
        We are experienced industry leading cloud
        technologies such as Google Cloud Platform and Amazon Web Services.`,
-    iconSrc: "/icons/cloud-computing.svg",
+    iconSrc: CapabilityImages.CloudImg,
   },
   {
     title: "Hardware solutions",
     content: `
     We can design and prototype new hardware or extend an already existing one.
     We can connect your application to IoT devices, sensors or actuators.`,
-    iconSrc: "/icons/settings.svg",
+    iconSrc: CapabilityImages.SettingsImg,
   },
   {
     title: "Trainings",
     content: `We can hold on-site trainings and extend your team's competitiveness by
       introducing best practices and components that we utilise and perfected
       in our systems.`,
-    iconSrc: "/icons/presentation.svg",
+    iconSrc: CapabilityImages.PresentationImg,
   },
 ];
 

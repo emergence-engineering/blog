@@ -41,7 +41,7 @@ export default function Team() {
           <h1>Meet the team</h1>
           <TeamMembers>
             <Member
-              src="/bio/viktor.png"
+              src="viktor"
               memberName="Viktor Váczi"
               memberRole="co-founder"
               memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
@@ -51,7 +51,7 @@ export default function Team() {
               githubLink="https://github.com/ViktorVaczi90"
             />
             <Member
-              src="/bio/balazs.jpg"
+              src="balazs"
               memberName="Balázs Horváth"
               memberRole="co-founder"
               memberWorkArea="Fullstack JS | Microservices | Cloud"
@@ -61,21 +61,21 @@ export default function Team() {
               githubLink="https://github.com/horvath-balazs"
             />
             <Member
-              src="/bio/matejcsok.jpg"
+              src="matejcsok"
               memberName="István Matejcsók"
               memberRole="developer"
               memberWorkArea="Fullstack JS | UI"
               memberStack="React.js Node.js Firebase CSS"
             />
             <Member
-              src="/bio/aron.jpg"
+              src="aron"
               memberName="Áron Horváth"
               memberRole="visionary & chief designer"
               memberWorkArea="Java | Fullstack JS | UI"
               memberStack="Java React.js Node.js Firebase CSS"
             />
             <Member
-              src="/bio/ldavid.jpg"
+              src="ldavid"
               memberName="Dávid Lázár"
               memberRole="developer"
               memberStack="Fullstack JS"

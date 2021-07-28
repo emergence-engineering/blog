@@ -57,15 +57,13 @@ const Editors: FunctionComponent = () => {
   const [pmState2, setPmState2] = useState<EditorState<typeof mySchema>>();
   const [pmView2, setPmView2] = useState<EditorView<typeof mySchema>>();
   const [serverDoc, setServerDoc] = useState<PMDocument>();
-  const [docListener, setDocListener] = useState<
-    PouchDB.Core.Changes<DBSchema>
-  >();
+  const [docListener, setDocListener] =
+    useState<PouchDB.Core.Changes<DBSchema>>();
   const [stepHistory, stepHistoryDispatch] = useReducer<
     Reducer<StepHistoryState, StepHistoryAction>
   >(stepHistoryReducer, defaultHistoryState);
-  const [stepHistoryListener, setStepHistoryListener] = useState<
-    PouchDB.Core.Changes<DBSchema>
-  >();
+  const [stepHistoryListener, setStepHistoryListener] =
+    useState<PouchDB.Core.Changes<DBSchema>>();
   const [DBS, setDBS] = useState<DBSI>();
 
   // Initialize PouchDB instances
@@ -79,17 +77,15 @@ const Editors: FunctionComponent = () => {
   }, [DBS]);
 
   // Fetching steps for view 1
-  useEffect(() => fetchNewStepsClient(DBS?.clientDB1, pmView1), [
-    DBS,
-    pmView1,
-    pmState1 && getVersion(pmState1),
-  ]);
+  useEffect(
+    () => fetchNewStepsClient(DBS?.clientDB1, pmView1),
+    [DBS, pmView1, pmState1 && getVersion(pmState1)],
+  );
   // Fetching steps for view 2
-  useEffect(() => fetchNewStepsClient(DBS?.clientDB2, pmView2), [
-    DBS,
-    pmView2,
-    pmState2 && getVersion(pmState2),
-  ]);
+  useEffect(
+    () => fetchNewStepsClient(DBS?.clientDB2, pmView2),
+    [DBS, pmView2, pmState2 && getVersion(pmState2)],
+  );
 
   // Fetch initial document from DB
   useEffect(() => {

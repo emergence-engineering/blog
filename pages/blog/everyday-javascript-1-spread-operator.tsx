@@ -26,8 +26,7 @@ about every small detail of a given feature.
   timestamp: 1574971200000,
   imgSrc:
     "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-  url:
-    "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
+  url: "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
 };
 
 const MD0 = /* language=md */ `# Everyday javascript ep. 1: Rest/spread operator pt1.

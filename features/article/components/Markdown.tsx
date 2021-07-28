@@ -10,7 +10,11 @@ export interface MarkDownProps {
 }
 const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
   const { source } = props;
-  return <ReactMarkdown source={source} renderers={{ code: CodeHighlight }} />;
+  return (
+    <ReactMarkdown components={{ code: CodeHighlight as any }}>
+      {source}
+    </ReactMarkdown>
+  );
 };
 
 export default Markdown;

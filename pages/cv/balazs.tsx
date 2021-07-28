@@ -53,14 +53,13 @@ I spent my time in the IT and the Physics programmes of the same university befo
 to bioinformatics. 
 I am dog person, my hobbies are photography, powerlifting and Brazilian Jiu Jitsu.
 `;
-const imgSrc = "/bio/balazs.jpg";
 
 const BalazsCV: FunctionComponent = () => (
   <Layout>
     <Root>
       <Content>
         <CvTopSection
-          imgSrc={imgSrc}
+          imgSrc="balazs"
           name="Balázs Horváth"
           roleText="co-founder"
           linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"

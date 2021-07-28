@@ -3,10 +3,6 @@ require("dotenv").config();
 const { name } = require("./package.json");
 
 const gitCommitId = require("git-commit-id");
-const path = require("path");
-const Dotenv = require("dotenv-webpack");
-const withCSS = require("@zeit/next-css");
-const withPlugins = require("next-compose-plugins");
 
 function getReleaseId(environment, commitId, appName) {
   return `${appName}-${environment}-${commitId}`;
@@ -15,20 +11,6 @@ function getReleaseId(environment, commitId, appName) {
 const COMMIT_ID = gitCommitId();
 
 const nextConfig = {
-  webpack: (config) => {
-    config.plugins = config.plugins || [];
-
-    config.plugins = [
-      ...config.plugins,
-
-      // Read the .env file
-      new Dotenv({
-        path: path.join(__dirname, ".env"),
-        systemvars: true,
-      }),
-    ];
-    return config;
-  },
   experimental: {
     granularChunks: true,
   },
@@ -52,4 +34,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([withCSS], nextConfig);
+module.exports = nextConfig;
