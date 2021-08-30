@@ -103,16 +103,27 @@ const DevtoolsLink = styled.a`
 const ProseMirrorLatex = () => {
   const [pmState, setPmState] = useState<EditorState<Schema>>();
   const [pmView, setPmView] = useState<EditorView<Schema>>();
-  const [withResize, setWithResize] = useState(true);
-  const [sideResize, setSideResize] = useState(false);
-  const [hasTitle, setHasTitle] = useState(false);
+  const [withResize, setWithResize] = useState<"withResize" | "withoutResize">(
+    "withResize",
+  );
+  const [sideResize, setSideResize] = useState<
+    "withSideResize" | "withoutSideResize"
+  >("withoutSideResize");
+  const [withTitle, setWithTitle] = useState<"withTitle" | "withoutTitle">(
+    "withTitle",
+  );
   const imagePluginSettings = useMemo(
-    () => createPluginSettings(withResize, hasTitle, hasTitle),
-    [withResize, hasTitle],
+    () =>
+      createPluginSettings(
+        withResize === "withResize",
+        withTitle === "withTitle",
+        withTitle === "withTitle",
+      ),
+    [withResize, withTitle],
   );
   const imageSchema = useMemo(
     () => createSchema(imagePluginSettings),
-    [withResize, hasTitle],
+    [withResize, withTitle],
   );
   const imageMenuItem = useMemo(
     () =>
@@ -124,21 +135,27 @@ const ProseMirrorLatex = () => {
           document.getElementById("imageselector")?.click();
         },
       }),
-    [withResize, hasTitle],
+    [withResize, withTitle],
   );
 
   const resizeSelectChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      setWithResize(e.target.value === "withResize");
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setWithResize(e.target.value);
     },
     [],
   );
   const titleSelectChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-    setHasTitle(e.target.value === "withTitle");
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    setWithTitle(e.target.value);
   }, []);
   const sideResizeSelectChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      setSideResize(e.target.value === "withSideResize");
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setSideResize(e.target.value);
     },
     [],
   );
@@ -150,7 +167,9 @@ const ProseMirrorLatex = () => {
     menu[1][0].content.shift();
     const state = EditorState.create<typeof imageSchema>({
       doc: imageSchema.nodeFromJSON(
-        hasTitle ? createBlockImageDoc(hasTitle) : inlineImageDoc,
+        withTitle
+          ? createBlockImageDoc(withTitle === "withTitle")
+          : inlineImageDoc,
       ),
       plugins: [
         ...exampleSetup({
@@ -188,7 +207,7 @@ const ProseMirrorLatex = () => {
     return () => {
       view && view.destroy();
     };
-  }, [withResize, hasTitle]);
+  }, [withResize, withTitle]);
 
   const onInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -211,21 +230,21 @@ const ProseMirrorLatex = () => {
   );
 
   return (
-    <Root withResize={withResize} sideResize={sideResize}>
-      <select onChange={resizeSelectChange} defaultValue="withResize">
+    <Root
+      withResize={withResize === "withResize"}
+      sideResize={sideResize === "withSideResize"}
+    >
+      <select onChange={resizeSelectChange} value={withResize}>
         <option value="withResize">With resize</option>
         <option value="withoutResize">Without resize</option>
       </select>
-      {withResize && (
-        <select
-          onChange={sideResizeSelectChange}
-          defaultValue="withoutSideResize"
-        >
+      {withResize === "withResize" && (
+        <select onChange={sideResizeSelectChange} value={sideResize}>
           <option value="withSideResize">With side resize</option>
           <option value="withoutSideResize">Without side resize</option>
         </select>
       )}
-      <select onChange={titleSelectChange} defaultValue="withoutTitle">
+      <select onChange={titleSelectChange} value={withTitle}>
         <option value="withTitle">With title</option>
         <option value="withoutTitle">Without title</option>
       </select>

@@ -33,16 +33,6 @@ export const createPluginSettings: (
   enableResize: withResize,
   isBlock,
   hasTitle,
-  // downloadImage: async (url) => {
-  //   await new Promise((res) => {
-  //     setTimeout(res, 2000);
-  //   });
-  //   return getBase64FromUrl(
-  //     "https://skiff-org.github.io/getting-started/mentions.gif",
-  //   );
-  // },
-  // downloadPlaceholder:
-  //   "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
 });
 
 export const createSchema = (pluginSettings: ImagePluginSettings) =>
