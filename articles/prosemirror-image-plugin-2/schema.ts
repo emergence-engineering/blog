@@ -11,7 +11,7 @@ import {
 if (!(schema.spec.nodes instanceof OrderedMap))
   throw new Error("Incorrect schema type");
 
-const getBase64FromUrl = async (url: string): Promise<string> => {
+export const getBase64FromUrl = async (url: string): Promise<string> => {
   const data = await fetch(url);
   const blob = await data.blob();
   return new Promise((resolve) => {
@@ -33,17 +33,16 @@ export const createPluginSettings: (
   enableResize: withResize,
   isBlock,
   hasTitle,
-  createOverlay: () => undefined,
-  downloadImage: async (url) => {
-    await new Promise((res) => {
-      setTimeout(res, 2000);
-    });
-    return getBase64FromUrl(
-      "https://skiff-org.github.io/getting-started/mentions.gif",
-    );
-  },
-  downloadPlaceholder:
-    "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+  // downloadImage: async (url) => {
+  //   await new Promise((res) => {
+  //     setTimeout(res, 2000);
+  //   });
+  //   return getBase64FromUrl(
+  //     "https://skiff-org.github.io/getting-started/mentions.gif",
+  //   );
+  // },
+  // downloadPlaceholder:
+  //   "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
 });
 
 export const createSchema = (pluginSettings: ImagePluginSettings) =>
