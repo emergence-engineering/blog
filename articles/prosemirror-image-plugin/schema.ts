@@ -37,6 +37,7 @@ export const initialDoc = {
 export const imagePluginSettings: ImagePluginSettings = {
   ...defaultSettings,
   hasTitle: false,
+  enableResize: false,
 };
 
 export const imageSchema = new Schema({

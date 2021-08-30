@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React, {
   ChangeEvent,
   useCallback,
@@ -98,6 +97,19 @@ const DevtoolsRoot = styled.div`
 
 const DevtoolsLink = styled.a`
   margin: 0 0.5rem;
+`;
+
+const Select = styled.select`
+  margin: 0rem 1rem 0.5rem 0;
+`;
+
+const OptionsWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
 `;
 
 const ProseMirrorLatex = () => {
@@ -234,21 +246,23 @@ const ProseMirrorLatex = () => {
       withResize={withResize === "withResize"}
       sideResize={sideResize === "withSideResize"}
     >
-      <select onChange={resizeSelectChange} value={withResize}>
-        <option value="withResize">With resize</option>
-        <option value="withoutResize">Without resize</option>
-      </select>
-      {withResize === "withResize" && (
-        <select onChange={sideResizeSelectChange} value={sideResize}>
-          <option value="withSideResize">With side resize</option>
-          <option value="withoutSideResize">Without side resize</option>
-        </select>
-      )}
-      <select onChange={titleSelectChange} value={withTitle}>
-        <option value="withTitle">With title</option>
-        <option value="withoutTitle">Without title</option>
-      </select>
-      <input type="file" id="imageselector" onChange={onInputChange} />
+      <OptionsWrapper>
+        <Select onChange={resizeSelectChange} value={withResize}>
+          <option value="withResize">With resize</option>
+          <option value="withoutResize">Without resize</option>
+        </Select>
+        {withResize === "withResize" && (
+          <Select onChange={sideResizeSelectChange} value={sideResize}>
+            <option value="withSideResize">With side resize</option>
+            <option value="withoutSideResize">Without side resize</option>
+          </Select>
+        )}
+        <Select onChange={titleSelectChange} value={withTitle}>
+          <option value="withTitle">With title</option>
+          <option value="withoutTitle">Without title</option>
+        </Select>
+        <input type="file" id="imageselector" onChange={onInputChange} />
+      </OptionsWrapper>
       <ProseMirrorDiv id="editor" />
       <DevtoolsWrapper>
         Check out the document structure with
