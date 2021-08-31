@@ -14,11 +14,11 @@ export const inlineImageDoc = {
         {
           type: "image",
           attrs: {
-            src: "https://paulryan.com.au/wp-content/uploads/2015/01/high-resolution-wallpapers-25.jpg",
+            src: "https://prosemirror.net/img/picture.png",
             alt: "Image",
             align: "center",
-            height: 200,
-            width: 340,
+            height: 300,
+            width: 300,
           },
         },
       ],
@@ -51,11 +51,11 @@ export const createBlockImageDoc = (withTitle: boolean) => ({
     {
       type: "image",
       attrs: {
-        src: "https://paulryan.com.au/wp-content/uploads/2015/01/high-resolution-wallpapers-25.jpg",
+        src: "https://prosemirror.net/img/picture.png",
         alt: "Image",
         align: "center",
-        height: 200,
-        width: 340,
+        height: 300,
+        width: 300,
       },
       ...(withTitle
         ? {

@@ -27,7 +27,7 @@ export const article4Metadata: ArticleIntro = {
 If you want to have a decorations around different strings in your ProseMirror document then this is your plugin! You can make the found words to behave as links ( for example ), and add new items to your string list on the fly
   `,
   postId: "prosemirror-link-plugin",
-  timestamp: 1610366577452,
+  timestamp: 1622413459000,
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-link-plugin",

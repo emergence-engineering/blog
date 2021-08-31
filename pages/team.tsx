@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { screenSizes, sizes } from "../utils/theme";
 import Layout from "../features/common/components/Layout";
 import { Member } from "../features/landingPage/components/AboutUsSection";
+import { TeamSEO } from "../features/blog/components/TEAMSEO";
 
 const Root = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ const TeamMembers = styled.div`
 export default function Team() {
   return (
     <Layout>
+      <TeamSEO />
       <Root>
         <Content>
           <h1>Meet the team</h1>

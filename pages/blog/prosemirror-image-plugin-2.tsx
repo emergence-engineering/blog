@@ -19,28 +19,26 @@ const EditorStyling = styled.div`
   flex: 1;
 `;
 
-export const article3Metadata: ArticleIntro = {
-  title:
-    "Image plugin for ProseMirror with drop & paste handling, easy uploading, alignment selector and title",
+export const article5Metadata: ArticleIntro = {
+  title: "prosemirror-image-plugin v2: Resizable images!",
   author: "Viktor",
   authorLink: null,
-  introText: /* language=md */ `
-Most production editors need functionality to drop or paste images, have editable titles, and these images have to be uploaded & stored on a server. 
-Managing this from the ground up takes a lot of time, so I wrote a plugin for ProseMirror which makes this very easy, and is flexible
-enough to handle a lot of use cases.
- 
+  introText: /* language=md */ `A 2.0 update for [ProseMirror image plugin](https://gitlab.com/emergence-engineering/prosemirror-image-plugin) with resizable images!
   `,
-  postId: "prosemirror-image-plugin",
-  timestamp: 1610366577452,
+  postId: "prosemirror-image-plugin-2",
+  timestamp: 1630365909328,
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
-  url: "https://emergence-engineering.com/blog/prosemirror-image-plugin",
+  url: "https://emergence-engineering.com/blog/prosemirror-image-plugin-2",
 };
 
 const MD0 = /* language=md */ `
 # What's this about?
 
-A [ProseMirror image plugin](https://gitlab.com/emergence-engineering/prosemirror-image-plugin) with a lot of features:
+A 2.0 update for [ProseMirror image plugin](https://gitlab.com/emergence-engineering/prosemirror-image-plugin)
+with resizable images!
+
+It already had a lot of features:
 - Optional **image title**
 - Customizable image **overlay**
 - Image **alignment** ( center, full width, left and right are default )
@@ -48,23 +46,27 @@ A [ProseMirror image plugin](https://gitlab.com/emergence-engineering/prosemirro
 - Optionally removing deleted images
 - Image **drop** & data URL **paste** handling
 
-Check it out! The editor below does not upload the images anywhere, just inserts the dataURI into the ProseMirror document, which can freeze the browser up, it
-works fine if you host the images.
+And now resizable images are added with:
+- switchable **scaling** ( resized images scale with editor width )
+- an **updated overlay** if resize is enabled ( removed the \`fullWidth\` option )
+- **css files** distributed with the module for different resize styles
+- **body resize** listener so your images won't be to big even if the browser is resized
+- settable max/min image size and image margins
+- support for **inline image** nodes ( not compatible with titles! )
 
-Try out with
-[this image](https://www.google.com/search?q=image&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjww8mck57uAhWJ4YUKHbAIAb0Q_AUoAXoECBMQAw&biw=1745&bih=881#imgrc=-VCM1w56w6u5VM),
-drag it in or save it and pick it with the file selector.
+Check it out! You can try different styles with the selects below:
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin)
+[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin-2)
 `;
 
 const MD1 = /* language=md */ `
 # How to use?
 
 1. Install the plugin: **npm i -S prosemirror-image-plugin**
-2. Import **defaultSettings** from the plugin ( and modify it if you want )
-3. Update the image node in the ProseMirror schema to have all the necessary properties 
-4. Initialize the editor with the plugin
+2. Import the CSS files for your setup
+3. Import **defaultSettings** from the plugin ( and modify it if you want )
+4. Update the image node in the ProseMirror schema to have all the necessary properties  with \`updateImageNode\`
+5. Initialize the editor with the plugin
 
 In codespeak:
 \`\`\`typescript
@@ -72,6 +74,10 @@ import { schema } from "prosemirror-schema-basic";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { defaultSettings } from "prosemirror-image-plugin";
+
+import "prosemirror-image-plugin/dist/styles/common.css";
+import "prosemirror-image-plugin/dist/styles/withResize.css";
+import "prosemirror-image-plugin/dist/styles/sideResize.css";
 
 // Update your settings here!
 const imageSettings = {...defaultSettings};
@@ -121,8 +127,7 @@ display: flow-root;
 to the editor style in order to have correct floating images.
 
 
-After that you need to [add some CSS from here](https://gitlab.com/emergence-engineering/prosemirror-image-plugin#example-css)
-and voila! You have better images now, and the world just got a bit better.
+Now....You have better images, and the world just got a bit better.
 
 You can check out the docs at <https://gitlab.com/emergence-engineering/prosemirror-image-plugin>
 `;
@@ -130,10 +135,10 @@ You can check out the docs at <https://gitlab.com/emergence-engineering/prosemir
 const Article = () => (
   <ArticleWrapper>
     <ArticleShareOgTags
-      url={article3Metadata.url}
-      title={article3Metadata.title}
-      description={article3Metadata.introText}
-      imgSrc={article3Metadata.imgSrc}
+      url={article5Metadata.url}
+      title={article5Metadata.title}
+      description={article5Metadata.introText}
+      imgSrc={article5Metadata.imgSrc}
     />
     <Markdown source={MD0} />
     <EditorStyling>
@@ -141,7 +146,7 @@ const Article = () => (
     </EditorStyling>
     <Markdown source={MD1} />
     <SalesBox />
-    <Disqus pageUrl={article3Metadata.url} pageId={article3Metadata.postId} />
+    <Disqus pageUrl={article5Metadata.url} pageId={article5Metadata.postId} />
   </ArticleWrapper>
 );
 export default Article;

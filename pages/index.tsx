@@ -21,6 +21,7 @@ import Layout from "../features/common/components/Layout";
 import SalesFormSection from "../features/landingPage/components/SalesMessageForm";
 import theme from "../utils/theme";
 import { Separator } from "../features/common/components/Separator";
+import { LPSEO } from "../features/blog/components/LPSEO";
 
 const mainParagraphContent = `
 Emergence refers to how collective properties of a system arise from the properties of it's parts.
@@ -86,6 +87,7 @@ const CapabilityBoxes = [
 export default function Index() {
   return (
     <Layout>
+      <LPSEO />
       <IntroductionSectionWrapper>
         <IntroductionSection>
           <MainTitle>emergence</MainTitle>
