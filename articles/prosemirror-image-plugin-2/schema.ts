@@ -33,6 +33,7 @@ export const createPluginSettings: (
   enableResize: withResize,
   isBlock,
   hasTitle,
+  scaleImage: false,
 });
 
 export const createSchema = (pluginSettings: ImagePluginSettings) =>
