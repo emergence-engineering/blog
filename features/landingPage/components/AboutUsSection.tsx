@@ -9,6 +9,7 @@ import BalazsImage from "../../../public/bio/balazs.jpg";
 import MatejcsokImage from "../../../public/bio/matejcsok.jpg";
 import AronImage from "../../../public/bio/aron.jpg";
 import DavidImage from "../../../public/bio/ldavid.jpg";
+import ZsomborImage from "../../../public/bio/zsombor.jpg";
 
 const Root = styled.div`
   display: flex;
@@ -69,10 +70,11 @@ const images = {
   matejcsok: MatejcsokImage,
   aron: AronImage,
   ldavid: DavidImage,
+  zsombor: ZsomborImage,
 };
 
 export const FacePicture: FunctionComponent<{
-  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid";
+  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid" | "zsombor";
 }> = ({ src }) => (
   <FacePictureWrapper>
     <Image src={images[src]} layout="fill" placeholder="blur" />
@@ -138,7 +140,7 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
 );
 
 export const Member: FunctionComponent<{
-  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid";
+  src: "balazs" | "viktor" | "matejcsok" | "aron" | "ldavid" | "zsombor";
   memberName: string;
   memberRole: string;
   memberStack: string;
