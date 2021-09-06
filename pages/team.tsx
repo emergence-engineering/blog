@@ -90,6 +90,13 @@ export default function Team() {
               memberStack="Fullstack JS"
               memberWorkArea="ProseMirror React.js Node.js"
             />
+            <Member
+              src="zsofi"
+              memberName="Horváth-Kele Zsófia"
+              memberRole="Office Manager"
+              memberStack=""
+              memberWorkArea=""
+            />
           </TeamMembers>
         </Content>
       </Root>
