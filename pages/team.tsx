@@ -92,7 +92,7 @@ export default function Team() {
             />
             <Member
               src="zsofi"
-              memberName="Horváth-Kele Zsófia"
+              memberName="Zsófia Horváth-Kele"
               memberRole="Office Manager"
               memberStack=""
               memberWorkArea=""
