@@ -85,10 +85,17 @@ export default function Team() {
             />
             <Member
               src="zsombor"
-              memberName="Kele Zsombor"
+              memberName="Zsombor Kele"
               memberRole="developer"
               memberStack="Fullstack JS"
               memberWorkArea="ProseMirror React.js Node.js"
+            />
+            <Member
+              src="zsofi"
+              memberName="Zsófia Horváth-Kele"
+              memberRole="Office Manager"
+              memberStack=""
+              memberWorkArea=""
             />
           </TeamMembers>
         </Content>
