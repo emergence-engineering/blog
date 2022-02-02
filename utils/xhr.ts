@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 interface XhrResponse {
   data: string | AxiosResponse | null;
-  error: Error | null;
+  error: unknown;
 }
 
 const logger = console;

@@ -45,10 +45,6 @@ export default class MyDocument extends Document<{
     return (
       <Html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
         <Head>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-153510239-1"
-          />
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -64,18 +60,7 @@ export default class MyDocument extends Document<{
           <Main />
           <NextScript />
         </body>
-        {/* <script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="https://js.hs-scripts.com/6783875.js"
-        /> */}
-        <script
-          src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-          async
-          defer
-        />
+        <script defer data-domain="emergence-engineering.com" src="https://plausible.io/js/plausible.js"></script>
       </Html>
     );
   }

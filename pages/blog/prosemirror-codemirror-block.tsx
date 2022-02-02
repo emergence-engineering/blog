@@ -7,7 +7,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import SalesBox from "../../features/article/components/SalesBox";
-import Disqus from "../../features/disqus/Disqus";
 import Markdown from "../../features/article/components/Markdown";
 
 const DynamicEditor = dynamic(
@@ -174,7 +173,6 @@ const Article = () => (
     </EditorStyling>
     <Markdown source={MD1} />
     <SalesBox />
-    <Disqus pageUrl={article6Metadata.url} pageId={article6Metadata.postId} />
   </ArticleWrapper>
 );
 export default Article;

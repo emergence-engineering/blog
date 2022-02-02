@@ -5,7 +5,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import CodeEditor from "../../features/article/components/CodeEditor";
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
-import Disqus from "../../features/disqus/Disqus";
 import { ArticleIntro } from "../../features/article/types";
 
 export const article1Metadata: ArticleIntro = {
@@ -307,10 +306,6 @@ export default function Article() {
         <CodeEditor value={Code7} hiddenCode={sharedCode} />
         <Markdown source={MD9} />
         <SalesBox />
-        <Disqus
-          pageUrl={article1Metadata.url}
-          pageId={article1Metadata.postId}
-        />
       </ArticleWrapper>
     </>
   );
