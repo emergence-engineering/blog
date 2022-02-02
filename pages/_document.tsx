@@ -60,6 +60,11 @@ export default class MyDocument extends Document<{
           <Main />
           <NextScript />
         </body>
+        <script
+            src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async
+            defer
+        />
         <script defer data-domain="emergence-engineering.com" src="https://plausible.io/js/plausible.js"></script>
       </Html>
     );
