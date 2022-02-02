@@ -10,7 +10,7 @@ import React, {
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import applyDevTools from "prosemirror-dev-tools";
+import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { imagePlugin, startImageUpload } from "prosemirror-image-plugin";
@@ -19,6 +19,7 @@ import { MenuItem } from "prosemirror-menu";
 import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
+import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { createPluginSettings, createSchema } from "./schema";
 import { createBlockImageDoc, inlineImageDoc } from "./initialDocs";
@@ -77,22 +78,12 @@ const Root = styled.div<{ withResize: boolean; sideResize: boolean }>`
 
   ${({ withResize }) => (withResize ? resizeStyle : withoutResizeStyle)}
   ${({ sideResize }) => sideResize && sideResizeStyle}
-
-  // PM Devtools hack
-  .__prosemirror-dev-tools__ > div {
-    position: static;
-  }
 `;
 
 const DevtoolsWrapper = styled.div`
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-`;
-
-const DevtoolsRoot = styled.div`
-  position: relative;
-  padding-bottom: 2rem;
 `;
 
 const DevtoolsLink = styled.a`
@@ -205,16 +196,7 @@ const ProseMirrorLatex = () => {
       },
     });
     setPmView(view);
-    const devtoolsRoot = document.getElementById("pmdevtools");
-    if (devtoolsRoot) devtoolsRoot.innerHTML = "";
     applyDevTools(view);
-    // Mount PMDevtools into a div instead of showing in the bottom right corner.
-    const devtools = document.querySelector(".__prosemirror-dev-tools__");
-
-    if (devtools instanceof HTMLElement && devtoolsRoot) {
-      devtoolsRoot.appendChild(devtools);
-      devtools.style.position = "absolute";
-    }
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -266,10 +248,10 @@ const ProseMirrorLatex = () => {
       <ProseMirrorDiv id="editor" />
       <DevtoolsWrapper>
         Check out the document structure with
-        <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">
-          prosemirror-dev-tools:
+        <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">
+          prosemirror-dev-toolkit:
         </DevtoolsLink>
-        <DevtoolsRoot id="pmdevtools" />
+        <DevToolkit />
       </DevtoolsWrapper>
     </Root>
   );
