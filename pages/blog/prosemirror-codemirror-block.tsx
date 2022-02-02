@@ -10,7 +10,7 @@ import SalesBox from "../../features/article/components/SalesBox";
 import Disqus from "../../features/disqus/Disqus";
 
 const DynamicEditor = dynamic(
-  () => import("../../articles/prosemirror-codemirror-block-cm5"),
+  () => import("../../articles/prosemirror-codemirror-block"),
   { ssr: false },
 );
 

@@ -8,7 +8,6 @@ if (!(schema.spec.nodes instanceof OrderedMap))
 
 const codeBlockSpec = schema.spec.nodes.get("code_block");
 
-console.log({ codeBlockSpec });
 export default new Schema({
   nodes: schema.spec.nodes.update("code_block", {
     ...(codeBlockSpec || {}),

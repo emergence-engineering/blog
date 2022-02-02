@@ -1,9 +1,9 @@
-export const inlineImageDoc = {
+export const codeBlockDoc = {
   content: [
     {
       content: [
         {
-          text: "before code",
+          text: "prosemirror-codemirror-block",
           type: "text",
         },
       ],
@@ -12,20 +12,14 @@ export const inlineImageDoc = {
     {
       content: [
         {
-          text: "Start typing!\n Newline \n another newline",
+          text: "const jsFun = (arg) => {\n  console.log(arg); \n}",
           type: "text",
         },
       ],
+      attrs: {
+        lang: "javascript",
+      },
       type: "code_block",
-    },
-    {
-      content: [
-        {
-          text: "after code",
-          type: "text",
-        },
-      ],
-      type: "paragraph",
     },
   ],
   type: "doc",
