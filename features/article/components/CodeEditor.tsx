@@ -121,7 +121,7 @@ const CodeEditor: FunctionComponent<{
           typeof i === "object" ? JSON.stringify(i) : i.toString(),
         ),
       );
-    } catch (e) {
+    } catch (e: any) {
       setCodeError(e.message);
     }
   }, [code, hiddenCode]);
@@ -148,7 +148,6 @@ const CodeEditor: FunctionComponent<{
         <ScriptResult>{scriptResult}</ScriptResult>
         <LogResult>
           {logResult.map((log, idx) => (
-            // eslint-disable-next-line react/no-array-index-key
             <div key={idx}>{log}</div>
           ))}
         </LogResult>

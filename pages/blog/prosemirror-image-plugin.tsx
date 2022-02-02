@@ -8,7 +8,6 @@ import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import SalesBox from "../../features/article/components/SalesBox";
-import Disqus from "../../features/disqus/Disqus";
 
 const DynamicEditor = dynamic(
   () => import("../../articles/prosemirror-image-plugin"),
@@ -141,7 +140,6 @@ const Article = () => (
     </EditorStyling>
     <Markdown source={MD1} />
     <SalesBox />
-    <Disqus pageUrl={article3Metadata.url} pageId={article3Metadata.postId} />
   </ArticleWrapper>
 );
 export default Article;

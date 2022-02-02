@@ -4,8 +4,6 @@ import Head from "next/head";
 import { createGlobalStyle } from "styled-components";
 import "codemirror/lib/codemirror.css";
 
-import { initializeGA } from "../features/analytics/google-analytics";
-
 interface MyAppProps extends AppProps, AppInitialProps {}
 
 const GlobalStyle = createGlobalStyle`
@@ -18,15 +16,6 @@ class MyApp extends App<MyAppProps> {
   state = {
     gaInitialized: false,
   };
-
-  setGaInitialized = () => ({ gaInitialized: true });
-
-  componentDidMount(): void {
-    if (!this.state.gaInitialized) {
-      initializeGA();
-      this.setState(this.setGaInitialized);
-    }
-  }
 
   render() {
     const { Component, pageProps } = this.props;

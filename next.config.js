@@ -13,6 +13,7 @@ const COMMIT_ID = gitCommitId();
 const nextConfig = {
   experimental: {
     granularChunks: true,
+    styledComponents: true
   },
   typescript: {
     ignoreDevErrors: true,
