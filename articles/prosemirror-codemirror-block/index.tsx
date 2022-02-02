@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
+import { exampleSetup } from "prosemirror-example-setup";
 import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
@@ -15,12 +15,13 @@ import {
   codeBlockArrowHandlers,
   legacyLanguageLoaders,
 } from "prosemirror-codemirror-block";
+import { undo, redo } from "prosemirror-history";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import schema from "./schema";
-import { codeBlockDoc } from "./initialDocs";
+import { codeBlockDoc } from "./initialDoc";
 
 const Root = styled.div`
   .codeblock-select {
@@ -38,6 +39,9 @@ const Root = styled.div`
   .codeblock-root:hover .codeblock-select {
     opacity: 1;
   }
+  .cm-editor.cm-focused {
+    outline: none;
+  },
 `;
 
 const DevtoolsWrapper = styled.div`
@@ -64,6 +68,8 @@ const ProseMirrorLatex = () => {
         codeMirrorBlockPlugin({
           ...defaultSettings,
           languageLoaders: { ...languageLoaders, ...legacyLanguageLoaders },
+          undo,
+          redo,
         }),
         keymap(codeBlockArrowHandlers),
       ],

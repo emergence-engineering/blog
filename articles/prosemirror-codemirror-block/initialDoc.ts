@@ -21,6 +21,15 @@ export const codeBlockDoc = {
       },
       type: "code_block",
     },
+    {
+      content: [
+        {
+          text: " ",
+          type: "text",
+        },
+      ],
+      type: "paragraph",
+    },
   ],
   type: "doc",
 };

@@ -9,9 +9,7 @@ import React, {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import applyDevTools from "prosemirror-dev-tools";
+import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { Decoration, EditorView } from "prosemirror-view";
 import styled from "styled-components";
@@ -28,6 +26,7 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import { Button } from "../../features/common/components/Button";
 import { Input } from "../../features/common/components/Input";
 import theme from "../../utils/theme";
+import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { initialDoc } from "./schema";
 
@@ -47,21 +46,12 @@ const Root = styled.div`
     margin-right: 3px;
     cursor: pointer;
   }
-  // PM Devtools hack
-  .__prosemirror-dev-tools__ > div {
-    position: static;
-  }
 `;
 
 const DevtoolsWrapper = styled.div`
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-`;
-
-const DevtoolsRoot = styled.div`
-  position: relative;
-  padding-bottom: 2rem;
 `;
 
 const DevtoolsLink = styled.a`
@@ -185,13 +175,6 @@ const ProseMirrorLink = () => {
     });
     setPmView(view);
     applyDevTools(view);
-    // Mount PMDevtools into a div instead of showing in the bottom right corner.
-    const devtools = document.querySelector(".__prosemirror-dev-tools__");
-    const devtoolsRoot = document.getElementById("pmdevtools");
-    if (devtools instanceof HTMLElement && devtoolsRoot) {
-      devtoolsRoot.appendChild(devtools);
-      devtools.style.position = "absolute";
-    }
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -270,7 +253,7 @@ const ProseMirrorLink = () => {
         <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">
           prosemirror-dev-tools:
         </DevtoolsLink>
-        <DevtoolsRoot id="pmdevtools" />
+        <DevToolkit />
       </DevtoolsWrapper>
     </Root>
   );
