@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import { FacePicture } from "../landingPage/components/AboutUsSection";
+import {FacePicture, Members} from "../landingPage/components/AboutUsSection";
 import theme, { screenSizes } from "../../utils/theme";
 
 const Name = styled.div`
@@ -83,10 +83,10 @@ const LeftSide = styled.div`
 `;
 
 export const CvTopSection: FunctionComponent<{
-  imgSrc: "balazs" | "viktor";
+  imgSrc: keyof typeof Members;
   name: string;
   roleText: string;
-  linkedInLink: string;
+  linkedInLink?: string;
   githubLink: string;
 }> = ({ imgSrc, name, roleText, linkedInLink, githubLink }) => (
   <TopSectionColumn>
@@ -101,7 +101,7 @@ export const CvTopSection: FunctionComponent<{
         </TextContaner>
         <LinkContainer>
           <IconLink faClassName="fab fa-github-square" href={githubLink} />
-          <IconLink faClassName="fab fa-linkedin" href={linkedInLink} />
+          {linkedInLink && <IconLink faClassName="fab fa-linkedin" href={linkedInLink}/>}
         </LinkContainer>
       </LeftSide>
     </TopSectionRow>

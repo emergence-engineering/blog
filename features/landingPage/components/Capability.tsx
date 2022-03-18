@@ -14,7 +14,6 @@ export const CapabilityBoxContainer = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  //grid-template-rows: repeat(auto-fill, 1fr);
   grid-auto-rows: 1fr;
   @media screen and (max-width: ${screenSizes.medium}px) {
     grid-template-columns: 1fr;

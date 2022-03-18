@@ -11,6 +11,8 @@ import AronImage from "../../../public/bio/aron.jpg";
 import DavidImage from "../../../public/bio/ldavid.jpg";
 import ZsomborImage from "../../../public/bio/zsombor.jpg";
 import ZsofiImage from "../../../public/bio/zsofi.png";
+import KsisuImage from "../../../public/bio/ksisu.png";
+import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 
 const Root = styled.div`
   display: flex;
@@ -65,25 +67,33 @@ export const FacePictureWrapper = styled.div`
     border-radius: 50%;
   }
 `;
+
+export enum Members {
+  viktor = "viktor",
+  balazs = "balazs",
+  matejcsok = "matejcsok",
+  aron = "aron",
+  ldavid = "ldavid",
+  zsombor = "zsombor",
+  zsofi = "zsofi",
+  ksisu = "ksisu",
+  torcsi = "torcsi",
+}
+
 const images = {
-  viktor: ViktorImage,
-  balazs: BalazsImage,
-  matejcsok: MatejcsokImage,
-  aron: AronImage,
-  ldavid: DavidImage,
-  zsombor: ZsomborImage,
-  zsofi: ZsofiImage,
+  [Members.viktor]: ViktorImage,
+  [Members.balazs]: BalazsImage,
+  [Members.matejcsok]: MatejcsokImage,
+  [Members.aron]: AronImage,
+  [Members.ldavid]: DavidImage,
+  [Members.zsombor]: ZsomborImage,
+  [Members.zsofi]: ZsofiImage,
+  [Members.ksisu]: KsisuImage,
+  [Members.torcsi]: TorcsiImage,
 };
 
 export const FacePicture: FunctionComponent<{
-  src:
-    | "balazs"
-    | "viktor"
-    | "matejcsok"
-    | "aron"
-    | "ldavid"
-    | "zsombor"
-    | "zsofi";
+  src: keyof typeof Members;
 }> = ({ src }) => (
   <FacePictureWrapper>
     <Image src={images[src]} layout="fill" placeholder="blur" />
@@ -149,14 +159,7 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
 );
 
 export const Member: FunctionComponent<{
-  src:
-    | "balazs"
-    | "viktor"
-    | "matejcsok"
-    | "aron"
-    | "ldavid"
-    | "zsombor"
-    | "zsofi";
+  src: keyof typeof Members;
   memberName: string;
   memberRole: string;
   memberStack: string;
@@ -205,7 +208,7 @@ const AboutUsSection: FunctionComponent = () => (
     <SectionTitle>About us</SectionTitle>
     <SectionContentRoot>
       <Member
-        src="viktor"
+        src={Members.viktor}
         memberName="Viktor Váczi"
         memberRole="co-founder"
         memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
@@ -215,13 +218,36 @@ const AboutUsSection: FunctionComponent = () => (
         githubLink="https://github.com/ViktorVaczi90"
       />
       <Member
-        src="balazs"
+        src={Members.balazs}
         memberName="Balázs Horváth"
         memberRole="co-founder"
         memberWorkArea="Fullstack JS | Microservices | Cloud"
         memberStack="React.js Node.js Go Firebase AWS"
         cvLink="/cv/balazs"
         linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
+        githubLink="https://github.com/horvath-balazs"
+      />
+    </SectionContentRoot>
+    <SectionTitle>Scala team</SectionTitle>
+    <SectionContentRoot>
+      <Member
+        src={Members.ksisu}
+        memberName="Kristóf Horváth"
+        memberRole="Scala team lead"
+        memberWorkArea="Scala | DevOps | Fullstack JS"
+        memberStack="Scala Kubernetes"
+        cvLink="/cv/ksisu"
+        // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
+        githubLink="https://github.com/ViktorVaczi90"
+      />
+      <Member
+        src={Members.torcsi}
+        memberName="Gergő Törcsvári"
+        memberRole="Scala team lead"
+        memberWorkArea="Scala | DevOps | Fullstack JS"
+        memberStack="Scala Kubernetes"
+        cvLink="/cv/torcsi"
+        // linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
         githubLink="https://github.com/horvath-balazs"
       />
     </SectionContentRoot>
