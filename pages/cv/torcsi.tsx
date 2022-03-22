@@ -55,7 +55,7 @@ const TorcsiCV: FunctionComponent = () => (
       <Content>
         <CvTopSection
           imgSrc="torcsi"
-          name="Törcsvári Gergő"
+          name="Gergő Törcsvári"
           roleText="scala team lead"
           // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
           githubLink="https://github.com/tg44"
@@ -72,7 +72,7 @@ const TorcsiCV: FunctionComponent = () => (
             />
             <TimelineItem
               timelineLabel="2016"
-              duration="4"
+              duration="4 years"
               eventTitle="Developer at a software consulting firm"
               eventDescription="Worked on a lot of different projects with Scala, Java, did a lot of CI/CD/Infra work."
             />

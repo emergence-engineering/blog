@@ -13,6 +13,7 @@ import ZsomborImage from "../../../public/bio/zsombor.jpg";
 import ZsofiImage from "../../../public/bio/zsofi.png";
 import KsisuImage from "../../../public/bio/ksisu.png";
 import TorcsiImage from "../../../public/bio/torcsi.jpeg";
+import NorbiImage from "../../../public/bio/norbi.png";
 
 const Root = styled.div`
   display: flex;
@@ -78,6 +79,7 @@ export enum Members {
   zsofi = "zsofi",
   ksisu = "ksisu",
   torcsi = "torcsi",
+  norbi = "norbi",
 }
 
 const images = {
@@ -90,6 +92,7 @@ const images = {
   [Members.zsofi]: ZsofiImage,
   [Members.ksisu]: KsisuImage,
   [Members.torcsi]: TorcsiImage,
+  [Members.norbi]: NorbiImage,
 };
 
 export const FacePicture: FunctionComponent<{
@@ -238,7 +241,7 @@ const AboutUsSection: FunctionComponent = () => (
         memberStack="Scala Kubernetes"
         cvLink="/cv/ksisu"
         // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
-        githubLink="https://github.com/ViktorVaczi90"
+        githubLink="https://github.com/Ksisu"
       />
       <Member
         src={Members.torcsi}
@@ -248,7 +251,7 @@ const AboutUsSection: FunctionComponent = () => (
         memberStack="Scala Kubernetes"
         cvLink="/cv/torcsi"
         // linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-        githubLink="https://github.com/horvath-balazs"
+        githubLink="https://github.com/tg44"
       />
     </SectionContentRoot>
   </Root>

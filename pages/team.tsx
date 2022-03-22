@@ -67,7 +67,7 @@ export default function Team() {
                 memberName="Kristóf Horváth"
                 memberRole="Scala team lead"
                 memberWorkArea="Scala | DevOps | Fullstack JS"
-                memberStack="Scala Kubernetes"
+                memberStack="Scala Kubernetes React Angular"
                 cvLink="/cv/ksisu"
                 // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
                 githubLink="https://github.com/ViktorVaczi90"
@@ -77,7 +77,7 @@ export default function Team() {
                 memberName="Gergő Törcsvári"
                 memberRole="Scala team lead"
                 memberWorkArea="Scala | DevOps | Fullstack JS"
-                memberStack="Scala Kubernetes"
+                memberStack="Scala Kubernetes React"
                 cvLink="/cv/torcsi"
                 // linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
                 githubLink="https://github.com/horvath-balazs"
@@ -100,15 +100,22 @@ export default function Team() {
               src="ldavid"
               memberName="Dávid Lázár"
               memberRole="developer"
-              memberStack="Fullstack JS"
-              memberWorkArea="React.js Node.js"
+              memberStack="React.js Node.js"
+              memberWorkArea="Fullstack JS"
             />
             <Member
               src="zsombor"
               memberName="Zsombor Kele"
               memberRole="developer"
-              memberStack="Fullstack JS"
-              memberWorkArea="ProseMirror React.js Node.js"
+              memberStack="ProseMirror React.js Node.js CSS"
+              memberWorkArea="Fullstack JS"
+            />
+            <Member
+                src="norbi"
+                memberName="Norbert Aschenbrenner"
+                memberRole="developer"
+                memberStack="React.js CSS"
+                memberWorkArea="Fullstack JS"
             />
             <Member
               src="zsofi"

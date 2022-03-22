@@ -23,7 +23,7 @@ export const IntroductionSection = styled.div`
 `;
 
 export const IntroductionParagraph = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
   color: ${theme.color.gray1};

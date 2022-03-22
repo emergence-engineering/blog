@@ -13,7 +13,7 @@ import { LPSEO } from "../features/blog/components/LPSEO";
 import WhatWeDoSection from "../features/landingPage/components/WhatWeDo";
 import AboutUsSection from "../features/landingPage/components/AboutUsSection";
 
-const mainParagraphContent = `Emergence Engineering is a full-stack software development company from the EU.`;
+const mainParagraphContent = `Emergence Engineering is a full-stack software development company from Budapest (EU).`;
 
 export default function Index() {
   return (
