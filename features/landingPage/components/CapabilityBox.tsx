@@ -11,6 +11,9 @@ import Responsive2Image from "../../../public/icons/responsive-2.png";
 import CloudImage from "../../../public/icons/cloud-computing.png";
 import SettingsImage from "../../../public/icons/settings.png";
 import PresentationImage from "../../../public/icons/presentation.png";
+import ScalaImage from "../../../public/icons/scala.png";
+import KubernetesImage from "../../../public/icons/kubernetes.png";
+import ReactImage from "../../../public/icons/react.png"
 
 export enum CapabilityImages {
   ProsemirrorImg = "ProsemirrorImg",
@@ -21,6 +24,9 @@ export enum CapabilityImages {
   CloudImg = "CloudImg",
   SettingsImg = "SettingsImg",
   PresentationImg = "PresentationImg",
+  ScalaImg = "ScalaImg",
+  KubernetesImg = "KubernetesImg",
+  ReactImg = "ReactImg"
 }
 
 const BoxRoot = styled.div`
@@ -38,11 +44,14 @@ const BoxRoot = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-  flex: 1;
-  margin: 0 0.1em;
-  align-self: stretch;
-  display: flex;
-  justify-content: flex-end;
+  //flex: 1;
+  //margin: 0 0.1em;
+  //align-self: stretch;
+  //display: flex;
+  //justify-content: flex-end;
+  //height: 75px;
+  //width: 75px;
+  position: relative;
 `;
 
 const HeaderRow = styled.div`
@@ -80,6 +89,9 @@ const images = {
   [CapabilityImages.CloudImg]: CloudImage,
   [CapabilityImages.SettingsImg]: SettingsImage,
   [CapabilityImages.PresentationImg]: PresentationImage,
+  [CapabilityImages.ScalaImg]: ScalaImage,
+  [CapabilityImages.KubernetesImg]: KubernetesImage,
+  [CapabilityImages.ReactImg]: ReactImage
 };
 
 interface SkillBoxProps {
