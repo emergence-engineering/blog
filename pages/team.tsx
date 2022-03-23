@@ -70,7 +70,7 @@ export default function Team() {
                 memberStack="Scala Kubernetes React Angular"
                 cvLink="/cv/ksisu"
                 // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
-                githubLink="https://github.com/ViktorVaczi90"
+                githubLink="https://github.com/Ksisu"
             />
             <Member
                 src={Members.torcsi}
@@ -80,7 +80,7 @@ export default function Team() {
                 memberStack="Scala Kubernetes React"
                 cvLink="/cv/torcsi"
                 // linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-                githubLink="https://github.com/horvath-balazs"
+                githubLink="https://github.com/tg44"
             />
             <Member
               src="matejcsok"
