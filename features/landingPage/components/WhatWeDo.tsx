@@ -43,7 +43,7 @@ const CapabilityBoxes = [
     },
     {
         title: "Cloud",
-        content: `Experience with all he major cloud providers and some more.`,
+        content: `Experience with all of the major cloud providers and some more.`,
         iconSrc: CapabilityImages.CloudImg,
     },
     {
