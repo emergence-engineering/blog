@@ -9,7 +9,7 @@ import BalazsImage from "../../../public/bio/balazs.jpg";
 import MatejcsokImage from "../../../public/bio/matejcsok.jpg";
 import AronImage from "../../../public/bio/aron.jpg";
 import DavidImage from "../../../public/bio/ldavid.jpg";
-import ZsomborImage from "../../../public/bio/zsombor.jpg";
+import CsengeImage from "../../../public/bio/csenge.png";
 import ZsofiImage from "../../../public/bio/zsofi.png";
 import KsisuImage from "../../../public/bio/ksisu.png";
 import TorcsiImage from "../../../public/bio/torcsi.jpeg";
@@ -75,7 +75,7 @@ export enum Members {
   matejcsok = "matejcsok",
   aron = "aron",
   ldavid = "ldavid",
-  zsombor = "zsombor",
+  csenge = "csenge",
   zsofi = "zsofi",
   ksisu = "ksisu",
   torcsi = "torcsi",
@@ -88,7 +88,7 @@ const images = {
   [Members.matejcsok]: MatejcsokImage,
   [Members.aron]: AronImage,
   [Members.ldavid]: DavidImage,
-  [Members.zsombor]: ZsomborImage,
+  [Members.csenge]: CsengeImage,
   [Members.zsofi]: ZsofiImage,
   [Members.ksisu]: KsisuImage,
   [Members.torcsi]: TorcsiImage,

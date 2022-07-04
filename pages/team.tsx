@@ -104,11 +104,11 @@ export default function Team() {
               memberWorkArea="Fullstack JS"
             />
             <Member
-              src="zsombor"
-              memberName="Zsombor Kele"
+              src="csenge"
+              memberName="Csenge Sóti"
               memberRole="developer"
-              memberStack="ProseMirror React.js Node.js CSS"
-              memberWorkArea="Fullstack JS"
+              memberStack="Scala Kubernetes React Angular"
+              memberWorkArea="Scala | Java | Fullstack JS"
             />
             <Member
                 src="norbi"
