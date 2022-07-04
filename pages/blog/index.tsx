@@ -16,6 +16,7 @@ import { article3Metadata } from "./prosemirror-image-plugin";
 import { article4Metadata } from "./prosemirror-link-plugin";
 import { article5Metadata } from "./prosemirror-image-plugin-2";
 import { article6Metadata } from "./prosemirror-codemirror-block";
+import { article7Metadata } from "./discord-gitbot";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -69,6 +70,9 @@ const Blog: FunctionComponent = () => (
     <BlogSEO />
     <Root>
       <CommunityBlogSection />
+      <ContentWrapper>
+        <BlogPostIntro {...article7Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article6Metadata} />
       </ContentWrapper>
