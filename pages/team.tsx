@@ -118,11 +118,18 @@ export default function Team() {
                 memberWorkArea="Fullstack JS"
             />
             <Member
-              src="zsofi"
-              memberName="Zsófia Horváth-Kele"
-              memberRole="Office Manager"
-              memberStack=""
-              memberWorkArea=""
+                src="peter"
+                memberName="Péter Maia-Veres"
+                memberRole="front-end developer"
+                memberStack="React CSS HTML"
+                memberWorkArea=""
+            />
+            <Member
+                src="petra"
+                memberName="Németh Petra Ráhel"
+                memberRole="Office Manager"
+                memberStack=""
+                memberWorkArea=""
             />
           </TeamMembers>
         </Content>
