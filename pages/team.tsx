@@ -126,7 +126,7 @@ export default function Team() {
             />
             <Member
                 src="petra"
-                memberName="Petra Ráhel"
+                memberName="Németh Petra Ráhel"
                 memberRole="Office Manager"
                 memberStack=""
                 memberWorkArea=""
