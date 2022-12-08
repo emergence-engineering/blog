@@ -88,7 +88,7 @@ const CodeEditor: FunctionComponent<{
   const [code, setCode] = useState(value);
   const [codeError, setCodeError] = useState("");
   const [scriptResult, setScriptResult] = useState("");
-  const codeChange = useCallback((editor: any, data: any, text: string) => {
+  const codeChange = useCallback((text: string) => {
     setCode(text);
     if (onChange) onChange(text);
   }, []);
