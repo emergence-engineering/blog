@@ -1,5 +1,4 @@
 /* eslint-disable */
-require("dotenv").config();
 const { name } = require("./package.json");
 
 const gitCommitId = require("git-commit-id");
@@ -11,12 +10,8 @@ function getReleaseId(environment, commitId, appName) {
 const COMMIT_ID = gitCommitId();
 
 const nextConfig = {
-  experimental: {
-    granularChunks: true,
+  compiler: {
     styledComponents: true
-  },
-  typescript: {
-    ignoreDevErrors: true,
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

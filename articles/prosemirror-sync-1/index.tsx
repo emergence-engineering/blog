@@ -20,7 +20,6 @@ import processSteps from "./processSteps";
 import createEditor from "./createEditor";
 import Editor from "./components/Editor";
 import StateDisplay from "./components/StateDisplay";
-import { mySchema } from "./schema";
 import {
   defaultHistoryState,
   fetchStepHistory,
@@ -52,10 +51,10 @@ const StepWatcherWrapper = styled.div`
 `;
 
 const Editors: FunctionComponent = () => {
-  const [pmState1, setPmState1] = useState<EditorState<typeof mySchema>>();
-  const [pmView1, setPmView1] = useState<EditorView<typeof mySchema>>();
-  const [pmState2, setPmState2] = useState<EditorState<typeof mySchema>>();
-  const [pmView2, setPmView2] = useState<EditorView<typeof mySchema>>();
+  const [pmState1, setPmState1] = useState<EditorState>();
+  const [pmView1, setPmView1] = useState<EditorView>();
+  const [pmState2, setPmState2] = useState<EditorState>();
+  const [pmView2, setPmView2] = useState<EditorView>();
   const [serverDoc, setServerDoc] = useState<PMDocument>();
   const [docListener, setDocListener] =
     useState<PouchDB.Core.Changes<DBSchema>>();

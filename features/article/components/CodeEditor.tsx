@@ -89,6 +89,7 @@ const CodeEditor: FunctionComponent<{
   const [codeError, setCodeError] = useState("");
   const [scriptResult, setScriptResult] = useState("");
   const codeChange = useCallback((text: string) => {
+    console.log("codechange")
     setCode(text);
     if (onChange) onChange(text);
   }, []);
@@ -106,21 +107,23 @@ const CodeEditor: FunctionComponent<{
     [logArr],
   );
   const runCode = useCallback(() => {
+    console.log("runcode")
+    return;
     logArr = [];
     setScriptResult("");
     setLogResult([]);
     setCodeError("");
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(
-        `${hiddenCode || ""}\n${code}`.replace(/console/g, "newConsole"),
-      );
-      setScriptResult(result);
-      setLogResult(
-        logArr.map((i) =>
-          typeof i === "object" ? JSON.stringify(i) : i.toString(),
-        ),
-      );
+      // const result = eval(
+      //   `${hiddenCode || ""}\n${code}`.replace(/console/g, "newConsole"),
+      // );
+      // setScriptResult(result);
+      // setLogResult(
+      //   logArr.map((i) =>
+      //     typeof i === "object" ? JSON.stringify(i) : i.toString(),
+      //   ),
+      // );
     } catch (e: any) {
       setCodeError(e.message);
     }

@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef } from "react";
-import { basicSetup, EditorView } from "codemirror";
 import { Compartment, EditorState } from "@codemirror/state";
+import { basicSetup } from "codemirror";
+import { EditorView } from "@codemirror/view";
 import { javascript } from "@codemirror/lang-javascript";
 
 const languageConf = new Compartment();
@@ -22,12 +23,11 @@ const CodeMirror: FunctionComponent<{
     });
   }, [rootDiv]);
   return (
-    <div ref={rootDiv}></div> || 5
-    // <Editor
-    //   value={initialValue}
-    //   options={{ theme: "material", mode: "javascript", lineNumbers: true }}
-    //   onChange={onChange}
-    // />
+    <div ref={rootDiv}
+      // value={initialValue}
+      // options={{ theme: "material", mode: "javascript", lineNumbers: true }}
+      // onChange={onChange}
+    />
   );
 };
 

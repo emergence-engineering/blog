@@ -133,15 +133,16 @@ const DevtoolsLink = styled.a`
 `;
 
 const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<typeof imageSchema>>();
-  const [pmView, setPmView] = useState<EditorView<typeof imageSchema>>();
+  const [pmState, setPmState] = useState<EditorState>();
+  const [pmView, setPmView] = useState<EditorView>();
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const menu = buildMenuItems(imageSchema).fullMenu;
+    // TODO
+    const menu: any = buildMenuItems(imageSchema).fullMenu;
     menu[1][0].content.push(imageMenuItem);
     menu[1][0].content.shift();
-    const state = EditorState.create<typeof imageSchema>({
+    const state = EditorState.create({
       doc: imageSchema.nodeFromJSON(initialDoc),
       plugins: [
         ...exampleSetup({
@@ -151,7 +152,7 @@ const ProseMirrorLatex = () => {
         imagePlugin(imageSchema, { ...imagePluginSettings }),
       ],
     });
-    const view: EditorView<typeof imageSchema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {
