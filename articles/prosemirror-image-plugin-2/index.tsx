@@ -14,7 +14,7 @@ import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { imagePlugin, startImageUpload } from "prosemirror-image-plugin";
-import { NodeType, Schema } from "prosemirror-model";
+import { NodeType } from "prosemirror-model";
 import { MenuItem } from "prosemirror-menu";
 import styled from "styled-components";
 
@@ -104,8 +104,8 @@ const OptionsWrapper = styled.div`
 `;
 
 const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<Schema>>();
-  const [pmView, setPmView] = useState<EditorView<Schema>>();
+  const [pmState, setPmState] = useState<EditorState>();
+  const [pmView, setPmView] = useState<EditorView>();
   const [withResize, setWithResize] = useState<"withResize" | "withoutResize">(
     "withResize",
   );
@@ -165,10 +165,11 @@ const ProseMirrorLatex = () => {
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const menu = buildMenuItems(imageSchema).fullMenu;
+    // TODO
+    const menu: any = buildMenuItems(imageSchema).fullMenu;
     menu[1][0].content.push(imageMenuItem);
     menu[1][0].content.shift();
-    const state = EditorState.create<typeof imageSchema>({
+    const state = EditorState.create({
       doc: imageSchema.nodeFromJSON(
         withTitle
           ? createBlockImageDoc(withTitle === "withTitle")
@@ -182,7 +183,7 @@ const ProseMirrorLatex = () => {
         imagePlugin(imageSchema, { ...imagePluginSettings }),
       ],
     });
-    const view: EditorView<typeof imageSchema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {

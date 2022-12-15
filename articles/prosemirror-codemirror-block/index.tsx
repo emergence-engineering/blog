@@ -5,7 +5,6 @@ import { exampleSetup } from "prosemirror-example-setup";
 import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
-import { Schema } from "prosemirror-model";
 import styled from "styled-components";
 import { keymap } from "prosemirror-keymap";
 import {
@@ -55,11 +54,11 @@ const DevtoolsLink = styled.a`
 `;
 
 const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<Schema>>();
+  const [pmState, setPmState] = useState<EditorState>();
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const state = EditorState.create<typeof schema>({
+    const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
         ...exampleSetup({
@@ -74,7 +73,7 @@ const ProseMirrorLatex = () => {
         keymap(codeBlockArrowHandlers),
       ],
     });
-    const view: EditorView<typeof schema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {

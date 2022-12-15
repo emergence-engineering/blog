@@ -136,8 +136,8 @@ const RemovedLink: FunctionComponent<{ link: LinkSpec }> = ({ link }) => (
 
 const ProseMirrorLink = () => {
   const [addInput, setAddInput] = useState("new alias");
-  const [pmView, setPmView] = useState<EditorView<typeof schema>>();
-  const [pmState, setPmState] = useState<EditorState<typeof schema>>();
+  const [pmView, setPmView] = useState<EditorView>();
+  const [pmState, setPmState] = useState<EditorState>();
   const [aliases, setAliases] = useState<LinkSpec[]>([
     { alias: "typing", id: 1 },
   ]);
@@ -146,7 +146,7 @@ const ProseMirrorLink = () => {
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const state = EditorState.create<typeof schema>({
+    const state = EditorState.create({
       doc: schema.nodeFromJSON(initialDoc),
       plugins: [
         ...exampleSetup({
@@ -160,7 +160,7 @@ const ProseMirrorLink = () => {
         ),
       ],
     });
-    const view: EditorView<typeof schema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {

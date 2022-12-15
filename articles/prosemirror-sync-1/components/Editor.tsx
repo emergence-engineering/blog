@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { EditorView } from "prosemirror-view";
 import { EditorState } from "prosemirror-state";
 
-import { mySchema } from "../schema";
 import theme from "../../../utils/theme";
 import ProseMirrorDiv from "../../../features/prosemirror/ProseMirrorDiv";
 
@@ -23,8 +22,8 @@ const EditorDetailsWrapper = styled.div`
 const Editor: FunctionComponent<{
   name: string;
   id: string;
-  view?: EditorView<typeof mySchema>;
-  state?: EditorState<typeof mySchema>;
+  view?: EditorView;
+  state?: EditorState;
 }> = ({ id, view, name }) => (
   <EditorDetailsWrapper>
     <div>

@@ -2,7 +2,6 @@ import { EditorState, Transaction } from "prosemirror-state";
 import { sendableSteps } from "prosemirror-collab";
 import { EditorView } from "prosemirror-view";
 
-import { mySchema } from "./schema";
 import { ClientStep, DBCollection, DBSchema, DocID, StepStatus } from "./types";
 import { getTimestamp } from "./time";
 
@@ -10,7 +9,7 @@ export default function postNewSteps(
   view: EditorView,
   setPmState: (state: EditorState) => void,
   DB: PouchDB.Database<DBSchema>,
-  tr: Transaction<typeof mySchema>,
+  tr: Transaction,
 ) {
   const newState = view.state.apply(tr);
 

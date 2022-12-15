@@ -7,7 +7,7 @@ import { DBCollection, DBSchema, DocID, ServerStep } from "./types";
 
 const fetchNewStepsClient = (
   DB?: PouchDB.Database<DBSchema>,
-  pmView?: EditorView<typeof mySchema>,
+  pmView?: EditorView,
 ) => {
   if (!DB || !pmView) return;
   const listener = DB.changes({

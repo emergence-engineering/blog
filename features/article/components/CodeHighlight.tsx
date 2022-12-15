@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { CodeProps } from "react-markdown/lib/ast-to-react";
 
-const CodeBlock: FunctionComponent<{ className: string; value: string }> = ({
+const CodeBlock: FunctionComponent<PropsWithChildren<CodeProps>> = ({
   className,
   children,
 }) =>
@@ -12,6 +13,7 @@ const CodeBlock: FunctionComponent<{ className: string; value: string }> = ({
       style={monokaiSublime}
       showLineNumbers
     >
+      {/*@ts-ignore*/}
       {children}
     </SyntaxHighlighter>
   ) : (

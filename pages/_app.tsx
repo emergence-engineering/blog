@@ -1,10 +1,9 @@
 import React from "react";
-import App, { AppInitialProps, AppProps } from "next/app";
+import App, { AppProps } from "next/app";
 import Head from "next/head";
 import { createGlobalStyle } from "styled-components";
-import "codemirror/lib/codemirror.css";
 
-interface MyAppProps extends AppProps, AppInitialProps {}
+interface MyAppProps extends AppProps {}
 
 const GlobalStyle = createGlobalStyle`
 * {
