@@ -41,7 +41,7 @@
     "@types/react-syntax-highlighter": "^15.5.5",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.29.0",
-    "eslint-plugin-next": "^0.0.0",
+    "eslint-config-next": "^13.0.6",
     "git-commit-id": "^2.0.1",
     "husky": "^8.0.2",
     "npm-check": "^6.0.1",
