@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 import theme from "../../../utils/theme";
@@ -22,7 +22,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Layout: FunctionComponent<{ children: ReactNode }> = ({ children }) => (
+const Layout = ({ children }: PropsWithChildren) => (
   <Root>
     <Header />
     <ContentWrapper>{children}</ContentWrapper>

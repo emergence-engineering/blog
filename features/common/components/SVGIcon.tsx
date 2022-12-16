@@ -8,6 +8,6 @@ const SvgImg = styled(Image)`
 `;
 
 const SVGIcon: FunctionComponent<{ src: string }> = ({ src }) => (
-  <SvgImg src={src} height={16} width={16} />
+  <SvgImg src={src} height={16} width={16} alt="svgImage"/>
 );
 export default SVGIcon;

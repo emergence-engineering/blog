@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { FunctionComponent, useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 
 import theme from "../../utils/theme";
 import Modal from "../common/components/Modal";
@@ -18,7 +18,7 @@ const MenuItemsContainer = styled.div`
   flex-direction: column;
 `;
 
-const HamburgerMenu: FunctionComponent = ({ children }) => {
+const HamburgerMenu = ({ children }: PropsWithChildren) => {
   const [isOpened, setIsOpened] = useState(false);
   function closeMenu() {
     setIsOpened(false);

@@ -105,7 +105,13 @@ export const FacePicture: FunctionComponent<{
   src: keyof typeof Members;
 }> = ({ src }) => (
   <FacePictureWrapper>
-    <Image src={images[src]} layout="fill" placeholder="blur" />
+    <Image
+      src={images[src]}
+      placeholder="blur"
+      fill
+      sizes="100vw"
+      alt="facePic"
+    />
   </FacePictureWrapper>
 );
 const MemberName = styled.div`

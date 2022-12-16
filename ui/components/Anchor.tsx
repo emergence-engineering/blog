@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactChild } from "react";
+import React, {FunctionComponent, PropsWithChildren} from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -11,9 +11,8 @@ export const StyledAnchor = styled.a`
   height: inherit;
 `;
 
-interface AnchorProps {
+interface AnchorProps extends PropsWithChildren{
   href: string;
-  children: ReactChild;
   handleClick?: () => void;
 }
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, {PropsWithChildren} from "react";
 import styled from "styled-components";
 
 import theme from "../../utils/theme";
@@ -20,5 +20,5 @@ export interface ModalProps {
   displayed: boolean;
 }
 
-export const Modal: FunctionComponent<ModalProps> = ({ displayed, children }) =>
+export const Modal = ({ displayed, children }: PropsWithChildren<ModalProps>) =>
   displayed ? <Root>{children}</Root> : null;

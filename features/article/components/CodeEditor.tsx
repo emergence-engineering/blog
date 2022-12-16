@@ -137,7 +137,10 @@ const CodeEditor: FunctionComponent<{
               width={21}
               height={21}
               placeholder="blur"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
             <RunText>Run code</RunText>
           </RunButton>
         )}
