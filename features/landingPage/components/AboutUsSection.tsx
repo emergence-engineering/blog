@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
@@ -16,6 +15,7 @@ import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../../public/bio/norbi.png";
 import PeterImage from "../../../public/bio/peter.png";
 import PetraImage from "../../../public/bio/petra2.png";
+import { UnstyledLink } from "../../../utils/link";
 
 const Root = styled.div`
   display: flex;
@@ -166,11 +166,11 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
   href,
   faClassName,
 }) => (
-  <Link href={href} passHref>
+  <UnstyledLink href={href} passHref>
     <MemberLinkAnchor>
       <MemberLinkIcon className={faClassName} />
     </MemberLinkAnchor>
-  </Link>
+  </UnstyledLink>
 );
 
 export const Member: FunctionComponent<{
@@ -205,18 +205,18 @@ export const Member: FunctionComponent<{
         <MemberLink href={cvLink} faClassName="far fa-address-card" />
       ) : null}
       {linkedInLink ? (
-        <Link href={linkedInLink} target="_blank">
+        <UnstyledLink href={linkedInLink} target="_blank">
           <MemberLinkAnchor>
             <MemberLinkIcon className="fab fa-linkedin" />
           </MemberLinkAnchor>
-        </Link>
+        </UnstyledLink>
       ) : null}
       {githubLink ? (
-        <Link href={githubLink} target="_blank">
+        <UnstyledLink href={githubLink} target="_blank">
           <MemberLinkAnchor>
             <MemberLinkIcon className="fab fa-github-square" />
           </MemberLinkAnchor>
-        </Link>
+        </UnstyledLink>
       ) : null}
     </MemberLinkSection>
   </MemberRoot>

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
-import Link from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 // @ts-ignore
@@ -8,6 +7,7 @@ import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
+import {UnstyledLink} from "../../../utils/link";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -114,11 +114,11 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps & WithRouterProps> = (
 ) => {
   const { href, caption, router } = props;
   return (
-    <Link href={href} passHref>
+    <UnstyledLink href={href} passHref>
       <Anchor active={router.pathname.split("/")[1] === href.split("/")[1]}>
         {caption}
       </Anchor>
-    </Link>
+    </UnstyledLink>
   );
 };
 
