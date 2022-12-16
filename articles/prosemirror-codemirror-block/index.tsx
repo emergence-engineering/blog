@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
 import { applyDevTools } from "prosemirror-dev-toolkit";
