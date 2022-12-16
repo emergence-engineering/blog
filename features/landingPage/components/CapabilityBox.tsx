@@ -115,7 +115,7 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
             src={images[iconSrc]}
             height={75}
             width={75}
-            placeholder="blur"
+            // placeholder="blur"
             style={{
               maxWidth: "100%",
               height: "auto",

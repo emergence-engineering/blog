@@ -64,7 +64,13 @@ export const SalesItem: FunctionComponent<{
   return (
     <SaleItemRoot onClick={dispatchShowModal}>
       <OptionIcon>
-        <Image src={images[imgSrc]} placeholder="blur" fill sizes="100vw" alt={imgSrc}/>
+        <Image
+          src={images[imgSrc]}
+          // placeholder="blur
+          fill
+          sizes="100vw"
+          alt={imgSrc}
+        />
       </OptionIcon>
       <OptionTextRoot>
         <OptionTitle>{optionTitle}</OptionTitle>
