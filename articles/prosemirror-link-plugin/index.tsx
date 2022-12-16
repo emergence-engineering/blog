@@ -6,10 +6,9 @@ import React, {
   useEffect,
   useState,
 } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
-import { applyDevTools } from "prosemirror-dev-toolkit";
+// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { Decoration, EditorView } from "prosemirror-view";
 import styled from "styled-components";
@@ -26,7 +25,7 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import { Button } from "../../features/common/components/Button";
 import { Input } from "../../features/common/components/Input";
 import theme from "../../utils/theme";
-import { DevToolkit } from "../../features/common/components/PMUtils";
+// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { initialDoc } from "./schema";
 
@@ -47,16 +46,16 @@ const Root = styled.div`
     cursor: pointer;
   }
 `;
-
-const DevtoolsWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
-
-const DevtoolsLink = styled.a`
-  margin: 0 0.5rem;
-`;
+//
+// const DevtoolsWrapper = styled.div`
+//   display: flex;
+//   align-items: baseline;
+//   flex-wrap: wrap;
+// `;
+//
+// const DevtoolsLink = styled.a`
+//   margin: 0 0.5rem;
+// `;
 
 const VerticalWrapper = styled.div`
   display: flex;
@@ -174,7 +173,7 @@ const ProseMirrorLink = () => {
       },
     });
     setPmView(view);
-    applyDevTools(view);
+    // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -248,13 +247,13 @@ const ProseMirrorLink = () => {
           ))}
         </ChangeListWrapper>
       </div>
-      <DevtoolsWrapper>
-        Check out the document structure with
-        <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">
-          prosemirror-dev-tools:
-        </DevtoolsLink>
-        <DevToolkit />
-      </DevtoolsWrapper>
+      {/*<DevtoolsWrapper>*/}
+      {/*  Check out the document structure with*/}
+      {/*  <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">*/}
+      {/*    prosemirror-dev-tools:*/}
+      {/*  </DevtoolsLink>*/}
+      {/*  <DevToolkit />*/}
+      {/*</DevtoolsWrapper>*/}
     </Root>
   );
 };
