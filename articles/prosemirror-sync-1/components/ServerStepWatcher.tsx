@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import JsonView from "react-json-view";
+import {JsonViewer} from "@textea/json-viewer";
 
 import { ServerStep } from "../types";
 
@@ -36,7 +36,7 @@ const ServerStepWatcher: FunctionComponent<{ steps: ServerStep[] }> = ({
         <CenteredCell>{step.pmViewId}</CenteredCell>
         <CenteredCell>{step.version}</CenteredCell>
         <StepsWrapper>
-          <JsonView src={step.step} collapsed />
+          <JsonViewer value={step.step} defaultInspectDepth={0}/>
         </StepsWrapper>
       </StepRoot>
     ))}

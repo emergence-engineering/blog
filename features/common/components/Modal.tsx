@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -68,15 +68,21 @@ const ModalHeader: FunctionComponent<{
       onClick={onClose}
       width="24"
       height="24"
+      alt="close"
     />
   </ModalHeaderRoot>
 );
 
-const Modal: FunctionComponent<{
+const Modal = ({
+  onLoseFocus,
+  title,
+  fillScreen,
+  children,
+}: PropsWithChildren<{
   onLoseFocus: () => void;
   title: string;
   fillScreen?: boolean;
-}> = ({ onLoseFocus, title, fillScreen, children }) => (
+}>) => (
   <Root>
     <ModalWrapper fillScreen={fillScreen}>
       <ModalHeader title={title} onClose={onLoseFocus} />

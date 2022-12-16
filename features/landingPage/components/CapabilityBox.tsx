@@ -13,7 +13,7 @@ import SettingsImage from "../../../public/icons/settings.png";
 import PresentationImage from "../../../public/icons/presentation.png";
 import ScalaImage from "../../../public/icons/scala.png";
 import KubernetesImage from "../../../public/icons/kubernetes.png";
-import ReactImage from "../../../public/icons/react.png"
+import ReactImage from "../../../public/icons/react.png";
 
 export enum CapabilityImages {
   ProsemirrorImg = "ProsemirrorImg",
@@ -26,7 +26,7 @@ export enum CapabilityImages {
   PresentationImg = "PresentationImg",
   ScalaImg = "ScalaImg",
   KubernetesImg = "KubernetesImg",
-  ReactImg = "ReactImg"
+  ReactImg = "ReactImg",
 }
 
 const BoxRoot = styled.div`
@@ -91,7 +91,7 @@ const images = {
   [CapabilityImages.PresentationImg]: PresentationImage,
   [CapabilityImages.ScalaImg]: ScalaImage,
   [CapabilityImages.KubernetesImg]: KubernetesImage,
-  [CapabilityImages.ReactImg]: ReactImage
+  [CapabilityImages.ReactImg]: ReactImage,
 };
 
 interface SkillBoxProps {
@@ -111,10 +111,15 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
         <TitleContainer>{title}</TitleContainer>
         <ImgWrapper>
           <Image
+            alt="capabilityImage"
             src={images[iconSrc]}
             height={75}
             width={75}
-            placeholder="blur"
+            // placeholder="blur"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
           />
         </ImgWrapper>
       </HeaderRow>

@@ -1,11 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { applyDevTools } from "prosemirror-dev-toolkit";
+// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import {
@@ -18,7 +16,7 @@ import { MenuItem } from "prosemirror-menu";
 import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-import { DevToolkit } from "../../features/common/components/PMUtils";
+// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { initialDoc, imageSchema, imagePluginSettings } from "./schema";
 
@@ -121,16 +119,16 @@ const Root = styled.div`
     text-align: center;
   }
 `;
-
-const DevtoolsWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
-
-const DevtoolsLink = styled.a`
-  margin: 0 0.5rem;
-`;
+//
+// const DevtoolsWrapper = styled.div`
+//   display: flex;
+//   align-items: baseline;
+//   flex-wrap: wrap;
+// `;
+//
+// const DevtoolsLink = styled.a`
+//   margin: 0 0.5rem;
+// `;
 
 const ProseMirrorLatex = () => {
   const [pmState, setPmState] = useState<EditorState>();
@@ -166,7 +164,7 @@ const ProseMirrorLatex = () => {
       },
     });
     setPmView(view);
-    applyDevTools(view);
+    // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -197,13 +195,13 @@ const ProseMirrorLatex = () => {
     <Root>
       <input type="file" id="imageselector" onChange={onInputChange} />
       <ProseMirrorDiv id="editor" />
-      <DevtoolsWrapper>
-        Check out the document structure with
-        <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">
-          prosemirror-dev-toolkit:
-        </DevtoolsLink>
-        <DevToolkit />
-      </DevtoolsWrapper>
+      {/*<DevtoolsWrapper>*/}
+      {/*  Check out the document structure with*/}
+      {/*  <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">*/}
+      {/*    prosemirror-dev-toolkit:*/}
+      {/*  </DevtoolsLink>*/}
+      {/*  <DevToolkit />*/}
+      {/*</DevtoolsWrapper>*/}
     </Root>
   );
 };

@@ -1,8 +1,8 @@
-import React, { FunctionComponent, ReactChild } from "react";
-import Link from "next/link";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import styled from "styled-components";
+import { UnstyledLink } from "../../utils/link";
 
-export const StyledAnchor = styled.a`
+export const StyledAnchor = styled.div`
   text-decoration: inherit;
   color: inherit;
   cursor: pointer;
@@ -11,9 +11,8 @@ export const StyledAnchor = styled.a`
   height: inherit;
 `;
 
-interface AnchorProps {
+interface AnchorProps extends PropsWithChildren {
   href: string;
-  children: ReactChild;
   handleClick?: () => void;
 }
 
@@ -22,13 +21,13 @@ const Anchor: FunctionComponent<AnchorProps> = ({
   children,
   handleClick,
 }) => (
-  <Link href={href} passHref>
+  <UnstyledLink href={href} passHref>
     {handleClick ? (
       <StyledAnchor onClick={handleClick}>{children}</StyledAnchor>
     ) : (
       <StyledAnchor>{children}</StyledAnchor>
     )}
-  </Link>
+  </UnstyledLink>
 );
 
 export default Anchor;

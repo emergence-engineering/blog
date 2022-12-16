@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
-import Link from "next/link";
 
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
 import SVGIcon from "../../common/components/SVGIcon";
 import Markdown from "../../article/components/Markdown";
 import theme from "../../../utils/theme";
 import { ArticleIntro } from "../../article/types";
+import { UnstyledLink } from "../../../utils/link";
 
-const ReadMoreLink = styled.a`
+const ReadMoreLink = styled.div`
   text-decoration: none;
   cursor: pointer;
   font-family: ${theme.fontFamily.title};
@@ -78,9 +78,9 @@ export const BlogPostIntro: FunctionComponent<ArticleIntro> = (props) => {
       <BlogPostIntroText>
         <Markdown source={introText} />
       </BlogPostIntroText>
-      <Link href={`/blog/${postId}`} passHref>
+      <UnstyledLink href={`/blog/${postId}`} passHref>
         <ReadMoreLink>Read more...</ReadMoreLink>
-      </Link>
+      </UnstyledLink>
     </Root>
   );
 };

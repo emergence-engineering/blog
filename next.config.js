@@ -13,6 +13,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   publicRuntimeConfig: {
     // Will be available on both server and client
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,

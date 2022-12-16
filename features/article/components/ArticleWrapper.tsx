@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, {PropsWithChildren} from "react";
 import styled from "styled-components";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
@@ -54,7 +54,7 @@ const BlogContent = styled.section`
   }
 `;
 
-const ArticleWrapper: FunctionComponent = ({ children }) => (
+const ArticleWrapper = ({ children }: PropsWithChildren) => (
   <Layout>
     <Root>
       <BlogContent>{children}</BlogContent>
