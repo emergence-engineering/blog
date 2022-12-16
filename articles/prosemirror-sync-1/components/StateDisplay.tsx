@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import JsonView from "react-json-view";
+import { JsonViewer } from "@textea/json-viewer";
 
 import { PMDocument } from "../types";
 
@@ -10,7 +10,7 @@ const StateDisplay: FunctionComponent<{ serverDoc?: PMDocument }> = ({
     <div>
       <em>Server version</em>: {serverDoc?.version}
     </div>
-    <div>{serverDoc && <JsonView src={serverDoc.doc} collapsed={2} />}</div>
+    <div>{serverDoc && <JsonViewer value={serverDoc.doc} defaultInspectDepth={2}/>}</div>
   </div>
 );
 

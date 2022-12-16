@@ -145,7 +145,7 @@ const MemberLinkSection = styled.div`
   margin-top: 0.2rem;
 `;
 
-const MemberLinkAnchor = styled.a`
+const MemberLinkAnchor = styled.div`
   color: ${theme.color.gray1};
   text-decoration: none;
   cursor: pointer;
@@ -205,14 +205,18 @@ export const Member: FunctionComponent<{
         <MemberLink href={cvLink} faClassName="far fa-address-card" />
       ) : null}
       {linkedInLink ? (
-        <MemberLinkAnchor href={linkedInLink} target="_blank">
-          <MemberLinkIcon className="fab fa-linkedin" />
-        </MemberLinkAnchor>
+        <Link href={linkedInLink} target="_blank">
+          <MemberLinkAnchor>
+            <MemberLinkIcon className="fab fa-linkedin" />
+          </MemberLinkAnchor>
+        </Link>
       ) : null}
       {githubLink ? (
-        <MemberLinkAnchor href={githubLink} target="_blank">
-          <MemberLinkIcon className="fab fa-github-square" />
-        </MemberLinkAnchor>
+        <Link href={githubLink} target="_blank">
+          <MemberLinkAnchor>
+            <MemberLinkIcon className="fab fa-github-square" />
+          </MemberLinkAnchor>
+        </Link>
       ) : null}
     </MemberLinkSection>
   </MemberRoot>

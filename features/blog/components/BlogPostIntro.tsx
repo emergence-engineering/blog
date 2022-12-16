@@ -8,7 +8,7 @@ import Markdown from "../../article/components/Markdown";
 import theme from "../../../utils/theme";
 import { ArticleIntro } from "../../article/types";
 
-const ReadMoreLink = styled.a`
+const ReadMoreLink = styled.div`
   text-decoration: none;
   cursor: pointer;
   font-family: ${theme.fontFamily.title};

@@ -3,7 +3,6 @@ import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactHeadroom from "react-headroom";
 
@@ -66,7 +65,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Anchor = styled.a<{ active: boolean }>`
+const Anchor = styled.div<{ active: boolean }>`
   color: ${({ active }) => (active ? theme.color.gray11 : theme.color.gray1)};
   cursor: pointer;
   margin: 0 10px;
