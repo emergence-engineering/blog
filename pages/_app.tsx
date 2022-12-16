@@ -12,10 +12,6 @@ box-sizing: border-box;
 `;
 
 class MyApp extends App<MyAppProps> {
-  state = {
-    gaInitialized: false,
-  };
-
   render() {
     const { Component, pageProps } = this.props;
     return (
