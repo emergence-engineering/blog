@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Button } from "../../common/components/Button";
 import theme from "../../../utils/theme";
 import CircleFilled from "../../../public/play_circle_filled-24px.png";
-import {evalFn} from "../../../utils/eval";
+import { evalFn } from "../../../utils/eval";
 
 const Loading = styled.div`
   height: 100%;
@@ -88,10 +88,13 @@ const CodeEditor: FunctionComponent<{
   const [code, setCode] = useState(value);
   const [codeError, setCodeError] = useState("");
   const [scriptResult, setScriptResult] = useState("");
-  const codeChange = useCallback((text: string) => {
-    setCode(text);
-    if (onChange) onChange(text);
-  }, [onChange]);
+  const codeChange = useCallback(
+    (text: string) => {
+      setCode(text);
+      if (onChange) onChange(text);
+    },
+    [onChange],
+  );
 
   // @ts-ignore
   const newConsole = useMemo(
@@ -112,7 +115,7 @@ const CodeEditor: FunctionComponent<{
       // eslint-disable-next-line no-eval
       const result = evalFn(
         `${hiddenCode || ""}\n${code}`.replace(/console/g, "newConsole"),
-        newConsole
+        newConsole,
       );
       setScriptResult(result);
       setLogResult(
@@ -136,11 +139,11 @@ const CodeEditor: FunctionComponent<{
               src={CircleFilled}
               width={21}
               height={21}
-              placeholder="blur"
               style={{
                 maxWidth: "100%",
-                height: "auto"
-              }} />
+                height: "auto",
+              }}
+            />
             <RunText>Run code</RunText>
           </RunButton>
         )}
