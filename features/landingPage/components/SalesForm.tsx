@@ -40,6 +40,7 @@ const createClickHandler =
     callback(value);
   };
 
+
 const SalesForm: FunctionComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -61,6 +62,8 @@ const SalesForm: FunctionComponent = () => {
   const submitHandler = useCallback(
     async (evt: SyntheticEvent) => {
       evt.preventDefault();
+
+
       if (!isCaptchaVerified) {
         setNoticeVisibility({
           message: "Please verify that you are not a bot!",
@@ -92,6 +95,7 @@ const SalesForm: FunctionComponent = () => {
     },
     [isCaptchaVerified, email, firstName, lastName, subject, message],
   );
+
 
   const verifyCallback = useCallback(() => {
     setCaptchaVerified(true);
