@@ -8,6 +8,7 @@ import { SalesItem } from "./SalesItem";
 import { SalesModal } from "./SalesModal";
 
 const Root = styled.div`
+  margin-top: 2rem;
   background: ${theme.color.gray11};
   padding: 1rem;
   color: ${theme.color.gray1};
@@ -64,7 +65,7 @@ const SalesBox: FunctionComponent = () => {
         />
         <SalesItem
           imgSrc="target"
-          optionTitle="Hire us to build the product you desire"
+          optionTitle="Hire us to build your product"
           optionDescription={`
         Hire an individual or a team of developers to solve build your product. 
         We can integrate into an ongoing project, or kick off and layout the foundations of an entirely new solution.
