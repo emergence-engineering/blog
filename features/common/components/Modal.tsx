@@ -52,6 +52,7 @@ const ModalTitle = styled.div`
   font-family: ${theme.fontFamily.title};
   font-weight: 800;
   font-size: 2rem;
+  color: ${theme.color.gray1};
 `;
 const CloseIcon = styled(Image)`
   cursor: pointer;

@@ -7,7 +7,7 @@ import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
-import {UnstyledLink} from "../../../utils/link";
+import { UnstyledLink } from "../../../utils/link";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -20,14 +20,15 @@ const Root = styled.div`
   color: white;
   height: 100px;
   align-items: center;
-  justify-content: center;
   padding: 0 ${sizes.sidePadding};
   border-bottom-style: solid;
   border-bottom-width: thin;
   border-bottom-color: ${theme.color.gray8};
 `;
 
-const LeftContainer = styled.div``;
+const LeftContainer = styled.div`
+  flex-grow: 1;
+`;
 
 const RightContainer = styled.div`
   display: flex;
@@ -50,6 +51,10 @@ const SiteTitle = styled.a`
   }
 `;
 
+const Logo = styled.img.attrs({ src: "/ee-logo.svg" })`
+  height: 3rem;
+`;
+
 const ContentWrapper = styled.div`
   @media screen and (min-width: ${screenSizes.extraLarge}px) {
     padding-left: 10.5%;
@@ -61,7 +66,7 @@ const ContentWrapper = styled.div`
   }
   flex-grow: 1;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 `;
 
@@ -144,7 +149,9 @@ const Header: FunctionComponent = () => (
     <Root>
       <ContentWrapper>
         <LeftContainer>
-          <SiteTitle href="/">Emergence Engineering</SiteTitle>
+          <SiteTitle href="/">
+            <Logo />
+          </SiteTitle>
         </LeftContainer>
         <RightContainer>
           <BigScreenContainer>

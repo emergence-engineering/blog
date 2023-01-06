@@ -5,8 +5,6 @@ import Layout from "../../features/common/components/Layout";
 import {
   BlogPostIntro,
   BlogSEO,
-  CommunityBlogItem,
-  CommunityBlogs,
 } from "../../features/blog/components";
 import theme, { screenSizes, sizes } from "../../utils/theme";
 
@@ -39,38 +37,39 @@ const ContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-const CommunityBlogRoot = styled.div`
-  padding: 0.5rem 2rem;
-  border-radius: 0.2rem;
-  border-style: solid;
-  border-color: ${theme.color.gray7};
-  border-width: thin;
-  margin-top: 4rem;
-`;
+// 23 jan 06 - removed this section
+// const CommunityBlogRoot = styled.div`
+//   padding: 0.5rem 2rem;
+//   border-radius: 0.2rem;
+//   border-style: solid;
+//   border-color: ${theme.color.gray7};
+//   border-width: thin;
+//   margin-top: 4rem;
+// `;
 
-const CommunityBlogSection: FunctionComponent = () => (
-  <CommunityBlogRoot>
-    <h1>Follow us on community blog sites as well</h1>
-    <CommunityBlogs>
-      <CommunityBlogItem
-        faIconName="fab fa-medium"
-        caption="On Medium.com"
-        href="https://medium.com/@emergence_engineering"
-      />
-      <CommunityBlogItem
-        faIconName="fab fa-dev"
-        caption="On Dev.to"
-        href="https://dev.to/emergence"
-      />
-    </CommunityBlogs>
-  </CommunityBlogRoot>
-);
+// 23 jan 06 - removed this section
+// const CommunityBlogSection: FunctionComponent = () => (
+//   <CommunityBlogRoot>
+//     <Title>Follow us on community blog sites as well</Title>
+//     <CommunityBlogs>
+//       <CommunityBlogItem
+//         faIconName="fab fa-medium"
+//         caption="On Medium.com"
+//         href="https://medium.com/@emergence_engineering"
+//       />
+//       <CommunityBlogItem
+//         faIconName="fab fa-dev"
+//         caption="On Dev.to"
+//         href="https://dev.to/emergence"
+//       />
+//     </CommunityBlogs>
+//   </CommunityBlogRoot>
+// );
 
 const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
-      <CommunityBlogSection />
       <ContentWrapper>
         <BlogPostIntro {...article8Metadata} />
       </ContentWrapper>
