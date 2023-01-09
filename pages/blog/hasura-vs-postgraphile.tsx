@@ -6,7 +6,7 @@ import SalesBox from "../../features/article/components/SalesBox";
 import React from "react";
 
 export const MD0 = `
-# A year after we chose to go with Postgraphile over Hasura in production
+# A year after we chose to go with PostGraphile over Hasura in production
 
 # TLDR
 
@@ -25,7 +25,7 @@ We needed a GraphQL API in front of our Postgres database with a few criteria:
 
 # First steps
 
-Usually with requirements like the ones mentioned above our go to database would be Firestore but this time we had to use Postgres for other reasons. (I didn’t really mind this because Postgres is my favourite database.) We created a POC for both Postgraphile and Hasura and made a decision based on our experiences. Now after more than a year we still think that going with Posgraphile was a good choice. Don’t get me wrong Hasura is a great tool and might be a good fit four your project. 
+Usually with requirements like the ones mentioned above our go to database would be Firestore but this time we had to use Postgres for other reasons. (I didn’t really mind this because Postgres is my favourite database.) We created a POC for both PostGraphile and Hasura and made a decision based on our experiences. Now after more than a year we still think that going with Posgraphile was a good choice. Don’t get me wrong Hasura is a great tool and might be a good fit four your project. 
 
 # Hasura
 
@@ -41,7 +41,7 @@ Usually with requirements like the ones mentioned above our go to database would
 - When we tested it there was no support for M1 Macs. The official Hasura docker image wasn’t working on M1 Macs. So we had a couple of options to mitigate it and non of the felt very good. Use a non-official docker image for half of our time and risk that some difference will only show up in our dev environment. Don’t use a local environment for development. Compile the Hasura ourselfs for M1.
 - Under the hood Hasura is very complex. Hasura is shipped as a payed service or a docker image for self hosting. In theory you can fork Hasura and edit it’s sources, but the codebase consists of TypeScript, Haskell and Go built with a Makefile system. Their design philosophy is the follwing. They support most of the industry standards like Postgres row-level security out of the box. But if you want custom logic inside Hasura let’s say for some special protocol to handle an edge case with user authorisation then you can attach a webhook inside the UI and Hasura will comply to whatever your service answers.
 
-# Postgrephile
+# PostGraphile
 
 ### Pros
 
@@ -58,18 +58,18 @@ Usually with requirements like the ones mentioned above our go to database would
 
 # Discussion
 
-So we wighted what’s important to us and as the title suggests we went with Postgrephile. I’m sure some of you reading this article would choose Hasura based on the same pros and cons. For us the Hasura UI was really tempting but the simplicity of Postgrephile won at the end of the day.
+So we wighted what’s important to us and as the title suggests we went with PostGraphile. I’m sure some of you reading this article would choose Hasura based on the same pros and cons. For us the Hasura UI was really tempting but the simplicity of PostGraphile won at the end of the day.
 `
 
 export const article8Metadata: ArticleIntro = {
-  title: `A year after we chose to go with Postgraphile over Hasura in production`,
+  title: `A year after we chose to go with PostGraphile over Hasura in production`,
   postId: "hasura-vs-postgraphile",
   url: "https://emergence-engineering.com/blog/hasura-vs-postgraphile",
   imgSrc: undefined,
   author: "Balázs",
   timestamp: 1672999080350,
   authorLink: "https://emergence-engineering.com/cv/balazs",
-  introText: "Summarising our experiences of using Postgraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
+  introText: "Summarising our experiences of using PostGraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
 }
 
 export default function Article() {
