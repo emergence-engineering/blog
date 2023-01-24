@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import { RepoItem, Repos } from "../features/reference/Repo";
-import { screenSizes, sizes } from "../utils/theme";
+import theme, { screenSizes, sizes } from "../utils/theme";
 import Layout from "../features/common/components/Layout";
 
 const Root = styled.div`
@@ -10,7 +10,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.background2};
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
 `;

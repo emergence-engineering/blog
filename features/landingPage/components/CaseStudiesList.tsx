@@ -4,7 +4,7 @@ import styled from "styled-components";
 import theme, { screenSizes } from "../../../utils/theme";
 import ScandalInBelgraviaImg from "../../../public/casestudies/scandal_in_belgravia.png";
 import AbominableBrideImg from "../../../public/casestudies/abominable_bride.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 const Root = styled.div`
@@ -13,7 +13,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.background2};
   width: 100%;
   padding: 4rem;
 

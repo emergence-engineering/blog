@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { screenSizes, sizes } from "../utils/theme";
+import theme, { screenSizes, sizes } from "../utils/theme";
 import Layout from "../features/common/components/Layout";
 import {Member, Members} from "../features/landingPage/components/AboutUsSection";
 import { TeamSEO } from "../features/blog/components/TEAMSEO";
@@ -11,7 +11,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.background2};
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
 `;

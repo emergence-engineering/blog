@@ -23,7 +23,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.gray11};
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
   padding: 4rem ${sizes.sidePadding};

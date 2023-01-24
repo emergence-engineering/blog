@@ -15,7 +15,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.background2};
   padding: 1rem ${sizes.sidePadding};
   width: 100%;
   @media screen and (max-width: ${screenSizes.small}px) {

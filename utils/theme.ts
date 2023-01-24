@@ -15,6 +15,7 @@ export default {
   // https://www.colourlovers.com/palette/92095/Giant_Goldfish
   color: {
     background: "#FBFBFB",
+    background2: "#ecd2d20d",
     white: "#ffffff",
     fontWhite: "#FEFEFE",
     primary: "#76b8cd",
