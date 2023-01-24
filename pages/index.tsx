@@ -12,6 +12,7 @@ import { Separator } from "../features/common/components/Separator";
 import { LPSEO } from "../features/blog/components/LPSEO";
 import WhatWeDoSection from "../features/landingPage/components/WhatWeDo";
 import AboutUsSection from "../features/landingPage/components/AboutUsSection";
+import References from "../features/landingPage/components/References";
 
 const mainParagraphContent = `Emergence Engineering is a full-stack software development company from Budapest (EU).`;
 
@@ -33,14 +34,15 @@ export default function Index() {
       <Separator
         height={0.2}
         color={theme.color.tertiary}
-        backGroundColor={theme.color.gray11}
+        backGroundColor={theme.color.background2}
       />
+      <References />
       <Separator
         height={0.2}
         color={theme.color.tertiary}
         backGroundColor={theme.color.gray11}
       />
-        <AboutUsSection/>
+      <AboutUsSection />
       <Separator
         height={0.2}
         color={theme.color.tertiary}
