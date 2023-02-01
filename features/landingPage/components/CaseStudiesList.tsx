@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import theme, { screenSizes } from "../../../utils/theme";
-import ScandalInBelgraviaImg from "../../../public/casestudies/scandal_in_belgravia.png";
-import AbominableBrideImg from "../../../public/casestudies/abominable_bride.png";
+import SzamlaBridgheImg from "../../../public/casestudies/szamlabridge.svg";
+import PlaceOfCardsImg from "../../../public/casestudies/placeOfCards.png";
+import DiscordGitBotImg from "../../../public/casestudies/discordGitBot.png";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -13,7 +14,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: ${theme.color.background2};
+  background-color: ${theme.color.white};
   width: 100%;
   padding: 4rem;
 
@@ -42,9 +43,9 @@ const CaseStudy = styled.div`
   column-gap: 1.5rem;
   row-gap: 1rem;
   margin-top: 2rem;
-  box-shadow: 4px 7px 6px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   border-radius: 5px;
+  border: 1px solid ${theme.color.gray8};
 `;
 
 const PictureContainer = styled.div`
@@ -60,7 +61,7 @@ const PictureWrapper = styled.div`
   align-self: center;
 
   img {
-    border-radius: 50%;
+    //border-radius: 50%;
     width: 100%;
     height: 100%;
     flex: 1;
@@ -96,6 +97,15 @@ const CaseStudyDescr = styled.div`
   text-align: justify;
 `;
 
+const LinkWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  min-width: 100%;
+  max-width: 100%;
+  justify-content: flex-end;
+  flex-grow: 1;
+`;
+
 const Arrow = styled.img.attrs({ src: "/casestudies/arrow.svg" })`
   width: 2rem;
   height: 2rem;
@@ -103,46 +113,65 @@ const Arrow = styled.img.attrs({ src: "/casestudies/arrow.svg" })`
   cursor: pointer;
 `;
 
+const Description = styled.div`
+  max-width: 75%;
+  min-width: 18rem;
+  font-family: ${theme.fontFamily.general};
+  font-weight: 300;
+  font-size: 16pt;
+  color: ${theme.color.gray1};
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+`;
+
 interface CaseStudiesHave {
   img: StaticImageData;
   title: string;
   skills: string;
   descr: string;
+  link?: string;
 }
 
 type ListOfWhatTheyHave = CaseStudiesHave[];
 
+const caseStudies: ListOfWhatTheyHave = [
+  {
+    img: PlaceOfCardsImg,
+    title: "Place of Cards",
+    skills: "Place-card editor website",
+    descr: `Website integrated with automatic invoicing system, a payment system and a printing as a service provider. The user can also create printable Placecards PDSs within a few clicks. The in-browser customization tool is available to customise templates and choose the one that best fits her big day.`,
+    link: "https://www.placeofcards.com",
+  },
+  {
+    img: SzamlaBridgheImg,
+    title: "SzamlaBridge",
+    skills: "SaaS for bridging payment providers with invoicing services",
+    descr:
+      "Szamlabridge (beta) provides an admin interface and an API to connect payment services like Stripe to corporate invoicing platforms.",
+  },
+  {
+    img: DiscordGitBotImg,
+    title: "Discord Git Bot",
+    skills:
+      "A Discord robot that notifies your team when change happened in the codebase",
+    descr: `A lightweight and very easy to use Discord to Github webhook integration written in Elixir using Phoenix Liveview `,
+    link: "https://www.discordgitbot.com",
+  },
+];
+
+const descriptionText = `Here are a few of our own products. All of them were designed, developed and marketed by us. Currently we don't have case studies for the work that we are doing for our clients, but if you are interested in our references just contact someone on LinkedIn from the "Clients said about us" section on our landing page.`
+
 export default function CaseStudiesList() {
-  const caseStudies: ListOfWhatTheyHave = [
-    {
-      img: ScandalInBelgraviaImg,
-      title: "A SCANDAL IN BELGRAVIA",
-      skills: "WordPress, MySQL, CPT UI, ACF, Yoast SEO, HTML5/CSS3",
-      descr:
-        "The episode depicts Sherlock Holmes' (Benedict Cumberbatch) confrontation with Irene Adler (Lara Pulver), " +
-        "a dominatrix who has compromising photographs taken with a female member of the royal family. " +
-        "The photographs are stored inside her mobile phone, along with other valuable information. ",
-    },
-    {
-      img: AbominableBrideImg,
-      title: "THE ABOMINABLE BRIDE",
-      skills: "Java, Spring Boot, MongoDB, Oracle, Angular",
-      descr:
-        "Sherlock, under the influence of drugs, enters his mind palace to solve a case from Victorian times " +
-        "about a bride shooting herself in the head and rising from the grave to kill her husband. " +
-        "If he can solve the murder it might lead him to how Moriarty has risen from the grave after similarly shooting himself " +
-        "in the head. He solves the case, and concludes that Moriarty is indeed dead, but 'knows his next move'. ",
-    },
-  ];
 
   return (
     <Root>
       <Title>Case studies</Title>
       <CaseStudiesWrapper>
-
+        <Description>
+          {descriptionText}
+        </Description>
         {caseStudies.map((project) => (
-          <CaseStudy>
-
+          <CaseStudy key={project.title.toLowerCase()}>
             <PictureContainer>
               <PictureWrapper>
                 <Image src={project.img} alt="sorry" />
@@ -153,14 +182,16 @@ export default function CaseStudiesList() {
               <CaseStudyTitle>{project.title}</CaseStudyTitle>
               <CaseStudySkills>{project.skills}</CaseStudySkills>
               <CaseStudyDescr>{project.descr}</CaseStudyDescr>
-              <Link href={"/"} passHref>
-                <Arrow />
-              </Link>
+              {project?.link && (
+                <LinkWrapper>
+                  <Link href={project.link} passHref>
+                    <Arrow />
+                  </Link>
+                </LinkWrapper>
+              )}
             </TextWrapper>
-
           </CaseStudy>
         ))}
-
       </CaseStudiesWrapper>
     </Root>
   );

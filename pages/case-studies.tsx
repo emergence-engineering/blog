@@ -4,7 +4,7 @@ import { LPSEO } from "../features/blog/components/LPSEO";
 import CaseStudiesList from "../features/landingPage/components/CaseStudiesList";
 
 
-export default function CaseStudiesIndex() {
+export default function CaseStudies() {
     return (
         <Layout>
             <LPSEO />
