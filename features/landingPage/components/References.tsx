@@ -13,6 +13,9 @@ import AndrewPhoto from "../../../public/partners/andrew.jpeg";
 import BenPhoto from "../../../public/partners/ben.jpeg";
 import SandeepPhoto from "../../../public/partners/sandeep.jpeg";
 import OlegPhoto from "../../../public/partners/oleg.jpeg";
+import AchillesPhoto from "../../../public/partners/achilles.png"
+import MarcPhoto from "../../../public/partners/marc.jpeg"
+import GregPhoto from "../../../public/partners/greg.jpeg"
 import { clickable } from "../../../utils/mixins";
 
 const Root = styled.div`
@@ -176,13 +179,27 @@ const References: FunctionComponent = () => {
   const Partners = [
     {
       partnerId: 0,
+      src: GregPhoto,
+      partnerName: "Greg Detre",
+      partnerJob: "Consultant, Chief Data Scientist & CTO",
+      saysThat: "I have chosen to work with Emergence Engineering on every one of my last 3 major projects. They are incredibly smart, you can trust them, and they’re great to work with. I cannot recommend them highly enough."
+    },
+    {
+      partnerId: 1,
+      src: MarcPhoto,
+      partnerName: "Marc Zao-Sanders",
+      partnerJob: "CEO at Filtered",
+      saysThat: "We've worked with Emergence for three years and it's been wonderful. They helped us build a product from a basic prototype to a full enterprise SaaS offering, with speed, quality and a sense of fun. Balázs and several others in the team are a joy to work with. I can't recommend them more highly"
+    },
+    {
+      partnerId: 2,
       src: BenPhoto,
       partnerName: "Ben Whately",
       partnerJob: "Entrepreneur & Startup Investor, Speaker",
       saysThat: `Emergence are exceptional. For any new projects and products they are my go-to dev house. They work fast and to super high quality They have the rare ability to understand the needs of early stage product discovery as well as the ability to build robust, high quality applications that will scale.`,
     },
     {
-      partnerId: 1,
+      partnerId: 3,
       src: AndrewPhoto,
       partnerName: "Andrew Milich",
       partnerJob: "co-founder & CEO at Skiff",
@@ -192,22 +209,22 @@ const References: FunctionComponent = () => {
       `,
     },
     {
-      partnerId: 2,
+      partnerId: 4,
       src: OlegPhoto,
       partnerName: "Oleg Zaremba",
       partnerJob: "CTO at Axdraft",
       saysThat: `Emergence Engineering helped our team move faster during a crucial moment of our product development. Their ProseMirror expertise paired with great communication skills resulted in a great working realtionship.`,
     },
     {
-      partnerId: 3,
+      partnerId: 5,
       src: SandeepPhoto,
       partnerName: "Sandeep Kamath",
       partnerJob: "founder at Swaralink",
       saysThat: `The Emergence Engineering Team was very helpful in developing a Node.js script for a manufacturing test system for a Bluetooth product`,
     },
     {
-      partnerId: 4,
-      src: undefined,
+      partnerId: 6,
+      src: AchillesPhoto,
       partnerName: "Achilles Schmelzer",
       partnerJob: "CTO at relay.cc",
       saysThat:
@@ -228,7 +245,7 @@ const References: FunctionComponent = () => {
   const autoplayRef = useRef<any>();
 
   const settings = {
-    maxPartners: 5,
+    maxPartners: 7,
     speed: 1000,
     autoplay: true,
     autoplaySpeed: 10000,
@@ -299,26 +316,13 @@ const References: FunctionComponent = () => {
       </SectionContentRoot>
 
       <JumpLinkCont>
-        <JumpLink
-          active={currentlyShowedPartnerId === 0}
-          onClick={() => goToPartner(0)}
-        />
-        <JumpLink
-          active={currentlyShowedPartnerId === 1}
-          onClick={() => goToPartner(1)}
-        />
-        <JumpLink
-          active={currentlyShowedPartnerId === 2}
-          onClick={() => goToPartner(2)}
-        />
-        <JumpLink
-          active={currentlyShowedPartnerId === 3}
-          onClick={() => goToPartner(3)}
-        />
-        <JumpLink
-          active={currentlyShowedPartnerId === 4}
-          onClick={() => goToPartner(4)}
-        />
+        {Partners.map(({partnerId}) => (
+          <JumpLink
+            key={partnerId}
+            active={currentlyShowedPartnerId === partnerId}
+            onClick={() => goToPartner(partnerId)}
+          />
+        ))}
       </JumpLinkCont>
     </Root>
   );
