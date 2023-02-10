@@ -44,7 +44,7 @@ The architecture consists of three dockerised services inside Docker Compose. Ad
 
 We use Makefiles to manage our services below is the output of \`make help\`:
 
-\`\`\`bash
+\`\`\`text
 *** ALL SERVICES DIRECTIVES 
                      
 up:                  spins up all the services (if image does not exists it will create one)
