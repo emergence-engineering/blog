@@ -73,16 +73,16 @@ When starting services we have to mind that a service maybe dependent on another
 \`\`\`yaml
 services:
   db:
-\t\t...
+    ...
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
-\tpostgraphile:
-\t\t\t...
-\t    depends_on:
-\t      - db
-\tui:
-\t    depends_on:
-\t      - postgraphile
+    test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+  postgraphile:
+    ...
+    depends_on:
+      - db
+  ui:
+    depends_on:
+      - postgraphile
 \`\`\`
 
 This just tells Docker compose the order that it needs to start and stop services, but some services need additional information. In general this happens when a service is started but still must do something before downstream services can actively rely on it. To mitigate this in our Docker Compose file each service has a starter Bash script. For example in a starter Bash script you can poll either the healthcheck, version or a custom endpoint of the required service before you start your own service.
