@@ -35,13 +35,16 @@ I omitted a few things from the example:
 ## Architecture
 
 The architecture consists of three dockerised services inside Docker Compose. Additionally we have Makefile that helps managing these services.
+
 ![architecture_image](/postgres-nextjs-architecture.svg)
+
+ So the idea is that Next.js provides a full-stack React server. The browser (or the server side) React code communicates with PostGraphile. PostGraphile watches Postgres and provides CRUD GraphQL resolvers and also a typed GraphQL schema for all tables. We are also using using Apollo's code generation tool for React that watches the typed GraphQL schema from PostGraphile and generates TypesCript bindings. In summary **we instantly get up-to date TS types and TS CRUD methods without any manual work** for all tables and GraphQL CRUD resolvers (queries, mutations, subscriptions) operating on said tables.
 
 ## Makefiles
 
 We use Makefiles to manage our services below is the output of \`make help\`:
 
-\`\`\`bash
+\`\`\`text
 *** ALL SERVICES DIRECTIVES 
                      
 up:                  spins up all the services (if image does not exists it will create one)
