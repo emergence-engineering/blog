@@ -187,7 +187,7 @@ export const article9Metadata: ArticleIntro = {
   title: `Building a production ready Next.js+PostGraphile architecture`,
   postId: "nextjs-postgraphile",
   url: "https://emergence-engineering.com/blog/nextjs-postgraphile",
-  imgSrc: "https://emergence-engineering.com/postgres-nextjs-architecture.svg",
+  imgSrc: "https://emergence-engineering.com/postgraphile-infra-article-og.png",
   author: "Balázs",
   timestamp: 1675437276962,
   authorLink: "https://emergence-engineering.com/cv/balazs",
