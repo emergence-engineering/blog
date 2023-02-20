@@ -131,6 +131,13 @@ export default function Team() {
                 memberStack=""
                 memberWorkArea=""
             />
+            <Member
+                src="kata"
+                memberName="Katalin Zsófia Csillag"
+                memberRole="front-end developer"
+                memberStack="React CSS HTML"
+                memberWorkArea=""
+            />
           </TeamMembers>
         </Content>
       </Root>
