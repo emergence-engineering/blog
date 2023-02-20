@@ -16,6 +16,7 @@ import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../../public/bio/norbi.png";
 import PeterImage from "../../../public/bio/peter.png";
 import PetraImage from "../../../public/bio/petra2.png";
+import KataImage from "../../../public/bio/kata.jpg"
 
 const Root = styled.div`
   display: flex;
@@ -84,6 +85,7 @@ export enum Members {
   norbi = "norbi",
   peter = "peter",
   petra = "petra",
+    kata = "kata"
 }
 
 const images = {
@@ -99,6 +101,7 @@ const images = {
   [Members.norbi]: NorbiImage,
   [Members.peter]: PeterImage,
   [Members.petra]: PetraImage,
+    [Members.kata]: KataImage,
 };
 
 export const FacePicture: FunctionComponent<{
