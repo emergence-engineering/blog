@@ -5,21 +5,19 @@ import React, {
   useMemo,
   useState,
 } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { applyDevTools } from "prosemirror-dev-toolkit";
+// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { imagePlugin, startImageUpload } from "prosemirror-image-plugin";
-import { NodeType, Schema } from "prosemirror-model";
+import { NodeType } from "prosemirror-model";
 import { MenuItem } from "prosemirror-menu";
 import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-import { DevToolkit } from "../../features/common/components/PMUtils";
+// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { createPluginSettings, createSchema } from "./schema";
 import { createBlockImageDoc, inlineImageDoc } from "./initialDocs";
@@ -80,15 +78,15 @@ const Root = styled.div<{ withResize: boolean; sideResize: boolean }>`
   ${({ sideResize }) => sideResize && sideResizeStyle}
 `;
 
-const DevtoolsWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
-
-const DevtoolsLink = styled.a`
-  margin: 0 0.5rem;
-`;
+// const DevtoolsWrapper = styled.div`
+//   display: flex;
+//   align-items: baseline;
+//   flex-wrap: wrap;
+// `;
+//
+// const DevtoolsLink = styled.a`
+//   margin: 0 0.5rem;
+// `;
 
 const Select = styled.select`
   margin: 0rem 1rem 0.5rem 0;
@@ -104,8 +102,8 @@ const OptionsWrapper = styled.div`
 `;
 
 const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<Schema>>();
-  const [pmView, setPmView] = useState<EditorView<Schema>>();
+  const [pmState, setPmState] = useState<EditorState>();
+  const [pmView, setPmView] = useState<EditorView>();
   const [withResize, setWithResize] = useState<"withResize" | "withoutResize">(
     "withResize",
   );
@@ -143,20 +141,17 @@ const ProseMirrorLatex = () => {
 
   const resizeSelectChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       setWithResize(e.target.value);
     },
     [],
   );
   const titleSelectChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     setWithTitle(e.target.value);
   }, []);
   const sideResizeSelectChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       setSideResize(e.target.value);
     },
@@ -165,10 +160,11 @@ const ProseMirrorLatex = () => {
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const menu = buildMenuItems(imageSchema).fullMenu;
+    // TODO
+    const menu: any = buildMenuItems(imageSchema).fullMenu;
     menu[1][0].content.push(imageMenuItem);
     menu[1][0].content.shift();
-    const state = EditorState.create<typeof imageSchema>({
+    const state = EditorState.create({
       doc: imageSchema.nodeFromJSON(
         withTitle
           ? createBlockImageDoc(withTitle === "withTitle")
@@ -182,7 +178,7 @@ const ProseMirrorLatex = () => {
         imagePlugin(imageSchema, { ...imagePluginSettings }),
       ],
     });
-    const view: EditorView<typeof imageSchema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {
@@ -196,7 +192,7 @@ const ProseMirrorLatex = () => {
       },
     });
     setPmView(view);
-    applyDevTools(view);
+    // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -246,13 +242,13 @@ const ProseMirrorLatex = () => {
         <input type="file" id="imageselector" onChange={onInputChange} />
       </OptionsWrapper>
       <ProseMirrorDiv id="editor" />
-      <DevtoolsWrapper>
-        Check out the document structure with
-        <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">
-          prosemirror-dev-toolkit:
-        </DevtoolsLink>
-        <DevToolkit />
-      </DevtoolsWrapper>
+      {/*<DevtoolsWrapper>*/}
+      {/*  Check out the document structure with*/}
+      {/*  <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">*/}
+      {/*    prosemirror-dev-toolkit:*/}
+      {/*  </DevtoolsLink>*/}
+      {/*  <DevToolkit />*/}
+      {/*</DevtoolsWrapper>*/}
     </Root>
   );
 };

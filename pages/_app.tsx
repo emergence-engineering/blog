@@ -1,27 +1,15 @@
 import React from "react";
-import App, { AppInitialProps, AppProps } from "next/app";
+import App, { AppProps } from "next/app";
 import Head from "next/head";
-import { createGlobalStyle } from "styled-components";
-import "codemirror/lib/codemirror.css";
+import "../public/global.css"
 
-interface MyAppProps extends AppProps, AppInitialProps {}
-
-const GlobalStyle = createGlobalStyle`
-* {
-box-sizing: border-box;
-}
-`;
+interface MyAppProps extends AppProps {}
 
 class MyApp extends App<MyAppProps> {
-  state = {
-    gaInitialized: false,
-  };
-
   render() {
     const { Component, pageProps } = this.props;
     return (
       <>
-        <GlobalStyle />
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>

@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
@@ -16,7 +15,7 @@ import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../../public/bio/norbi.png";
 import PeterImage from "../../../public/bio/peter.png";
 import PetraImage from "../../../public/bio/petra2.png";
-import KataImage from "../../../public/bio/kata.jpg"
+import { UnstyledLink } from "../../../utils/link";
 
 const Root = styled.div`
   display: flex;
@@ -24,7 +23,7 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   min-height: 20rem;
-  background-color: #ecd2d20d;
+  background-color: ${theme.color.gray11};
   padding: 2rem ${sizes.sidePadding};
   width: 100%;
   padding: 4rem ${sizes.sidePadding};
@@ -85,7 +84,6 @@ export enum Members {
   norbi = "norbi",
   peter = "peter",
   petra = "petra",
-    kata = "kata"
 }
 
 const images = {
@@ -101,14 +99,19 @@ const images = {
   [Members.norbi]: NorbiImage,
   [Members.peter]: PeterImage,
   [Members.petra]: PetraImage,
-    [Members.kata]: KataImage,
 };
 
 export const FacePicture: FunctionComponent<{
   src: keyof typeof Members;
 }> = ({ src }) => (
   <FacePictureWrapper>
-    <Image src={images[src]} layout="fill" placeholder="blur" />
+    <Image
+      src={images[src]}
+      placeholder="blur"
+      fill
+      sizes="100vw"
+      alt="facePic"
+    />
   </FacePictureWrapper>
 );
 const MemberName = styled.div`
@@ -142,7 +145,7 @@ const MemberLinkSection = styled.div`
   margin-top: 0.2rem;
 `;
 
-const MemberLinkAnchor = styled.a`
+const MemberLinkAnchor = styled.div`
   color: ${theme.color.gray1};
   text-decoration: none;
   cursor: pointer;
@@ -163,11 +166,11 @@ const MemberLink: FunctionComponent<{ href: string; faClassName: string }> = ({
   href,
   faClassName,
 }) => (
-  <Link href={href} passHref>
+  <UnstyledLink href={href} passHref>
     <MemberLinkAnchor>
       <MemberLinkIcon className={faClassName} />
     </MemberLinkAnchor>
-  </Link>
+  </UnstyledLink>
 );
 
 export const Member: FunctionComponent<{
@@ -202,14 +205,18 @@ export const Member: FunctionComponent<{
         <MemberLink href={cvLink} faClassName="far fa-address-card" />
       ) : null}
       {linkedInLink ? (
-        <MemberLinkAnchor href={linkedInLink} target="_blank">
-          <MemberLinkIcon className="fab fa-linkedin" />
-        </MemberLinkAnchor>
+        <UnstyledLink href={linkedInLink} target="_blank">
+          <MemberLinkAnchor>
+            <MemberLinkIcon className="fab fa-linkedin" />
+          </MemberLinkAnchor>
+        </UnstyledLink>
       ) : null}
       {githubLink ? (
-        <MemberLinkAnchor href={githubLink} target="_blank">
-          <MemberLinkIcon className="fab fa-github-square" />
-        </MemberLinkAnchor>
+        <UnstyledLink href={githubLink} target="_blank">
+          <MemberLinkAnchor>
+            <MemberLinkIcon className="fab fa-github-square" />
+          </MemberLinkAnchor>
+        </UnstyledLink>
       ) : null}
     </MemberLinkSection>
   </MemberRoot>

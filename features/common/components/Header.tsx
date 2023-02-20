@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
-import Link from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactHeadroom from "react-headroom";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
+import { UnstyledLink } from "../../../utils/link";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -21,14 +20,15 @@ const Root = styled.div`
   color: white;
   height: 100px;
   align-items: center;
-  justify-content: center;
   padding: 0 ${sizes.sidePadding};
   border-bottom-style: solid;
   border-bottom-width: thin;
   border-bottom-color: ${theme.color.gray8};
 `;
 
-const LeftContainer = styled.div``;
+const LeftContainer = styled.div`
+  flex-grow: 1;
+`;
 
 const RightContainer = styled.div`
   display: flex;
@@ -51,6 +51,10 @@ const SiteTitle = styled.a`
   }
 `;
 
+const Logo = styled.img.attrs({ src: "/ee-logo.svg" })`
+  height: 3rem;
+`;
+
 const ContentWrapper = styled.div`
   @media screen and (min-width: ${screenSizes.extraLarge}px) {
     padding-left: 10.5%;
@@ -62,11 +66,11 @@ const ContentWrapper = styled.div`
   }
   flex-grow: 1;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 `;
 
-const Anchor = styled.a<{ active: boolean }>`
+const Anchor = styled.div<{ active: boolean }>`
   color: ${({ active }) => (active ? theme.color.gray11 : theme.color.gray1)};
   cursor: pointer;
   margin: 0 10px;
@@ -115,11 +119,11 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps & WithRouterProps> = (
 ) => {
   const { href, caption, router } = props;
   return (
-    <Link href={href} passHref>
+    <UnstyledLink href={href} passHref>
       <Anchor active={router.pathname.split("/")[1] === href.split("/")[1]}>
         {caption}
       </Anchor>
-    </Link>
+    </UnstyledLink>
   );
 };
 
@@ -145,7 +149,9 @@ const Header: FunctionComponent = () => (
     <Root>
       <ContentWrapper>
         <LeftContainer>
-          <SiteTitle href="/">Emergence Engineering</SiteTitle>
+          <SiteTitle href="/">
+            <Logo />
+          </SiteTitle>
         </LeftContainer>
         <RightContainer>
           <BigScreenContainer>
@@ -153,6 +159,7 @@ const Header: FunctionComponent = () => (
             <HeaderLink href="/blog" caption="Blog" />
             <HeaderLink href="/team" caption="Team" />
             <HeaderLink href="/references" caption="Open source projects" />
+            <HeaderLink href="/case-studies" caption="Case studies" />
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
           </BigScreenContainer>
           <MobileContainer>
@@ -161,6 +168,7 @@ const Header: FunctionComponent = () => (
               <HeaderLink href="/blog" caption="Blog" />
               <HeaderLink href="/team" caption="Team" />
               <HeaderLink href="/references" caption="Open source projects" />
+              <HeaderLink href="/case-studies" caption="Case studies" />
               <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
             </HamburgerMenu>
           </MobileContainer>

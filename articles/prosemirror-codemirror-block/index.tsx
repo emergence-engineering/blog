@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+import React, {useEffect, useRef, useState} from "react";
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
-import { applyDevTools } from "prosemirror-dev-toolkit";
+// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
-import { Schema } from "prosemirror-model";
 import styled from "styled-components";
 import { keymap } from "prosemirror-keymap";
 import {
@@ -18,7 +16,7 @@ import {
 import { undo, redo } from "prosemirror-history";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-import { DevToolkit } from "../../features/common/components/PMUtils";
+// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
@@ -44,22 +42,22 @@ const Root = styled.div`
   },
 `;
 
-const DevtoolsWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
+// const DevtoolsWrapper = styled.div`
+//   display: flex;
+//   align-items: baseline;
+//   flex-wrap: wrap;
+// `;
 
-const DevtoolsLink = styled.a`
-  margin: 0 0.5rem;
-`;
+// const DevtoolsLink = styled.a`
+//   margin: 0 0.5rem;
+// `;
 
-const ProseMirrorLatex = () => {
-  const [pmState, setPmState] = useState<EditorState<Schema>>();
+const ProseMirrorCodeMirrorBlock = () => {
+  const [pmState, setPmState] = useState<EditorState>();
+  const editorRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const editorNode = document.querySelector("#editor");
-    if (!editorNode) return;
-    const state = EditorState.create<typeof schema>({
+    if (!editorRef.current) return;
+    const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
         ...exampleSetup({
@@ -74,7 +72,7 @@ const ProseMirrorLatex = () => {
         keymap(codeBlockArrowHandlers),
       ],
     });
-    const view: EditorView<typeof schema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorRef.current, {
       state,
       dispatchTransaction: (tr) => {
         try {
@@ -87,25 +85,26 @@ const ProseMirrorLatex = () => {
         }
       },
     });
-    applyDevTools(view);
+    import("prosemirror-dev-toolkit").then(({applyDevTools})=> applyDevTools(view))
+    // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
     };
-  }, []);
+  }, [editorRef]);
 
   return (
     <Root>
-      <ProseMirrorDiv id="editor" />
-      <DevtoolsWrapper>
-        Check out the document structure with
-        <DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">
-          prosemirror-dev-toolkit:
-        </DevtoolsLink>
-        <DevToolkit />
-      </DevtoolsWrapper>
+      <ProseMirrorDiv ref={editorRef} id="editor" />
+      {/*<DevtoolsWrapper>*/}
+      {/*  Check out the document structure with*/}
+      {/*  /!*<DevtoolsLink href="https://github.com/TeemuKoivisto/prosemirror-dev-toolkit">*!/*/}
+      {/*  /!*  prosemirror-dev-toolkit:*!/*/}
+      {/*  /!*</DevtoolsLink>*!/*/}
+      {/*  <DevToolkit />*/}
+      {/*</DevtoolsWrapper>*/}
     </Root>
   );
 };
 
-export default ProseMirrorLatex;
+export default ProseMirrorCodeMirrorBlock;

@@ -10,8 +10,8 @@ import { PMDocument, DBSchema } from "./types";
 import postNewSteps from "./postNewSteps";
 
 const createEditor = (
-  setPmState: (state: EditorState<typeof mySchema>) => void,
-  setPmView: (view: EditorView<typeof mySchema>) => void,
+  setPmState: (state: EditorState) => void,
+  setPmView: (view: EditorView) => void,
   editorID: string,
   serverDoc?: PMDocument,
   DB?: PouchDB.Database<DBSchema>,
@@ -21,7 +21,7 @@ const createEditor = (
   // If there is no data yet or already initialized
   if (!serverDoc || !DB || !editorNode || outerView) return;
   const { doc } = serverDoc;
-  const state = EditorState.create<typeof mySchema>({
+  const state = EditorState.create({
     doc: mySchema.nodeFromJSON(doc),
     plugins: [
       ...exampleSetup({ schema: mySchema }),
@@ -31,9 +31,9 @@ const createEditor = (
       }),
     ],
   });
-  const view: EditorView<typeof mySchema> = new EditorView(editorNode, {
+  const view: EditorView = new EditorView(editorNode, {
     state,
-    dispatchTransaction: (tr: Transaction<typeof mySchema>) =>
+    dispatchTransaction: (tr: Transaction) =>
       postNewSteps(view, setPmState, DB, tr),
   });
   setPmView(view);

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
   FunctionComponent,
   useCallback,
@@ -12,6 +11,7 @@ import Image from "next/image";
 import { Button } from "../../common/components/Button";
 import theme from "../../../utils/theme";
 import CircleFilled from "../../../public/play_circle_filled-24px.png";
+import { evalFn } from "../../../utils/eval";
 
 const Loading = styled.div`
   height: 100%;
@@ -88,14 +88,15 @@ const CodeEditor: FunctionComponent<{
   const [code, setCode] = useState(value);
   const [codeError, setCodeError] = useState("");
   const [scriptResult, setScriptResult] = useState("");
-  const codeChange = useCallback((editor: any, data: any, text: string) => {
-    setCode(text);
-    if (onChange) onChange(text);
-  }, []);
+  const codeChange = useCallback(
+    (text: string) => {
+      setCode(text);
+      if (onChange) onChange(text);
+    },
+    [onChange],
+  );
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-comment
   // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const newConsole = useMemo(
     () => ({
       ...console,
@@ -112,8 +113,9 @@ const CodeEditor: FunctionComponent<{
     setCodeError("");
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(
+      const result = evalFn(
         `${hiddenCode || ""}\n${code}`.replace(/console/g, "newConsole"),
+        newConsole,
       );
       setScriptResult(result);
       setLogResult(
@@ -133,10 +135,14 @@ const CodeEditor: FunctionComponent<{
         {!noRun && (
           <RunButton onClick={runCode}>
             <Image
+              alt="runButton"
               src={CircleFilled}
               width={21}
               height={21}
-              placeholder="blur"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
             <RunText>Run code</RunText>
           </RunButton>

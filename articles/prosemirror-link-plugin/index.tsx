@@ -6,10 +6,9 @@ import React, {
   useEffect,
   useState,
 } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
-import { applyDevTools } from "prosemirror-dev-toolkit";
+// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { Decoration, EditorView } from "prosemirror-view";
 import styled from "styled-components";
@@ -26,7 +25,7 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import { Button } from "../../features/common/components/Button";
 import { Input } from "../../features/common/components/Input";
 import theme from "../../utils/theme";
-import { DevToolkit } from "../../features/common/components/PMUtils";
+// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { initialDoc } from "./schema";
 
@@ -47,16 +46,16 @@ const Root = styled.div`
     cursor: pointer;
   }
 `;
-
-const DevtoolsWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-`;
-
-const DevtoolsLink = styled.a`
-  margin: 0 0.5rem;
-`;
+//
+// const DevtoolsWrapper = styled.div`
+//   display: flex;
+//   align-items: baseline;
+//   flex-wrap: wrap;
+// `;
+//
+// const DevtoolsLink = styled.a`
+//   margin: 0 0.5rem;
+// `;
 
 const VerticalWrapper = styled.div`
   display: flex;
@@ -136,8 +135,8 @@ const RemovedLink: FunctionComponent<{ link: LinkSpec }> = ({ link }) => (
 
 const ProseMirrorLink = () => {
   const [addInput, setAddInput] = useState("new alias");
-  const [pmView, setPmView] = useState<EditorView<typeof schema>>();
-  const [pmState, setPmState] = useState<EditorState<typeof schema>>();
+  const [pmView, setPmView] = useState<EditorView>();
+  const [pmState, setPmState] = useState<EditorState>();
   const [aliases, setAliases] = useState<LinkSpec[]>([
     { alias: "typing", id: 1 },
   ]);
@@ -146,7 +145,7 @@ const ProseMirrorLink = () => {
   useEffect(() => {
     const editorNode = document.querySelector("#editor");
     if (!editorNode) return;
-    const state = EditorState.create<typeof schema>({
+    const state = EditorState.create({
       doc: schema.nodeFromJSON(initialDoc),
       plugins: [
         ...exampleSetup({
@@ -160,7 +159,7 @@ const ProseMirrorLink = () => {
         ),
       ],
     });
-    const view: EditorView<typeof schema> = new EditorView(editorNode, {
+    const view: EditorView = new EditorView(editorNode, {
       state,
       dispatchTransaction: (tr) => {
         try {
@@ -174,7 +173,7 @@ const ProseMirrorLink = () => {
       },
     });
     setPmView(view);
-    applyDevTools(view);
+    // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
@@ -248,13 +247,13 @@ const ProseMirrorLink = () => {
           ))}
         </ChangeListWrapper>
       </div>
-      <DevtoolsWrapper>
-        Check out the document structure with
-        <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">
-          prosemirror-dev-tools:
-        </DevtoolsLink>
-        <DevToolkit />
-      </DevtoolsWrapper>
+      {/*<DevtoolsWrapper>*/}
+      {/*  Check out the document structure with*/}
+      {/*  <DevtoolsLink href="https://github.com/d4rkr00t/prosemirror-dev-tools">*/}
+      {/*    prosemirror-dev-tools:*/}
+      {/*  </DevtoolsLink>*/}
+      {/*  <DevToolkit />*/}
+      {/*</DevtoolsWrapper>*/}
     </Root>
   );
 };
