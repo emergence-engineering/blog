@@ -85,7 +85,7 @@ export enum Members {
   norbi = "norbi",
   peter = "peter",
   petra = "petra",
-    kata = "kata",
+    kata = "kata"
 }
 
 const images = {
@@ -101,7 +101,7 @@ const images = {
   [Members.norbi]: NorbiImage,
   [Members.peter]: PeterImage,
   [Members.petra]: PetraImage,
-    [Members.kata]: KataImage,
+    [Members.kata]: KataImage
 };
 
 export const FacePicture: FunctionComponent<{
