@@ -32,14 +32,29 @@ export const FacePictureWrapper = styled.div`
 
 const CapabilityBoxes = [
     {
+        title: "ProseMirror",
+        content: `Modern web based rich text editors, full of crazy features`,
+        iconSrc: CapabilityImages.ProsemirrorImg,
+    },
+    {
+        title: "TipTap",
+        content: `Headless, TypeScript based out of the box collaborative rich text editor with ProseMirror under the hood`,
+        iconSrc: CapabilityImages.TipTapImg,
+    },
+    {
+        title: "Collaborative UIs",
+        content: `Real time collaboration for your web app with Yjs, Hocuspocus, GraphQL or FireBase`,
+        iconSrc: CapabilityImages.GroupImg,
+    },
+    {
+        title: "React",
+        content: `The standard of current front-ends`,
+        iconSrc: CapabilityImages.ReactImg,
+    },
+    {
         title: "Scala",
         content: `If you want a robust backend that scales easily.`,
         iconSrc: CapabilityImages.ScalaImg,
-    },
-    {
-        title: "DevOps",
-        content: `From CI & CD to Kubernetes.`,
-        iconSrc: CapabilityImages.KubernetesImg,
     },
     {
         title: "Cloud",
@@ -47,20 +62,15 @@ const CapabilityBoxes = [
         iconSrc: CapabilityImages.CloudImg,
     },
     {
-        title: "React",
-        content: `The standard of current front-ends.`,
-        iconSrc: CapabilityImages.ReactImg,
-    },
-    {
-        title: "ProseMirror",
-        content: `Modern web based rich text editors, full of crazy features.`,
-        iconSrc: CapabilityImages.ProsemirrorImg,
+        title: "DevOps",
+        content: `From CI & CD to Kubernetes.`,
+        iconSrc: CapabilityImages.KubernetesImg,
     },
     {
         title: "Embedded",
         content: `
        From debugging PCBs to writing custom firmware.`,
-        iconSrc: CapabilityImages.GroupImg,
+        iconSrc: CapabilityImages.MicrochipImg,
     },
 ];
 
