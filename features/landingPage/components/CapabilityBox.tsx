@@ -14,8 +14,11 @@ import PresentationImage from "../../../public/icons/presentation.png";
 import ScalaImage from "../../../public/icons/scala.png";
 import KubernetesImage from "../../../public/icons/kubernetes.png";
 import ReactImage from "../../../public/icons/react.png";
+import TipTapImage from "../../../public/icons/tiptap.svg";
+import MicrochipImage from "../../../public/icons/microchip.svg"
 
 export enum CapabilityImages {
+  TipTapImg = "TipTapImg",
   ProsemirrorImg = "ProsemirrorImg",
   GroupImg = "GroupImg",
   APIImg = "APIImg",
@@ -27,6 +30,7 @@ export enum CapabilityImages {
   ScalaImg = "ScalaImg",
   KubernetesImg = "KubernetesImg",
   ReactImg = "ReactImg",
+  MicrochipImg = "MicrochipImg",
 }
 
 const BoxRoot = styled.div`
@@ -92,6 +96,8 @@ const images = {
   [CapabilityImages.ScalaImg]: ScalaImage,
   [CapabilityImages.KubernetesImg]: KubernetesImage,
   [CapabilityImages.ReactImg]: ReactImage,
+  [CapabilityImages.TipTapImg]: TipTapImage,
+  [CapabilityImages.MicrochipImg]: MicrochipImage,
 };
 
 interface SkillBoxProps {

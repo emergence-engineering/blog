@@ -277,6 +277,7 @@ export const article10Metadata: ArticleIntro = {
     timestamp: 1677150227000,
     authorLink: "https://emergence-engineering.com/cv/torcsi",
     introText: "A guide with code samples for building a strict schema validator for your mustache templates.",
+    imgSrc: "http://clipart-library.com/images/8cxrjerMi.jpg"
 }
 
 export default function Article() {
