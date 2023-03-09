@@ -85,9 +85,9 @@ export default function Team() {
             <Member
               src="matejcsok"
               memberName="István Matejcsok"
-              memberRole="developer"
+              memberRole="developer | l33t h4x0r"
               memberWorkArea="Fullstack JS | UI"
-              memberStack="React.js Node.js Firebase CSS"
+              memberStack="Emacs React.js Node.js Firebase CSS"
             />
             <Member
               src="aron"
