@@ -148,6 +148,7 @@ const caseStudies: ListOfWhatTheyHave = [
     skills: "SaaS for bridging payment providers with invoicing services",
     descr:
       "Szamlabridge (beta) provides an admin interface and an API to connect payment services like Stripe to corporate invoicing platforms.",
+    link: "https://www.szamlabridge.com",
   },
   {
     img: DiscordGitBotImg,
