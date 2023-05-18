@@ -25,6 +25,30 @@ const H3Command: CommandItem = {
   command: () => console.log("H2 Command excecuted"),
   available: () => true,
 };
+const Sub1Command: CommandItem = {
+  id: "sub-level-1",
+  label: "Sub1",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("sub 1 Command excecuted"),
+  available: () => true,
+};
+const Sub2Command: CommandItem = {
+  id: "sub-level-2",
+  label: "Sub2",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("Sub2 Command excecuted"),
+  available: () => true,
+};
+const Sub3Command: CommandItem = {
+  id: "sub-level-3",
+  label: "Sub3",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("Sub3 Command excecuted"),
+  available: () => true,
+};
 const BoldCommand: CommandItem = {
   id: "bold",
   label: "Bold",
@@ -41,14 +65,22 @@ const ItalicCommand: CommandItem = {
   command: () => console.log("Should make text italic"),
   available: () => true,
 };
+const SubHeadingsMenu: SubMenu = {
+  id: "sub-headings",
+  label: "Sub Headings",
+  type: "submenu",
+  icon: ArrowRight,
+  elements: [Sub1Command, Sub2Command, Sub3Command],
+};
 const HeadingsMenu: SubMenu = {
   id: "headings",
   label: "Headings",
   type: "submenu",
   icon: ArrowRight,
-  elements: [H1Command, H2Command, H3Command],
+  elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
 };
 export const DefaultConfig: SlasMenuState = {
   elements: [HeadingsMenu, BoldCommand, ItalicCommand],
-  selected: HeadingsMenu.id,
+  selected: Sub2Command.id,
+  open: true,
 };
