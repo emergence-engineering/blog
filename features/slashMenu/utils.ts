@@ -29,25 +29,28 @@ const getElementById = (id: ItemId, config: SlasMenuState) =>
 
 const findParent = (
   id: ItemId,
-  state: SlasMenuState,
-): MenuElement | undefined => {
-  let parentId;
-  state.elements.forEach((item) => {
-    // if we dont filter out the searched ItemId, we will return a submenu id as its own parent
-    const ids = getElementIds(item).filter((id) => id !== item.id);
-    console.log(ids);
-    // if (item.type === "submenu") return;
-    if (ids.includes(id)) {
-      parentId = ids[0];
+  elements: MenuElement[],
+  subMenu: ItemId | "root" = "root",
+): ItemId | "root" => {
+  let parentId: ItemId = "root";
+  elements.forEach((item) => {
+    if (item.type === "submenu") {
+      if (item.id === id) parentId = subMenu;
+      const elementIds = item.elements.map((item) => item.id);
+      if (elementIds.includes(id)) {
+        parentId = item.id;
+      }
+      parentId = findParent(id, item.elements, item.id);
     }
+    if (item.id === id) parentId = subMenu;
   });
-
-  return parentId ? getElementById(parentId, state) : undefined;
+  return parentId;
 };
 export const getNextItemId = (state: SlasMenuState) => {
-  const parent = findParent(state.selected, state);
-  console.log("inNext", parent);
-  if (!parent) {
+  const parentId = findParent(state.selected, state.elements);
+  const parent = getElementById(parentId, state);
+  console.log("inNext", { parent: parentId });
+  if (parentId === "root") {
     const nextItemIndex =
       state.elements.findIndex((element) => element.id === state.selected) + 1;
     if (nextItemIndex < state.elements.length) {
@@ -69,8 +72,10 @@ export const getNextItemId = (state: SlasMenuState) => {
   }
 };
 export const getPreviousItemId = (state: SlasMenuState) => {
-  const parent = findParent(state.selected, state);
-  if (!parent) {
+  const parentId = findParent(state.selected, state.elements);
+  const parent = getElementById(parentId, state);
+
+  if (!parentId) {
     const prevItemIndex =
       state.elements.findIndex((element) => element.id === state.selected) - 1;
     if (prevItemIndex >= 0) {

@@ -49,6 +49,30 @@ const Sub3Command: CommandItem = {
   command: () => console.log("Sub3 Command excecuted"),
   available: () => true,
 };
+const SecondSub1Command: CommandItem = {
+  id: "Second-sub-level-1",
+  label: "SecondSub1",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("Secondsub 1 Command excecuted"),
+  available: () => true,
+};
+const SecondSub2Command: CommandItem = {
+  id: "Second-sub-level-2",
+  label: "SecondSub2",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("SecondSub2 Command excecuted"),
+  available: () => true,
+};
+const SecondSub3Command: CommandItem = {
+  id: "Second-sub-level-3",
+  label: "SecondSub3",
+  type: "command",
+  icon: ArrowRight,
+  command: () => console.log("SecondSub3 Command excecuted"),
+  available: () => true,
+};
 const BoldCommand: CommandItem = {
   id: "bold",
   label: "Bold",
@@ -65,13 +89,21 @@ const ItalicCommand: CommandItem = {
   command: () => console.log("Should make text italic"),
   available: () => true,
 };
+const SecondSubHeadingsMenu: SubMenu = {
+  id: "second-sub-headings",
+  label: "Second Sub Headings",
+  type: "submenu",
+  icon: ArrowRight,
+  elements: [SecondSub1Command, SecondSub2Command, SecondSub3Command],
+};
 const SubHeadingsMenu: SubMenu = {
   id: "sub-headings",
   label: "Sub Headings",
   type: "submenu",
   icon: ArrowRight,
-  elements: [Sub1Command, Sub2Command, Sub3Command],
+  elements: [Sub1Command, Sub2Command, SecondSubHeadingsMenu, Sub3Command],
 };
+
 const HeadingsMenu: SubMenu = {
   id: "headings",
   label: "Headings",
