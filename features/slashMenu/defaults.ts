@@ -1,12 +1,21 @@
 import { CommandItem, SlasMenuState, SubMenu } from "./types";
 import ArrowRight from "./icons/arrow-right.svg";
+import { setBlockType, toggleMark } from "prosemirror-commands";
+import { schema } from "prosemirror-schema-basic";
 
 const H1Command: CommandItem = {
   id: "level-1",
   label: "H1",
   type: "command",
   icon: ArrowRight,
-  command: () => console.log("H1 Command excecuted"),
+  command: (view) => {
+    console.log("shpould make heading 1");
+    setBlockType(schema.nodes.heading, { level: 1 })(
+      view.state,
+      view.dispatch,
+      view,
+    );
+  },
   available: () => true,
 };
 const H2Command: CommandItem = {
@@ -14,7 +23,14 @@ const H2Command: CommandItem = {
   label: "H2",
   type: "command",
   icon: ArrowRight,
-  command: () => console.log("H2 Command excecuted"),
+  command: (view) => {
+    console.log("shpould make heading 2");
+    setBlockType(schema.nodes.heading, { level: 2 })(
+      view.state,
+      view.dispatch,
+      view,
+    );
+  },
   available: () => true,
 };
 const H3Command: CommandItem = {
@@ -22,7 +38,14 @@ const H3Command: CommandItem = {
   label: "H2",
   type: "command",
   icon: ArrowRight,
-  command: () => console.log("H2 Command excecuted"),
+  command: (view) => {
+    console.log("shpould make heading 3");
+    setBlockType(schema.nodes.heading, { level: 3 })(
+      view.state,
+      view.dispatch,
+      view,
+    );
+  },
   available: () => true,
 };
 const Sub1Command: CommandItem = {
@@ -78,7 +101,10 @@ const BoldCommand: CommandItem = {
   label: "Bold",
   type: "command",
   icon: ArrowRight,
-  command: () => console.log("Should make text bold"),
+  command: (view) => {
+    const markType = schema.marks.strong;
+    toggleMark(markType)(view.state, view.dispatch, view);
+  },
   available: () => true,
 };
 const ItalicCommand: CommandItem = {
@@ -86,7 +112,10 @@ const ItalicCommand: CommandItem = {
   label: "Italic",
   type: "command",
   icon: ArrowRight,
-  command: () => console.log("Should make text italic"),
+  command: (view) => {
+    const markType = schema.marks.em;
+    toggleMark(markType)(view.state, view.dispatch, view);
+  },
   available: () => true,
 };
 const SecondSubHeadingsMenu: SubMenu = {
