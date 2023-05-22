@@ -30,7 +30,7 @@ export const getAllElements = (config: SlasMenuState) =>
 export const getElementById = (id: ItemId, state: SlasMenuState) =>
   getAllElements(state).find((element) => element.id === id);
 
-const findParent = (
+export const findParent = (
   id: ItemId,
   elements: MenuElement[],
   subMenu: ItemId | "root" = "root",
@@ -88,5 +88,5 @@ export const dispatchWithMeta = (
   view: EditorView,
   key: PluginKey,
   // TODO Proper typing of meta? Extra information can be in it not just type
-  meta: { type: SlashMetaTypes },
+  meta: { type: SlashMetaTypes; element?: MenuElement },
 ) => view.dispatch(view.state.tr.setMeta(key, meta));

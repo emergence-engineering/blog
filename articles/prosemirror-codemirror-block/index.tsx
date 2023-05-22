@@ -60,6 +60,7 @@ const ProseMirrorCodeMirrorBlock = () => {
     const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
+        SlashMenuPlugin(),
         ...exampleSetup({
           schema,
         }),
@@ -70,7 +71,6 @@ const ProseMirrorCodeMirrorBlock = () => {
           redo,
         }),
         keymap(codeBlockArrowHandlers),
-        SlashMenuPlugin(),
       ],
     });
     const view: EditorView = new EditorView(editorRef.current, {

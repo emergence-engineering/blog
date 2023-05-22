@@ -1,3 +1,5 @@
+import { EditorView } from "prosemirror-view";
+
 export type ItemId = string | "root";
 export type ItemType = "command" | "submenu";
 
@@ -12,7 +14,7 @@ export enum CommandItemKeys {
 }
 export interface CommandItem extends MenuItem {
   type: "command";
-  command: () => void;
+  command: (view: EditorView) => void;
   available: () => boolean;
 }
 export type MenuElement = CommandItem | SubMenu;
@@ -26,4 +28,5 @@ export type SlasMenuState = {
   selected: ItemId;
   elements: MenuElement[];
   open: boolean;
+  subMenuId?: ItemId;
 };
