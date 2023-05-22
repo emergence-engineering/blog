@@ -1,7 +1,7 @@
 import { ItemId, MenuElement, SlasMenuState } from "./types";
 import { EditorView } from "prosemirror-view";
 import { PluginKey } from "prosemirror-state";
-import { SlashMetaTypes } from "./index";
+import { SlashMenuMeta } from "./index";
 
 export const getElementIds = (item: MenuElement): ItemId[] => {
   if (item.type === "submenu")
@@ -87,5 +87,60 @@ export const getPreviousItemId = (state: SlasMenuState): ItemId | undefined => {
 export const dispatchWithMeta = (
   view: EditorView,
   key: PluginKey,
-  meta: { type: SlashMetaTypes; element?: MenuElement },
+  meta: SlashMenuMeta,
 ) => view.dispatch(view.state.tr.setMeta(key, meta));
+
+export const AllowedKeys = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];

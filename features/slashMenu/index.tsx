@@ -13,12 +13,14 @@ export enum SlashMetaTypes {
   prevItem = "prevItem",
   openSubMenu = "openSubMenu",
   closeSubMenu = "closeSubMenu",
+  inputChange = "inputChange",
 }
 
 const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
 export interface SlashMenuMeta {
   type: SlashMetaTypes;
   element?: MenuElement;
+  filter?: string;
 }
 const SlashMenuPlugin = (config?: SlasMenuState) => {
   const initialState = config || DefaultConfig;
@@ -65,7 +67,6 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
                 type: SlashMetaTypes.openSubMenu,
                 element: menuElement,
               });
-              // TODO Open submenu
             }
 
             return true;
@@ -80,6 +81,23 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
               type: SlashMetaTypes.prevItem,
             });
             return true;
+          case SlashCases.addChar: {
+            dispatchWithMeta(view, SlashMenuKey, {
+              type: SlashMetaTypes.inputChange,
+              filter: state.filter + event.key,
+            });
+            return true;
+          }
+          case SlashCases.removeChar: {
+            const newFilter =
+              state.filter.length === 1 ? "" : state.filter.slice(0, -1);
+            console.log({ newFilter });
+            dispatchWithMeta(view, SlashMenuKey, {
+              type: SlashMetaTypes.inputChange,
+              filter: newFilter,
+            });
+            return true;
+          }
 
           default:
             return false;
@@ -107,6 +125,9 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
             return nextItem(state);
           case SlashMetaTypes.prevItem:
             return prevItem(state);
+          case SlashMetaTypes.inputChange: {
+            return { ...state, filter: meta.filter || "" };
+          }
         }
 
         return state;

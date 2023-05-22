@@ -48,8 +48,12 @@ export const nextItem = (state: SlasMenuState) => {
   if (!nextId) return state;
   return { ...state, selected: nextId };
 };
+
 export const prevItem = (state: SlasMenuState) => {
   const prevId = getPreviousItemId(state);
   if (!prevId) return state;
   return { ...state, selected: prevId };
+};
+export const filterItems = (state: SlasMenuState, filter: String) => {
+  return { ...state, filter };
 };

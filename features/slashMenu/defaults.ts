@@ -144,4 +144,5 @@ export const DefaultConfig: SlasMenuState = {
   elements: [HeadingsMenu, BoldCommand, ItalicCommand],
   selected: HeadingsMenu.id,
   open: false,
+  filter: "",
 };

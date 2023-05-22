@@ -29,4 +29,5 @@ export type SlasMenuState = {
   elements: MenuElement[];
   open: boolean;
   subMenuId?: ItemId;
+  filter: string;
 };

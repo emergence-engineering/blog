@@ -1,6 +1,6 @@
 import { SlasMenuState } from "./types";
 import { EditorView } from "prosemirror-view";
-import { getElementById } from "./utils";
+import { AllowedKeys, getElementById } from "./utils";
 
 export enum SlashCases {
   OpenMenu = "openMenu",
@@ -8,20 +8,26 @@ export enum SlashCases {
   Execute = "Execute",
   NextItem = "NextItem",
   PrevItem = "PrevItem",
+  inputChange = "InputChange",
+  addChar = "addChar",
+  removeChar = "removeChar",
   Ignore = "Ignore",
 }
 const defaultConditions = {
   shouldOpen: (state: SlasMenuState, event: KeyboardEvent) =>
     !state.open && event.key === "/",
   shouldClose: (state: SlasMenuState, event: KeyboardEvent) =>
-    state.open && event.key === "/",
+    state.open &&
+    (event.key === "/" ||
+      event.key === "Escape" ||
+      event.key === "Backspace") &&
+    state.filter.length === 0,
 };
 export const getCase = (
   state: SlasMenuState,
   event: KeyboardEvent,
   view: EditorView,
 ): SlashCases => {
-  console.log(event.key);
   const selected = getElementById(state.selected, state);
   if (defaultConditions.shouldOpen(state, event)) {
     return SlashCases.OpenMenu;
@@ -43,8 +49,17 @@ export const getCase = (
     ) {
       return SlashCases.Execute;
     }
-    if (event.key === "Escape" || event.key === "Backspace") {
+    if (
+      event.key === "Escape" ||
+      (event.key === "Backspace" && state.filter.length === 0)
+    ) {
       return SlashCases.CloseMenu;
+    }
+    if (state.filter.length > 0 && event.key === "Backspace") {
+      return SlashCases.removeChar;
+    }
+    if (AllowedKeys.includes(event.key)) {
+      return SlashCases.addChar;
     }
   }
 
