@@ -87,6 +87,5 @@ export const getPreviousItemId = (state: SlasMenuState): ItemId | undefined => {
 export const dispatchWithMeta = (
   view: EditorView,
   key: PluginKey,
-  // TODO Proper typing of meta? Extra information can be in it not just type
   meta: { type: SlashMetaTypes; element?: MenuElement },
 ) => view.dispatch(view.state.tr.setMeta(key, meta));

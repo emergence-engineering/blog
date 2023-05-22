@@ -1,15 +1,9 @@
 import { Plugin, PluginKey } from "prosemirror-state";
 import { MenuElement, SlasMenuState } from "./types";
 import { DefaultConfig } from "./defaults";
-import {
-  dispatchWithMeta,
-  findParent,
-  getElementById,
-  getNextItemId,
-  getPreviousItemId,
-  hasDuplicateIds,
-} from "./utils";
+import { dispatchWithMeta, getElementById, hasDuplicateIds } from "./utils";
 import { getCase, SlashCases } from "./cases";
+import { closeSubMenu, nextItem, openSubMenu, prevItem } from "./actions";
 
 export enum SlashMetaTypes {
   open = "open",
@@ -46,7 +40,6 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
           case SlashCases.CloseMenu: {
             const subMenuId = state.subMenuId;
             if (subMenuId) {
-              console.log("here");
               dispatchWithMeta(view, SlashMenuKey, {
                 type: SlashMetaTypes.closeSubMenu,
                 element: getElementById(subMenuId, initialState),
@@ -99,58 +92,21 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
       },
       apply(tr, state, oldEditorState, newEditorState) {
         const meta: SlashMenuMeta = tr.getMeta(SlashMenuKey);
-        console.log({ meta });
         switch (meta?.type) {
           case SlashMetaTypes.open:
-            return { ...state, open: true };
+            return { ...initialState, open: true };
           case SlashMetaTypes.close:
             return initialState;
           case SlashMetaTypes.execute:
             return initialState;
-          case SlashMetaTypes.openSubMenu: {
-            const menuElement = meta.element;
-            if (menuElement?.type === "submenu") {
-              return {
-                ...state,
-                elements: menuElement.elements,
-                selected: menuElement.elements[0].id,
-                subMenuId: menuElement.id,
-              };
-            }
-            return state;
-          }
-          case SlashMetaTypes.closeSubMenu: {
-            const menuElement = meta.element;
-            if (menuElement?.type === "submenu") {
-              const parentId = findParent(
-                menuElement.id,
-                initialState.elements,
-              );
-              if (parentId === "root") {
-                return { ...initialState, open: true };
-              }
-              const parent = getElementById(parentId, initialState);
-              if (parent?.type !== "submenu") return state;
-              return {
-                ...state,
-                elements: parent.elements,
-                selected: parent.elements[0].id,
-                subMenuId: parentId,
-              };
-            }
-            return state;
-          }
-
-          case SlashMetaTypes.nextItem: {
-            const nextId = getNextItemId(state);
-            if (!nextId) return state;
-            return { ...state, selected: nextId };
-          }
-          case SlashMetaTypes.prevItem: {
-            const prevId = getPreviousItemId(state);
-            if (!prevId) return state;
-            return { ...state, selected: prevId };
-          }
+          case SlashMetaTypes.openSubMenu:
+            return openSubMenu(state, meta);
+          case SlashMetaTypes.closeSubMenu:
+            return closeSubMenu(initialState, state, meta);
+          case SlashMetaTypes.nextItem:
+            return nextItem(state);
+          case SlashMetaTypes.prevItem:
+            return prevItem(state);
         }
 
         return state;
