@@ -1,4 +1,7 @@
 import { ItemId, MenuElement, SlasMenuState } from "./types";
+import { EditorView } from "prosemirror-view";
+import { PluginKey } from "prosemirror-state";
+import { SlashMetaTypes } from "./index";
 
 export const getElementIds = (item: MenuElement): ItemId[] => {
   if (item.type === "submenu")
@@ -24,8 +27,8 @@ const getElements = (item: MenuElement): MenuElement[] => {
 export const getAllElements = (config: SlasMenuState) =>
   config.elements.map((element) => getElements(element)).flat();
 
-const getElementById = (id: ItemId, config: SlasMenuState) =>
-  getAllElements(config).find((element) => element.id === id);
+export const getElementById = (id: ItemId, state: SlasMenuState) =>
+  getAllElements(state).find((element) => element.id === id);
 
 const findParent = (
   id: ItemId,
@@ -37,7 +40,6 @@ const findParent = (
     if (item.type === "submenu") {
       if (item.id === id) parentId = subMenu;
       const elementIds = item.elements.map((item) => item.id);
-
       if (elementIds.includes(id)) {
         parentId = item.id;
       } else parentId = findParent(id, item.elements, item.id);
@@ -46,44 +48,45 @@ const findParent = (
   });
   return parentId;
 };
-export const getNextItemId = (state: SlasMenuState) => {
+export const getNextItemId = (state: SlasMenuState): ItemId | undefined => {
   const parentId = findParent(state.selected, state.elements);
   const parent = getElementById(parentId, state);
   if (parentId === "root") {
     const nextItemIndex =
       state.elements.findIndex((element) => element.id === state.selected) + 1;
     if (nextItemIndex < state.elements.length) {
-      // TODO go to next item
-      const nextItemId = state.elements[nextItemIndex].id;
+      return state.elements[nextItemIndex].id;
     }
   }
   if (parent && parent.type === "submenu") {
     const nextItemIndex =
       parent.elements.findIndex((element) => element.id === state.selected) + 1;
     if (nextItemIndex < parent.elements.length) {
-      const nextItemId = parent.elements[nextItemIndex].id;
-      // TODO go to next item in sub menu
+      return parent.elements[nextItemIndex].id;
     }
   }
 };
-export const getPreviousItemId = (state: SlasMenuState) => {
+export const getPreviousItemId = (state: SlasMenuState): ItemId | undefined => {
   const parentId = findParent(state.selected, state.elements);
   const parent = getElementById(parentId, state);
-
-  if (!parentId) {
+  if (parentId === "root") {
     const prevItemIndex =
       state.elements.findIndex((element) => element.id === state.selected) - 1;
     if (prevItemIndex >= 0) {
-      // TODO go to previous item
-      const prevItemId = state.elements[prevItemIndex].id;
+      return state.elements[prevItemIndex].id;
     }
   }
   if (parent && parent.type === "submenu") {
     const prevItemIndex =
       parent.elements.findIndex((element) => element.id === state.selected) - 1;
     if (prevItemIndex >= 0) {
-      const prevItemId = parent.elements[prevItemIndex].id;
-      // TODO go to previous item in sub menu
+      return parent.elements[prevItemIndex].id;
     }
   }
 };
+export const dispatchWithMeta = (
+  view: EditorView,
+  key: PluginKey,
+  // TODO Proper typing of meta? Extra information can be in it not just type
+  meta: { type: SlashMetaTypes },
+) => view.dispatch(view.state.tr.setMeta(key, meta));

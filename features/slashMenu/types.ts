@@ -1,4 +1,4 @@
-export type ItemId = string;
+export type ItemId = string | "root";
 export type ItemType = "command" | "submenu";
 
 export type MenuItem = {

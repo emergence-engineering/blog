@@ -113,6 +113,6 @@ const HeadingsMenu: SubMenu = {
 };
 export const DefaultConfig: SlasMenuState = {
   elements: [HeadingsMenu, BoldCommand, ItalicCommand],
-  selected: Sub2Command.id,
-  open: true,
+  selected: HeadingsMenu.id,
+  open: false,
 };
