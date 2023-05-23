@@ -28,7 +28,6 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState }) => {
     if (!editorState) return;
     return SlashMenuKey.getState(editorState);
   }, [editorState]);
-  const spec = menuState.spec;
   const elements = useMemo(() => {
     if (!menuState) return;
     return getElements(menuState);
