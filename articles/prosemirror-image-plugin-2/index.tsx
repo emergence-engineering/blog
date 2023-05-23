@@ -175,7 +175,7 @@ const ProseMirrorLatex = () => {
           schema: imageSchema,
           menuContent: menu,
         }),
-        imagePlugin(imageSchema, { ...imagePluginSettings }),
+        imagePlugin({ ...imagePluginSettings }),
       ],
     });
     const view: EditorView = new EditorView(editorNode, {
