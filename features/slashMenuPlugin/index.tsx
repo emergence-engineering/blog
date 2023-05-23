@@ -1,6 +1,6 @@
 import { Plugin, PluginKey } from "prosemirror-state";
 import { MenuElement, SlasMenuState } from "./types";
-import { DefaultConfig } from "./defaults";
+import { defaultConfig } from "./defaults";
 import { dispatchWithMeta, getElementById, hasDuplicateIds } from "./utils";
 import { getCase, SlashCases } from "./cases";
 import { closeSubMenu, nextItem, openSubMenu, prevItem } from "./actions";
@@ -16,14 +16,17 @@ export enum SlashMetaTypes {
   inputChange = "inputChange",
 }
 
-const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
+export const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
 export interface SlashMenuMeta {
   type: SlashMetaTypes;
   element?: MenuElement;
   filter?: string;
 }
 const SlashMenuPlugin = (config?: SlasMenuState) => {
-  const initialState = config || DefaultConfig;
+  const initialState: SlasMenuState = {
+    ...(config || defaultConfig),
+    elements: (config || defaultConfig).filteredElements,
+  };
   if (hasDuplicateIds(initialState)) {
     throw new Error("Menu elements must have unique id's!");
   }
@@ -34,7 +37,6 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
         const editorState = view.state;
         const state: SlasMenuState = SlashMenuKey.getState(editorState);
         const slashCase = getCase(state, event, view);
-        console.log({ slashCase });
         switch (slashCase) {
           case SlashCases.OpenMenu:
             dispatchWithMeta(view, SlashMenuKey, { type: SlashMetaTypes.open });
@@ -46,6 +48,12 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
                 type: SlashMetaTypes.closeSubMenu,
                 element: getElementById(subMenuId, initialState),
               });
+            } else if (event.key === "/") {
+              view.dispatch(
+                editorState.tr.insertText("/").setMeta(SlashMenuKey, {
+                  type: SlashMetaTypes.close,
+                }),
+              );
             } else
               dispatchWithMeta(view, SlashMenuKey, {
                 type: SlashMetaTypes.close,
@@ -91,7 +99,6 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
           case SlashCases.removeChar: {
             const newFilter =
               state.filter.length === 1 ? "" : state.filter.slice(0, -1);
-            console.log({ newFilter });
             dispatchWithMeta(view, SlashMenuKey, {
               type: SlashMetaTypes.inputChange,
               filter: newFilter,
@@ -133,6 +140,7 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
         return state;
       },
     },
+    initialState: initialState,
   });
 };
 export default SlashMenuPlugin;

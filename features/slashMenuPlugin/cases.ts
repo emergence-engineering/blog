@@ -14,8 +14,23 @@ export enum SlashCases {
   Ignore = "Ignore",
 }
 const defaultConditions = {
-  shouldOpen: (state: SlasMenuState, event: KeyboardEvent) =>
-    !state.open && event.key === "/",
+  shouldOpen: (
+    state: SlasMenuState,
+    event: KeyboardEvent,
+    view: EditorView,
+  ) => {
+    const editorState = view.state;
+    const resolvedPos =
+      editorState.selection.from < 0 ||
+      editorState.selection.from > editorState.doc.content.size
+        ? null
+        : editorState.doc.resolve(editorState.selection.from);
+
+    const parentNode = resolvedPos?.parent;
+    const inEmptyPar =
+      parentNode?.type.name === "paragraph" && parentNode?.nodeSize === 2;
+    return !state.open && event.key === "/" && inEmptyPar;
+  },
   shouldClose: (state: SlasMenuState, event: KeyboardEvent) =>
     state.open &&
     (event.key === "/" ||
@@ -29,7 +44,7 @@ export const getCase = (
   view: EditorView,
 ): SlashCases => {
   const selected = getElementById(state.selected, state);
-  if (defaultConditions.shouldOpen(state, event)) {
+  if (defaultConditions.shouldOpen(state, event, view)) {
     return SlashCases.OpenMenu;
   }
   if (defaultConditions.shouldClose(state, event)) {
@@ -51,7 +66,8 @@ export const getCase = (
     }
     if (
       event.key === "Escape" ||
-      (event.key === "Backspace" && state.filter.length === 0)
+      (event.key === "Backspace" && state.filter.length === 0) ||
+      (event.key === "ArrowLeft" && state.subMenuId)
     ) {
       return SlashCases.CloseMenu;
     }

@@ -13,7 +13,7 @@ export const getElementIds = (item: MenuElement): ItemId[] => {
 };
 
 export const getAllElementIds = (config: SlasMenuState) =>
-  config.elements.map((element) => getElementIds(element)).flat();
+  config.filteredElements.map((element) => getElementIds(element)).flat();
 
 export const hasDuplicateIds = (config: SlasMenuState): boolean => {
   const ids = getAllElementIds(config);
@@ -25,7 +25,7 @@ const getElements = (item: MenuElement): MenuElement[] => {
   return [item];
 };
 export const getAllElements = (config: SlasMenuState) =>
-  config.elements.map((element) => getElements(element)).flat();
+  config.filteredElements.map((element) => getElements(element)).flat();
 
 export const getElementById = (id: ItemId, state: SlasMenuState) =>
   getAllElements(state).find((element) => element.id === id);
@@ -49,13 +49,15 @@ export const findParent = (
   return parentId;
 };
 export const getNextItemId = (state: SlasMenuState): ItemId | undefined => {
-  const parentId = findParent(state.selected, state.elements);
+  const parentId = findParent(state.selected, state.filteredElements);
   const parent = getElementById(parentId, state);
   if (parentId === "root") {
     const nextItemIndex =
-      state.elements.findIndex((element) => element.id === state.selected) + 1;
-    if (nextItemIndex < state.elements.length) {
-      return state.elements[nextItemIndex].id;
+      state.filteredElements.findIndex(
+        (element) => element.id === state.selected,
+      ) + 1;
+    if (nextItemIndex < state.filteredElements.length) {
+      return state.filteredElements[nextItemIndex].id;
     }
   }
   if (parent && parent.type === "submenu") {
@@ -67,13 +69,15 @@ export const getNextItemId = (state: SlasMenuState): ItemId | undefined => {
   }
 };
 export const getPreviousItemId = (state: SlasMenuState): ItemId | undefined => {
-  const parentId = findParent(state.selected, state.elements);
+  const parentId = findParent(state.selected, state.filteredElements);
   const parent = getElementById(parentId, state);
   if (parentId === "root") {
     const prevItemIndex =
-      state.elements.findIndex((element) => element.id === state.selected) - 1;
+      state.filteredElements.findIndex(
+        (element) => element.id === state.selected,
+      ) - 1;
     if (prevItemIndex >= 0) {
-      return state.elements[prevItemIndex].id;
+      return state.filteredElements[prevItemIndex].id;
     }
   }
   if (parent && parent.type === "submenu") {

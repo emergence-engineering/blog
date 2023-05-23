@@ -27,7 +27,7 @@ export const closeSubMenu = (
 ) => {
   const menuElement = meta.element;
   if (menuElement?.type === "submenu") {
-    const parentId = findParent(menuElement.id, initialState.elements);
+    const parentId = findParent(menuElement.id, initialState.filteredElements);
     if (parentId === "root") {
       return { ...initialState, open: true };
     }

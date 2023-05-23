@@ -140,8 +140,8 @@ const HeadingsMenu: SubMenu = {
   icon: ArrowRight,
   elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
 };
-export const DefaultConfig: SlasMenuState = {
-  elements: [HeadingsMenu, BoldCommand, ItalicCommand],
+export const defaultConfig: SlasMenuState = {
+  filteredElements: [HeadingsMenu, BoldCommand, ItalicCommand],
   selected: HeadingsMenu.id,
   open: false,
   filter: "",

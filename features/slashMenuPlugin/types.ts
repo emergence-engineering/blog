@@ -26,8 +26,9 @@ export interface SubMenu extends MenuItem {
 }
 export type SlasMenuState = {
   selected: ItemId;
-  elements: MenuElement[];
+  filteredElements: MenuElement[];
   open: boolean;
   subMenuId?: ItemId;
   filter: string;
+  elements: MenuElement[];
 };

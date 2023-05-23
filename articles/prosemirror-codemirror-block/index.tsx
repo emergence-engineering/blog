@@ -19,7 +19,8 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 // import { DevToolkit } from "../../features/common/components/PMUtils";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
-import SlashMenuPlugin from "../../features/slashMenu";
+import SlashMenuPlugin from "../../features/slashMenuPlugin";
+import SlashMenuDisplay from "../../features/slashMenuDisplay";
 
 const Root = styled.div`
   .codeblock-select {
@@ -54,7 +55,9 @@ const Root = styled.div`
 
 const ProseMirrorCodeMirrorBlock = () => {
   const [pmState, setPmState] = useState<EditorState>();
+  console.log({ pmState });
   const editorRef = useRef<HTMLDivElement>(null);
+  let editorView: EditorView;
   useEffect(() => {
     if (!editorRef.current) return;
     const state = EditorState.create({
@@ -95,7 +98,6 @@ const ProseMirrorCodeMirrorBlock = () => {
       view && view.destroy();
     };
   }, [editorRef]);
-
   return (
     <Root>
       <ProseMirrorDiv ref={editorRef} id="editor" />
@@ -106,6 +108,7 @@ const ProseMirrorCodeMirrorBlock = () => {
       {/*  /!*</DevtoolsLink>*!/*/}
       {/*  <DevToolkit />*/}
       {/*</DevtoolsWrapper>*/}
+      {pmState && <SlashMenuDisplay editorState={pmState}></SlashMenuDisplay>}
     </Root>
   );
 };
