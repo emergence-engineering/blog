@@ -2,10 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import Layout from "../../features/common/components/Layout";
-import {
-  BlogPostIntro,
-  BlogSEO,
-} from "../../features/blog/components";
+import { BlogPostIntro, BlogSEO } from "../../features/blog/components";
 import theme, { screenSizes, sizes } from "../../utils/theme";
 
 import { article1Metadata } from "./everyday-javascript-1-spread-operator";
@@ -17,7 +14,8 @@ import { article6Metadata } from "./prosemirror-codemirror-block";
 import { article7Metadata } from "./discord-gitbot";
 import { article8Metadata } from "./hasura-vs-postgraphile";
 import { article9Metadata } from "./nextjs-postgraphile";
-import {article10Metadata} from "./json-schema-from-mustache";
+import { article10Metadata } from "./json-schema-from-mustache";
+import { article11Metadata } from "./prosemirror-link-preview";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -72,6 +70,9 @@ const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...article11Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article10Metadata} />
       </ContentWrapper>
