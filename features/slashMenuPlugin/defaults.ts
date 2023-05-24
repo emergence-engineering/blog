@@ -1,4 +1,4 @@
-import { CommandItem, SlasMenuState, SubMenu } from "./types";
+import { CommandItem, SlashMenuState, SubMenu } from "./types";
 import ArrowRight from "./icons/arrow-right.svg";
 import { setBlockType, toggleMark } from "prosemirror-commands";
 import { schema } from "prosemirror-schema-basic";
@@ -140,7 +140,7 @@ const HeadingsMenu: SubMenu = {
   icon: ArrowRight,
   elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
 };
-export const defaultConfig: SlasMenuState = {
+export const defaultConfig: SlashMenuState = {
   filteredElements: [HeadingsMenu, BoldCommand, ItalicCommand],
   selected: HeadingsMenu.id,
   open: false,

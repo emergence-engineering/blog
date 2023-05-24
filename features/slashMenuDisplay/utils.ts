@@ -1,7 +1,7 @@
-import { SlasMenuState } from "../slashMenuPlugin/types";
+import { SlashMenuState } from "../slashMenuPlugin/types";
 import { getElementById } from "../slashMenuPlugin/utils";
 
-export const getElements = (initialState: SlasMenuState) => {
+export const getElements = (initialState: SlashMenuState) => {
   const { subMenuId, filteredElements } = initialState;
   if (!subMenuId) {
     return filteredElements;

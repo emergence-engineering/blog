@@ -1,7 +1,6 @@
-import { ItemId, MenuElement, SlasMenuState } from "./types";
+import { ItemId, MenuElement, SlashMenuMeta, SlashMenuState } from "./types";
 import { EditorView } from "prosemirror-view";
 import { PluginKey } from "prosemirror-state";
-import { SlashMenuMeta } from "./index";
 
 export const getElementIds = (item: MenuElement): ItemId[] => {
   if (item.type === "submenu")
@@ -12,10 +11,10 @@ export const getElementIds = (item: MenuElement): ItemId[] => {
   return [item.id];
 };
 
-export const getAllElementIds = (config: SlasMenuState) =>
+export const getAllElementIds = (config: SlashMenuState) =>
   config.filteredElements.map((element) => getElementIds(element)).flat();
 
-export const hasDuplicateIds = (config: SlasMenuState): boolean => {
+export const hasDuplicateIds = (config: SlashMenuState): boolean => {
   const ids = getAllElementIds(config);
   return ids.length !== new Set(ids).size;
 };
@@ -24,10 +23,10 @@ const getElements = (item: MenuElement): MenuElement[] => {
     return [item, ...item.elements.map((item) => getElements(item))].flat();
   return [item];
 };
-export const getAllElements = (config: SlasMenuState) =>
+export const getAllElements = (config: SlashMenuState) =>
   config.filteredElements.map((element) => getElements(element)).flat();
 
-export const getElementById = (id: ItemId, state: SlasMenuState) =>
+export const getElementById = (id: ItemId, state: SlashMenuState) =>
   getAllElements(state).find((element) => element.id === id);
 
 export const findParent = (
@@ -48,7 +47,7 @@ export const findParent = (
   });
   return parentId;
 };
-export const getNextItemId = (state: SlasMenuState): ItemId | undefined => {
+export const getNextItemId = (state: SlashMenuState): ItemId | undefined => {
   const parentId = findParent(state.selected, state.filteredElements);
   const parent = getElementById(parentId, state);
   if (parentId === "root") {
@@ -68,7 +67,9 @@ export const getNextItemId = (state: SlasMenuState): ItemId | undefined => {
     }
   }
 };
-export const getPreviousItemId = (state: SlasMenuState): ItemId | undefined => {
+export const getPreviousItemId = (
+  state: SlashMenuState,
+): ItemId | undefined => {
   const parentId = findParent(state.selected, state.filteredElements);
   const parent = getElementById(parentId, state);
   if (parentId === "root") {
@@ -94,57 +95,49 @@ export const dispatchWithMeta = (
   meta: SlashMenuMeta,
 ) => view.dispatch(view.state.tr.setMeta(key, meta));
 
-export const AllowedKeys = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
+export const getFilteredItems = (state: SlashMenuState, input: string) => {
+  const regExp = new RegExp(`${input.toLowerCase().replace(/\s/g, "\\s")}`);
+  return state.elements
+    .map((el) => el)
+    .filter((element) => element.label.toLowerCase().match(regExp) !== null);
+};
+
+export const ignoredKeys = [
+  "Shift",
+  "Alt",
+  "Control",
+  "Pause",
+  "CapsLock",
+  "Escape",
+  "PageUp",
+  "PageDown",
+  "End",
+  "Home",
+  "PrintScreen",
+  "Insert",
+  "Delete",
+  "Meta",
+  "ContextMenu",
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7",
+  "F8",
+  "F9",
+  "F10",
+  "NumLock",
+  "ScrollLock",
+  "AudioVolumeMute",
+  "AudioVolumeDown",
+  "AudioVolumeUp",
+  "LaunchMediaPlayer",
+  "LaunchApplication1",
+  "LaunchApplication2",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
 ];

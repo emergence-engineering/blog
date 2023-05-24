@@ -1,5 +1,4 @@
-import { SlasMenuState } from "./types";
-import { SlashMenuMeta } from "./index";
+import { SlashMenuMeta, SlashMenuState } from "./types";
 import {
   findParent,
   getElementById,
@@ -7,7 +6,7 @@ import {
   getPreviousItemId,
 } from "./utils";
 
-export const openSubMenu = (state: SlasMenuState, meta: SlashMenuMeta) => {
+export const openSubMenu = (state: SlashMenuState, meta: SlashMenuMeta) => {
   const menuElement = meta.element;
   if (menuElement?.type === "submenu") {
     return {
@@ -21,8 +20,8 @@ export const openSubMenu = (state: SlasMenuState, meta: SlashMenuMeta) => {
 };
 
 export const closeSubMenu = (
-  initialState: SlasMenuState,
-  state: SlasMenuState,
+  initialState: SlashMenuState,
+  state: SlashMenuState,
   meta: SlashMenuMeta,
 ) => {
   const menuElement = meta.element;
@@ -43,17 +42,17 @@ export const closeSubMenu = (
   return state;
 };
 
-export const nextItem = (state: SlasMenuState) => {
+export const nextItem = (state: SlashMenuState) => {
   const nextId = getNextItemId(state);
   if (!nextId) return state;
   return { ...state, selected: nextId };
 };
 
-export const prevItem = (state: SlasMenuState) => {
+export const prevItem = (state: SlashMenuState) => {
   const prevId = getPreviousItemId(state);
   if (!prevId) return state;
   return { ...state, selected: prevId };
 };
-export const filterItems = (state: SlasMenuState, filter: String) => {
+export const filterItems = (state: SlashMenuState, filter: String) => {
   return { ...state, filter };
 };

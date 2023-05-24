@@ -1,41 +1,31 @@
 import { Plugin, PluginKey } from "prosemirror-state";
-import { MenuElement, SlasMenuState } from "./types";
+import { SlashMenuMeta, SlashMenuState, SlashMetaTypes } from "./types";
 import { defaultConfig } from "./defaults";
-import { dispatchWithMeta, getElementById, hasDuplicateIds } from "./utils";
+import {
+  dispatchWithMeta,
+  getElementById,
+  getFilteredItems,
+  hasDuplicateIds,
+} from "./utils";
 import { getCase, SlashCases } from "./cases";
 import { closeSubMenu, nextItem, openSubMenu, prevItem } from "./actions";
 
-export enum SlashMetaTypes {
-  open = "open",
-  close = "close",
-  execute = "execute",
-  nextItem = "nextItem",
-  prevItem = "prevItem",
-  openSubMenu = "openSubMenu",
-  closeSubMenu = "closeSubMenu",
-  inputChange = "inputChange",
-}
-
 export const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
-export interface SlashMenuMeta {
-  type: SlashMetaTypes;
-  element?: MenuElement;
-  filter?: string;
-}
-const SlashMenuPlugin = (config?: SlasMenuState) => {
-  const initialState: SlasMenuState = {
+const SlashMenuPlugin = (config?: SlashMenuState) => {
+  const initialState: SlashMenuState = {
     ...(config || defaultConfig),
     elements: (config || defaultConfig).filteredElements,
+    ignoredKeys: (config || defaultConfig).ignoredKeys,
   };
   if (hasDuplicateIds(initialState)) {
     throw new Error("Menu elements must have unique id's!");
   }
-  return new Plugin<SlasMenuState>({
+  return new Plugin<SlashMenuState>({
     key: SlashMenuKey,
     props: {
       handleKeyDown(view, event) {
         const editorState = view.state;
-        const state: SlasMenuState = SlashMenuKey.getState(editorState);
+        const state: SlashMenuState = SlashMenuKey.getState(editorState);
         const slashCase = getCase(state, event, view);
         switch (slashCase) {
           case SlashCases.OpenMenu:
@@ -133,7 +123,13 @@ const SlashMenuPlugin = (config?: SlasMenuState) => {
           case SlashMetaTypes.prevItem:
             return prevItem(state);
           case SlashMetaTypes.inputChange: {
-            return { ...state, filter: meta.filter || "" };
+            return {
+              ...state,
+              filteredElements: meta.filter
+                ? getFilteredItems(initialState, meta.filter)
+                : initialState.elements,
+              filter: meta.filter || "",
+            };
           }
         }
 

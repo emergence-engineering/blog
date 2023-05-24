@@ -55,6 +55,8 @@ const Root = styled.div`
 
 const ProseMirrorCodeMirrorBlock = () => {
   const [pmState, setPmState] = useState<EditorState>();
+  const [editorView, setEditorView] = useState<EditorView>();
+
   console.log({ pmState });
   const editorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -82,6 +84,7 @@ const ProseMirrorCodeMirrorBlock = () => {
           const newState = view.state.apply(tr);
           view.updateState(newState);
           setPmState(newState);
+          setEditorView(view);
         } catch (e) {
           console.log(pmState);
           console.log(e);
@@ -107,7 +110,12 @@ const ProseMirrorCodeMirrorBlock = () => {
       {/*  /!*</DevtoolsLink>*!/*/}
       {/*  <DevToolkit />*/}
       {/*</DevtoolsWrapper>*/}
-      {pmState && <SlashMenuDisplay editorState={pmState}></SlashMenuDisplay>}
+      {pmState && editorView && (
+        <SlashMenuDisplay
+          editorState={pmState}
+          editorView={editorView}
+        ></SlashMenuDisplay>
+      )}
     </Root>
   );
 };

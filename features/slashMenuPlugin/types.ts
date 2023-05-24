@@ -24,11 +24,29 @@ export interface SubMenu extends MenuItem {
   elements: MenuElement[];
   sideEffect?: () => void;
 }
-export type SlasMenuState = {
+export type SlashMenuState = {
   selected: ItemId;
   filteredElements: MenuElement[];
   open: boolean;
   subMenuId?: ItemId;
   filter: string;
   elements: MenuElement[];
+  ignoredKeys: string[];
 };
+
+export enum SlashMetaTypes {
+  open = "open",
+  close = "close",
+  execute = "execute",
+  nextItem = "nextItem",
+  prevItem = "prevItem",
+  openSubMenu = "openSubMenu",
+  closeSubMenu = "closeSubMenu",
+  inputChange = "inputChange",
+}
+
+export interface SlashMenuMeta {
+  type: SlashMetaTypes;
+  element?: MenuElement;
+  filter?: string;
+}
