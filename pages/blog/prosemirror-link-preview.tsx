@@ -21,7 +21,7 @@ export const article11Metadata: ArticleIntro = {
   title: "prosemirror-link-preview: Link preview for prosemirror!",
   author: "Viktor and matejcsok",
   authorLink: null,
-  introText: /* language=md */ `An open source link preview plugin for prosemirror.`,
+  introText: /* language=md */ `An open source link preview plugin for prosemirror made by Emergence-Engineering.`,
   postId: "prosemirror-link-preview",
   timestamp: 1684339200011,
   imgSrc:
