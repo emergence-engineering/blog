@@ -35,7 +35,7 @@ If you want to have a decorations around different strings in your ProseMirror d
 const MD0 = /* language=md */ `
 # What's this about?
 
-A [ProseMirror link plugin](https://gitlab.com/emergence-engineering/prosemirror-link-plugin) which finds occuerrences of strings in your document, and does it by only looking at the changed sections, thus saving a lot of time
+A [ProseMirror link plugin](https://gitlab.com/emergence-engineering/prosemirror-link-plugin) which finds occurrences of strings in your document, and does it by only looking at the changed sections, thus saving a lot of time
 by not re-processing the whole document all the time.
 `;
 
