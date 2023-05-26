@@ -23,12 +23,12 @@ const getElements = (item: MenuElement): MenuElement[] => {
     return [item, ...item.elements.map((item) => getElements(item))].flat();
   return [item];
 };
-export const getAllElements = (config: SlashMenuState) =>
-  config.filteredElements.map((element) => getElements(element)).flat();
+export const getAllElements = (state: SlashMenuState) =>
+  state.elements.map((element) => getElements(element)).flat();
 
-export const getElementById = (id: ItemId, state: SlashMenuState) =>
-  getAllElements(state).find((element) => element.id === id);
-
+export const getElementById = (id: ItemId, state: SlashMenuState) => {
+  return getAllElements(state).find((element) => element.id === id);
+};
 export const findParent = (
   id: ItemId,
   elements: MenuElement[],
@@ -97,9 +97,13 @@ export const dispatchWithMeta = (
 
 export const getFilteredItems = (state: SlashMenuState, input: string) => {
   const regExp = new RegExp(`${input.toLowerCase().replace(/\s/g, "\\s")}`);
-  return state.elements
+  return getAllElements(state)
     .map((el) => el)
-    .filter((element) => element.label.toLowerCase().match(regExp) !== null);
+    .filter(
+      (element) =>
+        element.label.toLowerCase().match(regExp) !== null &&
+        element.type !== "submenu",
+    );
 };
 
 export const ignoredKeys = [

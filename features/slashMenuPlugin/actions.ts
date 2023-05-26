@@ -11,7 +11,7 @@ export const openSubMenu = (state: SlashMenuState, meta: SlashMenuMeta) => {
   if (menuElement?.type === "submenu") {
     return {
       ...state,
-      elements: menuElement.elements,
+      filteredElements: menuElement.elements,
       selected: menuElement.elements[0].id,
       subMenuId: menuElement.id,
     };
@@ -34,7 +34,7 @@ export const closeSubMenu = (
     if (parent?.type !== "submenu") return state;
     return {
       ...state,
-      elements: parent.elements,
+      filteredElements: parent.elements,
       selected: parent.elements[0].id,
       subMenuId: parentId,
     };

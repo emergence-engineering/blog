@@ -14,14 +14,21 @@ export interface SlashMenuProps {
   editorView: EditorView;
 }
 
-const Root = styled.div`
+const Root = styled.div<{
+  top: number;
+  height: number;
+  outOfBound: boolean;
+  openUp: boolean;
+  left: number;
+}>`
   position: absolute;
-  height: 500px;
-  width: 500px;
-  top: 300px;
-  right: 500px;
+  height: 100px;
+  width: 300px;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   background-color: deeppink;
   z-index: 100;
+  overflow: scroll;
 `;
 const MenuEement = styled.div<{ selected: boolean }>`
   display: flex;
@@ -32,9 +39,12 @@ const MenuEement = styled.div<{ selected: boolean }>`
 const FilterText = styled.div`
   position: relative;
   top: -1rem;
-  color: lightgray;
+  color: black;
   background-color: white;
   opacity: 100%;
+`;
+const NoMatchPlaceHolder = styled.div`
+  color: black;
 `;
 const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
   const menuState = useMemo(() => {
@@ -43,8 +53,10 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
   }, [editorState]);
   const elements = useMemo(() => {
     if (!menuState) return;
+
     return getElements(menuState);
   }, [menuState]);
+  console.log({ elements });
   const menuRef = useRef();
   useEffect(() => {
     if (!menuRef) return;
@@ -65,12 +77,54 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
     };
   }, [menuRef]);
 
-  // @ts-ignore
+  const menuPosition = useMemo(() => {
+    if (!editorView.state) {
+      return {
+        left: "0px",
+        top: "0px",
+        outOfBound: false,
+        height: undefined,
+        openTop: false,
+      };
+    }
+    const { state } = editorView;
+    const container = editorView.dom.parentElement || editorView.dom;
+    const box = container.getBoundingClientRect();
+    const { to } = state.selection;
+    if (to === 0) {
+      return { left: "0px", top: "0px" };
+    }
+    const cursorPos = editorView.coordsAtPos(to);
+    console.log(cursorPos.top);
+    const outOfBound = 500 + 40 + cursorPos.top > window.innerHeight;
+    const height = outOfBound
+      ? window.innerHeight - cursorPos.top - 40
+      : undefined;
+    const openTop = outOfBound && height && height < 40;
+    const top = openTop
+      ? `${cursorPos.top - box.top - 500}px`
+      : `${cursorPos.top - box.top + 32}px`;
+    const left = cursorPos.left;
+    return {
+      top,
+      outOfBound,
+      height,
+      openTop,
+      left,
+    };
+  }, [editorView]);
   return (
     <>
       {menuState?.open ? (
         // @ts-ignore
-        <Root id={"slashDisplay"} ref={menuRef}>
+        <Root
+          id={"slashDisplay"}
+          ref={menuRef}
+          height={menuPosition.height}
+          outOfBound={menuPosition.outOfBound}
+          top={menuPosition.top}
+          left={menuPosition.left}
+        >
           {menuState.filter ? (
             <FilterText>{menuState.filter}</FilterText>
           ) : null}
@@ -88,6 +142,9 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
               {el.label}
             </MenuEement>
           ))}
+          {elements?.length === 0 ? (
+            <NoMatchPlaceHolder>No Match</NoMatchPlaceHolder>
+          ) : null}
         </Root>
       ) : null}
     </>

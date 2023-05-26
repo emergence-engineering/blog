@@ -57,7 +57,6 @@ const ProseMirrorCodeMirrorBlock = () => {
   const [pmState, setPmState] = useState<EditorState>();
   const [editorView, setEditorView] = useState<EditorView>();
 
-  console.log({ pmState });
   const editorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!editorRef.current) return;

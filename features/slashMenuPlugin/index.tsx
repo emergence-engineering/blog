@@ -101,6 +101,7 @@ const SlashMenuPlugin = (config?: SlashMenuState) => {
         }
       },
     },
+
     state: {
       init() {
         return initialState;
