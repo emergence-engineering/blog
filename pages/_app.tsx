@@ -2,6 +2,7 @@ import React from "react";
 import App, { AppProps } from "next/app";
 import Head from "next/head";
 import "../public/global.css";
+import "../features/slashMenuDisplay/menu-style.css";
 
 interface MyAppProps extends AppProps {}
 

@@ -83,13 +83,13 @@ const ProseMirrorCodeMirrorBlock = () => {
           const newState = view.state.apply(tr);
           view.updateState(newState);
           setPmState(newState);
-          setEditorView(view);
         } catch (e) {
           console.log(pmState);
           console.log(e);
         }
       },
     });
+    setEditorView(view);
     import("prosemirror-dev-toolkit").then(({ applyDevTools }) =>
       applyDevTools(view),
     );
@@ -113,7 +113,8 @@ const ProseMirrorCodeMirrorBlock = () => {
         <SlashMenuDisplay
           editorState={pmState}
           editorView={editorView}
-        ></SlashMenuDisplay>
+          config={{ minHeight: 250, height: 400, overflowPadding: 16 }}
+        />
       )}
     </Root>
   );

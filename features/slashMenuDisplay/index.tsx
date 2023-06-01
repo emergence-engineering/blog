@@ -1,52 +1,30 @@
-import React, { FC, useEffect, useMemo, useRef } from "react";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { EditorState } from "prosemirror-state";
 import { SlashMenuKey } from "../slashMenuPlugin";
-import styled from "styled-components";
 import { getElements } from "./utils";
-import Image from "next/image";
-import ArrowLeft from "/features/slashMenuDisplay/icons/arrow-left.svg";
 import { EditorView } from "prosemirror-view";
 import { dispatchWithMeta } from "../slashMenuPlugin/utils";
 import { SlashMetaTypes } from "../slashMenuPlugin/types";
+import { usePopper } from "react-popper";
+import { detectOverflow } from "@popperjs/core";
+
+export interface SlashMenuDisplayConfig {
+  height: number;
+  minHeight: number;
+  overflowPadding: number;
+}
 
 export interface SlashMenuProps {
   editorState: EditorState;
   editorView: EditorView;
+  config: SlashMenuDisplayConfig;
 }
 
-const Root = styled.div<{
-  top: number;
-  height: number;
-  outOfBound: boolean;
-  openUp: boolean;
-  left: number;
-}>`
-  position: absolute;
-  height: 100px;
-  width: 300px;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
-  background-color: deeppink;
-  z-index: 100;
-  overflow: scroll;
-`;
-const MenuEement = styled.div<{ selected: boolean }>`
-  display: flex;
-  background-color: ${(props) => (props.selected ? "gray" : "white")};
-  border: 2px solid black;
-  border-radius: 0.5rem;
-`;
-const FilterText = styled.div`
-  position: relative;
-  top: -1rem;
-  color: black;
-  background-color: white;
-  opacity: 100%;
-`;
-const NoMatchPlaceHolder = styled.div`
-  color: black;
-`;
-const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
+const SlashMenuDisplay: FC<SlashMenuProps> = ({
+  editorState,
+  editorView,
+  config,
+}) => {
   const menuState = useMemo(() => {
     if (!editorState) return;
     return SlashMenuKey.getState(editorState);
@@ -56,15 +34,15 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
 
     return getElements(menuState);
   }, [menuState]);
-  console.log({ elements });
-  const menuRef = useRef();
+  const rootRef = useRef(null);
+
   useEffect(() => {
-    if (!menuRef) return;
+    if (!rootRef) return;
     function outsideClickHandler(event: MouseEvent) {
       if (
-        menuRef.current &&
+        rootRef.current &&
         // @ts-ignore
-        (!event.target || !menuRef.current.contains(event.target))
+        (!event.target || !rootRef.current.contains(event.target))
       ) {
         dispatchWithMeta(editorView, SlashMenuKey, {
           type: SlashMetaTypes.close,
@@ -75,77 +53,146 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({ editorState, editorView }) => {
     return () => {
       document.removeEventListener("mousedown", outsideClickHandler);
     };
-  }, [menuRef]);
+  }, [rootRef]);
+  const [menuHeight, setMenuHeight] = useState(config.height);
+  const [shouldFlip, setShouldFlip] = useState(false);
 
-  const menuPosition = useMemo(() => {
-    if (!editorView.state) {
-      return {
-        left: "0px",
-        top: "0px",
-        outOfBound: false,
-        height: undefined,
-        openTop: false,
-      };
-    }
-    const { state } = editorView;
-    const container = editorView.dom.parentElement || editorView.dom;
-    const box = container.getBoundingClientRect();
-    const { to } = state.selection;
-    if (to === 0) {
-      return { left: "0px", top: "0px" };
-    }
-    const cursorPos = editorView.coordsAtPos(to);
-    console.log(cursorPos.top);
-    const outOfBound = 500 + 40 + cursorPos.top > window.innerHeight;
-    const height = outOfBound
-      ? window.innerHeight - cursorPos.top - 40
-      : undefined;
-    const openTop = outOfBound && height && height < 40;
-    const top = openTop
-      ? `${cursorPos.top - box.top - 500}px`
-      : `${cursorPos.top - box.top + 32}px`;
-    const left = cursorPos.left;
+  // const menuPosition = useMemo(() => {
+  //   if (!editorView.state) {
+  //     return {
+  //       left: "0px",
+  //       top: "0px",
+  //       outOfBound: false,
+  //       height: undefined,
+  //       openTop: false,
+  //     };
+  //   }
+  //   const { state } = editorView;
+  //   const { to } = state.selection;
+  //   if (to === 0) {
+  //     return { left: "0px", top: "0px", height: "0px" };
+  //   }
+  //   const { y, height: lineHeight } = editorView
+  //     .domAtPos(to)
+  //     ?.node?.getBoundingClientRect();
+  //   const { height } = getVerticalPosition(
+  //     config.height,
+  //     y,
+  //     rootRef.current?.clientHeight,
+  //     config.minHeight,
+  //     lineHeight,
+  //   );
+  //   return {
+  //     height,
+  //   };
+  // }, [editorView, editorState, config]);
+
+  const heightModifier = useMemo(() => {
     return {
-      top,
-      outOfBound,
-      height,
-      openTop,
-      left,
+      name: "heightModifier",
+      enabled: true,
+      phase: "main",
+      requiresIfExists: ["offset"],
+      fn({ state }) {
+        const overflow = detectOverflow(state);
+        if (menuHeight < config.minHeight) {
+          setShouldFlip(true);
+          setMenuHeight(config.height);
+          return;
+        }
+        if (overflow.bottom + config.overflowPadding > 0 && !shouldFlip) {
+          const newMenuHeight =
+            config.height - config.overflowPadding - overflow.bottom;
+          setMenuHeight(newMenuHeight);
+          return;
+        }
+        if (menuHeight < config.height) {
+          setMenuHeight(config.height);
+          return;
+        }
+        if (overflow.bottom < -config.minHeight) {
+          setShouldFlip(false);
+          return;
+        }
+      },
     };
-  }, [editorView]);
+  }, [config, menuHeight, shouldFlip]);
+  const [popperElement, setPopperElement] = React.useState(null);
+  const flipModifier = useMemo(() => {
+    return { name: "flip", enabled: shouldFlip };
+  }, [shouldFlip]);
+  const virtualReference = useMemo(() => {
+    const { top, left, height } = editorView
+      .domAtPos(editorState.selection.to)
+      ?.node?.getBoundingClientRect();
+    return {
+      getBoundingClientRect() {
+        return {
+          top: top,
+          right: left,
+          bottom: top,
+          left: left,
+          width: 0,
+          height: height,
+        };
+      },
+    };
+  }, [editorState, window.scrollY]);
+
+  const { styles, attributes } = usePopper(virtualReference, popperElement, {
+    modifiers: [
+      flipModifier,
+      heightModifier,
+      {
+        name: "preventOverflow",
+        options: {
+          mainAxis: false,
+        },
+      },
+    ],
+  });
+  console.log({ menuHeight });
   return (
     <>
-      {menuState?.open ? (
-        // @ts-ignore
-        <Root
-          id={"slashDisplay"}
-          ref={menuRef}
-          height={menuPosition.height}
-          outOfBound={menuPosition.outOfBound}
-          top={menuPosition.top}
-          left={menuPosition.left}
+      {menuState.open ? (
+        <div
+          ref={setPopperElement}
+          style={{ ...styles.popper, height: config.height }}
+          {...attributes.popper}
         >
-          {menuState.filter ? (
-            <FilterText>{menuState.filter}</FilterText>
-          ) : null}
-          {menuState.subMenuId ? (
-            <div>
-              <Image src={ArrowLeft} alt={"Arrow Back"} />
-            </div>
-          ) : null}
-          {elements?.map((el, idx) => (
-            <MenuEement
-              id={el.id}
-              key={`${el.id}-${idx}`}
-              selected={el.id === menuState.selected}
-            >
-              {el.label}
-            </MenuEement>
-          ))}
-          {elements?.length === 0 ? (
-            <NoMatchPlaceHolder>No Match</NoMatchPlaceHolder>
-          ) : null}
-        </Root>
+          <div
+            id={"slashDisplay"}
+            ref={rootRef}
+            className={"menu-display-root"}
+            style={{
+              height: menuHeight,
+            }}
+          >
+            {menuState.filter ? (
+              <div className={"menu-filter"}>{menuState.filter}</div>
+            ) : null}
+            {menuState.subMenuId ? (
+              <div>{/*<Image src={ArrowLeft} alt={"Arrow Back"} />*/}</div>
+            ) : null}
+            {elements?.map((el, idx) => (
+              <div
+                id={el.id}
+                key={`${el.id}-${idx}`}
+                className={"menu-element"}
+                style={{
+                  backgroundColor: `${
+                    el.id === menuState.selected ? "gray" : "white"
+                  }`,
+                }}
+              >
+                {el.label}
+              </div>
+            ))}
+            {elements?.length === 0 ? (
+              <div className={"menu-placeholder"}>No Match</div>
+            ) : null}
+          </div>
+        </div>
       ) : null}
     </>
   );

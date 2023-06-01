@@ -1,0 +1,28 @@
+.menu-display-root {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 300px;
+    background-color: deeppink;
+    z-index: 100;
+    overflow: scroll;
+}
+
+.menu-element {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+}
+
+.menu-placeholder {
+    color: black;
+}
+
+.menu-filter {
+    position: relative;
+    top: -1rem;
+    color: black;
+    background-color: white;
+    opacity: 100%;
+}

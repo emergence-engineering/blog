@@ -141,8 +141,27 @@ const HeadingsMenu: SubMenu = {
   icon: ArrowRight,
   elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
 };
+const testElements = (elementNumber: number): CommandItem[] => {
+  let arr: CommandItem[] = [];
+  for (let i = 0; i < elementNumber; i++) {
+    arr.push({
+      id: `test-${i}`,
+      label: `Test-${i}`,
+      type: "command",
+      icon: ArrowRight,
+      command: () => console.log(`Test command Excecute ${i}`),
+      available: () => true,
+    });
+  }
+  return arr;
+};
 export const defaultConfig: Partial<SlashMenuState> = {
-  filteredElements: [HeadingsMenu, BoldCommand, ItalicCommand],
+  filteredElements: [
+    HeadingsMenu,
+    BoldCommand,
+    ItalicCommand,
+    testElements(10),
+  ].flat(),
   selected: HeadingsMenu.id,
   open: false,
   filter: "",
