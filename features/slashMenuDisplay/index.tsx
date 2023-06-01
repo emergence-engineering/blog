@@ -57,36 +57,6 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
   const [menuHeight, setMenuHeight] = useState(config.height);
   const [shouldFlip, setShouldFlip] = useState(false);
 
-  // const menuPosition = useMemo(() => {
-  //   if (!editorView.state) {
-  //     return {
-  //       left: "0px",
-  //       top: "0px",
-  //       outOfBound: false,
-  //       height: undefined,
-  //       openTop: false,
-  //     };
-  //   }
-  //   const { state } = editorView;
-  //   const { to } = state.selection;
-  //   if (to === 0) {
-  //     return { left: "0px", top: "0px", height: "0px" };
-  //   }
-  //   const { y, height: lineHeight } = editorView
-  //     .domAtPos(to)
-  //     ?.node?.getBoundingClientRect();
-  //   const { height } = getVerticalPosition(
-  //     config.height,
-  //     y,
-  //     rootRef.current?.clientHeight,
-  //     config.minHeight,
-  //     lineHeight,
-  //   );
-  //   return {
-  //     height,
-  //   };
-  // }, [editorView, editorState, config]);
-
   const heightModifier = useMemo(() => {
     return {
       name: "heightModifier",
