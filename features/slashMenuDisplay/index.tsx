@@ -4,7 +4,7 @@ import { SlashMenuKey } from "../slashMenuPlugin";
 import { getElements } from "./utils";
 import { EditorView } from "prosemirror-view";
 import { dispatchWithMeta } from "../slashMenuPlugin/utils";
-import { SlashMetaTypes } from "../slashMenuPlugin/types";
+import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
 import { detectOverflow } from "@popperjs/core";
 
@@ -25,7 +25,7 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
   editorView,
   config,
 }) => {
-  const menuState = useMemo(() => {
+  const menuState: SlashMenuState = useMemo(() => {
     if (!editorState) return;
     return SlashMenuKey.getState(editorState);
   }, [editorState]);
@@ -34,7 +34,7 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
 
     return getElements(menuState);
   }, [menuState]);
-  const rootRef = useRef(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!rootRef) return;
@@ -67,23 +67,28 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
         const overflow = detectOverflow(state);
         if (menuHeight < config.minHeight) {
           setShouldFlip(true);
+          // console.log("inOne", config.height);
           setMenuHeight(config.height);
           return;
         }
         if (overflow.bottom + config.overflowPadding > 0 && !shouldFlip) {
           const newMenuHeight =
             config.height - config.overflowPadding - overflow.bottom;
+          // console.log("inTwo", newMenuHeight);
           setMenuHeight(newMenuHeight);
           return;
         }
         if (menuHeight < config.height) {
+          // console.log("inThree", config.height);
           setMenuHeight(config.height);
           return;
         }
         if (overflow.bottom < -config.minHeight) {
           setShouldFlip(false);
+          setMenuHeight(config.height);
           return;
         }
+        return;
       },
     };
   }, [config, menuHeight, shouldFlip]);
@@ -121,13 +126,37 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
       },
     ],
   });
-  console.log({ menuHeight });
+
+  useEffect(() => {
+    const element = document.getElementById(menuState.selected);
+    if (!element) return;
+    if (!rootRef.current) return;
+    const { bottom, height, top } = element.getBoundingClientRect();
+    console.log(1);
+    const containerRect = rootRef.current.getBoundingClientRect();
+    const scrollUp = top - height < containerRect.top;
+    const visible = scrollUp
+      ? top - containerRect.top > height
+      : bottom + height / 2 - containerRect.bottom < height;
+    if (!visible) {
+      if (scrollUp) {
+        rootRef.current.scrollTop = element.offsetTop - height / 2;
+      } else rootRef.current.scrollTop = rootRef.current.scrollTop + height;
+    }
+  }, [menuState]);
+
+  console.log(menuState.selected);
+
   return (
     <>
       {menuState.open ? (
         <div
           ref={setPopperElement}
-          style={{ ...styles.popper, height: config.height }}
+          style={{
+            ...styles.popper,
+            height: config.height,
+            padding: "0.5rem",
+          }}
           {...attributes.popper}
         >
           <div

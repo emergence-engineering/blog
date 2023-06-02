@@ -113,7 +113,7 @@ const ProseMirrorCodeMirrorBlock = () => {
         <SlashMenuDisplay
           editorState={pmState}
           editorView={editorView}
-          config={{ minHeight: 250, height: 400, overflowPadding: 16 }}
+          config={{ minHeight: 100, height: 160, overflowPadding: 16 }}
         />
       )}
     </Root>

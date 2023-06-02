@@ -55,8 +55,16 @@ export const getCase = (
       return SlashCases.NextItem;
     }
     if (event.key === "ArrowUp") {
+      console.log(state.selected, state.filteredElements);
       return SlashCases.PrevItem;
     }
+    // if (
+    //   event.key === "ArrowUp" &&
+    //   state.selected === state.filteredElements[0].id
+    // ) {
+    //   return SlashCases.Ignore;
+    // }
+
     if (
       event.key === "Enter" ||
       event.key === "Tab" ||
