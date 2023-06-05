@@ -7,6 +7,7 @@ import { dispatchWithMeta } from "../slashMenuPlugin/utils";
 import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
 import { detectOverflow } from "@popperjs/core";
+import { ArrowLeft } from "@mui/icons-material";
 
 export interface SlashMenuDisplayConfig {
   height: number;
@@ -56,7 +57,6 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
   }, [rootRef]);
   const [menuHeight, setMenuHeight] = useState(config.height);
   const [shouldFlip, setShouldFlip] = useState(false);
-
   const heightModifier = useMemo(() => {
     return {
       name: "heightModifier",
@@ -67,19 +67,16 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
         const overflow = detectOverflow(state);
         if (menuHeight < config.minHeight) {
           setShouldFlip(true);
-          // console.log("inOne", config.height);
           setMenuHeight(config.height);
           return;
         }
         if (overflow.bottom + config.overflowPadding > 0 && !shouldFlip) {
           const newMenuHeight =
             config.height - config.overflowPadding - overflow.bottom;
-          // console.log("inTwo", newMenuHeight);
           setMenuHeight(newMenuHeight);
           return;
         }
         if (menuHeight < config.height) {
-          // console.log("inThree", config.height);
           setMenuHeight(config.height);
           return;
         }
@@ -132,7 +129,6 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     if (!element) return;
     if (!rootRef.current) return;
     const { bottom, height, top } = element.getBoundingClientRect();
-    console.log(1);
     const containerRect = rootRef.current.getBoundingClientRect();
     const scrollUp = top - height < containerRect.top;
     const visible = scrollUp
@@ -145,8 +141,11 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     }
   }, [menuState]);
 
-  console.log(menuState.selected);
-
+  const filterHeight = useMemo(() => {
+    const element = document.getElementById("menu-filter");
+    if (!element) return;
+    return element.clientHeight;
+  }, [config]);
   return (
     <>
       {menuState.open ? (
@@ -168,10 +167,15 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
             }}
           >
             {menuState.filter ? (
-              <div className={"menu-filter"}>{menuState.filter}</div>
+              <div id={"menu-filter"} className={"menu-filter"}>
+                {menuState.filter}
+              </div>
             ) : null}
             {menuState.subMenuId ? (
-              <div>{/*<Image src={ArrowLeft} alt={"Arrow Back"} />*/}</div>
+              // TODO Kata ennek a divnek lehet kell egy class, az Arrow az legyen egy inline svg ami a slashMenuDisplay Mappaban van
+              <div>
+                <ArrowLeft />
+              </div>
             ) : null}
             {elements?.map((el, idx) => (
               <div
