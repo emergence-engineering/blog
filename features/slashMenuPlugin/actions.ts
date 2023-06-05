@@ -2,6 +2,7 @@ import { SlashMenuMeta, SlashMenuState } from "./types";
 import {
   findParent,
   getElementById,
+  getFilteredItems,
   getNextItemId,
   getPreviousItemId,
 } from "./utils";
@@ -20,9 +21,9 @@ export const openSubMenu = (state: SlashMenuState, meta: SlashMenuMeta) => {
 };
 
 export const closeSubMenu = (
-  initialState: SlashMenuState,
   state: SlashMenuState,
   meta: SlashMenuMeta,
+  initialState: SlashMenuState,
 ) => {
   const menuElement = meta.element;
   if (menuElement?.type === "submenu") {
@@ -55,4 +56,17 @@ export const prevItem = (state: SlashMenuState) => {
 };
 export const filterItems = (state: SlashMenuState, filter: String) => {
   return { ...state, filter };
+};
+export const updateInput = (
+  state: SlashMenuState,
+  meta: SlashMenuMeta,
+  initialState: SlashMenuState,
+) => {
+  return {
+    ...state,
+    filteredElements: meta.filter
+      ? getFilteredItems(initialState, meta.filter)
+      : initialState.elements,
+    filter: meta.filter || "",
+  };
 };

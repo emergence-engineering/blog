@@ -192,7 +192,6 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
                 </svg>
               </div>
             ) : null}
-
             {elements?.map((el, idx) => (
               <div
                 className={"menu-element-wrapper"}
@@ -203,12 +202,22 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
                 }}
               >
                 <div className={"menu-element-icon"}>
-                  <svg width="17" height="9" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="7" cy="2" r="1.5" stroke="black"/>
-                    <circle cx="13" cy="2" r="1.5" stroke="black"/>
-                    <path d="M1 5V5C5.10924 11.2847 14.2339 11.522 18.6643 5.45942L19 5" stroke="black" strokeMiterlimit="1.86218" strokeLinecap="round"/>
+                  <svg
+                    width="17"
+                    height="9"
+                    viewBox="0 0 20 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="7" cy="2" r="1.5" stroke="black" />
+                    <circle cx="13" cy="2" r="1.5" stroke="black" />
+                    <path
+                      d="M1 5V5C5.10924 11.2847 14.2339 11.522 18.6643 5.45942L19 5"
+                      stroke="black"
+                      strokeMiterlimit="1.86218"
+                      strokeLinecap="round"
+                    />
                   </svg>
-
                 </div>
 
                 <div
