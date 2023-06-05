@@ -7,7 +7,6 @@ import { dispatchWithMeta } from "../slashMenuPlugin/utils";
 import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
 import { detectOverflow } from "@popperjs/core";
-import { ArrowLeft } from "@mui/icons-material";
 
 export interface SlashMenuDisplayConfig {
   height: number;
@@ -158,6 +157,14 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
           }}
           {...attributes.popper}
         >
+          {menuState.filter ? (
+            <div className={"menu-filter-wrapper"}>
+              <div id={"menu-filter"} className={"menu-filter "}>
+                {menuState.filter}
+              </div>
+            </div>
+          ) : null}
+
           <div
             id={"slashDisplay"}
             ref={rootRef}
@@ -166,29 +173,51 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
               height: menuHeight,
             }}
           >
-            {menuState.filter ? (
-              <div id={"menu-filter"} className={"menu-filter"}>
-                {menuState.filter}
-              </div>
-            ) : null}
             {menuState.subMenuId ? (
-              // TODO Kata ennek a divnek lehet kell egy class, az Arrow az legyen egy inline svg ami a slashMenuDisplay Mappaban van
               <div>
-                <ArrowLeft />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-arrow-left menu-backarrow"
+                >
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
               </div>
             ) : null}
+
             {elements?.map((el, idx) => (
               <div
-                id={el.id}
-                key={`${el.id}-${idx}`}
-                className={"menu-element"}
+                className={"menu-element-wrapper"}
                 style={{
                   backgroundColor: `${
-                    el.id === menuState.selected ? "gray" : "white"
+                    el.id === menuState.selected ? "#f1f1f1" : "white"
                   }`,
                 }}
               >
-                {el.label}
+                <div className={"menu-element-icon"}>
+                  <svg width="17" height="9" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="2" r="1.5" stroke="black"/>
+                    <circle cx="13" cy="2" r="1.5" stroke="black"/>
+                    <path d="M1 5V5C5.10924 11.2847 14.2339 11.522 18.6643 5.45942L19 5" stroke="black" strokeMiterlimit="1.86218" strokeLinecap="round"/>
+                  </svg>
+
+                </div>
+
+                <div
+                  id={el.id}
+                  key={`${el.id}-${idx}`}
+                  className={"menu-element"}
+                >
+                  {el.label}
+                </div>
               </div>
             ))}
             {elements?.length === 0 ? (
