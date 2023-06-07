@@ -1,13 +1,18 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { EditorState } from "prosemirror-state";
-import { SlashMenuKey } from "../slashMenuPlugin";
+import * as slashMenu from "prosemirror-slash-menu";
+import {
+  SlashMenuKey,
+  dispatchWithMeta,
+  getElementById,
+  SlashMetaTypes,
+} from "prosemirror-slash-menu";
 import { getElements } from "./utils";
 import { EditorView } from "prosemirror-view";
-import { dispatchWithMeta, getElementById } from "../slashMenuPlugin/utils";
-import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
 import { detectOverflow, ModifierArguments, Options } from "@popperjs/core";
 import { ArrowLeft } from "./icons/defaultIcons";
+import { ListItem } from "./ListItem";
 
 export interface SlashMenuDisplayConfig {
   height: number;
@@ -19,14 +24,18 @@ export interface SlashMenuProps {
   editorState: EditorState;
   editorView: EditorView;
   config: SlashMenuDisplayConfig;
+  icons?: {
+    [key: string]: FC;
+  };
 }
 
 const SlashMenuDisplay: FC<SlashMenuProps> = ({
   editorState,
   editorView,
   config,
+  icons,
 }) => {
-  const menuState: SlashMenuState = useMemo(() => {
+  const menuState = useMemo(() => {
     if (!editorState) return;
     return SlashMenuKey.getState(editorState);
   }, [editorState]);
@@ -36,20 +45,22 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     return getElements(menuState);
   }, [menuState]);
   const rootRef = useRef<HTMLDivElement>(null);
-
+  console.log({ SlashMetaTypes, slashMenu });
   useEffect(() => {
     if (!rootRef) return;
-    function outsideClickHandler(event: MouseEvent) {
+    const outsideClickHandler = (event: MouseEvent) => {
+      console.log({ SlashMetaTypes });
       if (
         rootRef.current &&
-        // @ts-ignore
-        (!event.target || !rootRef.current.contains(event.target))
+        (!event.target ||
+          !(event.target instanceof Node) ||
+          !rootRef.current.contains(event.target))
       ) {
         dispatchWithMeta(editorView, SlashMenuKey, {
           type: SlashMetaTypes.close,
         });
       }
-    }
+    };
     document.addEventListener("mousedown", outsideClickHandler);
     return () => {
       document.removeEventListener("mousedown", outsideClickHandler);
@@ -95,10 +106,8 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     return { name: "flip", enabled: shouldFlip };
   }, [shouldFlip]);
   const virtualReference = useMemo(() => {
-    //TODO Maybe typing is not good here
-    const domNode = editorView.domAtPos(editorState.selection.to)
-      ?.node as HTMLDivElement;
-    if (!domNode) return;
+    const domNode = editorView.domAtPos(editorState.selection.to)?.node;
+    if (!(domNode instanceof HTMLElement)) return;
     const { top, left, height } = domNode.getBoundingClientRect();
     return {
       getBoundingClientRect() {
@@ -142,6 +151,7 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
   });
 
   useEffect(() => {
+    if (!menuState) return;
     const element = document.getElementById(menuState.selected);
 
     if (!element || !rootRef.current) return;
@@ -188,14 +198,14 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     rootRef.current.scrollTop = 0;
   }, [menuState?.filteredElements]);
   const subMenuLabel = useMemo(() => {
-    if (menuState.subMenuId) {
+    if (menuState?.subMenuId) {
       return getElementById(menuState.subMenuId, menuState)?.label;
     }
   }, [menuState]);
 
   return (
     <>
-      {menuState.open ? (
+      {menuState?.open ? (
         <div
           //TODO Ts fix, might not be possible, popper is missing its typing I think
           // @ts-ignore
@@ -225,27 +235,21 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
           >
             {menuState.subMenuId ? (
               <div className={"menu-element-wrapper"}>
-                <div className={"menu-element-icon"}>{ArrowLeft}</div>
+                <div className={"menu-element-icon"}>
+                  <ArrowLeft />
+                </div>
                 <div className={"submenu-label"}>{subMenuLabel}</div>
               </div>
             ) : null}
             {elements?.map((el, idx) => (
-              <div
-                className={"menu-element-wrapper"}
-                style={{
-                  backgroundColor: `${
-                    el.id === menuState.selected ? "#f1f1f1" : "white"
-                  }`,
-                }}
+              <ListItem
+                key={el.id}
+                menuState={menuState}
                 id={el.id}
-                key={`${el.id}-${idx}`}
-              >
-                {el?.icon ? (
-                  <div className={"menu-element-icon"}> {el.icon}</div>
-                ) : null}
-
-                <div className={"menu-element"}>{el.label}</div>
-              </div>
+                Icon={icons?.[el.id]}
+                idx={idx}
+                label={el.label}
+              />
             ))}
             {elements?.length === 0 ? (
               <div className={"menu-placeholder"}>No Matching items</div>

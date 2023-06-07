@@ -19,9 +19,17 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 // import { DevToolkit } from "../../features/common/components/PMUtils";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
-import SlashMenuPlugin from "../../features/slashMenuPlugin";
+import { SlashMenuPlugin } from "prosemirror-slash-menu";
 import SlashMenuDisplay from "../../features/slashMenuDisplay";
-import { defaultConfig } from "../../features/slashMenuDisplay/defaults";
+import { defaultConfig, Icons } from "../../features/slashMenuDisplay/defaults";
+import {
+  BoldIcon,
+  CodeIcon,
+  H1Icon,
+  H2Icon,
+  H3Icon,
+  ItalicIcon,
+} from "../../features/slashMenuDisplay/icons/defaultIcons";
 
 const Root = styled.div`
   .codeblock-select {
@@ -112,6 +120,14 @@ const ProseMirrorCodeMirrorBlock = () => {
       {/*</DevtoolsWrapper>*/}
       {pmState && editorView && (
         <SlashMenuDisplay
+          // icons={{
+          //   [Icons.Level1]: H1Icon,
+          //   [Icons.Level2]: H2Icon,
+          //   [Icons.Level3]: H3Icon,
+          //   [Icons.Bold]: BoldIcon,
+          //   [Icons.Italic]: ItalicIcon,
+          //   [Icons.Code]: CodeIcon,
+          // }}
           editorState={pmState}
           editorView={editorView}
           config={{

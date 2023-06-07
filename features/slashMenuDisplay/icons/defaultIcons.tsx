@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HeadingIcon = (
+export const HeadingIcon = () => (
   <svg
     fill="#000000"
     width="36"
@@ -11,7 +11,7 @@ export const HeadingIcon = (
     <path d="M18 20V4h-3v6H9V4H6v16h3v-7h6v7z" />
   </svg>
 );
-export const H1Icon = (
+export const H1Icon = () => (
   <svg
     width="36"
     height="36"
@@ -29,7 +29,7 @@ export const H1Icon = (
     />
   </svg>
 );
-export const H2Icon = (
+export const H2Icon = () => (
   <svg
     width="36"
     height="36"
@@ -47,7 +47,7 @@ export const H2Icon = (
     />
   </svg>
 );
-export const H3Icon = (
+export const H3Icon = () => (
   <svg
     width="36"
     height="36"
@@ -65,7 +65,7 @@ export const H3Icon = (
     />
   </svg>
 );
-export const ItalicIcon = (
+export const ItalicIcon = () => (
   <svg
     width="25"
     height="24"
@@ -79,7 +79,7 @@ export const ItalicIcon = (
     />
   </svg>
 );
-export const BoldIcon = (
+export const BoldIcon = () => (
   <svg
     width="25"
     height="24"
@@ -95,7 +95,7 @@ export const BoldIcon = (
     />
   </svg>
 );
-export const ArrowLeft = (
+export const ArrowLeft = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -112,7 +112,7 @@ export const ArrowLeft = (
     <polyline points="12 19 5 12 12 5"></polyline>
   </svg>
 );
-export const ArrowRight = (
+export const ArrowRight = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -129,7 +129,7 @@ export const ArrowRight = (
     <polyline points="12 5 19 12 12 19"></polyline>
   </svg>
 );
-export const Code = (
+export const CodeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -146,7 +146,7 @@ export const Code = (
     <polyline points="8 6 2 12 8 18"></polyline>
   </svg>
 );
-export const Link = (
+export const Link = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

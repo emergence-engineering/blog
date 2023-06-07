@@ -1,7 +1,11 @@
-import { CommandItem, SlashMenuState, SubMenu } from "../slashMenuPlugin/types";
+import {
+  CommandItem,
+  SlashMenuState,
+  SubMenu,
+  ignoredKeys,
+} from "prosemirror-slash-menu";
 import { setBlockType, toggleMark } from "prosemirror-commands";
 import { schema } from "prosemirror-schema-basic";
-import { ignoredKeys } from "../slashMenuPlugin/utils";
 import {
   ArrowRight,
   BoldIcon,
@@ -13,11 +17,20 @@ import {
   Link,
 } from "./icons/defaultIcons";
 
+export enum Icons {
+  "Level1" = "Level1",
+  "Level2" = "Level2",
+  "Level3" = "Level3",
+  "Bold" = "Bold",
+  "Italic" = "Italic",
+  "Link" = "Link",
+  "Code" = "Code",
+}
+
 const H1Command: CommandItem = {
-  id: "level-1",
+  id: Icons.Level1,
   label: "H1",
   type: "command",
-  icon: H1Icon,
   command: (view) => {
     console.log("shpould make heading 1");
     setBlockType(schema.nodes.heading, { level: 1 })(
@@ -29,10 +42,9 @@ const H1Command: CommandItem = {
   available: () => true,
 };
 const H2Command: CommandItem = {
-  id: "level-2",
+  id: Icons.Level2,
   label: "H2",
   type: "command",
-  icon: H2Icon,
   command: (view) => {
     console.log("shpould make heading 2");
     setBlockType(schema.nodes.heading, { level: 2 })(
@@ -44,10 +56,9 @@ const H2Command: CommandItem = {
   available: () => true,
 };
 const H3Command: CommandItem = {
-  id: "level-3",
+  id: Icons.Level3,
   label: "H2",
   type: "command",
-  icon: H3Icon,
   command: (view) => {
     console.log("shpould make heading 3");
     setBlockType(schema.nodes.heading, { level: 3 })(
@@ -107,10 +118,9 @@ const SecondSub3Command: CommandItem = {
   available: () => true,
 };
 const BoldCommand: CommandItem = {
-  id: "bold",
+  id: Icons.Bold,
   label: "Bold",
   type: "command",
-  icon: BoldIcon,
   command: (view) => {
     const markType = schema.marks.strong;
     toggleMark(markType)(view.state, view.dispatch, view);
@@ -118,10 +128,9 @@ const BoldCommand: CommandItem = {
   available: () => true,
 };
 const ItalicCommand: CommandItem = {
-  id: "italic",
+  id: Icons.Italic,
   label: "Italic",
   type: "command",
-  icon: ItalicIcon,
   command: (view) => {
     const markType = schema.marks.em;
     toggleMark(markType)(view.state, view.dispatch, view);
@@ -129,10 +138,9 @@ const ItalicCommand: CommandItem = {
   available: () => true,
 };
 const CodeCommand: CommandItem = {
-  id: "code",
+  id: Icons.Code,
   label: "Code",
   type: "command",
-  icon: Code,
   command: (view) => {
     const markType = schema.marks.code;
     toggleMark(markType)(view.state, view.dispatch, view);
@@ -140,10 +148,9 @@ const CodeCommand: CommandItem = {
   available: () => true,
 };
 const LinkCommand: CommandItem = {
-  id: "link",
+  id: Icons.Link,
   label: "Link",
   type: "command",
-  icon: Link,
   command: (view) => {
     const markType = schema.marks.link;
     toggleMark(markType)(view.state, view.dispatch, view);
@@ -168,22 +175,7 @@ const HeadingsMenu: SubMenu = {
   id: "headings",
   label: "Headings",
   type: "submenu",
-  icon: ArrowRight,
   elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
-};
-const testElements = (elementNumber: number): CommandItem[] => {
-  let arr: CommandItem[] = [];
-  for (let i = 0; i < elementNumber; i++) {
-    arr.push({
-      id: `test-${i}`,
-      label: `Test-${i}`,
-      type: "command",
-
-      command: () => console.log(`Test command Excecute ${i}`),
-      available: () => true,
-    });
-  }
-  return arr;
 };
 export const defaultConfig: Partial<SlashMenuState> = {
   filteredElements: [

@@ -1,5 +1,4 @@
-import { SlashMenuState } from "../slashMenuPlugin/types";
-import { getElementById } from "../slashMenuPlugin/utils";
+import { SlashMenuState, getElementById } from "prosemirror-slash-menu";
 
 export const getElements = (state: SlashMenuState) => {
   const { subMenuId, filteredElements } = state;
