@@ -10,10 +10,13 @@ import { getCase, SlashCases } from "./cases";
 import { closeSubMenu, nextItem, openSubMenu, prevItem } from "./actions";
 
 export const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
-const SlashMenuPlugin = (config: SlashMenuState) => {
+const SlashMenuPlugin = (config: Partial<SlashMenuState>) => {
+  // @ts-ignore
   const initialState: SlashMenuState = {
     ...config,
+    // @ts-ignore
     elements: config.filteredElements,
+    // @ts-ignore
     ignoredKeys: config.ignoredKeys,
   };
   if (hasDuplicateIds(initialState)) {

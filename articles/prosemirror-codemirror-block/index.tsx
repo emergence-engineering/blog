@@ -64,7 +64,7 @@ const ProseMirrorCodeMirrorBlock = () => {
     const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
-        SlashMenuPlugin(),
+        SlashMenuPlugin(defaultConfig),
         ...exampleSetup({
           schema,
         }),
@@ -115,7 +115,6 @@ const ProseMirrorCodeMirrorBlock = () => {
           editorState={pmState}
           editorView={editorView}
           config={{
-            ...defaultConfig,
             minHeight: 100,
             height: 160,
             overflowPadding: 16,
