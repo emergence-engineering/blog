@@ -1,6 +1,5 @@
 import { Plugin, PluginKey } from "prosemirror-state";
 import { SlashMenuMeta, SlashMenuState, SlashMetaTypes } from "./types";
-import { defaultConfig } from "../slashMenuDisplay/defaults";
 import {
   dispatchWithMeta,
   getElementById,
@@ -11,14 +10,11 @@ import { getCase, SlashCases } from "./cases";
 import { closeSubMenu, nextItem, openSubMenu, prevItem } from "./actions";
 
 export const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
-const SlashMenuPlugin = (config?: SlashMenuState) => {
+const SlashMenuPlugin = (config: SlashMenuState) => {
   const initialState: SlashMenuState = {
-    ...(config || defaultConfig),
-    //TODO Fix ts
-    // @ts-ignore
-    elements: (config || defaultConfig).filteredElements,
-    // @ts-ignore
-    ignoredKeys: (config || defaultConfig).ignoredKeys,
+    ...config,
+    elements: config.filteredElements,
+    ignoredKeys: config.ignoredKeys,
   };
   if (hasDuplicateIds(initialState)) {
     throw new Error("Menu elements must have unique id's!");

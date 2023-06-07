@@ -21,6 +21,7 @@ import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
 import SlashMenuPlugin from "../../features/slashMenuPlugin";
 import SlashMenuDisplay from "../../features/slashMenuDisplay";
+import { defaultConfig } from "../../features/slashMenuDisplay/defaults";
 
 const Root = styled.div`
   .codeblock-select {
@@ -113,7 +114,12 @@ const ProseMirrorCodeMirrorBlock = () => {
         <SlashMenuDisplay
           editorState={pmState}
           editorView={editorView}
-          config={{ minHeight: 100, height: 160, overflowPadding: 16 }}
+          config={{
+            ...defaultConfig,
+            minHeight: 100,
+            height: 160,
+            overflowPadding: 16,
+          }}
         />
       )}
     </Root>
