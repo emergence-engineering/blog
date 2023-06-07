@@ -14,7 +14,10 @@ export const SlashMenuKey: PluginKey = new PluginKey("slash-menu-plugin");
 const SlashMenuPlugin = (config?: SlashMenuState) => {
   const initialState: SlashMenuState = {
     ...(config || defaultConfig),
+    //TODO Fix ts
+    // @ts-ignore
     elements: (config || defaultConfig).filteredElements,
+    // @ts-ignore
     ignoredKeys: (config || defaultConfig).ignoredKeys,
   };
   if (hasDuplicateIds(initialState)) {
@@ -118,7 +121,7 @@ const SlashMenuPlugin = (config?: SlashMenuState) => {
           case SlashMetaTypes.openSubMenu:
             return openSubMenu(state, meta);
           case SlashMetaTypes.closeSubMenu:
-            return closeSubMenu(initialState, state, meta);
+            return closeSubMenu(state, meta, initialState);
           case SlashMetaTypes.nextItem:
             return nextItem(state);
           case SlashMetaTypes.prevItem:

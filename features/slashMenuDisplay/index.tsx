@@ -6,7 +6,7 @@ import { EditorView } from "prosemirror-view";
 import { dispatchWithMeta } from "../slashMenuPlugin/utils";
 import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
-import { detectOverflow } from "@popperjs/core";
+import { detectOverflow, ModifierArguments, Options } from "@popperjs/core";
 
 export interface SlashMenuDisplayConfig {
   height: number;
@@ -62,7 +62,8 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
       enabled: true,
       phase: "main",
       requiresIfExists: ["offset"],
-      fn({ state }) {
+      fn(props: ModifierArguments<Options>) {
+        const { state } = props;
         const overflow = detectOverflow(state);
         if (menuHeight < config.minHeight) {
           setShouldFlip(true);
@@ -93,9 +94,10 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     return { name: "flip", enabled: shouldFlip };
   }, [shouldFlip]);
   const virtualReference = useMemo(() => {
-    const { top, left, height } = editorView
-      .domAtPos(editorState.selection.to)
-      ?.node?.getBoundingClientRect();
+    //TODO Maybe typing is not good here
+    const domNode = editorView.domAtPos(editorState.selection.to)
+      ?.node as HTMLDivElement;
+    const { top, left, height } = domNode.getBoundingClientRect();
     return {
       getBoundingClientRect() {
         return {
@@ -105,6 +107,20 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
           left: left,
           width: 0,
           height: height,
+          x: left,
+          y: top,
+          // TODO missing toJSON causes type error do we really need this?
+          toJSON: () =>
+            JSON.stringify({
+              top: top,
+              right: left,
+              bottom: top,
+              left: left,
+              width: 0,
+              height: height,
+              x: left,
+              y: top,
+            }),
         };
       },
     };
@@ -125,30 +141,43 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
 
   useEffect(() => {
     const element = document.getElementById(menuState.selected);
-    if (!element) return;
-    if (!rootRef.current) return;
-    const { bottom, height, top } = element.getBoundingClientRect();
+    if (!element || !rootRef.current) return;
+    const height =
+      element.clientHeight +
+      parseInt(
+        window.getComputedStyle(element).getPropertyValue("margin-top"),
+      ) +
+      parseInt(
+        window.getComputedStyle(element).getPropertyValue("margin-bottom"),
+      ) +
+      parseInt(
+        window.getComputedStyle(element).getPropertyValue("padding-top"),
+      ) +
+      parseInt(
+        window.getComputedStyle(element).getPropertyValue("padding-bottom"),
+      );
+
+    const { bottom, top } = element.getBoundingClientRect();
     const containerRect = rootRef.current.getBoundingClientRect();
     const scrollUp = top - height < containerRect.top;
     const visible = scrollUp
       ? top - containerRect.top > height
-      : bottom + height / 2 - containerRect.bottom < height;
+      : !(bottom > containerRect.bottom);
     if (!visible) {
       if (scrollUp) {
         rootRef.current.scrollTop = element.offsetTop - height / 2;
-      } else rootRef.current.scrollTop = rootRef.current.scrollTop + height;
+      } else {
+        rootRef.current.scrollTop =
+          element.offsetTop - containerRect.height + height + height / 4;
+      }
     }
   }, [menuState]);
-
-  const filterHeight = useMemo(() => {
-    const element = document.getElementById("menu-filter");
-    if (!element) return;
-    return element.clientHeight;
-  }, [config]);
   return (
     <>
       {menuState.open ? (
         <div
+          //TODO Ts fix, might not be possible, popper is missing its typing I think
+          // @ts-ignore
           ref={setPopperElement}
           style={{
             ...styles.popper,
@@ -200,33 +229,14 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
                     el.id === menuState.selected ? "#f1f1f1" : "white"
                   }`,
                 }}
+                id={el.id}
+                key={`${el.id}-${idx}`}
               >
-                <div className={"menu-element-icon"}>
-                  <svg
-                    width="17"
-                    height="9"
-                    viewBox="0 0 20 11"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="7" cy="2" r="1.5" stroke="black" />
-                    <circle cx="13" cy="2" r="1.5" stroke="black" />
-                    <path
-                      d="M1 5V5C5.10924 11.2847 14.2339 11.522 18.6643 5.45942L19 5"
-                      stroke="black"
-                      strokeMiterlimit="1.86218"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
+                {el?.icon ? (
+                  <div className={"menu-element-icon"}> {el.icon}</div>
+                ) : null}
 
-                <div
-                  id={el.id}
-                  key={`${el.id}-${idx}`}
-                  className={"menu-element"}
-                >
-                  {el.label}
-                </div>
+                <div className={"menu-element"}>{el.label}</div>
               </div>
             ))}
             {elements?.length === 0 ? (

@@ -1,4 +1,5 @@
 import { EditorView } from "prosemirror-view";
+import { ReactElement } from "react";
 
 export type ItemId = string | "root";
 export type ItemType = "command" | "submenu";
@@ -7,7 +8,7 @@ export type MenuItem = {
   id: ItemId;
   label: string;
   type: ItemType;
-  icon?: HTMLImageElement;
+  icon?: ReactElement;
 };
 export enum CommandItemKeys {
   command = "command",
