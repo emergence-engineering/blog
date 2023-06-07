@@ -28,7 +28,7 @@ export function LPSEO() {
         key="og:image"
         name="og:image"
         property="og:image"
-        content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
+        content="https://emergence-engineering.com/ee-icon.png"
       />
     </Head>
   );
