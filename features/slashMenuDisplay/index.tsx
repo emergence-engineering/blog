@@ -3,10 +3,11 @@ import { EditorState } from "prosemirror-state";
 import { SlashMenuKey } from "../slashMenuPlugin";
 import { getElements } from "./utils";
 import { EditorView } from "prosemirror-view";
-import { dispatchWithMeta } from "../slashMenuPlugin/utils";
+import { dispatchWithMeta, getElementById } from "../slashMenuPlugin/utils";
 import { SlashMenuState, SlashMetaTypes } from "../slashMenuPlugin/types";
 import { usePopper } from "react-popper";
 import { detectOverflow, ModifierArguments, Options } from "@popperjs/core";
+import { ArrowLeft } from "./icons/defaultIcons";
 
 export interface SlashMenuDisplayConfig {
   height: number;
@@ -97,6 +98,7 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
     //TODO Maybe typing is not good here
     const domNode = editorView.domAtPos(editorState.selection.to)
       ?.node as HTMLDivElement;
+    if (!domNode) return;
     const { top, left, height } = domNode.getBoundingClientRect();
     return {
       getBoundingClientRect() {
@@ -141,7 +143,14 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
 
   useEffect(() => {
     const element = document.getElementById(menuState.selected);
+
     if (!element || !rootRef.current) return;
+    const isTopElement =
+      menuState.selected === menuState.filteredElements[0].id;
+    if (isTopElement) {
+      rootRef.current.scrollTop = 0;
+      return;
+    }
     const height =
       element.clientHeight +
       parseInt(
@@ -172,6 +181,18 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
       }
     }
   }, [menuState]);
+  useEffect(() => {
+    if (rootRef.current === null) {
+      return;
+    }
+    rootRef.current.scrollTop = 0;
+  }, [menuState?.filteredElements]);
+  const subMenuLabel = useMemo(() => {
+    if (menuState.subMenuId) {
+      return getElementById(menuState.subMenuId, menuState)?.label;
+    }
+  }, [menuState]);
+
   return (
     <>
       {menuState.open ? (
@@ -203,22 +224,9 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
             }}
           >
             {menuState.subMenuId ? (
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="feather feather-arrow-left menu-backarrow"
-                >
-                  <line x1="19" y1="12" x2="5" y2="12"></line>
-                  <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
+              <div className={"menu-element-wrapper"}>
+                <div className={"menu-element-icon"}>{ArrowLeft}</div>
+                <div className={"submenu-label"}>{subMenuLabel}</div>
               </div>
             ) : null}
             {elements?.map((el, idx) => (
@@ -240,7 +248,7 @@ const SlashMenuDisplay: FC<SlashMenuProps> = ({
               </div>
             ))}
             {elements?.length === 0 ? (
-              <div className={"menu-placeholder"}>No Match</div>
+              <div className={"menu-placeholder"}>No Matching items</div>
             ) : null}
           </div>
         </div>

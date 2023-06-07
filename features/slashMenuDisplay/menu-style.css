@@ -15,7 +15,6 @@
   display: flex;
   border-radius: 0.3rem;
   padding: 0.2rem 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .menu-element-icon {
@@ -27,10 +26,14 @@
 
 .menu-element {
   color: black;
+  display: flex;
+  align-items: center;
 }
 
 .menu-placeholder {
-  color: black;
+  color: #aaaaaa;
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .menu-filter-wrapper {
@@ -50,4 +53,8 @@
   width: 17px;
   height: auto;
   margin: 0.5rem 0 0.2rem 0.5rem;
+}
+
+.submenu-label{
+  margin-left: 0.5rem;
 }

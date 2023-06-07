@@ -3,12 +3,15 @@ import { setBlockType, toggleMark } from "prosemirror-commands";
 import { schema } from "prosemirror-schema-basic";
 import { ignoredKeys } from "./utils";
 import {
+  ArrowRight,
   BoldIcon,
+  Code,
   H1Icon,
   H2Icon,
   H3Icon,
   ItalicIcon,
-} from "../slashMenuDisplay/icons/HeadingIcon";
+  Link,
+} from "../slashMenuDisplay/icons/defaultIcons";
 
 const H1Command: CommandItem = {
   id: "level-1",
@@ -125,11 +128,32 @@ const ItalicCommand: CommandItem = {
   },
   available: () => true,
 };
+const CodeCommand: CommandItem = {
+  id: "code",
+  label: "Code",
+  type: "command",
+  icon: Code,
+  command: (view) => {
+    const markType = schema.marks.code;
+    toggleMark(markType)(view.state, view.dispatch, view);
+  },
+  available: () => true,
+};
+const LinkCommand: CommandItem = {
+  id: "link",
+  label: "Link",
+  type: "command",
+  icon: Link,
+  command: (view) => {
+    const markType = schema.marks.link;
+    toggleMark(markType)(view.state, view.dispatch, view);
+  },
+  available: () => true,
+};
 const SecondSubHeadingsMenu: SubMenu = {
   id: "second-sub-headings",
   label: "Second Sub Headings",
   type: "submenu",
-
   elements: [SecondSub1Command, SecondSub2Command, SecondSub3Command],
 };
 const SubHeadingsMenu: SubMenu = {
@@ -144,24 +168,7 @@ const HeadingsMenu: SubMenu = {
   id: "headings",
   label: "Headings",
   type: "submenu",
-  icon: (
-    <svg
-      width="17"
-      height="9"
-      viewBox="0 0 20 11"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="7" cy="2" r="1.5" stroke="black" />
-      <circle cx="13" cy="2" r="1.5" stroke="black" />
-      <path
-        d="M1 5V5C5.10924 11.2847 14.2339 11.522 18.6643 5.45942L19 5"
-        stroke="black"
-        strokeMiterlimit="1.86218"
-        strokeLinecap="round"
-      />
-    </svg>
-  ),
+  icon: ArrowRight,
   elements: [H1Command, H2Command, H3Command, SubHeadingsMenu],
 };
 const testElements = (elementNumber: number): CommandItem[] => {
@@ -183,11 +190,11 @@ export const defaultConfig: Partial<SlashMenuState> = {
     HeadingsMenu,
     BoldCommand,
     ItalicCommand,
-    testElements(10),
-  ].flat(),
+    CodeCommand,
+    LinkCommand,
+  ],
   selected: HeadingsMenu.id,
   open: false,
   filter: "",
   ignoredKeys: ignoredKeys,
-  // elements: [HeadingsMenu, BoldCommand, ItalicCommand],
 };
