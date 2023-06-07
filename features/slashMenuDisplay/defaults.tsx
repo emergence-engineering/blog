@@ -1,7 +1,7 @@
-import { CommandItem, SlashMenuState, SubMenu } from "./types";
+import { CommandItem, SlashMenuState, SubMenu } from "../slashMenuPlugin/types";
 import { setBlockType, toggleMark } from "prosemirror-commands";
 import { schema } from "prosemirror-schema-basic";
-import { ignoredKeys } from "./utils";
+import { ignoredKeys } from "../slashMenuPlugin/utils";
 import {
   ArrowRight,
   BoldIcon,
@@ -11,7 +11,7 @@ import {
   H3Icon,
   ItalicIcon,
   Link,
-} from "../slashMenuDisplay/icons/defaultIcons";
+} from "./icons/defaultIcons";
 
 const H1Command: CommandItem = {
   id: "level-1",

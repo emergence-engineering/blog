@@ -1,6 +1,6 @@
 import { Plugin, PluginKey } from "prosemirror-state";
 import { SlashMenuMeta, SlashMenuState, SlashMetaTypes } from "./types";
-import { defaultConfig } from "./defaults";
+import { defaultConfig } from "../slashMenuDisplay/defaults";
 import {
   dispatchWithMeta,
   getElementById,
