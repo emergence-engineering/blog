@@ -16,20 +16,10 @@ import {
 import { redo, undo } from "prosemirror-history";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-// import { DevToolkit } from "../../features/common/components/PMUtils";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
 import { SlashMenuPlugin } from "prosemirror-slash-menu";
-import SlashMenuDisplay from "../../features/slashMenuDisplay";
-import { defaultConfig, Icons } from "../../features/slashMenuDisplay/defaults";
-import {
-  BoldIcon,
-  CodeIcon,
-  H1Icon,
-  H2Icon,
-  H3Icon,
-  ItalicIcon,
-} from "../../features/slashMenuDisplay/icons/defaultIcons";
+import { defaultConfig, SlashMenuDisplay } from "prosemirror-slash-menu-react";
 
 const Root = styled.div`
   .codeblock-select {
