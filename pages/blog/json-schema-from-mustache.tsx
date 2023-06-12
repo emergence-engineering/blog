@@ -263,7 +263,7 @@ describe("mustache", () => {
 
 # Conclusion
 
-I hope this has benn useful for you. I think this is a good way to validate your mustache templates, and it was not that hard to implement. 
+I hope this has been useful for you. I think this is a good way to validate your mustache templates, and it was not that hard to implement. 
 I was shocked that no one else published code for this before, so I hope this will help someone in the future.
 
 If you want to generate forms from your mustache templates, you can do that with the \`convertToUISchema\` function also published in the gist.
