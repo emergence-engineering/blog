@@ -16,6 +16,7 @@ import { article8Metadata } from "./hasura-vs-postgraphile";
 import { article9Metadata } from "./nextjs-postgraphile";
 import { article10Metadata } from "./json-schema-from-mustache";
 import { article11Metadata } from "./prosemirror-link-preview";
+import { article12Metadata } from "./hocuspocus-with-supabase";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -70,6 +71,9 @@ const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...article12Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article11Metadata} />
       </ContentWrapper>
