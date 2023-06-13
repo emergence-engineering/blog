@@ -19,7 +19,7 @@ import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
 import { SlashMenuPlugin } from "prosemirror-slash-menu";
-import { defaultConfig, SlashMenuDisplay } from "prosemirror-slash-menu-react";
+import { defaultConfig, SlashMenuReact } from "prosemirror-slash-menu-react";
 
 const Root = styled.div`
   .codeblock-select {
@@ -109,7 +109,7 @@ const ProseMirrorCodeMirrorBlock = () => {
       {/*  <DevToolkit />*/}
       {/*</DevtoolsWrapper>*/}
       {pmState && editorView && (
-        <SlashMenuDisplay
+        <SlashMenuReact
           // icons={{
           //   [Icons.Level1]: H1Icon,
           //   [Icons.Level2]: H2Icon,
