@@ -142,6 +142,7 @@ const MobileContainer = styled.div`
 
 const BigScreenContainer = styled.div`
   display: none;
+
   @media screen and (min-width: ${screenSizes.large}px) {
     display: flex;
     justify-items: flex-end;
