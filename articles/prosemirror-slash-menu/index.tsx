@@ -6,20 +6,13 @@ import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import styled from "styled-components";
 import { keymap } from "prosemirror-keymap";
-import {
-  codeBlockArrowHandlers,
-  codeMirrorBlockPlugin,
-  defaultSettings,
-  languageLoaders,
-  legacyLanguageLoaders,
-} from "prosemirror-codemirror-block";
-import { redo, undo } from "prosemirror-history";
+import { codeBlockArrowHandlers } from "prosemirror-codemirror-block";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
 import { SlashMenuPlugin } from "prosemirror-slash-menu";
-import { defaultConfig } from "prosemirror-slash-menu-react";
+import { defaultElements, SlashMenuReact } from "prosemirror-slash-menu-react";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 
 const Root = styled.div`
@@ -55,6 +48,7 @@ const Root = styled.div`
 
 const ProseMirrorCodeMirrorBlock = () => {
   const [pmState, setPmState] = useState<EditorState>();
+  const [editorView, setEditorView] = useState<EditorView>();
 
   const editorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -62,16 +56,11 @@ const ProseMirrorCodeMirrorBlock = () => {
     const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
-        SlashMenuPlugin(defaultConfig),
+        SlashMenuPlugin(defaultElements),
         ...exampleSetup({
           schema,
         }),
-        codeMirrorBlockPlugin({
-          ...defaultSettings,
-          languageLoaders: { ...languageLoaders, ...legacyLanguageLoaders },
-          undo,
-          redo,
-        }),
+
         keymap(codeBlockArrowHandlers),
       ],
     });
@@ -88,6 +77,7 @@ const ProseMirrorCodeMirrorBlock = () => {
         }
       },
     });
+    setEditorView(view);
     import("prosemirror-dev-toolkit").then(({ applyDevTools }) =>
       applyDevTools(view),
     );
@@ -107,6 +97,25 @@ const ProseMirrorCodeMirrorBlock = () => {
       {/*  /!*</DevtoolsLink>*!/*/}
       {/*  <DevToolkit />*/}
       {/*</DevtoolsWrapper>*/}
+      {pmState && editorView && (
+        <SlashMenuReact
+          // icons={{
+          //   [Icons.Level1]: H1Icon,
+          //   [Icons.Level2]: H2Icon,
+          //   [Icons.Level3]: H3Icon,
+          //   [Icons.Bold]: BoldIcon,
+          //   [Icons.Italic]: ItalicIcon,
+          //   [Icons.Code]: CodeIcon,
+          // }}
+          editorState={pmState}
+          editorView={editorView}
+          config={{
+            minHeight: 100,
+            height: 160,
+            overflowPadding: 16,
+          }}
+        />
+      )}
     </Root>
   );
 };
