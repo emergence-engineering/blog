@@ -56,6 +56,18 @@ const Logo = styled.img.attrs({ src: "/ee-logo.svg" })`
   height: 3rem;
 `;
 
+const GithubLogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const GithubLogo = styled.img.attrs({ src: "/github-mark.svg" })`
+  height: 2rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+`;
+
 const ContentWrapper = styled.div`
   @media screen and (min-width: ${screenSizes.extraLarge}px) {
     padding-left: 10.5%;
@@ -149,6 +161,10 @@ const BigScreenContainer = styled.div`
   }
 `;
 
+const redirectToGithub = () => {
+  window.open("https://github.com/emergence-engineering", "_blank");
+};
+
 const Header: FunctionComponent = () => (
   <Headroom>
     <Root>
@@ -165,6 +181,7 @@ const Header: FunctionComponent = () => (
             <HeaderLink href="/team" caption="Team" />
             <HeaderLink href="/case-studies" caption="Case studies" />
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
+            <GithubLogo onClick={redirectToGithub} />
           </BigScreenContainer>
           <MobileContainer>
             <HamburgerMenu>
@@ -174,6 +191,9 @@ const Header: FunctionComponent = () => (
               <HeaderLink href="/references" caption="Open source projects" />
               <HeaderLink href="/case-studies" caption="Case studies" />
               <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
+              <GithubLogoWrapper>
+                <GithubLogo onClick={redirectToGithub} />
+              </GithubLogoWrapper>
             </HamburgerMenu>
           </MobileContainer>
         </RightContainer>
