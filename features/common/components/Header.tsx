@@ -36,6 +36,7 @@ const RightContainer = styled.div`
 `;
 
 const SiteTitle = styled.a`
+  display: flex;
   flex: 1;
   font-size: 2.5rem;
   font-weight: 700;
@@ -93,6 +94,9 @@ const Anchor = styled.div<{ active: boolean }>`
 `;
 
 const ContactUsLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   margin: 0 10px;
   font-weight: 500;
@@ -131,13 +135,14 @@ const HeaderLink = withRouter(HeaderLinkRoot);
 
 const MobileContainer = styled.div`
   display: none;
-  @media screen and (max-width: ${screenSizes.large}px) {
+  @media screen and (max-width: ${screenSizes.large - 1}px) {
     display: block;
   }
 `;
 
 const BigScreenContainer = styled.div`
   display: none;
+
   @media screen and (min-width: ${screenSizes.large}px) {
     display: flex;
     justify-items: flex-end;
