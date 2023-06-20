@@ -163,7 +163,6 @@ const Header: FunctionComponent = () => (
             <HeaderLink href="/" caption="Home" />
             <HeaderLink href="/blog" caption="Blog" />
             <HeaderLink href="/team" caption="Team" />
-            <HeaderLink href="/references" caption="Open source projects" />
             <HeaderLink href="/case-studies" caption="Case studies" />
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
           </BigScreenContainer>

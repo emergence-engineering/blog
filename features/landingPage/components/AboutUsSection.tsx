@@ -13,7 +13,6 @@ import ZsofiImage from "../../../public/bio/zsofi.png";
 import KsisuImage from "../../../public/bio/ksisu.png";
 import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../../public/bio/norbi.png";
-import PeterImage from "../../../public/bio/peter.png";
 import PetraImage from "../../../public/bio/petra2.png";
 import KataImage from "../../../public/bio/kata.jpg";
 import { UnstyledLink } from "../../../utils/link";
@@ -83,9 +82,8 @@ export enum Members {
   ksisu = "ksisu",
   torcsi = "torcsi",
   norbi = "norbi",
-  peter = "peter",
   petra = "petra",
-    kata = "kata"
+  kata = "kata",
 }
 
 const images = {
@@ -99,9 +97,8 @@ const images = {
   [Members.ksisu]: KsisuImage,
   [Members.torcsi]: TorcsiImage,
   [Members.norbi]: NorbiImage,
-  [Members.peter]: PeterImage,
   [Members.petra]: PetraImage,
-    [Members.kata]: KataImage
+  [Members.kata]: KataImage,
 };
 
 export const FacePicture: FunctionComponent<{
