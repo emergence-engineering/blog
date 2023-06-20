@@ -1,19 +1,36 @@
-export const codeBlockDoc = {
+export const slashMenuDoc = {
   content: [
     {
       content: [
         {
-          text: "prosemirror-codemirror-block",
+          text: "Type '/' after a space to open the menu. ",
           type: "text",
         },
       ],
       type: "paragraph",
     },
-
     {
       content: [
         {
-          text: "",
+          text: " ",
+          type: "text",
+        },
+      ],
+      type: "paragraph",
+    },
+    {
+      content: [
+        {
+          text: " ",
+          type: "text",
+        },
+      ],
+      type: "paragraph",
+    },
+    {
+      content: [
+        {
+          text: " ",
           type: "text",
         },
       ],

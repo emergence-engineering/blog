@@ -18,8 +18,6 @@ import { redo, undo } from "prosemirror-history";
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
-import { SlashMenuPlugin } from "prosemirror-slash-menu";
-import { defaultConfig } from "prosemirror-slash-menu-react";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 
 const Root = styled.div`
@@ -62,7 +60,6 @@ const ProseMirrorCodeMirrorBlock = () => {
     const state = EditorState.create({
       doc: schema.nodeFromJSON(codeBlockDoc),
       plugins: [
-        SlashMenuPlugin(defaultConfig),
         ...exampleSetup({
           schema,
         }),

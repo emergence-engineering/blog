@@ -32,125 +32,126 @@ export const article8Metadata: ArticleIntro = {
 const MD0 = /* language=md */ `
 # What's this about?
 
-Release [ProseMirror codeblock plugin](https://gitlab.com/emergence-engineering/prosemirror-codemirror-block)
-that uses the brand-new CodeMirror 6, a major improvement over CodeMirror 5.
+Release of [ProseMirror slash menu plugin](https://gitlab.com/emergence-engineering/prosemirror-slash-menu) 
+and the companion [ProseMirror slash menu UI in react](https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react).
 
-With:
-- Customizable language selector
-- lazy-loaded language support
-- works with YJS history
+We are all familiar with the concept of a slash menu from Slack, Discord, Notion, etc. and it seems it would be a perfect fit for ProseMirror as well. 
+With these two simple packages you can quickly add a slash menu to your editor and execute ProseMirror commands, or any other commands within your app for that matter.
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-codemirror-block)
+# How does it work?
+
+The idea is for you to simply provide an array of MenuElements to the plugin, and it will take care of closing and opening, executing commands, navigation within menus and sub menus with the keyboard and 
+filtering the items as the user is typing. 
+
+By using [prosemirror-slash-menu-react](https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
+
+# Why two packages? 
+
+So you can use it with any UI framework you want. Our thought process was: Let the plugin handle all the logic and the UI will be just a dumb display. 
+Not to mention, we really don't want to bundle React into the package for those of you who will not use it.
+
+[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-slash-menu)
 `;
 
 const MD1 = /* language=md */ `
 # How to use?
 
-1. Install the plugin: **npm i -S prosemirror-codemirror-block**
-3. Import **defaultSettings** from the plugin ( and modify it if you want )
-4. Update the **code_block** node in the ProseMirror schema to have a **lang** attribute 
-5. Initialize the editor with the plugin & insert **keymaps** for correct cursor handling around **code_block**
+1. Install the plugins: **npm i prosemirror-slash-menu && npm i prosemirror-slash-menu-react**
+3. Import **SlashMenuReact**, **SlashMenuPlugin** and **defaultElements** from *prosemirror-slash-menu-react* 
+4. Add the plugin to your editor **SlashMenuPlugin(defaultElements)** 
+5. Add the UI to your editor **SlashMenuReact**
 
 In codespeak:
 \`\`\`typescript
-import { schema } from "prosemirror-schema-basic";
+import React, { useEffect, useRef, useState } from "react";
+import { exampleSetup } from "prosemirror-example-setup";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
-import { exampleSetup } from "prosemirror-example-setup";
+import schema from "./schema";
+import { SlashMenuPlugin } from "prosemirror-slash-menu";
 import {
-    codeMirrorBlockPlugin,
-    defaultSettings,
-    languageLoaders,
-    codeBlockArrowHandlers,
-    legacyLanguageLoaders,
-} from "prosemirror-codemirror-block";
-import { undo, redo } from "prosemirror-history";
+  defaultElements,
+  defaultIcons,
+  Icons,
+  SlashMenuReact,
+} from "prosemirror-slash-menu-react";
 
-
-const codeBlockSpec = schema.spec.nodes.get("code_block");
-
-export default new Schema({
-    nodes: schema.spec.nodes.update("code_block", {
-        ...(codeBlockSpec || {}),
-        attrs: { ...codeBlockSpec?.attrs, lang: { default: null } },
-    }),
-    marks: schema.spec.marks,
-});
-
-
-const codeBlockDoc = {
-    content: [
-        {
+const ProseMirrorSlashMenu = () => {
+  const [pmState, setPmState] = useState<EditorState>();
+  const [editorView, setEditorView] = useState<EditorView>();
+  const editorRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!editorRef.current) return;
+    const state = EditorState.create({
+      doc: schema.nodeFromJSON({
+        content: [
+          {
             content: [
-                {
-                    text: "prosemirror-codemirror-block",
-                    type: "text",
-                },
+              {
+                text: "Type '/' after a space to open the menu. ",
+                type: "text",
+              },
             ],
             type: "paragraph",
-        },
-        {
-            content: [
-                {
-                    text: "const jsFun = (arg) => {\\n  console.log(arg); \\n}",
-                    type: "text",
-                },
-            ],
-            attrs: {
-                lang: "javascript",
-            },
-            type: "code_block",
-        },
-    ],
-    type: "doc",
-};
-
-
-const state = EditorState.create<typeof schema>({
-    doc: schema.nodeFromJSON(codeBlockDoc),
-    plugins: [
+          },
+        ],
+        type: "doc",
+      }),
+      plugins: [
+        SlashMenuPlugin(defaultElements),
         ...exampleSetup({
-            schema,
+          schema,
         }),
-        codeMirrorBlockPlugin({
-            ...defaultSettings,
-            languageLoaders: { ...languageLoaders, ...legacyLanguageLoaders },
-            undo,
-            redo,
-        }),
-        keymap(codeBlockArrowHandlers),
-    ],
-});
-
-const view: EditorView = new EditorView(document.getElementById("editor"), {
-  state,
-});
+      ],
+    });
+    const view: EditorView = new EditorView(editorRef.current, {
+      state,
+      dispatchTransaction: (tr) => {
+        try {
+          const newState = view.state.apply(tr);
+          view.updateState(newState);
+          setPmState(newState);
+        } catch (e) {}
+      },
+    });
+    setEditorView(view);
+    return () => {
+      view && view.destroy();
+    };
+  }, [editorRef]);
+  return (
+    <>
+      <div ref={editorRef} id="editor" />
+      {pmState && editorView && (
+        <SlashMenuReact
+          icons={{
+            [Icons.HeaderMenu]: defaultIcons.H1Icon,
+            [Icons.Level1]: defaultIcons.H1Icon,
+            [Icons.Level2]: defaultIcons.H2Icon,
+            [Icons.Level3]: defaultIcons.H3Icon,
+            [Icons.Bold]: defaultIcons.BoldIcon,
+            [Icons.Italic]: defaultIcons.ItalicIcon,
+            [Icons.Code]: defaultIcons.CodeIcon,
+            [Icons.Link]: defaultIcons.LinkIcon,
+          }}
+          editorState={pmState}
+          editorView={editorView}
+        />
+      )}
+    </>
+  );
+};
 \`\`\`
 
-You might also want to add
-\`\`\`css
-.codeblock-select {
-    position: absolute;
-    right: 0;
-    z-index: 100;
-    opacity: 0;
-    transition: all 0.3s ease;
-    margin: 6px 14px;
-}
-.codeblock-root {
-    position: relative;
-}
+That's it, now you can override SlashMenuReacts CSS classes to your liking, pass in your own commands and have a slash menu in your editor. 
+With this first version we aim to cover the most basic use cases, but we already have some customization options in mind.
+We are not mind readers yet though, only you know what you really need so feel free to contact us with your suggestions for improvement.
 
-.codeblock-root:hover .codeblock-select {
-    opacity: 1;
-}
-\`\`\`
-to the editor style in order to have a nicely positioned language selector.
+You can check out the docs below:
 
+<https://gitlab.com/emergence-engineering/prosemirror-slash-menu> 
 
-Now....You have a better **code_block**, and the world just got a bit better.
-
-You can check out the docs at <https://gitlab.com/emergence-engineering/prosemirror-codemirror-block>
+<https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react>
 `;
 
 const Article = () => (
