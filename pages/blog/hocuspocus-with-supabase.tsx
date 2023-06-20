@@ -221,8 +221,8 @@ export const article12Metadata: ArticleIntro = {
     title: `Hocuspocus with Supabase`,
     postId: "hocuspocus-with-supabase",
     url: "https://emergence-engineering.com/blog/hocuspocus-with-supabase",
-    author: "Törcsi",
-    timestamp: 1677150227000,
+    author: "Törcsi & Balazs",
+    timestamp: 1686009600000,
     authorLink: "https://emergence-engineering.com/cv/torcsi",
     introText: "A quick tutorial on how to use Hocuspocus with Supabase to build a quick collaborative editor backend.",
 }
