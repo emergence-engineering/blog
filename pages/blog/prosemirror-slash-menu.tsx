@@ -18,7 +18,7 @@ const EditorStyling = styled.div`
   flex: 1;
 `;
 
-export const article8Metadata: ArticleIntro = {
+export const article11Metadata: ArticleIntro = {
   title: "prosemirror-slash-menu: Slash menu for ProseMirror",
   author: "Áron",
   authorLink: null,
@@ -157,10 +157,10 @@ You can check out the docs below:
 const Article = () => (
   <ArticleWrapper>
     <ArticleShareOgTags
-      url={article8Metadata.url}
-      title={article8Metadata.title}
-      description={article8Metadata.introText}
-      imgSrc={article8Metadata.imgSrc}
+      url={article11Metadata.url}
+      title={article11Metadata.title}
+      description={article11Metadata.introText}
+      imgSrc={article11Metadata.imgSrc}
     />
     <Markdown source={MD0} />
     <EditorStyling>
