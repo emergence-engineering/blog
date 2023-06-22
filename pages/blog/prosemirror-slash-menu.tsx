@@ -149,9 +149,9 @@ We are not mind readers yet though, only you know what you really need so feel f
 
 You can check out the docs below:
 
-<https://gitlab.com/emergence-engineering/prosemirror-slash-menu> 
+<https://github.com/emergence-engineering/prosemirror-slash-menu> 
 
-<https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react>
+<https://github.com/emergence-engineering/prosemirror-slash-menu-react>
 `;
 
 const Article = () => (
