@@ -18,15 +18,15 @@ const EditorStyling = styled.div`
   flex: 1;
 `;
 
-export const article11Metadata: ArticleIntro = {
+export const article13Metadata: ArticleIntro = {
   title: "prosemirror-slash-menu: Slash menu for ProseMirror",
   author: "Áron",
   authorLink: null,
-  introText: /* language=md */ `Intro text placeholder`,
+  introText: /* language=md */ ``,
   postId: "prosemirror-slash-menu",
-  timestamp: 1643829565161,
+  timestamp: 1687439213532,
   imgSrc: "",
-  url: "",
+  url: "https://emergence-engineering.com/blog/prosemirror-slash-menu",
 };
 
 const MD0 = /* language=md */ `
@@ -56,7 +56,7 @@ Not to mention, we really don't want to bundle React into the package for those 
 const MD1 = /* language=md */ `
 # How to use?
 
-1. Install the plugins: **npm i prosemirror-slash-menu && npm i prosemirror-slash-menu-react**
+1. Install the plugins: **npm i -S prosemirror-slash-menu prosemirror-slash-menu-react**
 3. Import **SlashMenuReact**, **SlashMenuPlugin** and **defaultElements** from *prosemirror-slash-menu-react* 
 4. Add the plugin to your editor **SlashMenuPlugin(defaultElements)** 
 5. Add the UI to your editor **SlashMenuReact**
@@ -157,10 +157,10 @@ You can check out the docs below:
 const Article = () => (
   <ArticleWrapper>
     <ArticleShareOgTags
-      url={article11Metadata.url}
-      title={article11Metadata.title}
-      description={article11Metadata.introText}
-      imgSrc={article11Metadata.imgSrc}
+      url={article13Metadata.url}
+      title={article13Metadata.title}
+      description={article13Metadata.introText}
+      imgSrc={article13Metadata.imgSrc}
     />
     <Markdown source={MD0} />
     <EditorStyling>
