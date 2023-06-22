@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 // @ts-ignore
 import { exampleSetup } from "prosemirror-example-setup";
 // import { applyDevTools } from "prosemirror-dev-toolkit";
@@ -7,19 +7,18 @@ import { EditorView } from "prosemirror-view";
 import styled from "styled-components";
 import { keymap } from "prosemirror-keymap";
 import {
+  codeBlockArrowHandlers,
   codeMirrorBlockPlugin,
   defaultSettings,
   languageLoaders,
-  codeBlockArrowHandlers,
   legacyLanguageLoaders,
 } from "prosemirror-codemirror-block";
-import { undo, redo } from "prosemirror-history";
+import { redo, undo } from "prosemirror-history";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-// import { DevToolkit } from "../../features/common/components/PMUtils";
-
 import schema from "./schema";
 import { codeBlockDoc } from "./initialDoc";
+import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 
 const Root = styled.div`
   .codeblock-select {
@@ -54,7 +53,8 @@ const Root = styled.div`
 
 const ProseMirrorCodeMirrorBlock = () => {
   const [pmState, setPmState] = useState<EditorState>();
-  const editorRef = useRef<HTMLDivElement>(null)
+
+  const editorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!editorRef.current) return;
     const state = EditorState.create({
@@ -85,14 +85,15 @@ const ProseMirrorCodeMirrorBlock = () => {
         }
       },
     });
-    import("prosemirror-dev-toolkit").then(({applyDevTools})=> applyDevTools(view))
+    import("prosemirror-dev-toolkit").then(({ applyDevTools }) =>
+      applyDevTools(view),
+    );
     // applyDevTools(view);
     // eslint-disable-next-line consistent-return
     return () => {
       view && view.destroy();
     };
   }, [editorRef]);
-
   return (
     <Root>
       <ProseMirrorDiv ref={editorRef} id="editor" />
