@@ -22,10 +22,11 @@ export const article13Metadata: ArticleIntro = {
   title: "prosemirror-slash-menu: Slash menu for ProseMirror",
   author: "Áron",
   authorLink: null,
-  introText: /* language=md */ ``,
+  introText: /* language=md */ `Implement a slash menu for ProseMirror in your app in 5 minutes.`,
   postId: "prosemirror-slash-menu",
   timestamp: 1687439213532,
-  imgSrc: "",
+  imgSrc:
+    "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-slash-menu",
 };
 
