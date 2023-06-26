@@ -13,6 +13,8 @@ const ReadMoreLink = styled.div`
   cursor: pointer;
   font-family: ${theme.fontFamily.title};
   font-size: 1.2rem;
+  text-align: start;
+
   :visited {
     color: ${theme.color.gray1};
   }
@@ -78,7 +80,11 @@ export const BlogPostIntro: FunctionComponent<ArticleIntro> = (props) => {
       <BlogPostIntroText>
         <Markdown source={introText} />
       </BlogPostIntroText>
-      <UnstyledLink href={`/blog/${postId}`} passHref>
+      <UnstyledLink
+        href={`/blog/${postId}`}
+        style={{ justifyContent: "flex-start" }}
+        passHref
+      >
         <ReadMoreLink>Read more...</ReadMoreLink>
       </UnstyledLink>
     </Root>
