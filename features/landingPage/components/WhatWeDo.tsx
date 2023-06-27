@@ -46,7 +46,7 @@ const CapabilityBoxes = [
   },
   {
     title: "Collaborative UIs",
-    content: `Real time collaboration for your web app with Yjs, Hocuspocus, GraphQL or FireBase`,
+    content: `Real time collaboration for your web app with Yjs, Hocuspocus, GraphQL or Firebase`,
     iconSrc: CapabilityImages.GroupImg,
   },
   {
