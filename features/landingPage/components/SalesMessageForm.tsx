@@ -4,6 +4,7 @@ import React, { FunctionComponent } from "react";
 import theme, { sizes } from "../../../utils/theme";
 
 import SalesForm from "./SalesForm";
+import DiscordInvite from "./DiscordInvite";
 
 export const Root = styled.div`
   display: flex;
@@ -27,8 +28,12 @@ const Title = styled.h1`
 
 const SalesFormSection: FunctionComponent = () => (
   <Root id="contactUs">
-    <ContentWrapper>
+    <ContentWrapper style={{ maxWidth: "50rem" }}>
       <Title>Contact us</Title>
+      <DiscordInvite />
+    </ContentWrapper>
+    <ContentWrapper>
+      <Title>Or write us a message</Title>
       <SalesForm />
     </ContentWrapper>
   </Root>

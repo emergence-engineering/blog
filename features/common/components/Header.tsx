@@ -8,6 +8,8 @@ import ReactHeadroom from "react-headroom";
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 import { UnstyledLink } from "../../../utils/link";
+import { DiscordIcon } from "../../../public/DiscordIcon";
+import { clickable } from "../../../utils/mixins";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -54,18 +56,6 @@ const SiteTitle = styled.a`
 
 const Logo = styled.img.attrs({ src: "/ee-logo.svg" })`
   height: 3rem;
-`;
-
-const GithubLogoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const GithubLogo = styled.img.attrs({ src: "/github-mark.svg" })`
-  height: 2rem;
-  margin-top: 0.25rem;
-  cursor: pointer;
 `;
 
 const ContentWrapper = styled.div`
@@ -158,11 +148,73 @@ const BigScreenContainer = styled.div`
   @media screen and (min-width: ${screenSizes.large}px) {
     display: flex;
     justify-items: flex-end;
+    align-items: center;
   }
 `;
 
-const redirectToGithub = () => {
-  window.open("https://github.com/emergence-engineering", "_blank");
+const PlatformWrapper = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-evenly;
+  align-items: baseline;
+
+  @media screen and (max-width: ${screenSizes.large - 1}px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const GithubLogo = styled.img.attrs({ src: "/github-mark.svg" })`
+  height: 2rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.5;
+  }
+`;
+
+const Discord = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  ${clickable};
+`;
+
+const DiscordLogoWrapper = styled.div`
+  width: 2.3823rem;
+  height: 1.8rem;
+  ${clickable};
+`;
+
+const DiscordText = styled.div`
+  display: none;
+
+  @media screen and (max-width: ${screenSizes.large - 1}px) {
+    display: inline;
+    font-size: 1.2rem;
+    font-family: "Oswald", sans-serif;
+    color: ${theme.color.gray1};
+
+    :hover {
+      color: #5865f2;
+    }
+  }
+`;
+
+const redirectTo = (id: string) => {
+  if (typeof window !== "undefined") {
+    if (id === "github") {
+      return window.open("https://github.com/emergence-engineering", "_blank");
+    } else {
+      return window.open(
+        `https://discord.gg/${process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK}`,
+        "_blank",
+      );
+    }
+  }
 };
 
 const Header: FunctionComponent = () => (
@@ -181,7 +233,13 @@ const Header: FunctionComponent = () => (
             <HeaderLink href="/team" caption="Team" />
             <HeaderLink href="/case-studies" caption="Case studies" />
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
-            <GithubLogo onClick={redirectToGithub} />
+
+            <PlatformWrapper>
+              <GithubLogo onClick={() => redirectTo("github")} />
+              <DiscordLogoWrapper onClick={() => redirectTo("discord")}>
+                <DiscordIcon />
+              </DiscordLogoWrapper>
+            </PlatformWrapper>
           </BigScreenContainer>
           <MobileContainer>
             <HamburgerMenu>
@@ -191,9 +249,16 @@ const Header: FunctionComponent = () => (
               <HeaderLink href="/references" caption="Open source projects" />
               <HeaderLink href="/case-studies" caption="Case studies" />
               <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
-              <GithubLogoWrapper>
-                <GithubLogo onClick={redirectToGithub} />
-              </GithubLogoWrapper>
+
+              <PlatformWrapper>
+                <GithubLogo onClick={() => redirectTo("github")} />
+                <Discord onClick={() => redirectTo("discord")}>
+                  <DiscordLogoWrapper>
+                    <DiscordIcon />
+                  </DiscordLogoWrapper>
+                  <DiscordText>Join our Discord</DiscordText>
+                </Discord>
+              </PlatformWrapper>
             </HamburgerMenu>
           </MobileContainer>
         </RightContainer>
