@@ -151,6 +151,15 @@ const caseStudies: ListOfWhatTheyHave = [
     link: "https://www.placeofcards.com",
   },
   {
+    img: SuggestCatImg,
+    title: "SuggestCat",
+    skills:
+      "AI suggestion and grammar correction plug-in for modern web based text editors",
+    descr:
+      "SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion",
+    link: "https://www.suggestcat.com/",
+  },
+  {
     img: SzamlaBridgheImg,
     title: "SzamlaBridge",
     skills: "SaaS for bridging payment providers with invoicing services",
@@ -165,15 +174,6 @@ const caseStudies: ListOfWhatTheyHave = [
       "A Discord robot that notifies your team when change happened in the codebase",
     descr: `A lightweight and very easy to use Discord to Github webhook integration written in Elixir using Phoenix Liveview `,
     link: "https://www.discordgitbot.com",
-  },
-  {
-    img: SuggestCatImg,
-    title: "SuggestCat",
-    skills:
-      "AI suggestion and grammar correction plug-in for modern web based text editors",
-    descr:
-      "SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion (soon)",
-    link: "https://www.suggestcat.com/",
   },
 ];
 

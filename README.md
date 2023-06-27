@@ -97,8 +97,8 @@ firebase login
 ```
 
 Initiate your project
-This step is needed if the project folder is not associated with a FireBase project. If you want to change to another 
-FireBase project then run `firebase use <project name>`. To list available projects run `firebase projects:list` 
+This step is needed if the project folder is not associated with a Firebase project. If you want to change to another 
+Firebase project then run `firebase use <project name>`. To list available projects run `firebase projects:list` 
 Run this command from your app’s root directory:
 
 ```shell script
