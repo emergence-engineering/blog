@@ -103,6 +103,7 @@ const Index: FunctionComponent = () => {
         backGroundColor={theme.color.background2}
       />
       <References />
+
       <Separator
         height={0.2}
         color={theme.color.tertiary}

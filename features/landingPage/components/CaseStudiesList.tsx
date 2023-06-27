@@ -5,10 +5,18 @@ import theme, { screenSizes } from "../../../utils/theme";
 import SzamlaBridgheImg from "../../../public/casestudies/szamlabridge.svg";
 import PlaceOfCardsImg from "../../../public/casestudies/placeOfCards.png";
 import DiscordGitBotImg from "../../../public/casestudies/discordGitBot.png";
+import SuggestCatImg from "../../../public/casestudies/suggestCat.png";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import {
+  AnimatedArrow,
+  ContentWrapper,
+  OtherRefWrapper,
+  StyledLink,
+} from "./OpenSrcPr";
+import References from "./References";
 
-const Root = styled.div`
+export const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +121,7 @@ const Arrow = styled.img.attrs({ src: "/casestudies/arrow.svg" })`
   cursor: pointer;
 `;
 
-const Description = styled.div`
+export const Description = styled.div`
   max-width: 75%;
   min-width: 18rem;
   font-family: ${theme.fontFamily.general};
@@ -158,42 +166,74 @@ const caseStudies: ListOfWhatTheyHave = [
     descr: `A lightweight and very easy to use Discord to Github webhook integration written in Elixir using Phoenix Liveview `,
     link: "https://www.discordgitbot.com",
   },
+  {
+    img: SuggestCatImg,
+    title: "SuggestCat",
+    skills:
+      "AI suggestion and grammar correction plug-in for modern web based text editors",
+    descr:
+      "SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion (soon)",
+    link: "https://www.suggestcat.com/",
+  },
 ];
 
-const descriptionText = `Here are a few of our own products. All of them were designed, developed and marketed by us. Currently we don't have case studies for the work that we are doing for our clients, but if you are interested in our references just contact someone on LinkedIn from the "Clients said about us" section on our landing page.`
+const descriptionText = `Here are a few of our own products. All of them were designed, developed and marketed by us. Currently we don't have case studies for the work that we are doing for our clients, but if you are interested in our references just contact someone on LinkedIn from the "Clients said about us" section on our landing page.`;
 
 export default function CaseStudiesList() {
-
   return (
-    <Root>
-      <Title>Case studies</Title>
-      <CaseStudiesWrapper>
-        <Description>
-          {descriptionText}
-        </Description>
-        {caseStudies.map((project) => (
-          <CaseStudy key={project.title.toLowerCase()}>
-            <PictureContainer>
-              <PictureWrapper>
-                <Image src={project.img} alt="sorry" />
-              </PictureWrapper>
-            </PictureContainer>
+    <Root style={{ alignItems: "unset" }}>
+      <ContentWrapper>
+        <Title>Case studies</Title>
 
-            <TextWrapper>
-              <CaseStudyTitle>{project.title}</CaseStudyTitle>
-              <CaseStudySkills>{project.skills}</CaseStudySkills>
-              <CaseStudyDescr>{project.descr}</CaseStudyDescr>
-              {project?.link && (
-                <LinkWrapper>
-                  <Link href={project.link} passHref>
-                    <Arrow />
-                  </Link>
-                </LinkWrapper>
-              )}
-            </TextWrapper>
-          </CaseStudy>
-        ))}
-      </CaseStudiesWrapper>
+        <CaseStudiesWrapper>
+          <Description>{descriptionText}</Description>
+          {caseStudies.map((project) => (
+            <CaseStudy key={project.title.toLowerCase()}>
+              <PictureContainer>
+                <PictureWrapper>
+                  <Image src={project.img} alt="sorry" />
+                </PictureWrapper>
+              </PictureContainer>
+
+              <TextWrapper>
+                <CaseStudyTitle>{project.title}</CaseStudyTitle>
+                <CaseStudySkills>{project.skills}</CaseStudySkills>
+                <CaseStudyDescr>{project.descr}</CaseStudyDescr>
+                {project?.link && (
+                  <LinkWrapper>
+                    <Link href={project.link} passHref>
+                      <Arrow />
+                    </Link>
+                  </LinkWrapper>
+                )}
+              </TextWrapper>
+            </CaseStudy>
+          ))}
+        </CaseStudiesWrapper>
+      </ContentWrapper>
+
+      <OtherRefWrapper href={"/open-source-projects"}>
+        <Description style={{ minWidth: "unset", fontSize: "18pt" }}>
+          Let me see the
+        </Description>
+        <StyledLink>Open source projects!</StyledLink>
+        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 0s infinite" }}>
+          {" "}
+          {">"}{" "}
+        </AnimatedArrow>
+        <AnimatedArrow
+          style={{ animation: "fadeInOut 2s linear 0.5s infinite" }}
+        >
+          {" "}
+          {">"}{" "}
+        </AnimatedArrow>
+        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 1s infinite" }}>
+          {" "}
+          {">"}{" "}
+        </AnimatedArrow>
+      </OtherRefWrapper>
+
+      <References />
     </Root>
   );
 }
