@@ -1,4 +1,4 @@
-import github from "/public/github-1.svg";
+import github from "/public/github-mark.svg";
 import npm from "/public/npm-logo.png";
 import gitlab from "/public/gitlab-logo.png";
 

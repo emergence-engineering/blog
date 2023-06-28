@@ -14,7 +14,7 @@ import PresentationImage from "../../../public/icons/presentation.png";
 import ScalaImage from "../../../public/icons/scala.png";
 import KubernetesImage from "../../../public/icons/kubernetes.png";
 import ReactImage from "../../../public/icons/react.png";
-import TipTapImage from "../../../public/icons/tiptap.svg";
+import TipTapImage from "../../../public/icons/tiptap.png";
 
 export enum CapabilityImages {
   TipTapImg = "TipTapImg",
@@ -116,9 +116,9 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
           <Image
             alt="capabilityImage"
             src={images[iconSrc]}
+            // placeholder="blur"
             height={75}
             width={75}
-            // placeholder="blur"
             style={{
               maxWidth: "100%",
               height: "auto",

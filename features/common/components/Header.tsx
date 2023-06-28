@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 import { withRouter } from "next/router";
+import Image from "next/image";
 import { WithRouterProps } from "next/dist/client/with-router";
 // @ts-ignore
 import ReactHeadroom from "react-headroom";
@@ -8,6 +9,8 @@ import ReactHeadroom from "react-headroom";
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 import { UnstyledLink } from "../../../utils/link";
+import EELogo from "../../../public/ee-logo.svg";
+import GithubIcon from "../../../public/github-mark.svg";
 import { DiscordIcon } from "../../../public/DiscordIcon";
 import { clickable } from "../../../utils/mixins";
 
@@ -54,8 +57,11 @@ const SiteTitle = styled.a`
   }
 `;
 
-const Logo = styled.img.attrs({ src: "/ee-logo.svg" })`
-  height: 3rem;
+const GithubLogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
 
 const ContentWrapper = styled.div`
@@ -165,16 +171,6 @@ const PlatformWrapper = styled.div`
   }
 `;
 
-const GithubLogo = styled.img.attrs({ src: "/github-mark.svg" })`
-  height: 2rem;
-  margin-top: 0.25rem;
-  cursor: pointer;
-
-  :hover {
-    opacity: 0.5;
-  }
-`;
-
 const Discord = styled.div`
   display: flex;
   justify-content: center;
@@ -223,7 +219,17 @@ const Header: FunctionComponent = () => (
       <ContentWrapper>
         <LeftContainer>
           <SiteTitle href="/">
-            <Logo />
+            <Image
+              src={EELogo}
+              // placeholder={"blur"}
+              alt="logo"
+              width={265}
+              height={48}
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+              }}
+            />
           </SiteTitle>
         </LeftContainer>
         <RightContainer>
@@ -233,9 +239,20 @@ const Header: FunctionComponent = () => (
             <HeaderLink href="/team" caption="Team" />
             <HeaderLink href="/references" caption="References" />
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
-
             <PlatformWrapper>
-              <GithubLogo onClick={() => redirectTo("github")} />
+              <GithubLogoWrapper onClick={() => redirectTo("github")}>
+                <Image
+                  src={GithubIcon}
+                  alt="github"
+                  width={32}
+                  height={32}
+                  sizes="100vw"
+                  // placeholder={"blur"}
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </GithubLogoWrapper>
               <DiscordLogoWrapper onClick={() => redirectTo("discord")}>
                 <DiscordIcon />
               </DiscordLogoWrapper>
@@ -249,9 +266,20 @@ const Header: FunctionComponent = () => (
               <HeaderLink href="/references" caption="Open source projects" />
               <HeaderLink href="/references" caption="References" />
               <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
-
               <PlatformWrapper>
-                <GithubLogo onClick={() => redirectTo("github")} />
+                <GithubLogoWrapper onClick={() => redirectTo("github")}>
+                  <Image
+                    src={GithubIcon}
+                    alt="github"
+                    width={32}
+                    height={32}
+                    sizes="100vw"
+                    // placeholder="blur"
+                    style={{
+                      objectFit: "cover",
+                    }}
+                  />
+                </GithubLogoWrapper>
                 <Discord onClick={() => redirectTo("discord")}>
                   <DiscordLogoWrapper>
                     <DiscordIcon />
