@@ -13,10 +13,12 @@ import AndrewPhoto from "../../../public/partners/andrew.jpeg";
 import BenPhoto from "../../../public/partners/ben.jpeg";
 import SandeepPhoto from "../../../public/partners/sandeep.jpeg";
 import OlegPhoto from "../../../public/partners/oleg.jpeg";
-import AchillesPhoto from "../../../public/partners/achilles.png"
-import MarcPhoto from "../../../public/partners/marc.jpeg"
-import GregPhoto from "../../../public/partners/greg.jpeg"
+import AchillesPhoto from "../../../public/partners/achilles.png";
+import MarcPhoto from "../../../public/partners/marc.jpeg";
+import GregPhoto from "../../../public/partners/greg.jpeg";
 import { clickable } from "../../../utils/mixins";
+import Prev from "../../../public/arrow-prev.svg";
+import Next from "../../../public/arrow-next.svg";
 
 const Root = styled.div`
   display: flex;
@@ -62,14 +64,13 @@ const SectionContentRoot = styled.div`
 const PartnerRoot = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   padding: 2rem 0;
   row-gap: 1rem;
   border-radius: 5px;
 
-  min-height: 22rem;
+  min-height: 24rem;
   flex-shrink: 0;
   background: ${theme.color.gray11};
   scroll-snap-align: start;
@@ -77,8 +78,9 @@ const PartnerRoot = styled.div`
 
 export const FacePictureWrapper = styled.div`
   position: relative;
-  height: 5rem;
+  display: block;
   width: 5rem;
+  height: 5rem;
 
   img {
     border-radius: 50%;
@@ -116,11 +118,12 @@ const Description = styled.div`
 `;
 
 /* Prev and Next buttons */
-const Prev = styled.img.attrs({ src: "/arrow-prev.svg" })`
+const PrevContainer = styled.div`
   width: 1rem;
   height: 2rem;
   position: absolute;
   justify-self: center;
+  cursor: pointer;
   align-self: flex-start;
 
   @media screen and (max-width: ${screenSizes.medium}px) {
@@ -128,11 +131,12 @@ const Prev = styled.img.attrs({ src: "/arrow-prev.svg" })`
   }
 `;
 
-const Next = styled.img.attrs({ src: "/arrow-next.svg" })`
+const NextContainer = styled.div`
   width: 1rem;
   height: 2rem;
   position: absolute;
   justify-self: center;
+  cursor: pointer;
   align-self: flex-end;
 
   @media screen and (max-width: ${screenSizes.medium}px) {
@@ -182,14 +186,16 @@ const References: FunctionComponent = () => {
       src: GregPhoto,
       partnerName: "Greg Detre",
       partnerJob: "Consultant, Chief Data Scientist & CTO",
-      saysThat: "I have chosen to work with Emergence Engineering on every one of my last 3 major projects. They are incredibly smart, you can trust them, and they’re great to work with. I cannot recommend them highly enough."
+      saysThat:
+        "I have chosen to work with Emergence Engineering on every one of my last 3 major projects. They are incredibly smart, you can trust them, and they’re great to work with. I cannot recommend them highly enough.",
     },
     {
       partnerId: 1,
       src: MarcPhoto,
       partnerName: "Marc Zao-Sanders",
       partnerJob: "CEO at Filtered",
-      saysThat: "We've worked with Emergence for three years and it's been wonderful. They helped us build a product from a basic prototype to a full enterprise SaaS offering, with speed, quality and a sense of fun. Balázs and several others in the team are a joy to work with. I can't recommend them more highly"
+      saysThat:
+        "We've worked with Emergence for three years and it's been wonderful. They helped us build a product from a basic prototype to a full enterprise SaaS offering, with speed, quality and a sense of fun. Balázs and several others in the team are a joy to work with. I can't recommend them more highly",
     },
     {
       partnerId: 2,
@@ -297,8 +303,30 @@ const References: FunctionComponent = () => {
 
   return (
     <Root>
-      <Prev onClick={() => goPrev()} />
-      <Next onClick={() => goNext()} />
+      <PrevContainer onClick={() => goPrev()}>
+        <Image
+          src={Prev.src}
+          alt="prev"
+          width={16}
+          height={32}
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </PrevContainer>
+      <NextContainer onClick={() => goNext()}>
+        <Image
+          src={Next.src}
+          alt="prev"
+          width={16}
+          height={32}
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </NextContainer>
 
       <SectionTitle>Clients said about us</SectionTitle>
 
@@ -306,7 +334,17 @@ const References: FunctionComponent = () => {
         <PartnerRoot>
           {displayedPartner.src && (
             <FacePictureWrapper>
-              <Image src={displayedPartner.src} layout="fill" alt="sorry" />
+              <Image
+                src={displayedPartner.src}
+                alt="sorry"
+                width={80}
+                height={80}
+                sizes="100vw"
+                style={{
+                  objectFit: "cover",
+                }}
+                placeholder="blur"
+              />
             </FacePictureWrapper>
           )}
           <PartnerName>{displayedPartner.partnerName}</PartnerName>
@@ -316,7 +354,7 @@ const References: FunctionComponent = () => {
       </SectionContentRoot>
 
       <JumpLinkCont>
-        {Partners.map(({partnerId}) => (
+        {Partners.map(({ partnerId }) => (
           <JumpLink
             key={partnerId}
             active={currentlyShowedPartnerId === partnerId}

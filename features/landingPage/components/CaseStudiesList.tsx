@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
-import theme, { screenSizes } from "../../../utils/theme";
-import SzamlaBridgheImg from "../../../public/casestudies/szamlabridge.svg";
-import PlaceOfCardsImg from "../../../public/casestudies/placeOfCards.png";
-import DiscordGitBotImg from "../../../public/casestudies/discordGitBot.png";
-import SuggestCatImg from "../../../public/casestudies/suggestCat.png";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+
+import theme, { screenSizes } from "../../../utils/theme";
+import SzamlaBridgeImg from "../../../public/casestudies/szamlabridge.png";
+import PlaceOfCardsImg from "../../../public/casestudies/placeOfCards.png";
+import DiscordGitBotImg from "../../../public/casestudies/discordGitBot.png";
+import ArrowIcon from "../../../public/casestudies/arrow.svg";
+import SuggestCatImg from "../../../public/casestudies/suggestCat.png";
+
 import {
   AnimatedArrow,
   ContentWrapper,
@@ -58,21 +60,15 @@ const CaseStudy = styled.div`
 
 const PictureContainer = styled.div`
   width: 30%;
+  min-width: 15rem;
   display: flex;
   margin-right: 1rem;
-`;
+  justify-content: center;
 
-const PictureWrapper = styled.div`
-  max-width: 15rem;
-  min-width: 10rem;
-  flex: 1;
-  align-self: center;
-
-  img {
-    //border-radius: 50%;
+  @media screen and (max-width: ${screenSizes.medium}px) {
     width: 100%;
-    height: 100%;
-    flex: 1;
+    margin-right: 0;
+    justify-content: center;
   }
 `;
 
@@ -114,13 +110,6 @@ const LinkWrapper = styled.div`
   flex-grow: 1;
 `;
 
-const Arrow = styled.img.attrs({ src: "/casestudies/arrow.svg" })`
-  width: 2rem;
-  height: 2rem;
-  align-self: flex-end;
-  cursor: pointer;
-`;
-
 export const Description = styled.div`
   max-width: 75%;
   min-width: 18rem;
@@ -160,7 +149,7 @@ const caseStudies: ListOfWhatTheyHave = [
     link: "https://www.suggestcat.com/",
   },
   {
-    img: SzamlaBridgheImg,
+    img: SzamlaBridgeImg,
     title: "SzamlaBridge",
     skills: "SaaS for bridging payment providers with invoicing services",
     descr:
@@ -184,15 +173,19 @@ export default function CaseStudiesList() {
     <Root style={{ alignItems: "unset" }}>
       <ContentWrapper>
         <Title>Case studies</Title>
-
         <CaseStudiesWrapper>
           <Description>{descriptionText}</Description>
           {caseStudies.map((project) => (
             <CaseStudy key={project.title.toLowerCase()}>
               <PictureContainer>
-                <PictureWrapper>
-                  <Image src={project.img} alt="sorry" />
-                </PictureWrapper>
+                <Image
+                  src={project.img}
+                  alt="sorry"
+                  width={240}
+                  height={240}
+                  placeholder="blur"
+                  blurDataURL={project.img.src}
+                />
               </PictureContainer>
 
               <TextWrapper>
@@ -202,7 +195,17 @@ export default function CaseStudiesList() {
                 {project?.link && (
                   <LinkWrapper>
                     <Link href={project.link} passHref>
-                      <Arrow />
+                      <Image
+                        src={ArrowIcon.src}
+                        alt="sorry"
+                        width={32}
+                        height={32}
+                        sizes="100vw"
+                        style={{
+                          objectFit: "cover",
+                          alignSelf: "flex-end",
+                        }}
+                      />
                     </Link>
                   </LinkWrapper>
                 )}

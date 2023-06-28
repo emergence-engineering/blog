@@ -108,7 +108,8 @@ export const FacePicture: FunctionComponent<{
     <Image
       src={images[src]}
       placeholder="blur"
-      fill
+      width={160}
+      height={160}
       sizes="100vw"
       alt="facePic"
     />

@@ -4,8 +4,8 @@ import theme, { screenSizes } from "../../../utils/theme";
 import { Description } from "./CaseStudiesList";
 import Link from "next/link";
 import Image from "next/image";
-import github from "/public/github-1.svg";
-import caseStudiesCat from "/public/caseStudiesCat.png";
+import github from "/public/github-mark.svg";
+import caseStudiesCat from "/public/casestudies/caseStudiesCat.png";
 
 const Root = styled.div`
   display: flex;
