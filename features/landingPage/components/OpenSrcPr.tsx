@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Description, Root } from "./CaseStudiesList";
+import { Description, Root, StyledDescription } from "./CaseStudiesList";
 import theme, { screenSizes } from "../../../utils/theme";
 import { projectDetails } from "../../../utils/openSrcPrData";
 import OpenSrcPrCard from "./OpenSrcPrCard";
@@ -39,6 +39,11 @@ export const OtherRefWrapper = styled.a`
   gap: 0.5rem;
   text-decoration: none;
   margin-bottom: 2rem;
+
+  @media screen and (max-width: ${screenSizes.large}px) {
+    flex-direction: column;
+    padding-right: unset;
+  }
 `;
 
 export const StyledLink = styled.a`
@@ -50,6 +55,12 @@ export const StyledLink = styled.a`
   :hover {
     font-weight: 600;
   }
+`;
+
+export const ArrowWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const AnimatedArrow = styled.div`
@@ -98,29 +109,28 @@ const OpenSrcPr = () => {
       </ContentWrapper>
 
       <OtherRefWrapper href={"/case-studies"}>
-        <Description
-          style={{
-            minWidth: "unset",
-            fontSize: "18pt",
-          }}
-        >
-          Let me see the
-        </Description>
+        <StyledDescription>Let me see the</StyledDescription>
         <StyledLink>Case Studies!</StyledLink>
-        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 0s infinite" }}>
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
-        <AnimatedArrow
-          style={{ animation: "fadeInOut 2s linear 0.5s infinite" }}
-        >
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
-        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 1s infinite" }}>
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
+        <ArrowWrapper>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 0s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 0.5s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 1s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+        </ArrowWrapper>
       </OtherRefWrapper>
 
       <References />

@@ -3,7 +3,7 @@ import Head from "next/head";
 
 const title = "Emergence Engineering";
 const description =
-  "Emergence Engineering is a software engineering company from Budapest (EU).";
+  "Emergence Engineering is a full-stack software development company from the EU. We build ProseMirror based editors, AI and LLM based applications, mobile applications and websites.";
 const url = "https://emergence-engineering.com/team";
 
 export function TeamSEO() {
@@ -19,8 +19,8 @@ export function TeamSEO() {
         content={title}
       />
       <meta
-        key="description"
-        name="description"
+        key="og:description"
+        name="og:description"
         property="og:description"
         content={description}
       />
@@ -28,7 +28,7 @@ export function TeamSEO() {
         key="og:image"
         name="og:image"
         property="og:image"
-        content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
+        content="https://emergence-engineering.com/ee-icon-192192.png"
       />
     </Head>
   );

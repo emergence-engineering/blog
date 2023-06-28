@@ -139,16 +139,22 @@ const RightSide = styled.div`
 const Tag = styled.div`
   background-color: ${theme.color.tertiary};
   border-radius: 5px;
-  height: 1.5rem;
-  padding: 4px 6px;
+  height: 2rem;
+  padding: 6px 8px;
   margin: 0.3rem 0;
   width: max-content;
 
   font-family: ${theme.fontFamily.general};
   color: #ffffff;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 200;
   text-align: center;
+
+  @media screen and (max-width: ${screenSizes.large}px) {
+    height: 1.5rem;
+    padding: 4px 6px;
+    font-size: 11px;
+  }
 `;
 
 const OpenSrcPrCard: FC<{
