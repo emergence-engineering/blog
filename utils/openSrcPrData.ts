@@ -107,7 +107,6 @@ export const projectDetails = [
     tags: [
       "ProseMirror",
       "customizable language selector",
-      "lazy-loaded language support",
       "works with YJS history",
     ],
   },

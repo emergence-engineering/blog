@@ -62,6 +62,10 @@ const GithubLogoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -177,11 +181,15 @@ const Discord = styled.div`
   align-items: center;
   gap: 0.5rem;
   ${clickable};
+
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
 const DiscordLogoWrapper = styled.div`
-  width: 2.3823rem;
-  height: 1.8rem;
+  width: 35px;
+  height: 26.5px;
   ${clickable};
 `;
 
@@ -193,10 +201,11 @@ const DiscordText = styled.div`
     font-size: 1.2rem;
     font-family: "Oswald", sans-serif;
     color: ${theme.color.gray1};
+    font-weight: 500;
+  }
 
-    :hover {
-      color: #5865f2;
-    }
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    font-size: 1rem;
   }
 `;
 
@@ -263,7 +272,6 @@ const Header: FunctionComponent = () => (
               <HeaderLink href="/" caption="Home" />
               <HeaderLink href="/blog" caption="Blog" />
               <HeaderLink href="/team" caption="Team" />
-              <HeaderLink href="/references" caption="Open source projects" />
               <HeaderLink href="/references" caption="References" />
               <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
               <PlatformWrapper>

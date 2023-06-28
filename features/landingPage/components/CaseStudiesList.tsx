@@ -12,6 +12,7 @@ import SuggestCatImg from "../../../public/casestudies/suggestCat.png";
 
 import {
   AnimatedArrow,
+  ArrowWrapper,
   ContentWrapper,
   OtherRefWrapper,
   StyledLink,
@@ -121,6 +122,12 @@ export const Description = styled.div`
   margin: 1rem 0 1rem 0;
 `;
 
+export const StyledDescription = styled(Description)`
+  min-width: unset;
+  font-size: 18pt;
+  margin: unset;
+`;
+
 interface CaseStudiesHave {
   img: StaticImageData;
   title: string;
@@ -216,24 +223,30 @@ export default function CaseStudiesList() {
       </ContentWrapper>
 
       <OtherRefWrapper href={"/open-source-projects"}>
-        <Description style={{ minWidth: "unset", fontSize: "18pt" }}>
+        <StyledDescription style={{ minWidth: "unset", fontSize: "18pt" }}>
           Let me see the
-        </Description>
+        </StyledDescription>
         <StyledLink>Open source projects!</StyledLink>
-        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 0s infinite" }}>
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
-        <AnimatedArrow
-          style={{ animation: "fadeInOut 2s linear 0.5s infinite" }}
-        >
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
-        <AnimatedArrow style={{ animation: "fadeInOut 2s linear 1s infinite" }}>
-          {" "}
-          {">"}{" "}
-        </AnimatedArrow>
+        <ArrowWrapper>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 0s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 0.5s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+          <AnimatedArrow
+            style={{ animation: "fadeInOut 2s linear 1s infinite" }}
+          >
+            {" "}
+            {">"}{" "}
+          </AnimatedArrow>
+        </ArrowWrapper>
       </OtherRefWrapper>
 
       <References />

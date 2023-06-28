@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import github from "/public/github-mark.svg";
 import caseStudiesCat from "/public/casestudies/caseStudiesCat.png";
+import { clickable } from "../../../utils/mixins";
 
 const Root = styled.div`
   display: flex;
@@ -55,23 +56,33 @@ const CardWrapper = styled.div`
   }
 `;
 
-const Card = styled.div`
-  width: 40%;
+const Container = styled.div`
   min-width: 30%;
+  width: 40%;
+  height: 31rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :hover {
+    box-shadow: 15px 10px 20px 5px rgba(0, 0, 0, 0.1);
+    ${clickable}
+  }
+
+  @media screen and (max-width: ${screenSizes.large}px) {
+    width: 80%;
+  }
+`;
+
+const Card = styled.div`
+  width: 100%;
   padding: 2rem 0;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  :hover {
-    box-shadow: 15px 10px 20px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  @media screen and (max-width: ${screenSizes.large}px) {
-    width: 80%;
-  }
 `;
 
 const CardImg = styled.div`
@@ -132,37 +143,60 @@ const OurReferences = () => (
         </Link>
       </Feedback>
     </TextWrapper>
+
     <CardWrapper>
-      <Card style={{ backgroundColor: theme.color.gray10 }}>
-        <CardImg>
-          <Image src={github} alt={""} fill style={{ objectFit: "contain" }} />
-        </CardImg>
-        <StyledTitle>Open source projects</StyledTitle>
-        <StyledDescription>
-          You can find projects of ours on GitHub and our useful and
-          carefully-built npm packages
-        </StyledDescription>
-        <Link href={"/open-source-projects"} passHref>
-          <ViewMore>view more</ViewMore>
+      <Container style={{ backgroundColor: theme.color.gray10 }}>
+        <Link
+          href={"/open-source-projects"}
+          style={{ textDecoration: "none" }}
+          passHref
+        >
+          <Card>
+            <CardImg>
+              <Image
+                src={github}
+                alt={""}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </CardImg>
+            <StyledTitle>Open source projects</StyledTitle>
+            <StyledDescription>
+              You can find projects of ours on GitHub and our useful and
+              carefully-built npm packages
+            </StyledDescription>
+            <Link href={"/open-source-projects"} passHref>
+              <ViewMore>view more</ViewMore>
+            </Link>
+          </Card>
         </Link>
-      </Card>
-      <Card>
-        <CardImg>
-          <Image
-            src={caseStudiesCat}
-            alt={""}
-            fill
-            style={{ objectFit: "contain" }}
-          />
-        </CardImg>
-        <StyledTitle>Case studies</StyledTitle>
-        <StyledDescription>
-          You can find here how our own projects came alive and now bloom
-        </StyledDescription>
-        <Link href={"/case-studies"} passHref>
-          <ViewMore>view more</ViewMore>
+      </Container>
+
+      <Container>
+        <Link
+          href={"/case-studies"}
+          style={{ textDecoration: "none" }}
+          passHref
+        >
+          <Card>
+            <CardImg>
+              <Image
+                src={caseStudiesCat}
+                alt={""}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </CardImg>
+            <StyledTitle>Case studies</StyledTitle>
+            <StyledDescription>
+              You can find here how our own projects came alive and now bloom
+            </StyledDescription>
+            <Link href={"/case-studies"} passHref>
+              <ViewMore>view more</ViewMore>
+            </Link>
+          </Card>
         </Link>
-      </Card>
+      </Container>
     </CardWrapper>
   </Root>
 );
