@@ -18,6 +18,7 @@ import { article10Metadata } from "./json-schema-from-mustache";
 import { article11Metadata } from "./prosemirror-link-preview";
 import { article12Metadata } from "./hocuspocus-with-supabase";
 import { article13Metadata } from "./prosemirror-slash-menu";
+import { article15Metadata } from "./postgraphile-subscriptions";
 
 const Root = styled.div`
   flex-grow: 1;
@@ -72,6 +73,9 @@ const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...article15Metadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article13Metadata} />
       </ContentWrapper>
