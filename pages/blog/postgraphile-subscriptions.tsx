@@ -106,7 +106,7 @@ There is no
 
 export const article15Metadata: ArticleIntro = {
   title: `Introduction to realtime Postgraphile with custom subscriptions`,
-  postId: "Postgraphile-subscriptions",
+  postId: "postgraphile-subscriptions",
   url: "https://emergence-engineering.com/blog/Postgraphile-subscriptions",
   author: "Balázs",
   timestamp: 1689149207117,
