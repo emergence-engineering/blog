@@ -6,9 +6,12 @@ import SalesBox from "../../features/article/components/SalesBox";
 import React from "react";
 
 export const MD0 = /* language=md */ `
-  # WIP
+# Step by step introduction, best practices and gotchas for building real time Postgraphile backend with custom subscriptions (WIP)
 
-This is a work in progress article. Publishing before it's finished is an experiment for me. I'm happy to take feedback on Discord.
+
+# WIP
+
+*This is a work in progress article. Publishing before it's finished is an experiment for me. I'm happy to take feedback on Discord.*
 
 # TLDR
 
@@ -28,7 +31,7 @@ There are three methods available with Postgraphile for pushing data from the se
 
 Of course the GraphQL protocol and frameworks like Apollo supports polling queries from the client side.
 
-# Why not live queries
+# Why I don’t use live queries
 
 - first of all live queries are not part of the official GraphQL protocol but subscriptions are
 - using multiple live queries cause performance issues but depends it on implementation. In contrast, custom subscriptions have the benefit that we can fine tune how often they fire on a Postgres trigger level, additionally to that we can further add optimisations on the GraphQL resolver level
@@ -40,27 +43,71 @@ Of course the GraphQL protocol and frameworks like Apollo supports polling queri
     The issue with this is that the replication slot usually is not available for managed Postgres instances like [AWS Aurora Serverles Postgres](https://aws.amazon.com/rds/aurora/serverless/) so you can’t use \`@graphile/subscriptions-lds\` based live queries with managed databases
     
 
-# Subscription flow
+# Subscription flow in Postgraphile
 
-Trigger → Postgres pubsub → Postgraphile → GraphQL
+1. A trigger puts a message on the Postgres message queue
+2. Postgraphile listens for messages on the Postgres message queue and matches JavaScript (or TypeScript) functions to message topics. These functions are called resolvers
+3. If a resolver is triggered it either executes an SQL query (if more data is needed, more on this later) or directly creates a GraphQL response based on the content of the message and pushes it to the front-end. 
+4. Client in the browser gets notified on a web-socket managed by Apollo and the UI is updated
 
-# Steps
+# What is the difference between simple and custom subscriptions?
 
-// TODO describe why I split it into these points, add a flowchart maybe
+With simple subscriptions there is no need for any manual labour, just enable them in the Postgraphile config and it’s done. Postgraphile will provide subscriptions to all tables. It’s good for prototyping but it can be inefficient.
 
-1. write a trigger
-    - freedom to when to “trigger” it (upsert, etc…)
-    - give an example trigger
-2. write a GraphQL resolver in JS or TS
-    - give an example resolver
-3. How to enable subscriptions in Express
-    - enable subscriptions
-`
+# What is the benefit of using custom subscriptions
+
+They are a bit more work but you get a few benefits:
+
+- you can write your own triggers with custom business logic. Optimising on the trigger level might be useful if you want to subscribe on a frequently updated huge table.
+- from a custom trigger you can send messages on custom topics and also you can add custom metadata to the message
+- resolvers have access to the event, arguments, the context and a pgSql client. With these things a lot of things a possible such as conditionally running different SQL queries based on user identity, caching an many more
+
+# Example: building a custom subscription in Postgraphile
+
+Let’s build a simple chat app. We will have a messages table and attach a trigger that listens for UPSERTs. The trigger will put messages on the Postgres pubsub whenever the user sends a message or edits an old one.
+
+## Trigger
+
+First let’s create a migration for trigger. Let’s split the trigger into a function that prepares and sends the message to the Postgres pubsub queue. Use \`json_build_object\` if you want to send extra data to your resolvers in Postgraphile. Since the Postgraphile resolvers have access to a pgSql client sometimes the topic alone is enough of them and they can gather the data by executing SQL queries themselves.
+
+\`\`\`sql
+CREATE OR REPLACE FUNCTION notify_messages_upserted()
+    RETURNS trigger AS $notify_messages_upserted$
+BEGIN
+    PERFORM pg_notify(
+\t\t\t\t\t\t\t\t-- topic name
+                'messages:upsert:' || NEW."object_id",
+\t\t\t\t\t\t\t\t-- optional extra data
+                json_build_object(
+                        'event', 'upsert',
+                        'objectId', NEW."object_id"
+\t\t\t\t\t\t\t\t\t\t\t\t-- just an example optional JSON object data
+                    )::text);
+    RETURN NEW;
+END;
+$notify_messages_upserted$ LANGUAGE plpgsql;
+\`\`\`
+
+Secondly create the trigger and attach it on the \`messages\` table. It will run the function above on every UPSERT event.
+
+\`\`\`sql
+DROP TRIGGER IF EXISTS messages_upserted_trigger ON messages;
+CREATE TRIGGER messages_upserted_trigger
+    AFTER INSERT OR UPDATE ON messages 
+    FOR EACH ROW
+EXECUTE PROCEDURE notify_messages_upserted();
+\`\`\`
+
+There is no
+
+## Postgraphile
+
+## GraphQL client`
 
 export const article15Metadata: ArticleIntro = {
   title: `Introduction to realtime Postgraphile with custom subscriptions`,
   postId: "postgraphile-subscriptions",
-  url: "https://emergence-engineering.com/blog/postgraphile-subscriptions",
+  url: "https://emergence-engineering.com/blog/Postgraphile-subscriptions",
   author: "Balázs",
   timestamp: 1689149207117,
   authorLink: "https://emergence-engineering.com/cv/torcsi",
