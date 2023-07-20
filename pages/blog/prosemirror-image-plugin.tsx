@@ -8,6 +8,7 @@ import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import SalesBox from "../../features/article/components/SalesBox";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
   () => import("../../articles/prosemirror-image-plugin"),
@@ -133,6 +134,11 @@ const Article = () => (
       title={article3Metadata.title}
       description={article3Metadata.introText}
       imgSrc={article3Metadata.imgSrc}
+    />
+    <ArticleHeader
+      title={article3Metadata.title}
+      author={article3Metadata.author}
+      timestamp={article3Metadata.timestamp}
     />
     <Markdown source={MD0} />
     <EditorStyling>

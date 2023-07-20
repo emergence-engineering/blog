@@ -4,6 +4,7 @@ import ArticleShareOgTags from "../../features/article/components/ArticleShareOg
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
 import React from "react";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const MD0 = `
 # TLDR
@@ -181,7 +182,7 @@ I prefer to run the UI directly in dev mode locally mainly because it enables th
 **Running the UI in dev mode inside Docker Compose**
 
 Another possibility is to add a ***************local debugging*************** context to the Docker Compose file and start the UI service in \`dev\` mode together with attaching UI sources as a volume. That way because of dev mode Next.js will re-build when source files are changed and the behaviour of the service will be closer to production.
-`
+`;
 
 export const article9Metadata: ArticleIntro = {
   title: `Building a production ready Next.js+PostGraphile architecture`,
@@ -191,8 +192,9 @@ export const article9Metadata: ArticleIntro = {
   author: "Balázs",
   timestamp: 1675437276962,
   authorLink: "https://emergence-engineering.com/cv/balazs",
-  introText: "A guide with code samples and a GitHub repository for building a production ready architecture with the following three services: Postgres, Postgraphile and Next.js",
-}
+  introText:
+    "A guide with code samples and a GitHub repository for building a production ready architecture with the following three services: Postgres, Postgraphile and Next.js",
+};
 
 export default function Article() {
   return (
@@ -202,6 +204,11 @@ export default function Article() {
         title={article9Metadata.title}
         description={article9Metadata.introText}
         imgSrc={article9Metadata.imgSrc}
+      />
+      <ArticleHeader
+        title={article9Metadata.title}
+        author={article9Metadata.author}
+        timestamp={article9Metadata.timestamp}
       />
       <Markdown source={MD0} />
       <SalesBox />

@@ -28,7 +28,7 @@ const ReadMoreLink = styled.div`
 
 const PostMetadataContainer = styled.div``;
 
-const PostTitle = styled.div`
+export const PostTitle = styled.div`
   font-family: ${theme.fontFamily.title};
   font-weight: 800;
   font-size: 2rem;

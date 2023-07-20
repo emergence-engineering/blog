@@ -6,6 +6,8 @@ import CodeEditor from "../../features/article/components/CodeEditor";
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
 import { ArticleIntro } from "../../features/article/types";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
+import { article12Metadata } from "./hocuspocus-with-supabase";
 
 export const article1Metadata: ArticleIntro = {
   title: "Everyday javascript ep. 1: Rest/spread operator pt1.",
@@ -28,7 +30,9 @@ about every small detail of a given feature.
   url: "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
 };
 
-const MD0 = /* language=md */ `# Everyday javascript ep. 1: Rest/spread operator pt1.
+//# Everyday javascript ep. 1: Rest/spread operator pt1.
+
+const MD0 = /* language=md */ `
 
 Length: 15 minutes.
 
@@ -246,7 +250,7 @@ One thing to remember that in an argument list the rest operator must be at the 
 `;
 
 const Code6 = /* language=js */ `// Syntax error
-const fn = (first, ...restArgs, last) => { /* C O D E */ }`;
+// const fn = (first, ...restArgs, last) => { /* C O D E */ }`;
 
 const MD8 = /* language=md */ `
 One way to think of this is that a javascript function has infinite arguments, they are just undefined :).
@@ -282,6 +286,11 @@ export default function Article() {
         imgSrc={article1Metadata.imgSrc}
       />
       <ArticleWrapper>
+        <ArticleHeader
+          title={article1Metadata.title}
+          author={article1Metadata.author}
+          timestamp={article12Metadata.timestamp}
+        />
         <Markdown source={MD0} />
         <CodeEditor
           value={SharedCode}
