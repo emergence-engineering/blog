@@ -136,7 +136,7 @@ const RightSide = styled.div`
   }
 `;
 
-const Tag = styled.div`
+export const Tag = styled.div`
   background-color: ${theme.color.tertiary};
   border-radius: 5px;
   height: 2rem;

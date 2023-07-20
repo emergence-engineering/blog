@@ -4,9 +4,10 @@ import ArticleShareOgTags from "../../features/article/components/ArticleShareOg
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
 import React from "react";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
+//# A year after we chose to go with PostGraphile over Hasura in production
 export const MD0 = `
-# A year after we chose to go with PostGraphile over Hasura in production
 
 # TLDR
 
@@ -59,18 +60,20 @@ Usually with requirements like the ones mentioned above our go to database would
 # Discussion
 
 So we wighted what’s important to us and as the title suggests we went with PostGraphile. I’m sure some of you reading this article would choose Hasura based on the same pros and cons. For us the Hasura UI was really tempting but the simplicity of PostGraphile won at the end of the day.
-`
+`;
 
 export const article8Metadata: ArticleIntro = {
   title: `A year after we chose to go with PostGraphile over Hasura in production`,
   postId: "hasura-vs-postgraphile",
   url: "https://emergence-engineering.com/blog/hasura-vs-postgraphile",
-  imgSrc: "https://hasura.io/static/hasura-collaborate-thumb-1c8f381ee6fd40dfff2eadfbfe27da40.png",
+  imgSrc:
+    "https://hasura.io/static/hasura-collaborate-thumb-1c8f381ee6fd40dfff2eadfbfe27da40.png",
   author: "Balázs",
   timestamp: 1672999080350,
   authorLink: "https://emergence-engineering.com/cv/balazs",
-  introText: "Summarising our experiences of using PostGraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
-}
+  introText:
+    "Summarising our experiences of using PostGraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
+};
 
 export default function Article() {
   return (
@@ -80,6 +83,11 @@ export default function Article() {
         title={article8Metadata.title}
         description={article8Metadata.introText}
         imgSrc={article8Metadata.imgSrc}
+      />
+      <ArticleHeader
+        title={article8Metadata.title}
+        author={article8Metadata.author}
+        timestamp={article8Metadata.timestamp}
       />
       <Markdown source={MD0} />
       <SalesBox />

@@ -6,6 +6,7 @@ import { ArticleIntro } from "../../features/article/types";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import SalesBox from "../../features/article/components/SalesBox";
 import Markdown from "../../features/article/components/Markdown";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const article7Metadata: ArticleIntro = {
   title: "Discord gitBot: get Github notifications on your discord server",
@@ -39,8 +40,13 @@ const Article = () => (
       description={article7Metadata.introText}
       imgSrc={article7Metadata.imgSrc}
     />
+    <ArticleHeader
+      title={article7Metadata.title}
+      author={article7Metadata.author}
+      timestamp={article7Metadata.timestamp}
+    />
     <Markdown source={MD0} />
-    <div style={{ flex: 1 }}/>
+    <div style={{ flex: 1 }} />
     <SalesBox />
   </ArticleWrapper>
 );

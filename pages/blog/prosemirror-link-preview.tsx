@@ -7,6 +7,7 @@ import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import SalesBox from "../../features/article/components/SalesBox";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
   () => import("../../articles/prosemirror-link-preview/editor"),
@@ -29,8 +30,9 @@ export const article11Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/prosemirror-link-preview",
 };
 
+// # Introducing prosemirror-link-preview Plugin
+
 const MD0 = /* language=md */ `
-# Introducing prosemirror-link-preview Plugin
 
 ## Introduction
 The **prosemirror-link-preview** plugin adds Discord and Slack like link previews to your Prosemirror editor. The plugin catches pasted links and renders a preview automatically. Follow along to learn more about the plugin and how to use it in your project.
@@ -62,6 +64,11 @@ const Article = () => (
       title={article11Metadata.title}
       description={article11Metadata.introText}
       imgSrc={article11Metadata.imgSrc}
+    />
+    <ArticleHeader
+      title={article11Metadata.title}
+      author={article11Metadata.author}
+      timestamp={article11Metadata.timestamp}
     />
     <Markdown source={MD0} />
     <EditorStyling>

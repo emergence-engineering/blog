@@ -3,6 +3,7 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 import React from "react";
 
 export const MD0 = /* language=md */ `
@@ -215,29 +216,35 @@ for all
 to authenticated
 using ((user_id = auth.uid()));
 \`\`\`
-`
+`;
 
 export const article12Metadata: ArticleIntro = {
-    title: `Hocuspocus with Supabase`,
-    postId: "hocuspocus-with-supabase",
-    url: "https://emergence-engineering.com/blog/hocuspocus-with-supabase",
-    author: "Törcsi & Balazs",
-    timestamp: 1686009600000,
-    authorLink: "https://emergence-engineering.com/cv/torcsi",
-    introText: "A quick tutorial on how to use Hocuspocus with Supabase to build a quick collaborative editor backend.",
-}
+  title: `Hocuspocus with Supabase`,
+  postId: "hocuspocus-with-supabase",
+  url: "https://emergence-engineering.com/blog/hocuspocus-with-supabase",
+  author: "Törcsi & Balazs",
+  timestamp: 1686009600000,
+  authorLink: "https://emergence-engineering.com/cv/torcsi",
+  introText:
+    "A quick tutorial on how to use Hocuspocus with Supabase to build a quick collaborative editor backend.",
+};
 
 export default function Article() {
-    return (
-        <ArticleWrapper>
-            <ArticleShareOgTags
-                url={article12Metadata.url}
-                title={article12Metadata.title}
-                description={article12Metadata.introText}
-                imgSrc={article12Metadata.imgSrc}
-            />
-            <Markdown source={MD0} />
-            <SalesBox />
-        </ArticleWrapper>
-    );
+  return (
+    <ArticleWrapper>
+      <ArticleShareOgTags
+        url={article12Metadata.url}
+        title={article12Metadata.title}
+        description={article12Metadata.introText}
+        imgSrc={article12Metadata.imgSrc}
+      />
+      <ArticleHeader
+        title={article12Metadata.title}
+        author={article12Metadata.author}
+        timestamp={article12Metadata.timestamp}
+      />
+      <Markdown source={MD0} />
+      <SalesBox />
+    </ArticleWrapper>
+  );
 }

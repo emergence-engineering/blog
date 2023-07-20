@@ -4,6 +4,7 @@ import ArticleShareOgTags from "../../features/article/components/ArticleShareOg
 import Markdown from "../../features/article/components/Markdown";
 import SalesBox from "../../features/article/components/SalesBox";
 import React from "react";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const MD0 = /* language=md */ `
 # TLDR
@@ -267,30 +268,36 @@ I hope this has been useful for you. I think this is a good way to validate your
 I was shocked that no one else published code for this before, so I hope this will help someone in the future.
 
 If you want to generate forms from your mustache templates, you can do that with the \`convertToUISchema\` function also published in the gist.
-`
+`;
 
 export const article10Metadata: ArticleIntro = {
-    title: `JsonSchema generation from {{ mustache }} templates`,
-    postId: "json-schema-from-mustache",
-    url: "https://emergence-engineering.com/blog/json-schema-from-mustache",
-    author: "Törcsi",
-    timestamp: 1677150227000,
-    authorLink: "https://emergence-engineering.com/cv/torcsi",
-    introText: "A guide with code samples for building a strict schema validator for your mustache templates.",
-    imgSrc: "http://clipart-library.com/images/8cxrjerMi.jpg"
-}
+  title: `JsonSchema generation from {{ mustache }} templates`,
+  postId: "json-schema-from-mustache",
+  url: "https://emergence-engineering.com/blog/json-schema-from-mustache",
+  author: "Törcsi",
+  timestamp: 1677150227000,
+  authorLink: "https://emergence-engineering.com/cv/torcsi",
+  introText:
+    "A guide with code samples for building a strict schema validator for your mustache templates.",
+  imgSrc: "http://clipart-library.com/images/8cxrjerMi.jpg",
+};
 
 export default function Article() {
-    return (
-        <ArticleWrapper>
-            <ArticleShareOgTags
-                url={article10Metadata.url}
-                title={article10Metadata.title}
-                description={article10Metadata.introText}
-                imgSrc={article10Metadata.imgSrc}
-            />
-            <Markdown source={MD0} />
-            <SalesBox />
-        </ArticleWrapper>
-    );
+  return (
+    <ArticleWrapper>
+      <ArticleShareOgTags
+        url={article10Metadata.url}
+        title={article10Metadata.title}
+        description={article10Metadata.introText}
+        imgSrc={article10Metadata.imgSrc}
+      />
+      <ArticleHeader
+        title={article10Metadata.title}
+        author={article10Metadata.author}
+        timestamp={article10Metadata.timestamp}
+      />
+      <Markdown source={MD0} />
+      <SalesBox />
+    </ArticleWrapper>
+  );
 }

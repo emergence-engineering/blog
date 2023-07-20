@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import { ArticleHeadline } from "../../features/article/components/ArticleHeadline";
 import SalesBox from "../../features/article/components/SalesBox";
 import Markdown from "../../features/article/components/Markdown";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const EditorsDynamic = dynamic(
   () => import("../../articles/prosemirror-sync-1"),
@@ -290,7 +290,14 @@ export default function Article() {
         description={article2Metadata.introText}
         imgSrc={article2Metadata.imgSrc}
       />
-      <ArticleHeadline tldr={tldrContent} {...article2Metadata} />
+      <ArticleHeader
+        title={article2Metadata.title}
+        author={article2Metadata.author}
+        timestamp={article2Metadata.timestamp}
+      />
+      <Markdown source={tldrContent} />
+
+      {/*<ArticleHeadline tldr={tldrContent} {...article2Metadata} />*/}
       <Markdown source={MD0} />
       <Markdown source={demo} />
       <EditorsDynamic />
