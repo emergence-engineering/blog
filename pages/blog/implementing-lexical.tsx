@@ -46,6 +46,10 @@ function onError(error: Error): void {
   console.error(error);
 }
 
+const theme = {};
+
+interface Props {}
+
 // const MyOnChangePlugin = (props: {
 //   onChange: (editorState: EditorState) => void;
 // }): null => {
@@ -59,6 +63,89 @@ function onError(error: Error): void {
 //   }, [onChange, editor]);
 //   return null;
 // };
+
+class BannerNode extends ElementNode {
+  // constructor(key?: NodeKey) {
+  //   super(key);
+  // }
+
+  static getType(): string {
+    return "banner";
+  }
+
+  static clone(node: BannerNode): BannerNode {
+    return new BannerNode(node.__key);
+  }
+
+  createDOM(config: EditorConfig): HTMLElement {
+    const element = document.createElement("div");
+    // element.classList.add(styles.banner.toString());
+    element.style.backgroundColor = "lightblue";
+    return element;
+  }
+
+  updateDOM(): false {
+    return false;
+  }
+
+  insertNewAfter(
+    selection: RangeSelection,
+    restoreSelection?: boolean | undefined,
+  ): LexicalNode | null {
+    const newBlock = $createParagraphNode();
+    const direction = this.getDirection();
+    newBlock.setDirection(direction);
+    this.inserAfter(newBlock, restoreSelection);
+    return newBlock;
+  }
+
+  collapseAtStart(): boolean {
+    const p = $createParagraphNode();
+    const children = this.getChildren();
+    children.forEach((child) => p.append(child));
+    this.replace(p);
+
+    return true;
+  }
+}
+
+function $createBannerNode(): BannerNode {
+  return new BannerNode();
+}
+
+// function $isBannerNode(node: LexicalNode): node is BannerNode {
+//   return node instanceof BannerNode;
+// }
+
+export const INSERT_BANNER_COMMAND = createCommand("insertCommand");
+
+const BannerPlugin = (): null => {
+  const [editor] = useLexicalComposerContext();
+  if (!editor.hasNodes([BannerNode]))
+    throw new Error("BannerNode is not registered in the editor");
+
+  editor.registerCommand(
+    INSERT_BANNER_COMMAND,
+    () => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        $setBlocksType(selection, $createBannerNode);
+      }
+      return true;
+    },
+    COMMAND_PRIORITY_LOW,
+  );
+  return null;
+};
+
+const TheBestBannerPlugin = (): JSX.Element => {
+  const [editor] = useLexicalComposerContext();
+
+  const bannerOnClick = (e: React.MouseEvent): void => {
+    editor.dispatchCommand(INSERT_BANNER_COMMAND, undefined);
+  };
+  return <button onClick={bannerOnClick}>Banner</button>;
+};
 
 type HeadingTags = "h1" | "h2" | "h3";
 type ListTags = "ul" | "ol";
@@ -109,104 +196,15 @@ const TheBestListingPlugin = () => {
   );
 };
 
-class BannerNode extends ElementNode {
-  // constructor(key?: NodeKey) {
-  //   super(key);
-  // }
-
-  static getType(): string {
-    return "banner";
-  }
-
-  static clone(node: BannerNode): BannerNode {
-    return new BannerNode(node.__key);
-  }
-
-  createDOM(config: EditorConfig): HTMLElement {
-    const element = document.createElement("div");
-    // element.classList.add(config.theme.banner);
-    element.style.backgroundColor = "lightblue";
-    return element;
-  }
-
-  updateDOM(): false {
-    return false;
-  }
-
-  insertNewAfter(
-    selection: RangeSelection,
-    restoreSelection?: boolean | undefined,
-  ): LexicalNode | null {
-    const newBlock = $createParagraphNode();
-    const direction = this.getDirection();
-    newBlock.setDirection(direction);
-    this.inserAfter(newBlock, restoreSelection);
-    return newBlock;
-  }
-
-  collapseAtStart(): boolean {
-    const p = $createParagraphNode();
-    const children = this.getChildren();
-    children.forEach((child) => p.append(child));
-    this.replace(p);
-
-    return true;
-  }
-}
-
-function $createBannerNode(): BannerNode {
-  return new BannerNode();
-}
-
-// function $isBannerNode(node: LexicalNode): node is BannerNode {
-//   return node instanceof BannerNode;
-// }
-
-export const INSERT_BANNER_COMMAND = createCommand("insertCommand");
-
-const TheBestBannerPlugin = (): null => {
-  const [editor] = useLexicalComposerContext();
-  if (!editor.hasNodes([BannerNode]))
-    throw new Error("BannerNode is not registered in the editor");
-
-  editor.registerCommand(
-    INSERT_BANNER_COMMAND,
-    () => {
-      const selection = $getSelection();
-      if ($isRangeSelection(selection)) {
-        $setBlocksType(selection, $createBannerNode);
-      }
-      return true;
-    },
-    COMMAND_PRIORITY_LOW,
-  );
-  return null;
-};
-
-const BannerToolbarPlugin = (): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const bannerOnClick = (e: React.MouseEvent): void => {
-    editor.dispatchCommand(INSERT_BANNER_COMMAND, undefined);
-  };
-  return <button onClick={bannerOnClick}>Banner</button>;
-};
-
 const ToolbarPlugin = (): JSX.Element => {
   return (
     <div style={{ display: "flex" }}>
       <TheBestHeadingPlugin />
       <TheBestListingPlugin />
-      <BannerToolbarPlugin />
+      <TheBestBannerPlugin />
     </div>
   );
 };
-
-const theme = {
-  banner: "banner",
-};
-
-interface Props {}
 
 export default function Editor({}: Props): JSX.Element {
   const initialConfig = {
@@ -227,7 +225,7 @@ export default function Editor({}: Props): JSX.Element {
       <LexicalComposer initialConfig={initialConfig}>
         <div style={{ position: "relative" }}>
           <ToolbarPlugin />
-          <TheBestBannerPlugin />
+          <BannerPlugin />
           <RichTextPlugin
             contentEditable={<StyledContentEditable />}
             placeholder={<Placeholder>Enter some text...</Placeholder>}
