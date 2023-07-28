@@ -63,7 +63,7 @@ export const NormalPOnToolbar = () => {
 export const BannerOnToolbar = (): JSX.Element => {
   const [editor] = useLexicalComposerContext();
 
-  const bannerOnClick = (e: React.MouseEvent): void => {
+  const bannerOnClick = (): void => {
     editor.dispatchCommand(INSERT_BANNER_COMMAND, undefined);
   };
   return <ToolbarItem onClick={bannerOnClick}>Banner</ToolbarItem>;
@@ -159,7 +159,7 @@ export const LinkOnToolbar = (): JSX.Element => {
   const handleLinkEnter = useCallback(
     (link: string) => {
       if (link === "") {
-        console.error("link is empty");
+        alert("link is empty");
         return;
       }
 
