@@ -1,0 +1,111 @@
+.textBold {
+    font-weight: bold;
+}
+.textItalic {
+    font-style: italic;
+}
+.textUnderline {
+    text-decoration: underline;
+}
+.textStrikethrough {
+    text-decoration: line-through;
+}
+.textSubscript {
+    font-size: 0.8em;
+    vertical-align: sub !important;
+}
+.textSuperscript {
+    font-size: 0.8em;
+    vertical-align: super;
+}
+.textCode {
+    background-color: rgb(240, 242, 245);
+    padding: 1px 0.25rem;
+    font-family: Menlo, Consolas, Monaco, monospace;
+    font-size: 94%;
+}
+
+.listItem {
+    margin: 0 32px;
+}
+.listItemChecked,
+.listItemUnchecked {
+    position: relative;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+    list-style-type: none;
+    outline: none;
+}
+.listItemChecked {
+    text-decoration: line-through;
+}
+.listItemUnchecked:before,
+.listItemChecked:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    left: 0;
+    cursor: pointer;
+    display: block;
+    background-size: cover;
+    position: absolute;
+}
+
+.listItemUnchecked:focus:before,
+.listItemChecked:focus:before {
+    box-shadow: 0 0 0 2px #a6cdfe;
+    border-radius: 2px;
+}
+.listItemUnchecked:before {
+    border: 1px solid #999;
+    border-radius: 2px;
+}
+.listItemChecked:before {
+    border: 1px solid rgb(61, 135, 245);
+    border-radius: 2px;
+    background-color: #3d87f5;
+    background-repeat: no-repeat;
+}
+.listItemChecked:after {
+    content: '';
+    cursor: pointer;
+    border-color: #fff;
+    border-style: solid;
+    position: absolute;
+    display: block;
+    top: 6px;
+    width: 3px;
+    left: 7px;
+    right: 7px;
+    height: 6px;
+    transform: rotate(45deg);
+    border-width: 0 2px 2px 0;
+}
+
+.quote {
+    margin: 0 0 10px 20px;
+    font-size: 15px;
+    /*color: rgb(101, 103, 107);*/
+    color: green;
+    border-left-color: rgb(206, 208, 212);
+    border-left-width: 4px;
+    border-left-style: solid;
+    padding-left: 16px;
+}
+
+.linkkkk > span{
+    color: greenyellow; !important
+    text-decoration: underline;
+}
+.linkkkk:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hashtag {
+    background-color: rgba(88, 144, 255, 0.15);
+    border-bottom: 1px solid rgba(88, 144, 255, 0.3);
+}

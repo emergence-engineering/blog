@@ -1,219 +1,152 @@
-import React from "react";
+import React, { useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-import styled from "styled-components";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
+
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import {
-  $createParagraphNode,
-  $getSelection,
-  $isRangeSelection,
-  COMMAND_PRIORITY_LOW,
-  createCommand,
-  EditorConfig,
-  ElementNode,
-  LexicalNode,
-  RangeSelection,
-} from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
+import { TRANSFORMERS } from "@lexical/markdown";
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
+import { LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { $createHeadingNode, HeadingNode } from "@lexical/rich-text";
-import { $setBlocksType } from "@lexical/selection";
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
+import { HashtagNode } from "@lexical/hashtag";
+
+// import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import {
-  INSERT_ORDERED_LIST_COMMAND,
-  INSERT_UNORDERED_LIST_COMMAND,
-  ListItemNode,
-  ListNode,
-} from "@lexical/list";
-
-const StyledContentEditable = styled(ContentEditable)`
-  height: 300px;
-  width: 500px;
-  padding: 8px;
-  border: thin solid red;
-`;
-
-const Placeholder = styled.div`
-  position: absolute;
-  top: 36px;
-  left: 8px;
-`;
+  BannerOnToolbar,
+  BlockquoteOnToolbar,
+  ColoringOnToolbar,
+  DoOnToolbar,
+  FormatThings,
+  HeadingOnToolbar,
+  HROnToolbar,
+  LinkOnToolbar,
+  ListingOnToolbar,
+  MonocodeOnToolbar,
+  NormalPOnToolbar,
+} from "../../features/article/components/OwnLexicalToolbar";
+import CodeHighlightPlugin, {
+  BannerNode,
+  BannerPlugin,
+} from "../../features/article/components/OwnLexicalPlugins";
+import {
+  Dropdown,
+  Placeholder,
+  StyledContentEditable,
+  Toolbar,
+  ToolbarItem,
+} from "../../utils/lexical";
+import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
+import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
+import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
+import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
+import { ParagraphNode } from "lexical";
+import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 
 function onError(error: Error): void {
   console.error(error);
 }
 
-const theme = {};
+const myTheme = {
+  text: {
+    bold: "textBold",
+    code: "textCode",
+    italic: "textItalic",
+    strikethrough: "textStrikethrough",
+    subscript: "textSubscript",
+    superscript: "textSuperscript",
+    underline: "textUnderline",
+    underlineStrikethrough: "textUnderlineStrikethrough",
+  },
+  list: {
+    listitem: "listItem",
+    listitemChecked: "listItemChecked",
+    listitemUnchecked: "listItemUnchecked",
+  },
+  quote: "quote",
+  link: "linkkkk",
+  hashtag: "hashtag",
+};
 
 interface Props {}
 
-// const MyOnChangePlugin = (props: {
-//   onChange: (editorState: EditorState) => void;
-// }): null => {
-//   const [editor] = useLexicalComposerContext();
-//   const { onChange } = props;
-//
-//   useEffect(() => {
-//     return editor.registerUpdateListener(({ editorState }) => {
-//       onChange(editorState);
-//     });
-//   }, [onChange, editor]);
-//   return null;
-// };
-
-class BannerNode extends ElementNode {
-  // constructor(key?: NodeKey) {
-  //   super(key);
-  // }
-
-  static getType(): string {
-    return "banner";
-  }
-
-  static clone(node: BannerNode): BannerNode {
-    return new BannerNode(node.__key);
-  }
-
-  createDOM(config: EditorConfig): HTMLElement {
-    const element = document.createElement("div");
-    // element.classList.add(styles.banner.toString());
-    element.style.backgroundColor = "lightblue";
-    return element;
-  }
-
-  updateDOM(): false {
-    return false;
-  }
-
-  insertNewAfter(
-    selection: RangeSelection,
-    restoreSelection?: boolean | undefined,
-  ): LexicalNode | null {
-    const newBlock = $createParagraphNode();
-    const direction = this.getDirection();
-    newBlock.setDirection(direction);
-    this.inserAfter(newBlock, restoreSelection);
-    return newBlock;
-  }
-
-  collapseAtStart(): boolean {
-    const p = $createParagraphNode();
-    const children = this.getChildren();
-    children.forEach((child) => p.append(child));
-    this.replace(p);
-
-    return true;
-  }
-}
-
-function $createBannerNode(): BannerNode {
-  return new BannerNode();
-}
-
-// function $isBannerNode(node: LexicalNode): node is BannerNode {
-//   return node instanceof BannerNode;
-// }
-
-export const INSERT_BANNER_COMMAND = createCommand("insertCommand");
-
-const BannerPlugin = (): null => {
-  const [editor] = useLexicalComposerContext();
-  if (!editor.hasNodes([BannerNode]))
-    throw new Error("BannerNode is not registered in the editor");
-
-  editor.registerCommand(
-    INSERT_BANNER_COMMAND,
-    () => {
-      const selection = $getSelection();
-      if ($isRangeSelection(selection)) {
-        $setBlocksType(selection, $createBannerNode);
-      }
-      return true;
-    },
-    COMMAND_PRIORITY_LOW,
-  );
-  return null;
-};
-
-const TheBestBannerPlugin = (): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const bannerOnClick = (e: React.MouseEvent): void => {
-    editor.dispatchCommand(INSERT_BANNER_COMMAND, undefined);
-  };
-  return <button onClick={bannerOnClick}>Banner</button>;
-};
-
-type HeadingTags = "h1" | "h2" | "h3";
-type ListTags = "ul" | "ol";
-
-const TheBestHeadingPlugin = (): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-  const headingTags: HeadingTags[] = ["h1", "h2", "h3"];
-
-  const headingOnClick = (tag: HeadingTags): void => {
-    editor.update(() => {
-      const selection = $getSelection();
-      if ($isRangeSelection(selection)) {
-        $setBlocksType(selection, () => $createHeadingNode(tag));
-      }
-    });
-  };
-  return (
-    <div>
-      {headingTags.map((tag, i) => (
-        <button key={i} onClick={() => headingOnClick(tag)}>
-          {tag}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-// TODO: rm node_modules to work
-const TheBestListingPlugin = () => {
-  const [editor] = useLexicalComposerContext();
-  const listingTags: ListTags[] = ["ul", "ol"];
-
-  const listingOnClick = (tag: ListTags): void => {
-    if (tag === "ol") {
-      editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
-      return;
-    }
-    editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
-  };
-  return (
-    <div>
-      {listingTags.map((tag, i) => (
-        <button key={i} onClick={() => listingOnClick(tag)}>
-          {tag}
-        </button>
-      ))}
-    </div>
-  );
-};
-
+// TODO: doesnt close when a tag is clicked on
 const ToolbarPlugin = (): JSX.Element => {
+  const [isStylingPOpen, setIsStylingPOpen] = useState(false);
+  const [isFormattingTextOpen, setIsFormattingTextOpen] = useState(false);
+  const [isColoringOpen, setIsColoringOpen] = useState(false);
+  const [isInsertingThingsOpen, setIsInsertingThingsOpen] = useState(false);
+
   return (
-    <div style={{ display: "flex" }}>
-      <TheBestHeadingPlugin />
-      <TheBestListingPlugin />
-      <TheBestBannerPlugin />
-    </div>
+    <Toolbar>
+      <DoOnToolbar />
+      <NormalPOnToolbar />
+      <ToolbarItem onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
+        Style P ⬇️
+      </ToolbarItem>
+      <Dropdown isOpen={isStylingPOpen} id={"s"}>
+        <HeadingOnToolbar />
+        <ListingOnToolbar />
+        <BannerOnToolbar />
+        <BlockquoteOnToolbar />
+      </Dropdown>
+
+      <ToolbarItem
+        onClick={() => setIsFormattingTextOpen(!isFormattingTextOpen)}
+      >
+        Format text ⬇️
+      </ToolbarItem>
+      <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
+        <FormatThings />
+        <MonocodeOnToolbar />
+      </Dropdown>
+
+      <ToolbarItem onClick={() => setIsColoringOpen(!isColoringOpen)}>
+        Coloring ⬇️
+      </ToolbarItem>
+      <Dropdown isOpen={isColoringOpen} id={"c"}>
+        <ColoringOnToolbar />
+      </Dropdown>
+
+      <ToolbarItem
+        onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
+      >
+        Insert things ⬇️
+      </ToolbarItem>
+      <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
+        <HROnToolbar />
+      </Dropdown>
+
+      <LinkOnToolbar />
+    </Toolbar>
   );
+};
+
+const initialConfig = {
+  namespace: "MyEditor",
+  theme: myTheme,
+  onError,
+  nodes: [
+    HeadingNode,
+    ListNode,
+    ListItemNode,
+    BannerNode,
+    HorizontalRuleNode,
+    CodeNode,
+    LinkNode,
+    QuoteNode,
+    HashtagNode,
+    CodeHighlightNode,
+    ParagraphNode,
+  ],
 };
 
 export default function Editor({}: Props): JSX.Element {
-  const initialConfig = {
-    namespace: "MyEditor",
-    theme,
-    onError,
-    nodes: [HeadingNode, ListNode, ListItemNode, BannerNode],
-  };
-
   return (
     <ArticleWrapper>
       <ArticleShareOgTags url={""} title={""} description={""} imgSrc={""} />
@@ -224,15 +157,24 @@ export default function Editor({}: Props): JSX.Element {
       />
       <LexicalComposer initialConfig={initialConfig}>
         <div style={{ position: "relative" }}>
+          <TabIndentationPlugin />
+          <AutoFocusPlugin />
+          <HashtagPlugin />
+          <HistoryPlugin />
+
           <ToolbarPlugin />
           <BannerPlugin />
+          <HorizontalRulePlugin />
+          <LinkPlugin />
+          <CodeHighlightPlugin />
+          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+
           <RichTextPlugin
             contentEditable={<StyledContentEditable />}
             placeholder={<Placeholder>Enter some text...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
         </div>
-        <HistoryPlugin />
         {/*<MyOnChangePlugin*/}
         {/*  onChange={(editorState) => {*/}
         {/*    console.log(editorState);*/}
