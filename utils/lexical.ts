@@ -6,9 +6,23 @@ export const Toolbar = styled.div`
   gap: 5px;
   align-items: center;
   padding: 3px 6px;
-  border: 2px dotted darkmagenta;
+  border-style: dashed;
+  border-color: magenta;
+  border-width: 2px;
   border-radius: 30px;
   margin-bottom: 10px;
+  background-color: white;
+`;
+
+export const LeftToolbar = styled(Toolbar)<{ show: boolean }>`
+  flex-direction: column;
+  border: 2px dashed magenta;
+  padding: 8px;
+  display: ${({ show }) => (show ? "flex" : "none")};
+
+  position: fixed;
+  top: 180px;
+  left: 80px;
 `;
 
 export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
@@ -26,17 +40,17 @@ export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
   text-align: center;
 
   position: absolute;
-  top: 35px;
+  top: ${({ id }) => (id === "i" ? "110px" : "35px")};
   left: ${({ id }) => {
     switch (id) {
       case "s":
-        return "190px";
+        return "80px";
       case "f":
-        return "270px";
+        return "170px";
       case "c":
-        return "370px";
+        return "270px";
       case "i":
-        return "460px";
+        return "10px";
       default:
         return 0;
     }
@@ -49,36 +63,35 @@ export const ToolbarItem = styled.button`
   background: none;
   cursor: pointer;
   color: dimgray;
+  align-items: baseline;
+
   min-width: 50px;
+  font-size: 14px;
+
   :hover {
     background: lightpink;
-    border-radius: 5px;
+    border-radius: 15px;
   }
 `;
 
 export const StyledContentEditable = styled(ContentEditable)`
-  height: 300px;
+  height: 800px;
   width: 100%;
   padding: 8px;
-  border: thick solid darkslateblue;
-  border-radius: 20px;
 
   :focus {
     outline: none;
+  }
+
+  ::first-line {
+    font-size: 24px;
+    font-weight: bold;
   }
 `;
 
 export const Placeholder = styled.div`
   position: absolute;
-  top: 60px;
-  left: 16px;
-`;
-
-export const Styleddiv = styled.div`
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 150px;
-  width: 200px;
-  height: 200px;
+  top: 62px;
+  left: 10px;
+  color: #dddddd;
 `;

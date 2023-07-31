@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import ArticleHeader from "../../features/article/components/ArticleHeader";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
@@ -36,6 +34,7 @@ import CodeHighlightPlugin, {
 } from "../../features/article/components/OwnLexicalPlugins";
 import {
   Dropdown,
+  LeftToolbar,
   Placeholder,
   StyledContentEditable,
   Toolbar,
@@ -80,50 +79,113 @@ const ToolbarPlugin = (): JSX.Element => {
   const [isStylingPOpen, setIsStylingPOpen] = useState(false);
   const [isFormattingTextOpen, setIsFormattingTextOpen] = useState(false);
   const [isColoringOpen, setIsColoringOpen] = useState(false);
-  const [isInsertingThingsOpen, setIsInsertingThingsOpen] = useState(false);
+
+  const styleRef = useRef<HTMLDivElement>(null);
+  const formatRef = useRef<HTMLDivElement>(null);
+  const colorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      const target = event.target;
+
+      if (
+        isStylingPOpen &&
+        styleRef.current &&
+        !styleRef.current.contains(target as HTMLDivElement)
+      ) {
+        setIsStylingPOpen(false);
+      } else if (
+        isFormattingTextOpen &&
+        formatRef.current &&
+        !formatRef.current.contains(target as HTMLDivElement)
+      ) {
+        setIsFormattingTextOpen(false);
+      } else if (
+        isColoringOpen &&
+        colorRef.current &&
+        !colorRef.current.contains(target as HTMLDivElement)
+      ) {
+        setIsColoringOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [isStylingPOpen, isColoringOpen, isFormattingTextOpen]);
 
   return (
     <Toolbar>
-      <DoOnToolbar />
       <NormalPOnToolbar />
-      <ToolbarItem onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
-        Style P ⬇️
-      </ToolbarItem>
-      <Dropdown isOpen={isStylingPOpen} id={"s"}>
-        <HeadingOnToolbar />
-        <ListingOnToolbar />
-        <BannerOnToolbar />
-        <BlockquoteOnToolbar />
-      </Dropdown>
 
-      <ToolbarItem
+      <div ref={styleRef} onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
+        <ToolbarItem>Style P ⬇️</ToolbarItem>
+        <Dropdown isOpen={isStylingPOpen} id={"s"}>
+          <HeadingOnToolbar />
+          <ListingOnToolbar />
+          <BannerOnToolbar />
+          <BlockquoteOnToolbar />
+        </Dropdown>
+      </div>
+
+      <div
+        ref={formatRef}
         onClick={() => setIsFormattingTextOpen(!isFormattingTextOpen)}
       >
-        Format text ⬇️
-      </ToolbarItem>
-      <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
-        <FormatThings />
-        <MonocodeOnToolbar />
-      </Dropdown>
+        <ToolbarItem>Format text ⬇️</ToolbarItem>
+        <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
+          <FormatThings />
+          <MonocodeOnToolbar />
+        </Dropdown>
+      </div>
 
-      <ToolbarItem onClick={() => setIsColoringOpen(!isColoringOpen)}>
-        Coloring ⬇️
-      </ToolbarItem>
-      <Dropdown isOpen={isColoringOpen} id={"c"}>
-        <ColoringOnToolbar />
-      </Dropdown>
-
-      <ToolbarItem
-        onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
-      >
-        Insert things ⬇️
-      </ToolbarItem>
-      <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
-        <HROnToolbar />
-      </Dropdown>
+      <div ref={colorRef} onClick={() => setIsColoringOpen(!isColoringOpen)}>
+        <ToolbarItem>Coloring ⬇️</ToolbarItem>
+        <Dropdown isOpen={isColoringOpen} id={"c"}>
+          <ColoringOnToolbar />
+        </Dropdown>
+      </div>
 
       <LinkOnToolbar />
     </Toolbar>
+  );
+};
+
+const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {
+  const [isInsertingThingsOpen, setIsInsertingThingsOpen] = useState(false);
+  const insertRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      const target = event.target;
+      if (
+        isInsertingThingsOpen &&
+        insertRef.current &&
+        !insertRef.current.contains(target as HTMLDivElement)
+      ) {
+        setIsInsertingThingsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [isInsertingThingsOpen]);
+
+  return (
+    <LeftToolbar show={show}>
+      <DoOnToolbar />
+
+      <div
+        ref={insertRef}
+        onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
+      >
+        <ToolbarItem>Insert things ⬇️</ToolbarItem>
+        <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
+          <HROnToolbar />
+        </Dropdown>
+      </div>
+    </LeftToolbar>
   );
 };
 
@@ -146,15 +208,11 @@ const initialConfig = {
   ],
 };
 
-export default function Editor({}: Props): JSX.Element {
+const Editor = ({}: Props): JSX.Element => {
+  const [show, setShow] = useState(false);
+
   return (
     <ArticleWrapper>
-      <ArticleShareOgTags url={""} title={""} description={""} imgSrc={""} />
-      <ArticleHeader
-        title={"Implementing Lexical"}
-        author={"x"}
-        timestamp={1}
-      />
       <LexicalComposer initialConfig={initialConfig}>
         <div style={{ position: "relative" }}>
           <TabIndentationPlugin />
@@ -163,6 +221,8 @@ export default function Editor({}: Props): JSX.Element {
           <HistoryPlugin />
 
           <ToolbarPlugin />
+          <ToolbarPluginOnTheLeft show={show} />
+          <MarkdownShortcutPlugin />
           <BannerPlugin />
           <HorizontalRulePlugin />
           <LinkPlugin />
@@ -170,8 +230,10 @@ export default function Editor({}: Props): JSX.Element {
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
 
           <RichTextPlugin
-            contentEditable={<StyledContentEditable />}
-            placeholder={<Placeholder>Enter some text...</Placeholder>}
+            contentEditable={
+              <StyledContentEditable onClick={() => setShow(!show)} />
+            }
+            placeholder={<Placeholder>Let's start with a title...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
         </div>
@@ -183,4 +245,6 @@ export default function Editor({}: Props): JSX.Element {
       </LexicalComposer>
     </ArticleWrapper>
   );
-}
+};
+
+export default Editor;

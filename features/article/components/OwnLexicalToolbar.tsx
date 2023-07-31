@@ -150,6 +150,8 @@ export const LinkOnToolbar = (): JSX.Element => {
   const [isLink, setIsLink] = useState(false);
   const [link, setLink] = useState("");
   const [isSeen, setIsSeen] = useState(false);
+  const linkRegex =
+    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
   const linkOnClick = useCallback(() => {
     setIsLink(!isLink);
@@ -160,9 +162,14 @@ export const LinkOnToolbar = (): JSX.Element => {
     (link: string) => {
       if (link === "") {
         alert("link is empty");
+        setIsSeen(false);
         return;
       }
-
+      if (!linkRegex.test(link)) {
+        alert("invalid link");
+        setIsSeen(false);
+        return;
+      }
       setIsSeen(false);
       editor.update(() => {
         const selection = $getSelection();
@@ -307,7 +314,7 @@ export const ColoringOnToolbar = () => {
   );
 };
 
-export const HROnToolbar = (): JSX.Element => {
+export const HROnToolbar = () => {
   const [editor] = useLexicalComposerContext();
 
   const hrOnClick = (): void => {
