@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Dropdown, LeftToolbar, ToolbarItem } from "../../../utils/lexical";
+import { Dropdown, LeftToolbar, ToolbarItem } from "../../../../utils/lexical";
 import { DoOnToolbar, HROnToolbar } from "./OwnLexicalToolbar";
 
 const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {

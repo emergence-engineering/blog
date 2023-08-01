@@ -1,6 +1,6 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import React, { useCallback, useState } from "react";
-import { ToolbarItem } from "../../../utils/lexical";
+import { ToolbarItem } from "../../../../utils/lexical";
 import {
   $createParagraphNode,
   $getSelection,

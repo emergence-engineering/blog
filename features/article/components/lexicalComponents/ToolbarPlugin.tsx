@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Dropdown, Toolbar, ToolbarItem } from "../../../utils/lexical";
+import { Dropdown, Toolbar, ToolbarItem } from "../../../../utils/lexical";
 import {
   BannerOnToolbar,
   BlockquoteOnToolbar,

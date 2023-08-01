@@ -18,21 +18,20 @@ import {
   createLinkMatcherWithRegExp,
 } from "@lexical/react/LexicalAutoLinkPlugin";
 import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
-import CodeHighlightPlugin from "../../features/article/components/PluginPlayground";
+import CodeHighlightPlugin from "../../features/article/components/lexicalComponents/PluginPlayground";
 import {
   BannerNode,
   BannerPlugin,
-} from "../../features/article/components/Banner";
-// import {LinkPreviewNode} from "../../features/article/components/LinkPreview"
+} from "../../features/article/components/lexicalComponents/Banner";
 import { Placeholder, StyledContentEditable } from "../../utils/lexical";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
-import ToolbarPlugin from "../../features/article/components/ToolbarPlugin";
-import ToolbarPluginOnTheLeft from "../../features/article/components/ToolbarPluginOnTheLeft";
-import { LinkPreviewNode } from "../../features/article/components/LinkPreview";
+import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
+import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
+import { LinkPreviewNode } from "../../features/article/components/lexicalComponents/LinkPreview";
 
 function onError(error: Error): void {
   console.error(error);
@@ -77,7 +76,6 @@ const initialConfig = {
     HorizontalRuleNode,
     CodeNode,
     LinkNode,
-    // AutoLinkNode,
     QuoteNode,
     HashtagNode,
     CodeHighlightNode,
@@ -113,7 +111,6 @@ const Editor = ({}: Props): JSX.Element => {
           <HashtagPlugin />
           <HistoryPlugin />
           <AutoLinkPlugin matchers={MATCHERS} />
-          {/*<LinkPreviewPlugin matchers={MATCHERS} onChange={() => {}} />*/}
 
           <ToolbarPlugin />
           <ToolbarPluginOnTheLeft show={show} />
