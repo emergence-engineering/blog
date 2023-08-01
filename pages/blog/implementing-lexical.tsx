@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
@@ -7,45 +7,32 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { LinkNode } from "@lexical/link";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
 import { HashtagNode } from "@lexical/hashtag";
-
-// import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import {
-  BannerOnToolbar,
-  BlockquoteOnToolbar,
-  ColoringOnToolbar,
-  DoOnToolbar,
-  FormatThings,
-  HeadingOnToolbar,
-  HROnToolbar,
-  LinkOnToolbar,
-  ListingOnToolbar,
-  MonocodeOnToolbar,
-  NormalPOnToolbar,
-} from "../../features/article/components/OwnLexicalToolbar";
-import CodeHighlightPlugin, {
+  AutoLinkPlugin,
+  createLinkMatcherWithRegExp,
+} from "@lexical/react/LexicalAutoLinkPlugin";
+import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
+import CodeHighlightPlugin from "../../features/article/components/PluginPlayground";
+import {
   BannerNode,
   BannerPlugin,
-} from "../../features/article/components/OwnLexicalPlugins";
-import {
-  Dropdown,
-  LeftToolbar,
-  Placeholder,
-  StyledContentEditable,
-  Toolbar,
-  ToolbarItem,
-} from "../../utils/lexical";
+} from "../../features/article/components/Banner";
+// import {LinkPreviewNode} from "../../features/article/components/LinkPreview"
+import { Placeholder, StyledContentEditable } from "../../utils/lexical";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
-import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
+import ToolbarPlugin from "../../features/article/components/ToolbarPlugin";
+import ToolbarPluginOnTheLeft from "../../features/article/components/ToolbarPluginOnTheLeft";
+import { LinkPreviewNode } from "../../features/article/components/LinkPreview";
 
 function onError(error: Error): void {
   console.error(error);
@@ -68,126 +55,15 @@ const myTheme = {
     listitemUnchecked: "listItemUnchecked",
   },
   quote: "quote",
-  link: "linkkkk",
+  // link: "linkkkk",
   hashtag: "hashtag",
+  linkPreviewContainer: "linkPreviewContainer",
+  previewBox: "previewBox",
+  previewImage: "previewImage",
+  previewDescription: "previewDescription",
 };
 
 interface Props {}
-
-// TODO: doesnt close when a tag is clicked on
-const ToolbarPlugin = (): JSX.Element => {
-  const [isStylingPOpen, setIsStylingPOpen] = useState(false);
-  const [isFormattingTextOpen, setIsFormattingTextOpen] = useState(false);
-  const [isColoringOpen, setIsColoringOpen] = useState(false);
-
-  const styleRef = useRef<HTMLDivElement>(null);
-  const formatRef = useRef<HTMLDivElement>(null);
-  const colorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (event: MouseEvent) => {
-      const target = event.target;
-
-      if (
-        isStylingPOpen &&
-        styleRef.current &&
-        !styleRef.current.contains(target as HTMLDivElement)
-      ) {
-        setIsStylingPOpen(false);
-      } else if (
-        isFormattingTextOpen &&
-        formatRef.current &&
-        !formatRef.current.contains(target as HTMLDivElement)
-      ) {
-        setIsFormattingTextOpen(false);
-      } else if (
-        isColoringOpen &&
-        colorRef.current &&
-        !colorRef.current.contains(target as HTMLDivElement)
-      ) {
-        setIsColoringOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [isStylingPOpen, isColoringOpen, isFormattingTextOpen]);
-
-  return (
-    <Toolbar>
-      <NormalPOnToolbar />
-
-      <div ref={styleRef} onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
-        <ToolbarItem>Style P ⬇️</ToolbarItem>
-        <Dropdown isOpen={isStylingPOpen} id={"s"}>
-          <HeadingOnToolbar />
-          <ListingOnToolbar />
-          <BannerOnToolbar />
-          <BlockquoteOnToolbar />
-        </Dropdown>
-      </div>
-
-      <div
-        ref={formatRef}
-        onClick={() => setIsFormattingTextOpen(!isFormattingTextOpen)}
-      >
-        <ToolbarItem>Format text ⬇️</ToolbarItem>
-        <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
-          <FormatThings />
-          <MonocodeOnToolbar />
-        </Dropdown>
-      </div>
-
-      <div ref={colorRef} onClick={() => setIsColoringOpen(!isColoringOpen)}>
-        <ToolbarItem>Coloring ⬇️</ToolbarItem>
-        <Dropdown isOpen={isColoringOpen} id={"c"}>
-          <ColoringOnToolbar />
-        </Dropdown>
-      </div>
-
-      <LinkOnToolbar />
-    </Toolbar>
-  );
-};
-
-const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {
-  const [isInsertingThingsOpen, setIsInsertingThingsOpen] = useState(false);
-  const insertRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (event: MouseEvent) => {
-      const target = event.target;
-      if (
-        isInsertingThingsOpen &&
-        insertRef.current &&
-        !insertRef.current.contains(target as HTMLDivElement)
-      ) {
-        setIsInsertingThingsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [isInsertingThingsOpen]);
-
-  return (
-    <LeftToolbar show={show}>
-      <DoOnToolbar />
-
-      <div
-        ref={insertRef}
-        onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
-      >
-        <ToolbarItem>Insert things ⬇️</ToolbarItem>
-        <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
-          <HROnToolbar />
-        </Dropdown>
-      </div>
-    </LeftToolbar>
-  );
-};
 
 const initialConfig = {
   namespace: "MyEditor",
@@ -201,15 +77,32 @@ const initialConfig = {
     HorizontalRuleNode,
     CodeNode,
     LinkNode,
+    // AutoLinkNode,
     QuoteNode,
     HashtagNode,
     CodeHighlightNode,
     ParagraphNode,
+    LinkPreviewNode,
+    {
+      replace: AutoLinkNode,
+      with: (node: AutoLinkNode) => {
+        return new LinkPreviewNode("");
+      },
+    },
   ],
 };
 
 const Editor = ({}: Props): JSX.Element => {
   const [show, setShow] = useState(false);
+
+  const URL_REGEX =
+    /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
+
+  const MATCHERS = [
+    createLinkMatcherWithRegExp(URL_REGEX, (text) => {
+      return text.startsWith("http") ? text : `https://${text}`;
+    }),
+  ];
 
   return (
     <ArticleWrapper>
@@ -219,13 +112,16 @@ const Editor = ({}: Props): JSX.Element => {
           <AutoFocusPlugin />
           <HashtagPlugin />
           <HistoryPlugin />
+          <AutoLinkPlugin matchers={MATCHERS} />
+          {/*<LinkPreviewPlugin matchers={MATCHERS} onChange={() => {}} />*/}
 
           <ToolbarPlugin />
           <ToolbarPluginOnTheLeft show={show} />
           <MarkdownShortcutPlugin />
           <BannerPlugin />
           <HorizontalRulePlugin />
-          <LinkPlugin />
+          <CheckListPlugin />
+
           <CodeHighlightPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
 
@@ -237,11 +133,6 @@ const Editor = ({}: Props): JSX.Element => {
             ErrorBoundary={LexicalErrorBoundary}
           />
         </div>
-        {/*<MyOnChangePlugin*/}
-        {/*  onChange={(editorState) => {*/}
-        {/*    console.log(editorState);*/}
-        {/*  }}*/}
-        {/*/>*/}
       </LexicalComposer>
     </ArticleWrapper>
   );

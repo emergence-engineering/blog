@@ -51,6 +51,8 @@ export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
         return "270px";
       case "i":
         return "10px";
+      case "fs":
+        return "340px";
       default:
         return 0;
     }

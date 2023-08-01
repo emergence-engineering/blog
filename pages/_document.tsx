@@ -2,9 +2,9 @@ import React from "react";
 import Document, {
   DocumentContext,
   Head,
+  Html,
   Main,
   NextScript,
-  Html,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -46,6 +46,8 @@ export default class MyDocument extends Document<{
       <Html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
         <Head>
           <link rel="stylesheet" type="text/css" href="/global.css" />
+          <link rel="stylesheet" type="text/css" href="/lexical.css" />
+
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             rel="stylesheet"
@@ -61,11 +63,15 @@ export default class MyDocument extends Document<{
           <NextScript />
         </body>
         <script
-            src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-            async
-            defer
+          src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+          async
+          defer
         />
-        <script defer data-domain="emergence-engineering.com" src="https://plausible.io/js/plausible.js"></script>
+        <script
+          defer
+          data-domain="emergence-engineering.com"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
       </Html>
     );
   }

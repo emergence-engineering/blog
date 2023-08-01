@@ -109,3 +109,39 @@
     background-color: rgba(88, 144, 255, 0.15);
     border-bottom: 1px solid rgba(88, 144, 255, 0.3);
 }
+
+.linkPreviewContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+    text-decoration: underline;
+    color: royalblue;
+    width: 200px;
+}
+
+.linkPreviewContainer:hover {
+    opacity: 0.8;
+}
+
+.previewBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 200px;
+    padding: 10px;
+    background-color: white;
+    border: thick solid red;
+    margin-top: 10px;
+}
+
+.previewImage {
+    width: 150px;
+    height: 150px;
+}
+
+.previewDescription {
+    color: black;
+    padding: 10px;
+}

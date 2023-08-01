@@ -16,7 +16,7 @@ import {
   INSERT_UNORDERED_LIST_COMMAND,
 } from "@lexical/list";
 import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontalRuleNode";
-import { INSERT_BANNER_COMMAND } from "./OwnLexicalPlugins";
+import { INSERT_BANNER_COMMAND } from "./Banner";
 import { $createHeadingNode, $createQuoteNode } from "@lexical/rich-text";
 import { $createLinkNode } from "@lexical/link";
 
@@ -146,6 +146,9 @@ export const MonocodeOnToolbar = (): JSX.Element => {
 };
 
 export const LinkOnToolbar = (): JSX.Element => {
+  // TODO: paste Event: regex ? <a> : <span>
+  // <a> + <div img from public>
+
   const [editor] = useLexicalComposerContext();
   const [isLink, setIsLink] = useState(false);
   const [link, setLink] = useState("");
@@ -258,6 +261,36 @@ export const FormatThings = () => {
     </>
   );
 };
+//
+// const FONT_SIZE_OPTIONS: [string, string][] = [
+//   ["10px", "10px"],
+//   ["11px", "11px"],
+//   ["12px", "12px"],
+//   ["13px", "13px"],
+//   ["14px", "14px"],
+//   ["15px", "15px"],
+//   ["16px", "16px"],
+//   ["17px", "17px"],
+//   ["18px", "18px"],
+//   ["19px", "19px"],
+//   ["20px", "20px"],
+// ];
+
+export const FontSizeOnToolbar = (): JSX.Element => {
+  // const [editor] = useLexicalComposerContext();
+
+  const fontSizeOnClick = (): void => {
+    return;
+    // editor.update(() => {
+    //   const selection = $getSelection();
+    //   if ($isRangeSelection(selection)) {
+    //     $setBlocksType(selection, () => {return});
+    //   }
+    // });
+  };
+
+  return <ToolbarItem onClick={fontSizeOnClick}>Font Size</ToolbarItem>;
+};
 
 export const ColoringOnToolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -322,3 +355,12 @@ export const HROnToolbar = () => {
   };
   return <ToolbarItem onClick={hrOnClick}>--- hr ---</ToolbarItem>;
 };
+
+// export const LinkPreviewOnToolbar = (): JSX.Element => {
+//   const [editor] = useLexicalComposerContext();
+//
+//   const linkPrOnClick = (): void => {
+//     editor.dispatchCommand(INSERT_LINK_PREVIEW_COMMAND, undefined);
+//   };
+//   return <ToolbarItem onClick={linkPrOnClick}>Link Pr</ToolbarItem>;
+// };
