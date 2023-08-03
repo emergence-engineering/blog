@@ -77,9 +77,12 @@ export const ToolbarItem = styled.button`
 `;
 
 export const StyledContentEditable = styled(ContentEditable)`
-  height: 800px;
+  height: 400px;
   width: 100%;
   padding: 8px;
+  border-bottom: 5px solid cornflowerblue;
+  border-radius: 10px;
+  margin-bottom: 10px;
 
   :focus {
     outline: none;

@@ -7,16 +7,12 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { AutoLinkNode, LinkNode } from "@lexical/link";
+import { LinkNode, AutoLinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
 import { HashtagNode } from "@lexical/hashtag";
-import {
-  AutoLinkPlugin,
-  createLinkMatcherWithRegExp,
-} from "@lexical/react/LexicalAutoLinkPlugin";
 import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import CodeHighlightPlugin from "../../features/article/components/lexicalComponents/PluginPlayground";
 import {
@@ -31,7 +27,15 @@ import { ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
 import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
-import { LinkPreviewNode } from "../../features/article/components/lexicalComponents/LinkPreview";
+import {
+  LinkPreviewNode,
+  LinkPreviewPlugin,
+} from "../../features/article/components/lexicalComponents/LinkPreview";
+import TreeViewPlugin from "../../features/article/components/lexicalComponents/TreeViewPlugin";
+import {
+  AutoLinkPlugin,
+  createLinkMatcherWithRegExp,
+} from "@lexical/react/LexicalAutoLinkPlugin";
 
 function onError(error: Error): void {
   console.error(error);
@@ -54,7 +58,7 @@ const myTheme = {
     listitemUnchecked: "listItemUnchecked",
   },
   quote: "quote",
-  // link: "linkkkk",
+  link: "mylink",
   hashtag: "hashtag",
   linkPreviewContainer: "linkPreviewContainer",
   previewBox: "previewBox",
@@ -81,12 +85,7 @@ const initialConfig = {
     CodeHighlightNode,
     ParagraphNode,
     LinkPreviewNode,
-    {
-      replace: AutoLinkNode,
-      with: (node: AutoLinkNode) => {
-        return new LinkPreviewNode("");
-      },
-    },
+    AutoLinkNode,
   ],
 };
 
@@ -111,6 +110,7 @@ const Editor = ({}: Props): JSX.Element => {
           <HashtagPlugin />
           <HistoryPlugin />
           <AutoLinkPlugin matchers={MATCHERS} />
+          <LinkPreviewPlugin />
 
           <ToolbarPlugin />
           <ToolbarPluginOnTheLeft show={show} />
@@ -129,6 +129,7 @@ const Editor = ({}: Props): JSX.Element => {
             placeholder={<Placeholder>Let's start with a title...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <TreeViewPlugin />
         </div>
       </LexicalComposer>
     </ArticleWrapper>

@@ -146,9 +146,6 @@ export const MonocodeOnToolbar = (): JSX.Element => {
 };
 
 export const LinkOnToolbar = (): JSX.Element => {
-  // TODO: paste Event: regex ? <a> : <span>
-  // <a> + <div img from public>
-
   const [editor] = useLexicalComposerContext();
   const [isLink, setIsLink] = useState(false);
   const [link, setLink] = useState("");

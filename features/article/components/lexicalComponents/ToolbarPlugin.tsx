@@ -7,7 +7,7 @@ import {
   FontSizeOnToolbar,
   FormatThings,
   HeadingOnToolbar,
-  LinkOnToolbar,
+  // LinkOnToolbar,
   ListingOnToolbar,
   MonocodeOnToolbar,
   NormalPOnToolbar,
@@ -152,7 +152,7 @@ const ToolbarPlugin = (): JSX.Element => {
         </Dropdown>
       </div>
 
-      <LinkOnToolbar />
+      {/*<LinkOnToolbar />*/}
     </Toolbar>
   );
 };

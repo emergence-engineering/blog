@@ -96,11 +96,11 @@
     padding-left: 16px;
 }
 
-.linkkkk > span{
+.mylink{
     color: greenyellow; !important
     text-decoration: underline;
 }
-.linkkkk:hover {
+.mylink:hover {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -112,7 +112,7 @@
 
 .linkPreviewContainer {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     cursor: pointer;
     text-decoration: underline;
     color: royalblue;
@@ -122,6 +122,11 @@
 .linkPreviewContainer:hover {
     opacity: 0.8;
 }
+
+.linkPreviewContainer:focus{
+    outline: 2px solid rgb(60, 132, 244);
+}
+
 
 .previewBox {
     display: flex;

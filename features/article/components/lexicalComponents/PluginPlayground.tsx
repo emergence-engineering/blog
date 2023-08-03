@@ -101,3 +101,8 @@ export default function CodeHighlightPlugin(): JSX.Element | null {
 // export function $createLinkPreviewNode(pastedLink: string): LinkPreviewNode0 {
 //   return new LinkPreviewNode0(pastedLink);
 // }
+
+export const isIt = (url: string) => {
+  // const mine = new URL(url);
+  // console.log(mine);
+};
