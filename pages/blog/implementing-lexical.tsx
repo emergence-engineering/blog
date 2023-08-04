@@ -7,7 +7,7 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { LinkNode, AutoLinkNode } from "@lexical/link";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
@@ -23,7 +23,7 @@ import { Placeholder, StyledContentEditable } from "../../utils/lexical";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
-import { ParagraphNode } from "lexical";
+import { LineBreakNode, ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
 import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
@@ -36,6 +36,10 @@ import {
   AutoLinkPlugin,
   createLinkMatcherWithRegExp,
 } from "@lexical/react/LexicalAutoLinkPlugin";
+// import {
+//   AutoLinkPlugin,
+//   createLinkMatcherWithRegExp,
+// } from "@lexical/react/LexicalAutoLinkPlugin";
 
 function onError(error: Error): void {
   console.error(error);
@@ -76,16 +80,17 @@ const initialConfig = {
     HeadingNode,
     ListNode,
     ListItemNode,
+    LinkNode,
     BannerNode,
     HorizontalRuleNode,
     CodeNode,
-    LinkNode,
     QuoteNode,
     HashtagNode,
     CodeHighlightNode,
     ParagraphNode,
-    LinkPreviewNode,
     AutoLinkNode,
+    LinkPreviewNode,
+    LineBreakNode,
   ],
 };
 
@@ -129,6 +134,7 @@ const Editor = ({}: Props): JSX.Element => {
             placeholder={<Placeholder>Let's start with a title...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
+
           <TreeViewPlugin />
         </div>
       </LexicalComposer>

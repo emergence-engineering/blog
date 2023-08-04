@@ -116,7 +116,7 @@
     cursor: pointer;
     text-decoration: underline;
     color: royalblue;
-    width: 200px;
+    max-width: 200px;
 }
 
 .linkPreviewContainer:hover {

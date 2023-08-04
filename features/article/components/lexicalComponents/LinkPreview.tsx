@@ -1,5 +1,5 @@
 import {
-  $insertNodes,
+  $getRoot,
   COMMAND_PRIORITY_LOW,
   DOMExportOutput,
   EditorConfig,
@@ -12,7 +12,6 @@ import React, { FC, useEffect } from "react";
 import { DecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
 import { BlockWithAlignableContents } from "@lexical/react/LexicalBlockWithAlignableContents";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { $createAutoLinkNode } from "@lexical/link";
 
 type LinkPreviewT = {
   className: Readonly<{
@@ -34,9 +33,8 @@ const LinkPreviewContainer: FC<LinkPreviewT> = ({
   return (
     <BlockWithAlignableContents className={className} nodeKey={nodeKey}>
       <a href={url} target={"_blank"}>
-        {/*<span>{url}</span>*/}
         <div className={"previewBox"}>
-          <img className={"previewImage"} src={"/linkprev.jpg"} />
+          <img className={"previewImage"} src={"/linkprev.jpg"} alt={""} />
           <div className={"previewDescription"}>Lorem ipsum</div>
         </div>
       </a>
@@ -90,41 +88,6 @@ export function $createLinkPreviewNode(url: string): LinkPreviewNode {
 }
 
 ////////////////////////////////////////////////////////////////
-
-// export class WorkingLinkNode extends LinkNode {
-//   __url: string;
-//   static getType() {
-//     return "LinkNode";
-//   }
-//   static clone(node: WorkingLinkNode): WorkingLinkNode {
-//     return new WorkingLinkNode(node.__url);
-//   }
-//
-//   constructor(url: string, attributes?: LinkAttributes, key?: NodeKey) {
-//     super(url, attributes, key);
-//     this.__url = url;
-//     console.log("im in");
-//   }
-//
-//   createDOM(config: EditorConfig): HTMLAnchorElement {
-//     console.log("Creating");
-//     const workingLink = document.createElement("a");
-//     workingLink.href = this.__url;
-//     workingLink.text = this.__url;
-//     workingLink.target = "__blank";
-//     workingLink.className = config.theme.mylink;
-//     return workingLink;
-//   }
-//
-//   updateDOM(prevNode: LinkNode, dom: HTMLAnchorElement): boolean {
-//     return false;
-//   }
-// }
-// export function $createWorkingLinkNode(url: string): WorkingLinkNode {
-//   return new WorkingLinkNode(url);
-// }
-
-////////////////////////////////////////////////////////////////
 export const LinkPreviewPlugin = (): null => {
   const [editor] = useLexicalComposerContext();
   if (!editor.hasNodes([LinkPreviewNode]))
@@ -143,12 +106,11 @@ export const LinkPreviewPlugin = (): null => {
         if (typeof pastedItem === "string") {
           if (urlRegexp.test(pastedItem)) {
             editor.update(() => {
-              $insertNodes([
-                $createAutoLinkNode(pastedItem),
-                $createLinkPreviewNode(pastedItem),
-              ]);
+              const paragraph = $getRoot().getLastChild();
+              paragraph?.append($createLinkPreviewNode(pastedItem));
+              return true;
             });
-            return true;
+            return false;
           }
           return false;
         }

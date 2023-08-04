@@ -361,3 +361,13 @@ export const HROnToolbar = () => {
 //   };
 //   return <ToolbarItem onClick={linkPrOnClick}>Link Pr</ToolbarItem>;
 // };
+
+// export const SaveToJsonOnToolbar = () => {
+//   const editor = useLexicalComposerContext();
+//
+//   const saveOnClick = (): void => {
+//     const editorState = editor.getEditorState();
+//     const json = editorState.toJSON();
+//   };
+//   return <ToolbarItem onClick={saveOnClick}>to JSON</ToolbarItem>;
+// };
