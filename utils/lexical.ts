@@ -22,7 +22,7 @@ export const LeftToolbar = styled(Toolbar)<{ show: boolean }>`
 
   position: fixed;
   top: 180px;
-  left: 80px;
+  left: 20px;
 `;
 
 export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
