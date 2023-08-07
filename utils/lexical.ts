@@ -89,16 +89,16 @@ export const StyledContentEditable = styled(ContentEditable)`
     outline: none;
   }
 
-  ::first-line {
-    font-size: 24px;
-    font-weight: bold;
-  }
+  //::first-line {
+  //  font-size: 24px;
+  //  font-weight: bold;
+  //}
 `;
 
 export const Placeholder = styled.div`
   position: absolute;
-  top: 62px;
-  left: 10px;
+  top: 57px;
+  left: 12px;
   color: #dddddd;
 `;
 

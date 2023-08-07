@@ -14,7 +14,6 @@ import { ListItemNode, ListNode } from "@lexical/list";
 import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
 import { HashtagNode } from "@lexical/hashtag";
 import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
-import CodeHighlightPlugin from "../../features/article/components/lexicalComponents/PluginPlayground";
 import {
   BannerNode,
   BannerPlugin,
@@ -44,6 +43,7 @@ import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import {
   LoadFromJsonOnToolbar,
   SaveToJsonOnToolbar,
+  CodeHighlightPlugin,
 } from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
 
 function onError(error: Error): void {
@@ -97,8 +97,6 @@ const thissInitialConfig = {
     LinkPreviewNode,
     LineBreakNode,
   ],
-  editorState:
-    '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}',
 };
 
 const Editor = ({}: Props): JSX.Element => {

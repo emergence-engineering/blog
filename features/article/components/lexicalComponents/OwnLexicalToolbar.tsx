@@ -1,5 +1,5 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ToolbarItem } from "../../../../utils/lexical";
 import {
   $createParagraphNode,
@@ -19,6 +19,7 @@ import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontal
 import { INSERT_BANNER_COMMAND } from "./Banner";
 import { $createHeadingNode, $createQuoteNode } from "@lexical/rich-text";
 import { $createLinkNode } from "@lexical/link";
+import { registerCodeHighlighting } from "@lexical/code";
 
 export const DoOnToolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -368,3 +369,13 @@ export const LoadFromJsonOnToolbar = ({ data }: { data: string }) => {
   };
   return <ToolbarItem onClick={loadOnClick}>to Editor </ToolbarItem>;
 };
+
+export function CodeHighlightPlugin(): JSX.Element | null {
+  const [editor] = useLexicalComposerContext();
+
+  useEffect(() => {
+    return registerCodeHighlighting(editor);
+  }, [editor]);
+
+  return null;
+}

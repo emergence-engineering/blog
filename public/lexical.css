@@ -112,11 +112,7 @@
 
 .linkPreviewContainer {
     display: flex;
-    flex-direction: column;
     cursor: pointer;
-    text-decoration: underline;
-    color: royalblue;
-    max-width: 200px;
 }
 
 .linkPreviewContainer:hover {
@@ -129,24 +125,30 @@
 
 
 .previewBox {
+    width: 60%;
+    height: 80px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    max-width: 200px;
-    padding: 10px;
+    padding-left: 10px;
     background-color: white;
-    border: thick solid red;
+    border: 2px solid lightgray;
+    border-radius: 10px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .previewImage {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 80px;
+    min-height: 100%;
+    overflow-y: hidden;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid orangered;
 }
 
 .previewDescription {
     color: black;
-    padding: 10px;
 }

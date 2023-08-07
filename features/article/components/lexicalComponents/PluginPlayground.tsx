@@ -1,7 +1,3 @@
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { useEffect } from "react";
-import { registerCodeHighlighting } from "@lexical/code";
-
 // const MyOnChangePlugin = (props: {
 //   onChange: (editorState: EditorState) => void
 // }): null => {
@@ -21,16 +17,6 @@ import { registerCodeHighlighting } from "@lexical/code";
 // TODO: css is not working for:
 // code (or maybe I'm using the wrong one?), underline, strikethrough, link, quote, hashtag
 // but I guess all of the others are broken too.
-
-export default function CodeHighlightPlugin(): JSX.Element | null {
-  const [editor] = useLexicalComposerContext();
-
-  useEffect(() => {
-    return registerCodeHighlighting(editor);
-  }, [editor]);
-
-  return null;
-}
 
 ////////////////////////////////////////////////////////////////
 
