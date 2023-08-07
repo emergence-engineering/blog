@@ -77,9 +77,10 @@ export const ToolbarItem = styled.button`
 `;
 
 export const StyledContentEditable = styled(ContentEditable)`
-  height: 400px;
+  height: max-content;
+  min-height: 300px;
   width: 100%;
-  padding: 8px;
+  padding: 8px 8px 24px 8px;
   border-bottom: 5px solid cornflowerblue;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -99,4 +100,13 @@ export const Placeholder = styled.div`
   top: 62px;
   left: 10px;
   color: #dddddd;
+`;
+
+export const JsonButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  right: 0;
+  position: absolute;
 `;

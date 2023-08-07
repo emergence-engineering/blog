@@ -353,21 +353,18 @@ export const HROnToolbar = () => {
   return <ToolbarItem onClick={hrOnClick}>--- hr ---</ToolbarItem>;
 };
 
-// export const LinkPreviewOnToolbar = (): JSX.Element => {
-//   const [editor] = useLexicalComposerContext();
-//
-//   const linkPrOnClick = (): void => {
-//     editor.dispatchCommand(INSERT_LINK_PREVIEW_COMMAND, undefined);
-//   };
-//   return <ToolbarItem onClick={linkPrOnClick}>Link Pr</ToolbarItem>;
-// };
+// TODO: export DOM button on the tree view??
+export const SaveToJsonOnToolbar = ({ onClick }: { onClick: () => void }) => {
+  return <ToolbarItem onClick={onClick}>to JSON</ToolbarItem>;
+};
 
-// export const SaveToJsonOnToolbar = () => {
-//   const editor = useLexicalComposerContext();
-//
-//   const saveOnClick = (): void => {
-//     const editorState = editor.getEditorState();
-//     const json = editorState.toJSON();
-//   };
-//   return <ToolbarItem onClick={saveOnClick}>to JSON</ToolbarItem>;
-// };
+export const LoadFromJsonOnToolbar = ({ data }: { data: string }) => {
+  const [editor] = useLexicalComposerContext();
+
+  const loadOnClick = () => {
+    const editorState = editor.parseEditorState(data);
+    editor.setEditorState(editorState);
+    return null;
+  };
+  return <ToolbarItem onClick={loadOnClick}>to Editor </ToolbarItem>;
+};

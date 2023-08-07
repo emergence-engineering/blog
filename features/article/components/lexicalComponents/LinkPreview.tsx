@@ -1,12 +1,13 @@
 import {
   $getRoot,
   COMMAND_PRIORITY_LOW,
-  DOMExportOutput,
   EditorConfig,
   ElementFormatType,
   LexicalEditor,
   NodeKey,
   PASTE_COMMAND,
+  SerializedLexicalNode,
+  Spread,
 } from "lexical";
 import React, { FC, useEffect } from "react";
 import { DecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
@@ -43,15 +44,24 @@ const LinkPreviewContainer: FC<LinkPreviewT> = ({
 };
 
 ////////////////////////////////////////////////////////////////
+
+export type SerializedLinkPreviewNode = Spread<
+  {
+    url: string;
+    format: ElementFormatType;
+  },
+  SerializedLexicalNode
+>;
 export class LinkPreviewNode extends DecoratorBlockNode {
   __url: string;
   constructor(url: string, format?: ElementFormatType, key?: NodeKey) {
     super(format, key);
     this.__url = url;
+    if (format) this.__format = format;
   }
 
   static getType() {
-    return "LinkPreviewNode";
+    return "link-preview";
   }
   static clone(node: LinkPreviewNode): LinkPreviewNode {
     return new LinkPreviewNode(node.__url, node.__format, node.__key);
@@ -78,8 +88,31 @@ export class LinkPreviewNode extends DecoratorBlockNode {
     return false;
   }
 
-  exportDOM(editor: LexicalEditor): DOMExportOutput {
-    return super.exportDOM(editor);
+  getURL(): string {
+    return this.getLatest().__url;
+  }
+
+  setFormat(format: ElementFormatType): void {
+    const self = this.getWritable();
+    self.__format = format;
+  }
+
+  exportJSON(): SerializedLinkPreviewNode {
+    return {
+      ...super.exportJSON(),
+      format: this.__format || "",
+      url: this.getURL(),
+      type: "link-preview",
+      version: 1,
+    };
+  }
+
+  static importJSON(
+    serializedNode: SerializedLinkPreviewNode,
+  ): LinkPreviewNode {
+    const node = $createLinkPreviewNode(serializedNode.url);
+    node.setFormat(serializedNode.format);
+    return node;
   }
 }
 

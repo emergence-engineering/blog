@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
@@ -19,11 +19,15 @@ import {
   BannerNode,
   BannerPlugin,
 } from "../../features/article/components/lexicalComponents/Banner";
-import { Placeholder, StyledContentEditable } from "../../utils/lexical";
+import {
+  JsonButtonContainer,
+  Placeholder,
+  StyledContentEditable,
+} from "../../utils/lexical";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
-import { LineBreakNode, ParagraphNode } from "lexical";
+import { EditorState, LineBreakNode, ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
 import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
@@ -36,10 +40,11 @@ import {
   AutoLinkPlugin,
   createLinkMatcherWithRegExp,
 } from "@lexical/react/LexicalAutoLinkPlugin";
-// import {
-//   AutoLinkPlugin,
-//   createLinkMatcherWithRegExp,
-// } from "@lexical/react/LexicalAutoLinkPlugin";
+import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
+import {
+  LoadFromJsonOnToolbar,
+  SaveToJsonOnToolbar,
+} from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
 
 function onError(error: Error): void {
   console.error(error);
@@ -72,7 +77,7 @@ const myTheme = {
 
 interface Props {}
 
-const initialConfig = {
+const thissInitialConfig = {
   namespace: "MyEditor",
   theme: myTheme,
   onError,
@@ -92,10 +97,14 @@ const initialConfig = {
     LinkPreviewNode,
     LineBreakNode,
   ],
+  editorState:
+    '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}',
 };
 
 const Editor = ({}: Props): JSX.Element => {
   const [show, setShow] = useState(false);
+  const stateRef = useRef<EditorState>();
+  const [editorJson, setEditorJson] = useState("");
 
   const URL_REGEX =
     /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
@@ -108,22 +117,21 @@ const Editor = ({}: Props): JSX.Element => {
 
   return (
     <ArticleWrapper>
-      <LexicalComposer initialConfig={initialConfig}>
+      <LexicalComposer initialConfig={thissInitialConfig}>
         <div style={{ position: "relative" }}>
           <TabIndentationPlugin />
           <AutoFocusPlugin />
-          <HashtagPlugin />
           <HistoryPlugin />
+
           <AutoLinkPlugin matchers={MATCHERS} />
           <LinkPreviewPlugin />
-
           <ToolbarPlugin />
           <ToolbarPluginOnTheLeft show={show} />
+          <HashtagPlugin />
           <MarkdownShortcutPlugin />
           <BannerPlugin />
           <HorizontalRulePlugin />
           <CheckListPlugin />
-
           <CodeHighlightPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
 
@@ -134,6 +142,21 @@ const Editor = ({}: Props): JSX.Element => {
             placeholder={<Placeholder>Let's start with a title...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
+
+          <OnChangePlugin
+            onChange={(editorState) => {
+              if (stateRef) stateRef.current = editorState;
+            }}
+          />
+          <JsonButtonContainer>
+            <SaveToJsonOnToolbar
+              onClick={() => {
+                if (stateRef.current)
+                  setEditorJson(JSON.stringify(stateRef.current));
+              }}
+            />
+            <LoadFromJsonOnToolbar data={editorJson} />
+          </JsonButtonContainer>
 
           <TreeViewPlugin />
         </div>
