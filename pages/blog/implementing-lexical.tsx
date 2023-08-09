@@ -100,12 +100,12 @@ const thissInitialConfig = {
 };
 
 const Editor = ({}: Props): JSX.Element => {
-  const [show, setShow] = useState(false);
+  const [showLeftToolbar, setShowLeftToolbar] = useState(false);
   const stateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
 
   const URL_REGEX =
-    /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
+    /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
 
   const MATCHERS = [
     createLinkMatcherWithRegExp(URL_REGEX, (text) => {
@@ -122,9 +122,9 @@ const Editor = ({}: Props): JSX.Element => {
           <HistoryPlugin />
 
           <AutoLinkPlugin matchers={MATCHERS} />
-          <LinkPreviewPlugin />
+          <LinkPreviewPlugin showLink={true} />
           <ToolbarPlugin />
-          <ToolbarPluginOnTheLeft show={show} />
+          <ToolbarPluginOnTheLeft show={showLeftToolbar} />
           <HashtagPlugin />
           <MarkdownShortcutPlugin />
           <BannerPlugin />
@@ -135,7 +135,9 @@ const Editor = ({}: Props): JSX.Element => {
 
           <RichTextPlugin
             contentEditable={
-              <StyledContentEditable onClick={() => setShow(!show)} />
+              <StyledContentEditable
+                onClick={() => setShowLeftToolbar(!showLeftToolbar)}
+              />
             }
             placeholder={<Placeholder>Let's start with a title...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
