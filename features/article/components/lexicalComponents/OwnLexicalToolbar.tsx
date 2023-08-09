@@ -275,19 +275,42 @@ export const FormatThings = () => {
 // ];
 
 export const FontSizeOnToolbar = (): JSX.Element => {
-  // const [editor] = useLexicalComposerContext();
+  const [editor] = useLexicalComposerContext();
+  const fontSizeOptions = [
+    "10px",
+    "12px",
+    "14px",
+    "16px",
+    "18px",
+    "20px",
+    "24px",
+    "28px",
+    "32px",
+  ];
 
-  const fontSizeOnClick = (): void => {
-    return;
-    // editor.update(() => {
-    //   const selection = $getSelection();
-    //   if ($isRangeSelection(selection)) {
-    //     $setBlocksType(selection, () => {return});
-    //   }
-    // });
-  };
+  const fontSizeOnClick = useCallback(
+    (size: string) => {
+      editor.update(() => {
+        const selection = $getSelection();
+        if ($isRangeSelection(selection)) {
+          $patchStyleText(selection, {
+            ["font-size"]: size,
+          });
+        }
+      });
+    },
+    [editor],
+  );
 
-  return <ToolbarItem onClick={fontSizeOnClick}>Font Size</ToolbarItem>;
+  return (
+    <>
+      {fontSizeOptions.map((size, i) => (
+        <ToolbarItem key={i} onClick={() => fontSizeOnClick(size)}>
+          {size}
+        </ToolbarItem>
+      ))}
+    </>
+  );
 };
 
 export const ColoringOnToolbar = () => {
@@ -354,7 +377,6 @@ export const HROnToolbar = () => {
   return <ToolbarItem onClick={hrOnClick}>--- hr ---</ToolbarItem>;
 };
 
-// TODO: export DOM button on the tree view??
 export const SaveToJsonOnToolbar = ({ onClick }: { onClick: () => void }) => {
   return <ToolbarItem onClick={onClick}>to JSON</ToolbarItem>;
 };

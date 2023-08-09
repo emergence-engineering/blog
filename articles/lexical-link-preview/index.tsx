@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
@@ -29,7 +27,6 @@ import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { EditorState, LineBreakNode, ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
-import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
 import {
   LinkPreviewNode,
   LinkPreviewPlugin,
@@ -45,6 +42,7 @@ import {
   SaveToJsonOnToolbar,
   CodeHighlightPlugin,
 } from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
 
 function onError(error: Error): void {
   console.error(error);
@@ -103,6 +101,7 @@ const Editor = ({}: Props): JSX.Element => {
   const [showLeftToolbar, setShowLeftToolbar] = useState(false);
   const stateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
+  // const [showLink, setShowLink] = useState(false);
 
   const URL_REGEX =
     /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
@@ -114,56 +113,51 @@ const Editor = ({}: Props): JSX.Element => {
   ];
 
   return (
-    <ArticleWrapper>
-      <LexicalComposer initialConfig={thissInitialConfig}>
-        <div style={{ position: "relative" }}>
-          <TabIndentationPlugin />
-          <AutoFocusPlugin />
-          <HistoryPlugin />
+    <LexicalComposer initialConfig={thissInitialConfig}>
+      <div style={{ position: "relative" }}>
+        <TabIndentationPlugin />
+        <AutoFocusPlugin />
+        <HistoryPlugin />
 
-          <ToolbarPlugin />
-          <ToolbarPluginOnTheLeft show={showLeftToolbar} />
-          <AutoLinkPlugin matchers={MATCHERS} />
-          <LinkPreviewPlugin showLink={true} />
-          <HashtagPlugin />
-          <MarkdownShortcutPlugin />
-          <BannerPlugin />
-          <HorizontalRulePlugin />
-          <CheckListPlugin />
-          <CodeHighlightPlugin />
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+        <ToolbarPlugin />
+        <AutoLinkPlugin matchers={MATCHERS} />
+        <LinkPreviewPlugin showLink={false} />
+        <HashtagPlugin />
+        <MarkdownShortcutPlugin />
+        <BannerPlugin />
+        <HorizontalRulePlugin />
+        <CheckListPlugin />
+        <CodeHighlightPlugin />
+        <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
 
-          <RichTextPlugin
-            contentEditable={
-              <StyledContentEditable
-                onClick={() => setShowLeftToolbar(!showLeftToolbar)}
-              />
-            }
-            placeholder={
-              <Placeholder>😎 Let's start with a title...</Placeholder>
-            }
-            ErrorBoundary={LexicalErrorBoundary}
-          />
+        <RichTextPlugin
+          contentEditable={
+            <StyledContentEditable
+              onClick={() => setShowLeftToolbar(!showLeftToolbar)}
+            />
+          }
+          placeholder={<Placeholder> 🖇 Paste your link!</Placeholder>}
+          ErrorBoundary={LexicalErrorBoundary}
+        />
 
-          <OnChangePlugin
-            onChange={(editorState) => {
-              if (stateRef) stateRef.current = editorState;
+        <OnChangePlugin
+          onChange={(editorState) => {
+            if (stateRef) stateRef.current = editorState;
+          }}
+        />
+        <JsonButtonContainer>
+          <SaveToJsonOnToolbar
+            onClick={() => {
+              if (stateRef.current)
+                setEditorJson(JSON.stringify(stateRef.current));
             }}
           />
-          <JsonButtonContainer>
-            <SaveToJsonOnToolbar
-              onClick={() => {
-                if (stateRef.current)
-                  setEditorJson(JSON.stringify(stateRef.current));
-              }}
-            />
-            <LoadFromJsonOnToolbar data={editorJson} />
-          </JsonButtonContainer>
+          <LoadFromJsonOnToolbar data={editorJson} />
+        </JsonButtonContainer>
 
-          <TreeViewPlugin />
-        </div>
-      </LexicalComposer>
-    </ArticleWrapper>
+        <TreeViewPlugin />
+      </div>
+    </LexicalComposer>
   );
 };
 

@@ -172,3 +172,11 @@
     text-align: start;
 
 }
+
+.custom-tree-view-output {
+    overflow-x: scroll;
+    object-fit: contain;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+}

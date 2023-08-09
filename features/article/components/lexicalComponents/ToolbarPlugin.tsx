@@ -53,7 +53,7 @@ const ToolbarPlugin = (): JSX.Element => {
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  }, [isStylingPOpen, isColoringOpen, isFormattingTextOpen]);
+  }, [isStylingPOpen, isColoringOpen, isFormattingTextOpen, isFontSizeOpen]);
 
   // TODO: its not working
 
@@ -117,7 +117,7 @@ const ToolbarPlugin = (): JSX.Element => {
       <NormalPOnToolbar />
 
       <div ref={styleRef} onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
-        <ToolbarItem>Style P ⬇️</ToolbarItem>
+        <ToolbarItem>Style P ⭣</ToolbarItem>
         <Dropdown isOpen={isStylingPOpen} id={"s"}>
           <HeadingOnToolbar />
           <ListingOnToolbar />
@@ -130,7 +130,7 @@ const ToolbarPlugin = (): JSX.Element => {
         ref={formatRef}
         onClick={() => setIsFormattingTextOpen(!isFormattingTextOpen)}
       >
-        <ToolbarItem>Format text ⬇️</ToolbarItem>
+        <ToolbarItem>Format text ⭣</ToolbarItem>
         <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
           <FormatThings />
           <MonocodeOnToolbar />
@@ -138,14 +138,14 @@ const ToolbarPlugin = (): JSX.Element => {
       </div>
 
       <div ref={colorRef} onClick={() => setIsColoringOpen(!isColoringOpen)}>
-        <ToolbarItem>Coloring ⬇️</ToolbarItem>
+        <ToolbarItem>Coloring ⭣</ToolbarItem>
         <Dropdown isOpen={isColoringOpen} id={"c"}>
           <ColoringOnToolbar />
         </Dropdown>
       </div>
 
       <div ref={fontSizeRef} onClick={() => setIsFontSizeOpen(!isFontSizeOpen)}>
-        <ToolbarItem>Font Size ⬇️</ToolbarItem>
+        <ToolbarItem>Font Size ⭣</ToolbarItem>
         <Dropdown isOpen={isFontSizeOpen} id={"fs"}>
           <FontSizeOnToolbar />
         </Dropdown>
