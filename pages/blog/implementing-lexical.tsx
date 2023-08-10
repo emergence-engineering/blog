@@ -73,6 +73,7 @@ const myTheme = {
   previewBox: "previewBox",
   previewImage: "previewImage",
   previewDescription: "previewDescription",
+  code: "codeBlock",
 };
 
 interface Props {}
@@ -139,9 +140,7 @@ const Editor = ({}: Props): JSX.Element => {
                 onClick={() => setShowLeftToolbar(!showLeftToolbar)}
               />
             }
-            placeholder={
-              <Placeholder>😎 Let's start with a title...</Placeholder>
-            }
+            placeholder={<Placeholder>🫣 Let's see if it works...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
 

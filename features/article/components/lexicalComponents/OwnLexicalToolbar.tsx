@@ -19,7 +19,7 @@ import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontal
 import { INSERT_BANNER_COMMAND } from "./Banner";
 import { $createHeadingNode, $createQuoteNode } from "@lexical/rich-text";
 import { $createLinkNode } from "@lexical/link";
-import { registerCodeHighlighting } from "@lexical/code";
+import { registerCodeHighlighting, $createCodeNode } from "@lexical/code";
 
 export const DoOnToolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -401,3 +401,30 @@ export function CodeHighlightPlugin(): JSX.Element | null {
 
   return null;
 }
+
+export const CodeBlockOnToolbar = () => {
+  // const codeLanguages = ["JavaScript", "HTML", "CSS", "Python", "TypeScript"];
+
+  const [editor] = useLexicalComposerContext();
+
+  const codeBlockOnClick = () => {
+    editor.update(() => {
+      let selection = $getSelection();
+
+      if ($isRangeSelection(selection)) {
+        if (selection.isCollapsed()) {
+          $setBlocksType(selection, () => $createCodeNode());
+        } else {
+          const textContent = selection.getTextContent();
+          const codeNode = $createCodeNode();
+          selection.insertNodes([codeNode]);
+          selection = $getSelection();
+          if ($isRangeSelection(selection))
+            selection.insertRawText(textContent);
+        }
+      }
+    });
+  };
+
+  return <ToolbarItem onClick={codeBlockOnClick}>CodeBlock</ToolbarItem>;
+};

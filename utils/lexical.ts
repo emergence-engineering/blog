@@ -44,7 +44,8 @@ export const Toolbar = styled.div`
 
 export const LeftToolbar = styled(Toolbar)<{ show: boolean }>`
   flex-direction: column;
-  border: 2px dashed magenta;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px 0 0 10px;
   padding: 8px;
   display: ${({ show }) => (show ? "flex" : "none")};
 
@@ -83,6 +84,8 @@ export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
         return "10px";
       case "fs":
         return "360px";
+      case "cb":
+        return "455px";
       default:
         return 0;
     }

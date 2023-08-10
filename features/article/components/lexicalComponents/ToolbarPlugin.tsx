@@ -3,6 +3,7 @@ import { Dropdown, Toolbar, ToolbarItem } from "../../../../utils/lexical";
 import {
   BannerOnToolbar,
   BlockquoteOnToolbar,
+  CodeBlockOnToolbar,
   ColoringOnToolbar,
   FontSizeOnToolbar,
   FormatThings,
@@ -123,6 +124,7 @@ const ToolbarPlugin = (): JSX.Element => {
           <ListingOnToolbar />
           <BannerOnToolbar />
           <BlockquoteOnToolbar />
+          <CodeBlockOnToolbar />
         </Dropdown>
       </div>
 
