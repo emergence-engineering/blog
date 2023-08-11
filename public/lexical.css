@@ -1173,11 +1173,11 @@ button.action-button:disabled {
     border: 0;
     padding: 0;
     font-size: 12px;
-    top: 10px;
-    right: 15px;
+    top: 2px;
+    right: 250px;
     position: absolute;
     background: none;
-    color: #fff;
+    color: #000000;
 }
 
 .debug-timetravel-button:hover {
@@ -1185,6 +1185,7 @@ button.action-button:disabled {
 }
 
 .debug-treetype-button {
+    border: 0;
     padding: 0;
     font-size: 12px;
     top: 2px;
@@ -1192,8 +1193,6 @@ button.action-button:disabled {
     position: absolute;
     background: none;
     color: #000000;
-    margin-bottom: 10px;
-    border: 0;
 }
 
 .debug-treetype-button:hover {
