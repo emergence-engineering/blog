@@ -152,7 +152,7 @@ export const LinkOnToolbar = (): JSX.Element => {
   const [link, setLink] = useState("");
   const [isSeen, setIsSeen] = useState(false);
   const linkRegex =
-    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+    /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
 
   const linkOnClick = useCallback(() => {
     setIsLink(!isLink);
@@ -259,20 +259,6 @@ export const FormatThings = () => {
     </>
   );
 };
-//
-// const FONT_SIZE_OPTIONS: [string, string][] = [
-//   ["10px", "10px"],
-//   ["11px", "11px"],
-//   ["12px", "12px"],
-//   ["13px", "13px"],
-//   ["14px", "14px"],
-//   ["15px", "15px"],
-//   ["16px", "16px"],
-//   ["17px", "17px"],
-//   ["18px", "18px"],
-//   ["19px", "19px"],
-//   ["20px", "20px"],
-// ];
 
 export const FontSizeOnToolbar = (): JSX.Element => {
   const [editor] = useLexicalComposerContext();
