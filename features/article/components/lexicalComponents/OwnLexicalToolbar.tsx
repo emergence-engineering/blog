@@ -378,7 +378,11 @@ export const HROnToolbar = () => {
 };
 
 export const SaveToJsonOnToolbar = ({ onClick }: { onClick: () => void }) => {
-  return <ToolbarItem onClick={onClick}>to JSON</ToolbarItem>;
+  return (
+    <ToolbarItem style={{ fontSize: "12px" }} onClick={onClick}>
+      to JSON
+    </ToolbarItem>
+  );
 };
 
 export const LoadFromJsonOnToolbar = ({ data }: { data: string }) => {
@@ -389,7 +393,11 @@ export const LoadFromJsonOnToolbar = ({ data }: { data: string }) => {
     editor.setEditorState(editorState);
     return null;
   };
-  return <ToolbarItem onClick={loadOnClick}>to Editor </ToolbarItem>;
+  return (
+    <ToolbarItem style={{ fontSize: "12px" }} onClick={loadOnClick}>
+      to Editor{" "}
+    </ToolbarItem>
+  );
 };
 
 export function CodeHighlightPlugin(): JSX.Element | null {

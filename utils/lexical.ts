@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import { TreeView } from "@lexical/react/LexicalTreeView";
 
 export const StyledContentEditable = styled(ContentEditable)`
   height: max-content;
@@ -8,19 +7,14 @@ export const StyledContentEditable = styled(ContentEditable)`
   width: 100%;
   padding: 8px 8px 24px 24px;
   border: 1px solid #c7c7c7;
-  //border: 1px solid cornflowerblue;
-  //border-bottom: 5px solid cornflowerblue;
+
   border-radius: 0 0 10px 10px;
   margin-bottom: 10px;
+  position: relative;
 
   :focus {
     outline: none;
   }
-
-  //::first-line {
-  //  font-size: 24px;
-  //  font-weight: bold;
-  //}
 `;
 
 export const Placeholder = styled.div`
@@ -36,8 +30,7 @@ export const Toolbar = styled.div`
   align-items: center;
   padding: 3px 6px;
   border: 1px solid #c7c7c7;
-  //border: 1px solid cornflowerblue;
-  //border-bottom: 5px solid cornflowerblue;
+
   border-radius: 10px 10px 0 0;
   margin-bottom: 10px;
 `;
@@ -88,8 +81,7 @@ export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
   border-radius: 10px;
   border: 2px solid #c7c7c7;
   background-color: #f8f8f8;
-  //border: 2px dashed lightcoral;
-  //background-color: lightcyan;
+
   z-index: 10;
   width: 100px;
   justify-content: center;
@@ -124,9 +116,5 @@ export const JsonButtonContainer = styled.div`
   gap: 5px;
   right: 5px;
   position: absolute;
-`;
-
-export const StyledTreeView = styled(TreeView)`
-  border: thin solid red;
-  width: 10px;
+  z-index: 1000;
 `;

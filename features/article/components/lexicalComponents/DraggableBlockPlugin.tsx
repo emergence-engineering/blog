@@ -189,9 +189,7 @@ function setMenuPosition(
   if (!targetElem) {
     floatingElem.style.opacity = "0";
     floatingElem.style.transform = "translate(-100000000px, 10000000px)";
-    // floatingElem.style.opacity = "1";
-    // floatingElem.style.transform = "translate(4px, 34px)";
-    // floatingElem.style.border = "thin solid red";
+
     return;
   }
 
@@ -204,34 +202,11 @@ function setMenuPosition(
 
   const top =
     targetRect.top +
-    (parseInt(targetStyle.lineHeight, 10) - floatingElemRect.height) / 2 -
+    (parseInt(targetStyle.height, 10) - floatingElemRect.height) / 2 -
     anchorElementRect.top;
-  // const top =
-  //   targetRect.top +
-  //   (113 - floatingElemRect.height) / 2 -
-  //   anchorElementRect.top;
-
-  console.log("-----------------------------");
-  console.log(targetElem);
-  console.log("targetRect top: " + targetRect.top);
-  console.log("targetStyle lineHeight: " + targetStyle.lineHeight);
-  console.log("floatingElemRect height: " + floatingElemRect.height);
-  console.log("anchorElemRect top: " + anchorElementRect.top);
-  console.log(
-    "tehat " +
-      targetRect.top +
-      " + (" +
-      targetStyle.lineHeight +
-      " - " +
-      floatingElemRect.height +
-      ") /2 - " +
-      anchorElementRect.top,
-  );
 
   floatingElem.style.opacity = "1";
   floatingElem.style.transform = `translate(${left}px, ${top}px)`;
-
-  floatingElem.style.border = "thin solid blue";
 }
 
 function setDragImage(

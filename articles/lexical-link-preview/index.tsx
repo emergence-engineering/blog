@@ -160,10 +160,12 @@ const Editor = ({}: Props): JSX.Element => {
 
         <RichTextPlugin
           contentEditable={
-            <div ref={onRef}>
-              <StyledContentEditable
-                onClick={() => setShowLeftToolbar(!showLeftToolbar)}
-              />
+            <div className="editor-scroller">
+              <div ref={onRef} className={"editor"}>
+                <StyledContentEditable
+                  onClick={() => setShowLeftToolbar(!showLeftToolbar)}
+                />
+              </div>
             </div>
           }
           placeholder={<Placeholder> 🖇 Paste your link!</Placeholder>}
