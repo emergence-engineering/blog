@@ -29,7 +29,7 @@ import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { EditorState, LineBreakNode, ParagraphNode } from "lexical";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
-import ToolbarPluginOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
+import OpenToolbarOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
 import {
   LinkPreviewNode,
   LinkPreviewPlugin,
@@ -101,7 +101,7 @@ const thissInitialConfig = {
 };
 
 const Editor = ({}: Props): JSX.Element => {
-  const [showLeftToolbar, setShowLeftToolbar] = useState(false);
+  const [showBtnForLeftMenu, setShowBtnForLeftMenu] = useState(false);
   const stateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
 
@@ -123,7 +123,8 @@ const Editor = ({}: Props): JSX.Element => {
           <HistoryPlugin />
 
           <ToolbarPlugin />
-          <ToolbarPluginOnTheLeft show={showLeftToolbar} />
+          <OpenToolbarOnTheLeft showLeftMenu={showBtnForLeftMenu} />
+
           <AutoLinkPlugin matchers={MATCHERS} />
           <LinkPreviewPlugin showLink={true} />
           <HashtagPlugin />
@@ -137,7 +138,7 @@ const Editor = ({}: Props): JSX.Element => {
           <RichTextPlugin
             contentEditable={
               <StyledContentEditable
-                onClick={() => setShowLeftToolbar(!showLeftToolbar)}
+                onClick={() => setShowBtnForLeftMenu(!showBtnForLeftMenu)}
               />
             }
             placeholder={<Placeholder>🫣 Let's see if it works...</Placeholder>}

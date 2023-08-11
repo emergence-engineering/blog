@@ -10,6 +10,7 @@ h5,
 h6 {
   font-family: "Oswald", sans-serif;
   font-weight: bold;
+  line-height: 1.2;
 }
 .articleWrapper h1 {
   font-size: 2em;

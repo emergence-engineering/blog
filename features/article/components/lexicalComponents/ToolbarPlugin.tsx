@@ -118,7 +118,7 @@ const ToolbarPlugin = (): JSX.Element => {
       <NormalPOnToolbar />
 
       <div ref={styleRef} onClick={() => setIsStylingPOpen(!isStylingPOpen)}>
-        <ToolbarItem>Style P ⭣</ToolbarItem>
+        <ToolbarItem title={"Change the paragraphs"}>Style P ⭣</ToolbarItem>
         <Dropdown isOpen={isStylingPOpen} id={"s"}>
           <HeadingOnToolbar />
           <ListingOnToolbar />
@@ -132,7 +132,7 @@ const ToolbarPlugin = (): JSX.Element => {
         ref={formatRef}
         onClick={() => setIsFormattingTextOpen(!isFormattingTextOpen)}
       >
-        <ToolbarItem>Format text ⭣</ToolbarItem>
+        <ToolbarItem title={"Change the format"}>Format text ⭣</ToolbarItem>
         <Dropdown isOpen={isFormattingTextOpen} id={"f"}>
           <FormatThings />
           <MonocodeOnToolbar />
@@ -140,14 +140,16 @@ const ToolbarPlugin = (): JSX.Element => {
       </div>
 
       <div ref={colorRef} onClick={() => setIsColoringOpen(!isColoringOpen)}>
-        <ToolbarItem>Coloring ⭣</ToolbarItem>
+        <ToolbarItem title={"Change text or background color"}>
+          Coloring ⭣
+        </ToolbarItem>
         <Dropdown isOpen={isColoringOpen} id={"c"}>
           <ColoringOnToolbar />
         </Dropdown>
       </div>
 
       <div ref={fontSizeRef} onClick={() => setIsFontSizeOpen(!isFontSizeOpen)}>
-        <ToolbarItem>Font Size ⭣</ToolbarItem>
+        <ToolbarItem title={"Change font size"}>Font Size ⭣</ToolbarItem>
         <Dropdown isOpen={isFontSizeOpen} id={"fs"}>
           <FontSizeOnToolbar />
         </Dropdown>

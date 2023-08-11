@@ -6,7 +6,7 @@ export const StyledContentEditable = styled(ContentEditable)`
   height: max-content;
   min-height: 300px;
   width: 100%;
-  padding: 8px 8px 24px 8px;
+  padding: 8px 8px 24px 24px;
   border: 1px solid #c7c7c7;
   //border: 1px solid cornflowerblue;
   //border-bottom: 5px solid cornflowerblue;
@@ -25,8 +25,8 @@ export const StyledContentEditable = styled(ContentEditable)`
 
 export const Placeholder = styled.div`
   position: absolute;
-  top: 57px;
-  left: 12px;
+  top: 58px;
+  left: 28px;
   color: #bbbbbb;
 `;
 
@@ -40,6 +40,31 @@ export const Toolbar = styled.div`
   //border-bottom: 5px solid cornflowerblue;
   border-radius: 10px 10px 0 0;
   margin-bottom: 10px;
+`;
+
+export const ToolbarItem = styled.button`
+  padding: 3px 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+  //color: dimgray;
+  align-items: baseline;
+
+  min-width: 50px;
+  font-size: 14px;
+
+  :hover {
+    background: #d1e3ff;
+    border-radius: 5px;
+  }
+`;
+
+export const BtnForLeftToolbar = styled(ToolbarItem)<{ showLeftMenu: boolean }>`
+  display: ${({ showLeftMenu }) => (showLeftMenu ? "flex" : "none")};
+  position: absolute;
+  top: 55px;
+  left: -110px;
 `;
 
 export const LeftToolbar = styled(Toolbar)<{ show: boolean }>`
@@ -90,24 +115,6 @@ export const Dropdown = styled.div<{ isOpen: boolean; id: string }>`
         return 0;
     }
   }};
-`;
-
-export const ToolbarItem = styled.button`
-  padding: 3px 6px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: black;
-  //color: dimgray;
-  align-items: baseline;
-
-  min-width: 50px;
-  font-size: 14px;
-
-  :hover {
-    background: #d1e3ff;
-    border-radius: 5px;
-  }
 `;
 
 export const JsonButtonContainer = styled.div`

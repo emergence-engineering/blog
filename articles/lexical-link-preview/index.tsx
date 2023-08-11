@@ -30,6 +30,7 @@ import ToolbarPlugin from "../../features/article/components/lexicalComponents/T
 import {
   LinkPreviewNode,
   LinkPreviewPlugin,
+  ResOfWebsite,
 } from "../../features/article/components/lexicalComponents/LinkPreview";
 import TreeViewPlugin from "../../features/article/components/lexicalComponents/TreeViewPlugin";
 import {
@@ -43,6 +44,7 @@ import {
   CodeHighlightPlugin,
 } from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import DraggableBlockPlugin from "../../features/article/components/lexicalComponents/DraggableBlockPlugin";
 
 function onError(error: Error): void {
   console.error(error);
@@ -97,11 +99,31 @@ const thissInitialConfig = {
   ],
 };
 
+async function thisFetchingFunction(link: string): Promise<ResOfWebsite> {
+  const data = await fetch("/api/link-preview", {
+    method: "POST",
+    body: JSON.stringify({
+      link,
+    }),
+  });
+  const {
+    data: { url, title, description, images },
+  } = await data.json();
+  return { url, title, description, images };
+}
+
 const Editor = ({}: Props): JSX.Element => {
   const [showLeftToolbar, setShowLeftToolbar] = useState(false);
   const stateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
-  // const [showLink, setShowLink] = useState(false);
+  const [floatingAnchorElem, setFloatingAnchorElem] =
+    useState<HTMLDivElement | null>(null);
+
+  const onRef = (_floatingAnchorElem: HTMLDivElement) => {
+    if (_floatingAnchorElem !== null) {
+      setFloatingAnchorElem(_floatingAnchorElem);
+    }
+  };
 
   const URL_REGEX =
     /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
@@ -111,7 +133,6 @@ const Editor = ({}: Props): JSX.Element => {
       return text.startsWith("http") ? text : `https://${text}`;
     }),
   ];
-
   return (
     <LexicalComposer initialConfig={thissInitialConfig}>
       <div style={{ position: "relative" }}>
@@ -119,9 +140,16 @@ const Editor = ({}: Props): JSX.Element => {
         <AutoFocusPlugin />
         <HistoryPlugin />
 
+        {floatingAnchorElem && (
+          <DraggableBlockPlugin anchorElem={floatingAnchorElem} />
+        )}
+
         <ToolbarPlugin />
         <AutoLinkPlugin matchers={MATCHERS} />
-        <LinkPreviewPlugin showLink={false} />
+        <LinkPreviewPlugin
+          showLink={false}
+          fetchingFunction={thisFetchingFunction}
+        />
         <HashtagPlugin />
         <MarkdownShortcutPlugin />
         <BannerPlugin />
@@ -132,9 +160,11 @@ const Editor = ({}: Props): JSX.Element => {
 
         <RichTextPlugin
           contentEditable={
-            <StyledContentEditable
-              onClick={() => setShowLeftToolbar(!showLeftToolbar)}
-            />
+            <div ref={onRef}>
+              <StyledContentEditable
+                onClick={() => setShowLeftToolbar(!showLeftToolbar)}
+              />
+            </div>
           }
           placeholder={<Placeholder> 🖇 Paste your link!</Placeholder>}
           ErrorBoundary={LexicalErrorBoundary}

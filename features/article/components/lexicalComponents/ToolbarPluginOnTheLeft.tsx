@@ -1,10 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Dropdown, LeftToolbar, ToolbarItem } from "../../../../utils/lexical";
+import {
+  BtnForLeftToolbar,
+  Dropdown,
+  LeftToolbar,
+  ToolbarItem,
+} from "../../../../utils/lexical";
 import { DoOnToolbar, HROnToolbar } from "./OwnLexicalToolbar";
 
-const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {
+const OpenToolbarOnTheLeft = ({
+  showLeftMenu,
+}: {
+  showLeftMenu: boolean;
+}): JSX.Element => {
   const [isInsertingThingsOpen, setIsInsertingThingsOpen] = useState(false);
   const insertRef = useRef<HTMLDivElement>(null);
+  const [leftMenuOpen, setLeftMenuOpen] = useState(false);
+  const leftMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (event: MouseEvent) => {
@@ -15,6 +26,12 @@ const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {
         !insertRef.current.contains(target as HTMLDivElement)
       ) {
         setIsInsertingThingsOpen(false);
+      } else if (
+        leftMenuOpen &&
+        leftMenuRef.current &&
+        !leftMenuRef.current.contains(target as HTMLDivElement)
+      ) {
+        setLeftMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -24,20 +41,34 @@ const ToolbarPluginOnTheLeft = ({ show }: { show: boolean }): JSX.Element => {
   }, [isInsertingThingsOpen]);
 
   return (
-    <LeftToolbar show={show}>
-      <DoOnToolbar />
+    <>
+      {!leftMenuOpen && (
+        <BtnForLeftToolbar
+          showLeftMenu={showLeftMenu}
+          onClick={() => {
+            setLeftMenuOpen(!leftMenuOpen);
+          }}
+        >
+          {"< "}Open menu
+        </BtnForLeftToolbar>
+      )}
+      {leftMenuOpen && (
+        <LeftToolbar show={leftMenuOpen} ref={leftMenuRef}>
+          <DoOnToolbar />
 
-      <div
-        ref={insertRef}
-        onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
-      >
-        <ToolbarItem>Insert things ⬇️</ToolbarItem>
-        <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
-          <HROnToolbar />
-        </Dropdown>
-      </div>
-    </LeftToolbar>
+          <div
+            ref={insertRef}
+            onClick={() => setIsInsertingThingsOpen(!isInsertingThingsOpen)}
+          >
+            <ToolbarItem>Insert things ⬇️</ToolbarItem>
+            <Dropdown isOpen={isInsertingThingsOpen} id={"i"}>
+              <HROnToolbar />
+            </Dropdown>
+          </div>
+        </LeftToolbar>
+      )}
+    </>
   );
 };
 
-export default ToolbarPluginOnTheLeft;
+export default OpenToolbarOnTheLeft;

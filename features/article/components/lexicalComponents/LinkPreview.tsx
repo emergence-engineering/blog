@@ -37,7 +37,7 @@ export type SerializedLinkPreviewNode = Spread<
   SerializedLexicalNode
 >;
 
-type ResOfWebsite = {
+export type ResOfWebsite = {
   url: string;
   title: string;
   description: string;
@@ -154,24 +154,13 @@ export function $createLinkPreviewNode(
   return new LinkPreviewNode(url, res);
 }
 
-const fetchOgTags = async (link: string): Promise<ResOfWebsite> => {
-  const data = await fetch("/api/link-preview", {
-    method: "POST",
-    body: JSON.stringify({
-      link,
-    }),
-  });
-  const {
-    data: { url, title, description, images },
-  } = await data.json();
-  return { url, title, description, images };
-};
-
 ////////////////////////////////////////////////////////////////
 export const LinkPreviewPlugin = ({
   showLink,
+  fetchingFunction,
 }: {
   showLink: boolean;
+  fetchingFunction: (link: string) => Promise<ResOfWebsite>;
 }): null => {
   const [editor] = useLexicalComposerContext();
   const result = [
@@ -191,11 +180,12 @@ export const LinkPreviewPlugin = ({
       (event: ClipboardEvent) => {
         const clipboardData = event.clipboardData;
         const pastedItem = clipboardData?.getData("text");
+        console.log(fetchingFunction);
 
         if (typeof pastedItem === "string") {
           if (urlRegexp.test(pastedItem)) {
             const createPreview = async () => {
-              await fetchOgTags(pastedItem).then((res) => {
+              await fetchingFunction(pastedItem).then((res) => {
                 alreadyHaveIt = result.find(
                   (website) => res.url === website.url,
                 );
@@ -231,6 +221,6 @@ export const LinkPreviewPlugin = ({
     return () => {
       removeListener();
     };
-  }, [editor]);
+  }, [editor, fetchingFunction]);
   return null;
 };
