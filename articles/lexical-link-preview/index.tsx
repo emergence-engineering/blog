@@ -16,11 +16,7 @@ import {
   BannerNode,
   BannerPlugin,
 } from "../../features/article/components/lexicalComponents/Banner";
-import {
-  JsonButtonContainer,
-  Placeholder,
-  StyledContentEditable,
-} from "../../utils/lexical";
+import { JsonButtonContainer } from "../../utils/lexical";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
@@ -29,9 +25,9 @@ import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import ToolbarPlugin from "../../features/article/components/lexicalComponents/ToolbarPlugin";
 import {
   LinkPreviewNode,
-  LinkPreviewPlugin,
   ResOfWebsite,
-} from "../../features/article/components/lexicalComponents/LinkPreview";
+} from "../../features/article/components/lexicalComponents/LinkPreviewNode";
+import { LinkPreviewPlugin } from "../../features/article/components/lexicalComponents/LinkPreviewPlugin";
 import TreeViewPlugin from "../../features/article/components/lexicalComponents/TreeViewPlugin";
 import {
   AutoLinkPlugin,
@@ -45,6 +41,7 @@ import {
 } from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import DraggableBlockPlugin from "../../features/article/components/lexicalComponents/DraggableBlockPlugin";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 
 function onError(error: Error): void {
   console.error(error);
@@ -70,14 +67,9 @@ const myTheme = {
   link: "mylink",
   hashtag: "hashtag",
   linkPreviewContainer: "linkPreviewContainer",
-  // previewBox: "previewBox",
-  // previewImage: "previewImage",
-  // previewDescription: "previewDescription",
 };
 
-interface Props {}
-
-const thissInitialConfig = {
+const initialConfig = {
   namespace: "MyEditor",
   theme: myTheme,
   onError,
@@ -112,7 +104,7 @@ async function thisFetchingFunction(link: string): Promise<ResOfWebsite> {
   return { url, title, description, images };
 }
 
-const Editor = ({}: Props): JSX.Element => {
+const Editor = (): JSX.Element => {
   const editorStateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
   const [floatingAnchorElem, setFloatingAnchorElem] =
@@ -133,7 +125,7 @@ const Editor = ({}: Props): JSX.Element => {
     }),
   ];
   return (
-    <LexicalComposer initialConfig={thissInitialConfig}>
+    <LexicalComposer initialConfig={initialConfig}>
       <div style={{ position: "relative" }}>
         <TabIndentationPlugin />
         <AutoFocusPlugin />
@@ -161,11 +153,11 @@ const Editor = ({}: Props): JSX.Element => {
           contentEditable={
             <div className="editor-scroller">
               <div ref={onRef} className={"editor"}>
-                <StyledContentEditable />
+                <ContentEditable className={"ContentEditable__root"} />
               </div>
             </div>
           }
-          placeholder={<Placeholder> 🖇 Paste your link!</Placeholder>}
+          placeholder={<div className={"placeholder"}> 🖇 Paste your link!</div>}
           ErrorBoundary={LexicalErrorBoundary}
         />
 

@@ -29,10 +29,10 @@ export const DoOnToolbar = () => {
     const id = target.id;
 
     if (id === "undo") {
-      console.log("ajdi");
       editor.dispatchCommand(UNDO_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REDO_COMMAND, undefined);
     }
-    editor.dispatchCommand(REDO_COMMAND, undefined);
   };
 
   return (

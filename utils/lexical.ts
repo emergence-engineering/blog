@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { TreeView } from "@lexical/react/LexicalTreeView";
 
 export const StyledContentEditable = styled(ContentEditable)`
   height: max-content;
@@ -19,9 +20,21 @@ export const StyledContentEditable = styled(ContentEditable)`
 
 export const Placeholder = styled.div`
   position: absolute;
-  top: 58px;
+  top: 56px;
   left: 28px;
   color: #bbbbbb;
+`;
+
+export const StyledTreeView = styled(TreeView)`
+  line-height: 1.1;
+  background: #f1f1f1;
+  color: #000000;
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  overflow: auto;
+  max-height: 400px;
+  border-radius: 10px;
 `;
 
 export const Toolbar = styled.div`
@@ -41,7 +54,6 @@ export const ToolbarItem = styled.button`
   background: none;
   cursor: pointer;
   color: black;
-  //color: dimgray;
   align-items: baseline;
 
   min-width: 50px;

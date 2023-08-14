@@ -19,6 +19,7 @@ The plugin takes two properties that allow you to:
 The plugin applies the data to the preview box and shows you the name, the description and, if available, the image of the website.
 You can easily customize the preview - use the popular 'card' design, stick to the 'bookmark' style, or create your own - whichever fits better to your UI.
 
+Try it out at http://emergence-engineering.com/blog/lexical-link-preview
 
 ## How to use?
 

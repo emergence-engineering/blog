@@ -19,7 +19,7 @@ const EditorStyling = styled.div`
 `;
 
 export const article17Metadata: ArticleIntro = {
-  title: "lexical-link-preview: Link preview for Lexical",
+  title: "lexical-link-preview-react: Link preview for Lexical",
   author: "Kata",
   authorLink: null,
   introText: /* language=md */ `An open source link preview plugin for lexical made by Emergence-Engineering.`,
@@ -31,27 +31,73 @@ export const article17Metadata: ArticleIntro = {
 
 const MD0 = /* language=md */ `
 
-## Introduction
-The **prosemirror-link-preview** plugin adds Discord and Slack like link previews to your Prosemirror editor. The plugin catches pasted links and renders a preview automatically. Follow along to learn more about the plugin and how to use it in your project.
+# Introduction
+This easy-to-use plugin for lexical editors enhances the user experience by allowing them to see the page behind the link. It applies the fetched metadata from the website to the preview box and shows you the name, the description and, if available, the image of the page.
 
-## Features
 
-1. **Dynamic Link Previews**: Whenever a valid URL is pasted into a ProseMirror document, the plugin automatically calls **your callback** function that fetches the necessary metadata, and the plugin renders a preview, providing a quick glimpse into the content behind the link.
+# Features
+- Listens to paste-event, therefore it automatically fetches the metadata from the page
+- Uses your callback function to fetch
+- Pastes inline URL and inline-block preview
+- Can handle displaying both the link and preview, or just the preview 
+- Uses modern 'bookmark' design
+- Accepts custom styling with CSS classnames
 
-2. **Rich Preview Styles**: By default the plugin creates a preview that resembles the style of most social media platforms link sharing cards. It makes it easier to differentiate between regular text and linked content. The preview includes information such as the title, description, and an image associated with the link, where available based on Open Graph metadata.
-
-3. **Configurable Behavior**: The plugin provides configuration options, allowing users to customize the behavior and appearance of link previews according to their specific needs. From adjusting the preview size to defining custom CSS styles, the plugin offers flexibility to match the desired editing environment.
+## Go on and try it here:
 
 `;
 
 const MD1 = /* language=md */ `
 
 # Caveat
-Because of CORS you can't fetch the link preview from the client directly. You need to have a custom backend that will fetch the link preview for you. You either use payed OpenGraph fetcher API or use \`link-preview-js\` library on your backend to do this. In this article we will use \`link-preview-js\` with Next.js API to do this. Since the Next.js API is very similar to Express.js, you can just copy and paste the code to Express.js servers as well.
+Because of CORS, you can't get the link preview directly from the client. You need to have a custom backend that fetches the necessary metadata for the preview. You can either use the paid OpenGraph fetcher API or you can use the \`link-preview-js\` library on your backend. In this article, we will use \`link-preview-js\` with Next.js API to do this.
 
-# How to use it
+# How to use 
 
-You can check out the docs at <https://github.com/emergence-engineering/prosemirror-link-preview/tree/main>
+**1.** Install the plugin: \`npm i -S lexical-link-preview-react\` \n
+**2.** Import the node and the plugin: \`import { LinkPreviewNode, LinkPreviewPlugin } from "lexical-link-preview-react"\` \n
+**3.** Add the style to your **theme** in the editor-config: \`linkPreviewContainer: "linkPreviewContainer"\` \n
+**4.** Add the node to your **node array** in the editor-config: \`node: [LinkPreviewNode,]\` \n
+**5.** Add the plugin to your Editor and set its two properties: **showLink** and **fetchingFunction** \n
+
+*This is what you will end up with:*
+
+\`\`\`typescript
+    import { LinkPreviewNode, LinkPreviewPlugin } from "lexical-link-preview-react"
+    
+    const initialconfig = {
+        namespace: "yourEditor",
+        theme: {linkPreviewContainer: "linkPreviewContainer"},
+        onError,
+        nodes: [LinkPreviewNode]
+    }
+    
+    const Editor = (): JSX.Element => {
+        return (
+            <LexicalComposer initialConfig={initialconfig}>
+                 
+                <LinkPreviewPlugin
+                    showLink={false}
+                    fetchingFunction={fetchingFunction}
+                />
+                    
+                <RichTextPlugin
+                    contentEditable={<ContentEditable />}
+                    placeholder={placeholder}
+                    ErrorBoundary={LexicalErrorBoundary}
+                />
+            </LexicalComposer>
+        )
+    }
+\`\`\`
+
+Here we are; now you can paste any valid link into your editor and capture the details of the page: \n
+`;
+const MD2 = /* language=md */ `
+If the look doesn't work for you, you can easily customize the CSS of the box as it uses classnames. Toggle the 'showLink' property on and off to find the look that best suits your design.
+And if you have any questions or want to leave feedback, please feel free to contact us!
+
+You can find some more info and check out the docs at <https://github.com/emergence-engineering/>
 `;
 
 const Article = () => (
@@ -72,6 +118,10 @@ const Article = () => (
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
+    <div>
+      <img src={"/lexical-link-preview.gif"} alt={""} />
+    </div>
+    <Markdown source={MD2} />
     <SalesBox />
   </ArticleWrapper>
 );

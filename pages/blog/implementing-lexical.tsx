@@ -32,9 +32,9 @@ import ToolbarPlugin from "../../features/article/components/lexicalComponents/T
 import OpenToolbarOnTheLeft from "../../features/article/components/lexicalComponents/ToolbarPluginOnTheLeft";
 import {
   LinkPreviewNode,
-  LinkPreviewPlugin,
   ResOfWebsite,
-} from "../../features/article/components/lexicalComponents/LinkPreview";
+} from "../../features/article/components/lexicalComponents/LinkPreviewNode";
+import { LinkPreviewPlugin } from "../../features/article/components/lexicalComponents/LinkPreviewPlugin";
 import TreeViewPlugin from "../../features/article/components/lexicalComponents/TreeViewPlugin";
 import {
   AutoLinkPlugin,
