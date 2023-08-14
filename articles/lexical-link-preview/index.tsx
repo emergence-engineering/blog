@@ -70,9 +70,9 @@ const myTheme = {
   link: "mylink",
   hashtag: "hashtag",
   linkPreviewContainer: "linkPreviewContainer",
-  previewBox: "previewBox",
-  previewImage: "previewImage",
-  previewDescription: "previewDescription",
+  // previewBox: "previewBox",
+  // previewImage: "previewImage",
+  // previewDescription: "previewDescription",
 };
 
 interface Props {}
@@ -113,8 +113,7 @@ async function thisFetchingFunction(link: string): Promise<ResOfWebsite> {
 }
 
 const Editor = ({}: Props): JSX.Element => {
-  const [showLeftToolbar, setShowLeftToolbar] = useState(false);
-  const stateRef = useRef<EditorState>();
+  const editorStateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
   const [floatingAnchorElem, setFloatingAnchorElem] =
     useState<HTMLDivElement | null>(null);
@@ -162,9 +161,7 @@ const Editor = ({}: Props): JSX.Element => {
           contentEditable={
             <div className="editor-scroller">
               <div ref={onRef} className={"editor"}>
-                <StyledContentEditable
-                  onClick={() => setShowLeftToolbar(!showLeftToolbar)}
-                />
+                <StyledContentEditable />
               </div>
             </div>
           }
@@ -174,14 +171,14 @@ const Editor = ({}: Props): JSX.Element => {
 
         <OnChangePlugin
           onChange={(editorState) => {
-            if (stateRef) stateRef.current = editorState;
+            if (editorStateRef) editorStateRef.current = editorState;
           }}
         />
         <JsonButtonContainer>
           <SaveToJsonOnToolbar
             onClick={() => {
-              if (stateRef.current)
-                setEditorJson(JSON.stringify(stateRef.current));
+              if (editorStateRef.current)
+                setEditorJson(JSON.stringify(editorStateRef.current));
             }}
           />
           <LoadFromJsonOnToolbar data={editorJson} />

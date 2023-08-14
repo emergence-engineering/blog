@@ -33,6 +33,7 @@ import OpenToolbarOnTheLeft from "../../features/article/components/lexicalCompo
 import {
   LinkPreviewNode,
   LinkPreviewPlugin,
+  ResOfWebsite,
 } from "../../features/article/components/lexicalComponents/LinkPreview";
 import TreeViewPlugin from "../../features/article/components/lexicalComponents/TreeViewPlugin";
 import {
@@ -45,6 +46,7 @@ import {
   SaveToJsonOnToolbar,
   CodeHighlightPlugin,
 } from "../../features/article/components/lexicalComponents/OwnLexicalToolbar";
+import DraggableBlockPlugin from "../../features/article/components/lexicalComponents/DraggableBlockPlugin";
 
 function onError(error: Error): void {
   console.error(error);
@@ -70,9 +72,9 @@ const myTheme = {
   link: "mylink",
   hashtag: "hashtag",
   linkPreviewContainer: "linkPreviewContainer",
-  previewBox: "previewBox",
-  previewImage: "previewImage",
-  previewDescription: "previewDescription",
+  // previewBox: "previewBox",
+  // previewImage: "previewImage",
+  // previewDescription: "previewDescription",
   code: "codeBlock",
 };
 
@@ -100,10 +102,31 @@ const thissInitialConfig = {
   ],
 };
 
+async function thisFetchingFunction(link: string): Promise<ResOfWebsite> {
+  const data = await fetch("/api/link-preview", {
+    method: "POST",
+    body: JSON.stringify({
+      link,
+    }),
+  });
+  const {
+    data: { url, title, description, images },
+  } = await data.json();
+  return { url, title, description, images };
+}
+
 const Editor = ({}: Props): JSX.Element => {
   const [showBtnForLeftMenu, setShowBtnForLeftMenu] = useState(false);
-  const stateRef = useRef<EditorState>();
+  const editorStateRef = useRef<EditorState>();
   const [editorJson, setEditorJson] = useState("");
+  const [floatingAnchorElem, setFloatingAnchorElem] =
+    useState<HTMLDivElement | null>(null);
+
+  const onRef = (_floatingAnchorElem: HTMLDivElement) => {
+    if (_floatingAnchorElem !== null) {
+      setFloatingAnchorElem(_floatingAnchorElem);
+    }
+  };
 
   const URL_REGEX =
     /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
@@ -121,12 +144,16 @@ const Editor = ({}: Props): JSX.Element => {
           <TabIndentationPlugin />
           <AutoFocusPlugin />
           <HistoryPlugin />
-
+          {floatingAnchorElem && (
+            <DraggableBlockPlugin anchorElem={floatingAnchorElem} />
+          )}
           <ToolbarPlugin />
           <OpenToolbarOnTheLeft showLeftMenu={showBtnForLeftMenu} />
-
           <AutoLinkPlugin matchers={MATCHERS} />
-          <LinkPreviewPlugin showLink={true} />
+          <LinkPreviewPlugin
+            showLink={false}
+            fetchingFunction={thisFetchingFunction}
+          />
           <HashtagPlugin />
           <MarkdownShortcutPlugin />
           <BannerPlugin />
@@ -134,32 +161,33 @@ const Editor = ({}: Props): JSX.Element => {
           <CheckListPlugin />
           <CodeHighlightPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-
           <RichTextPlugin
             contentEditable={
-              <StyledContentEditable
-                onClick={() => setShowBtnForLeftMenu(!showBtnForLeftMenu)}
-              />
+              <div className="editor-scroller">
+                <div ref={onRef} className={"editor"}>
+                  <StyledContentEditable
+                    onClick={() => setShowBtnForLeftMenu(!showBtnForLeftMenu)}
+                  />
+                </div>
+              </div>
             }
-            placeholder={<Placeholder>🫣 Let's see if it works...</Placeholder>}
+            placeholder={<Placeholder> 🖇 Paste your link!</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
-
           <OnChangePlugin
             onChange={(editorState) => {
-              if (stateRef) stateRef.current = editorState;
+              if (editorStateRef) editorStateRef.current = editorState;
             }}
           />
           <JsonButtonContainer>
             <SaveToJsonOnToolbar
               onClick={() => {
-                if (stateRef.current)
-                  setEditorJson(JSON.stringify(stateRef.current));
+                if (editorStateRef.current)
+                  setEditorJson(JSON.stringify(editorStateRef.current));
               }}
             />
             <LoadFromJsonOnToolbar data={editorJson} />
           </JsonButtonContainer>
-
           <TreeViewPlugin />
         </div>
       </LexicalComposer>

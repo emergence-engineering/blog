@@ -3,8 +3,6 @@ p, pre, span {
     line-height: 1.2;
 }
 
-
-
 .linkPreviewContainer {
     display: flex;
     cursor: pointer;
@@ -17,7 +15,6 @@ p, pre, span {
 .linkPreviewContainer:focus{
     outline: 2px solid rgb(60, 132, 244);
 }
-
 
 .previewBox {
     width: 60%;
@@ -194,7 +191,7 @@ header h1 {
     border-bottom-right-radius: 10px;
 }
 
-.editor-shell
+.editor-shell,
 .editor-container.tree-view
 {
     border-radius: 20px;
@@ -271,7 +268,7 @@ pre::-webkit-scrollbar-thumb {
     border: none;
     cursor: pointer;
     outline: none;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
     background-color: #444;
 }
 
@@ -367,7 +364,7 @@ pre::-webkit-scrollbar-thumb {
 
 .typeahead-popover {
     background: #fff;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     margin-top: 25px;
 }
@@ -427,11 +424,11 @@ pre::-webkit-scrollbar-thumb {
 }
 
 .typeahead-popover li:first-child {
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0 0;
 }
 
 .typeahead-popover li:last-child {
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 0 0 8px 8px;
 }
 
 .typeahead-popover li:hover {
@@ -607,7 +604,7 @@ pre::-webkit-scrollbar-thumb {
 }
 
 .mention:focus {
-    box-shadow: rgb(180 213 255) 0px 0px 0px 2px;
+    box-shadow: rgb(180 213 255) 0 0 0 2px;
     outline: none;
 }
 
@@ -786,8 +783,8 @@ pre::-webkit-scrollbar-thumb {
 }
 
 .switch button span {
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     display: block;
     position: absolute;
     width: 20px;
@@ -830,8 +827,7 @@ pre::-webkit-scrollbar-thumb {
     cursor: grabbing;
 }
 
-.editor-shell .editor-image .image-caption-container
-.tree-view-output
+.editor-shell .editor-image .image-caption-container .tree-view-output
 {
     margin: 0;
     border-radius: 0;
@@ -975,8 +971,7 @@ pre::-webkit-scrollbar-thumb {
     cursor: grabbing;
 }
 
-.editor-shell .inline-editor-image .image-caption-container
-.tree-view-output
+.editor-shell .inline-editor-image .image-caption-container .tree-view-output
 {
     margin: 0;
     border-radius: 0;
@@ -1357,7 +1352,7 @@ button.action-button:disabled {
     padding: 20px 10px;
     position: relative;
     border: 1px solid #e8e8e8;
-    font-family: 'Reenie Beanie';
+    /*font-family: 'Reenie Beanie';*/
     font-size: 24px;
     border-bottom-right-radius: 60px 5px;
     display: block;
@@ -1534,12 +1529,12 @@ hr.selected {
 
 .TableNode__contentEditable {
     min-height: 20px;
-    border: 0px;
+    border: 0;
     resize: none;
     cursor: text;
     display: block;
     position: relative;
-    outline: 0px;
+    outline: 0;
     padding: 0;
     user-select: text;
     font-size: 15px;
