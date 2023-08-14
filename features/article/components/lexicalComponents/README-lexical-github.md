@@ -32,18 +32,24 @@ import { LinkPreviewNode, LinkPreviewPlugin } from "lexical-link-preview-react";
 ```html
   linkPreviewContainer: "linkPreviewContainer",
 ```
-????????????????????????
+???????????????????????? where do I put this component to be editable?
 You can use your custom css to style the preview, here is an example(which is the actual css used by default)
 
 
    - basic card structure
 
        ```html
-       <div className="preview-root">
-         <div className="preview-image" />
-         <div className="preview-title" />
-         <div className="preview-description" />
-       </div>
+       <BlockWithAlignableContents className={className} nodeKey={nodeKey}>
+        <a href={url} target={"_blank"}>
+            <div className={"previewBox"}>
+            <img className={"previewImage"} src={res.images[0]} alt={""} />
+            <div className={"previewText"}>
+                <div className={"previewTitle"}>{res.title}</div>
+                <div className={"previewDescription"}>{res.description}</div>
+            </div>
+            </div>
+        </a>
+        </BlockWithAlignableContents>
        ```
 
 4. Add the node to the nodes array in your config: LinkPreviewNode
@@ -76,9 +82,9 @@ You can use your custom css to style the preview, here is an example(which is th
 
 6. `LinkPreviewPlugin` requires 2 parameters:
 
-    - `showLink`: takes a boolean value
-        - if true, inserts the link inline and puts the preview at the bottom of the editor
-        - if false, inserts the preview as a block and nothing else
+- `showLink`: takes a boolean value
+    - if true, inserts the link inline and puts the preview to the bottom of the editor
+    - if false, inserts the preview as an inline-block element and nothing else
       
 
    - `fetchingFunction`: `(link: string) => Promise<{url: string, title: string, description: string, images: string[]}>` a function that takes a link and returns a `Promise` that resolves to the link preview data, you can easily do this using next.js API routes
