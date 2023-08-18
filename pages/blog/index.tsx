@@ -19,6 +19,7 @@ import { article11Metadata } from "./prosemirror-link-preview";
 import { article12Metadata } from "./hocuspocus-with-supabase";
 import { article13Metadata } from "./prosemirror-slash-menu";
 import { article15Metadata } from "./postgraphile-subscriptions";
+import { articlePluginSystemMetadata } from "./prosemirror-plugin-system";
 import { articlePNPMMetadata } from "./monorepo-workspace-with-pnpm-and-git-submodules";
 
 const Root = styled.div`
@@ -74,6 +75,9 @@ const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...articlePluginSystemMetadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...articlePNPMMetadata} />
       </ContentWrapper>
