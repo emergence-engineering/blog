@@ -34,8 +34,8 @@ export const article13Metadata: ArticleIntro = {
 const MD0 = /* language=md */ `
 # What's this about?
 
-Release of [ProseMirror slash menu plugin](https://gitlab.com/emergence-engineering/prosemirror-slash-menu) 
-and the companion [ProseMirror slash menu UI in react](https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react).
+Release of [ProseMirror slash menu plugin](https://github.com/emergence-engineering/prosemirror-slash-menu) 
+and the companion [ProseMirror slash menu UI in react](https://github.com/emergence-engineering/prosemirror-slash-menu-react).
 
 We are all familiar with the concept of a slash menu from Slack, Discord, Notion, etc. and it seems it would be a perfect fit for ProseMirror as well. 
 With these two simple packages you can quickly add a slash menu to your editor and execute ProseMirror commands, or any other commands within your app for that matter.
@@ -45,7 +45,7 @@ With these two simple packages you can quickly add a slash menu to your editor a
 The idea is for you to simply provide an array of MenuElements to the plugin, and it will take care of closing and opening, executing commands, navigation within menus and sub menus with the keyboard and 
 filtering the items as the user is typing. 
 
-By using [prosemirror-slash-menu-react](https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
+By using [prosemirror-slash-menu-react](https://github.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
 
 # Why two packages? 
 
