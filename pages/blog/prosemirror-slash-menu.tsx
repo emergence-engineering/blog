@@ -45,7 +45,7 @@ With these two simple packages you can quickly add a slash menu to your editor a
 The idea is for you to simply provide an array of MenuElements to the plugin, and it will take care of closing and opening, executing commands, navigation within menus and sub menus with the keyboard and 
 filtering the items as the user is typing. 
 
-By using [prosemirror-slash-menu-react](https://gitlab.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
+By using [prosemirror-slash-menu-react](https://github.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
 
 # Why two packages? 
 
