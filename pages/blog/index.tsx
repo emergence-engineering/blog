@@ -21,6 +21,7 @@ import { article13Metadata } from "./prosemirror-slash-menu";
 import { article15Metadata } from "./postgraphile-subscriptions";
 import { articlePluginSystemMetadata } from "./prosemirror-plugin-system";
 import { articlePNPMMetadata } from "./monorepo-workspace-with-pnpm-and-git-submodules";
+import { articleLexicalSlashMenuMetadata } from "./lexical-slash-menu-plugin";
 import { article17Metadata } from "./lexical-link-preview-plugin";
 
 const Root = styled.div`
@@ -76,6 +77,9 @@ const Blog: FunctionComponent = () => (
   <Layout>
     <BlogSEO />
     <Root>
+      <ContentWrapper>
+        <BlogPostIntro {...articleLexicalSlashMenuMetadata} />
+      </ContentWrapper>
       <ContentWrapper>
         <BlogPostIntro {...article17Metadata} />
       </ContentWrapper>
