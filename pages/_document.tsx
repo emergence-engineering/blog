@@ -47,7 +47,6 @@ export default class MyDocument extends Document<{
         <Head>
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link rel="stylesheet" type="text/css" href="/lexical.css" />
-
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             rel="stylesheet"
