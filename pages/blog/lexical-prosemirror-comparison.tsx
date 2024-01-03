@@ -13,12 +13,17 @@ export const article19Metadata: ArticleIntro = {
   authorLink: null,
   introText: /* language=md */ `Performing a stress test on a basic Lexical and ProseMirror rich text editor`,
   postId: "lexical-prosemirror-comparison",
-  timestamp: 1703258447236,
+  timestamp: 1723134798677,
   imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-prosemirror-comparison",
 };
 
 const MD0 = /* language=md */ `
+
+# tl;dr
+We compared two rich text editors - Lexical and ProseMirror - to evaluate their performance under data load over time. 
+The tests showed significant differences between the two editors depending on the amount of time we want to use them. Lexical performs better for short-term use, responding faster initially, but its performance degrades and it can become unresponsive after about 20 minutes of heavy use. ProseMirror, on the other hand, is designed for long-term use, offering more predictable and stable performance over time. 
+
 
 ## Introduction
 There are many online platforms where you can edit your text, whether it's a simple note-taking app or a work management site. They are easy to use: the features are familiar from text editor softwares, and sometimes the result is even better - think of image handling and the ability to preview links. These editors are called WYSIWYG (what you see is what you get) editors, and there are several libraries you can use for rich text editing. We tested two for this article: ProseMirror and Lexical.
@@ -29,42 +34,64 @@ The ProseMirror editor was developed by Marijn Haverbeke. It is robust and relia
 The Lexical editor was developed by Meta to meet their own needs. It is quite new, but is spreading quickly thanks to its reputation and an easily extensible system. Almost anything is possible by creating your own plugins and the library promises to handle the weight of them.
 
 # The goal
-The purpose of this test is to see if there's any difference between the two editors when loaded with text - and I mean massive amounts of text. How far they can go, how they handle leaks, how effectively they use memory.
+The purpose of this test is to see if there's any difference between the two editors when loaded with text - and I mean massive amounts of text. How far they can go, how fast they execute scripts, how they handle leaks, how effectively they use memory.
 
 # The environment
-The test was performed using Playwright, running in Chrome, and collecting data using the CDP (Chrome DecTools Protocol). On the test site both editors had the same basic features: the ProseMirror had an example setup, and the Lexical was equipped with the same tools.
-I've collected data every 5000 ms, mimicking the typing of a word *n* times - as long as the editor could stand it. The typing was done in a browser environment for better simulation. The metrics measured were JSHeapUsedSize, JSHeapTotalSize, ThreadTime, and ScriptDuration.
-
+The website containing the editors was as clean as possible, built with React, the first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB. Both editors had the same basic features: the ProseMirror had an example setup, and the Lexical got equipped with the same tools.
+The test was performed using Playwright, running in Chrome, and collecting data using the CDP (Chrome DevTools Protocol). The test mimicked typing a word and pressing the ‘enter’ key in a loop. We’ve collected data every 15 seconds and let the test run for one hour (shown in minutes on the x-axis) before manually stopping it. The metrics measured were JSHeapUsedSize, LayoutCount, ThreadTime, and ScriptDuration.
 
 ## Note
-First of all, I couldn't run the test on the two editors for the same number of word repetitions - the Lexical editor slowed down significantly after 60 thousand repetitions (somewhere between 60900 and 61000), the ProseMirror editor could run up to 90 thousand repetitions before becoming passive. While I don't have a solid explanation for this, I did try to make some sense out of it in the last section.
+You will notice that the Lexical editor consistently stops around the 20-minute mark in all the tests. The likely cause is related to memory management issues in the long run.
 
+# ScriptDuration
+*ScriptDuration is the time taken to execute scripts as part of the editor's operation, measured in seconds.*
 
-# JSHeapUsedSize and TotalSize
-\**Lexical\**: As you can see on the line graph of the used memory size, in the first few seconds there are some larger swings, which later become steadier and the line just goes up smoothly. This first part could indicate that the editor is making more internal adjustments or optimizations, and quite soon it reaches a more stable state where its memory usage increases are more predictable and less variable. The continuous increase in heap size without any significant drops might indicate a potential memory leak. 
-In the total memory size graph there is a sharp spike at the beginning, which quickly drops and then begins a steady increase. This could be due to initial allocations that get trimmed down before the test enters a steady state.
+\**ProseMirror\**: ProseMirror demonstrates stable performance with a predictable and linear increase in script duration over time without sudden spikes or stops. This indicates that it handles operations consistently without significant performance degradation. By the end of the test, ProseMirror reaches a script duration of about 550 seconds.
 
-\**ProseMirror\**: The total amount of memory initially allocated is used up quite early, as we can see in the total size graph. On both images, total memory and memory usage seem to oscillate within a certain range, the latter with an upper boundary at around 25,000,000 bytes and a lower boundary around 13,000,000 bytes. The editor may be intermittently freeing memory or performing periodic optimizations. This could be a sign of efficient garbage collection and memory management strategies. Also, the gradual increase in memory usage suggests a more predictable and controlled memory usage pattern.
+\**Lexical\**:  Lexical's curve rises more steeply than ProseMirror's, indicating that the time taken by the editor’s scripts increases more rapidly, suggesting that it becomes less efficient over time. The abrupt stop indicates potential performance or stability issues under prolonged stress. Lexical reaches a script duration of about 490 seconds by the 19-minute mark
 
+\**Conclusions\**: In the short term, Lexical's script duration increases more quickly compared to ProseMirror. This rapid increase suggests that Lexical is initially handling text operations more quickly, resulting in shorter script durations. In the long run, however, this means that users may experience increasing delays in response times as they continue to use Lexical. This can lead to a progressively sluggish experience.
 `;
 
 const MD1 = /* language=md */ `
+    
+# LayoutCount
+*LayoutCount is the number of layout operations performed by the editor.* 
 
-# ScriptDuration, ThreadTime
-Both editors show a linear performance degradation in terms of script execution time and thread time as the time increases. However, the ProseMirror editor exhibits a faster rate of degradation despite its more dynamic memory management observed in the JSHeapTotalSize metric.
+\**ProseMirror\**: Initially ProseMirror's curve is steeper than Lexical's, suggesting that it performs more layout operations per unit of time. It continues to perform consistently throughout the hour, with its operations count steadily increasing. This indicates that ProseMirror maintains its performance without significant degradation over time. At the end of the test it reaches 127600, at about 23 minutes it’s 84500.
 
+\**Lexical\**: Although both editors start with a steep incline in the number of operations, indicating a high rate of layout operations, the Lexical editor's rate of increase in operations begins to slow down quite early, lagging behind the ProseMirror’s count. It reaches 65600 after about 23 minutes when it stops.
+
+\**Conclusions\**: ProseMirror performing more operations per minute suggests it is potentially more responsive to user inputs, providing smoother and quicker updates to the layout as changes are made.
+This could result in a more fluid user experience, especially in scenarios involving frequent updates, such as typing or complex document editing.
 `;
 
 const MD2 = /* language=md */ `
 
-# Result
-The presence of garbage collection might mean that the ProseMirror editor could handle long-term usage better than the Lexical editor, as it doesn't allow the heap size to grow unbounded.
+# ThreadTime
+*ThreadTime refers to the CPU time consumed by the thread handling the editor's operations.*
 
+\**ProseMirror and Lexical\**: Both editors maintain a consistent thread processing rate over time, with thread time increasing linearly. This indicates stable performance and efficient handling of thread operations - as long as the editor is responsive. 
+`;
 
-## End notes
-The website containing the editors was as clean as possible, built with React, the first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB.
-I didn’t run out of memory as my JS heap size limit is close to 4 GB and the highest used was about 42MB (Lexical) and 27MB (ProseMirror), allocated memory size was 56MB and 46MB. Although in the case of Lexical continuous allocation without freeing memory can lead to fragmentation, making it difficult for the browser to find contiguous blocks of memory for new operations. With the other editor, the browser's garbage collector might try to free up memory more frequently, but it becomes less effective over time as it can be costly in terms of CPU usage. Frequent garbage collection attempts can cause performance lags.
+const MD3 = /* language=md */ `
 
+# JSHeapUsedSize
+*The JSHeapUsedSize is the actual memory being used at any point in time, measured in bytes - here, converted to MB.*
+
+\**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but averages around 20 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
+
+\**Lexical\**: The JSHeapUsedSize for Lexical shows a continuous upward trend, indicating increasing memory usage over time, suggesting a potential memory leak or inefficient memory management as the test progresses. The graph stops at 3.86 GB of memory usage just before 20 minutes into the test.
+
+\**Conclusions\**: Lexical users might initially experience responsive performance, but as memory usage increases, they could face lagging, slowdowns, and eventually crashes or unresponsiveness.
+`;
+
+const MD4 = /* language=md */ `
+
+# Results
+Both editors have their own pros and cons. \n 
+Lexical initially handles the data load better, providing faster responses and handling more operations for a short time, making it a better choice for quick and small editing tasks. Meta likely designed it this way to benefit from these features in their live chat applications, but it can also be used for personal note-taking, kiosk applications, or short-lived web sessions.
+\n However, if you need an editor for heavier tasks, ProseMirror offers a stable and robust solution (and has more thorough documentation). Whether you are building a CMS (Content Management System), an ECM (Enterprise Content Management), or just need an online editor for your blog, you can count on ProseMirror.
 
 `;
 
@@ -84,19 +111,40 @@ const Article = () => (
 
     <Markdown source={MD0} />
     <br />
-    <div>
-      <img src={"/article19-usedSize-totalSize.png"} alt={""} width={"100%"} />
-    </div>
+    {/*<div>*/}
+    <img
+      src={"/article19-scriptDuration.png"}
+      alt={""}
+      width={"50%"}
+      style={{ alignSelf: "center" }}
+    />
+
     <Markdown source={MD1} />
     <br />
-    <div>
-      <img
-        src={"/article19-scriptDur-threadTime.png"}
-        alt={""}
-        width={"100%"}
-      />
-    </div>
+    <img
+      src={"/article19-layoutCount.png"}
+      alt={""}
+      width={"50%"}
+      style={{ alignSelf: "center" }}
+    />
+
     <Markdown source={MD2} />
+    <br />
+    <img
+      src={"/article19-threadTime.png"}
+      alt={""}
+      width={"50%"}
+      style={{ alignSelf: "center" }}
+    />
+
+    <Markdown source={MD3} />
+    <br />
+    <div>
+      <img src={"/article19-JSHeapUsedSize.png"} alt={""} width={"100%"} />
+    </div>
+    {/*</div>*/}
+
+    <Markdown source={MD4} />
     <SalesBox />
   </ArticleWrapper>
 );
