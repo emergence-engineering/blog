@@ -110,7 +110,7 @@ export const article15Metadata: ArticleIntro = {
   title: `Introduction to realtime Postgraphile with custom subscriptions`,
   postId: "postgraphile-subscriptions",
   url: "https://emergence-engineering.com/blog/Postgraphile-subscriptions",
-  author: "Balázs",
+  author: "",
   timestamp: 1689149207117,
   authorLink: "https://emergence-engineering.com/cv/torcsi",
   introText:

@@ -69,7 +69,7 @@ const ViktorCV: FunctionComponent = () => (
           <TimelineContainer>
             <TimelineItem
               position="TOP"
-              eventTitle="Co-founded Emergence Engineering"
+              eventTitle="Founded Emergence Engineering"
               timelineLabel="2019"
               eventDescription=""
               duration=""
@@ -96,7 +96,6 @@ const ViktorCV: FunctionComponent = () => (
               timelineLabel="2014"
               duration="2 years"
               eventTitle="Contract Lead developer for Tru2Air (US)"
-              specialEventText="First project together with Balázs the co-founder of Emergence Engineering"
               eventDescription="Developed a plug and play protocol over I2C and a custom protocol for accessing sensors over 6LoWPAN and RPL using RIOT and later Contiki OS. I've also worked on a Node.js backend and the React front-end. I've also created a lot of prototypes which involved a lot of SMD work, and designed / printed a custom 3d printed case."
             />
             <TimelineItem

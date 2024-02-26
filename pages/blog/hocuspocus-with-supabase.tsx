@@ -222,7 +222,7 @@ export const article12Metadata: ArticleIntro = {
   title: `Hocuspocus with Supabase`,
   postId: "hocuspocus-with-supabase",
   url: "https://emergence-engineering.com/blog/hocuspocus-with-supabase",
-  author: "Törcsi & Balazs",
+  author: "Törcsi",
   timestamp: 1686009600000,
   authorLink: "https://emergence-engineering.com/cv/torcsi",
   introText:

@@ -92,7 +92,6 @@ const TorcsiCV: FunctionComponent = () => (
               timelineLabel="2014"
               duration=""
               eventTitle="Google Summer of Code"
-              // specialEventText="First project together with Balázs the co-founder of Emergence Engineering"
               eventDescription="Followed up my Bsc. work with Lucene, managed to improve its text classifier."
             />
             <TimelineItem

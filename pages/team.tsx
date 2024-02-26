@@ -48,22 +48,12 @@ export default function Team() {
             <Member
               src="viktor"
               memberName="Viktor Váczi"
-              memberRole="co-founder"
+              memberRole="CEO"
               memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
-              memberStack="React.js Node.js Firebase"
+              memberStack="React Node.js Firebase"
               cvLink="/cv/viktor"
               linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
               githubLink="https://github.com/ViktorVaczi90"
-            />
-            <Member
-              src="balazs"
-              memberName="Balázs Horváth"
-              memberRole="co-founder"
-              memberWorkArea="Fullstack JS | Microservices | Cloud"
-              memberStack="React.js Node.js Go Firebase AWS"
-              cvLink="/cv/balazs"
-              linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-              githubLink="https://github.com/horvath-balazs"
             />
             <Member
               src={Members.ksisu}
@@ -100,13 +90,6 @@ export default function Team() {
               memberStack="Java React.js Node.js Firebase CSS"
             />
             <Member
-              src="ldavid"
-              memberName="Dávid Lázár"
-              memberRole="developer"
-              memberStack="React.js Node.js"
-              memberWorkArea="Fullstack JS"
-            />
-            <Member
               src="csenge"
               memberName="Csenge Sóti"
               memberRole="developer"
@@ -119,13 +102,6 @@ export default function Team() {
               memberRole="developer"
               memberStack="React.js CSS"
               memberWorkArea="Fullstack JS"
-            />
-            <Member
-              src="petra"
-              memberName="Németh Petra Ráhel"
-              memberRole="Office Manager"
-              memberStack=""
-              memberWorkArea=""
             />
             <Member
               src="kata"

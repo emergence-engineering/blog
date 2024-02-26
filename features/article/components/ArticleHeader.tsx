@@ -55,7 +55,7 @@ export default function ArticleHeader({
           {title}
         </PostTitle>
         <Details>
-          By {author} on {postDate}
+          {author ? `By ${author} on` : ""} {postDate}
         </Details>
       </HeaderWrapper>
     </Root>

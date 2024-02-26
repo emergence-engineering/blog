@@ -2,6 +2,6 @@
 //
 // export default SalesBox;
 
-import DiscussOnDiscord from "./DiscussOnDiscord";
+import WriteToUs from "./WriteToUs";
 
-export default DiscussOnDiscord;
+export default WriteToUs;

@@ -4,7 +4,6 @@ import Image from "next/image";
 
 import theme, { screenSizes, sizes } from "../../../utils/theme";
 import ViktorImage from "../../../public/bio/viktor.png";
-import BalazsImage from "../../../public/bio/balazs.jpg";
 import MatejcsokImage from "../../../public/bio/matejcsok.jpg";
 import AronImage from "../../../public/bio/aron.jpg";
 import DavidImage from "../../../public/bio/ldavid.jpg";
@@ -38,6 +37,7 @@ const SectionContentRoot = styled.div`
   flex-direction: row;
   align-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: ${screenSizes.medium}px;
   @media screen and (max-width: ${screenSizes.medium}px) {
@@ -73,7 +73,6 @@ export const FacePictureWrapper = styled.div`
 
 export enum Members {
   viktor = "viktor",
-  balazs = "balazs",
   matejcsok = "matejcsok",
   aron = "aron",
   ldavid = "ldavid",
@@ -88,7 +87,6 @@ export enum Members {
 
 const images = {
   [Members.viktor]: ViktorImage,
-  [Members.balazs]: BalazsImage,
   [Members.matejcsok]: MatejcsokImage,
   [Members.aron]: AronImage,
   [Members.ldavid]: DavidImage,
@@ -230,22 +228,12 @@ const AboutUsSection: FunctionComponent = () => (
       <Member
         src={Members.viktor}
         memberName="Viktor Váczi"
-        memberRole="co-founder"
+        memberRole="CEO"
         memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
         memberStack="React.js Node.js Firebase"
         cvLink="/cv/viktor"
         linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
         githubLink="https://github.com/ViktorVaczi90"
-      />
-      <Member
-        src={Members.balazs}
-        memberName="Balázs Horváth"
-        memberRole="co-founder"
-        memberWorkArea="Fullstack JS | Microservices | Cloud"
-        memberStack="React.js Node.js Go Firebase AWS"
-        cvLink="/cv/balazs"
-        linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-        githubLink="https://github.com/horvath-balazs"
       />
     </SectionContentRoot>
     <SectionTitle>Scala team</SectionTitle>
