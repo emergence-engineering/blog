@@ -68,9 +68,9 @@ export const article8Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/hasura-vs-postgraphile",
   imgSrc:
     "https://hasura.io/static/hasura-collaborate-thumb-1c8f381ee6fd40dfff2eadfbfe27da40.png",
-  author: "Balázs",
+  author: "",
   timestamp: 1672999080350,
-  authorLink: "https://emergence-engineering.com/cv/balazs",
+  authorLink: null,
   introText:
     "Summarising our experiences of using PostGraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
 };

@@ -20,7 +20,7 @@ const EditorStyling = styled.div`
 
 export const articleLexicalSlashMenuMetadata: ArticleIntro = {
   title: "lexical-slash-menu-plugin: Slash menu for lexical",
-  author: "Balázs and matejcsok",
+  author: "matejcsok",
   authorLink: null,
   introText: /* language=md */ `An open source slash menu plugin for lexical made by Emergence-Engineering.`,
   postId: "lexical-slash-menu-plugin",

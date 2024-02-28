@@ -195,7 +195,7 @@ const References: FunctionComponent = () => {
       partnerName: "Marc Zao-Sanders",
       partnerJob: "CEO at Filtered",
       saysThat:
-        "We've worked with Emergence for three years and it's been wonderful. They helped us build a product from a basic prototype to a full enterprise SaaS offering, with speed, quality and a sense of fun. Balázs and several others in the team are a joy to work with. I can't recommend them more highly",
+        "We've worked with Emergence for three years and it's been wonderful. They helped us build a product from a basic prototype to a full enterprise SaaS offering, with speed, quality and a sense of fun.",
     },
     {
       partnerId: 2,

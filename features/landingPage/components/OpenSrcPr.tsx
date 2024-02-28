@@ -46,7 +46,7 @@ export const OtherRefWrapper = styled.a`
   }
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled.div`
   font-family: ${theme.fontFamily.general};
   font-size: 18pt;
   color: ${theme.color.tertiary};

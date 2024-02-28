@@ -48,7 +48,7 @@ const Root = styled.div``;
 
 export interface BlogPostHeadlineProps {
   title: string;
-  author: string;
+  author?: string;
   timestamp: number;
 }
 
@@ -63,7 +63,8 @@ export function BlogPostHeadLine({
       <PostTitle>{title}</PostTitle>
       <PostMetadataContainer>
         <span>
-          By {author} on <SVGIcon src="/material-calendar.svg" />
+          {author ? `By ${author} on` : ""}
+          <SVGIcon src="/material-calendar.svg" />
           {postDate}
         </span>
       </PostMetadataContainer>

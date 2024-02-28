@@ -15,7 +15,7 @@ const EditorsDynamic = dynamic(
 
 export const article2Metadata: ArticleIntro = {
   title: "Collaborative text editor with ProseMirror and a syncing database",
-  author: "Viktor & Balazs",
+  author: "Viktor",
   authorLink: null,
   introText: /* language=md */ `
  With the collaborative editing functionality in ProseMirror it's possible to create documents that are

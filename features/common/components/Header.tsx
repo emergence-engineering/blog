@@ -11,8 +11,6 @@ import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 import { UnstyledLink } from "../../../utils/link";
 import EELogo from "../../../public/ee-logo.svg";
 import GithubIcon from "../../../public/github-mark.svg";
-import { DiscordIcon } from "../../../public/DiscordIcon";
-import { clickable } from "../../../utils/mixins";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -175,49 +173,10 @@ const PlatformWrapper = styled.div`
   }
 `;
 
-const Discord = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  ${clickable};
-
-  :hover {
-    opacity: 0.5;
-  }
-`;
-
-const DiscordLogoWrapper = styled.div`
-  width: 35px;
-  height: 26.5px;
-  ${clickable};
-`;
-
-const DiscordText = styled.div`
-  display: none;
-
-  @media screen and (max-width: ${screenSizes.large - 1}px) {
-    display: inline;
-    font-size: 1.2rem;
-    font-family: "Oswald", sans-serif;
-    color: ${theme.color.gray1};
-    font-weight: 500;
-  }
-
-  @media screen and (max-width: ${screenSizes.medium}px) {
-    font-size: 1rem;
-  }
-`;
-
 const redirectTo = (id: string) => {
   if (typeof window !== "undefined") {
     if (id === "github") {
       return window.open("https://github.com/emergence-engineering", "_blank");
-    } else {
-      return window.open(
-        `https://discord.gg/${process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK}`,
-        "_blank",
-      );
     }
   }
 };
@@ -262,9 +221,6 @@ const Header: FunctionComponent = () => (
                   }}
                 />
               </GithubLogoWrapper>
-              <DiscordLogoWrapper onClick={() => redirectTo("discord")}>
-                <DiscordIcon />
-              </DiscordLogoWrapper>
             </PlatformWrapper>
           </BigScreenContainer>
           <MobileContainer>
@@ -288,12 +244,6 @@ const Header: FunctionComponent = () => (
                     }}
                   />
                 </GithubLogoWrapper>
-                <Discord onClick={() => redirectTo("discord")}>
-                  <DiscordLogoWrapper>
-                    <DiscordIcon />
-                  </DiscordLogoWrapper>
-                  <DiscordText>Join our Discord</DiscordText>
-                </Discord>
               </PlatformWrapper>
             </HamburgerMenu>
           </MobileContainer>

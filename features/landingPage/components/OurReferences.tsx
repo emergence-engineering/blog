@@ -134,13 +134,11 @@ const OurReferences = () => (
         them were designed, developed and marketed by us.
       </Description>
       <Feedback>
-        You have any question? We can always have a chat on our{" "}
-        <Link
-          href={`https://discord.gg/${process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK}`}
-          style={{ textDecoration: "none", color: "#5865F2" }}
-        >
-          Discord server!{" "}
-        </Link>
+        You have any questions? <br />
+        Write to us at{" "}
+        <a href="mailto: contact@emergence-engineering.com">
+          contact@emergence-engineering.com
+        </a>
       </Feedback>
     </TextWrapper>
 
