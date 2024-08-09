@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
@@ -18,6 +18,15 @@ export const article19Metadata: ArticleIntro = {
   url: "https://emergence-engineering.com/blog/lexical-prosemirror-comparison",
 };
 
+const imageStyle: React.CSSProperties = {
+  position: "relative",
+  display: "flex",
+  alignSelf: "center",
+  width: "80%",
+  maxWidth: "100%",
+  aspectRatio: "16 / 9",
+};
+
 const MD0 = /* language=md */ `
 
 # tl;dr
@@ -28,20 +37,60 @@ The tests showed significant differences between the two editors depending on th
 ## Introduction
 There are many online platforms where you can edit your text, whether it's a simple note-taking app or a work management site. They are easy to use: the features are familiar from text editor softwares, and sometimes the result is even better - think of image handling and the ability to preview links. These editors are called WYSIWYG (what you see is what you get) editors, and there are several libraries you can use for rich text editing. We tested two for this article: ProseMirror and Lexical.
 
-# The editors
+## The editors
 The ProseMirror editor was developed by Marijn Haverbeke. It is robust and reliable; it was released about 6 years ago and is maintained regularly. Work management platforms like Asana and widely read newspapers like The New York Times use it without a problem. There are a number of libraries based on the core of this editor, showing the strong foundations that can be built upon. 
 
 The Lexical editor was developed by Meta to meet their own needs. It is quite new, but is spreading quickly thanks to its reputation and an easily extensible system. Almost anything is possible by creating your own plugins and the library promises to handle the weight of them.
 
-# The goal
+# Goal
 The purpose of this test is to see if there's any difference between the two editors when loaded with text - and I mean massive amounts of text. How far they can go, how fast they execute scripts, how they handle leaks, how effectively they use memory.
 
-# The environment
+# Environment
 The website containing the editors was as clean as possible, built with React, the first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB. Both editors had the same basic features: the ProseMirror had an example setup, and the Lexical got equipped with the same tools.
+
+# Test
 The test was performed using Playwright, running in Chrome, and collecting data using the CDP (Chrome DevTools Protocol). The test mimicked typing a word and pressing the ‘enter’ key in a loop. We’ve collected data every 15 seconds and let the test run for one hour (shown in minutes on the x-axis) before manually stopping it. The metrics measured were JSHeapUsedSize, LayoutCount, ThreadTime, and ScriptDuration.
+
+\`\`\`tsx
+import { findEditor, relevantMetrics } from "./utils";
+
+const REPEATS = 100000; // to make sure it doesn't finish in an hour
+const MEASUREMENT_INTERVAL = 15000; // ms
+const performanceMetrics: Protocol.Performance.Metric[] = [];
+let page: Page;
+let interval: NodeJS.Timeout;
+let session: CDPSession;
+
+test.beforeAll(async ({ browser }) => {
+  page = await browser.newPage();
+  session = await page.context().newCDPSession(page);
+  await session.send("Performance.enable");
+  await findEditor(page, "lexical", ".ContentEditable__root");
+
+  interval = setInterval(async () => {
+    const perfMetrics = await session.send("Performance.getMetrics");
+    const filteredPerfMetrics = perfMetrics.metrics.filter((metric) =>
+      relevantMetrics.includes(metric.name), // did not need every metrics
+    );
+    performanceMetrics.push(...filteredPerfMetrics);
+  }, MEASUREMENT_INTERVAL);
+});
+
+test("Lexical stress test", async () => {
+  test.setTimeout(10000000);
+
+  for (let i = 0; i < REPEATS; i++) {
+    await page.keyboard.type("typing ");
+    await page.keyboard.press("Enter");
+  }
+});
+\`\`\`
+
 
 ## Note
 You will notice that the Lexical editor consistently stops around the 20-minute mark in all the tests. The likely cause is related to memory management issues in the long run.
+
+
 
 # ScriptDuration
 *ScriptDuration is the time taken to execute scripts as part of the editor's operation, measured in seconds.*
@@ -108,41 +157,53 @@ const Article = () => (
       author={article19Metadata.author}
       timestamp={article19Metadata.timestamp}
     />
-
     <Markdown source={MD0} />
     <br />
-    {/*<div>*/}
-    <img
-      src={"/article19-scriptDuration.png"}
-      alt={""}
-      width={"50%"}
-      style={{ alignSelf: "center" }}
-    />
+
+    <div style={imageStyle}>
+      <Image
+        src="/article19-scriptDuration.png"
+        alt="image"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 60vw"
+      />
+    </div>
 
     <Markdown source={MD1} />
     <br />
-    <img
-      src={"/article19-layoutCount.png"}
-      alt={""}
-      width={"50%"}
-      style={{ alignSelf: "center" }}
-    />
+    <div style={imageStyle}>
+      <Image
+        src={"/article19-layoutCount.png"}
+        alt="image"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 60vw"
+      />
+    </div>
 
     <Markdown source={MD2} />
     <br />
-    <img
-      src={"/article19-threadTime.png"}
-      alt={""}
-      width={"50%"}
-      style={{ alignSelf: "center" }}
-    />
-
+    <div style={imageStyle}>
+      <Image
+        src={"/article19-threadTime.png"}
+        alt="image"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 60vw"
+      />
+    </div>
     <Markdown source={MD3} />
     <br />
-    <div>
-      <img src={"/article19-JSHeapUsedSize.png"} alt={""} width={"100%"} />
+    <div style={{ ...imageStyle, width: "100%" }}>
+      <Image
+        src={"/article19-JSHeapUsedSize.png"}
+        alt="image"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 60vw"
+      />
     </div>
-    {/*</div>*/}
 
     <Markdown source={MD4} />
     <SalesBox />
