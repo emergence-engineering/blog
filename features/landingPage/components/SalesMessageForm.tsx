@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
+import dynamic from "next/dynamic";
 
 import theme, { sizes } from "../../../utils/theme";
 
-import SalesForm from "./SalesForm";
+// import SalesForm from "./SalesForm";
+// dynamic import calendly
+const Calendly = dynamic(() => import("./Calendly"), { ssr: false });
 
 export const Root = styled.div`
   display: flex;
@@ -48,8 +51,8 @@ const SalesFormSection: FunctionComponent = () => (
       </EmailWrapper>
     </ContentWrapper>
     <ContentWrapper>
-      <Title>Or write us a message</Title>
-      <SalesForm />
+      <Title>Or talk with us</Title>
+      <Calendly />
     </ContentWrapper>
   </Root>
 );

@@ -6,7 +6,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
@@ -27,6 +26,7 @@ export const article17Metadata: ArticleIntro = {
   timestamp: 1691532000000,
   imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-link-preview-plugin",
+  tags: ["Lexical", "Link Preview", "Open Source", "Plugin Development"],
 };
 
 const MD0 = /* language=md */ `
@@ -91,6 +91,7 @@ const Article = () => (
       title={article17Metadata.title}
       author={article17Metadata.author}
       timestamp={article17Metadata.timestamp}
+      tags={article17Metadata.tags}
     />
     <div>
       <img src={"/lexical-link-preview.gif"} alt={""} />
@@ -100,7 +101,6 @@ const Article = () => (
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

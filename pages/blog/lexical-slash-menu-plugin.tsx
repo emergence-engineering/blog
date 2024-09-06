@@ -6,7 +6,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
@@ -27,13 +26,14 @@ export const articleLexicalSlashMenuMetadata: ArticleIntro = {
   timestamp: 1693470105618,
   imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-slash-menu-plugin",
+  tags: ["Lexical", "Slash Menu", "Open Source", "Plugin Development"],
 };
 
 const MD0 = /* language=md */ `
 
 # Introduction
 Over the past few years, we've been heavily focused on ProseMirror, releasing a 
-variety of [ open-source plugins ](https://emergence-engineering.com/open-source-projects). With the rising popularity of Meta's Lexical, 
+variety of [ open-source plugins ](https://emergence-engineering.com/opensource). With the rising popularity of Meta's Lexical, 
 we've received a wave of interest for Lexical-based projects. To test the waters, 
 we ported our popular [slash-menu-plugin](https://emergence-engineering.com/blog/prosemirror-slash-menu) from ProseMirror to Lexical. 
 We picked this plugin because it's already production tested with three clients and 
@@ -158,6 +158,7 @@ const Article = () => (
       title={articleLexicalSlashMenuMetadata.title}
       author={articleLexicalSlashMenuMetadata.author}
       timestamp={articleLexicalSlashMenuMetadata.timestamp}
+      tags={articleLexicalSlashMenuMetadata.tags}
     />
     <div>
       <img src={"/illustrations/slash-menu.gif"} alt={""} />
@@ -167,7 +168,6 @@ const Article = () => (
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

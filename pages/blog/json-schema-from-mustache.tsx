@@ -1,9 +1,8 @@
+import React from "react";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
-import React from "react";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const MD0 = /* language=md */ `
@@ -280,6 +279,12 @@ export const article10Metadata: ArticleIntro = {
   introText:
     "A guide with code samples for building a strict schema validator for your mustache templates.",
   imgSrc: "http://clipart-library.com/images/8cxrjerMi.jpg",
+  tags: [
+    "JsonSchema",
+    "Mustache Templates",
+    "Schema Validation",
+    "Code Samples",
+  ],
 };
 
 export default function Article() {
@@ -295,9 +300,9 @@ export default function Article() {
         title={article10Metadata.title}
         author={article10Metadata.author}
         timestamp={article10Metadata.timestamp}
+        tags={article10Metadata.tags}
       />
       <Markdown source={MD0} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }

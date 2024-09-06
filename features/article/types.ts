@@ -7,4 +7,5 @@ export interface ArticleIntro {
   timestamp: number;
   imgSrc?: string;
   url: string;
+  tags?: string[];
 }

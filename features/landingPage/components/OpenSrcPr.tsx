@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Description, Root, StyledDescription } from "./CaseStudiesList";
 import theme, { screenSizes } from "../../../utils/theme";
 import { projectDetails } from "../../../utils/openSrcPrData";
+import { Description, Root, StyledDescription } from "./CaseStudiesList";
 import OpenSrcPrCard from "./OpenSrcPrCard";
 import References from "./References";
 
@@ -16,7 +16,7 @@ const Title = styled.h1`
   color: ${theme.color.gray1};
 `;
 
-const CardWrapper = styled.div`
+export const CardWrapper = styled.div`
   margin: 2rem 0;
   max-width: 115rem;
 

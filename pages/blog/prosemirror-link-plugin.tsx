@@ -7,7 +7,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
@@ -31,6 +30,13 @@ If you want to have a decorations around different strings in your ProseMirror d
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-link-plugin",
+  tags: [
+    "ProseMirror",
+    "Link Plugin",
+    "Text Decoration",
+    "Automatic Linking",
+    "Plugin Development",
+  ],
 };
 
 const MD0 = /* language=md */ `
@@ -135,13 +141,13 @@ const Article = () => (
       title={article4Metadata.title}
       author={article4Metadata.author}
       timestamp={article4Metadata.timestamp}
+      tags={article4Metadata.tags}
     />
     <Markdown source={MD0} />
     <EditorStyling>
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

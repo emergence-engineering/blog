@@ -7,7 +7,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
@@ -30,6 +29,13 @@ export const article5Metadata: ArticleIntro = {
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-image-plugin-2",
+  tags: [
+    "ProseMirror",
+    "Image Handling",
+    "Resizable Images",
+    "Plugin Update",
+    "Web Development",
+  ],
 };
 
 const MD0 = /* language=md */ `
@@ -144,13 +150,13 @@ const Article = () => (
       title={article5Metadata.title}
       author={article5Metadata.author}
       timestamp={article5Metadata.timestamp}
+      tags={article5Metadata.tags}
     />
     <Markdown source={MD0} />
     <EditorStyling>
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

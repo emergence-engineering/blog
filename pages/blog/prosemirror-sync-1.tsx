@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
@@ -32,6 +31,13 @@ This approach has also been tested with Firestore.
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-sync-1",
+  tags: [
+    "ProseMirror",
+    "Collaborative Editing",
+    "PouchDB",
+    "Firestore",
+    "Web Development",
+  ],
 };
 
 const tldrContent = /* language=md */ `
@@ -294,6 +300,7 @@ export default function Article() {
         title={article2Metadata.title}
         author={article2Metadata.author}
         timestamp={article2Metadata.timestamp}
+        tags={article2Metadata.tags}
       />
       <Markdown source={tldrContent} />
 
@@ -302,7 +309,6 @@ export default function Article() {
       <Markdown source={demo} />
       <EditorsDynamic />
       <Markdown source={MD1} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }

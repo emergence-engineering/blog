@@ -4,7 +4,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 
 export const articlePluginSystemMetadata: ArticleIntro = {
   title: "Guide for writing ProseMirror plugins",
@@ -16,6 +15,7 @@ export const articlePluginSystemMetadata: ArticleIntro = {
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-plugin-system",
+  tags: ["ProseMirror", "Plugin Development", "Tutorial", "Tips and Tricks"],
 };
 
 const MD0 = /* language=md */ `
@@ -328,8 +328,6 @@ const Article = () => (
       height="500px"
       src="https://stackblitz.com/edit/stackblitz-starters-dnz5xa?file=src%2FApp.tsx"
     ></iframe>
-
-    <SalesBox />
   </ArticleWrapper>
 );
 

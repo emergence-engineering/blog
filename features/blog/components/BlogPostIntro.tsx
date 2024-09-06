@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { FunctionComponent } from "react";
 
+import Link from "next/link";
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
 import SVGIcon from "../../common/components/SVGIcon";
 import Markdown from "../../article/components/Markdown";
@@ -28,12 +29,22 @@ const ReadMoreLink = styled.div`
 
 const PostMetadataContainer = styled.div``;
 
-export const PostTitle = styled.div`
+export const PostLink = styled.h1`
   font-family: ${theme.fontFamily.title};
   font-weight: 800;
-  font-size: 2rem;
-  text-decoration: underline;
+  font-size: 3.5rem;
   text-decoration-color: ${theme.color.tertiary};
+  color: ${theme.color.gray1};
+  cursor: pointer;
+`;
+
+export const PostTitle = styled(Link)`
+  font-family: ${theme.fontFamily.title};
+  font-weight: 800;
+  font-size: 3.5rem;
+  text-decoration-color: ${theme.color.tertiary};
+  color: ${theme.color.gray1};
+  cursor: pointer;
 `;
 
 const BlogPostIntroText = styled.div`
@@ -50,17 +61,24 @@ export interface BlogPostHeadlineProps {
   title: string;
   author?: string;
   timestamp: number;
+  href?: string;
+  tags?: string[];
 }
 
 export function BlogPostHeadLine({
   author,
   timestamp,
   title,
+  href,
 }: BlogPostHeadlineProps) {
   const postDate = convertTimestampToLocaleDateString(timestamp);
   return (
     <>
-      <PostTitle>{title}</PostTitle>
+      {href ? (
+        <PostTitle href={href}>{title}</PostTitle>
+      ) : (
+        <PostLink>{title}</PostLink>
+      )}
       <PostMetadataContainer>
         <span>
           {author ? `By ${author} on` : ""}
@@ -72,15 +90,23 @@ export function BlogPostHeadLine({
   );
 }
 
-export const BlogPostIntro: FunctionComponent<ArticleIntro> = (props) => {
-  const { introText, title, postId, author, timestamp } = props;
-
+export const BlogPostIntro: FunctionComponent<
+  ArticleIntro & { short?: boolean }
+> = ({ introText, title, postId, author, timestamp, short, tags }) => {
   return (
     <Root>
-      <BlogPostHeadLine title={title} author={author} timestamp={timestamp} />
-      <BlogPostIntroText>
-        <Markdown source={introText} />
-      </BlogPostIntroText>
+      <BlogPostHeadLine
+        title={title}
+        author={author}
+        timestamp={timestamp}
+        href={`/blog/${postId}`}
+        tags={tags}
+      />
+      {!short && (
+        <BlogPostIntroText>
+          <Markdown source={introText} />
+        </BlogPostIntroText>
+      )}
       <UnstyledLink
         href={`/blog/${postId}`}
         style={{ justifyContent: "flex-start" }}

@@ -1,0 +1,15 @@
+.inputGradient {
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(90deg, #ff0000, #ff9900) border-box;
+}
+
+.inputGradient:focus {
+  border: 2px solid white;
+  background: #232121;
+  outline: none;
+}
+
+.inputGradient:focus::placeholder {
+  color: transparent;
+}

@@ -1,9 +1,8 @@
+import React from "react";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
-import React from "react";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 // # Step by step introduction, best practices and gotchas for building real time Postgraphile backend with custom subscriptions (WIP)
@@ -109,13 +108,14 @@ There is no
 export const article15Metadata: ArticleIntro = {
   title: `Introduction to realtime Postgraphile with custom subscriptions`,
   postId: "postgraphile-subscriptions",
-  url: "https://emergence-engineering.com/blog/Postgraphile-subscriptions",
+  url: "https://emergence-engineering.com/blog/postgraphile-subscriptions",
   author: "",
   timestamp: 1689149207117,
   authorLink: "https://emergence-engineering.com/cv/torcsi",
   introText:
     "Step by step introduction, best practices and gotchas for building real time Postgraphile backend with custom subscriptions.",
   imgSrc: "",
+  tags: ["Postgraphile", "Real-time Subscriptions", "Backend Development"],
 };
 
 export default function Article() {
@@ -131,9 +131,9 @@ export default function Article() {
         title={article15Metadata.title}
         author={article15Metadata.author}
         timestamp={article15Metadata.timestamp}
+        tags={article15Metadata.tags}
       />
       <Markdown source={MD0} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }

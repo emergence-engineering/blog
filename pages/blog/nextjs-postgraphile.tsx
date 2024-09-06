@@ -1,9 +1,8 @@
+import React from "react";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
-import React from "react";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const MD0 = `
@@ -193,6 +192,7 @@ export const article9Metadata: ArticleIntro = {
   authorLink: null,
   introText:
     "A guide with code samples and a GitHub repository for building a production ready architecture with the following three services: Postgres, Postgraphile and Next.js",
+  tags: ["Next.js", "PostGraphile", "Production Architecture", "Postgres"],
 };
 
 export default function Article() {
@@ -208,9 +208,9 @@ export default function Article() {
         title={article9Metadata.title}
         author={article9Metadata.author}
         timestamp={article9Metadata.timestamp}
+        tags={article9Metadata.tags}
       />
       <Markdown source={MD0} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }
