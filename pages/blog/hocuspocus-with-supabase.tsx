@@ -1,10 +1,9 @@
+import React from "react";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
-import React from "react";
 
 export const MD0 = /* language=md */ `
 # TLDR
@@ -227,6 +226,12 @@ export const article12Metadata: ArticleIntro = {
   authorLink: "https://emergence-engineering.com/cv/torcsi",
   introText:
     "A quick tutorial on how to use Hocuspocus with Supabase to build a quick collaborative editor backend.",
+  tags: [
+    "Hocuspocus",
+    "Supabase",
+    "Collaborative Editing",
+    "Backend Development",
+  ],
 };
 
 export default function Article() {
@@ -242,9 +247,9 @@ export default function Article() {
         title={article12Metadata.title}
         author={article12Metadata.author}
         timestamp={article12Metadata.timestamp}
+        tags={article12Metadata.tags}
       />
       <Markdown source={MD0} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }

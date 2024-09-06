@@ -4,7 +4,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const articlePNPMMetadata: ArticleIntro = {
@@ -17,13 +16,14 @@ export const articlePNPMMetadata: ArticleIntro = {
   imgSrc:
     "https://emergence-engineering.com/monorepo-workspace-with-pnpm-and-git-submodules.png",
   url: "https://emergence-engineering.com/blog/monorepo-workspace-with-pnpm-and-git-submodules",
+  tags: ["PNPM", "Monorepo", "Git Submodules", "Workspace Management"],
 };
 
 const MD0 = /* language=md */ `
 
 ## Introduction
 
-We [ published ](https://emergence-engineering.com/open-source-projects) quite a few open-source packages on NPM. 
+We [ published ](https://emergence-engineering.com/opensource) quite a few open-source packages on NPM. 
 Developing multiple NPM packages that rely on each other is not easy task. There are a lot of ways that things can go wrong: keeping stuff in sync, publishing etc. 
 We tried a couple of other tools to solve this problem: git repo npm modules, \`npm link\` and \`yalc\` so far but no of them was as good as \`pnpm\`.
 Our go-to method now is a pnpm workspace monorepo with git submodules. Very convenient solution for projects with multiple separate git repositories.
@@ -156,9 +156,9 @@ const Article = () => (
       title={articlePNPMMetadata.title}
       author={articlePNPMMetadata.author}
       timestamp={articlePNPMMetadata.timestamp}
+      tags={articlePNPMMetadata.tags}
     />
     <Markdown source={MD0} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

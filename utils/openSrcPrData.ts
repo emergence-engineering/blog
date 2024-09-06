@@ -1,10 +1,21 @@
 import github from "/public/github-mark.svg";
 import npm from "/public/npm-logo.png";
 import gitlab from "/public/gitlab-logo.png";
+import { StaticImageData } from "next/image";
 
-export const projectDetails = [
+export interface OpenSourceProject {
+  title: string;
+  article: string;
+  icon: Array<StaticImageData>;
+  gitLink: string;
+  description: string;
+  command: string;
+  tags: string[];
+}
+
+export const projectDetails: OpenSourceProject[] = [
   {
-    title: "prosemirror: SuggestCat",
+    title: "SuggestCat",
     article: "",
     icon: [github, npm],
     gitLink:
@@ -15,8 +26,8 @@ export const projectDetails = [
     tags: ["ProseMirror", "AI", "grammar correction"],
   },
   {
-    title: "prosemirror: Slash menu",
-    article: "https://emergence-engineering.com/blog/prosemirror-slash-menu",
+    title: "Slash menu",
+    article: "/blog/prosemirror-slash-menu",
     icon: [github, npm],
     gitLink: "https://github.com/emergence-engineering/prosemirror-slash-menu",
     description:
@@ -25,8 +36,8 @@ export const projectDetails = [
     tags: ["ProseMirror", "keyboard navigation"],
   },
   {
-    title: "prosemirror: Slash menu (React)",
-    article: "https://emergence-engineering.com/blog/prosemirror-slash-menu",
+    title: "Slash menu (React)",
+    article: "/blog/prosemirror-slash-menu",
     icon: [github, npm],
     gitLink:
       "https://github.com/emergence-engineering/prosemirror-slash-menu-react",
@@ -36,7 +47,7 @@ export const projectDetails = [
     tags: ["ProseMirror", "React", "keyboard navigation"],
   },
   // {
-  //   title: "prosemirror: Slash menu (Svelte)",
+  //   title: "Slash menu (Svelte)",
   // article: "",
   //   icon: [github, npm],
   //   gitLink:
@@ -47,8 +58,8 @@ export const projectDetails = [
   //   tags: ["ProseMirror", "Svelte"],
   // },
   {
-    title: "prosemirror: Link preview",
-    article: "https://emergence-engineering.com/blog/prosemirror-link-preview",
+    title: "Link preview",
+    article: "/blog/prosemirror-link-preview",
     icon: [github, npm],
     gitLink:
       "https://github.com/emergence-engineering/prosemirror-link-preview",
@@ -63,8 +74,8 @@ export const projectDetails = [
     ],
   },
   {
-    title: "prosemirror: Link plugin",
-    article: "https://emergence-engineering.com/blog/prosemirror-link-plugin",
+    title: "Link plugin",
+    article: "/blog/prosemirror-link-plugin",
     icon: [gitlab, npm],
     gitLink: "https://gitlab.com/emergence-engineering/prosemirror-link-plugin",
     description:
@@ -73,9 +84,8 @@ export const projectDetails = [
     tags: ["ProseMirror", "update on the fly", "alias change detection"],
   },
   {
-    title: "prosemirror: Image plugin",
-    article:
-      "https://emergence-engineering.com/blog/prosemirror-image-plugin-2",
+    title: "Image plugin",
+    article: "/blog/prosemirror-image-plugin-2",
     icon: [gitlab, npm],
     gitLink:
       "https://gitlab.com/emergence-engineering/prosemirror-image-plugin",
@@ -85,8 +95,8 @@ export const projectDetails = [
     tags: ["ProseMirror", "drag&drop", "image uploading", "image resizing"],
   },
   {
-    title: "prosemirror: Paste link",
-    article: " ",
+    title: "Paste link",
+    article: "",
     icon: [gitlab, npm],
     gitLink: "https://gitlab.com/emergence-engineering/prosemirror-paste-link",
     description:
@@ -95,14 +105,13 @@ export const projectDetails = [
     tags: ["ProseMirror", "intelligent paste"],
   },
   {
-    title: "prosemirror: Codemirror block",
-    article:
-      "https://emergence-engineering.com/blog/prosemirror-codemirror-block",
+    title: "Codemirror block",
+    article: "/blog/prosemirror-codemirror-block",
     icon: [gitlab, npm],
     gitLink:
       "https://gitlab.com/emergence-engineering/prosemirror-codemirror-block",
     description:
-      "Release ProseMirror codeblock plugin that uses the brand-new CodeMirror 6, a major improvement over CodeMirror 5.",
+      "Release ProseMirror codeblock plugin that uses the brand-new CodeMirror 6.",
     command: "npm i -S prosemirror-codemirror-block",
     tags: [
       "ProseMirror",

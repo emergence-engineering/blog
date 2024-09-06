@@ -1,9 +1,8 @@
+import React from "react";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
-import React from "react";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 //# A year after we chose to go with PostGraphile over Hasura in production
@@ -73,6 +72,12 @@ export const article8Metadata: ArticleIntro = {
   authorLink: null,
   introText:
     "Summarising our experiences of using PostGraphile in production for more than a year in light of the recent investigation on whether we want to switch to Hasura",
+  tags: [
+    "PostGraphile",
+    "Hasura",
+    "Production Experience",
+    "Database Management",
+  ],
 };
 
 export default function Article() {
@@ -88,9 +93,9 @@ export default function Article() {
         title={article8Metadata.title}
         author={article8Metadata.author}
         timestamp={article8Metadata.timestamp}
+        tags={article8Metadata.tags}
       />
       <Markdown source={MD0} />
-      <SalesBox />
     </ArticleWrapper>
   );
 }

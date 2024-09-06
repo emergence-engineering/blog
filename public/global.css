@@ -1,3 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+  .btn-gradient-border {
+    border-width: 1px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      270deg,
+      #ffd644 0%,
+      #fd7503 50%,
+      #ff1b00 100%
+    );
+  }
+
+  .blur-image-sides {
+    /* filter: blur(5px); */
+    box-shadow: 0 0 16px 16px black inset;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-family: "Open sans", sans-serif;

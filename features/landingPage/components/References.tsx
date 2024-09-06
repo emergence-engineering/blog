@@ -35,11 +35,6 @@ const Root = styled.div`
   }
 `;
 
-const SectionTitle = styled.h1`
-  color: ${theme.color.gray1};
-  margin-bottom: 4rem;
-`;
-
 const SectionContentRoot = styled.div`
   display: flex;
   flex-direction: row;
@@ -328,7 +323,7 @@ const References: FunctionComponent = () => {
         />
       </NextContainer>
 
-      <SectionTitle>Clients said about us</SectionTitle>
+      {/*<SectionTitle>Clients said about us</SectionTitle>*/}
 
       <SectionContentRoot>
         <PartnerRoot>

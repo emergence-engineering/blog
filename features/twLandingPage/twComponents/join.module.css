@@ -1,0 +1,39 @@
+.blackWhiteBgSplit {
+    @media (min-width: 769px){
+        background: linear-gradient(to right, black 50%, white 50%);
+
+    }
+}
+
+.customGridContainer {
+    @media (min-width: 769px) {
+        display: grid;
+        grid-template-areas:
+      "one two"
+      "three four";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: clamp(1rem, 11rem, 15rem);
+    }
+}
+
+.customAreaOne {
+    @media (min-width: 769px) {
+        grid-area: one;
+    }}
+
+
+.customAreaTwo {
+    @media (min-width: 769px) {
+        grid-area: two;
+    }}
+
+.customAreaThree {
+    @media (min-width: 769px) {
+        grid-area: three;
+    }}
+
+.customAreaFour {
+    @media (min-width: 769px) {
+        grid-area: four;
+    }}

@@ -1,13 +1,14 @@
 import React from "react";
-import Layout from "../features/common/components/Layout";
+
+import { TwLayout } from "../features/twLandingPage/twComponents/TwLayout";
 import { LPSEO } from "../features/blog/components/LPSEO";
-import OurReferences from "../features/landingPage/components/OurReferences";
+import { TwOurReferences } from "../features/twReferencesPage/TwOurReferences";
 
 export default function CaseStudies() {
   return (
-    <Layout>
+    <TwLayout>
       <LPSEO />
-      <OurReferences />
-    </Layout>
+      <TwOurReferences />
+    </TwLayout>
   );
 }

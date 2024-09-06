@@ -1,0 +1,151 @@
+/* SECONDARY BUTTON */
+
+.buttonSecondary {
+  background:
+    linear-gradient(#232121, #232121) padding-box,
+    linear-gradient(90deg, #ff0000, #ff9900) border-box;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.buttonSecondary::before {
+  border-radius: 0.5rem;
+  border: 3px solid transparent;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:
+    linear-gradient(#232121, #232121) padding-box,
+    linear-gradient(90deg, #ff9900, #ff0000) border-box;
+
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  margin: -2px;
+}
+
+.buttonSecondary:hover::before {
+  opacity: 1;
+}
+
+.buttonSecondary:active::before {
+  border: 2px solid transparent;
+  opacity: 1;
+}
+
+/* SECONDARY WHITE BUTTON */
+
+.buttonSecondaryWhite {
+  color: black;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #ff0000, #ff9900) border-box;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.buttonSecondaryWhite::before {
+  border-radius: 0.5rem;
+  border: 3px solid transparent;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #ff9900, #ff0000) border-box;
+
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  margin: -2px;
+}
+
+.buttonSecondaryWhite:hover::before {
+  opacity: 1;
+}
+
+.buttonSecondaryWhite:active::before {
+  border: 2px solid transparent;
+  opacity: 1;
+}
+
+/* PRIMARY BUTTON */
+
+.buttonPrimary {
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ff0000) border-box;
+  border: 2px solid transparent;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttonPrimary:hover {
+}
+
+.buttonPrimary::before {
+  border-radius: 0.5rem;
+  border: none;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fe3201;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  margin: -3px;
+}
+
+.buttonPrimary:active::before {
+  opacity: 1;
+}
+
+.buttonBlack {
+}
+
+.buttonBlack:hover {
+  /* background: */
+  /*   linear-gradient(#fff, #fff) padding-box, */
+  /*   linear-gradient(90deg, #ff0000, #ff9900) border-box; */
+  /* color: black; */
+}
+
+.buttonTertiary {
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #ff0000, #ff9900) border-box;
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  color: black;
+  width: max-content;
+}
+
+.buttonTertiary:hover {
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ff0000) border-box;
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: white;
+}

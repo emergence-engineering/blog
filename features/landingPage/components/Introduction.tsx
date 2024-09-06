@@ -29,8 +29,8 @@ export const IntroductionSection = styled.div`
   }
 `;
 
-export const IntroductionParagraph = styled.p`
-  font-size: 1.35rem;
+export const IntroductionH1 = styled.h1`
+  font-size: 2rem;
   font-family: ${theme.fontFamily.title};
   font-weight: 500;
   color: ${theme.color.gray1};
@@ -55,7 +55,7 @@ export const IntroductionFeatureWrapper = styled.div`
   }
 `;
 
-export const IntroductionFeatureStart = styled(IntroductionParagraph)`
+export const IntroductionFeatureStart = styled(IntroductionH1)`
   font-size: 2.8rem;
   padding-bottom: 10px;
 

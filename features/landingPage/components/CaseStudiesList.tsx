@@ -222,7 +222,7 @@ export default function CaseStudiesList() {
         </CaseStudiesWrapper>
       </ContentWrapper>
 
-      <OtherRefWrapper href={"/open-source-projects"}>
+      <OtherRefWrapper href={"/opensource"}>
         <StyledDescription style={{ minWidth: "unset", fontSize: "18pt" }}>
           Let me see the
         </StyledDescription>

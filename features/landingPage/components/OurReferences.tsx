@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import theme, { screenSizes } from "../../../utils/theme";
-import { Description } from "./CaseStudiesList";
 import Link from "next/link";
 import Image from "next/image";
+import theme, { screenSizes } from "../../../utils/theme";
 import github from "/public/github-mark.svg";
 import caseStudiesCat from "/public/casestudies/caseStudiesCat.png";
 import { clickable } from "../../../utils/mixins";
+import { Description } from "./CaseStudiesList";
 
 const Root = styled.div`
   display: flex;
@@ -144,11 +144,7 @@ const OurReferences = () => (
 
     <CardWrapper>
       <Container style={{ backgroundColor: theme.color.gray10 }}>
-        <Link
-          href={"/open-source-projects"}
-          style={{ textDecoration: "none" }}
-          passHref
-        >
+        <Link href={"/opensource"} style={{ textDecoration: "none" }} passHref>
           <Card>
             <CardImg>
               <Image
@@ -163,7 +159,7 @@ const OurReferences = () => (
               You can find projects of ours on GitHub and our useful and
               carefully-built npm packages
             </StyledDescription>
-            <Link href={"/open-source-projects"} passHref>
+            <Link href={"/opensource"} passHref>
               <ViewMore>view more</ViewMore>
             </Link>
           </Card>

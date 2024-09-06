@@ -6,7 +6,6 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 const DynamicEditor = dynamic(
@@ -28,6 +27,7 @@ export const article11Metadata: ArticleIntro = {
   imgSrc:
     "https://discuss.prosemirror.net/uploads/secondsite/original/1X/5005ab45edc1c7b72d1331d43feb55a5cad7b74c.png",
   url: "https://emergence-engineering.com/blog/prosemirror-link-preview",
+  tags: ["ProseMirror", "Link Preview", "Open Source"],
 };
 
 // # Introducing prosemirror-link-preview Plugin
@@ -69,13 +69,13 @@ const Article = () => (
       title={article11Metadata.title}
       author={article11Metadata.author}
       timestamp={article11Metadata.timestamp}
+      tags={article11Metadata.tags}
     />
     <Markdown source={MD0} />
     <EditorStyling>
       <DynamicEditor />
     </EditorStyling>
     <Markdown source={MD1} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;

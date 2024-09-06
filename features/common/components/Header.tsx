@@ -141,7 +141,7 @@ const HeaderLinkRoot: FunctionComponent<HeaderLinkProps & WithRouterProps> = (
   );
 };
 
-const HeaderLink = withRouter(HeaderLinkRoot);
+export const HeaderLink = withRouter(HeaderLinkRoot);
 
 const MobileContainer = styled.div`
   display: none;
@@ -189,7 +189,6 @@ const Header: FunctionComponent = () => (
           <SiteTitle href="/">
             <Image
               src={EELogo}
-              // placeholder={"blur"}
               alt="logo"
               width={265}
               height={48}

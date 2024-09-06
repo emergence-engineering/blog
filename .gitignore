@@ -29,3 +29,4 @@ public/workbox-*
 
 .yalc
 yalc.lock
+.vercel

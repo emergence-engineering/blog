@@ -4,10 +4,8 @@ import ArticleShareOgTags from "../../features/article/components/ArticleShareOg
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import CodeEditor from "../../features/article/components/CodeEditor";
 import Markdown from "../../features/article/components/Markdown";
-import SalesBox from "../../features/article/components/SalesBox";
 import { ArticleIntro } from "../../features/article/types";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
-import { article12Metadata } from "./hocuspocus-with-supabase";
 
 export const article1Metadata: ArticleIntro = {
   title: "Everyday javascript ep. 1: Rest/spread operator pt1.",
@@ -28,6 +26,13 @@ about every small detail of a given feature.
   imgSrc:
     "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
   url: "https://emergence-engineering.com/blog/everyday-javascript-1-spread-operator",
+  tags: [
+    "JavaScript",
+    "Rest Operator",
+    "Spread Operator",
+    "Web Development",
+    "Programming Tips",
+  ],
 };
 
 //# Everyday javascript ep. 1: Rest/spread operator pt1.
@@ -289,7 +294,8 @@ export default function Article() {
         <ArticleHeader
           title={article1Metadata.title}
           author={article1Metadata.author}
-          timestamp={article12Metadata.timestamp}
+          timestamp={article1Metadata.timestamp}
+          tags={article1Metadata.tags}
         />
         <Markdown source={MD0} />
         <CodeEditor
@@ -314,7 +320,6 @@ export default function Article() {
         <Markdown source={MD8} />
         <CodeEditor value={Code7} hiddenCode={sharedCode} />
         <Markdown source={MD9} />
-        <SalesBox />
       </ArticleWrapper>
     </>
   );
