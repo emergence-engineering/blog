@@ -18,10 +18,13 @@ export const TwTestimonial: FC<ITwTestimonialProps> = ({
     <div className="flex h-auto max-w-[15rem] flex-shrink-0 items-start justify-center rounded bg-neutral-800 pb-4 text-white md:max-w-xl">
       <div className="flex flex-col items-center justify-center md:items-start">
         <div className="flex min-h-[84px] flex-col items-center px-4 py-4 md:flex-row md:gap-3">
-          <img
-            className="h-[60px] w-[60px] rounded-full"
+          <Image
+            className="rounded-full"
             src={avatarURL}
             alt={"Avatar"}
+            width={60}
+            height={60}
+            priority
           />
           <div className="flex flex-col items-center md:items-start">
             <div className="text-center font-montserrat text-lg font-bold">
@@ -55,6 +58,7 @@ export const StripeTestimonial = () => {
               src="/stripe-colored-tag.png"
               alt="Stripe Verified Partner"
               fill
+              priority
             />
           </a>
         </div>

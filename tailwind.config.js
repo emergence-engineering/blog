@@ -57,8 +57,8 @@ module.exports = {
         montserrat: ['"Montserrat"', "sans-serif"],
       },
       backgroundImage: {
-        hyperspace: "url('lp/hyperspace.png')",
-        hyperspaceMobile: "url('lp/hyperspace_mobile.png')",
+        hyperspace: "url('lp/hyperspace.webp')",
+        hyperspaceMobile: "url('lp/hyperspace_mobile.webp')",
         "orange-button":
           "linear-gradient(270deg, #FE3301 0%, #FD7503 50%, #FF1B00 100%)",
         "letter-background":

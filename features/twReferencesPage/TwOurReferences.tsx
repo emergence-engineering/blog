@@ -1,19 +1,8 @@
 import React, { useState } from "react";
 
 import { TwContact } from "../twLandingPage/twComponents/TwContact";
-import PlaceofcardsImage from "../../public/lp/placeofcards-sample.png";
-import AxddraftImage from "../../public/lp/axdraft_reference.png";
-import LexImage from "../../public/lp/lex_reference.png";
-import SkiffImage from "../../public/lp/skiff_reference.png";
-import MemriseImage from "../../public/lp/memrise_reference.png";
-import FilteredImage from "../../public/lp/filtered_reference.png";
-import SzamlabridgeImage from "../../public/lp/szamlabridge-sample.png";
-import SuggestcatImage from "../../public/lp/suggestcat-sample.png";
 import { ProductCard } from "../twLandingPage/twComponents/TwProductCard";
-import JumpHigherImage from "../../public/lp/jumphigher.png";
 import { SelectorChip } from "./SelectorChip";
-
-const SwaralinkImage = "/lp/swaralink_reference.svg";
 
 enum SelectOptions {
   ALL = "ALL",
@@ -30,8 +19,8 @@ export const TwOurReferences = () => {
   const [selected, setSelected] = useState<SelectType>(SelectOptions.ALL);
 
   return (
-    <>
-      <div className="flex w-full flex-col items-center justify-center gap-4 bg-white px-3 py-12 lg:gap-16 lg:px-36 lg:py-16">
+    <div className="flex flex-col bg-white">
+      <div className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-4 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
         <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold lg:text-7.5xl">
           OUR{" "}
           <span className="font-pt-sans-narrow text-red-600">REFERENCES</span>
@@ -54,44 +43,44 @@ export const TwOurReferences = () => {
               handleClick={() => setSelected(SelectOptions.OUR_PRODUCTS)}
             />
           </div>
-          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 2xl:grid-cols-3">
+          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
             {(selected === SelectOptions.CLIENT_PROJECTS ||
               selected === SelectOptions.ALL) && (
               <>
                 <ProductCard
                   productName="Axdraft"
                   productDescription="Developed a specialized legal document editor for law firms, enhancing team collaboration and coworker cooperation."
-                  productImage={AxddraftImage.src}
+                  productImage="axdraft"
                   productLink="https://axdraft.com/"
                 />
                 <ProductCard
                   productName="Filtered"
                   productDescription="Created a solution for firms to organize their content for easier usage."
-                  productImage={FilteredImage.src}
+                  productImage="filtered"
                   productLink="https://filtered.com/"
                 />
                 <ProductCard
                   productName="Memrise"
                   productDescription="Partnered with Memrise to develop a language-learning AI companion that assists users in learning languages through conversation."
-                  productImage={MemriseImage.src}
+                  productImage="memrise"
                   productLink="https://memrise.com/"
                 />
                 <ProductCard
                   productName="Swaralink"
                   productDescription="Designed a testing framework for a new Bluetooth product, ensuring production quality on the factory line."
-                  productImage={SwaralinkImage}
+                  productImage="swaralink"
                   productLink="https://swaralink.com/"
                 />
                 <ProductCard
                   productName="Skiff"
                   productDescription="Contributed to feature development for the company, which was later acquired by Notion."
-                  productImage={SkiffImage.src}
+                  productImage="skiff"
                   productLink="https://skiff.com/"
                 />
                 <ProductCard
                   productName="Lex"
                   productDescription="Currently assisting in the creation of a collaborative text editor for writers and editors."
-                  productImage={LexImage.src}
+                  productImage="lex"
                   productLink="https://lex.page/"
                 />
               </>
@@ -104,28 +93,28 @@ export const TwOurReferences = () => {
                   productName="Place of Cards"
                   productLabel="Place-card editor website"
                   productDescription="Event planners can create place cards with an integrated editor or use our custom made designs, then get your printed place cards in a few days. Our main goal was to create a well automated system."
-                  productImage={PlaceofcardsImage.src}
+                  productImage="placeofcards"
                   productLink="https://placeofcards.com/"
                 />
                 <ProductCard
                   productName="SuggestCat"
                   productLabel="AI plugin for rich text editors"
                   productDescription="SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion."
-                  productImage={SuggestcatImage.src}
+                  productImage="suggestcat"
                   productLink="https://suggestcat.com/"
                 />
                 <ProductCard
                   productName="SzamlaBridge"
                   productLabel="Invoicing tool for Stripe"
                   productDescription="SzamlaBridge connects Stripe with invoicing platforms to create legal invoices in Hungary. It features an admin panel where you can manage, view, and test your invoices, streamlining your billing process while ensuring compliance."
-                  productImage={SzamlabridgeImage.src}
+                  productImage="szamlabridge"
                   productLink="https://szamlabridge.com/"
                 />
                 <ProductCard
                   productName="JumpHigher"
                   productLabel="AI fitness app"
                   productDescription="JumpHigher integrates physics and AI to track your jumps and gives you feedback in real time. It’s our new build in public experiment."
-                  productImage={JumpHigherImage.src}
+                  productImage="jumphigher"
                   productLink="https://jumphigher.io/"
                 />
               </>
@@ -134,6 +123,6 @@ export const TwOurReferences = () => {
         </div>
       </div>
       <TwContact />
-    </>
+    </div>
   );
 };

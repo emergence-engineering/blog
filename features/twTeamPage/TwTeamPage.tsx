@@ -4,8 +4,8 @@ import { TwMember } from "./TwMember";
 
 export const TwTeamPage = () => {
   return (
-    <>
-      <div className="flex w-full flex-col items-center justify-center gap-4 bg-white px-3 py-12 lg:gap-16 lg:px-36 lg:py-16">
+    <div className="flex flex-col bg-white">
+      <div className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-4 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
         <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold lg:text-7.5xl">
           MEET THE{" "}
           <span className="font-pt-sans-narrow text-red-600">TEAM</span>
@@ -74,6 +74,6 @@ export const TwTeamPage = () => {
         </div>
       </div>
       <TwContact />
-    </>
+    </div>
   );
 };
