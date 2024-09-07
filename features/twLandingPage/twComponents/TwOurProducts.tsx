@@ -1,9 +1,5 @@
 import { FC } from "react";
 
-import PlaceofcardsImage from "../../../public/lp/placeofcards-sample.png";
-import SzamlabridgeImage from "../../../public/lp/szamlabridge-sample.png";
-import SuggestcatImage from "../../../public/lp/suggestcat-sample.png";
-import JumpHigherImage from "../../../public/lp/jumphigher.png";
 import { ProductCard } from "./TwProductCard";
 
 export const TwOurProducts: FC = () => {
@@ -13,36 +9,38 @@ export const TwOurProducts: FC = () => {
         Our Products
       </div>
       <div className="mb-4 flex w-full flex-col gap-y-4 lg:flex-row lg:gap-x-4">
-        <div className="flex flex-col gap-y-6 lg:max-w-half">
+        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
           <ProductCard
             productName="Place of Cards"
             productLabel="Place-card editor website"
             productDescription="Event planners can create place cards with an integrated editor or use our custom made designs, then get your printed place cards in a few days. Our main goal was to create a well automated system."
-            productImage={PlaceofcardsImage.src}
+            productImage="placeofcards"
             productLink="https://placeofcards.com/"
+            lp
           />
           <ProductCard
             productName="SuggestCat"
             productLabel="AI plugin for rich text editors"
             productDescription="SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion."
-            productImage={SuggestcatImage.src}
+            productImage="suggestcat"
             productLink="https://suggestcat.com/"
+            lp
           />
-        </div>
-        <div className="flex w-full flex-col justify-center gap-y-6">
           <ProductCard
             productName="SzamlaBridge"
             productLabel="Invoicing tool for Stripe"
             productDescription="SzamlaBridge connects Stripe with invoicing platforms to create legal invoices in Hungary. It features an admin panel where you can manage, view, and test your invoices, streamlining your billing process while ensuring compliance."
-            productImage={SzamlabridgeImage.src}
+            productImage="szamlabridge"
             productLink="https://szamlabridge.com/"
+            lp
           />
           <ProductCard
             productName="JumpHigher"
             productLabel="AI fitness app"
             productDescription="JumpHigher integrates physics and AI to track your jumps and gives you feedback in real time. It’s our new build in public experiment."
-            productImage={JumpHigherImage.src}
+            productImage="jumphigher"
             productLink="https://jumphigher.io/"
+            lp
           />
         </div>
       </div>

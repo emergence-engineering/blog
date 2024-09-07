@@ -40,9 +40,9 @@ const ReferenceCard: FC<ReferenceCardProps> = ({
       </div>
 
       <div className="flex flex-col gap-4 border-t border-neutral-700 p-4">
-        <div className="max-w-max rounded-full border border-solid border-neutral-700 px-4 py-2 font-pt-sans uppercase">
-          {tag}
-        </div>
+        {/*<div className="max-w-max rounded-full border border-solid border-neutral-700 px-4 py-2 font-pt-sans uppercase">*/}
+        {/*  {tag}*/}
+        {/*</div>*/}
         <p className="font-montserrat text-base">{content}</p>
         <Link href={websiteLink} label="website" website />
       </div>

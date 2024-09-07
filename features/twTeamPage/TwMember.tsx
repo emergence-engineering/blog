@@ -76,6 +76,7 @@ export const TwMember: FunctionComponent<TwMemberProps> = ({
           sizes="100vw"
           alt="facePic"
           className="rounded-full"
+          priority
         />
       </div>
       <div className="flex flex-col items-center gap-3">

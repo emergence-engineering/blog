@@ -10,15 +10,15 @@ import React, {
 
 import MessageIcon from "../../../public/lp/message.svg";
 import MailIcon from "../../../public/lp/mail.svg";
-import { Input } from "./Input";
-import { Button } from "./Button";
-import { Textarea } from "./TextArea";
 import { post } from "../../../utils/xhr";
 import {
   createHubSpotFormBody,
   formAddress,
 } from "../../landingPage/utils/hubSpotContatForm";
 import { NoticeProps, NoticeType } from "../../common/components/Notice";
+import { Input } from "./Input";
+import { Button } from "./Button";
+import { Textarea } from "./TextArea";
 
 const createClickHandler =
   (callback: Dispatch<SetStateAction<string>>) =>
@@ -117,8 +117,8 @@ export const TwContactUs: FC = () => {
         <Textarea
           name="message"
           handleChange={messageChangeHandler}
-          placeholder="Sanchez"
-          label="Last Name"
+          placeholder="I want more portal fluid, can you help me?"
+          label="Message"
         />
         <Button
           className="self-end"
