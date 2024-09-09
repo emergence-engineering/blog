@@ -17,7 +17,7 @@ export const Textarea: FC<TextareaProps> = ({
 }) => {
   return (
     <div className="relative flex w-full flex-col gap-4 lg:flex-row lg:justify-end">
-      <label className="w-24 self-start text-left text-xs lg:self-center lg:text-right">
+      <label className="w-24 self-start text-left text-xs lg:pt-3 lg:text-right">
         {label}
       </label>
       <div className="relative flex w-full flex-col md:flex-row xl:max-w-[364px]">

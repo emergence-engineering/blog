@@ -1,34 +1,41 @@
-import React from "react";
-import Script from "next/script";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Root = styled.div`
   padding-bottom: 5rem;
   width: 100%;
 `;
 
-const Calendly = () => (
-  <Root>
-    {/*<div*/}
-    {/*  className="calendly-inline-widget"*/}
-    {/*  data-url="https://calendly.com/viktor-vaczi?hide_landing_page_details=1&hide_gdpr_banner=1"*/}
-    {/*></div>*/}
-    {/*<script*/}
-    {/*  type="text/javascript"*/}
-    {/*  src="https://assets.calendly.com/assets/external/widget.js"*/}
-    {/*  async*/}
-    {/*></script>*/}
-    <div
-      className="calendly-inline-widget"
-      data-url="https://calendly.com/viktor-vaczi/chat-with-v"
-      style={{ minWidth: "320px", height: "700px" }}
-    ></div>
-    <Script
-      type="text/javascript"
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></Script>
-  </Root>
-);
+const Calendly = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const reloadCalendlyWidget = () => {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    reloadCalendlyWidget();
+
+    router.events.on("routeChangeComplete", reloadCalendlyWidget);
+
+    return () => {
+      router.events.off("routeChangeComplete", reloadCalendlyWidget);
+    };
+  }, [router.events]);
+
+  return (
+    <Root>
+      <div
+        className="calendly-inline-widget"
+        data-url="https://calendly.com/viktor-vaczi/chat-with-v"
+        style={{ minWidth: "320px", height: "700px" }}
+      ></div>
+    </Root>
+  );
+};
 
 export default Calendly;
