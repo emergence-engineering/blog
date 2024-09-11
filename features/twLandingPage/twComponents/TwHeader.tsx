@@ -11,7 +11,7 @@ import { HamburgerMenu } from "./HamburgerMenu";
 export const TwHeader: FC = () => {
   const router = useRouter();
   return (
-    <Headroom className="z-10 w-full">
+    <Headroom className="z-30 w-full">
       <div className="flex w-full justify-center border-b-2 border-neutral-700 bg-black">
         <div className="grid w-full max-w-[1440px] grid-flow-col items-center justify-between px-3 py-3 lg:px-2 lg:py-2">
           <Link href="/">
