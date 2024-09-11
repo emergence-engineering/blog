@@ -16,6 +16,7 @@ import {
   formAddress,
 } from "../../landingPage/utils/hubSpotContatForm";
 import { NoticeProps, NoticeType } from "../../common/components/Notice";
+import { montserrat } from "../../../utils/fonts";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { Textarea } from "./TextArea";
@@ -72,13 +73,15 @@ export const TwContactUs: FC = () => {
 
   return (
     <div className="align-center flex w-full flex-col justify-start gap-6 border-zinc-600 bg-transparent text-white lg:border-none lg:p-4 xl:gap-3">
-      <div className="flex flex-col items-center justify-center gap-4 font-pt-sans-narrow lg:flex-row xl:mr-[11%] xl:justify-end">
+      <div className="flex flex-col items-center justify-center gap-4 lg:flex-row xl:mr-[11%] xl:justify-end">
         <MessageIcon />
-        <div className="self-center font-pt-sans-narrow text-[28px] font-bold lg:text-4xl">
+        <div className="self-center text-[28px] font-bold lg:text-4xl">
           Write a message
         </div>
       </div>
-      <div className="flex items-center justify-center gap-4 text-left font-montserrat text-base xl:self-end xl:pb-6">
+      <div
+        className={`flex items-center justify-center gap-4 text-left ${montserrat.className} text-base xl:self-end xl:pb-6`}
+      >
         <div className="hidden lg:block">
           <MailIcon />
         </div>

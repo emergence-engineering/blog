@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Link } from "./Link";
 
+import { montserrat } from "../../../utils/fonts";
+import { Link } from "./Link";
 import { referenceData, ReferenceNames } from "./referenceData";
 
 const ReferenceCard: FC<{ product: ReferenceNames }> = ({ product }) => {
@@ -18,7 +19,7 @@ const ReferenceCard: FC<{ product: ReferenceNames }> = ({ product }) => {
           {ProductLogo && <ProductLogo />}
         </div>
         <div className="title pl-2">
-          <h2 className="font-pt-sans-narrow text-3xl font-bold">{title}</h2>
+          <h2 className="text-3xl font-bold">{title}</h2>
         </div>
       </div>
 
@@ -26,7 +27,7 @@ const ReferenceCard: FC<{ product: ReferenceNames }> = ({ product }) => {
         {/*<div className="max-w-max rounded-full border border-solid border-neutral-700 px-4 py-2 font-pt-sans uppercase">*/}
         {/*  {tag}*/}
         {/*</div>*/}
-        <p className="font-montserrat text-base">{content}</p>
+        <p className={`${montserrat.className} text-base`}>{content}</p>
         <Link href={websiteLink} label="website" website />
       </div>
     </div>

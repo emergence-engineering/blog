@@ -12,6 +12,7 @@ import MemriseImage from "../../../public/lp/memrise_reference.png";
 import FilteredImage from "../../../public/lp/filtered_reference.png";
 import SwaralinkImage from "../../../public/lp/swaralink_reference.png";
 
+import { montserrat } from "../../../utils/fonts";
 import { Button } from "./Button";
 import { referenceData, ProductNames, ReferenceNames } from "./referenceData";
 
@@ -44,18 +45,20 @@ export const ProductCard: FC<ProductCardProps> = ({ product, lp }) => {
   return (
     <div className="flex flex-col items-center rounded border border-solid border-black shadow-productCard">
       <div className="flex w-full items-center justify-between bg-black p-4">
-        <div className="font-pt-sans-narrow text-xl font-bold text-white lg:text-3.5xl">
+        <div className="text-xl font-bold text-white lg:text-3.5xl">
           {productName}
         </div>
         {productLabel && (
-          <div className="flex max-w-half items-center justify-center rounded-3xl bg-product-card-yellow px-3 py-2 font-montserrat text-xs leading-normal lg:text-sm">
+          <div
+            className={`flex max-w-half items-center justify-center rounded-3xl bg-product-card-yellow px-3 py-2 ${montserrat.className} text-xs leading-normal lg:text-sm`}
+          >
             {productLabel}
           </div>
         )}
       </div>
       <div className={`flex w-full flex-grow flex-col justify-between p-4`}>
         <div className="flex flex-col gap-4">
-          <div className="font-montserrat text-sm lg:text-base">
+          <div className={`${montserrat.className} text-sm lg:text-base`}>
             {productDescription}
           </div>
           <div className="relative mb-4 flex w-full justify-center">

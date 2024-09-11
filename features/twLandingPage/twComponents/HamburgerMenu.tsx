@@ -6,6 +6,7 @@ import MenuIcon from "../../../public/lp/menu.svg";
 import CloseIcon from "../../../public/lp/close.svg";
 
 import { scrollToContact } from "../utils/scrollToContact";
+import { ptSans } from "../../../utils/fonts";
 import { Button } from "./Button";
 
 const Modal = ({
@@ -53,37 +54,37 @@ export const HamburgerMenu: FC = () => {
             <div className="flex flex-col items-center gap-14 p-8 py-16 text-sm font-bold">
               <Link
                 href="/"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 HOME
               </Link>
               <Link
                 href="/#our-services-section"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 SERVICES
               </Link>
               <Link
                 href="/blog"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/blog" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/blog" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 BLOG
               </Link>
               <Link
                 href="/team"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/team" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/team" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 TEAM
               </Link>
               <Link
                 href="/references"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/references" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/references" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 REFERENCES
               </Link>
               <Link
                 href="/opensource"
-                className={`-mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/opensource" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-7 border-b-4 p-1 px-4 text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/opensource" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 OPEN SOURCE
               </Link>

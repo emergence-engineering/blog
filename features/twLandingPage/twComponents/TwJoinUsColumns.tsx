@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import { montserrat, ptSans } from "../../../utils/fonts";
 
 const TwJoinUsColumns: FC = () => {
   return (
@@ -87,15 +88,17 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs">
+              <div
+                className={`w-fit rounded-full bg-gray-700 px-4 py-2 text-xs ${ptSans.className} uppercase`}
+              >
                 YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
               </div>
             </div>
             <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
+              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
                 01
               </div>
-              <h1 className="font-pt-sans-narrow font-extrabold">PLAN</h1>
+              <h1 className="font-extrabold">PLAN</h1>
             </div>
           </div>
           <div className="customAreaTwo flex items-center justify-center">
@@ -111,17 +114,21 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className="customAreaThree md:text-white">
-            <p className="text-center font-pt-sans-narrow text-xl font-bold md:text-left md:text-4xl">
+            <p className="text-center text-xl font-bold md:text-left md:text-4xl">
               You come to the right place if you
             </p>
             <div className="flex flex-col">
-              <ul className="mt-4 list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
-                <li>Have many questions and feeling unsure.</li>
-                <li>
+              <ul className="mt-4 list-outside list-disc pl-5 text-sm md:text-base">
+                <li className={`${montserrat.className}`}>
+                  Have many questions and feeling unsure.
+                </li>
+                <li className={`${montserrat.className}`}>
                   Feel confused and lost in the tech maze, not knowing what to
                   choose.
                 </li>
-                <li>Need a versatile team that covers everything.</li>
+                <li className={`${montserrat.className}`}>
+                  Need a versatile team that covers everything.
+                </li>
               </ul>
             </div>
           </div>
@@ -136,33 +143,59 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col items-center md:items-start">
-            <div className="my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
               We are the team that
             </div>
-            <ul className="list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
-              <li>
-                <span className="font-bold">keeps asking questions</span>
+            <ul className="list-outside list-disc pl-5 text-sm md:text-base">
+              <li className={`${montserrat.className}`}>
+                <span className={`font-bold ${montserrat.className}`}>
+                  keeps asking questions
+                </span>{" "}
                 until we understand every aspect of
-                <span className="font-bold"> your idea</span>, even the ones you
-                might not have considered.
+                <span className={`font-bold ${montserrat.className}`}>
+                  your idea
+                </span>
+                , even the ones you might not have considered.
               </li>
-              <li>
-                gives you <span className="font-bold">brutal honesty</span>, no
-                sir or madam.
+              <li className={`${montserrat.className}`}>
+                gives you
+                <span className={`font-bold ${montserrat.className}`}>
+                  {" "}
+                  brutal honesty
+                </span>
+                , no sir or madam.
               </li>
-              <li>
+              <li className={`${montserrat.className}`}>
                 uses our tech expertise to help you &quot;get it&quot; and make
                 the choices with
-                <span className="font-bold text-red-500"> you</span>.
+                <span
+                  className={`font-bold ${montserrat.className} text-red-500`}
+                >
+                  {" "}
+                  you
+                </span>
+                .
               </li>
-              <li className="font-montserrat">
+              <li className={`${montserrat.className}`}>
                 has expertise in every stage from product{" "}
-                <span className="font-bold">ideas</span>, through{" "}
-                <span className="font-bold">design</span> and
-                <span className="font-bold"> development</span> to{" "}
-                <span className="font-bold">SEO</span> and
-                <span className="font-bold"> marketing</span>—we&apos;ve done it
-                all.
+                <span className={`font-bold ${montserrat.className}`}>
+                  ideas
+                </span>
+                , through{" "}
+                <span className={`font-bold ${montserrat.className}`}>
+                  design
+                </span>{" "}
+                and{" "}
+                <span className={`font-bold ${montserrat.className}`}>
+                  development
+                </span>{" "}
+                to{" "}
+                <span className={`font-bold ${montserrat.className}`}>SEO</span>{" "}
+                and{" "}
+                <span className={`font-bold ${montserrat.className}`}>
+                  marketing
+                </span>
+                —we&apos;ve done it all.
               </li>
             </ul>
           </div>
@@ -171,15 +204,17 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
+              <div
+                className={`w-fit rounded-full bg-gray-700 px-4 py-2 text-xs ${ptSans.className} uppercase`}
+              >
                 With a solid plan in place lets start building!
               </div>
             </div>
             <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
+              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
                 02
               </div>
-              <h1 className="font-pt-sans-narrow font-extrabold">PROTOTYPE</h1>
+              <h1 className="font-extrabold">PROTOTYPE</h1>
             </div>
           </div>
           <div className="customAreaTwo flex items-center justify-center">
@@ -196,11 +231,9 @@ const TwJoinUsColumns: FC = () => {
           </div>
           <div className={`customAreaThree md:text-white`}>
             <div className="text-xl font-bold md:text-4xl">
-              <div className="font-pt-sans-narrow text-letter-red">
-                We don’t do
-              </div>
+              <div className="text-letter-red">We don’t do</div>
             </div>
-            <div className="mt-2 font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="mt-2 text-xl font-bold md:text-4xl">
               MVPs that take years, feature bloat, overdesigned landing pages
               with 0 users.
             </div>
@@ -215,16 +248,20 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
-            <p className="font- my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <p className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
               We follow a guiding principle based on years of building
               prototypes: Cut the right corners!
             </p>
-            <ul className="list-outside list-disc pl-5 text-left font-montserrat text-sm md:text-base">
-              <li>Launch something as soon as possible</li>
-              <li>
+            <ul className="list-outside list-disc pl-5 text-left text-sm md:text-base">
+              <li className={`${montserrat.className}`}>
+                Launch something as soon as possible
+              </li>
+              <li className={`${montserrat.className}`}>
                 Say no to unnecessary features: focus on what&#39;s important
               </li>
-              <li>Get users and listen to them</li>
+              <li className={`${montserrat.className}`}>
+                Get users and listen to them
+              </li>
             </ul>
             {/* TECHNOLOGY BOX */}
             <div className="mt-10 w-full">
@@ -241,9 +278,7 @@ const TwJoinUsColumns: FC = () => {
                       objectFit: "contain",
                     }}
                   />
-                  <h2 className="font-pt-sans-narrow text-2xl font-bold">
-                    Our technology toolbox
-                  </h2>
+                  <h2 className="text-2xl font-bold">Our technology toolbox</h2>
                   <Image
                     src={"/construction.svg"}
                     alt={"Tools"}
@@ -379,15 +414,17 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
+              <div
+                className={`w-fit rounded-full bg-gray-700 px-4 py-2 text-xs ${ptSans.className} uppercase`}
+              >
                 Let’s test the prototype!
               </div>
             </div>
             <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
+              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
                 03
               </div>
-              <h1 className="font-pt-sans-narrow font-extrabold">VALIDATE</h1>
+              <h1 className="font-extrabold">VALIDATE</h1>
             </div>
           </div>
           <div className={`customAreaTwo flex items-center justify-center`}>
@@ -403,7 +440,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className="customAreaThree md:text-white">
-            <div className="font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="text-xl font-bold md:text-4xl">
               Most products fail due to a lack of validation.
             </div>
           </div>
@@ -417,26 +454,32 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
-            <div className="font- my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
               We will develop, deploy, test, evaluate and rebuild until
               everything works the way it should.
             </div>
-            <div className="my-1 font-pt-sans-narrow text-2xl font-bold">
-              Our secret?
-            </div>
-            <div className="text-l my-1 font-montserrat font-semibold">
+            <div className="my-1 text-2xl font-bold">Our secret?</div>
+            <div
+              className={`text-l my-1 ${montserrat.className} text-custom-charcoal font-semibold`}
+            >
               Continuous delivery
             </div>
-            <div className="text-l mb-5 font-montserrat">
+            <div
+              className={`text-l text-custom-charcoal mb-5 ${montserrat.className}`}
+            >
               Every change we make is instantly visible, allowing for continuous
               and quick feedback from you and from the users. By taking small,
               deliberate steps, we ensure steady progress towards a successful
               product.
             </div>
-            <div className="text-l my-1 font-montserrat font-semibold">
+            <div
+              className={`text-l my-1 ${montserrat.className} text-custom-charcoal font-semibold`}
+            >
               Continuous feedback
             </div>
-            <div className="text-l mb-5 font-montserrat">
+            <div
+              className={`text-l mb-5 ${montserrat.className} text-custom-charcoal`}
+            >
               Your insights, combined with real user feedback, help us uncover
               the missing links: keeping you in the loop and picking your brain
               to make sure we don&#39;t skip over details.
@@ -450,7 +493,7 @@ const TwJoinUsColumns: FC = () => {
                   height={34}
                   style={{ objectFit: "contain" }}
                 />
-                <h2 className="font-pt-sans-narrow text-xl font-bold text-black md:text-4xl">
+                <h2 className="text-xl font-bold text-black md:text-4xl">
                   Rules of the game
                 </h2>
                 <Image
@@ -464,65 +507,93 @@ const TwJoinUsColumns: FC = () => {
 
               <div className="grid grid-cols-1 grid-rows-7 gap-y-6 bg-black p-3">
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     FIT
                   </div>
-                  <div className="flex-3 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`flex-3 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     Don&#39;t under or over-engineer – Create the right solution
                     for the right stage
                   </div>
                 </div>
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     RESOLVE
                   </div>
-                  <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     The right problem – Find the root cause (and fix that)
                   </div>
                 </div>
 
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     REFLECT
                   </div>
-                  <p className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     If something doesn’t go as planned → STOP and think
-                  </p>
+                  </div>
                 </div>
 
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     ITERATE
                   </div>
-                  <p className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     No month long expeditions - The quicker the loop the better
-                  </p>
+                  </div>
                 </div>
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     PARALLELIZE
                   </div>
-                  <p className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     Don’t get stuck on one thing - Run multiple loops at once.
-                  </p>
+                  </div>
                 </div>
 
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     FOCUS
                   </div>
-                  <p className="w col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     Don&#39;t get lost in details - Get moving
-                  </p>
+                  </div>
                 </div>
                 <div className="flex w-full gap-3">
-                  <div className="md:1/6 flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-pt-sans font-bold text-black">
+                  <div
+                    className={`flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 ${ptSans.className} font-bold text-black`}
+                  >
                     INDEPENDENCE
                   </div>
-                  <p className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                  <div
+                    className={`col-span-2 flex w-2/3 ${montserrat.className} md:w-8/12`}
+                  >
                     No micromanagement - Everyone should be able to make
                     decisions
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -532,15 +603,17 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
+              <div
+                className={`w-fit rounded-full bg-gray-700 px-4 py-2 text-xs ${ptSans.className} uppercase`}
+              >
                 Let&#39;s press the launch button. Shall we?:D
               </div>
             </div>
             <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
+              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
                 04
               </div>
-              <h1 className="font-pt-sans-narrow font-extrabold">PRODUCT</h1>
+              <h1 className="font-extrabold">PRODUCT</h1>
             </div>
           </div>
           <div className="customAreaTwo flex items-center justify-center">
@@ -556,10 +629,10 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className="customAreaThree md:text-white">
-            <div className="font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="text-xl font-bold md:text-4xl">
               We did it! The product launch was successful.
             </div>
-            <div className="font-montserrat">
+            <div className={`${montserrat.className}`}>
               There are users, and some revenue also, now we just need to
               maintain, add more features and scale the business to infinity and
               beyond.
@@ -575,7 +648,7 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
-            <div className="font- my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
+            <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
               So, what was the lesson of the story?
               <br />
               Was it the journey itself? <br /> The success at the end?

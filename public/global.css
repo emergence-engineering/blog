@@ -25,6 +25,11 @@
   box-sizing: border-box;
   font-family: "PT Sans Narrow", sans-serif;
 }
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 h1,
 h2,
 h3,

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import EELogo from "../../../public/lp/ee_logo.svg";
 import { scrollToContact } from "../utils/scrollToContact";
+import { ptSans } from "../../../utils/fonts";
 import { Button } from "./Button";
 import { HamburgerMenu } from "./HamburgerMenu";
 
@@ -33,37 +34,37 @@ export const TwHeader: FC = () => {
             <div className="hidden xl:mb-2 xl:flex xl:gap-5 2xl:gap-10">
               <Link
                 href="/"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 HOME
               </Link>
               <Link
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}
                 href="/#our-services-section"
               >
                 SERVICES
               </Link>
               <Link
                 href="/blog"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/blog" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/blog" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 BLOG
               </Link>
               <Link
                 href="/team"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/team" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/team" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 TEAM
               </Link>
               <Link
                 href="/references"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/references" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/references" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 REFERENCES
               </Link>
               <Link
                 href="/opensource"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/opensource" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                className={`${ptSans.className} -mb-6 border-b-4 p-1 pb-[15px] text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/opensource" ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 OPEN SOURCE
               </Link>

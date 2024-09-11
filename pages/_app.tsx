@@ -4,15 +4,9 @@ import Head from "next/head";
 import "../public/global.css";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 import { Provider as UniqueIdGeneratorProvider } from "@inline-svg-unique-id/react";
-import { PT_Sans_Narrow } from "next/font/google";
+import { ptSansNarrow } from "../utils/fonts";
 
 interface MyAppProps extends AppProps {}
-
-const ptSansNarrow = PT_Sans_Narrow({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 class MyApp extends App<MyAppProps> {
   render() {
@@ -32,9 +26,9 @@ class MyApp extends App<MyAppProps> {
         </Head>
         {/* @ts-ignore */}
         <UniqueIdGeneratorProvider>
-          <div className={ptSansNarrow.className}>
+          <main className={ptSansNarrow.className}>
             <Component {...pageProps} />
-          </div>
+          </main>
         </UniqueIdGeneratorProvider>
       </>
     );
