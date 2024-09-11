@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { ProductCard } from "../twLandingPage/twComponents/TwProductCard";
+import {
+  ProductNames,
+  ReferenceNames,
+} from "../twLandingPage/twComponents/referenceData";
 import { SelectorChip } from "./SelectorChip";
 
 enum SelectOptions {
@@ -47,76 +51,21 @@ export const TwOurReferences = () => {
             {(selected === SelectOptions.CLIENT_PROJECTS ||
               selected === SelectOptions.ALL) && (
               <>
-                <ProductCard
-                  productName="Axdraft"
-                  productDescription="Developed a specialized legal document editor for law firms, enhancing team collaboration and coworker cooperation."
-                  productImage="axdraft"
-                  productLink="https://axdraft.com/"
-                />
-                <ProductCard
-                  productName="Filtered"
-                  productDescription="Created a solution for firms to organize their content for easier usage."
-                  productImage="filtered"
-                  productLink="https://filtered.com/"
-                />
-                <ProductCard
-                  productName="Memrise"
-                  productDescription="Partnered with Memrise to develop a language-learning AI companion that assists users in learning languages through conversation."
-                  productImage="memrise"
-                  productLink="https://memrise.com/"
-                />
-                <ProductCard
-                  productName="Swaralink"
-                  productDescription="Designed a testing framework for a new Bluetooth product, ensuring production quality on the factory line."
-                  productImage="swaralink"
-                  productLink="https://swaralink.com/"
-                />
-                <ProductCard
-                  productName="Skiff"
-                  productDescription="Contributed to feature development for the company, which was later acquired by Notion."
-                  productImage="skiff"
-                  productLink="https://skiff.com/"
-                />
-                <ProductCard
-                  productName="Lex"
-                  productDescription="Currently assisting in the creation of a collaborative text editor for writers and editors."
-                  productImage="lex"
-                  productLink="https://lex.page/"
-                />
+                <ProductCard product={ReferenceNames.AXDRAFT} />
+                <ProductCard product={ReferenceNames.FILTERED} />
+                <ProductCard product={ReferenceNames.MEMRISE} />
+                <ProductCard product={ReferenceNames.SWARALINK} />
+                <ProductCard product={ReferenceNames.SKIFF} />
+                <ProductCard product={ReferenceNames.LEX} />
               </>
             )}
-
             {(selected === SelectOptions.OUR_PRODUCTS ||
               selected === SelectOptions.ALL) && (
               <>
-                <ProductCard
-                  productName="Place of Cards"
-                  productLabel="Place-card editor website"
-                  productDescription="Event planners can create place cards with an integrated editor or use our custom made designs, then get your printed place cards in a few days. Our main goal was to create a well automated system."
-                  productImage="placeofcards"
-                  productLink="https://placeofcards.com/"
-                />
-                <ProductCard
-                  productName="SuggestCat"
-                  productLabel="AI plugin for rich text editors"
-                  productDescription="SuggestCat adds AI features to your ProseMirror editor such as grammar correction and text completion."
-                  productImage="suggestcat"
-                  productLink="https://suggestcat.com/"
-                />
-                <ProductCard
-                  productName="SzamlaBridge"
-                  productLabel="Invoicing tool for Stripe"
-                  productDescription="SzamlaBridge connects Stripe with invoicing platforms to create legal invoices in Hungary. It features an admin panel where you can manage, view, and test your invoices, streamlining your billing process while ensuring compliance."
-                  productImage="szamlabridge"
-                  productLink="https://szamlabridge.com/"
-                />
-                <ProductCard
-                  productName="JumpHigher"
-                  productLabel="AI fitness app"
-                  productDescription="JumpHigher integrates physics and AI to track your jumps and gives you feedback in real time. It’s our new build in public experiment."
-                  productImage="jumphigher"
-                  productLink="https://jumphigher.io/"
-                />
+                <ProductCard product={ProductNames.PLACEOFCARDS} />
+                <ProductCard product={ProductNames.SUGGESTCAT} />
+                <ProductCard product={ProductNames.SZAMLABRIDGE} />
+                <ProductCard product={ProductNames.JUMPHIGHER} />
               </>
             )}
           </div>

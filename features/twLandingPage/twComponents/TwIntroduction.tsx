@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { scrollToContact } from "../utils/scrollToContact";
 
 import GregPhoto from "../../../public/partners/greg.jpeg";
@@ -8,6 +10,8 @@ import OlegPhoto from "../../../public/partners/oleg.jpeg";
 import SandeepPhoto from "../../../public/partners/sandeep.jpeg";
 import AchillesPhoto from "../../../public/partners/achilles.png";
 import { scrollToServices } from "../utils/scrollToServices";
+import BGImage from "../../../public/lp/hyperspace.webp";
+import MobileBGImage from "../../../public/lp/hyperspace_mobile.webp";
 import { Button } from "./Button";
 import { StripeTestimonial, TwTestimonial } from "./TwTestimonial";
 
@@ -64,53 +68,95 @@ const Partners = [
 
 export const TwIntroduction = () => {
   return (
-    <div className="flex w-full justify-center bg-black">
-      <div className="blur-image-sides flex w-full flex-col items-center justify-center gap-10 bg-black bg-hyperspaceMobile bg-cover pt-3 text-amber-50 md:bg-hyperspace lg:pt-16">
-        <div>
-          <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold leading-none lg:text-7.5xl">
-            BUILDING APPS IS{" "}
-            <span className="font-pt-sans-narrow text-red-600">HARD...</span>
-          </h1>
-          <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold leading-none lg:text-7.5xl">
-            IF YOU DON’T KNOW{" "}
-            <span className="font-pt-sans-narrow text-red-600">HOW</span>
-          </h1>
-        </div>
-        <h2 className="max-w-2xl px-3 text-center font-pt-sans-narrow text-xl lg:text-4xl">
-          Are you a startup founder, an inventor, or a manager that wants
-          change?
-        </h2>
-        <h2 className="max-w-xl px-3 text-center font-pt-sans-narrow text-xl lg:text-4xl">
-          We are a fully committed development team that will help you along the
-          way towards making a successful product.
-        </h2>
-        <div className="flex w-full flex-col gap-5 px-3 py-8 md:flex-row md:justify-center">
-          <Button
-            theme="secondary"
-            handleClick={scrollToServices}
-            label="Our services"
-          />
-          <Button
-            theme="primary"
-            handleClick={scrollToContact}
-            label="Get a quote"
+    <div className="flex w-full flex-grow flex-col justify-center bg-black">
+      <div className="relative flex">
+        <div className="hidden md:block">
+          <Image
+            src={BGImage.src}
+            alt="background"
+            sizes="100vw"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+              zIndex: 1,
+            }}
+            fill
+            priority
           />
         </div>
+
+        <div className="block md:hidden">
+          <Image
+            src={MobileBGImage.src}
+            alt="background"
+            sizes="100vw"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+              zIndex: 1,
+            }}
+            fill
+            priority
+          />
+        </div>
+
+        <div className="z-10 flex w-full flex-col items-center justify-center gap-10 pt-3 text-amber-50 lg:pt-16">
+          <div>
+            <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold leading-none lg:text-7.5xl">
+              BUILDING APPS IS{" "}
+              <span className="font-pt-sans-narrow text-red-600">HARD...</span>
+            </h1>
+            <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold leading-none lg:text-7.5xl">
+              IF YOU DON’T KNOW{" "}
+              <span className="font-pt-sans-narrow text-red-600">HOW</span>
+            </h1>
+          </div>
+          <h2 className="max-w-2xl px-3 text-center font-pt-sans-narrow text-xl lg:text-4xl">
+            Are you a startup founder, an inventor, or a manager that wants
+            change?
+          </h2>
+          <h2 className="max-w-xl px-3 text-center font-pt-sans-narrow text-xl lg:text-4xl">
+            We are a fully committed development team that will help you along
+            the way towards making a successful product.
+          </h2>
+          <div className="flex w-full flex-col gap-5 px-3 py-8 md:flex-row md:justify-center">
+            <Button
+              theme="secondary"
+              handleClick={scrollToServices}
+              label="Our services"
+            />
+            <Button
+              theme="primary"
+              handleClick={scrollToContact}
+              label="Get a quote"
+            />
+          </div>
           <div className="relative h-[30rem] w-full overflow-x-scroll md:min-h-[20rem]">
             <div className="absolute left-[12px] top-0 flex gap-5 md:left-[200px]">
               <StripeTestimonial />
-              {Partners.map(({ src, saysThat, partnerName, partnerJob }, idx) => (
-                <TwTestimonial
-                  key={idx}
-                  avatarURL={src as string}
-                  name={partnerName}
-                  title={partnerJob}
-                  quote={saysThat}
-                />
-              ))}
+              {Partners.map(
+                ({ src, saysThat, partnerName, partnerJob }, idx) => (
+                  <TwTestimonial
+                    key={idx}
+                    avatarURL={src as string}
+                    name={partnerName}
+                    title={partnerJob}
+                    quote={saysThat}
+                  />
+                ),
+              )}
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };

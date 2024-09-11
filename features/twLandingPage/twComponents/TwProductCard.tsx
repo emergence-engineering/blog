@@ -13,50 +13,34 @@ import FilteredImage from "../../../public/lp/filtered_reference.png";
 import SwaralinkImage from "../../../public/lp/swaralink_reference.png";
 
 import { Button } from "./Button";
-
-enum TwReferences {
-  placeofcards = "placeofcards",
-  szamlabridge = "szamlabridge",
-  suggestcat = "suggestcat",
-  jumphigher = "jumphigher",
-  axdraft = "axdraft",
-  lex = "lex",
-  skiff = "skiff",
-  memrise = "memrise",
-  filtered = "filtered",
-  swaralink = "swaralink",
-}
+import { referenceData, ProductNames, ReferenceNames } from "./referenceData";
 
 const images = {
-  [TwReferences.placeofcards]: PlaceofcardsImage,
-  [TwReferences.szamlabridge]: SzamlabridgeImage,
-  [TwReferences.suggestcat]: SuggestcatImage,
-  [TwReferences.jumphigher]: JumpHigherImage,
-  [TwReferences.axdraft]: AxdraftImage,
-  [TwReferences.lex]: LexImage,
-  [TwReferences.skiff]: SkiffImage,
-  [TwReferences.memrise]: MemriseImage,
-  [TwReferences.filtered]: FilteredImage,
-  [TwReferences.swaralink]: SwaralinkImage,
+  [ProductNames.PLACEOFCARDS]: PlaceofcardsImage,
+  [ProductNames.SZAMLABRIDGE]: SzamlabridgeImage,
+  [ProductNames.SUGGESTCAT]: SuggestcatImage,
+  [ProductNames.JUMPHIGHER]: JumpHigherImage,
+  [ReferenceNames.AXDRAFT]: AxdraftImage,
+  [ReferenceNames.LEX]: LexImage,
+  [ReferenceNames.SKIFF]: SkiffImage,
+  [ReferenceNames.MEMRISE]: MemriseImage,
+  [ReferenceNames.FILTERED]: FilteredImage,
+  [ReferenceNames.SWARALINK]: SwaralinkImage,
 };
 
 interface ProductCardProps {
-  productName: string;
-  productLabel?: string;
-  productDescription: string;
-  productImage: keyof typeof TwReferences;
-  productLink?: string;
+  product: keyof typeof ProductNames | keyof typeof ReferenceNames;
   lp?: boolean;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({
-  productName,
-  productLabel,
-  productImage,
-  productDescription,
-  productLink,
-  lp,
-}) => {
+export const ProductCard: FC<ProductCardProps> = ({ product, lp }) => {
+  const {
+    title: productName,
+    content: productDescription,
+    websiteLink: productLink,
+    tag: productLabel,
+  } = referenceData[product as keyof typeof referenceData];
+
   return (
     <div className="flex flex-col items-center rounded border border-solid border-black shadow-productCard">
       <div className="flex w-full items-center justify-between bg-black p-4">
@@ -76,9 +60,9 @@ export const ProductCard: FC<ProductCardProps> = ({
           </div>
           <div className="relative mb-4 flex w-full justify-center">
             <Image
-              src={images[productImage]}
+              src={images[product as keyof typeof images]}
               alt={productName}
-              width={productName === "Swaralink" ? 340 : 450}
+              width={product === ReferenceNames.SWARALINK ? 340 : 450}
               height={450}
               sizes="(min-width: 1024px) 50vw, 100vw"
               priority={!lp}
