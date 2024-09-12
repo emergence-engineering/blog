@@ -14,7 +14,12 @@ import SwaralinkImage from "../../../public/lp/swaralink_reference.png";
 
 import { montserrat } from "../../../utils/fonts";
 import { Button } from "./Button";
-import { referenceData, ProductNames, ReferenceNames } from "./referenceData";
+import {
+  referenceData,
+  ProductNames,
+  ReferenceNames,
+  Product,
+} from "./referenceData";
 
 const images = {
   [ProductNames.PLACEOFCARDS]: PlaceofcardsImage,
@@ -30,7 +35,7 @@ const images = {
 };
 
 interface ProductCardProps {
-  product: keyof typeof ProductNames | keyof typeof ReferenceNames;
+  product: Product;
   lp?: boolean;
 }
 
@@ -44,51 +49,54 @@ export const ProductCard: FC<ProductCardProps> = ({ product, lp }) => {
 
   return (
     <div className="flex flex-col items-center rounded border border-solid border-black shadow-productCard">
-      <div className="flex w-full items-center justify-between bg-black p-4">
-        <div className="text-xl font-bold text-white lg:text-3.5xl">
-          {productName}
+      <a
+        href={productLink || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex h-full w-full flex-col"
+      >
+        <div className="flex min-h-[68px] w-full items-center justify-between bg-black p-4">
+          <div className="text-xl font-bold text-white lg:text-3.5xl">
+            {productName}
+          </div>
+          {productLabel && (
+            <div
+              className={`flex max-w-half items-center justify-center rounded-3xl bg-product-card-yellow px-3 py-2 ${montserrat.className} text-xs leading-normal lg:text-sm`}
+            >
+              {" "}
+              {productLabel}
+            </div>
+          )}
         </div>
-        {productLabel && (
-          <div
-            className={`flex max-w-half items-center justify-center rounded-3xl bg-product-card-yellow px-3 py-2 ${montserrat.className} text-xs leading-normal lg:text-sm`}
-          >
-            {productLabel}
+        <div className={`flex w-full flex-grow flex-col justify-between p-4`}>
+          <div className="flex flex-col gap-4">
+            <div className={`${montserrat.className} text-sm lg:text-base`}>
+              {productDescription}
+            </div>
+            <div className="relative mb-4 flex w-full justify-center">
+              <Image
+                src={images[product as keyof typeof images]}
+                alt={productName}
+                width={product === ReferenceNames.SWARALINK ? 340 : 450}
+                height={450}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority={!lp}
+                placeholder="blur"
+              />
+            </div>
           </div>
-        )}
-      </div>
-      <div className={`flex w-full flex-grow flex-col justify-between p-4`}>
-        <div className="flex flex-col gap-4">
-          <div className={`${montserrat.className} text-sm lg:text-base`}>
-            {productDescription}
-          </div>
-          <div className="relative mb-4 flex w-full justify-center">
-            <Image
-              src={images[product as keyof typeof images]}
-              alt={productName}
-              width={product === ReferenceNames.SWARALINK ? 340 : 450}
-              height={450}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              priority={!lp}
-              placeholder="blur"
-            />
-          </div>
+          {productLink && (
+            <div className="mt-auto self-end">
+              <Button
+                label="WEBSITE"
+                handleClick={() => {}}
+                theme="tertiary"
+                className="self-end"
+              />
+            </div>
+          )}
         </div>
-        {productLink && (
-          <a
-            href={productLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto self-end"
-          >
-            <Button
-              label="WEBSITE"
-              handleClick={() => {}}
-              theme="tertiary"
-              className="self-end"
-            />
-          </a>
-        )}
-      </div>
+      </a>
     </div>
   );
 };

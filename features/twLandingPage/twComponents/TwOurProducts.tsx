@@ -11,10 +11,9 @@ export const TwOurProducts: FC = () => {
       </div>
       <div className="mb-4 flex w-full flex-col gap-y-4 lg:flex-row lg:gap-x-4">
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
-          <ProductCard product={ProductNames.PLACEOFCARDS} lp />
-          <ProductCard product={ProductNames.SUGGESTCAT} lp />
-          <ProductCard product={ProductNames.SZAMLABRIDGE} lp />
-          <ProductCard product={ProductNames.JUMPHIGHER} lp />
+          {Object.values(ProductNames).map((product) => (
+            <ProductCard key={product} product={product} lp />
+          ))}
         </div>
       </div>
     </div>
