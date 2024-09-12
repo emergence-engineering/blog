@@ -6,9 +6,8 @@ export const TwTeamPage = () => {
   return (
     <div className="flex flex-col bg-white">
       <div className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-4 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
-        <h1 className="px-3 text-center font-pt-sans-narrow text-4.5xl font-bold lg:text-7.5xl">
-          MEET THE{" "}
-          <span className="font-pt-sans-narrow text-red-600">TEAM</span>
+        <h1 className="px-3 text-center text-4.5xl font-bold lg:text-7.5xl">
+          MEET THE <span className="text-red-600">TEAM</span>
         </h1>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
           <TwMember

@@ -7,6 +7,7 @@ import ViktorImage from "../../public/bio/viktor.png";
 import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
 import GithubIcon from "../../public/icons/github-small.svg";
 import LinkedInIcon from "../../public/icons/linkedin-small.svg";
+import { montserrat } from "../../utils/fonts";
 
 const ViktorCV: FunctionComponent = () => {
   return (
@@ -25,10 +26,10 @@ const ViktorCV: FunctionComponent = () => {
           </div>
           <div className="flex w-full flex-col rounded border border-solid border-black">
             <div className="flex w-full border-b border-solid border-black">
-              <div className="flex w-full items-center border-r border-solid border-black p-4 font-pt-sans-narrow text-[34px] font-bold uppercase leading-[38px] text-red-600">
+              <div className="flex w-full items-center border-r border-solid border-black p-4 text-[34px] font-bold uppercase leading-[38px] text-red-600">
                 Viktor Váczi
               </div>
-              <div className="flex w-full items-center p-4 font-pt-sans-narrow text-2xl font-bold uppercase text-black">
+              <div className="flex w-full items-center p-4 text-2xl font-bold uppercase text-black">
                 ceo
               </div>
             </div>
@@ -67,10 +68,10 @@ const ViktorCV: FunctionComponent = () => {
               {/*/>*/}
             </div>
             <div className="flex flex-col gap-[10px] p-4">
-              <div className="font-pt-sans-narrow text-[34px] font-bold text-black">
+              <div className="text-[34px] font-bold text-black">
                 I have a bachelors degree
               </div>
-              <div className="font-montserrat">
+              <div className={`${montserrat.className}`}>
                 I have a bachelors degree in Electrical Engineering from BUTE
                 with an embedded devices specialization. Born with a love in my
                 heart for sciences I picked up programming at 8 and did a lot of

@@ -8,7 +8,7 @@ export const TwScheduleACall: FC = () => {
     <div className="flex w-full flex-col items-center justify-center gap-4 bg-transparent text-white">
       <div className="flex flex-col items-center justify-center gap-4 font-pt-sans-narrow lg:flex-row lg:justify-start">
         <MessageIcon className="h-[120px] w-[120px]" />
-        <div className="w-full self-center font-pt-sans-narrow text-2xl font-bold lg:text-4xl">
+        <div className="w-full self-center text-2xl font-bold lg:text-4xl">
           Schedule a call
         </div>
       </div>

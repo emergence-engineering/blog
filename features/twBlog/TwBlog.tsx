@@ -25,11 +25,11 @@ const TwBlog: FunctionComponent = () => {
 
   return (
     <div className="flex w-full flex-col items-center bg-white text-black">
-      <div className="my-3 flex w-full items-center justify-center font-pt-sans-narrow text-5xl font-bold text-black md:my-6 md:text-7.5xl">
+      <div className="my-3 flex w-full items-center justify-center text-5xl font-bold text-black md:my-6 md:text-7.5xl">
         BLOG
       </div>
       <TabComponent tab={tab} setTab={setTab} />
-      <div className="mb-8 text-center font-pt-sans-narrow text-xl font-bold md:mb-10">
+      <div className="mb-8 text-center text-xl font-bold md:mb-10">
         {tab === "article"
           ? "Explore our curated collection of insightful articles about our" +
             " experiences."
@@ -37,7 +37,7 @@ const TwBlog: FunctionComponent = () => {
       </div>
       <div className="flex flex-col gap-6 px-3 pb-20 md:pb-36">
         {tab === "article" && (
-          <div className="my-3 flex h-24 w-full items-center justify-center text-center font-pt-sans-narrow text-4xl font-bold text-black md:my-6 md:text-7.5xl">
+          <div className="my-3 flex h-24 w-full items-center justify-center text-center text-4xl font-bold text-black md:my-6 md:text-7.5xl">
             <span className="text-red-600">COMING</span>&nbsp;<span>SOON</span>
           </div>
         )}

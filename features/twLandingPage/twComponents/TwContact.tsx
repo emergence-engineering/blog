@@ -48,10 +48,10 @@ export const TwContact = () => {
         <div className="z-10 flex w-full max-w-[1440px] flex-col justify-center gap-16 p-3 xl:p-36">
           <div
             id="contact-us-section"
-            className="w-full max-w-4xl self-center p-6 pb-0 text-center font-pt-sans-narrow text-4.5xl font-bold uppercase leading-none lg:p-0 lg:text-7.5xl"
+            className="w-full max-w-4xl self-center p-6 pb-0 text-center text-4.5xl font-bold uppercase leading-none lg:p-0 lg:text-7.5xl"
           >
             Let’s build great apps
-            <span className="font-pt-sans-narrow text-red-600">together.</span>
+            <span className="text-red-600">together.</span>
           </div>
           <div className="flex w-full flex-col gap-32 xl:flex-row xl:gap-16">
             <TwContactUs />

@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
-import styles from "./button.module.css";
 import RightArrow from "../../../public/lp/right_arrow.svg";
+import { ptSans } from "../../../utils/fonts";
+import styles from "./button.module.css";
 
 export interface ButtonProps {
   handleClick?: () => void;
@@ -61,7 +62,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
       <motion.span
         initial={{ x: 5 }}
         animate={{ x: pos }}
-        className="color-white"
+        className={`color-white ${ptSans.className} tracking-wider`}
       >
         {label}
       </motion.span>

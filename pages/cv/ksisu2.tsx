@@ -5,6 +5,7 @@ import { TwLayout } from "../../features/twLandingPage/twComponents/TwLayout";
 import KsisuImage from "../../public/bio/ksisu.png";
 import GithubIcon from "../../public/icons/github-small.svg";
 import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
+import { montserrat } from "../../utils/fonts";
 
 const KsisuCV: FunctionComponent = () => {
   return (
@@ -23,10 +24,10 @@ const KsisuCV: FunctionComponent = () => {
           </div>
           <div className="flex w-full flex-col rounded border border-solid border-black">
             <div className="flex w-full border-b border-solid border-black">
-              <div className="flex w-full items-center border-r border-solid border-black p-4 font-pt-sans-narrow text-[34px] font-bold uppercase leading-[38px] text-red-600">
+              <div className="flex w-full items-center border-r border-solid border-black p-4 text-[34px] font-bold uppercase leading-[38px] text-red-600">
                 Kristóf Horváth
               </div>
-              <div className="flex w-full items-center p-4 font-pt-sans-narrow text-2xl font-bold uppercase text-black">
+              <div className="flex w-full items-center p-4 text-2xl font-bold uppercase text-black">
                 scala team lead
               </div>
             </div>
@@ -56,10 +57,10 @@ const KsisuCV: FunctionComponent = () => {
               {/*/>*/}
             </div>
             <div className="flex flex-col gap-[10px] p-4">
-              <div className="font-pt-sans-narrow text-[34px] font-bold text-black">
+              <div className="text-[34px] font-bold text-black">
                 I have a BSc degree
               </div>
-              <div className="font-montserrat">
+              <div className={`${montserrat.className}`}>
                 I have a BSc degree in Informatics from BUTE with software
                 architecture specialization. Interested in Scala, hard DevOps
                 problems, teaching & a maybe little bit of embedded. Father of

@@ -68,6 +68,7 @@ module.exports = {
         "letter-red": "rgba(255, 27, 0, 1)", // You can name this color anything you like
         "product-card-gradient": "#FF1B00",
         customGray: "#373737",
+        "custom-charcoal": "#585858",
       },
       textColor: {
         transparent: "transparent",

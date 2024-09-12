@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import ReactMarkdown from "react-markdown";
 
+import { montserrat } from "../../../utils/fonts";
 import CodeHighlight from "./CodeHighlight";
 
 export type MarkdownText = string;
@@ -19,12 +20,22 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
         code: CodeHighlight,
         a: ({ node, ...props }) =>
           formatLinks ? (
-            <a {...props} className="font-semibold underline">
+            <a
+              {...props}
+              className={`${montserrat.className} font-semibold underline`}
+            >
               {props.children}
             </a>
           ) : (
-            <a {...props}>{props.children}</a>
+            <a {...props} className={`${montserrat.className} `}>
+              {props.children}
+            </a>
           ),
+        p: ({ ...props }) => (
+          <p {...props} className={`${montserrat.className}`}>
+            {props.children}
+          </p>
+        ),
       }}
     >
       {source}

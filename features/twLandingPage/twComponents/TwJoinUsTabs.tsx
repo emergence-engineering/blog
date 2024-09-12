@@ -29,7 +29,7 @@ const IconWrapper: FC<IconWrapperProps> = ({ label, alt, Icon }) => {
 export const TwJoinUsTabs: FC = () => {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-11 bg-white p-8 md:p-16">
-      <h1 className="text-center font-pt-sans-narrow text-xl font-bold lg:mb-20 lg:max-w-3xl lg:text-4xl">
+      <h1 className="text-center text-xl font-bold lg:mb-20 lg:max-w-3xl lg:text-4xl">
         Join us on a journey, and we will guide you through our process,
         developed over years.
       </h1>

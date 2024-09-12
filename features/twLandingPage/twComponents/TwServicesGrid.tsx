@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { montserrat } from "../../../utils/fonts";
 import { Button } from "./Button";
 
 export interface TwServiceCardProps {
@@ -23,12 +24,14 @@ export const TwServiceCard: FC<TwServiceCardProps> = ({
           <Icon className="h-[100px] w-[100px]" />
         </div>
         <div className="title pl-2">
-          <h2 className="font-pt-sans-narrow text-3xl font-bold">{title}</h2>
+          <h2 className="text-3xl font-bold">{title}</h2>
         </div>
       </div>
 
       <div className="flex flex-col border-t p-4">
-        <p className="font-montserrat text-base font-normal">{content}</p>
+        <p className={`${montserrat.className} text-base font-normal`}>
+          {content}
+        </p>
         {clickable && (
           <Button
             label="READ MORE"
