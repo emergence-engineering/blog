@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { ProductCard } from "../twLandingPage/twComponents/TwProductCard";
 import {
-  ProductNames,
-  ReferenceNames,
+  Product,
+  referenceData,
 } from "../twLandingPage/twComponents/referenceData";
 import { SelectorChip } from "./SelectorChip";
 
@@ -21,6 +21,21 @@ type SelectType =
 
 export const TwOurReferences = () => {
   const [selected, setSelected] = useState<SelectType>(SelectOptions.ALL);
+  const filteredData = useMemo(() => {
+    return Object.entries(referenceData)
+      .filter(([key, data]) => {
+        switch (selected) {
+          case SelectOptions.CLIENT_PROJECTS:
+            return data.productType === "CLIENT";
+          case SelectOptions.OUR_PRODUCTS:
+            return data.productType === "INTERNAL";
+          case SelectOptions.ALL:
+          default:
+            return true;
+        }
+      })
+      .map(([key, data]) => ({ key, ...data }));
+  }, [selected]);
 
   return (
     <div className="flex flex-col bg-white">
@@ -47,26 +62,11 @@ export const TwOurReferences = () => {
             />
           </div>
           <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
-            {(selected === SelectOptions.CLIENT_PROJECTS ||
-              selected === SelectOptions.ALL) && (
-              <>
-                <ProductCard product={ReferenceNames.AXDRAFT} />
-                <ProductCard product={ReferenceNames.FILTERED} />
-                <ProductCard product={ReferenceNames.MEMRISE} />
-                <ProductCard product={ReferenceNames.SWARALINK} />
-                <ProductCard product={ReferenceNames.SKIFF} />
-                <ProductCard product={ReferenceNames.LEX} />
-              </>
-            )}
-            {(selected === SelectOptions.OUR_PRODUCTS ||
-              selected === SelectOptions.ALL) && (
-              <>
-                <ProductCard product={ProductNames.PLACEOFCARDS} />
-                <ProductCard product={ProductNames.SUGGESTCAT} />
-                <ProductCard product={ProductNames.SZAMLABRIDGE} />
-                <ProductCard product={ProductNames.JUMPHIGHER} />
-              </>
-            )}
+            {filteredData
+              ? filteredData.map((data) => (
+                  <ProductCard key={data.key} product={data.key as Product} />
+                ))
+              : null}
           </div>
         </div>
       </div>
