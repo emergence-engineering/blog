@@ -8,8 +8,6 @@ import {
   IntroductionSection,
   IntroductionSectionWrapper,
 } from "../features/landingPage/components/Introduction";
-import Layout from "../features/common/components/Layout";
-import SalesFormSection from "../features/landingPage/components/SalesMessageForm";
 import theme from "../utils/theme";
 import { Separator } from "../features/common/components/Separator";
 import {
@@ -30,11 +28,13 @@ import Chapterly from "../public/lp/chapterly.svg";
 
 import SuggestCatScrenshot from "../public/lp/suggestcat-screenshot.png";
 import {
-  BlogPostIntro,
   BlogPostsContentWrapper,
   BlogPostsRoot,
 } from "../features/blog/components";
 
+import { TwLayout } from "../features/twLandingPage/twComponents/TwLayout";
+import { TwContact } from "../features/twLandingPage/twComponents/TwContact";
+import PostCard from "../features/twBlog/PostCard";
 import { articlePluginSystemMetadata } from "./blog/prosemirror-plugin-system";
 import { article13Metadata } from "./blog/prosemirror-slash-menu";
 import { article11Metadata } from "./blog/prosemirror-link-preview";
@@ -63,7 +63,7 @@ const ReferenceItem = styled.div`
 
 const Index: FunctionComponent = () => {
   return (
-    <Layout>
+    <TwLayout>
       <Head>
         <title>{title}</title>
         <meta
@@ -215,28 +215,28 @@ const Index: FunctionComponent = () => {
           <SubTitle>Blog posts</SubTitle>
           <BlogPostsRoot>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...articlePluginSystemMetadata} short />
+              <PostCard {...articlePluginSystemMetadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article13Metadata} short />
+              <PostCard {...article13Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article11Metadata} short />
+              <PostCard {...article11Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article6Metadata} short />
+              <PostCard {...article6Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article5Metadata} short />
+              <PostCard {...article5Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article4Metadata} short />
+              <PostCard {...article4Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article3Metadata} short />
+              <PostCard {...article3Metadata} />
             </BlogPostsContentWrapper>
             <BlogPostsContentWrapper>
-              <BlogPostIntro {...article2Metadata} short />
+              <PostCard {...article2Metadata} />
             </BlogPostsContentWrapper>
           </BlogPostsRoot>
           <SubTitle>Open source</SubTitle>
@@ -261,8 +261,8 @@ const Index: FunctionComponent = () => {
         color={theme.color.tertiary}
         backGroundColor={theme.color.background2}
       />
-      <SalesFormSection />
-    </Layout>
+      <TwContact />
+    </TwLayout>
   );
 };
 
