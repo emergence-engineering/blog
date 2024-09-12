@@ -1,4 +1,5 @@
 import React from "react";
+import useLpAnimation from "../utils/useLpAnimation";
 import { TwIntroduction } from "./TwIntroduction";
 import { TwJoinUsTabs } from "./TwJoinUsTabs";
 import TwJoinUsColumns from "./TwJoinUsColumns";
@@ -9,8 +10,9 @@ import { TwJoinUsEndCard } from "./TwJoingUsEndCard";
 import { TwContact } from "./TwContact";
 
 export const TwLandingPage = () => {
+  useLpAnimation();
   return (
-    <div className="flex w-full flex-col justify-center bg-white">
+    <div className="flex w-full flex-col justify-center bg-white" id="gsapPin">
       <style jsx>{`
         .blackWhiteBgSplit {
           @media (min-width: 769px) {
@@ -21,7 +23,7 @@ export const TwLandingPage = () => {
       <TwIntroduction />
       <TwJoinUsTabs />
       <div className="blackWhiteBgSplit flex w-full justify-center">
-        <div className="flex max-w-[1440px] flex-grow">
+        <div id="gsapContainer" className="flex max-w-[1440px] flex-grow">
           <TwJoinUsColumns />
         </div>
       </div>
