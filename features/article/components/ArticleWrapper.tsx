@@ -33,7 +33,6 @@ const BlogContent = styled.section`
     text-decoration-color: black;
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 700;
-    letter-spacing: -0.04em;
   }
   h2 {
     font-size: 1.4rem;

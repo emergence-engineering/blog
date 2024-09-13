@@ -17,6 +17,7 @@ import { article17Metadata } from "../../pages/blog/lexical-link-preview-plugin"
 import { articlePluginSystemMetadata } from "../../pages/blog/prosemirror-plugin-system";
 import { articlePNPMMetadata } from "../../pages/blog/monorepo-workspace-with-pnpm-and-git-submodules";
 import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-menu-plugin";
+import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes-how-to-pick-a-team";
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
 
@@ -36,11 +37,7 @@ const TwBlog: FunctionComponent = () => {
           : "Our solutions to tech challenges we faced"}
       </div>
       <div className="flex flex-col gap-6 px-3 pb-20 md:pb-36">
-        {tab === "article" && (
-          <div className="my-3 flex h-24 w-full items-center justify-center text-center text-4xl font-bold text-black md:my-6 md:text-7.5xl">
-            <span className="text-red-600">COMING</span>&nbsp;<span>SOON</span>
-          </div>
-        )}
+        {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
         {tab === "tech" && (
           <>
             <PostCard {...articlePNPMMetadata} />
