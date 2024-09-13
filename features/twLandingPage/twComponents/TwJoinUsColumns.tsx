@@ -85,101 +85,99 @@ const TwJoinUsColumns: FC = () => {
         {/*  />*/}
         {/*</div>*/}
 
-        <div className="relative">
+        <div
+          id="section-1"
+          className="customGridContainer absolute flex flex-col opacity-0"
+        >
+          <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
+            <div className="my-3 justify-self-center">
+              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs">
+                YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
+              </div>
+            </div>
+            <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
+                01
+              </div>
+              <h1 className="font-pt-sans-narrow font-extrabold">PLAN</h1>
+            </div>
+          </div>
           <div
-            id="section-1"
-            className="customGridContainer absolute flex flex-col opacity-0"
+            className="customAreaTwo flex items-center justify-center opacity-0"
+            id="sec-1-illustration"
           >
-            <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
-              <div className="my-3 justify-self-center">
-                <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs">
-                  YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
-                </div>
-              </div>
-              <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-                <div className="mr-4 w-fit bg-letter-background bg-clip-text font-pt-sans-narrow font-bold text-transparent">
-                  01
-                </div>
-                <h1 className="font-pt-sans-narrow font-extrabold">PLAN</h1>
-              </div>
-            </div>
-            <div
-              className="customAreaTwo flex items-center justify-center opacity-0"
-              id="sec-1-illustration"
-            >
-              <div className="justify-self-center">
-                <Image
-                  src={"/illustrations/Illustration_Plan.png"}
-                  alt={"Illustration Plan"}
-                  width={170}
-                  height={280}
-                  style={{ objectFit: "contain" }}
-                  className="h-auto w-[250px] md:w-[461px]"
-                />
-              </div>
-            </div>
-            <div
-              className="customAreaThree opacity-0 md:text-white"
-              id="sec-1-intro"
-            >
-              <p className="text-center font-pt-sans-narrow text-xl font-bold md:text-left md:text-4xl">
-                You come to the right place if you
-              </p>
-              <div className="flex flex-col">
-                <ul className="mt-4 list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
-                  <li>Have many questions and feeling unsure.</li>
-                  <li>
-                    Feel confused and lost in the tech maze, not knowing what to
-                    choose.
-                  </li>
-                  <li>Need a versatile team that covers everything.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-3 flex w-full justify-center md:hidden">
+            <div className="justify-self-center">
               <Image
-                src={"/illustrations/Arrow_Down.svg"}
-                alt={"Down Arrow"}
-                width={40}
-                height={100}
+                src={"/illustrations/Illustration_Plan.png"}
+                alt={"Illustration Plan"}
+                width={170}
+                height={280}
                 style={{ objectFit: "contain" }}
+                className="h-auto w-[250px] md:w-[461px]"
               />
             </div>
-            <div
-              className="customAreaFour flex flex-col items-center opacity-0 md:items-start"
-              id="sec-1-description"
-            >
-              <div className="my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
-                We are the team that
-              </div>
-              <ul className="list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
+          </div>
+          <div
+            className="customAreaThree opacity-0 md:text-white"
+            id="sec-1-intro"
+          >
+            <p className="text-center font-pt-sans-narrow text-xl font-bold md:text-left md:text-4xl">
+              You come to the right place if you
+            </p>
+            <div className="flex flex-col">
+              <ul className="mt-4 list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
+                <li>Have many questions and feeling unsure.</li>
                 <li>
-                  <span className="font-bold">keeps asking questions</span>
-                  until we understand every aspect of
-                  <span className="font-bold"> your idea</span>, even the ones
-                  you might not have considered.
+                  Feel confused and lost in the tech maze, not knowing what to
+                  choose.
                 </li>
-                <li>
-                  gives you <span className="font-bold">brutal honesty</span>,
-                  no sir or madam.
-                </li>
-                <li>
-                  uses our tech expertise to help you &quot;get it&quot; and
-                  make the choices with
-                  <span className="font-bold text-red-500"> you</span>.
-                </li>
-                <li className="font-montserrat">
-                  has expertise in every stage from product
-                  <span className="font-bold">ideas</span>, through
-                  <span className="font-bold">design</span> and
-                  <span className="font-bold"> development</span> to
-                  <span className="font-bold">SEO</span> and
-                  <span className="font-bold"> marketing</span>—we&apos;ve done
-                  it all.
-                </li>
+                <li>Need a versatile team that covers everything.</li>
               </ul>
             </div>
+          </div>
+
+          <div className="mt-3 flex w-full justify-center md:hidden">
+            <Image
+              src={"/illustrations/Arrow_Down.svg"}
+              alt={"Down Arrow"}
+              width={40}
+              height={100}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+          <div
+            className="customAreaFour flex flex-col items-center opacity-0 md:items-start"
+            id="sec-1-description"
+          >
+            <div className="my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
+              We are the team that
+            </div>
+            <ul className="list-outside list-disc pl-5 font-montserrat text-sm md:text-base">
+              <li>
+                <span className="font-bold">keeps asking questions</span>
+                until we understand every aspect of
+                <span className="font-bold"> your idea</span>, even the ones you
+                might not have considered.
+              </li>
+              <li>
+                gives you <span className="font-bold">brutal honesty</span>, no
+                sir or madam.
+              </li>
+              <li>
+                uses our tech expertise to help you &quot;get it&quot; and make
+                the choices with
+                <span className="font-bold text-red-500"> you</span>.
+              </li>
+              <li className="font-montserrat">
+                has expertise in every stage from product
+                <span className="font-bold">ideas</span>, through
+                <span className="font-bold">design</span> and
+                <span className="font-bold"> development</span> to
+                <span className="font-bold">SEO</span> and
+                <span className="font-bold"> marketing</span>—we&apos;ve done it
+                all.
+              </li>
+            </ul>
           </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
@@ -419,7 +417,10 @@ const TwJoinUsColumns: FC = () => {
                 <h1 className="font-pt-sans-narrow font-extrabold">VALIDATE</h1>
               </div>
             </div>
-            <div className={`customAreaTwo flex items-center justify-center`}>
+            <div
+              id="sec-3-illustration"
+              className="customAreaTwo flex items-center justify-center opacity-0"
+            >
               <div className="justify-self-center">
                 <Image
                   src={"/illustrations/Illustration_Validate.png"}
@@ -431,7 +432,10 @@ const TwJoinUsColumns: FC = () => {
                 />
               </div>
             </div>
-            <div className="customAreaThree md:text-white">
+            <div
+              id="sec-3-intro"
+              className="customAreaThree opacity-0 md:text-white"
+            >
               <div className="font-pt-sans-narrow text-xl font-bold md:text-4xl">
                 Most products fail due to a lack of validation.
               </div>
@@ -445,7 +449,10 @@ const TwJoinUsColumns: FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <div className="customAreaFour flex flex-col">
+            <div
+              id="sec-3-description"
+              className="customAreaFour flex flex-col opacity-0"
+            >
               <div className="font- my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
                 We will develop, deploy, test, evaluate and rebuild until
                 everything works the way it should.
@@ -575,7 +582,10 @@ const TwJoinUsColumns: FC = () => {
                 <h1 className="font-pt-sans-narrow font-extrabold">PRODUCT</h1>
               </div>
             </div>
-            <div className="customAreaTwo flex items-center justify-center">
+            <div
+              id="sec-4-illustration"
+              className="customAreaTwo flex items-center justify-center opacity-0"
+            >
               <div className="justify-self-center">
                 <Image
                   src={"/illustrations/Product.png"}
@@ -587,7 +597,10 @@ const TwJoinUsColumns: FC = () => {
                 />
               </div>
             </div>
-            <div className="customAreaThree md:text-white">
+            <div
+              id="sec-4-intro"
+              className="customAreaThree opacity-0 md:text-white"
+            >
               <div className="font-pt-sans-narrow text-xl font-bold md:text-4xl">
                 We did it! The product launch was successful.
               </div>
@@ -606,7 +619,10 @@ const TwJoinUsColumns: FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <div className="customAreaFour flex flex-col">
+            <div
+              id="sec-4-description"
+              className="customAreaFour flex flex-col opacity-0"
+            >
               <div className="font- my-3 justify-self-center font-pt-sans-narrow text-xl font-bold md:text-4xl">
                 So, what was the lesson of the story?
                 <br />
