@@ -30,6 +30,7 @@ export const TwOurServices: FC = () => {
           Icon={RichTextIcon}
           title="Rich Text editors"
           content="The next Google docs or a great input for a chat: we got you covered."
+          path="/prosemirror"
         />
         <TwServiceCard
           Icon={FintechIcon}
