@@ -66,7 +66,7 @@ const Index: FunctionComponent = () => {
           content="https://emergence-engineering.com/ee-icon-192192.png"
         />
       </Head>
-      <div className="flex w-full flex-col items-center gap-4 bg-white pb-8 md:pb-16">
+      <div className="flex w-full flex-col items-center gap-4 bg-white px-3 pb-8 md:pb-16">
         <h1 className="my-3 flex w-full items-center justify-center text-5xl font-bold text-black md:my-6 md:text-7.5xl">
           PROSEMIRROR
         </h1>
@@ -151,7 +151,7 @@ const Index: FunctionComponent = () => {
           </p>
           <h2 className="text-2xl">We worked on</h2>
           <div className="flex w-full items-center justify-center gap-4">
-            <div className="flex items-center justify-center gap-4 md:gap-8">
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-8">
               <Link href="#" target="_blank">
                 <Lex />
               </Link>
