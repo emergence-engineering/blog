@@ -51,42 +51,54 @@ const TwJoinUsColumns: FC = () => {
         id="join_us_root"
         className="blackWhiteBgSplit md:pb-15 relative grid h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 font-pt-sans-narrow text-white md:text-black"
       >
-        {/*<div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">*/}
-        {/*  <Image*/}
-        {/*    src={"/illustrations/Arrow_Right.svg"}*/}
-        {/*    alt={"Right Arrow"}*/}
-        {/*    width={120}*/}
-        {/*    height={60}*/}
-        {/*    style={{ objectFit: "contain" }}*/}
-        {/*  />*/}
-        {/*</div>*/}
-        {/*<div className="hidden lg:absolute lg:left-1/2 lg:top-[54em] lg:block lg:-translate-x-1/2 lg:transform">*/}
-        {/*  <Image*/}
-        {/*    src={"/illustrations/Arrow_Right.svg"}*/}
-        {/*    alt={"Right Arrow"}*/}
-        {/*    width={120}*/}
-        {/*    height={60}*/}
-        {/*    style={{ objectFit: "contain" }}*/}
-        {/*  />*/}
-        {/*</div>*/}
-        {/*<div className="hidden lg:absolute lg:left-1/2 lg:top-[99rem] lg:block lg:-translate-x-1/2 lg:transform">*/}
-        {/*  <Image*/}
-        {/*    src={"/illustrations/Arrow_Right.svg"}*/}
-        {/*    alt={"Right Arrow"}*/}
-        {/*    width={120}*/}
-        {/*    height={60}*/}
-        {/*    style={{ objectFit: "contain" }}*/}
-        {/*  />*/}
-        {/*</div>*/}
-        {/*<div className="hidden lg:absolute lg:left-1/2 lg:top-[187rem] lg:block lg:-translate-x-1/2 lg:transform">*/}
-        {/*  <Image*/}
-        {/*    src={"/illustrations/Arrow_Right.svg"}*/}
-        {/*    alt={"Right Arrow"}*/}
-        {/*    width={120}*/}
-        {/*    height={60}*/}
-        {/*    style={{ objectFit: "contain" }}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div
+          id="sec-1-arrow"
+          className="hidden lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform lg:opacity-0"
+        >
+          <Image
+            src={"/illustrations/Arrow_Right.svg"}
+            alt={"Right Arrow"}
+            width={120}
+            height={60}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+        <div
+          id="sec-2-arrow"
+          className="hidden opacity-0 lg:absolute lg:left-1/2 lg:top-[19.5em] lg:block lg:-translate-x-1/2 lg:transform"
+        >
+          <Image
+            src={"/illustrations/Arrow_Right.svg"}
+            alt={"Right Arrow"}
+            width={120}
+            height={60}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+        <div
+          id="sec-3-arrow"
+          className="hidden opacity-0 lg:absolute lg:left-1/2 lg:top-[14rem] lg:block lg:-translate-x-1/2 lg:transform"
+        >
+          <Image
+            src={"/illustrations/Arrow_Right.svg"}
+            alt={"Right Arrow"}
+            width={120}
+            height={60}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+        <div
+          id="sec-4-arrow"
+          className="hidden opacity-0 lg:absolute lg:left-1/2 lg:top-[12.5rem] lg:block lg:-translate-x-1/2 lg:transform"
+        >
+          <Image
+            src={"/illustrations/Arrow_Right.svg"}
+            alt={"Right Arrow"}
+            width={120}
+            height={60}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
 
         <div
           id="section-1"
@@ -634,10 +646,7 @@ const TwJoinUsColumns: FC = () => {
                 and beyond.
               </div>
             </div>
-            <div
-              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
-              id="sec-4-arrow"
-            >
+            <div className="mt-3 flex w-full justify-center opacity-0 md:hidden">
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
