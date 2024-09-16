@@ -90,9 +90,12 @@ const TwJoinUsColumns: FC = () => {
 
         <div
           id="section-1"
-          className="customGridContainer absolute flex flex-col opacity-0"
+          className="customGridContainer absolute flex flex-col px-2 opacity-0"
         >
-          <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
+          <div
+            id="sec-1-label"
+            className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+          >
             <div className="my-3 justify-self-center">
               <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs">
                 YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
@@ -139,7 +142,10 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
 
-          <div className="mt-3 flex w-full justify-center md:hidden">
+          <div
+            className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+            id="sec-1-arrow"
+          >
             <Image
               src={"/illustrations/Arrow_Down.svg"}
               alt={"Down Arrow"}
@@ -184,9 +190,12 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
-        <div id="section-2" className="absolute opacity-0">
+        <div id="section-2" className="absolute px-2 opacity-0">
           <div className="customGridContainer flex flex-col">
-            <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
+            <div
+              id="sec-2-label"
+              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+            >
               <div className="my-3 justify-self-center">
                 <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
                   With a solid plan in place lets start building!
@@ -230,7 +239,10 @@ const TwJoinUsColumns: FC = () => {
                 with 0 users.
               </div>
             </div>
-            <div className="mt-3 flex w-full justify-center md:hidden">
+            <div
+              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+              id="sec-2-arrow"
+            >
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
@@ -405,9 +417,12 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 3 SECTION |||||||||||| */}
-        <div id="section-3" className="absolute opacity-0">
+        <div id="section-3" className="absolute px-2 opacity-0">
           <div className="customGridContainer flex flex-col">
-            <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
+            <div
+              id="sec-3-label"
+              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+            >
               <div className="my-3 justify-self-center">
                 <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
                   Let’s test the prototype!
@@ -443,7 +458,10 @@ const TwJoinUsColumns: FC = () => {
                 Most products fail due to a lack of validation.
               </div>
             </div>
-            <div className="mt-3 flex w-full justify-center md:hidden">
+            <div
+              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+              id="sec-3-arrow"
+            >
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
@@ -570,9 +588,12 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 4 SECTION |||||||||||| */}
-        <div id="section-4" className="absolute opacity-0">
+        <div id="section-4" className="absolute px-2 opacity-0">
           <div className="customGridContainer flex flex-col">
-            <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
+            <div
+              id="sec-4-label"
+              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+            >
               <div className="my-3 justify-self-center">
                 <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-pt-sans text-xs uppercase">
                   Let&#39;s press the launch button. Shall we?:D
@@ -613,7 +634,10 @@ const TwJoinUsColumns: FC = () => {
                 and beyond.
               </div>
             </div>
-            <div className="mt-3 flex w-full justify-center md:hidden">
+            <div
+              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+              id="sec-4-arrow"
+            >
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
