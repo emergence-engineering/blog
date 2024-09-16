@@ -57,9 +57,10 @@ const useGsapAnimation = () => {
         .to("#section-4", { opacity: 1, delay: 0.5 })
         .to("#sec-4-intro", { opacity: 1, delay: 0.5 })
         .to("#sec-4-illustration", { opacity: 1, delay: 1.5 })
+        .to("#join_us_root", { height: "65vh" }, "<")
         .to(["#sec-4-description", "#join-end-card"], {
           opacity: 1,
-          duration: 0.1,
+          duration: 1,
         })
         .to(["#sec-4-description", "#sec-4-illustration"], {
           y: () =>
@@ -69,7 +70,6 @@ const useGsapAnimation = () => {
             ),
           duration: COLUMN_SCROLL_SPEED,
         });
-
       gsap
         .timeline({
           scrollTrigger: {
@@ -88,6 +88,7 @@ const useGsapAnimation = () => {
         .to("#section-2", { opacity: 0, delay: 0.5 })
         .add(section3Timeline)
         .to("#section-3", { opacity: 0, delay: 0.5 })
+
         .add(section4Timeline);
 
       ScrollTrigger.create({
@@ -95,6 +96,7 @@ const useGsapAnimation = () => {
         start: "top top",
         end: "+=2000",
         pin: "#gsapPin",
+        pinSpacing: false,
         scrub: 1,
         markers: true,
       });

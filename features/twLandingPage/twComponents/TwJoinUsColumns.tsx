@@ -47,7 +47,10 @@ const TwJoinUsColumns: FC = () => {
           }
         }
       `}</style>
-      <div className="blackWhiteBgSplit md:pb-15 relative grid h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 font-pt-sans-narrow text-white md:text-black">
+      <div
+        id="join_us_root"
+        className="blackWhiteBgSplit md:pb-15 relative grid h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 font-pt-sans-narrow text-white md:text-black"
+      >
         {/*<div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">*/}
         {/*  <Image*/}
         {/*    src={"/illustrations/Arrow_Right.svg"}*/}
