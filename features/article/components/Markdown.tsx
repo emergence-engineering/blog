@@ -45,6 +45,11 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             {props.children}
           </ul>
         ),
+        ol: ({ ...props }) => (
+          <ol {...props} className="list-decimal py-2 pl-6 font-montserrat">
+            {props.children}
+          </ol>
+        ),
         li: ({ ...props }) => (
           <li {...props} className="py-1 font-montserrat">
             {props.children}
