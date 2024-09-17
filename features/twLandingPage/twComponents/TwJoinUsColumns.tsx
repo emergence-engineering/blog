@@ -49,7 +49,7 @@ const TwJoinUsColumns: FC = () => {
       `}</style>
       <div
         id="join_us_root"
-        className={`blackWhiteBgSplit md:pb-15 relative grid h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 ${ptSansNarrow.className} text-white md:text-black`}
+        className={`blackWhiteBgSplit md:pb-15 relative grid md:h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 ${ptSansNarrow.className} text-white md:text-black`}
       >
         <div
           id="sec-1-arrow"
@@ -102,7 +102,7 @@ const TwJoinUsColumns: FC = () => {
 
         <div
           id="section-1"
-          className="customGridContainer absolute flex flex-col px-2 opacity-0"
+          className="customGridContainer md:absolute flex flex-col px-2 md:opacity-0"
         >
           <div
             id="sec-1-label"
@@ -127,7 +127,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div
-            className="customAreaTwo flex items-center justify-center opacity-0"
+            className="customAreaTwo flex items-center justify-center md:opacity-0"
             id="sec-1-illustration"
           >
             <div className="justify-self-center">
@@ -142,7 +142,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div
-            className="customAreaThree opacity-0 md:text-white"
+            className="customAreaThree md:opacity-0 md:text-white"
             id="sec-1-intro"
           >
             <p
@@ -165,7 +165,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
 
           <div
-            className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+            className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
             id="sec-1-arrow"
           >
             <Image
@@ -177,7 +177,7 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div
-            className="customAreaFour flex flex-col items-center opacity-0 md:items-start"
+            className="customAreaFour flex flex-col items-center md:opacity-0 md:items-start"
             id="sec-1-description"
           >
             <div
@@ -189,34 +189,34 @@ const TwJoinUsColumns: FC = () => {
               className={`list-outside list-disc pl-5 ${montserrat.className} text-sm md:text-base`}
             >
               <li>
-                <span className="font-bold">keeps asking questions</span>
+                <span className={`font-bold ${montserrat.className}`}>keeps asking questions </span>
                 until we understand every aspect of
-                <span className="font-bold"> your idea</span>, even the ones you
+                <span className={`font-bold ${montserrat.className}`}> your idea</span>, even the ones you
                 might not have considered.
               </li>
               <li>
-                gives you <span className="font-bold">brutal honesty</span>, no
+                gives you <span className={`font-bold ${montserrat.className}`}>brutal honesty</span>, no
                 sir or madam.
               </li>
               <li>
                 uses our tech expertise to help you &quot;get it&quot; and make
                 the choices with
-                <span className="font-bold text-red-500"> you</span>.
+                <span className={`font-bold text-red-500 ${montserrat.className}`}> you</span>.
               </li>
               <li className={`${montserrat.className}`}>
                 has expertise in every stage from product
-                <span className="font-bold">ideas</span>, through
-                <span className="font-bold">design</span> and
-                <span className="font-bold"> development</span> to
-                <span className="font-bold">SEO</span> and
-                <span className="font-bold"> marketing</span>—we&apos;ve done it
+                <span className={`font-bold ${montserrat.className}`}> ideas</span>, through
+                <span className={`font-bold ${montserrat.className}`}> design</span> and
+                <span className={`font-bold ${montserrat.className}`}> development</span> to
+                <span className={`font-bold ${montserrat.className}`}> SEO</span> and
+                <span className={`font-bold ${montserrat.className}`}> marketing</span>—we&apos;ve done it
                 all.
               </li>
             </ul>
           </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
-        <div id="section-2" className="absolute px-2 opacity-0">
+        <div id="section-2" className="md:absolute px-2 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-2-label"
@@ -242,7 +242,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-2-illustration"
-              className="customAreaTwo flex items-center justify-center opacity-0"
+              className="customAreaTwo flex items-center justify-center md:opacity-0"
             >
               <div className="justify-self-center">
                 <Image
@@ -257,7 +257,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-2-intro"
-              className={`customAreaThree opacity-0 md:text-white`}
+              className={`customAreaThree md:opacity-0 md:text-white`}
             >
               <div className="text-xl font-bold md:text-4xl">
                 <div className={`${ptSansNarrow.className} text-letter-red`}>
@@ -272,7 +272,7 @@ const TwJoinUsColumns: FC = () => {
               </div>
             </div>
             <div
-              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+              className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
               id="sec-2-arrow"
             >
               <Image
@@ -285,7 +285,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-2-description"
-              className="customAreaFour flex flex-col opacity-0"
+              className="customAreaFour flex flex-col md:opacity-0"
             >
               <p
                 className={`font- my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -296,11 +296,11 @@ const TwJoinUsColumns: FC = () => {
               <ul
                 className={`list-outside list-disc pl-5 text-left ${montserrat.className} text-sm md:text-base`}
               >
-                <li>Launch something as soon as possible</li>
-                <li>
+                <li className={` ${montserrat.className}`}>Launch something as soon as possible</li>
+                <li className={` ${montserrat.className}`}>
                   Say no to unnecessary features: focus on what&#39;s important
                 </li>
-                <li>Get users and listen to them</li>
+                <li className={` ${montserrat.className}`}>Get users and listen to them</li>
               </ul>
               {/* TECHNOLOGY BOX */}
               <div className="mt-10 w-full">
@@ -455,7 +455,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 3 SECTION |||||||||||| */}
-        <div id="section-3" className="absolute px-2 opacity-0">
+        <div id="section-3" className="md:absolute px-2 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-3-label"
@@ -481,7 +481,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-3-illustration"
-              className="customAreaTwo flex items-center justify-center opacity-0"
+              className="customAreaTwo flex items-center justify-center md:opacity-0"
             >
               <div className="justify-self-center">
                 <Image
@@ -496,7 +496,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-3-intro"
-              className="customAreaThree opacity-0 md:text-white"
+              className="customAreaThree md:opacity-0 md:text-white"
             >
               <div
                 className={`${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -505,7 +505,7 @@ const TwJoinUsColumns: FC = () => {
               </div>
             </div>
             <div
-              className="mt-3 flex w-full justify-center opacity-0 md:hidden"
+              className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
               id="sec-3-arrow"
             >
               <Image
@@ -518,7 +518,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-3-description"
-              className="customAreaFour flex flex-col opacity-0"
+              className="customAreaFour flex flex-col md:opacity-0"
             >
               <div
                 className={`font- my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -672,7 +672,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 4 SECTION |||||||||||| */}
-        <div id="section-4" className="absolute px-2 opacity-0">
+        <div id="section-4" className="md:absolute px-2 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-4-label"
@@ -698,7 +698,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-4-illustration"
-              className="customAreaTwo flex items-center justify-center opacity-0"
+              className="customAreaTwo flex items-center justify-center md:opacity-0"
             >
               <div className="justify-self-center">
                 <Image
@@ -713,7 +713,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-4-intro"
-              className="customAreaThree opacity-0 md:text-white"
+              className="customAreaThree md:opacity-0 md:text-white"
             >
               <div
                 className={`${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -726,7 +726,7 @@ const TwJoinUsColumns: FC = () => {
                 and beyond.
               </div>
             </div>
-            <div className="mt-3 flex w-full justify-center opacity-0 md:hidden">
+            <div className="mt-3 flex w-full justify-center md:opacity-0 md:hidden">
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
@@ -737,7 +737,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-4-description"
-              className="customAreaFour flex flex-col opacity-0"
+              className="customAreaFour flex flex-col md:opacity-0"
             >
               <div
                 className={`font- my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
