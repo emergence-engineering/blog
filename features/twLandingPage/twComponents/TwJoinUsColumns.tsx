@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { montserrat, ptSansNarrow } from "../../../utils/fonts";
+import { montserrat, ptSans, ptSansNarrow } from "../../../utils/fonts";
 
 const TwJoinUsColumns: FC = () => {
   return (
@@ -110,7 +110,7 @@ const TwJoinUsColumns: FC = () => {
           >
             <div className="my-3 justify-self-center">
               <div
-                className={`ptSans.className w-fit rounded-full bg-gray-700 px-4 py-2 text-xs`}
+                className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs`}
               >
                 YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
               </div>
@@ -224,7 +224,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="my-3 justify-self-center">
                 <div
-                  className={`ptSans.className w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
+                  className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
                 >
                   With a solid plan in place lets start building!
                 </div>
@@ -463,7 +463,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="my-3 justify-self-center">
                 <div
-                  className={`ptSans.className w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
+                  className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
                 >
                   Let’s test the prototype!
                 </div>
@@ -578,7 +578,7 @@ const TwJoinUsColumns: FC = () => {
                 <div className="grid grid-cols-1 grid-rows-7 gap-y-6 bg-black p-3">
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       FIT
                     </div>
@@ -591,7 +591,7 @@ const TwJoinUsColumns: FC = () => {
                   </div>
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       RESOLVE
                     </div>
@@ -604,7 +604,7 @@ const TwJoinUsColumns: FC = () => {
 
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       REFLECT
                     </div>
@@ -617,7 +617,7 @@ const TwJoinUsColumns: FC = () => {
 
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       ITERATE
                     </div>
@@ -630,7 +630,7 @@ const TwJoinUsColumns: FC = () => {
                   </div>
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       PARALLELIZE
                     </div>
@@ -643,7 +643,7 @@ const TwJoinUsColumns: FC = () => {
 
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       FOCUS
                     </div>
@@ -655,7 +655,7 @@ const TwJoinUsColumns: FC = () => {
                   </div>
                   <div className="flex w-full gap-3">
                     <div
-                      className={`md:1/6 ptSans.className flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
+                      className={`md:1/6 ${ptSans.className} flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-bold text-black`}
                     >
                       INDEPENDENCE
                     </div>
@@ -680,7 +680,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="my-3 justify-self-center">
                 <div
-                  className={`ptSans.className w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
+                  className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
                 >
                   Let&#39;s press the launch button. Shall we?:D
                 </div>
