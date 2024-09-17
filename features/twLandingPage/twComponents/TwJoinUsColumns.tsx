@@ -49,11 +49,11 @@ const TwJoinUsColumns: FC = () => {
       `}</style>
       <div
         id="join_us_root"
-        className={`blackWhiteBgSplit md:pb-15 relative grid md:h-[100vh] max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 ${ptSansNarrow.className} text-white md:text-black`}
+        className={`blackWhiteBgSplit md:pb-15 relative grid max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 md:h-[100vh] ${ptSansNarrow.className} text-white md:text-black`}
       >
         <div
           id="sec-1-arrow"
-          className="hidden lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform lg:opacity-0"
+          className="hidden opacity-0 lg:absolute lg:left-1/2 lg:top-[17em] lg:block lg:-translate-x-1/2 lg:transform"
         >
           <Image
             src={"/illustrations/Arrow_Right.svg"}
@@ -100,123 +100,155 @@ const TwJoinUsColumns: FC = () => {
           />
         </div>
 
-        <div
-          id="section-1"
-          className="customGridContainer md:absolute flex flex-col px-2 md:opacity-0"
-        >
-          <div
-            id="sec-1-label"
-            className="customAreaOne flex flex-col items-center md:items-start md:text-white"
-          >
-            <div className="my-3 justify-self-center">
-              <div
-                className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs`}
-              >
-                YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
+        <div id="section-1" className="px-2 md:absolute md:opacity-0">
+          <div className="customGridContainer flex flex-col">
+            <div
+              id="sec-1-label"
+              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+            >
+              <div className="my-3 justify-self-center">
+                <div
+                  className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs`}
+                >
+                  YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
+                </div>
+              </div>
+              <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+                <div
+                  className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
+                >
+                  01
+                </div>
+                <h1 className={`${ptSansNarrow.className} font-extrabold`}>
+                  PLAN
+                </h1>
               </div>
             </div>
-            <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div
-                className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
-              >
-                01
+            <div
+              className="customAreaTwo flex items-center justify-center md:opacity-0"
+              id="sec-1-illustration"
+            >
+              <div className="justify-self-center">
+                <Image
+                  src={"/illustrations/Illustration_Plan.png"}
+                  alt={"Illustration Plan"}
+                  width={170}
+                  height={280}
+                  style={{ objectFit: "contain" }}
+                  className="h-auto w-[250px] md:w-[461px]"
+                />
               </div>
-              <h1 className={`${ptSansNarrow.className} font-extrabold`}>
-                PLAN
-              </h1>
             </div>
-          </div>
-          <div
-            className="customAreaTwo flex items-center justify-center md:opacity-0"
-            id="sec-1-illustration"
-          >
-            <div className="justify-self-center">
+            <div
+              className="customAreaThree md:text-white md:opacity-0"
+              id="sec-1-intro"
+            >
+              <p
+                className={`text-center ${ptSansNarrow.className} text-xl font-bold md:text-left md:text-4xl`}
+              >
+                You come to the right place if you
+              </p>
+              <div className="flex flex-col">
+                <ul
+                  className={`mt-4 list-outside list-disc pl-5 ${montserrat.className} text-sm md:text-base`}
+                >
+                  <li>Have many questions and feeling unsure.</li>
+                  <li>
+                    Feel confused and lost in the tech maze, not knowing what to
+                    choose.
+                  </li>
+                  <li>Need a versatile team that covers everything.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              className="mt-3 flex w-full justify-center md:hidden md:opacity-0"
+              id="sec-1-arrow"
+            >
               <Image
-                src={"/illustrations/Illustration_Plan.png"}
-                alt={"Illustration Plan"}
-                width={170}
-                height={280}
+                src={"/illustrations/Arrow_Down.svg"}
+                alt={"Down Arrow"}
+                width={40}
+                height={100}
                 style={{ objectFit: "contain" }}
-                className="h-auto w-[250px] md:w-[461px]"
               />
             </div>
-          </div>
-          <div
-            className="customAreaThree md:opacity-0 md:text-white"
-            id="sec-1-intro"
-          >
-            <p
-              className={`text-center ${ptSansNarrow.className} text-xl font-bold md:text-left md:text-4xl`}
+            <div
+              className="customAreaFour flex flex-col items-center md:items-start md:opacity-0"
+              id="sec-1-description"
             >
-              You come to the right place if you
-            </p>
-            <div className="flex flex-col">
-              <ul
-                className={`mt-4 list-outside list-disc pl-5 ${montserrat.className} text-sm md:text-base`}
+              <div
+                className={`my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
               >
-                <li>Have many questions and feeling unsure.</li>
+                We are the team that
+              </div>
+              <ul
+                className={`list-outside list-disc pl-5 ${montserrat.className} text-sm md:text-base`}
+              >
                 <li>
-                  Feel confused and lost in the tech maze, not knowing what to
-                  choose.
+                  <span className={`font-bold ${montserrat.className}`}>
+                    keeps asking questions{" "}
+                  </span>
+                  until we understand every aspect of
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    your idea
+                  </span>
+                  , even the ones you might not have considered.
                 </li>
-                <li>Need a versatile team that covers everything.</li>
+                <li>
+                  gives you{" "}
+                  <span className={`font-bold ${montserrat.className}`}>
+                    brutal honesty
+                  </span>
+                  , no sir or madam.
+                </li>
+                <li>
+                  uses our tech expertise to help you &quot;get it&quot; and
+                  make the choices with
+                  <span
+                    className={`font-bold text-red-500 ${montserrat.className}`}
+                  >
+                    {" "}
+                    you
+                  </span>
+                  .
+                </li>
+                <li className={`${montserrat.className}`}>
+                  has expertise in every stage from product
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    ideas
+                  </span>
+                  , through
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    design
+                  </span>{" "}
+                  and
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    development
+                  </span>{" "}
+                  to
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    SEO
+                  </span>{" "}
+                  and
+                  <span className={`font-bold ${montserrat.className}`}>
+                    {" "}
+                    marketing
+                  </span>
+                  —we&apos;ve done it all.
+                </li>
               </ul>
             </div>
           </div>
-
-          <div
-            className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
-            id="sec-1-arrow"
-          >
-            <Image
-              src={"/illustrations/Arrow_Down.svg"}
-              alt={"Down Arrow"}
-              width={40}
-              height={100}
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-          <div
-            className="customAreaFour flex flex-col items-center md:opacity-0 md:items-start"
-            id="sec-1-description"
-          >
-            <div
-              className={`my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
-            >
-              We are the team that
-            </div>
-            <ul
-              className={`list-outside list-disc pl-5 ${montserrat.className} text-sm md:text-base`}
-            >
-              <li>
-                <span className={`font-bold ${montserrat.className}`}>keeps asking questions </span>
-                until we understand every aspect of
-                <span className={`font-bold ${montserrat.className}`}> your idea</span>, even the ones you
-                might not have considered.
-              </li>
-              <li>
-                gives you <span className={`font-bold ${montserrat.className}`}>brutal honesty</span>, no
-                sir or madam.
-              </li>
-              <li>
-                uses our tech expertise to help you &quot;get it&quot; and make
-                the choices with
-                <span className={`font-bold text-red-500 ${montserrat.className}`}> you</span>.
-              </li>
-              <li className={`${montserrat.className}`}>
-                has expertise in every stage from product
-                <span className={`font-bold ${montserrat.className}`}> ideas</span>, through
-                <span className={`font-bold ${montserrat.className}`}> design</span> and
-                <span className={`font-bold ${montserrat.className}`}> development</span> to
-                <span className={`font-bold ${montserrat.className}`}> SEO</span> and
-                <span className={`font-bold ${montserrat.className}`}> marketing</span>—we&apos;ve done it
-                all.
-              </li>
-            </ul>
-          </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
-        <div id="section-2" className="md:absolute px-2 md:opacity-0">
+        <div id="section-2" className="px-2 md:absolute md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-2-label"
@@ -257,7 +289,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-2-intro"
-              className={`customAreaThree md:opacity-0 md:text-white`}
+              className={`customAreaThree md:text-white md:opacity-0`}
             >
               <div className="text-xl font-bold md:text-4xl">
                 <div className={`${ptSansNarrow.className} text-letter-red`}>
@@ -272,7 +304,7 @@ const TwJoinUsColumns: FC = () => {
               </div>
             </div>
             <div
-              className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
+              className="mt-3 flex w-full justify-center md:hidden md:opacity-0"
               id="sec-2-arrow"
             >
               <Image
@@ -296,14 +328,18 @@ const TwJoinUsColumns: FC = () => {
               <ul
                 className={`list-outside list-disc pl-5 text-left ${montserrat.className} text-sm md:text-base`}
               >
-                <li className={` ${montserrat.className}`}>Launch something as soon as possible</li>
+                <li className={` ${montserrat.className}`}>
+                  Launch something as soon as possible
+                </li>
                 <li className={` ${montserrat.className}`}>
                   Say no to unnecessary features: focus on what&#39;s important
                 </li>
-                <li className={` ${montserrat.className}`}>Get users and listen to them</li>
+                <li className={` ${montserrat.className}`}>
+                  Get users and listen to them
+                </li>
               </ul>
               {/* TECHNOLOGY BOX */}
-              <div className="mt-10 w-full">
+              <div className="mt-10 max-w-7xl max-w-sm md:max-w-xl">
                 <div className="mx-auto max-w-3xl text-white">
                   <div className="flex items-center justify-between rounded-t-lg border-l border-r border-t border-black bg-gray-900 p-4 text-white">
                     <Image
@@ -318,7 +354,7 @@ const TwJoinUsColumns: FC = () => {
                       }}
                     />
                     <h2
-                      className={`${ptSansNarrow.className} text-2xl font-bold`}
+                      className={`${ptSansNarrow.className} text-center text-2xl font-bold`}
                     >
                       Our technology toolbox
                     </h2>
@@ -334,119 +370,104 @@ const TwJoinUsColumns: FC = () => {
                       }}
                     />
                   </div>
-                  <div className="grid gap-4 rounded-b-lg border border-l border-r border-black bg-white p-2">
-                    <div className="flex justify-center">
-                      <div className="§gap-4 grid grid-cols-3">
-                        <Image
-                          src={"/node.svg"}
-                          alt={"Node"}
-                          width={120}
-                          height={120}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/prosemirror.svg"}
-                          alt={"prosemirror"}
-                          width={120}
-                          height={120}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/reactLogo.svg"}
-                          alt={"React Logo"}
-                          width={110}
-                          height={110}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                      </div>
+                  <div className="grid gap-4 rounded-b-lg border border-l border-r border-black bg-white">
+                    <div className="flex w-full flex-wrap justify-center gap-x-3 md:gap-x-6">
+                      <Image
+                        src={"/node.svg"}
+                        alt={"Node"}
+                        width={120}
+                        height={120}
+                        className="w-20 flex-shrink md:w-28"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/prosemirror.svg"}
+                        alt={"Prosemirror"}
+                        width={120}
+                        height={120}
+                        className="w-20 flex-shrink md:w-28"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/reactLogo.svg"}
+                        alt={"React Logo"}
+                        width={120}
+                        height={120}
+                        className="w-20 flex-shrink md:w-28"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
                     </div>
 
-                    <div className="flex justify-center">
-                      <div className="grid grid-cols-4 gap-4">
-                        <Image
-                          src={"/firebase.svg"}
-                          alt={"Firebase Logo"}
-                          width={120}
-                          height={120}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/aws.svg"}
-                          alt={"Aws Logo"}
-                          width={58}
-                          height={58}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/supabase.svg"}
-                          alt={"Supabase Logo"}
-                          width={110}
-                          height={110}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/openAi.svg"}
-                          alt={"OpenAi Logo"}
-                          width={94}
-                          height={94}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                      </div>
+                    <div className="flex w-full flex-wrap justify-center gap-x-3 md:gap-x-6">
+                      <Image
+                        src={"/firebase.svg"}
+                        alt={"Firebase Logo"}
+                        width={120}
+                        height={120}
+                        className="w-20 flex-shrink md:w-28"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/aws.svg"}
+                        alt={"AWS Logo"}
+                        width={120}
+                        height={120}
+                        className="w-14 flex-shrink md:w-20"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/supabase.svg"}
+                        alt={"Supabase Logo"}
+                        width={120}
+                        height={120}
+                        className="w-20 flex-shrink md:w-28"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/openAi.svg"}
+                        alt={"OpenAI Logo"}
+                        width={120}
+                        height={120}
+                        className="w-16 flex-shrink md:w-24"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
                     </div>
 
-                    <div className="flex justify-center">
-                      <div className="grid grid-cols-2 gap-4">
-                        <Image
-                          src={"/yjs.svg"}
-                          alt={"Yjs Logo"}
-                          width={58}
-                          height={58}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                        <Image
-                          src={"/stripe.svg"}
-                          alt={"Stripe Logo"}
-                          width={78}
-                          height={78}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                        />
-                      </div>
+                    <div className="flex w-full flex-wrap justify-center gap-x-3 md:gap-x-6">
+                      <Image
+                        src={"/yjs.svg"}
+                        alt={"Yjs Logo"}
+                        width={120}
+                        height={120}
+                        className="w-14 flex-shrink md:w-20"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Image
+                        src={"/stripe.svg"}
+                        alt={"Stripe Logo"}
+                        width={120}
+                        height={120}
+                        className="w-16 flex-shrink md:w-24"
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -455,7 +476,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 3 SECTION |||||||||||| */}
-        <div id="section-3" className="md:absolute px-2 md:opacity-0">
+        <div id="section-3" className="px-2 md:absolute md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-3-label"
@@ -496,7 +517,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-3-intro"
-              className="customAreaThree md:opacity-0 md:text-white"
+              className="customAreaThree md:text-white md:opacity-0"
             >
               <div
                 className={`${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -505,7 +526,7 @@ const TwJoinUsColumns: FC = () => {
               </div>
             </div>
             <div
-              className="mt-3 flex w-full justify-center md:opacity-0 md:hidden"
+              className="mt-3 flex w-full justify-center md:hidden md:opacity-0"
               id="sec-3-arrow"
             >
               <Image
@@ -672,7 +693,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 4 SECTION |||||||||||| */}
-        <div id="section-4" className="md:absolute px-2 md:opacity-0">
+        <div id="section-4" className="px-2 md:absolute md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-4-label"
@@ -713,7 +734,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-4-intro"
-              className="customAreaThree md:opacity-0 md:text-white"
+              className="customAreaThree md:text-white md:opacity-0"
             >
               <div
                 className={`${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
@@ -726,7 +747,7 @@ const TwJoinUsColumns: FC = () => {
                 and beyond.
               </div>
             </div>
-            <div className="mt-3 flex w-full justify-center md:opacity-0 md:hidden">
+            <div className="mt-3 flex w-full justify-center md:hidden md:opacity-0">
               <Image
                 src={"/illustrations/Arrow_Down.svg"}
                 alt={"Down Arrow"}
