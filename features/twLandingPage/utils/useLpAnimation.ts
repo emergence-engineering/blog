@@ -150,12 +150,12 @@ const useGsapAnimation = () => {
             trigger: "#section-2",
             start: "top 20%",
             onEnter: () => {
-              gsap.to("#m-label-1", { opacity: 0, duration: 1 });
-              gsap.to("#m-label-2", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-1", { opacity: 0, duration: 0.5 });
+              gsap.to("#m-label-2", { opacity: 1, duration: 0.5 });
             },
             onLeaveBack: () => {
-              gsap.to("#m-label-1", { opacity: 1, duration: 1 });
-              gsap.to("#m-label-2", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-1", { opacity: 1, duration: 0.5 });
+              gsap.to("#m-label-2", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
             markers: false,
@@ -165,12 +165,12 @@ const useGsapAnimation = () => {
             trigger: "#section-3",
             start: "top center", // Start the trigger when #section-3 hits the center of the viewport
             onEnter: () => {
-              gsap.to("#m-label-2", { opacity: 0, duration: 1 });
-              gsap.to("#m-label-3", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-2", { opacity: 0, duration: 0.5 });
+              gsap.to("#m-label-3", { opacity: 1, duration: 0.5 });
             },
             onLeaveBack: () => {
-              gsap.to("#m-label-2", { opacity: 1, duration: 1 });
-              gsap.to("#m-label-3", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-2", { opacity: 1, duration: 0.5 });
+              gsap.to("#m-label-3", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
             markers: false,
@@ -181,16 +181,17 @@ const useGsapAnimation = () => {
             trigger: "#section-4",
             start: "top center",
             onEnter: () => {
-              gsap.to("#m-label-3", { opacity: 0, duration: 1 });
-              gsap.to("#m-label-4", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-3", { opacity: 0, duration: 0.5 });
+              gsap.to("#m-label-4", { opacity: 1, duration: 0.5 });
             },
             onLeaveBack: () => {
-              gsap.to("#m-label-3", { opacity: 1, duration: 1 });
-              gsap.to("#m-label-4", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-3", { opacity: 1, duration: 0.5 });
+              gsap.to("#m-label-4", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
-            markers: false,
+            markers: true,
             immediateRender: false,
+            invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
 
           ScrollTrigger.create({
@@ -207,8 +208,9 @@ const useGsapAnimation = () => {
             pinSpacing: false,
             scrub: true,
             markers: true,
+            invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
-
+          ScrollTrigger.refresh();
           return () => {
             mobileTimeline.kill();
           };

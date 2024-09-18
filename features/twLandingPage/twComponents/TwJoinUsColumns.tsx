@@ -127,22 +127,28 @@ const TwJoinUsColumns: FC = () => {
 
             <div
               id="section-labels"
-              className="relative flex h-28 flex-col items-center"
+              className="gradient-under relative flex h-28 flex-col items-center"
             >
               <div
                 id="m-label-1"
                 className="absolute flex w-full flex-col items-center bg-black md:items-start md:text-white"
               >
                 <div className="my-3 justify-self-center">
-                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs">
+                  <div
+                    className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs`}
+                  >
                     YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
                   </div>
                 </div>
                 <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                  <div
+                    className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
+                  >
                     01
                   </div>
-                  <h1 className="font-extrabold">PLAN</h1>
+                  <h1 className={`${ptSansNarrow.className} font-extrabold`}>
+                    PLAN
+                  </h1>
                 </div>
               </div>
 
@@ -151,15 +157,21 @@ const TwJoinUsColumns: FC = () => {
                 className="absolute flex w-full flex-col items-center bg-black opacity-0 md:items-start md:text-white"
               >
                 <div className="my-3 justify-self-center">
-                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase">
-                    With a solid plan in place let&#39;s start building!
+                  <div
+                    className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
+                  >
+                    With a solid plan in place lets start building!
                   </div>
                 </div>
                 <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                  <div
+                    className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
+                  >
                     02
                   </div>
-                  <h1 className="font-extrabold">PROTOTYPE</h1>
+                  <h1 className={`${ptSansNarrow.className} font-extrabold`}>
+                    PROTOTYPE
+                  </h1>
                 </div>
               </div>
 
@@ -168,15 +180,21 @@ const TwJoinUsColumns: FC = () => {
                 className="absolute flex w-full flex-col items-center bg-black opacity-0 md:items-start md:text-white"
               >
                 <div className="my-3 justify-self-center">
-                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase">
-                    Let’s test the prototype!
+                  <div
+                    className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
+                  >
+                    Let&#39;s press the launch button. Shall we?:D
                   </div>
                 </div>
                 <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
-                    03
+                  <div
+                    className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
+                  >
+                    04
                   </div>
-                  <h1 className="font-extrabold">VALIDATE</h1>
+                  <h1 className={`${ptSansNarrow.className} font-extrabold`}>
+                    PRODUCT
+                  </h1>
                 </div>
               </div>
 
