@@ -127,7 +127,7 @@ const TwJoinUsColumns: FC = () => {
 
             <div
               id="section-labels"
-              className="gradient-under relative flex h-28 flex-col items-center"
+              className="gradient-under relative flex h-28 flex-col items-center md:hidden"
             >
               <div
                 id="m-label-1"
@@ -344,7 +344,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-2-label"
-              className="customAreaOne absolute hidden flex-col items-center bg-black opacity-0 md:flex md:items-start md:text-white"
+              className="customAreaOne absolute hidden flex-col items-center bg-black md:flex md:items-start md:text-white"
             >
               <div className="my-3 justify-self-center">
                 <div
