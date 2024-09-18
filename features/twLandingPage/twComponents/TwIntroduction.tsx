@@ -111,21 +111,18 @@ export const TwIntroduction = () => {
         <div className="z-10 flex w-full flex-col items-center justify-center gap-10 pt-3 text-amber-50 lg:pt-16">
           <div>
             <h1 className="px-3 text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
-              BUILDING APPS IS <span className="text-red-600">HARD...</span>
+              FROM <span className="text-orange-500">IDEA</span>
             </h1>
             <h1 className="px-3 text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
-              IF YOU DON’T KNOW <span className="text-red-600">HOW</span>
+              TO <span className="text-orange-500">APP</span> TO <span className="text-orange-500">MARKET</span>
             </h1>
           </div>
-          <h2 className="max-w-2xl px-3 text-center text-xl font-bold lg:text-4xl">
-            Are you a startup founder, an inventor, or a manager that wants
-            change?
+          <h2 className="max-w-3xl px-3 text-center text-xl font-bold lg:text-4xl">
+            We are a full-stack development team building scalable, <br />
+            high performance software products and webapps.
           </h2>
-          <h2 className="max-w-xl px-3 text-center text-xl font-bold lg:text-4xl">
-            We are a fully committed development team that will help you along
-            the way towards making a successful product.
-          </h2>
-          <div className="flex w-full flex-col gap-5 px-3 py-8 md:flex-row md:justify-center">
+
+          <div className="flex w-full flex-col gap-5 px-3 py-10 md:flex-row md:justify-center">
             <Button
               theme="secondary"
               handleClick={scrollToServices}
@@ -137,10 +134,22 @@ export const TwIntroduction = () => {
               label="Get a quote"
             />
           </div>
-          <div className="relative h-[30rem] w-full overflow-x-scroll md:min-h-[20rem]">
+          <div className="relative h-96 w-full overflow-x-scroll md:min-h-[20rem]">
             <div className="absolute left-[12px] top-0 flex gap-5 md:left-[200px]">
-              <StripeTestimonial />
-              {Partners.map(
+
+              {Partners.slice(0, 2).map(
+                ({ src, saysThat, partnerName, partnerJob }, idx) => (
+                  <TwTestimonial
+                    key={idx}
+                    avatarURL={src as string}
+                    name={partnerName}
+                    title={partnerJob}
+                    quote={saysThat}
+                  />
+                ),
+              )} <StripeTestimonial />
+
+              {Partners.slice(2).map(
                 ({ src, saysThat, partnerName, partnerJob }, idx) => (
                   <TwTestimonial
                     key={idx}
@@ -151,6 +160,7 @@ export const TwIntroduction = () => {
                   />
                 ),
               )}
+
             </div>
           </div>
         </div>
