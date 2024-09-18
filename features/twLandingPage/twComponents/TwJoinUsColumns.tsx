@@ -104,7 +104,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-1-label"
-              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+              className="hidden flex-col items-center bg-black md:flex md:items-start md:text-white"
             >
               <div className="my-3 justify-self-center">
                 <div
@@ -124,6 +124,80 @@ const TwJoinUsColumns: FC = () => {
                 </h1>
               </div>
             </div>
+
+            <div
+              id="section-labels"
+              className="relative flex h-28 flex-col items-center"
+            >
+              <div
+                id="m-label-1"
+                className="absolute flex w-full flex-col items-center bg-black md:items-start md:text-white"
+              >
+                <div className="my-3 justify-self-center">
+                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs">
+                    YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
+                  </div>
+                </div>
+                <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                    01
+                  </div>
+                  <h1 className="font-extrabold">PLAN</h1>
+                </div>
+              </div>
+
+              <div
+                id="m-label-2"
+                className="absolute flex w-full flex-col items-center bg-black opacity-0 md:items-start md:text-white"
+              >
+                <div className="my-3 justify-self-center">
+                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase">
+                    With a solid plan in place let&#39;s start building!
+                  </div>
+                </div>
+                <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                    02
+                  </div>
+                  <h1 className="font-extrabold">PROTOTYPE</h1>
+                </div>
+              </div>
+
+              <div
+                id="m-label-3"
+                className="absolute flex w-full flex-col items-center bg-black opacity-0 md:items-start md:text-white"
+              >
+                <div className="my-3 justify-self-center">
+                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase">
+                    Let’s test the prototype!
+                  </div>
+                </div>
+                <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                    03
+                  </div>
+                  <h1 className="font-extrabold">VALIDATE</h1>
+                </div>
+              </div>
+
+              <div
+                id="m-label-4"
+                className="absolute flex w-full flex-col items-center bg-black opacity-0 md:items-start md:text-white"
+              >
+                <div className="my-3 justify-self-center">
+                  <div className="w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase">
+                    Let&#39;s press the launch button. Shall we? :D
+                  </div>
+                </div>
+                <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
+                  <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                    04
+                  </div>
+                  <h1 className="font-extrabold">PRODUCT</h1>
+                </div>
+              </div>
+            </div>
+
             <div
               className="customAreaTwo flex items-center justify-center md:opacity-0"
               id="sec-1-illustration"
@@ -252,7 +326,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-2-label"
-              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+              className="customAreaOne absolute hidden flex-col items-center bg-black opacity-0 md:flex md:items-start md:text-white"
             >
               <div className="my-3 justify-self-center">
                 <div
@@ -339,7 +413,7 @@ const TwJoinUsColumns: FC = () => {
                 </li>
               </ul>
               {/* TECHNOLOGY BOX */}
-              <div className="mt-10 max-w-7xl max-w-sm md:max-w-xl">
+              <div className="mt-10 max-w-sm self-center md:max-w-xl">
                 <div className="mx-auto max-w-3xl text-white">
                   <div className="flex items-center justify-between rounded-t-lg border-l border-r border-t border-black bg-gray-900 p-4 text-white">
                     <Image
@@ -480,7 +554,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-3-label"
-              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+              className="customAreaOne hidden flex-col items-center md:flex md:items-start md:text-white"
             >
               <div className="my-3 justify-self-center">
                 <div
@@ -697,7 +771,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-4-label"
-              className="customAreaOne flex flex-col items-center md:items-start md:text-white"
+              className="customAreaOne hidden flex-col items-center md:flex md:items-start md:text-white"
             >
               <div className="my-3 justify-self-center">
                 <div

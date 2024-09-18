@@ -102,7 +102,7 @@ const useGsapAnimation = () => {
                 start: "top center",
                 end: "+=2500",
                 scrub: 1,
-                markers: true,
+                markers: false,
               },
               defaults: { duration: 1 },
             })
@@ -122,11 +122,95 @@ const useGsapAnimation = () => {
             pin: "#gsapPin",
             pinSpacing: false,
             scrub: 1,
-            markers: true,
+            markers: false,
           });
 
           return () => {
             desktopTimeline.kill();
+          };
+        },
+      );
+
+      // Mobile animations
+      mm.add(
+        {
+          isMobile: "(max-width: 768px)",
+        },
+        () => {
+          const mobileTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: "#gsapContainer",
+              start: "top top",
+              end: "+=2000",
+              scrub: 1,
+              markers: false,
+            },
+          });
+          ScrollTrigger.create({
+            trigger: "#section-2",
+            start: "top 20%",
+            onEnter: () => {
+              gsap.to("#m-label-1", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-2", { opacity: 1, duration: 1 });
+            },
+            onLeaveBack: () => {
+              gsap.to("#m-label-1", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-2", { opacity: 0, duration: 1 });
+            },
+            scrub: true,
+            markers: false,
+          });
+
+          ScrollTrigger.create({
+            trigger: "#section-3",
+            start: "top center", // Start the trigger when #section-3 hits the center of the viewport
+            onEnter: () => {
+              gsap.to("#m-label-2", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-3", { opacity: 1, duration: 1 });
+            },
+            onLeaveBack: () => {
+              gsap.to("#m-label-2", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-3", { opacity: 0, duration: 1 });
+            },
+            scrub: true,
+            markers: false,
+            immediateRender: false,
+          });
+
+          ScrollTrigger.create({
+            trigger: "#section-4",
+            start: "top center",
+            onEnter: () => {
+              gsap.to("#m-label-3", { opacity: 0, duration: 1 });
+              gsap.to("#m-label-4", { opacity: 1, duration: 1 });
+            },
+            onLeaveBack: () => {
+              gsap.to("#m-label-3", { opacity: 1, duration: 1 });
+              gsap.to("#m-label-4", { opacity: 0, duration: 1 });
+            },
+            scrub: true,
+            markers: false,
+            immediateRender: false,
+          });
+
+          ScrollTrigger.create({
+            trigger: "#section-labels",
+            start: "top top",
+            end: () => {
+              const section4 = document.querySelector("#sec-4-illustration");
+
+              return section4
+                ? section4.getBoundingClientRect().top - 120
+                : "top top";
+            },
+            pin: "#section-labels",
+            pinSpacing: false,
+            scrub: true,
+            markers: true,
+          });
+
+          return () => {
+            mobileTimeline.kill();
           };
         },
       );
