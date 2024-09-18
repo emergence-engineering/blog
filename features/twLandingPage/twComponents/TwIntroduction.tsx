@@ -134,7 +134,7 @@ export const TwIntroduction = () => {
               label="Get a quote"
             />
           </div>
-          <div className="relative h-96 w-full overflow-x-scroll md:min-h-[20rem]">
+          <div className="relative h-[28rem] w-full overflow-x-scroll md:min-h-[20rem]">
             <div className="absolute left-[12px] top-0 flex gap-5 md:left-[200px]">
 
               {Partners.slice(0, 2).map(
