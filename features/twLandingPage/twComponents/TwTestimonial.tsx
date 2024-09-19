@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Image from "next/image";
-import { montserrat } from "../../../utils/fonts";
 
 export interface ITwTestimonialProps {
   avatarURL: string;
@@ -28,22 +27,16 @@ export const TwTestimonial: FC<ITwTestimonialProps> = ({
             priority
           />
           <div className="flex flex-col items-center md:items-start">
-            <div
-              className={`text-center ${montserrat.className} text-lg font-bold`}
-            >
+            <div className="text-center font-montserrat text-lg font-bold">
               {name}
             </div>
-            <div
-              className={`text-center ${montserrat.className} text-sm font-light`}
-            >
+            <div className="text-center font-montserrat text-sm font-light">
               {title}
             </div>
           </div>
         </div>
         <div className="w-full border-t border-neutral-700 pt-2">
-          <p
-            className={`text-s max-h-[250px] overflow-y-scroll px-4 ${montserrat.className} font-light md:max-h-[120px] md:overflow-y-scroll`}
-          >
+          <p className="text-s max-h-[250px] overflow-y-scroll px-4 font-montserrat font-light md:max-h-[120px] md:overflow-y-scroll">
             {quote}
           </p>
         </div>
@@ -70,7 +63,7 @@ export const StripeTestimonial = () => {
           </a>
         </div>
         <div className="w-full border-t border-neutral-700 pt-2">
-          <p className={`text-s px-4 font-light ${montserrat.className}`}>
+          <p className="text-s px-4 font-montserrat font-light">
             We are proud to be a Stripe Verified Partner, a distinction that
             ensures our clients benefit from the highest standards of security,
             reliability, and compliance in payment processing.

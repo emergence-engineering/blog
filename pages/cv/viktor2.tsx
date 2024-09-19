@@ -7,7 +7,6 @@ import ViktorImage from "../../public/bio/viktor.png";
 import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
 import GithubIcon from "../../public/icons/github-small.svg";
 import LinkedInIcon from "../../public/icons/linkedin-small.svg";
-import { montserrat } from "../../utils/fonts";
 
 const ViktorCV: FunctionComponent = () => {
   return (
@@ -71,7 +70,7 @@ const ViktorCV: FunctionComponent = () => {
               <div className="text-[34px] font-bold text-black">
                 I have a bachelors degree
               </div>
-              <div className={`${montserrat.className}`}>
+              <div className="font-montserrat">
                 I have a bachelors degree in Electrical Engineering from BUTE
                 with an embedded devices specialization. Born with a love in my
                 heart for sciences I picked up programming at 8 and did a lot of

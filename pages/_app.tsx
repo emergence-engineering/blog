@@ -4,7 +4,13 @@ import Head from "next/head";
 import "../public/global.css";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 import { Provider as UniqueIdGeneratorProvider } from "@inline-svg-unique-id/react";
-import { ptSansNarrow } from "../utils/fonts";
+import {
+  inter,
+  jetbrainsMono,
+  montserrat,
+  ptSans,
+  ptSansNarrow,
+} from "../utils/fonts";
 
 interface MyAppProps extends AppProps {}
 
@@ -26,7 +32,9 @@ class MyApp extends App<MyAppProps> {
         </Head>
         {/* @ts-ignore */}
         <UniqueIdGeneratorProvider>
-          <main className={ptSansNarrow.className}>
+          <main
+            className={`${ptSansNarrow.variable} ${montserrat.variable} ${ptSans.variable} ${inter.variable} ${jetbrainsMono.variable} font-sansNarrow`}
+          >
             <Component {...pageProps} />
           </main>
         </UniqueIdGeneratorProvider>

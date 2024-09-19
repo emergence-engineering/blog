@@ -15,7 +15,6 @@ import SuggestCatScrenshot from "../public/lp/suggestcat-screenshot.png";
 import { TwLayout } from "../features/twLandingPage/twComponents/TwLayout";
 import { TwContact } from "../features/twLandingPage/twComponents/TwContact";
 import PostCard from "../features/twBlog/PostCard";
-import { montserrat } from "../utils/fonts";
 import ProjectCard from "../features/twBlog/ProjectCard";
 import { articlePluginSystemMetadata } from "./blog/prosemirror-plugin-system";
 import { article13Metadata } from "./blog/prosemirror-slash-menu";
@@ -79,7 +78,7 @@ const Index: FunctionComponent = () => {
         </div>
         <div className="flex w-full max-w-3xl flex-col items-start gap-3">
           <h2 className="text-2xl">What is a Rich Text Editor</h2>
-          <p className={`${montserrat.className}`}>
+          <p className="font-montserrat">
             The easiest way to explain what a Rich Text Editor is, is to compare
             it to a plain text editor. A plain text editor is like Notepad, it
             only allows you to write text. A Rich Text Editor is like Microsoft
@@ -92,18 +91,13 @@ const Index: FunctionComponent = () => {
             <br />
           </p>
           <h2 className="text-2xl">Why ProseMirror</h2>
-          <p className={`${montserrat.className}`}>
+          <p className="font-montserrat">
             If you want to build a web based rich text editor ( think Microsoft
             Word, Google docs, Notion ) you either start from scratch and spend
             a few years laying down the foundation or you use a framework and
             get a head start. There are a lot of frameworks out there like
             Draft, Slate, Quill, CKEditor, TinyMCE etc. <br /> <br />
-            <Link
-              //className={`${montserrat.className} font-bold`}
-              href="https://marijnhaverbeke.nl/"
-            >
-              Marijn Haverbeke
-            </Link>
+            <Link href="https://marijnhaverbeke.nl/">Marijn Haverbeke</Link>
             &nbsp;the author of Eloquent JavaScript, created ProseMirror and
             CodeMirror to be the most flexible and powerful browser based text
             editors. ProseMirror has a steep learning curve but that comes with
@@ -120,12 +114,7 @@ const Index: FunctionComponent = () => {
             <br />
             It also has out of the box support for collaboration, and has very
             mature ecosystem.&nbsp;
-            <Link
-              //className={`${montserrat.className} font-bold`}
-              href="https://tiptap.dev/"
-            >
-              TipTap
-            </Link>
+            <Link href="https://tiptap.dev/">TipTap</Link>
             &nbsp; is a framework build on the top of ProseMirror, with a lot of
             Plugins and extra functionality. It&apos;s a quick way to get
             started.
@@ -137,13 +126,8 @@ const Index: FunctionComponent = () => {
             alt="screenshot of SuggestCat"
             width={400}
           />
-          <p className={`${montserrat.className}`}>
-            <Link
-              // className={`${montserrat.className} font-bold`}
-              href="https://www.suggestcat.com/"
-            >
-              SuggestCat
-            </Link>
+          <p className="font-montserrat">
+            <Link href="https://www.suggestcat.com/">SuggestCat</Link>
             &nbsp;is a plugin for ProseMirror that uses AI to suggest
             improvements and provides a Notion-like slash menu experience with
             AI based writing tools. It&apos;s a great way to improve your
@@ -161,7 +145,7 @@ const Index: FunctionComponent = () => {
             </div>
           </div>
           <h2 className="text-2xl">Giving back</h2>
-          <p className={`${montserrat.className}`}>
+          <p className="font-montserrat">
             The ProseMirror ecosystem is very active and we&apos;re grateful for
             all of the work others have done. We have also contributed with Blog
             posts and open source plugins, hopefully making someone else&apos;s

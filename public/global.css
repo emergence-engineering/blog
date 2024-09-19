@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-
   .btn-gradient-border {
     border-width: 1px;
     border-image-slice: 1;
@@ -27,7 +26,7 @@
 }
 
 .font-montserrat {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 h1,
@@ -51,4 +50,15 @@ body {
   overflow-x: hidden;
   width: 100vw;
   max-width: 100%;
+}
+
+pre,
+code {
+  font-family: monospace !important;
+}
+
+code span {
+  font-family: "Jetbrains Mono", monospace !important;
+  font-weight: 700;
+  font-style: italic;
 }

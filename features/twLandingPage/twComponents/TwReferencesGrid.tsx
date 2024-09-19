@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import { montserrat } from "../../../utils/fonts";
 import { Link } from "./Link";
 import { referenceData, ReferenceNames } from "./referenceData";
 
@@ -27,7 +26,7 @@ const ReferenceCard: FC<{ product: ReferenceNames }> = ({ product }) => {
         {/*<div className="max-w-max rounded-full border border-solid border-neutral-700 px-4 py-2 font-pt-sans uppercase">*/}
         {/*  {tag}*/}
         {/*</div>*/}
-        <p className={`${montserrat.className} text-base`}>{content}</p>
+        <p className={`font-montserrat text-base`}>{content}</p>
         <Link href={websiteLink} label="website" website />
       </div>
     </div>

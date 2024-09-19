@@ -52,9 +52,11 @@ module.exports = {
         "8xl": "90px",
       },
       fontFamily: {
-        "pt-sans-narrow": ['"PT Sans Narrow"', "sans-serif"],
-        "pt-sans": ['"PT Sans"', "sans-serif"],
-        montserrat: ['"Montserrat"', "sans-serif"],
+        sans: ["var(--font-pt-sans)"],
+        sansNarrow: ["var(--font-pt-sans-narrow)"],
+        montserrat: ["var(--font-montserrat)"],
+        inter: ["var(--font-inter)"],
+        jetbrainsMono: ["var(--font-jetbrains-mono)"],
       },
       backgroundImage: {
         hyperspace: "url('lp/hyperspace.webp')",

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Image from "next/image";
-import { montserrat } from "../../../utils/fonts";
 
 export const TwFooter: FC = () => {
   return (
@@ -16,7 +15,7 @@ export const TwFooter: FC = () => {
             fill
           />
         </a>
-        <div className={`flex ${montserrat.className}`}>
+        <div className="flex font-montserrat">
           © Copyright 2024, Emergence Engineering. All rights reserved
         </div>
       </div>

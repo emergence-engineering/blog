@@ -5,7 +5,6 @@ import { TwLayout } from "../../features/twLandingPage/twComponents/TwLayout";
 import KsisuImage from "../../public/bio/ksisu.png";
 import GithubIcon from "../../public/icons/github-small.svg";
 import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
-import { montserrat } from "../../utils/fonts";
 
 const KsisuCV: FunctionComponent = () => {
   return (
@@ -60,7 +59,7 @@ const KsisuCV: FunctionComponent = () => {
               <div className="text-[34px] font-bold text-black">
                 I have a BSc degree
               </div>
-              <div className={`${montserrat.className}`}>
+              <div className="font-montserrat">
                 I have a BSc degree in Informatics from BUTE with software
                 architecture specialization. Interested in Scala, hard DevOps
                 problems, teaching & a maybe little bit of embedded. Father of

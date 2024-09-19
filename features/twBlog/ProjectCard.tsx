@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { OpenSourceProject } from "../../utils/openSrcPrData";
 import Markdown from "../article/components/Markdown";
 import { Link } from "../twLandingPage/twComponents/Link";
-import { montserrat, ptSans } from "../../utils/fonts";
 
 const ProjectCard: FC<OpenSourceProject> = ({
   title,
@@ -37,7 +36,7 @@ const ProjectCard: FC<OpenSourceProject> = ({
         <div>
           <div className="mb-8 mt-3 flex justify-between rounded-md border border-gray-300 p-3">
             <span
-              className={`mr-2 text-sm text-gray-500 ${montserrat.className}`}
+              className={`mr-2 font-montserrat text-sm text-gray-500`}
               id={"commandText"}
             >
               {command}
@@ -56,7 +55,7 @@ const ProjectCard: FC<OpenSourceProject> = ({
                 tags.map((tag, index) => (
                   <span
                     key={index}
-                    className={`h-fit rounded-full border border-black px-3 py-1 ${ptSans.className} text-sm uppercase`}
+                    className={`h-fit rounded-full border border-black px-3 py-1 font-sans text-sm uppercase`}
                   >
                     {tag}
                   </span>

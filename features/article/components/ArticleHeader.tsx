@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
-import { ptSans } from "../../../utils/fonts";
 
 interface BlogPostHeadlineProps {
   title: string;
@@ -42,7 +41,7 @@ export default function ArticleHeader({
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`${ptSans.className} h-fit rounded-full border border-black px-3 py-1 text-sm uppercase`}
+                  className="h-fit rounded-full border border-black px-3 py-1 font-sans text-sm uppercase"
                 >
                   {tag}
                 </span>

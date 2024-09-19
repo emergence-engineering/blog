@@ -5,6 +5,7 @@ import React, {
   SetStateAction,
   SyntheticEvent,
   useCallback,
+  useEffect,
   useState,
 } from "react";
 
@@ -15,8 +16,10 @@ import {
   createHubSpotFormBody,
   formAddress,
 } from "../../landingPage/utils/hubSpotContatForm";
-import { NoticeProps, NoticeType } from "../../common/components/Notice";
-import { montserrat } from "../../../utils/fonts";
+import Notice, {
+  NoticeProps,
+  NoticeType,
+} from "../../common/components/Notice";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { Textarea } from "./TextArea";
@@ -29,13 +32,16 @@ const createClickHandler =
   };
 
 export const TwContactUs: FC = () => {
-  const [, setNoticeVisibility] = useState<NoticeProps | null>(null);
+  const [noticeVisibility, setNoticeVisibility] = useState<NoticeProps | null>(
+    null,
+  );
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const firstNameChangeHandler = createClickHandler(setFirstName);
   const lastNameChangeHandler = createClickHandler(setLastName);
@@ -46,6 +52,7 @@ export const TwContactUs: FC = () => {
   const submitHandler = useCallback(
     async (evt: SyntheticEvent) => {
       evt.preventDefault();
+      setSubmitDisabled(true);
 
       const formBody = createHubSpotFormBody(
         email,
@@ -61,8 +68,12 @@ export const TwContactUs: FC = () => {
           message: "Failure: couldn't send message, please try again.",
           type: NoticeType.error,
         });
+        setSubmitDisabled(false);
         return;
       }
+      setTimeout(() => {
+        setSubmitDisabled(false);
+      }, 5000);
       setNoticeVisibility({
         message: "Success: Message sent, we will contact you shortly!",
         type: NoticeType.success,
@@ -70,6 +81,14 @@ export const TwContactUs: FC = () => {
     },
     [email, firstName, lastName, subject, message],
   );
+
+  useEffect(() => {
+    if (noticeVisibility) {
+      setTimeout(() => {
+        setNoticeVisibility(null);
+      }, 2500);
+    }
+  }, [noticeVisibility]);
 
   return (
     <div className="align-center flex w-full flex-col justify-start gap-6 border-zinc-600 bg-transparent text-white lg:border-none lg:p-4 xl:gap-3">
@@ -79,9 +98,7 @@ export const TwContactUs: FC = () => {
           Write a message
         </div>
       </div>
-      <div
-        className={`flex items-center justify-center gap-4 text-left ${montserrat.className} text-base xl:self-end xl:pb-6`}
-      >
+      <div className="flex items-center justify-center gap-4 text-left font-montserrat text-base xl:self-end xl:pb-6">
         <div className="hidden lg:block">
           <MailIcon />
         </div>
@@ -125,11 +142,18 @@ export const TwContactUs: FC = () => {
         />
         <Button
           className="self-end"
-          label="SEND"
+          label={submitDisabled ? "SENDING..." : "SEND"}
           type="submit"
+          disabled={submitDisabled}
           theme="primary"
         />
       </form>
+      {noticeVisibility ? (
+        <Notice
+          message={noticeVisibility.message}
+          type={noticeVisibility.type}
+        />
+      ) : null}
     </div>
   );
 };

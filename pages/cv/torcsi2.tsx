@@ -5,7 +5,6 @@ import { TwLayout } from "../../features/twLandingPage/twComponents/TwLayout";
 import TorcsiImage from "../../public/bio/torcsi.jpeg";
 import GithubIcon from "../../public/icons/github-small.svg";
 import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
-import { montserrat } from "../../utils/fonts";
 
 const TorcsiCV: FunctionComponent = () => {
   return (
@@ -58,7 +57,7 @@ const TorcsiCV: FunctionComponent = () => {
               <div className="text-[34px] font-bold text-black">
                 I have a masters degree
               </div>
-              <div className={`${montserrat.className}`}>
+              <div className="font-montserrat">
                 I have a masters degree in Informatics from BUTE with
                 distributed systems & cloud computing specialization. Interested
                 in blockchain tech, cloud computing, 3d printing. Scala is my

@@ -2,7 +2,6 @@ import React, { FunctionComponent, PropsWithChildren } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // @ts-ignore
 import { gruvboxDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { CodeProps } from "react-markdown/lib/ast-to-react";
 import styled from "styled-components";
 
 const Code = styled.code`
@@ -12,11 +11,14 @@ const Code = styled.code`
   white-space: break-spaces;
   background-color: rgba(175, 184, 193, 0.2);
   border-radius: 6px;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
+  font-family: monospace !important;
+
+  span {
+    font-family: monospace !important;
+  }
 `;
 
-const CodeBlock: FunctionComponent<PropsWithChildren<CodeProps>> = ({
+const CodeBlock: FunctionComponent<PropsWithChildren<any>> = ({
   node,
   inline,
   className,
@@ -37,7 +39,7 @@ const CodeBlock: FunctionComponent<PropsWithChildren<CodeProps>> = ({
           {String(children).replace(/\n$/, "")}
         </SyntaxHighlighter>
       ) : (
-        <Code>{children}</Code>
+        <Code className="font-jetbrainsMono">{children}</Code>
       )}
     </>
   );

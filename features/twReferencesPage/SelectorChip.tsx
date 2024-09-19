@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { ptSans } from "../../utils/fonts";
 
 interface ISelectorChipProps {
   selected: boolean;
@@ -14,7 +13,7 @@ export const SelectorChip: FunctionComponent<ISelectorChipProps> = ({
 }) => {
   return (
     <button
-      className={`${selected && "bg-black font-bold text-white"} ${ptSans.className} flex rounded-full border border-solid border-customGray px-4 py-2 text-[10px] text-black`}
+      className={`${selected && "bg-black font-bold text-white"} flex rounded-full border border-solid border-customGray px-4 py-2 font-sans text-[10px] text-black`}
       onClick={handleClick}
     >
       {label}

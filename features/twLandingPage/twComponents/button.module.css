@@ -149,3 +149,34 @@
   background-color: transparent;
   color: white;
 }
+
+.buttonDisabled {
+  color: white;
+
+  background: #a9a9a9;
+  cursor: not-allowed;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+}
+
+.buttonDisabled:hover {
+  background-color: #a9a9a9;
+  background: #a9a9a9 border-box;
+  cursor: not-allowed;
+  color: white;
+}
+
+.buttonDisabled:hover::before {
+  background-color: #a9a9a9;
+  background: #a9a9a9 border-box;
+  cursor: not-allowed;
+  color: white;
+}
+.buttonDisabled:active::before {
+  background-color: #a9a9a9;
+  background: #a9a9a9 border-box;
+  cursor: not-allowed;
+  color: white;
+}

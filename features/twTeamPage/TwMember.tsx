@@ -15,7 +15,6 @@ import PetraImage from "../../public/bio/petra2.png";
 import KataImage from "../../public/bio/kata.jpg";
 import GithubIcon from "../../public/icons/github-small.svg";
 import LinkedInIcon from "../../public/icons/linkedin-small.svg";
-import { montserrat } from "../../utils/fonts";
 
 enum TwMembers {
   viktor = "viktor",
@@ -85,20 +84,16 @@ export const TwMember: FunctionComponent<TwMemberProps> = ({
           {memberName}
         </div>
         <div
-          className={`${montserrat.className} text-base font-bold leading-[23px] text-black`}
+          className={`font-montserrat text-base font-bold leading-[23px] text-black`}
         >
           {memberRole}
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div
-          className={`text-center ${montserrat.className} text-xs text-black`}
-        >
+        <div className={`text-center font-montserrat text-xs text-black`}>
           {memberStack}
         </div>
-        <div
-          className={`text-center ${montserrat.className} text-xs text-black`}
-        >
+        <div className={`text-center font-montserrat text-xs text-black`}>
           {memberWorkArea}
         </div>
       </div>

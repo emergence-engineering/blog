@@ -26,13 +26,9 @@ const PostCard: React.FC<ArticleIntro> = ({
     <div className="cursor-pointer" onClick={redirectToPost}>
       <div className="max-w-sm transform rounded-lg border border-black p-4 text-[14px] text-black transition duration-200 hover:scale-[1.02] hover:shadow-lg md:max-w-3xl md:text-base">
         <div className="flex items-center space-x-4 text-xs">
-          <span className={`font-bold ${montserrat.className}`}>
-            By {authorString}
-          </span>
+          <span className={`font-montserrat font-bold`}>By {authorString}</span>
           <div className="h-4 border-l border-black"></div>
-          <span className={`font-bold ${montserrat.className}`}>
-            {readableDate}
-          </span>
+          <span className={`font-montserrat font-bold`}>{readableDate}</span>
         </div>
         <h2 className="my-3 text-[28px] font-bold leading-normal md:text-[34px]">
           {title}
@@ -45,7 +41,7 @@ const PostCard: React.FC<ArticleIntro> = ({
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`h-fit rounded-full border border-black px-3 py-1 text-sm uppercase ${ptSans.className}`}
+                  className={`h-fit rounded-full border border-black px-3 py-1 font-sans text-sm uppercase`}
                 >
                   {tag}
                 </span>

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Link from "next/link";
-import { montserrat } from "../../../utils/fonts";
 import { Button } from "./Button";
 
 export interface TwServiceCardProps {
@@ -30,9 +29,7 @@ export const TwServiceCard: FC<TwServiceCardProps> = ({
       </div>
 
       <div className="flex flex-col border-t p-4">
-        <p className={`${montserrat.className} text-base font-normal`}>
-          {content}
-        </p>
+        <p className="font-montserrat text-base font-normal">{content}</p>
         {path && (
           <Link href={path} className="self-end">
             <Button label="READ MORE" theme="tertiary" />

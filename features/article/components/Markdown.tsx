@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import ReactMarkdown from "react-markdown";
 
-import { montserrat } from "../../../utils/fonts";
 import CodeHighlight from "./CodeHighlight";
 
 export type MarkdownText = string;
@@ -20,10 +19,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
         code: CodeHighlight,
         a: ({ node, ...props }) =>
           formatLinks ? (
-            <a
-              {...props}
-              className={`${montserrat.className} font-semibold underline`}
-            >
+            <a {...props} className="font-montserrat font-semibold underline">
               {props.children}
             </a>
           ) : (
@@ -35,20 +31,17 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             </a>
           ),
         p: ({ ...props }) => (
-          <p {...props} className={`${montserrat.className} py-2 text-left`}>
+          <p {...props} className="py-2 text-left font-montserrat">
             {props.children}
           </p>
         ),
         ul: ({ ...props }) => (
-          <ul
-            {...props}
-            className={`${montserrat.className} list-disc py-2 pl-6`}
-          >
+          <ul {...props} className="list-disc py-2 pl-6 font-montserrat">
             {props.children}
           </ul>
         ),
         li: ({ ...props }) => (
-          <li {...props} className={`${montserrat.className} py-1`}>
+          <li {...props} className="py-1 font-montserrat">
             {props.children}
           </li>
         ),
@@ -68,17 +61,17 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
           </h3>
         ),
         em: ({ ...props }) => (
-          <em {...props} className={`${montserrat.className} italic`}>
+          <em {...props} className="font-montserrat italic">
             {props.children}
           </em>
         ),
         strong: ({ ...props }) => (
-          <strong {...props} className={`${montserrat.className} font-bold`}>
+          <strong {...props} className="font-montserrat font-bold">
             {props.children}
           </strong>
         ),
         pre: ({ ...props }) => (
-          <pre {...props} className={`${montserrat.className}`}>
+          <pre {...props} className="font-montserrat">
             {props.children}
           </pre>
         ),
