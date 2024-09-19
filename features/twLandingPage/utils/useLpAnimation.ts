@@ -159,11 +159,12 @@ const useGsapAnimation = () => {
             },
             scrub: true,
             markers: false,
+            invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
 
           ScrollTrigger.create({
             trigger: "#section-3",
-            start: "top center", // Start the trigger when #section-3 hits the center of the viewport
+            start: "top 20%", // Start the trigger when #section-3 hits the center of the viewport
             onEnter: () => {
               gsap.to("#m-label-2", { opacity: 0, duration: 0.5 });
               gsap.to("#m-label-3", { opacity: 1, duration: 0.5 });
@@ -173,8 +174,9 @@ const useGsapAnimation = () => {
               gsap.to("#m-label-3", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
-            markers: false,
+            markers: true,
             immediateRender: false,
+            invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
 
           ScrollTrigger.create({
@@ -189,7 +191,7 @@ const useGsapAnimation = () => {
               gsap.to("#m-label-4", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
-            markers: false,
+            markers: true,
             immediateRender: false,
             invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
