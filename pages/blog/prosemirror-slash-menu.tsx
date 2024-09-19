@@ -40,14 +40,14 @@ and the companion [ProseMirror slash menu UI in react](https://github.com/emerge
 We are all familiar with the concept of a slash menu from Slack, Discord, Notion, etc. and it seems it would be a perfect fit for ProseMirror as well. 
 With these two simple packages you can quickly add a slash menu to your editor and execute ProseMirror commands, or any other commands within your app for that matter.
 
-# How does it work?
+## How does it work?
 
 The idea is for you to simply provide an array of MenuElements to the plugin, and it will take care of closing and opening, executing commands, navigation within menus and sub menus with the keyboard and 
 filtering the items as the user is typing. 
 
 By using [prosemirror-slash-menu-react](https://github.com/emergence-engineering/prosemirror-slash-menu-react) you can also get a UI for the menu which can be styled to your liking just by overriding some CSS classes.
 
-# Why two packages? 
+## Why two packages? 
 
 So you can use it with any UI framework you want. Our thought process was: Let the plugin handle all the logic and the UI will be just a dumb display. 
 Not to mention, we really don't want to bundle React into the package for those of you who will not use it.
@@ -56,7 +56,7 @@ Not to mention, we really don't want to bundle React into the package for those 
 `;
 
 const MD1 = /* language=md */ `
-# How to use?
+## How to use?
 
 1. Install the plugins: **npm i -S prosemirror-slash-menu prosemirror-slash-menu-react**
 3. Import **SlashMenuReact**, **SlashMenuPlugin** and **defaultElements** from *prosemirror-slash-menu-react* 

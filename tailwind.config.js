@@ -86,16 +86,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        ".gradient-border": {
-          border: "2px solid transparent",
-          "border-image": "linear-gradient(to right,#FF1B00, #FFD644)",
-          "border-image-slice": "1",
-        },
-      };
-      addUtilities(newUtilities);
-    },
-  ],
+  plugins: [],
 };

@@ -270,7 +270,7 @@ If you want to generate forms from your mustache templates, you can do that with
 `;
 
 export const article10Metadata: ArticleIntro = {
-  title: `JsonSchema generation from {{ mustache }} templates`,
+  title: `JsonSchema generation from \n{{ mustache }} templates`,
   postId: "json-schema-from-mustache",
   url: "https://emergence-engineering.com/blog/json-schema-from-mustache",
   author: "Törcsi",
