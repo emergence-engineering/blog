@@ -27,7 +27,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
               {props.children}
             </a>
           ) : (
-            <a {...props} className="font-semibold underline">
+            <a {...props} className={`${montserrat.className} text-red-600`}>
               {props.children}
             </a>
           ),
@@ -45,7 +45,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
           </ul>
         ),
         li: ({ ...props }) => (
-          <li {...props} className={`${montserrat.className}`}>
+          <li {...props} className={`${montserrat.className} py-1`}>
             {props.children}
           </li>
         ),
