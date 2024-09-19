@@ -62,6 +62,10 @@ const useGsapAnimation = () => {
             .to("#sec-3-arrow", { opacity: 1, delay: 1.5 })
             .to("#sec-3-illustration", { opacity: 1, delay: 1.5 })
             .to("#sec-3-description", { opacity: 1, delay: 1.5 })
+            .to("#sec-3-desc-1", { opacity: 1, delay: 1.5 })
+            .to("#sec-3-desc-2", { opacity: 1, delay: 1.5 })
+            .to("#sec-3-desc-3", { opacity: 1, delay: 1.5 })
+
             .to(["#sec-3-description", "#sec-3-illustration", "#sec-3-arrow"], {
               y: () =>
                 calcScrollAnimationOffset(
