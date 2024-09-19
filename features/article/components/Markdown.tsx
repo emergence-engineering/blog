@@ -19,7 +19,10 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
         code: CodeHighlight,
         a: ({ node, ...props }) =>
           formatLinks ? (
-            <a {...props} className="font-montserrat font-semibold underline">
+            <a
+              {...props}
+              className="font-montserrat text-red-600 hover:underline"
+            >
               {props.children}
             </a>
           ) : (

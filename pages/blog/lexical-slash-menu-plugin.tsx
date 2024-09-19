@@ -4,10 +4,13 @@ import dynamic from "next/dynamic";
 
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
-import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
+const Markdown = dynamic(
+  () => import("../../features/article/components/Markdown"),
+  { ssr: false },
+);
 const DynamicEditor = dynamic(
   () => import("../../articles/lexical-slash-menu-plugin/Editor"),
   { ssr: false },

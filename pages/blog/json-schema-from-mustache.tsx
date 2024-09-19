@@ -103,14 +103,14 @@ Only the \`AnyField\` can be nullable, and the \`ObjectSchema\` can have additio
 For the sake of completeness, we will need to require all the properties of an object (which is not nullable), and we will need at least one element in an array if it is not used as conditions.
 
 So given the following template I want the \`list\` to have at least one element in it:
-\`\`\`jsTemplates
+\`\`\`js-templates
 List
 {{#list}}
  - {{.}}
 {{/list}}
 \`\`\`
 But in this case I would allow an empty \`list\`:
-\`\`\`jsTemplates
+\`\`\`js-templates
 {{#list}}
 List
 {{/list}}
@@ -119,7 +119,7 @@ List
 {{/list}}
 \`\`\`
 Or here an empty array in \`repo\` is fine too:
-\`\`\`jsTemplates
+\`\`\`js-templates
 {{#github}}
 You can check the following github repo: {{repo}}
 {{/github}}
