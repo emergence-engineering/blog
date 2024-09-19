@@ -634,38 +634,51 @@ const TwJoinUsColumns: FC = () => {
               className="customAreaFour flex flex-col md:opacity-0"
             >
               <div
-                className={`font- my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
+                id="sec-3-desc-1"
+                className={`font- my-3 justify-self-center ${ptSansNarrow.className} text-xl font-bold md:text-4xl md:opacity-0`}
               >
                 We will develop, deploy, test, evaluate and rebuild until
                 everything works the way it should.
               </div>
               <div
-                className={`my-1 ${ptSansNarrow.className} text-2xl font-bold`}
+                id="sec-3-desc-2"
+                className={`my-1 ${ptSansNarrow.className} text-2xl font-bold md:opacity-0`}
               >
                 Our secret?
               </div>
               <div
-                className={`text-l my-1 ${montserrat.className} font-semibold`}
+                id="sec-3-desc-2"
+                className={`text-l my-1 ${montserrat.className} font-semibold md:opacity-0`}
               >
                 Continuous delivery
               </div>
-              <div className={`text-l mb-5 ${montserrat.className}`}>
+              <div
+                className={`text-l mb-5 ${montserrat.className} md:opacity-0`}
+                id="sec-3-desc-2"
+              >
                 Every change we make is instantly visible, allowing for
                 continuous and quick feedback from you and from the users. By
                 taking small, deliberate steps, we ensure steady progress
                 towards a successful product.
               </div>
               <div
-                className={`text-l my-1 ${montserrat.className} font-semibold`}
+                className={`text-l my-1 ${montserrat.className} font-semibold md:opacity-0`}
+                id="sec-3-desc-2"
               >
                 Continuous feedback
               </div>
-              <div className={`text-l mb-5 ${montserrat.className}`}>
+              <div
+                className={`text-l mb-5 ${montserrat.className} md:opacity-0`}
+                id="sec-3-desc-2"
+              >
                 Your insights, combined with real user feedback, help us uncover
                 the missing links: keeping you in the loop and picking your
                 brain to make sure we don&#39;t skip over details.
               </div>
-              <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-300 md:text-white">
+              <div
+                className="mx-auto w-full max-w-2xl rounded-lg border border-gray-300 md:text-white md:opacity-0"
+                id="sec-3-desc-3"
+              >
                 <div className="flex items-center justify-between bg-white px-4 py-4">
                   <Image
                     src={"/rule-star.svg"}
