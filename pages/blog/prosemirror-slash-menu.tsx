@@ -52,7 +52,7 @@ By using [prosemirror-slash-menu-react](https://github.com/emergence-engineering
 So you can use it with any UI framework you want. Our thought process was: Let the plugin handle all the logic and the UI will be just a dumb display. 
 Not to mention, we really don't want to bundle React into the package for those of you who will not use it.
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-slash-menu)
+[The code for this post is here](https://github.com/emergence-engineering/blog/tree/master/articles/prosemirror-slash-menu)
 `;
 
 const MD1 = /* language=md */ `

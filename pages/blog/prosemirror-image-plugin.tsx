@@ -61,7 +61,7 @@ Try out with
 [this image](https://www.google.com/search?q=image&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjww8mck57uAhWJ4YUKHbAIAb0Q_AUoAXoECBMQAw&biw=1745&bih=881#imgrc=-VCM1w56w6u5VM),
 drag it in or save it and pick it with the file selector.
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin)
+[The code for this post is here](https://github.com/emergence-engineering/blog/tree/master/articles/prosemirror-image-plugin)
 `;
 
 const MD1 = /* language=md */ `

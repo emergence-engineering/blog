@@ -62,7 +62,7 @@ And now resizable images are added with:
 
 Check it out! You can try different styles with the selects below:
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-image-plugin-2)
+[The code for this post is here](https://github.com/emergence-engineering/blog/tree/master/articles/prosemirror-image-plugin-2)
 `;
 
 const MD1 = /* language=md */ `

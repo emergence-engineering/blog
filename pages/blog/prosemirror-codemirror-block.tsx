@@ -47,7 +47,7 @@ With:
 - lazy-loaded language support
 - works with YJS history
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-codemirror-block)
+[The code for this post is here](https://github.com/emergence-engineering/blog/tree/master/articles/prosemirror-codemirror-block)
 `;
 
 const MD1 = /* language=md */ `

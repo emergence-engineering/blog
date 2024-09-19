@@ -60,7 +60,7 @@ This article shows a path to get rid of that layer by using a well-tested layer 
 In this article PouchDB/CouchDB is used, so the emulated "server" can also live in the browser, thus making the example simpler.
 This approach has also been tested with Firestore.
 
-[The code for this post is here](https://gitlab.com/emergence-engineering/blog/-/tree/master/articles/prosemirror-sync-1)
+[The code for this post is here](https://github.com/emergence-engineering/blog/tree/master/articles/prosemirror-sync-1)
 `;
 
 const demo = /* language=md */ `
@@ -109,7 +109,7 @@ to the server by:
 This is very similar to a REST API, but the server now can push data to the clients directly. Of course
 this can be done with just WebSockets ( and that's what behind the implementation of most sync databases ), but that's usually
 a quite complex hard-to-test part, and using a well-tested database has some obvious benefits in that sense. 
-Our implementations root file is [ index.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/index.tsx) in the repo linked earlier.
+Our implementations root file is [ index.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/index.tsx) in the repo linked earlier.
 
 A very good explanation of the collaborative algorithm used by ProseMirror can be found [here](https://prosemirror.net/docs/guide/#collab).
 
@@ -215,12 +215,12 @@ interface ServerStep {
           .then(() => syncClientStep(DBS, clientStep, StepStatus.ACCEPTED));
 \`\`\`
     
-The server functionality is implemented in [ processSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/processSteps.ts)
+The server functionality is implemented in [ processSteps.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/processSteps.ts)
 
 ## Data flow on the clients
 
 ### Sending new steps
-The function in [ postSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/postNewSteps.ts) is called by ProseMirror whenever there is an incoming ProseMirror transaction ( either the user did something in the editor, or the server
+The function in [ postSteps.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/postNewSteps.ts) is called by ProseMirror whenever there is an incoming ProseMirror transaction ( either the user did something in the editor, or the server
 sent new steps coming from another user ). In that function, sendable steps are calculated by the **prosemirror-collab** module, and if there's any then they are written to the database as **ClientSteps**. The ProseMirror view is also updated.
 
 \`\`\`typescript
@@ -258,7 +258,7 @@ by the **[ prosemirror-collab ](https://prosemirror.net/docs/guide/#collab)** mo
 
 ### Receiving new steps
 
-The [ fetchNewStepsClient.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/fetchNewStepsClient.ts) contains a function which is used in a React **useEffect** in [ index.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/index.tsx), and gets reloaded every time the version of the document is updated.
+The [ fetchNewStepsClient.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/fetchNewStepsClient.ts) contains a function which is used in a React **useEffect** in [ index.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/index.tsx), and gets reloaded every time the version of the document is updated.
 This is necessary since this function only listens to the step in **ServerSteps** which has the version that updates the current document. If there is a new step then
 new ProseMirror transaction is sent to the ProseMirror view, which contains all the necessary information to both updates the view and the collab state.
 
@@ -281,7 +281,7 @@ new ProseMirror transaction is sent to the ProseMirror view, which contains all 
 
 # Improvements, challenges and everything else
 
-This example runs in just a single browser instance, but if one moves the server-side code ( mostly [ processSteps.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/processSteps.ts) and some parts of **[ initializeDB.ts ](https://gitlab.com/emergence-engineering/blog/-/blob/master/articles/prosemirror-sync-1/initializeDB.ts )** ), removes one
+This example runs in just a single browser instance, but if one moves the server-side code ( mostly [ processSteps.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/processSteps.ts) and some parts of **[ initializeDB.ts ](https://github.com/emergence-engineering/blog/blob/master/articles/prosemirror-sync-1/initializeDB.ts )** ), removes one
 of the editors, and changes the remote DB location on the client-side, then it will work as a fully functional collaborative editor.
 Offline functionality is also possible with the same structure ( with some added code ), but keep in mind that ProseMirror's collaborative feature is not meant for
 offline use and it is possible to lose some information ( for example if a user typed into an existing paragraph when offline, and then the paragraph is deleted then the information is lost ), 
