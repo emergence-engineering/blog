@@ -178,7 +178,7 @@ const useGsapAnimation = () => {
               gsap.to("#m-label-3", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
-            markers: true,
+            markers: false,
             immediateRender: false,
             invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
@@ -195,7 +195,7 @@ const useGsapAnimation = () => {
               gsap.to("#m-label-4", { opacity: 0, duration: 0.5 });
             },
             scrub: true,
-            markers: true,
+            markers: false,
             immediateRender: false,
             invalidateOnRefresh: true, // Ensures recalculation on refresh
           });
