@@ -63,6 +63,8 @@ module.exports = {
           "linear-gradient(270deg, #FE3301 0%, #FD7503 50%, #FF1B00 100%)",
         "letter-background":
           "linear-gradient(to right, rgba(255, 214, 68, 1), rgba(253, 117, 3, 1), rgba(255, 27, 0, 1))",
+        "gradient-under-labels":
+          "linear-gradient(180deg, #0E0C0C 0%, rgba(14, 12, 12, 0) 100%)",
       },
       colors: {
         "letter-red": "rgba(255, 27, 0, 1)", // You can name this color anything you like
@@ -96,6 +98,20 @@ module.exports = {
         },
       };
       addUtilities(newUtilities);
+    },
+    function ({ addUtilities }) {
+      addUtilities({
+        ".gradient-under::after": {
+          content: '""',
+          position: "absolute",
+          left: "0",
+          bottom: "-72px",
+          width: "100%",
+          height: "72px",
+          backgroundImage:
+            "linear-gradient(180deg, #0E0C0C 0%, rgba(14, 12, 12, 0) 100%)",
+        },
+      });
     },
   ],
 };
