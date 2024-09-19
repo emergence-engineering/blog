@@ -21,23 +21,23 @@ export const articlePNPMMetadata: ArticleIntro = {
 
 const MD0 = /* language=md */ `
 
-## Introduction
+# Introduction
 
 We [ published ](https://emergence-engineering.com/opensource) quite a few open-source packages on NPM. 
 Developing multiple NPM packages that rely on each other is not easy task. There are a lot of ways that things can go wrong: keeping stuff in sync, publishing etc. 
 We tried a couple of other tools to solve this problem: git repo npm modules, \`npm link\` and \`yalc\` so far but no of them was as good as \`pnpm\`.
 Our go-to method now is a pnpm workspace monorepo with git submodules. Very convenient solution for projects with multiple separate git repositories.
 
-## Features
+# Features
 - \`pnpm\` makes it convenient to manage and develop multiple separate packages without using any other tools like \`npm link\` or \`yalc\`
 - easy to publish and takes care of updating dependencies using \`changeset\`
 - recursively remove \`node_modules\`, \`dist\`, or build your projects
 
-## How to use it
+# How to use it
 Follow this step-by-step guide on to create a \`pnpm\` monorepo with git submodules. All you need is a terminal.
 
 ### Setup pnpm
-\`\`\`sg
+\`\`\`bash
 # create a new directory and cd into it
 mkdir mono-repo
 cd mono-repo
@@ -56,7 +56,7 @@ in this example there will be 2 folders \`apps\` and \`packages\`
 - \`packages\` for several git submodules, each of them is a separate git repo, which are reusable packages
 - this structure can be defined in the \`pnpm-workspace.yaml\`
 
-\`\`\`sh
+\`\`\`yaml
 # pnpm-workspace.yaml
 packages:
   # executable/launchable applications
@@ -68,7 +68,7 @@ packages:
 ### Git Submodules
 add your submodules
 
-\`\`\`sh
+\`\`\`bash
 # add your submodules in the packages folder
 cd packages
 git submodule add https://github.com/<user>/rock rock
@@ -83,7 +83,7 @@ git submodule update --init --recursive
 
 ### Create react app
 the following cra will live in the \`apps\` folder and will be part of the root, not a separate git repository
-\`\`\`sh
+\`\`\`bash
 cd apps
 npx create-react-app example
 \`\`\`
@@ -93,7 +93,7 @@ npx create-react-app example
 
 ### pnpm import
 \`pnpm import\` generates a \`pnpm-lock.yaml\` from another package manager's lockfile
-\`\`\`sh
+\`\`\`bash
 # cd into a submodule
 rm -rf node_modules
 pnpm import
@@ -107,7 +107,7 @@ pnpm install
 Long story short, pnpm does not version packages so when the time comes to publish a submodule to npm, some other tool needs to be used for that
 - luckily [changset](https://pnpm.io/using-changesets) takes care of it
 
-\`\`\`sh
+\`\`\`bash
 # add changeset in the root as devDependenc\
 pnpm add -Dw @changesets/cli
 
@@ -127,11 +127,11 @@ pnpm install
 
 - changeset also takes care of the \`example\` React app, and if any of its dependencies has a new version, it will update the \`package.json\` version of that package
 
-### running workspaces
+### Running workspaces
 - workspaces can be run separately with the [\`--filter\`](https://pnpm.io/filtering) command
 - or all of them at once with the [\`--recursive\`](https://pnpm.io/cli/recursive) command
 
-\`\`\`sh
+\`\`\`bash
 # build only one project
 pnpm --filter <package> run build
 
@@ -139,7 +139,7 @@ pnpm --filter <package> run build
 pnpm -r run build
 \`\`\`
 
-## Conclusion
+# Conclusion
 - we use \`pnpm\` workspace in [suggestcat-repo](https://github.com/emergence-engineering/suggestcat-dev), \`suggestcat\` is a set of \`ProseMirror\` plugins, which gives AI suggestions
 - with \`pnpm\` workspace we can develop \`suggestcat\` easily, because we have 4 different submodules which depend on each other, and our React app with the ProseMirror editor consumes all of those packages, without a monorepo we would have to publish to npm registry all the time we change something in any of the repos, or use \`npm link\` locally, which is quite cumbersome, or some other tools like \`yalc\` which seemed to be working just fine for the first time, but with 4 packages it needed to be restarted all the time
 `;

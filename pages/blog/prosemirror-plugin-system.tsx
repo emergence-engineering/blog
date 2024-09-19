@@ -4,6 +4,7 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
+import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const articlePluginSystemMetadata: ArticleIntro = {
   title: "Guide for writing ProseMirror plugins",
@@ -292,6 +293,12 @@ const Article = () => (
       title={articlePluginSystemMetadata.title}
       description={articlePluginSystemMetadata.introText}
       imgSrc={articlePluginSystemMetadata.imgSrc}
+    />
+    <ArticleHeader
+      title={articlePluginSystemMetadata.title}
+      author={articlePluginSystemMetadata.author}
+      timestamp={articlePluginSystemMetadata.timestamp}
+      tags={articlePluginSystemMetadata.tags}
     />
 
     <Markdown source={MD0} />

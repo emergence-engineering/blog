@@ -1,30 +1,16 @@
-import styled from "styled-components";
 import React from "react";
-import {
-  BlogPostHeadlineProps,
-  PostLink,
-  PostTitle,
-} from "../../blog/components";
+import Link from "next/link";
+
 import { convertTimestampToLocaleDateString } from "../../../utils/time";
+import { ptSans } from "../../../utils/fonts";
 
-const Root = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
-`;
-
-const HeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 5rem;
-  padding: 0 0 0.5rem 0.5rem;
-  margin-bottom: 1.5rem;
-`;
+interface BlogPostHeadlineProps {
+  title: string;
+  author?: string;
+  timestamp: number;
+  href?: string;
+  tags?: string[];
+}
 
 export default function ArticleHeader({
   author,
@@ -36,25 +22,27 @@ export default function ArticleHeader({
   const postDate = convertTimestampToLocaleDateString(timestamp);
 
   return (
-    <Root>
-      <HeaderWrapper>
+    <div className="flex w-full flex-col justify-center gap-4 pb-4">
+      <div className="mb-6 flex min-h-[5rem] flex-col justify-center gap-2 pb-2 pl-2">
         <div className="grid grid-cols-1">
           {href ? (
-            <PostTitle
-              style={{ textAlign: "left", textDecoration: "none" }}
+            <Link
+              className="cursor-pointer text-left text-[3.5rem] font-bold no-underline"
               href={href}
             >
               {title}
-            </PostTitle>
+            </Link>
           ) : (
-            <PostLink>{title}</PostLink>
+            <h1 className="whitespace-pre-line text-left text-[3.5rem] font-bold">
+              {title}
+            </h1>
           )}
           <div className="mb-6 mt-4 flex flex-wrap gap-4 md:col-span-8">
             {tags &&
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="h-fit rounded-full border border-black px-3 py-1 font-pt-sans text-sm uppercase"
+                  className={`${ptSans.className} h-fit rounded-full border border-black px-3 py-1 text-sm uppercase`}
                 >
                   {tag}
                 </span>
@@ -67,7 +55,7 @@ export default function ArticleHeader({
           </div>
         </div>
         <div className="mt-2 w-full border-t border-zinc-300" />
-      </HeaderWrapper>
-    </Root>
+      </div>
+    </div>
   );
 }
