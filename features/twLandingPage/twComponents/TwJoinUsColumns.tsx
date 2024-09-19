@@ -47,7 +47,7 @@ const TwJoinUsColumns: FC = () => {
           }
         }
       `}</style>
-      <div className="blackWhiteBgSplit md:pb-15 relative grid max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 font-pt-sans-narrow text-white md:text-black">
+      <div className="blackWhiteBgSplit md:pb-15 font-pt-sans-narrow relative grid max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 text-white md:text-black">
         <div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
@@ -169,7 +169,7 @@ const TwJoinUsColumns: FC = () => {
                 uses our tech expertise to help you &quot;get it&quot; and make
                 the choices with
                 <span
-                  className={`font-bold ${montserrat.className} text-red-500`}
+                  className={`font-bold ${montserrat.className} text-red-600`}
                 >
                   {" "}
                   you
@@ -460,12 +460,12 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div className="my-1 text-2xl font-bold">Our secret?</div>
             <div
-              className={`text-l my-1 ${montserrat.className} text-custom-charcoal font-semibold`}
+              className={`text-l my-1 ${montserrat.className} font-semibold text-custom-charcoal`}
             >
               Continuous delivery
             </div>
             <div
-              className={`text-l text-custom-charcoal mb-5 ${montserrat.className}`}
+              className={`text-l mb-5 text-custom-charcoal ${montserrat.className}`}
             >
               Every change we make is instantly visible, allowing for continuous
               and quick feedback from you and from the users. By taking small,
@@ -473,7 +473,7 @@ const TwJoinUsColumns: FC = () => {
               product.
             </div>
             <div
-              className={`text-l my-1 ${montserrat.className} text-custom-charcoal font-semibold`}
+              className={`text-l my-1 ${montserrat.className} font-semibold text-custom-charcoal`}
             >
               Continuous feedback
             </div>

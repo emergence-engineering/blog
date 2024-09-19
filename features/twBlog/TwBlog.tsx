@@ -17,7 +17,7 @@ import { article17Metadata } from "../../pages/blog/lexical-link-preview-plugin"
 import { articlePluginSystemMetadata } from "../../pages/blog/prosemirror-plugin-system";
 import { articlePNPMMetadata } from "../../pages/blog/monorepo-workspace-with-pnpm-and-git-submodules";
 import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-menu-plugin";
-import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes-how-to-pick-a-team";
+import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes";
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
 
