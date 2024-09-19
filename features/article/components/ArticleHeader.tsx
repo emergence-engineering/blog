@@ -27,13 +27,13 @@ export default function ArticleHeader({
         <div className="grid grid-cols-1">
           {href ? (
             <Link
-              className="cursor-pointer text-left text-[3.5rem] font-bold no-underline"
+              className="cursor-pointer text-left text-[3.5rem] font-bold leading-none no-underline"
               href={href}
             >
               {title}
             </Link>
           ) : (
-            <h1 className="whitespace-pre-line text-left text-[3.5rem] font-bold">
+            <h1 className="whitespace-pre-line text-left text-[3.5rem] font-bold leading-none">
               {title}
             </h1>
           )}
