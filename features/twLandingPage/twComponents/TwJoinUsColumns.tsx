@@ -127,7 +127,7 @@ const TwJoinUsColumns: FC = () => {
 
             <div
               id="section-labels"
-              className="gradient-under relative flex h-28 flex-col items-center md:hidden"
+              className="relative flex h-28 flex-col items-center gradient-under md:hidden"
             >
               <div
                 id="m-label-1"
@@ -183,17 +183,17 @@ const TwJoinUsColumns: FC = () => {
                   <div
                     className={`${ptSans.className} w-fit rounded-full bg-gray-700 px-4 py-2 text-xs uppercase`}
                   >
-                    Let&#39;s press the launch button. Shall we?:D
+                    Let’s test the prototype!
                   </div>
                 </div>
                 <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
                   <div
                     className={`mr-4 w-fit bg-letter-background bg-clip-text ${ptSansNarrow.className} font-bold text-transparent`}
                   >
-                    04
+                    03
                   </div>
                   <h1 className={`${ptSansNarrow.className} font-extrabold`}>
-                    PRODUCT
+                    VALIDATE
                   </h1>
                 </div>
               </div>
