@@ -29,10 +29,14 @@ const imageStyle: React.CSSProperties = {
 
 const MD0 = /* language=md */ `
 
-# tl;dr
+# TL;DR
 We compared two rich text editors - Lexical and ProseMirror - to evaluate their performance under data load over time. 
-The tests showed significant differences between the two editors depending on the amount of time we want to use them. Lexical performs better for short-term use, responding faster initially, but its performance degrades under very heavy use (likely) due to inefficient memory management. ProseMirror is designed for long-term use, offering a little bit slower responses but more predictable and stable performance over time. 
+The tests showed significant differences between the two editors depending on the amount of time we want to use them. 
+Lexical performs better for short-term use, responding faster initially, 
+but its performance degrades under very heavy use (likely) due to inefficient memory management. 
+ProseMirror is designed for long-term use, offering a little bit slower responses but more predictable and stable performance over time.
 
+\_\_\_
 
 ## Introduction
 There are many online platforms where you can edit your text, whether it's a simple note-taking app or a work management site. They are easy to use: the features are familiar from text editor softwares, and sometimes the result is even better - think of image handling and the ability to preview links. These editors are called WYSIWYG (What You See Is What You Get) editors, and there are several libraries you can use for rich text editing. We tested two for this article: ProseMirror and Lexical.
@@ -42,10 +46,10 @@ The ProseMirror editor was developed by Marijn Haverbeke. It is robust and relia
 
 The Lexical editor was developed by Meta to meet their own needs. It is quite new, but is spreading quickly thanks to its reputation and an easily extensible system. Almost anything is possible by creating your own plugins and the library promises to handle the weight of them.
 
-# Goal
+## Goal
 The purpose of this test is to see if there's any difference between the two editors when loaded with text - and I mean massive amounts of text. How far they can go, how fast they execute scripts, how they handle leaks, how effectively they use memory.
 
-# Environment
+## Environment
 The website containing the editors was as clean as possible, built with React, the first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB. Both editors had the same basic features: the ProseMirror had an example setup, and the Lexical got equipped with the same tools.
 
 # Test
@@ -57,7 +61,7 @@ We collected measurements in every 15 seconds, recorded timestamps after every 2
 The metrics measured were JSHeapUsedSize, LayoutCount, and ScriptDuration.
 
 
-## Note
+### Note
 You will notice that the Lexical editor stops consistently around 8200 node count (~20 minutes) in all the tests. The likely cause is related to memory management issues in the long run. 
 The ProseMirror editor could go up to 1 hour, usually reaching 11500 node count.\\
 You can also see on some of the graphs how the points get closer and closer to each other as the test progresses. 

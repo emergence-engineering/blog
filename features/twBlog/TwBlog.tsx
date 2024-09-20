@@ -42,8 +42,9 @@ const TwBlog: FunctionComponent = () => {
         {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
         {tab === "tech" && (
           <>
-            <PostCard {...articlePMMetadata} />
-            <PostCard {...articlePNPMMetadata} />
+              <PostCard {...article19Metadata} />
+              <PostCard {...articlePMMetadata} />
+              <PostCard {...articlePNPMMetadata} />
             <PostCard {...article13Metadata} />
             <PostCard {...article12Metadata} />
             <PostCard {...article11Metadata} />
@@ -60,7 +61,6 @@ const TwBlog: FunctionComponent = () => {
             <PostCard {...article17Metadata} />
             <PostCard {...articlePluginSystemMetadata} />
             <PostCard {...articleLexicalSlashMenuMetadata} />
-              <PostCard {...article19Metadata} />
           </>
         )}
       </div>
