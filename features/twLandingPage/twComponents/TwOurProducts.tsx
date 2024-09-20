@@ -5,7 +5,7 @@ import { ProductNames } from "./referenceData";
 
 export const TwOurProducts: FC = () => {
   return (
-    <div className="mb-4 flex h-full w-full max-w-[1440px] flex-col items-center justify-center gap-12 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
+    <div className="mb-4 flex w-full max-w-[1440px] flex-col items-center justify-center gap-12 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
       <div className="flex w-full items-center justify-center whitespace-nowrap text-4.5xl font-bold uppercase lg:justify-start lg:text-7.5xl">
         Our Products
       </div>
