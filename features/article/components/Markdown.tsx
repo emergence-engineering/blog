@@ -15,6 +15,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
 
   return (
     <ReactMarkdown
+      className="px-3 md:p-0"
       components={{
         code: CodeHighlight,
         a: ({ node, ...props }) =>

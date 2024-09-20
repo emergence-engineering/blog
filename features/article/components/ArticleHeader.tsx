@@ -21,27 +21,27 @@ export default function ArticleHeader({
   const postDate = convertTimestampToLocaleDateString(timestamp);
 
   return (
-    <div className="flex w-full flex-col justify-center gap-4 pb-4">
-      <div className="mb-6 flex min-h-[5rem] flex-col justify-center gap-2 pb-2 pl-2">
+    <div className="flex w-full flex-col justify-center gap-4">
+      <div className="mb-6 flex min-h-[5rem] flex-col justify-center gap-2 px-3 md:p-0">
         <div className="grid grid-cols-1">
           {href ? (
             <Link
-              className="cursor-pointer text-left text-[3.5rem] font-bold leading-none no-underline"
+              className="cursor-pointer text-left text-5xl font-bold leading-none no-underline md:text-[3.5rem]"
               href={href}
             >
               {title}
             </Link>
           ) : (
-            <h1 className="whitespace-pre-line text-left text-[3.5rem] font-bold leading-none">
+            <h1 className="whitespace-pre-line text-left text-5xl font-bold leading-none md:text-[3.5rem]">
               {title}
             </h1>
           )}
-          <div className="mb-6 mt-4 flex flex-wrap gap-4 md:col-span-8">
+          <div className="mb-6 mt-4 flex flex-wrap gap-2 md:col-span-8 md:gap-4">
             {tags &&
               tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="h-fit rounded-full border border-black px-3 py-1 font-sans text-sm uppercase"
+                  className="h-fit rounded-full border border-black px-3 py-2 font-sans text-xs uppercase"
                 >
                   {tag}
                 </span>
