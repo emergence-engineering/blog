@@ -17,6 +17,8 @@ import { articlePluginSystemMetadata } from "../../pages/blog/prosemirror-plugin
 import { articlePNPMMetadata } from "../../pages/blog/monorepo-workspace-with-pnpm-and-git-submodules";
 import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-menu-plugin";
 import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes";
+import {article19Metadata} from "../../pages/blog/lexical-prosemirror-comparison";
+
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
 import { articlePMMetadata } from "../../pages/blog/prosemirror";
@@ -58,6 +60,7 @@ const TwBlog: FunctionComponent = () => {
             <PostCard {...article17Metadata} />
             <PostCard {...articlePluginSystemMetadata} />
             <PostCard {...articleLexicalSlashMenuMetadata} />
+              <PostCard {...article19Metadata} />
           </>
         )}
       </div>
