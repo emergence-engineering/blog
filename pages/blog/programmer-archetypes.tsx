@@ -16,7 +16,7 @@ import Letmeout from "../../public/blog/letmeout.webp";
 import Markdown from "../../features/article/components/Markdown";
 
 export const articleProgrammerArchetypes: ArticleIntro = {
-  title: "Programmer archetypes: how to pick a team",
+  title: "Programmer archetypes: 5 types of coders",
   author: "Viktor",
   imgSrc: "https://emergence-engineering.com/blog/handfight.webp",
   authorLink: null,
