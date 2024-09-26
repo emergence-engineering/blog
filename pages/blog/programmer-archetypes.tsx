@@ -148,7 +148,7 @@ const Article = () => (
       timestamp={articleProgrammerArchetypes.timestamp}
       tags={articleProgrammerArchetypes.tags}
     />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Handfight}
         alt="handfight"
@@ -159,7 +159,7 @@ const Article = () => (
       <div className="font-bold">And the winner is:</div>
     </div>
     <Markdown source={MD0} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Todo}
         alt="todo"
@@ -170,7 +170,7 @@ const Article = () => (
       <div className="font-bold">What&apos;s next?</div>
     </div>
     <Markdown source={MD1} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Hammer}
         alt="hammer"
@@ -181,7 +181,7 @@ const Article = () => (
       <div className="font-bold">What time is it?</div>
     </div>
     <Markdown source={MD2} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Handpullup}
         alt="handpullup"
@@ -192,7 +192,7 @@ const Article = () => (
       <div className="font-bold">Come with me if you want to live</div>
     </div>
     <Markdown source={MD3} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center  pt-4">
       <Image
         src={Perfection}
         alt="perfection"
@@ -203,7 +203,7 @@ const Article = () => (
       <div className="font-bold">Some things don&apos;t have a place</div>
     </div>
     <Markdown source={MD4} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Hero}
         alt="hero"
@@ -214,7 +214,7 @@ const Article = () => (
       <div className="font-bold">Who&apos;s with me?</div>
     </div>
     <Markdown source={MD5} />
-    <div className="flex w-full flex-col items-center bg-gray-100 pt-4">
+    <div className="flex w-full flex-col items-center pt-4">
       <Image
         src={Letmeout}
         alt="letmeout"
