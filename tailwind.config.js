@@ -71,6 +71,8 @@ module.exports = {
         "product-card-gradient": "#FF1B00",
         customGray: "#373737",
         "custom-charcoal": "#585858",
+        tagGray: "rgb(35, 33, 33)",
+        descriptionGray: "#090909",
       },
       textColor: {
         transparent: "transparent",

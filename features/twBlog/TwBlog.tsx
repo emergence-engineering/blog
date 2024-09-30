@@ -25,7 +25,7 @@ const TwBlog: FunctionComponent = () => {
 
   return (
     <div className="flex w-full flex-col items-center bg-white py-12 text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
-      <div className="mb-3 flex w-full items-center justify-center text-4.5xl font-bold text-black md:mb-6 md:text-7.5xl">
+      <div className="mb-3 flex w-full items-center justify-center text-4.5xl font-bold text-black md:mb-6 lg:text-7.5xl">
         BLOG
       </div>
       <TabComponent tab={tab} setTab={setTab} />

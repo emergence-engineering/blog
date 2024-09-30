@@ -62,7 +62,7 @@ export const referenceData: ReferenceData = {
     alt: "Place of Cards",
     title: "Place of Cards",
     content:
-      "Event planners can create place cards with an integrated editor or use our custom made designs, then get your printed place cards in a few days. Our main goal was to create a well automated system.",
+      "Event planners can create place cards with an integrated editor or use our custom made designs, then get your printed place cards in a few days. Our main goal was to create a well automated system",
     websiteLink: "https://placeofcards.com/",
     tag: "Place-card editor website",
     productType: ProductTypes.INTERNAL,
@@ -72,7 +72,7 @@ export const referenceData: ReferenceData = {
     alt: "Szamlabridge",
     title: "Szamlabridge",
     content:
-      "Developed a system that allows users to easily manage their invoices and receipts.",
+      "SzamlaBridge connects Stripe with invoicing platforms to create legal invoices in Hungary. It features an admin panel where you can manage, view, and test your invoices, streamlining your billing process while ensuring compliance",
     websiteLink: "https://szamlabridge.com/",
     tag: "Invoicing tool for Stripe",
     productType: ProductTypes.INTERNAL,

@@ -68,7 +68,7 @@ export const TwHeader: FC = () => {
                 OPEN SOURCE
               </Link>
             </div>
-            <Button handleClick={scrollToContact} label="GET A QUOTE" />
+            <Button handleClick={scrollToContact} label="CONTACT US" />
             <HamburgerMenu />
           </div>
         </div>

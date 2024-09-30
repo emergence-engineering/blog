@@ -132,7 +132,7 @@ export const TwIntroduction = () => {
             <Button
               theme="primary"
               handleClick={scrollToContact}
-              label="Get a quote"
+              label="CONTACT US"
             />
           </div>
           <div className="relative h-[28rem] w-full overflow-x-scroll md:min-h-[20rem]">
