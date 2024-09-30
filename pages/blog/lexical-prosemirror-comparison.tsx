@@ -139,7 +139,7 @@ test(\`Lexical stress test: infinite nodes\`, async () => {
 # Nodecount
 We saved the \`performance.now()\` timestamp after every 200 nodes, and it turned out that Lexical could achieve faster performance. 
 It hit the first 200 nodes earlier in time and the first metric measurement (15sec) occurred at a higher node count. 
-When it stopped at about 8200 words, the ProseMirror was about to pass the 7600 nodecount.
+When it stopped at about 8200 words, the ProseMirror just passed the 7600 nodecount.
 `;
 
 const MD1 = /* language=md */ `
@@ -170,9 +170,9 @@ const MD3 = /* language=md */ `
 *The JSHeapUsedSize is the actual memory being used at any point in time, measured in bytes - here, converted to MB.*
 
 \**Lexical\**: Lexical shows a continuous upward trend, indicating increasing memory usage over time, suggesting a potential memory leak 
-or inefficient memory management as the test progresses. The graph stops at about 3.7 GB of memory usage around 23 minutes into the test. 
+or inefficient memory management as the test progresses. The graph stops at about 3.9 GB of memory usage around 23 minutes into the test. 
 
-\**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but remains mostly between 12 and 22 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
+\**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but remains mostly between 6 and 18 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
 
 \**Conclusions\**: Lexical users might initially experience responsive performance, but as memory usage increases, they could face lagging, slowdowns, and eventually crashes or unresponsiveness.
 `;
@@ -242,18 +242,29 @@ const Article = () => (
 
     <Markdown source={MD3} />
     <br />
-    <div style={{...imageStyle, aspectRatio: "3/1"} }>
-      <Image
-        src={"/article19-jsHeapUsedSize1.png"}
-        alt="image"
-        fill
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 60vw"
-      />
-    </div>
+      <div style={{display: 'flex', justifyContent: "space-evenly"}}>
+        <div style={imageStyle}>
+          <Image
+            src={"/article19-lexical-jsHeapUsedSize.png"}
+            alt="image"
+            fill
+            style={{ objectFit: "contain" }}
+            sizes="(max-width: 768px) 100vw, 60vw"
+          />
+        </div>
+          <div style={imageStyle}>
+            <Image
+                src={"/article19-pm-jsHeapUsedSize.png"}
+                alt="image"
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="(max-width: 768px) 100vw, 60vw"
+            />
+        </div>
+      </div>
     <div style={imageStyle}>
       <Image
-          src={"/article19-jsHeapUsedSize2.png"}
+          src={"/article19-jsHeapUsedSize.png"}
           alt="image"
           fill
           style={{ objectFit: "contain" }}
