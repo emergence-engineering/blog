@@ -15,7 +15,7 @@ export const TwOurServices: FC = () => {
   return (
     <div
       id="our-services-section"
-      className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-12 self-center px-2 py-12 font-bold text-black lg:gap-16 lg:px-2 lg:py-16"
+      className="flex w-full flex-col items-center justify-center gap-12 self-center py-12 font-bold text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]"
     >
       <div className="flex min-h-full justify-center text-4.5xl lg:self-start lg:text-7.5xl">
         OUR SERVICES

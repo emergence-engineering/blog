@@ -9,7 +9,7 @@ export const TwReferences: FC = () => {
 
   return (
     <div className="flex w-full justify-center bg-black">
-      <div className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-12 px-2 py-12 text-left text-white lg:gap-16 lg:px-2 lg:py-16">
+      <div className="flex w-full flex-col items-center justify-center gap-12 py-12 text-left text-white sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="font-left flex w-full justify-center text-4.5xl font-bold uppercase lg:justify-start lg:text-7.5xl">
           references
         </div>

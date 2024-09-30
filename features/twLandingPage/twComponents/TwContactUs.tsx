@@ -108,7 +108,7 @@ export const TwContactUs: FC = () => {
         action={formAddress}
         method="post"
         onSubmit={submitHandler}
-        className="flex w-full max-w-full flex-col gap-4 self-center text-left text-base lg:gap-8 lg:self-end xl:max-w-[426px]"
+        className="flex w-full max-w-full flex-col gap-4 self-center text-left text-base lg:self-end xl:max-w-[426px]"
       >
         <Input
           name="firstName"

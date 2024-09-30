@@ -65,7 +65,7 @@ const Index: FunctionComponent = () => {
           content="https://emergence-engineering.com/ee-icon-192192.png"
         />
       </Head>
-      <div className="flex w-full flex-col items-center gap-4 bg-white px-3 pb-8 md:pb-16">
+      <div className="flex w-full flex-col items-center gap-4 bg-white pb-8 sm:max-w-[540px] md:max-w-[720px] md:pb-16 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <h1 className="my-3 flex w-full items-center justify-center text-5xl font-bold text-black md:my-6 md:text-7.5xl">
           PROSEMIRROR
         </h1>

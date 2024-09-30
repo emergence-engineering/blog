@@ -46,7 +46,7 @@ const TwJoinUsColumns: FC = () => {
           }
         }
       `}</style>
-      <div className="blackWhiteBgSplit md:pb-15 font-pt-sans-narrow relative grid max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 text-white md:text-black">
+      <div className="blackWhiteBgSplit md:pb-15 font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-12 bg-black pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}

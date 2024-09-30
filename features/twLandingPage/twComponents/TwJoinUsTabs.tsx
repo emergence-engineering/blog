@@ -28,12 +28,12 @@ const IconWrapper: FC<IconWrapperProps> = ({ label, alt, Icon }) => {
 
 export const TwJoinUsTabs: FC = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-11 bg-white p-8 md:p-16">
+    <div className="flex w-full flex-col items-center justify-center gap-11 self-center bg-white py-8 sm:max-w-[540px] md:max-w-[720px] md:py-16 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
       <h1 className="text-center text-xl font-bold lg:mb-20 lg:max-w-3xl lg:text-4xl">
         Join us on a journey, and we will guide you through our process,
         developed over years.
       </h1>
-      <div className="relative flex flex-col items-baseline justify-center gap-4 lg:flex-row lg:items-center">
+      <div className="relative flex flex-col items-baseline justify-between lg:w-full lg:flex-row lg:items-center">
         <div className="absolute -top-20 left-3 hidden lg:flex">
           <HereIcon />
         </div>

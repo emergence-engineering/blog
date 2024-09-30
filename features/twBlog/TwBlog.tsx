@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState } from "react";
-import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { article1Metadata } from "../../pages/blog/everyday-javascript-1-spread-operator";
 import { article2Metadata } from "../../pages/blog/prosemirror-sync-1";
 import { article3Metadata } from "../../pages/blog/prosemirror-image-plugin";
@@ -25,12 +24,12 @@ const TwBlog: FunctionComponent = () => {
   const [tab, setTab] = useState<"article" | "tech">("tech");
 
   return (
-    <div className="flex w-full flex-col items-center bg-white text-black">
-      <div className="my-3 flex w-full items-center justify-center text-5xl font-bold text-black md:my-6 md:text-7.5xl">
+    <div className="flex w-full flex-col items-center bg-white py-12 text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
+      <div className="mb-3 flex w-full items-center justify-center text-4.5xl font-bold text-black md:mb-6 md:text-7.5xl">
         BLOG
       </div>
       <TabComponent tab={tab} setTab={setTab} />
-      <div className="mb-8 text-center text-xl font-bold md:mb-10">
+      <div className="mb-3 text-center text-xl font-bold md:mb-6">
         {tab === "article"
           ? "Explore our curated collection of insightful articles about our" +
             " experiences."
@@ -60,8 +59,6 @@ const TwBlog: FunctionComponent = () => {
           </>
         )}
       </div>
-
-      <TwContact />
     </div>
   );
 };

@@ -110,19 +110,20 @@ export const TwIntroduction = () => {
 
         <div className="z-10 flex w-full flex-col items-center justify-center gap-10 pt-3 text-amber-50 lg:pt-16">
           <div>
-            <h1 className="px-3 text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
+            <h1 className="text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
               FROM <span className="text-orange-500">IDEA</span>
             </h1>
-            <h1 className="px-3 text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
-              TO <span className="text-orange-500">APP</span> TO <span className="text-orange-500">MARKET</span>
+            <h1 className="text-center text-4.5xl font-bold leading-none lg:text-7.5xl">
+              TO <span className="text-orange-500">APP</span> TO{" "}
+              <span className="text-orange-500">MARKET</span>
             </h1>
           </div>
-          <h2 className="max-w-3xl px-3 text-center text-xl font-bold lg:text-4xl">
+          <h2 className="max-w-3xl text-center text-xl font-bold lg:text-4xl">
             We are a full-stack development team building scalable, <br />
             high performance software products and webapps.
           </h2>
 
-          <div className="flex w-full flex-col gap-5 px-3 py-10 md:flex-row md:justify-center">
+          <div className="flex w-full flex-col gap-5 sm:max-w-[540px] md:max-w-[720px] md:flex-row md:justify-center lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
             <Button
               theme="secondary"
               handleClick={scrollToServices}
@@ -136,7 +137,6 @@ export const TwIntroduction = () => {
           </div>
           <div className="relative h-[28rem] w-full overflow-x-scroll md:min-h-[20rem]">
             <div className="absolute left-[12px] top-0 flex gap-5 md:left-[200px]">
-
               {Partners.slice(0, 2).map(
                 ({ src, saysThat, partnerName, partnerJob }, idx) => (
                   <TwTestimonial
@@ -147,8 +147,8 @@ export const TwIntroduction = () => {
                     quote={saysThat}
                   />
                 ),
-              )} <StripeTestimonial />
-
+              )}{" "}
+              <StripeTestimonial />
               {Partners.slice(2).map(
                 ({ src, saysThat, partnerName, partnerJob }, idx) => (
                   <TwTestimonial
@@ -160,7 +160,6 @@ export const TwIntroduction = () => {
                   />
                 ),
               )}
-
             </div>
           </div>
         </div>

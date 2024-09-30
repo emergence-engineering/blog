@@ -21,12 +21,12 @@ export const TwLandingPage = () => {
       <TwIntroduction />
       <TwJoinUsTabs />
       <div className="blackWhiteBgSplit flex w-full justify-center">
-        <div className="flex max-w-[1440px] flex-grow">
+        <div className="flex max-w-[1440px] flex-grow justify-center bg-black md:bg-inherit">
           <TwJoinUsColumns />
         </div>
       </div>
-      <div className="relative flex h-[650px] w-full max-w-1140 self-center xs:h-[550px] mobile:h-[500px] sm:h-[400px]">
-        <div className="absolute -top-[4.2rem] left-1/2 h-100 w-[80%] max-w-[750px] -translate-x-1/2 transform">
+      <div className="relative flex h-[450px] w-full self-center xs:h-[450px] mobile:h-[350px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
+        <div className="absolute -top-[4.2rem] left-1/2 h-100 w-full max-w-[750px] -translate-x-1/2 transform md:w-[80%]">
           <TwJoinUsEndCard />
         </div>
       </div>
