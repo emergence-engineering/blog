@@ -22,7 +22,7 @@ export default function ArticleHeader({
 
   return (
     <div className="flex w-full flex-col justify-center gap-4">
-      <div className="mb-6 flex min-h-[5rem] flex-col justify-center gap-2 px-3 md:p-0">
+      <div className="mb-6 flex min-h-[5rem] flex-col justify-center gap-2">
         <div className="grid grid-cols-1">
           {href ? (
             <Link

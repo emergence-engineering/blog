@@ -19,6 +19,7 @@ import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-
 import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes";
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
+import { articlePMMetadata } from "../../pages/blog/prosemirror";
 
 const TwBlog: FunctionComponent = () => {
   const [tab, setTab] = useState<"article" | "tech">("tech");
@@ -39,6 +40,7 @@ const TwBlog: FunctionComponent = () => {
         {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
         {tab === "tech" && (
           <>
+            <PostCard {...articlePMMetadata} />
             <PostCard {...articlePNPMMetadata} />
             <PostCard {...article13Metadata} />
             <PostCard {...article12Metadata} />
