@@ -83,7 +83,7 @@ const useGsapAnimation = () => {
             .to("#sec-4-intro", { opacity: 1, delay: 0.5 })
             .to("#sec-4-arrow", { opacity: 1, delay: 1.5 })
             .to("#sec-4-illustration", { opacity: 1, delay: 1.5 })
-            .to("#join_us_root", { height: "65vh" }, "<")
+            .to("#join_us_root", { height: "60vh" }, "<")
             .to(["#sec-4-description", "#join-end-card"], {
               opacity: 1,
               duration: 1,

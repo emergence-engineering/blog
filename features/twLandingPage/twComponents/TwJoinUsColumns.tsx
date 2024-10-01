@@ -845,14 +845,14 @@ const TwJoinUsColumns: FC = () => {
             </div>
             <div
               id="sec-4-intro"
-              className="customAreaThree md:text-white md:opacity-0"
+              className="customAreaThree md:mt-[-14rem] md:text-white md:opacity-0"
             >
               <div
                 className={`${ptSansNarrow.className} text-xl font-bold md:text-4xl`}
               >
                 We did it! The product launch was successful.
               </div>
-              <div className={`${montserrat.className}`}>
+              <div className={`${montserrat.className} md:mt-7`}>
                 There are users, and some revenue also, now we just need to
                 maintain, add more features and scale the business to infinity
                 and beyond.
