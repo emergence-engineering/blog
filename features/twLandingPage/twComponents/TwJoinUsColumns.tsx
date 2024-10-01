@@ -12,6 +12,9 @@ const TwJoinUsColumns: FC = () => {
           }
         }
         .customGridContainer {
+          @media (min-width: 640px) {
+            column-gap: 5rem;
+          }
           @media (min-width: 769px) {
             display: grid;
             grid-template-areas:
@@ -19,7 +22,10 @@ const TwJoinUsColumns: FC = () => {
               "three four";
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
-            column-gap: clamp(1rem, 11rem, 15rem);
+            column-gap: 10rem;
+          }
+          @media (min-width: 1024px) {
+            column-gap: 15rem;
           }
         }
 
@@ -100,7 +106,7 @@ const TwJoinUsColumns: FC = () => {
           />
         </div>
 
-        <div id="section-1" className="px-2 md:absolute md:opacity-0">
+        <div id="section-1" className="px-2 md:absolute md:px-24 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-1-label"
@@ -222,7 +228,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="justify-self-center">
                 <Image
-                  src={"/illustrations/Illustration_Plan.png"}
+                  src={"/illustrations/Illustration_1.png"}
                   alt={"Illustration Plan"}
                   width={170}
                   height={280}
@@ -340,7 +346,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
-        <div id="section-2" className="px-2 md:absolute md:opacity-0">
+        <div id="section-2" className="px-2 md:absolute md:px-24 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-2-label"
@@ -370,7 +376,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="justify-self-center">
                 <Image
-                  src={"/illustrations/Illustration_Prototype.png"}
+                  src={"/illustrations/Illustration_2.png"}
                   alt={"Illustration Plan"}
                   width={170}
                   height={280}
@@ -568,7 +574,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 3 SECTION |||||||||||| */}
-        <div id="section-3" className="px-2 md:absolute md:opacity-0">
+        <div id="section-3" className="px-2 md:absolute md:px-24 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-3-label"
@@ -598,7 +604,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="justify-self-center">
                 <Image
-                  src={"/illustrations/Illustration_Validate.png"}
+                  src={"/illustrations/Illustration_3.png"}
                   alt={"Illustration Plan"}
                   width={170}
                   height={280}
@@ -798,7 +804,7 @@ const TwJoinUsColumns: FC = () => {
           </div>
         </div>
         {/* |||||||||||| PLAN 4 SECTION |||||||||||| */}
-        <div id="section-4" className="px-2 md:absolute md:opacity-0">
+        <div id="section-4" className="px-2 md:absolute md:px-24 md:opacity-0">
           <div className="customGridContainer flex flex-col">
             <div
               id="sec-4-label"
@@ -828,7 +834,7 @@ const TwJoinUsColumns: FC = () => {
             >
               <div className="justify-self-center">
                 <Image
-                  src={"/illustrations/Product.png"}
+                  src={"/illustrations/Product_4.png"}
                   alt={"Illustration Plan"}
                   width={170}
                   height={280}
