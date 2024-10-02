@@ -23,6 +23,10 @@ const TwJoinUsColumns: FC = () => {
               "three four";
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
+            column-gap: clamp(1rem, 2rem, 5rem);
+          }
+
+          @media (min-width: 993px) {
             column-gap: clamp(1rem, 11rem, 15rem);
           }
         }
@@ -51,7 +55,7 @@ const TwJoinUsColumns: FC = () => {
           }
         }
       `}</style>
-      <div className="blackWhiteBgSplit font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-[100px] bg-black pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:pb-40 md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
+      <div className="blackWhiteBgSplit font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-[100px] bg-black px-3 pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:pb-40 md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
@@ -241,7 +245,7 @@ const TwJoinUsColumns: FC = () => {
                 </div>
                 <div className="grid gap-4 rounded-b-lg border border-l border-r border-black bg-white p-2">
                   <div className="flex justify-center">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid min-h-12 grid-cols-3 gap-4 md:min-h-10 lg:min-h-12">
                       <Image
                         src={"/node.svg"}
                         alt={"Node"}
@@ -252,6 +256,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-start"
                       />
                       <Image
                         src={"/prosemirror.svg"}
@@ -263,12 +268,8 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center">
-                    <div className="grid grid-cols-3 gap-4">
                       <Image
                         src={"/reactLogo.svg"}
                         alt={"React Logo"}
@@ -279,7 +280,13 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="grid min-h-12 grid-cols-4 gap-4">
                       <Image
                         src={"/firebase.svg"}
                         alt={"Firebase Logo"}
@@ -290,23 +297,8 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
-                      <Image
-                        src={"/aws.svg"}
-                        alt={"Aws Logo"}
-                        width={58}
-                        height={58}
-                        style={{
-                          width: "auto",
-                          height: "auto",
-                          objectFit: "contain",
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center">
-                    <div className="grid grid-cols-3 gap-4">
                       <Image
                         src={"/supabase.svg"}
                         alt={"Supabase Logo"}
@@ -317,6 +309,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
                       <Image
                         src={"/openAi.svg"}
@@ -328,7 +321,25 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
+                      <Image
+                        src={"/aws.svg"}
+                        alt={"Aws Logo"}
+                        width={58}
+                        height={58}
+                        style={{
+                          width: "auto",
+                          height: "auto",
+                          objectFit: "contain",
+                        }}
+                        className="self-end"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="grid min-h-12 grid-cols-2 gap-4">
                       <Image
                         src={"/yjs.svg"}
                         alt={"Yjs Logo"}
@@ -340,11 +351,6 @@ const TwJoinUsColumns: FC = () => {
                           objectFit: "contain",
                         }}
                       />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center">
-                    <div className="grid grid-cols-1 gap-4">
                       <Image
                         src={"/stripe.svg"}
                         alt={"Stripe Logo"}
@@ -355,6 +361,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-end"
                       />
                     </div>
                   </div>

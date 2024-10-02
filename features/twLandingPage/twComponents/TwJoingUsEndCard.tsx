@@ -6,7 +6,7 @@ import { Button } from "./Button";
 
 export const TwJoinUsEndCard: FC = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-sm border-2 border-neutral-700 bg-black p-8 text-white">
+    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-sm border-2 border-neutral-700 bg-black p-2 text-white md:p-3">
       <EELogo className="h-[100px] w-[100px]" />
       <h1 className="text-center text-2xl font-bold">
         Your dedicated development team

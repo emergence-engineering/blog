@@ -9,7 +9,7 @@ import { TwContact } from "../../features/twLandingPage/twComponents/TwContact";
 const KsisuCV: FunctionComponent = () => {
   return (
     <TwLayout>
-      <div className="flex w-full flex-col items-center justify-center gap-4 bg-white py-12 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
+      <div className="flex w-full flex-col items-center justify-center gap-4 bg-white px-3 py-12 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-start">
           <div className="relative h-64 w-64 min-w-64">
             <Image

@@ -24,7 +24,7 @@ const TwBlog: FunctionComponent = () => {
   const [tab, setTab] = useState<"article" | "tech">("tech");
 
   return (
-    <div className="flex w-full flex-col items-center bg-white py-12 text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
+    <div className="flex w-full flex-col items-center bg-white px-3 py-12 text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
       <div className="mb-3 flex w-full items-center justify-center text-4.5xl font-bold text-black md:mb-6 lg:text-7.5xl">
         BLOG
       </div>
@@ -35,7 +35,7 @@ const TwBlog: FunctionComponent = () => {
             " experiences."
           : "Our solutions to tech challenges we faced"}
       </div>
-      <div className="flex flex-col gap-6 px-3 pb-20 md:pb-36">
+      <div className="flex flex-col gap-6 pb-20 md:pb-36">
         {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
         {tab === "tech" && (
           <>

@@ -34,7 +34,7 @@ const IconWrapper: FC<IconWrapperProps> = ({ label, alt, Icon, sub }) => {
 
 export const TwJoinUsTabs: FC = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-11 self-center bg-white py-8 sm:max-w-[540px] md:max-w-[720px] md:py-16 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
+    <div className="flex w-full flex-col items-center justify-center gap-11 self-center bg-white px-3 py-8 sm:max-w-[540px] md:max-w-[720px] md:py-16 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
       <h1 className="text-center text-xl font-bold lg:mb-20 lg:max-w-3xl lg:text-4xl">
         Join us on the following journey and we will guide you through our
         process

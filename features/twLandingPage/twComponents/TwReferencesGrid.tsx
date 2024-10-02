@@ -13,12 +13,12 @@ const ReferenceCard: FC<{ product: ReferenceNames }> = ({ product }) => {
 
   return (
     <div className="w-full rounded-lg border border-neutral-700 bg-neutral-800">
-      <div className="grid grid-cols-[auto,1fr] items-center gap-4 border-b border-neutral-700">
-        <div className="border-r border-neutral-700 px-4 py-2">
+      <div className="grid grid-cols-[auto,1fr] items-center gap-2 border-b border-neutral-700 mobile:gap-4">
+        <div className="border-r border-neutral-700 px-2 py-2 mobile:px-4">
           {ProductLogo && <ProductLogo />}
         </div>
-        <div className="title pl-2">
-          <h2 className="text-3xl font-bold">{title}</h2>
+        <div className="pl-2">
+          <h2 className="text-2xl font-bold mobile:text-3xl">{title}</h2>
         </div>
       </div>
 
