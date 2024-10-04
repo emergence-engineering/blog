@@ -88,7 +88,7 @@ const Index: FunctionComponent = () => {
       <div className="flex w-full flex-col items-center gap-4 bg-white">
         <div className="flex w-full flex-col mobile:flex-row">
           <div className="flex w-full justify-end bg-black">
-            <div className="flex w-full flex-col justify-evenly space-y-4 bg-black py-4 text-white sm:max-w-[258px] md:max-w-[348px] lg:max-w-[468px] xl:max-w-[558px] 2xl:max-w-[648px]">
+            <div className="ml-3 flex w-full flex-col justify-evenly space-y-4 bg-black py-4 text-white sm:max-w-[258px] md:max-w-[348px] lg:max-w-[468px] xl:max-w-[558px] 2xl:max-w-[648px]">
               <h1 className="text-6xl font-bold">
                 The team to develop your custom Rich Text editors
               </h1>
@@ -116,7 +116,7 @@ const Index: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="my-8 flex w-full max-w-3xl flex-col items-start gap-3 self-center bg-white">
+        <div className="my-8 flex w-full flex-col items-start gap-3 self-center bg-white px-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
           {/*<h2 className="text-4xl font-bold">Rich Text editor development</h2>*/}
           <p className="font-montserrat">
             Our rich text editor and ProseMirror development service is for
@@ -243,7 +243,7 @@ const Index: FunctionComponent = () => {
           <div className="my-3 flex w-full items-center justify-center text-5xl font-bold text-black md:my-6 lg:text-7.5xl">
             BLOG
           </div>
-          <div className="flex w-full flex-col gap-6">
+          <div className="flex w-full max-w-3xl flex-col gap-6 self-center">
             {articleData
               .slice(0, showMoreBlogPosts ? articleData.length : initialLimit)
               .map((article, idx) => (
@@ -257,9 +257,10 @@ const Index: FunctionComponent = () => {
             />
           </div>
           <div className="my-3 flex h-24 w-full items-center justify-center text-4xl font-bold text-black md:mx-10 md:my-6 lg:text-7.5xl">
-            <span className="text-red-600">OPEN</span>&nbsp;<span>SOURCE</span>
+            <span className="text-red-600">OPEN&nbsp;</span>
+            <span>SOURCE</span>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex w-full max-w-3xl flex-col gap-6 self-center">
             {projectDetails
               .slice(0, showMoreProjects ? projectDetails.length : initialLimit)
               .map((project, idx) => (
