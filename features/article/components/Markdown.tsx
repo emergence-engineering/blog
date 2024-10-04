@@ -70,6 +70,9 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             {props.children}
           </em>
         ),
+          hr: ( ) => (
+              <hr className="h-1 my-5 bg-gray-200 border-0 dark:bg-gray-200" />
+          ),
         strong: ({ ...props }) => (
           <strong {...props} className="font-montserrat font-bold">
             {props.children}
