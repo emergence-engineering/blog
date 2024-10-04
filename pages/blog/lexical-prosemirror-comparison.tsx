@@ -4,18 +4,19 @@ import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
-import SalesBox from "../../features/article/components/SalesBox";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const article19Metadata: ArticleIntro = {
-  title: "Stress Test: Lexical/ProseMirror editors",
-  author: "Kata",
+  title: "Rich Text Editors in Action: Stress Test On Lexical and ProseMirror",
+  author: "Kata & Viktor",
   authorLink: null,
-  introText: /* language=md */ `Performing a stress test on a basic Lexical and ProseMirror rich text editor`,
+  introText: /* language=md */ `This article explores how Lexical and ProseMirror handle long-term use and heavy data stress.`,
   postId: "lexical-prosemirror-comparison",
-  timestamp: 1723134798677,
+  timestamp: 1728049303258,
   imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-prosemirror-comparison",
+    tags: ["ProseMirror", "Lexical", "performance test"],
+
 };
 
 const imageStyle: React.CSSProperties = {
@@ -30,66 +31,53 @@ const imageStyle: React.CSSProperties = {
 const MD0 = /* language=md */ `
 
 # TL;DR
-We compared two rich text editors - Lexical and ProseMirror - to evaluate their performance under data load over time. 
-The tests showed significant differences between the two editors depending on the amount of time we want to use them. 
-Lexical performs better for short-term use, responding faster initially, 
-but its performance degrades under very heavy use (likely) due to inefficient memory management. 
-ProseMirror is designed for long-term use, offering a little bit slower responses but more predictable and stable performance over time.
+We compared two rich text editors - Lexical and ProseMirror - to evaluate their performance under data load over time. The tests showed significant differences between the two editors depending on the amount of time we want to use them. Lexical performs better for short-term use, responding faster initially, but its performance degrades under very heavy use (likely) due to inefficient memory management. ProseMirror is designed for long-term use, offering a little bit slower responses but more predictable and stable performance over time.
 
 \_\_\_
 
-## Introduction
-There are many online platforms where you can edit your text, whether it's a simple note-taking app or a work management site. They are easy to use: the features are familiar from text editor softwares, and sometimes the result is even better - think of image handling and the ability to preview links. These editors are called WYSIWYG (What You See Is What You Get) editors, and there are several libraries you can use for rich text editing. We tested two for this article: ProseMirror and Lexical.
+# Introduction
+There are many online platforms where you can edit your rich text, such as Google Docs or the Slack or Discord input box. To create your own rich text editor, you will need a library that you can pull pre-built features from to streamline development and to save time, since building all the features from the ground up is really hard.
 
-## The editors
-The ProseMirror editor was developed by Marijn Haverbeke. It is robust and reliable; it was released about 6 years ago and is maintained regularly. Work management platforms like Asana and widely read newspapers like The New York Times use it without a problem. There are a number of libraries based on the core of this editor, showing the strong foundations that can be built upon. 
+We tested two rich text editor libraries for this article: ProseMirror and Lexical.
 
-The Lexical editor was developed by Meta to meet their own needs. It is quite new, but is spreading quickly thanks to its reputation and an easily extensible system. Almost anything is possible by creating your own plugins and the library promises to handle the weight of them.
+ProseMirror is the standard technology for building complex rich text editors with good documentation and a vibrant community. The editor was released by Marijn Haverbeke about 6 years ago and is maintained regularly. It is robust and reliable. There is a huge open source community around it - most of the time someone has already created the feature you need. ProseMirror is used everywhere from work management platforms like Asana and widely read newspapers like The New York Times to the input box of ChatGPT. 
 
-## Goal
-The purpose of this test is to see if there's any difference between the two editors when loaded with text - and I mean massive amounts of text. How far they can go, how fast they execute scripts, how they handle leaks, how effectively they use memory.
+Lexical is a newer rich text editor framework developed by Meta to meet their own needs. Its community is smaller and the documentation is not as good as ProseMirror’s. It caught attention a few years ago; we also made a few plugins and wrote articles about our experiences with it. After all that, we were curious if their performance and code size claims were true.
 
-## Environment
-The website containing the editors was as clean as possible, built with React, the first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB. Both editors had the same basic features: the ProseMirror had an example setup, and the Lexical got equipped with the same tools.
+So how does the new library developed by Meta stack up against the current champion?
 
-# Test
-The test was performed using Playwright, running in Chrome, and collecting data using the CDP (Chrome DevTools Protocol).\\
-The two tests ran one after the other as in the config the number of workers was set to 1. In the beforeEach hook we set the interval for the metrics collection, 
-in the afterEach we cleared it and saved the data. 
-The test mimicked typing a word and pressing the ‘enter’ key in a loop, creating a new paragraph in every line.\\
-We collected measurements in every 15 seconds, recorded timestamps after every 200 nodes, and let each test run for one hour. 
-The metrics measured were JSHeapUsedSize, LayoutCount, and ScriptDuration.
+# Test Overview and Methodology
+For the test we created a Next.JS website with two routes: \`/prosemirror\` and \`/lexical\` . These routes had their corresponding editors: ProseMirror had its example setup,  Lexical was configured to have the same features. The first load bundle of the ProseMirror editor is 158 KB and the Lexical is 160 KB which is a negligible difference.
 
+This website was used by Playwright to perform the tests, we were collecting data using the CDP (Chrome DevTools Protocol). We tried using trace files instead of CDP, but it quickly ran out of memory, as it is not designed for long tests with such active user interactions.
 
-### Note
-You will notice that the Lexical editor stops consistently around 8200 node count (~20 minutes) in all the tests. The likely cause is related to memory management issues in the long run. 
-The ProseMirror editor could go up to 1 hour, usually reaching 11500 node count.\\
-You can also see on some of the graphs how the points get closer and closer to each other as the test progresses. 
-Both editors can process fewer nodes in 15 seconds after some load, and it shows nicely when they get slower.
+The test itself was quite simple: it mimicked typing a word and pressing the ‘enter’ key in a loop (creating a new paragraph in every line). We ran this loop on both editors for an hour, one after the other - before each one we set a 15-second interval for the metrics collection, and after each one we cleared it and saved the data.  Meanwhile, we recorded the timestamps in every 200 nodes to see how the increasing content affects their speed (and loss).
 
-## (Bypass)
-As we wanted to make the test as noiseless as possible, a thought arose - could it be that the repetitive CDP data collection is interfering with the test? What if instead we saved the trace JSON file at the end and processed it by filtering for only the relevant metrics? 
+We measured three metrics that can alter it immensely: ScriptDuration, LayoutCount and JSHeapUsedSize.
+ScriptDuration measures the time taken to execute scripts that are part of the editor's operation. A higher number typically results in slower responsiveness of the editor. If it increases users may notice lagging when typing, delays in applying formatting, or general sluggishness in interacting with the editor.
 
-Each metric we measured with the CDP can be roughly calculated from the data of these trace events:
+LayoutCount measures the total number of layout events. Layout operations involve calculating the positions and sizes of elements on the page, especially after changes like typing, inserting elements, or resizing content.
 
-\**ScriptDuration\**: *total of* RunMicroTasks.dur (cat: v8.execute), FunctionCall.dur (cat: devtools.timeline), EventDispatch.dur (cat: devtools.timeline), MajorGC.dur (cat: devtools.timeline), MinorGC.dur (cat: devtools.timeline)
+JSHeapUsedSize tracks the amount of memory currently used in the editor's operation. As memory usage increases, the editor might become less responsive, leading to slowdowns, freezes, or even crashes if the heap becomes too large and its garbage collection doesn’t work well enough.
 
-\**LayoutCount\**: how often the Layout event occurs (cat: devtools.timeline)
+This is where the shorter length of the line of the Lexical graph needs to be addressed. As you will notice the editor stops consistently around 8200 node counts (~20 minutes) in all the tests. The likely cause is related to memory management issues in the long run. The ProseMirror editor usually reached 11500 node counts during the one hour.
 
-\**JSHeapUsedSize\**: UpdateCounters.args.data.jsHeapSizeUsed (cat: disabled-by-default-devtools.timeline)
-
-The trace file can get very large very quickly, so we had to set a filter for the required categories in the beginning and allocate 8GB of memory for it, with an increased timeout in the afterAll hook to let it save the file. Still, the tracing is not designed for an hour-long test that mimics quite active user interaction, so after about 2.5 minutes it just stopped.
-
-And that's how we stayed with the CDP.
+The other important detail you can see on some of the graphs how the points get closer and closer to each other as the test progresses. Both editors can process fewer nodes in 15 seconds after some load, and the images show nicely when they get slower.
 
 \`\`\`typescript
 import { Page, test, CDPSession } from "@playwright/test";
 import { findEditor, relevantMetrics } from "./utils";
 import { EditorParams } from "./types";
 
-const MEASUREMENT_INTERVAL = 15000; // how often the code saves the metrics you measure - default is 15 sec
-const MAX_NODES = 20000; // how many nodes to insert into the editor - default is 20k to make sure the test doesn't finish before the set timeout
-const NODECOUNT_CHECKPOINT = 200; // the node count at which you want to save the time-nodeCount pair - default is 200
+// how often the code saves the metrics you measure - 
+// default is 15 sec
+const MEASUREMENT_INTERVAL = 15000; 
+// how many nodes to insert into the editor - 
+// default is 20k to make sure the test doesn't finish early
+const MAX_NODES = 20000; 
+// the node count at which you want to save the time-nodeCount pair - 
+// default is 200 nodes
+const NODECOUNT_CHECKPOINT = 200; 
 
 let page: Page;
 let session: CDPSession;
@@ -102,44 +90,53 @@ test.beforeEach(async ({ browser }) => {
   page = await browser.newPage();
   session = await page.context().newCDPSession(page);
   await session.send("Performance.enable");
-  await findEditor(page, editor, querySelector);
+  await findEditor(page, activeEditor.editor, activeEditor.qs);
 
-  // set an interval to read and collect the selected metrics in every MEASUREMENT_INTERVAL seconds
+  // set an interval to read and collect the selected metrics
   metricInterval = setInterval(async () => {
     const perfMetrics = await session.send("Performance.getMetrics");
     const filteredPerfMetrics = perfMetrics.metrics.filter((metric) =>
       relevantMetrics.includes(metric.name),
     );
-    activeEditor.perfMetrics.push({ metrics: filteredPerfMetrics, nodeCount });
+    activeEditor.perfMetrics.push({
+      metrics: filteredPerfMetrics,
+      nodeCount,
+      time: performance.now(),
+    });
   }, MEASUREMENT_INTERVAL);
 
   nodeCount = 0;
 });
 
-// the test itself was as light as possible
-test(\`Lexical stress test: infinite nodes\`, async () => {
-  activeEditor = lexicalParams; // and we did the same with the ProseMirror
+// the two tests ran after each other and were as light as possible
+test(\`Lexical stress test\`, async () => {
+    activeEditor = lexicalParams; 
+    
+    activeEditor.nodeCountMetrics.push({
+      nodeCount: nodeCount,
+      time: performance.now(),
+    });
   
-  for (let i = 0; i < MAX_NODES; i++) {
-    await page.keyboard.type("typing ");
-    await page.keyboard.press("Enter");
-    nodeCount = i + 1;
-
-    if (nodeCount % NODECOUNT_CHECKPOINT === 0 || nodeCount === 1) {
-      activeEditor.nodeCountMetrics.push({
-        nodeCount: nodeCount,
-        time: performance.now(),
-      });
+    for (let i = 0; i < MAX_NODES; i++) {
+      await page.keyboard.type("typing ");
+      await page.keyboard.press("Enter");
+        
+      nodeCount = i + 1;
+        
+      if (nodeCount % NODECOUNT_CHECKPOINT === 0) {
+        activeEditor.nodeCountMetrics.push(
+          nodeCount: nodeCount,
+          time: performance.now(),
+        });
+      }
     }
-  }
 });
 \`\`\`
 
 
 # Nodecount
-We saved the \`performance.now()\` timestamp after every 200 nodes, and it turned out that Lexical could achieve faster performance. 
-It hit the first 200 nodes earlier in time and the first metric measurement (15sec) occurred at a higher node count. 
-When it stopped at about 8200 words, the ProseMirror just passed the 7600 nodecount.
+We saved the \`performance.now()\` timestamp after every 200 nodes, and it turned out that Lexical could achieve faster performance. It hit the first 200 nodes earlier in time and the first metric measurement (15sec) occurred at a higher node count. When it stopped at about 8200 words, the ProseMirror just passed the 7600 node counts. 
+That means Lexical is 8% faster than ProseMirror in this test.
 `;
 
 const MD1 = /* language=md */ `
@@ -147,10 +144,9 @@ const MD1 = /* language=md */ `
 # ScriptDuration
 *ScriptDuration is the time taken to execute scripts as part of the editor's operation, measured in milliseconds.*
 
-\**Lexical and ProseMirror\**: The ScriptDuration time increases with the nodecount in both editors, but Lexical’s graph rises more sharply.
-When the tracing files were analyzed in Chrome's performance profiler, it was found that Lexical performed almost twice as much minor garbage collection as  ProseMirror.
+\**Lexical and ProseMirror\**: The ScriptDuration time increases with the node count in both editors, but Lexical’s graph rises more sharply. When experimental tracing files were analyzed in Chrome's performance profiler, it was found that Lexical performed almost twice as much minor garbage collection as ProseMirror.
 
-\**Conclusions\**: Lexical's total of script executing time increases faster than ProseMirror's, which is probably linked to its faster handling of increasing content and more frequent garbage collection. Either way, this means that users may experience increasing delays in response times sooner as they continue to load Lexical.
+\**Conclusions\**: Lexical's total of script executing time increases faster than ProseMirror's, which is probably linked to its faster handling of increasing content and more frequent garbage collection. 
 `;
 
 const MD2 = /* language=md */ `
@@ -160,7 +156,7 @@ const MD2 = /* language=md */ `
 
 \**Lexical and ProseMirror\**: The number of layout operations grows linearly with nodecount in both editors, though ProseMirror performs about 2-2.5 times more operations than Lexical.
 
-\**Conclusions\**: In ProseMirror, each user interaction or change generates a transaction, and the editor state is synchronized with the DOM after each transaction. This leads to a higher LayoutCount and is potentially more responsive to user input, providing smoother and quicker updates to the layout. On the other hand, Lexical batches multiple synchronous updates of the editor state into a single asynchronous update to the DOM. This approach improves performance in the short term by reducing the frequency of layout recalculations.
+\**Conclusions\**: In ProseMirror, each user interaction or change generates a transaction, and the editor state is synchronized with the DOM after each transaction. Lexical, on the other hand, achieves the same thing with less. The main improvement of Lexical is the batched updates meaning updates are executed in a single step, instead of updating the editor after each change. This approach improves performance in the short term by reducing the frequency of layout recalculations, and could be beneficial for editors with many features.
 `;
 
 const MD3 = /* language=md */ `
@@ -169,10 +165,9 @@ const MD3 = /* language=md */ `
 # JSHeapUsedSize
 *The JSHeapUsedSize is the actual memory being used at any point in time, measured in bytes - here, converted to MB.*
 
-\**Lexical\**: Lexical shows a continuous upward trend, indicating increasing memory usage over time, suggesting a potential memory leak 
-or inefficient memory management as the test progresses. The graph stops at about 3.9 GB of memory usage around 23 minutes into the test. 
+\**Lexical\**: Lexical shows a continuous upward trend, indicating increasing memory usage over time, suggesting a potential memory leak or inefficient memory management as the test progresses. The graph stops at about 3.9 GB of memory usage around 23 minutes into the test.
 
-\**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but remains mostly between 6 and 18 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
+\**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but remains between 6 and 18 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
 
 \**Conclusions\**: Lexical users might initially experience responsive performance, but as memory usage increases, they could face lagging, slowdowns, and eventually crashes or unresponsiveness.
 `;
@@ -180,12 +175,15 @@ or inefficient memory management as the test progresses. The graph stops at abou
 const MD4 = /* language=md */ `
     
 # Results
-Both editors have their own pros and cons. \n 
+Depending on how you intend to use the editor you choose, you will have to make trade-offs; here we have collected information that can help you to make the best decision.  \n 
 Lexical initially handles the data load better and provides faster content processing, performing operations more efficiently in the short term. This makes it a better choice for quick and small editing tasks. Meta likely designed it this way to benefit from these features in their live chat applications, but it can also be used for personal note-taking, kiosk applications, or short-lived web sessions.
-\n However, if you need an editor for heavier tasks, ProseMirror offers a stable and robust solution (and has more thorough documentation). Whether you are building a CMS (Content Management System), an ECM (Enterprise Content Management), or just need an online editor for your blog, you can count on ProseMirror.
+
+However, if you need an editor for heavier tasks, ProseMirror offers a stable and robust solution. Whether you are building a CMS (Content Management System), or just need an online editor for your blog, you can count on ProseMirror.
+
+Also, there’s another part of the story: ProseMirror has very good and mature documentation, a thriving ecosystem, and solutions for all kinds of problems. Lexical is really lacking in these areas, sometimes making development very difficult for things that would be easy with ProseMirror. Since Lexical is a newer framework backed by a huge company, we expected it to be significantly better than ProseMirror, but we didn’t see that. Even without the memory issues, it’s not worth using; you trade a lot of development effort for marginal performance improvements.
 
 
-Here you find the [public repository](https://github.com/emergence-engineering/prosemirror-vs-lexical-performance-comparison)  to which we’ve uploaded the test with some graph-generation options - feel free to rerun them or use them as a starting point if you’ve got further ideas - and please tell us about it!
+Footnote: Here you find the [public repository](https://github.com/emergence-engineering/prosemirror-vs-lexical-performance-comparison) to which we’ve uploaded the test with some graph-generation options. Feel free to rerun them or use them as a starting point if you’ve got further ideas - and please tell us about it!
 `;
 
 const Article = () => (
@@ -273,7 +271,6 @@ const Article = () => (
     </div>
 
     <Markdown source={MD4} />
-    <SalesBox />
   </ArticleWrapper>
 );
 export default Article;
