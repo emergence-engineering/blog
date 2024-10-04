@@ -56,7 +56,7 @@ const TwJoinUsColumns: FC = () => {
         }
       `}</style>
       <div className="blackWhiteBgSplit font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-[100px] bg-black px-3 pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:pb-40 md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">
+        <div className="hidden lg:absolute lg:left-1/2 lg:top-[19.5rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
             alt={"Right Arrow"}
@@ -65,7 +65,7 @@ const TwJoinUsColumns: FC = () => {
             style={{ objectFit: "contain" }}
           />
         </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[54em] lg:block lg:-translate-x-1/2 lg:transform">
+        <div className="hidden lg:absolute lg:left-1/2 lg:top-[67em] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
             alt={"Right Arrow"}
@@ -74,7 +74,7 @@ const TwJoinUsColumns: FC = () => {
             style={{ objectFit: "contain" }}
           />
         </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[99rem] lg:block lg:-translate-x-1/2 lg:transform">
+        <div className="hidden lg:absolute lg:left-1/2 lg:top-[132rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
             alt={"Right Arrow"}
@@ -83,7 +83,7 @@ const TwJoinUsColumns: FC = () => {
             style={{ objectFit: "contain" }}
           />
         </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[187rem] lg:block lg:-translate-x-1/2 lg:transform">
+        <div className="hidden lg:absolute lg:left-1/2 lg:top-[221.6rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
             alt={"Right Arrow"}
@@ -96,7 +96,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
+              <div className="w-fit rounded-full bg-tagGray px-4 py-2 font-sans text-xs uppercase">
                 YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
               </div>
             </div>
@@ -110,7 +110,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customAreaTwo flex items-center justify-center">
             <div className="justify-self-center">
               <Image
-                src={"/illustrations/Illustration_Plan.png"}
+                src={"/illustrations/Illustration_1.png"}
                 alt={"Illustration Plan"}
                 width={170}
                 height={280}
@@ -159,7 +159,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
+              <div className="w-fit rounded-full bg-tagGray px-4 py-2 font-sans text-xs uppercase">
                 With a solid plan in place lets start building!
               </div>
             </div>
@@ -173,7 +173,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customAreaTwo flex items-center justify-center">
             <div className="justify-self-center">
               <Image
-                src={"/illustrations/Illustration_Prototype.png"}
+                src={"/illustrations/Illustration_2.png"}
                 alt={"Illustration Plan"}
                 width={170}
                 height={280}
@@ -200,7 +200,7 @@ const TwJoinUsColumns: FC = () => {
             <p className="justify-self-center text-xl font-bold md:text-4xl">
               How we build:
             </p>
-            <div className="md:text-descriptionGray font-montserrat text-white">
+            <div className="font-montserrat text-white md:text-descriptionGray">
               With extensive experience building MVPs and robust web
               applications, our team takes on back-end, front-end, and DevOps
               responsibilities. We can continue working with your existing
@@ -209,7 +209,7 @@ const TwJoinUsColumns: FC = () => {
               always focusing on finding the best technologies for each
               product’s stage and goals.
             </div>
-            <div className="md:text-descriptionGray font-montserrat text-white">
+            <div className="font-montserrat text-white md:text-descriptionGray">
               Getting users onboard early is a priority! We focus on what truly
               matters to launch as soon as possible. By concentrating on the
               essentials, we can move swiftly to validation and repeat the
@@ -374,7 +374,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
+              <div className="w-fit rounded-full bg-tagGray px-4 py-2 font-sans text-xs uppercase">
                 Let’s test the prototype!
               </div>
             </div>
@@ -512,7 +512,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
+              <div className="w-fit rounded-full bg-tagGray px-4 py-2 font-sans text-xs uppercase">
                 Let&#39;s press the launch button. Shall we?:D
               </div>
             </div>
@@ -526,7 +526,7 @@ const TwJoinUsColumns: FC = () => {
           <div className="customAreaTwo flex items-center justify-center">
             <div className="justify-self-center">
               <Image
-                src={"/illustrations/Product.png"}
+                src={"/illustrations/Product_v2.png"}
                 alt={"Illustration Plan"}
                 width={170}
                 height={280}
