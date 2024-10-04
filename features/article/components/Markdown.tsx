@@ -15,7 +15,6 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
 
   return (
     <ReactMarkdown
-      className="px-3 md:p-0"
       components={{
         code: CodeHighlight,
         a: ({ node, ...props }) =>
@@ -23,6 +22,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             <a
               {...props}
               className="font-montserrat text-red-600 hover:underline"
+              target="_blank"
             >
               {props.children}
             </a>
@@ -30,6 +30,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             <a
               {...props}
               className="font-montserrat text-red-600 hover:underline"
+              target="_blank"
             >
               {props.children}
             </a>

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
+import { useRouter } from "next/router";
 import { ArticleIntro } from "../article/types";
 import Markdown from "../article/components/Markdown";
 import { Link as CustomLink } from "../twLandingPage/twComponents/Link";
 import { convertTimestampToLocaleDateString } from "../../utils/time";
-import { useRouter } from "next/router";
 
 const PostCard: React.FC<ArticleIntro> = ({
   author,
@@ -24,7 +24,7 @@ const PostCard: React.FC<ArticleIntro> = ({
 
   return (
     <div className="cursor-pointer" onClick={redirectToPost}>
-      <div className="max-w-sm transform rounded-lg border border-black p-4 text-[14px] text-black transition duration-200 hover:scale-[1.02] hover:shadow-lg md:max-w-3xl md:text-base">
+      <div className="transform rounded-lg border border-black p-4 text-[14px] text-black transition duration-200 hover:scale-[1.02] hover:shadow-lg md:text-base">
         <div className="flex items-center space-x-4 text-xs">
           <span className={`font-montserrat font-bold`}>By {authorString}</span>
           <div className="h-4 border-l border-black"></div>

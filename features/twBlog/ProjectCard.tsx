@@ -30,7 +30,7 @@ const ProjectCard: FC<OpenSourceProject> = ({
   const articleLink = hasArticle ? article : gitLink;
   return (
     <div className="hover:shadow-lg">
-      <div className="max-w-sm rounded-lg border border-black p-4 text-black md:max-w-3xl">
+      <div className="w-full rounded-lg border border-black p-4 text-black">
         <h2 className="my-3 text-[34px] font-bold">{title}</h2>
         <Markdown source={description} formatLinks={true} />
         <div>

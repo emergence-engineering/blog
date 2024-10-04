@@ -204,7 +204,7 @@ export const Section1: FunctionComponent = () => (
             covered.
           </GridItemDescription>
           <Link
-            href="/prosemirror"
+            href="/pages/rich-text-editor"
             style={{ position: "absolute", right: 0, bottom: 0 }}
           >
             more
