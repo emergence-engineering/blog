@@ -56,43 +56,6 @@ const TwJoinUsColumns: FC = () => {
         }
       `}</style>
       <div className="blackWhiteBgSplit font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-[100px] bg-black px-3 pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:pb-40 md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[19.5rem] lg:block lg:-translate-x-1/2 lg:transform">
-          <Image
-            src={"/illustrations/Arrow_Right.svg"}
-            alt={"Right Arrow"}
-            width={120}
-            height={60}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[67em] lg:block lg:-translate-x-1/2 lg:transform">
-          <Image
-            src={"/illustrations/Arrow_Right.svg"}
-            alt={"Right Arrow"}
-            width={120}
-            height={60}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[132rem] lg:block lg:-translate-x-1/2 lg:transform">
-          <Image
-            src={"/illustrations/Arrow_Right.svg"}
-            alt={"Right Arrow"}
-            width={120}
-            height={60}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-        <div className="hidden lg:absolute lg:left-1/2 lg:top-[221.6rem] lg:block lg:-translate-x-1/2 lg:transform">
-          <Image
-            src={"/illustrations/Arrow_Right.svg"}
-            alt={"Right Arrow"}
-            width={120}
-            height={60}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
@@ -139,16 +102,16 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
 
-          <div className="mt-3 flex w-full justify-center md:hidden">
-            <Image
-              src={"/illustrations/Arrow_Down.svg"}
-              alt={"Down Arrow"}
-              width={40}
-              height={100}
-              style={{ objectFit: "contain" }}
-            />
-          </div>
           <div className="customAreaFour flex flex-col items-center md:items-start">
+            <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[125%] lg:transform">
+              <Image
+                src={"/illustrations/Arrow_Right.svg"}
+                alt={"Right Arrow"}
+                width={120}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
             <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
               Why us?
             </div>
@@ -197,6 +160,15 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col gap-4">
+            <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[39.5%] lg:transform xl:-translate-x-[32%] 2xl:-translate-x-[26.5%]">
+              <Image
+                src={"/illustrations/Arrow_Right.svg"}
+                alt={"Right Arrow"}
+                width={120}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
             <p className="justify-self-center text-xl font-bold md:text-4xl">
               How we build:
             </p>
@@ -413,6 +385,15 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
+            <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[39.5%] lg:transform xl:-translate-x-[32%] 2xl:-translate-x-[26.5%]">
+              <Image
+                src={"/illustrations/Arrow_Right.svg"}
+                alt={"Right Arrow"}
+                width={120}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
             <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
               How we guarantee success:
             </div>
@@ -560,6 +541,15 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
+            <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[39.5%] lg:transform xl:-translate-x-[32%] 2xl:-translate-x-[26.5%]">
+              <Image
+                src={"/illustrations/Arrow_Right.svg"}
+                alt={"Right Arrow"}
+                width={120}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
             <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
               So, what was the lesson of the story?
               <br />
