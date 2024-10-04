@@ -45,7 +45,7 @@ export const TwContact = () => {
             priority
           />
         </div>
-        <div className="z-10 flex w-full max-w-[1440px] flex-col justify-center gap-16 p-3 xl:p-36">
+        <div className="z-10 flex w-full max-w-[540px] flex-col justify-center gap-16 px-3 py-3 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-36 2xl:max-w-[1320px]">
           <div
             id="contact-us-section"
             className="w-full max-w-4xl self-center p-6 pb-0 text-center text-4.5xl font-bold uppercase leading-none lg:p-0 lg:text-7.5xl"

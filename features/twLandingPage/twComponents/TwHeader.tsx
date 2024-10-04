@@ -13,7 +13,7 @@ export const TwHeader: FC = () => {
   return (
     <Headroom className="z-30 w-full">
       <div className="flex w-full justify-center border-b-2 border-neutral-700 bg-black">
-        <div className="grid w-full max-w-[1440px] grid-flow-col items-center justify-between px-3 py-3 lg:px-2 lg:py-2">
+        <div className="grid w-full grid-flow-col items-center justify-between px-3 py-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-2 xl:max-w-[1140px] 2xl:max-w-[1320px]">
           <Link href="/">
             <div className="flex flex-row items-center gap-1">
               <div className="cursor-pointer">
@@ -68,7 +68,7 @@ export const TwHeader: FC = () => {
                 OPEN SOURCE
               </Link>
             </div>
-            <Button handleClick={scrollToContact} label="GET A QUOTE" />
+            <Button handleClick={scrollToContact} label="CONTACT US" />
             <HamburgerMenu />
           </div>
         </div>

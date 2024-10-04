@@ -8,11 +8,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "640px",
+      sm: "577px",
       md: "769px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      lg: "993px",
+      xl: "1200px",
+      "2xl": "1440px",
     },
     extend: {
       screens: {
@@ -71,6 +71,8 @@ module.exports = {
         "product-card-gradient": "#FF1B00",
         customGray: "#373737",
         "custom-charcoal": "#585858",
+        tagGray: "rgb(35, 33, 33)",
+        descriptionGray: "#090909",
       },
       textColor: {
         transparent: "transparent",

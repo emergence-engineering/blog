@@ -1,5 +1,10 @@
 import React, { FC } from "react";
+import Link from "next/link";
 import Image from "next/image";
+
+import { scrollToContact } from "../utils/scrollToContact";
+import TwAccordion from "./TwAccordion";
+import { Button } from "./Button";
 
 const TwJoinUsColumns: FC = () => {
   return (
@@ -18,6 +23,10 @@ const TwJoinUsColumns: FC = () => {
               "three four";
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
+            column-gap: clamp(1rem, 2rem, 5rem);
+          }
+
+          @media (min-width: 993px) {
             column-gap: clamp(1rem, 11rem, 15rem);
           }
         }
@@ -46,7 +55,7 @@ const TwJoinUsColumns: FC = () => {
           }
         }
       `}</style>
-      <div className="blackWhiteBgSplit md:pb-15 font-pt-sans-narrow relative grid max-w-[1440px] flex-grow grid-cols-1 gap-12 bg-black px-3 pb-20 pt-10 text-white md:text-black">
+      <div className="blackWhiteBgSplit font-pt-sans-narrow relative grid flex-grow grid-cols-1 gap-[100px] bg-black px-3 pb-20 pt-10 text-white sm:max-w-[540px] md:max-w-[720px] md:pb-40 md:text-black lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <div className="hidden lg:absolute lg:left-1/2 lg:top-[17rem] lg:block lg:-translate-x-1/2 lg:transform">
           <Image
             src={"/illustrations/Arrow_Right.svg"}
@@ -87,7 +96,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-sans text-xs uppercase">
+              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
                 YOU HAVE AN IDEA, LET&#39;S PLAN TOGETHER!
               </div>
             </div>
@@ -112,19 +121,19 @@ const TwJoinUsColumns: FC = () => {
           </div>
           <div className="customAreaThree md:text-white">
             <p className="text-center text-xl font-bold md:text-left md:text-4xl">
-              You come to the right place if you
+              You come to the right place if you need:
             </p>
             <div className="flex flex-col">
               <ul className="mt-4 list-outside list-disc pl-5 text-sm md:text-base">
+                <li className="font-montserrat">web application</li>
+                <li className="font-montserrat">payment or fintech solution</li>
+                <li className="font-montserrat">AI development</li>
+                <li className="font-montserrat">cloud service solution</li>
                 <li className="font-montserrat">
-                  Have many questions and feeling unsure.
+                  collaborative rich text editor
                 </li>
                 <li className="font-montserrat">
-                  Feel confused and lost in the tech maze, not knowing what to
-                  choose.
-                </li>
-                <li className="font-montserrat">
-                  Need a versatile team that covers everything.
+                  versatile team that covers it all
                 </li>
               </ul>
             </div>
@@ -141,52 +150,16 @@ const TwJoinUsColumns: FC = () => {
           </div>
           <div className="customAreaFour flex flex-col items-center md:items-start">
             <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
-              We are the team that
+              Why us?
             </div>
-            <ul className="list-outside list-disc pl-5 text-sm md:text-base">
-              <li className="font-montserrat">
-                <span className="font-montserrat font-bold">
-                  keeps asking questions
-                </span>{" "}
-                until we understand every aspect of
-                <span className="font-montserrat font-bold">your idea</span>,
-                even the ones you might not have considered.
-              </li>
-              <li className="font-montserrat">
-                gives you
-                <span className="font-montserrat font-bold">
-                  {" "}
-                  brutal honesty
-                </span>
-                , no sir or madam.
-              </li>
-              <li className="font-montserrat">
-                uses our tech expertise to help you &quot;get it&quot; and make
-                the choices with
-                <span className="font-montserrat font-bold text-red-600">
-                  {" "}
-                  you
-                </span>
-                .
-              </li>
-              <li className="font-montserrat">
-                has expertise in every stage from product{" "}
-                <span className="font-montserrat font-bold">ideas</span>,
-                through{" "}
-                <span className="font-montserrat font-bold">design</span> and{" "}
-                <span className="font-montserrat font-bold">development</span>{" "}
-                to <span className="font-montserrat font-bold">SEO</span> and{" "}
-                <span className="font-montserrat font-bold">marketing</span>
-                —we&apos;ve done it all.
-              </li>
-            </ul>
+            <TwAccordion />
           </div>
         </div>
         {/* |||||||||||| PLAN 2 SECTION |||||||||||| */}
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-sans text-xs uppercase">
+              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
                 With a solid plan in place lets start building!
               </div>
             </div>
@@ -210,12 +183,8 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className={`customAreaThree md:text-white`}>
-            <div className="text-xl font-bold md:text-4xl">
-              <div className="text-letter-red">We don’t do</div>
-            </div>
             <div className="mt-2 text-xl font-bold md:text-4xl">
-              MVPs that take years, feature bloat, overdesigned landing pages
-              with 0 users.
+              Hold your app in your hands for the first time
             </div>
           </div>
           <div className="mt-3 flex w-full justify-center md:hidden">
@@ -227,20 +196,25 @@ const TwJoinUsColumns: FC = () => {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="customAreaFour flex flex-col">
-            <p className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
-              We follow a guiding principle based on years of building
-              prototypes: Cut the right corners!
+          <div className="customAreaFour flex flex-col gap-4">
+            <p className="justify-self-center text-xl font-bold md:text-4xl">
+              How we build:
             </p>
-            <ul className="list-outside list-disc pl-5 text-left text-sm md:text-base">
-              <li className="font-montserrat">
-                Launch something as soon as possible
-              </li>
-              <li className="font-montserrat">
-                Say no to unnecessary features: focus on what&#39;s important
-              </li>
-              <li className="font-montserrat">Get users and listen to them</li>
-            </ul>
+            <div className="md:text-descriptionGray font-montserrat text-white">
+              With extensive experience building MVPs and robust web
+              applications, our team takes on back-end, front-end, and DevOps
+              responsibilities. We can continue working with your existing
+              codebase or help plan a new greenfield project. Partners can rely
+              on us to guide them in making well-informed technical decisions,
+              always focusing on finding the best technologies for each
+              product’s stage and goals.
+            </div>
+            <div className="md:text-descriptionGray font-montserrat text-white">
+              Getting users onboard early is a priority! We focus on what truly
+              matters to launch as soon as possible. By concentrating on the
+              essentials, we can move swiftly to validation and repeat the
+              development cycle.
+            </div>
             {/* TECHNOLOGY BOX */}
             <div className="mt-10 w-full">
               <div className="mx-auto max-w-3xl text-white">
@@ -271,7 +245,7 @@ const TwJoinUsColumns: FC = () => {
                 </div>
                 <div className="grid gap-4 rounded-b-lg border border-l border-r border-black bg-white p-2">
                   <div className="flex justify-center">
-                    <div className="§gap-4 grid grid-cols-3">
+                    <div className="grid min-h-12 grid-cols-3 gap-4 md:min-h-10 lg:min-h-12">
                       <Image
                         src={"/node.svg"}
                         alt={"Node"}
@@ -282,6 +256,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-start"
                       />
                       <Image
                         src={"/prosemirror.svg"}
@@ -293,6 +268,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
                       <Image
                         src={"/reactLogo.svg"}
@@ -304,12 +280,13 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
                     </div>
                   </div>
 
                   <div className="flex justify-center">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid min-h-12 grid-cols-4 gap-4">
                       <Image
                         src={"/firebase.svg"}
                         alt={"Firebase Logo"}
@@ -320,17 +297,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
-                      />
-                      <Image
-                        src={"/aws.svg"}
-                        alt={"Aws Logo"}
-                        width={58}
-                        height={58}
-                        style={{
-                          width: "auto",
-                          height: "auto",
-                          objectFit: "contain",
-                        }}
+                        className="self-center"
                       />
                       <Image
                         src={"/supabase.svg"}
@@ -342,6 +309,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
                       />
                       <Image
                         src={"/openAi.svg"}
@@ -353,12 +321,25 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-center"
+                      />
+                      <Image
+                        src={"/aws.svg"}
+                        alt={"Aws Logo"}
+                        width={58}
+                        height={58}
+                        style={{
+                          width: "auto",
+                          height: "auto",
+                          objectFit: "contain",
+                        }}
+                        className="self-end"
                       />
                     </div>
                   </div>
 
                   <div className="flex justify-center">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid min-h-12 grid-cols-2 gap-4">
                       <Image
                         src={"/yjs.svg"}
                         alt={"Yjs Logo"}
@@ -380,6 +361,7 @@ const TwJoinUsColumns: FC = () => {
                           height: "auto",
                           objectFit: "contain",
                         }}
+                        className="self-end"
                       />
                     </div>
                   </div>
@@ -392,7 +374,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-sans text-xs uppercase">
+              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
                 Let’s test the prototype!
               </div>
             </div>
@@ -400,7 +382,7 @@ const TwJoinUsColumns: FC = () => {
               <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
                 03
               </div>
-              <h1 className="font-extrabold">VALIDATE</h1>
+              <h1 className="font-extrabold">VALIDATION</h1>
             </div>
           </div>
           <div className={`customAreaTwo flex items-center justify-center`}>
@@ -417,7 +399,8 @@ const TwJoinUsColumns: FC = () => {
           </div>
           <div className="customAreaThree md:text-white">
             <div className="text-xl font-bold md:text-4xl">
-              Most products fail due to a lack of validation.
+              We will develop, deploy, test, evaluate and rebuild until
+              everything works the way it should.
             </div>
           </div>
           <div className="mt-3 flex w-full justify-center md:hidden">
@@ -430,27 +413,29 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
-            <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
-              We will develop, deploy, test, evaluate and rebuild until
-              everything works the way it should.
+            <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
+              How we guarantee success:
             </div>
-            <div className="my-1 text-2xl font-bold">Our secret?</div>
-            <div className="text-l my-1 font-montserrat font-semibold text-custom-charcoal">
+            <div className="my-1 font-montserrat font-semibold text-white md:text-custom-charcoal">
               Continuous delivery
             </div>
-            <div className="text-l mb-5 font-montserrat text-custom-charcoal">
-              Every change we make is instantly visible, allowing for continuous
-              and quick feedback from you and from the users. By taking small,
-              deliberate steps, we ensure steady progress towards a successful
-              product.
+            <div className="mb-5 font-montserrat text-white md:text-custom-charcoal">
+              Every change we make in the code will be instantly visible,
+              allowing for continuous, quick feedback from you and from the
+              users. We also place a lot of emphasis on collaboration and
+              communication between the operations team and dev team. By taking
+              small, deliberate steps, we ensure steady progress towards a high
+              performant web application.
             </div>
-            <div className="text-l my-1 font-montserrat font-semibold text-custom-charcoal">
+            <div className="my-1 font-montserrat font-semibold text-white md:text-custom-charcoal">
               Continuous feedback
             </div>
-            <div className="text-l mb-5 font-montserrat text-custom-charcoal">
-              Your insights, combined with real user feedback, help us uncover
-              the missing links: keeping you in the loop and picking your brain
-              to make sure we don&#39;t skip over details.
+            <div className="mb-5 font-montserrat text-white md:text-custom-charcoal">
+              We build on rigorous performance testing and user feedback. With
+              many years of experience in test automation we consistently
+              monitor the performance of our work. Persistent testing, combined
+              with your insights and real user feedback, helps us uncover the
+              missing links and potential weak spots.
             </div>
             <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-300 md:text-white">
               <div className="flex items-center justify-between bg-white px-4 py-4">
@@ -462,7 +447,7 @@ const TwJoinUsColumns: FC = () => {
                   style={{ objectFit: "contain" }}
                 />
                 <h2 className="text-xl font-bold text-black md:text-4xl">
-                  Rules of the game
+                  The rules we play by:
                 </h2>
                 <Image
                   src={"/rule-star.svg"}
@@ -473,66 +458,50 @@ const TwJoinUsColumns: FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 grid-rows-7 gap-y-6 bg-black p-3">
+              <div className="grid grid-cols-1 grid-rows-5 gap-y-6 bg-black p-3">
                 <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
+                  <div className="flex h-6 w-1/3 items-center justify-center rounded-full bg-yellow-500 font-sans text-xs font-bold text-black">
                     FIT
                   </div>
                   <div className="flex-3 flex w-2/3 font-montserrat md:w-8/12">
-                    Don&#39;t under or over-engineer – Create the right solution
+                    Don&apos;t under or over-engineer, build the right solution
                     for the right stage
                   </div>
                 </div>
                 <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
-                    RESOLVE
-                  </div>
-                  <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    The right problem – Find the root cause (and fix that)
-                  </div>
-                </div>
-
-                <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
+                  <div className="flex h-6 w-1/3 items-center justify-center rounded-full bg-yellow-500 font-sans text-xs font-bold text-black">
                     REFLECT
                   </div>
                   <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    If something doesn’t go as planned → STOP and think
+                    If something doesn’t go as planned take time to STOP and
+                    think
+                  </div>
+                </div>
+                <div className="flex w-full gap-3">
+                  <div className="flex h-6 w-1/3 items-center justify-center rounded-full bg-yellow-500 font-sans text-xs font-bold text-black">
+                    RESOLVE
+                  </div>
+                  <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
+                    Find the root cause of problems and fix that instead of the
+                    symptoms
                   </div>
                 </div>
 
                 <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
-                    ITERATE
+                  <div className="flex h-6 w-1/3 items-center justify-center rounded-full bg-yellow-500 font-sans text-xs font-bold text-black">
+                    OPTIMIZE
                   </div>
                   <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    No month long expeditions - The quicker the loop the better
+                    Run multiple things at once, the quicker the feedback loop
+                    the better
                   </div>
                 </div>
                 <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
-                    PARALLELIZE
-                  </div>
-                  <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    Don’t get stuck on one thing - Run multiple loops at once.
-                  </div>
-                </div>
-
-                <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
+                  <div className="flex h-6 w-1/3 items-center justify-center rounded-full bg-yellow-500 font-sans text-xs font-bold text-black">
                     FOCUS
                   </div>
                   <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    Don&#39;t get lost in details - Get moving
-                  </div>
-                </div>
-                <div className="flex w-full gap-3">
-                  <div className="flex h-6 w-1/3 justify-center rounded-full bg-yellow-500 font-sans font-bold text-black">
-                    INDEPENDENCE
-                  </div>
-                  <div className="col-span-2 flex w-2/3 font-montserrat md:w-8/12">
-                    No micromanagement - Everyone should be able to make
-                    decisions
+                    Don&apos;t get lost in details make sure to keep moving
                   </div>
                 </div>
               </div>
@@ -543,7 +512,7 @@ const TwJoinUsColumns: FC = () => {
         <div className="customGridContainer flex flex-col">
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
-              <div className="w-fit rounded-full bg-gray-700 px-4 py-2 font-sans text-xs uppercase">
+              <div className="bg-tagGray w-fit rounded-full px-4 py-2 font-sans text-xs uppercase">
                 Let&#39;s press the launch button. Shall we?:D
               </div>
             </div>
@@ -566,15 +535,20 @@ const TwJoinUsColumns: FC = () => {
               />
             </div>
           </div>
-          <div className="customAreaThree md:text-white">
+          <div className="customAreaThree flex flex-col gap-4 md:text-white">
             <div className="text-xl font-bold md:text-4xl">
               We did it! The product launch was successful.
             </div>
             <div className="font-montserrat">
-              There are users, and some revenue also, now we just need to
-              maintain, add more features and scale the business to infinity and
-              beyond.
+              Congratulations! You have users and are also generating some
+              revenue. Now we just need to maintain, add more features and scale
+              the business to infinity and beyond.
             </div>
+            <Button
+              label={"Launch"}
+              theme={"primary"}
+              handleClick={scrollToContact}
+            />
           </div>
           <div className="mt-3 flex w-full justify-center md:hidden">
             <Image
@@ -589,11 +563,13 @@ const TwJoinUsColumns: FC = () => {
             <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
               So, what was the lesson of the story?
               <br />
-              Was it the journey itself? <br /> The success at the end?
               <br />
-              Or maybe it was the friends we made along the way? :D
-              <br />
+              Was it the journey itself? The success at the end? Or maybe it was
+              the friends we made along the way.....
             </div>
+            <Link href="/references" className="mt-4 self-start">
+              <Button label="References" theme="tertiary" />
+            </Link>
           </div>
         </div>
       </div>

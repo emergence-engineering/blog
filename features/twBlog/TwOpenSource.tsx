@@ -1,16 +1,15 @@
 import React, { FunctionComponent } from "react";
-import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { projectDetails } from "../../utils/openSrcPrData";
 import ProjectCard from "./ProjectCard";
 
 const TwOpenSource: FunctionComponent = () => {
   return (
-    <div className="flex w-full flex-col items-center bg-white text-black">
-      <div className="my-3 flex h-24 w-full items-center justify-center text-4xl font-bold text-black md:mx-10 md:my-6 md:text-7.5xl">
+    <div className="flex w-full flex-col items-center bg-white px-3 py-12 text-black sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
+      <h1 className="px-3 text-center text-4.5xl font-bold lg:text-7.5xl">
         <span className="text-red-600">OPEN</span>&nbsp;<span>SOURCE</span>
-      </div>
+      </h1>
 
-      <div className="my-3 flex flex-col gap-6 px-3 pb-20 md:pb-36">
+      <div className="my-3 flex flex-col gap-6 pb-20 md:pb-36">
         {projectDetails.map((i, idx) => {
           return (
             <ProjectCard
@@ -26,8 +25,6 @@ const TwOpenSource: FunctionComponent = () => {
           );
         })}
       </div>
-
-      <TwContact />
     </div>
   );
 };

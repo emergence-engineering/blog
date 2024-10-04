@@ -1,11 +1,10 @@
 import React from "react";
-import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { TwMember } from "./TwMember";
 
 export const TwTeamPage = () => {
   return (
-    <div className="flex flex-col bg-white">
-      <div className="flex w-full max-w-[1440px] flex-col items-center justify-center gap-4 self-center bg-white px-2 py-12 lg:gap-16 lg:px-2 lg:py-16">
+    <div className="flex w-full flex-col bg-white">
+      <div className="flex w-full flex-col items-center justify-center gap-4 self-center bg-white px-3 py-12 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
         <h1 className="px-3 text-center text-4.5xl font-bold lg:text-7.5xl">
           MEET THE <span className="text-red-600">TEAM</span>
         </h1>
@@ -72,7 +71,6 @@ export const TwTeamPage = () => {
           />
         </div>
       </div>
-      <TwContact />
     </div>
   );
 };
