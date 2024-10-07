@@ -43,12 +43,12 @@ const TwBlog: FunctionComponent = () => {
         {tab === "article" && (
           <>
             <PostCard {...articlePMMetadata} />
+            <PostCard {...firestoreToSupabaseMigrationMetadata} />
             <PostCard {...articleProgrammerArchetypes} />
           </>
         )}
         {tab === "tech" && (
           <>
-            <PostCard {...firestoreToSupabaseMigrationMetadata} />
             <PostCard {...article19Metadata} />
             <PostCard {...articlePNPMMetadata} />
             <PostCard {...article13Metadata} />
