@@ -8,7 +8,7 @@ import ArticleShareOgTags from "../../features/article/components/ArticleShareOg
 import ArticleHeader from "../../features/article/components/ArticleHeader";
 
 export const firestoreToSupabaseMigrationMetadata: ArticleIntro = {
-  title: "Guide for migrating firestore db to supabase",
+  title: "Migrating from Firebase to Supabase: Lessons Learned",
   author: "Viktor and matejcsok",
   authorLink: null,
   introText: /* language=md */ `Step-by-step guide for migrating a Firebase project to Supabase`,
