@@ -11,7 +11,7 @@ export const firestoreToSupabaseMigrationMetadata: ArticleIntro = {
   title: "Guide for migrating firestore db to supabase",
   author: "Viktor and matejcsok",
   authorLink: null,
-  introText: /* language=md */ `Give up simplicity for nice query capabilities`,
+  introText: /* language=md */ `Step-by-step guide for migrating a Firebase project to Supabase`,
   postId: "firestore-suapabase-migration",
   timestamp: 1726239715027,
   imgSrc: "http://localhost:3000/lp/migration.webp",
@@ -20,13 +20,11 @@ export const firestoreToSupabaseMigrationMetadata: ArticleIntro = {
 };
 
 const MD0 = /* language=md */ `
- \`Give up simplicity for advanced query capabilities\`
-
-![alt text](https://blog-git-blog-supabase-migration-emergence-engineering.vercel.app/lp/migration.webp)
+![Supabase vs Firebase](https://blog-git-blog-supabase-migration-emergence-engineering.vercel.app/lp/migration.webp)
 
 ## TL;DR
 
-[SzamlaBridge](https://www.szamlabridge.com) - connects Stripe to szamlazz.hu - and [PlaceOfCards](https://www.placeofcards.com) - place cards for weddings and other events - both used Firebase, but we faced common problems: hard and tedious schema migrations and query issues. We decided to move to Supabase since we knew that it would solve these problems. Migrating projects is tedious, but we succeeded and learned a lot.
+[SzamlaBridge](https://www.szamlabridge.com) - fixes legal issues with Stripe in Hungary - and [PlaceOfCards](https://www.placeofcards.com) - place cards for weddings and other events - both used Firebase, but we faced common problems: hard and tedious schema migrations and query issues. We decided to move to Supabase since we knew that it would solve these problems. Migrating projects is tedious, but we succeeded and learned a lot.
 
 # When to go NoSQL
 
@@ -86,12 +84,14 @@ Ensure the service is 100% online during the migration, if not, minimize the sto
 
 In short:
 
-1. Auth
+1. Auth migration
 2. Schema & RLS
 3. Migration script
-4. Writes
-5. Reads
-6. Cleanup
+4. DB Write migration
+Intermission: First deployment
+5. DB Read migration
+6. Remove Firestore usage
+7. Swap Auth to Supabase
 
 Let’s get to it!
 
@@ -169,7 +169,7 @@ At this point nothing depends on the Supabase DB, if you make an error there wil
 
 On the backend you probably used \`firebase-admin\`, Supabase \`service-role-key\` will do the same. If the endpoints are authenticated with the Firebase auth token, then now the backend authentication will also have to check for Supabase access token, meaning that it can accept either of those. This way the switch can be gradual.
 
-On the frontend write to Supabase everywhere you write to Firestore: we separated the DB writing parts of the code to make that easier. No need to sweat it, the migration script’s \`--quiet\` mode will catch errors! Here’s the part where we use the endpoint created in step 3 of the Auth migration to initialize Supabase. After this is deployed the Supabase DB is essentially a replica of Firestore, make sure that errors in it don’t break the application, they will show up when running the migration script. We also made sure to test our RLS policies as well since in the next step the Supabase DB will be public.
+On the frontend, every time you are writing to Firestore, you will need to write to Supabase too: we separated the DB writing parts of the code to make that easier. No need to sweat it, the migration script’s \`--quiet\` mode will catch errors! Here’s the part where we use the endpoint created in step 3 of the Auth migration to initialize Supabase. After this is deployed the Supabase DB is essentially a replica of Firestore, make sure that errors in it don’t break the application, they will show up when running the migration script. We also made sure to test our RLS policies as well since in the next step the Supabase DB will be public.
 
 ### Intermission: First deployment
 
