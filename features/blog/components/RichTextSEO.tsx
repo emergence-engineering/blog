@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
 
-const title = "Emergence Engineering";
+const title = "Emergence Engineering - Rich Text Editor";
 const description =
-  "Emergence Engineering is a full-stack software development company from the EU. We build ProseMirror based editors, AI and LLM based applications, mobile applications and websites.";
-const url = "https://emergence-engineering.com";
+    "Emergence Engineering is a full-stack software development company from the EU. We build ProseMirror based editors, AI and LLM based applications, mobile applications and websites.";
+const url = "https://emergence-engineering.com/rich-text-editor";
 
-export function LPSEO() {
+export function RichTextSEO() {
   return (
     <Head>
       <title>{title}</title>

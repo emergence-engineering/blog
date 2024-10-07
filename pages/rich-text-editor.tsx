@@ -1,6 +1,4 @@
 import React, { FunctionComponent, useState } from "react";
-
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { projectDetails } from "../utils/openSrcPrData";
@@ -20,6 +18,7 @@ import { TwLayout } from "../features/twLandingPage/twComponents/TwLayout";
 import { TwContact } from "../features/twLandingPage/twComponents/TwContact";
 import PostCard from "../features/twBlog/PostCard";
 import ProjectCard from "../features/twBlog/ProjectCard";
+import {RichTextSEO} from "../features/blog/components/RichTextSEO";
 import { articlePluginSystemMetadata } from "./blog/prosemirror-plugin-system";
 import { article13Metadata } from "./blog/prosemirror-slash-menu";
 import { article11Metadata } from "./blog/prosemirror-link-preview";
@@ -28,10 +27,6 @@ import { article5Metadata } from "./blog/prosemirror-image-plugin-2";
 import { article4Metadata } from "./blog/prosemirror-link-plugin";
 import { article3Metadata } from "./blog/prosemirror-image-plugin";
 import { article2Metadata } from "./blog/prosemirror-sync-1";
-
-const title = "Emergence Engineering";
-const description =
-  "Emergence Engineering is a full-stack software development company from the EU. We build ProseMirror based editors, AI and LLM based applications, mobile applications and websites.";
 
 const articleData = [
   articlePluginSystemMetadata,
@@ -52,39 +47,7 @@ const Index: FunctionComponent = () => {
 
   return (
     <TwLayout>
-      <Head>
-        <title>{title}</title>
-        <meta
-          key="og:url"
-          name="og:url"
-          property="og:url"
-          content="https://emergence-engineering.com/rich-text-editor"
-        />
-        <meta
-          key="og:type"
-          name="og:type"
-          property="og:type"
-          content="website"
-        />
-        <meta
-          key="og:title"
-          name="og:title"
-          property="og:title"
-          content="Emergence Engineering - Rich Text Editor"
-        />
-        <meta
-          key="og:description"
-          name="og:description"
-          property="og:description"
-          content={description}
-        />
-        <meta
-          key="og:image"
-          name="og:image"
-          property="og:image"
-          content="https://emergence-engineering.com/ee-icon-192192.png"
-        />
-      </Head>
+      <RichTextSEO />
       <div className="flex w-full flex-col items-center gap-4 bg-white">
         <div className="flex w-full flex-col mobile:flex-row">
           <div className="flex w-full justify-end bg-black">
