@@ -30,6 +30,23 @@ export function BlogSEO() {
         property="og:image"
         content="https://emergence-engineering.com/ee-icon-192192.png"
       />
+
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+      />
+      <meta key="twitter:site" name="twitter:site" content={url} />
+      <meta key="twitter:title" name="twitter:title" content={title} />
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={description}
+      />
+      <meta
+        key="twitter:image"
+        name="twitter:image"
+        content="https://emergence-engineering.com/ee-icon-192192.png"
+      />
     </Head>
   );
 }

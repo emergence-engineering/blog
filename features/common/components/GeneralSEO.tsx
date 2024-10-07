@@ -29,6 +29,24 @@ export default function GeneralSEO() {
         property="og:image"
         content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
       />
+
+      <meta
+        key="twitter:card"
+        name="twitter:card"
+        content="summary_large_image"
+      />
+      <meta key="twitter:site" name="twitter:site" content={url} />
+      <meta key="twitter:title" name="twitter:title" content={title} />
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={description}
+      />
+      <meta
+        key="twitter:image"
+        name="twitter:image"
+        content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
+      />
     </>
   );
 }
