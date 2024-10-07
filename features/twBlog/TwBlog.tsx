@@ -17,7 +17,7 @@ import { articlePluginSystemMetadata } from "../../pages/blog/prosemirror-plugin
 import { articlePNPMMetadata } from "../../pages/blog/monorepo-workspace-with-pnpm-and-git-submodules";
 import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-menu-plugin";
 import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes";
-import {article19Metadata} from "../../pages/blog/lexical-prosemirror-comparison";
+import { article19Metadata } from "../../pages/blog/lexical-prosemirror-comparison";
 import { firestoreToSupabaseMigrationMetadata as firestoreToSupabaseMigrationMetadata } from "../../pages/blog/firestore-supabase-migration";
 import { articlePMMetadata } from "../../pages/blog/prosemirror";
 
@@ -40,13 +40,17 @@ const TwBlog: FunctionComponent = () => {
           : "Our solutions to tech challenges we faced"}
       </div>
       <div className="flex flex-col gap-6 pb-20 md:pb-36">
-        {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
+        {tab === "article" && (
+          <>
+            <PostCard {...articlePMMetadata} />
+            <PostCard {...articleProgrammerArchetypes} />
+          </>
+        )}
         {tab === "tech" && (
           <>
             <PostCard {...firestoreToSupabaseMigrationMetadata} />
-              <PostCard {...article19Metadata} />
-              <PostCard {...articlePMMetadata} />
-              <PostCard {...articlePNPMMetadata} />
+            <PostCard {...article19Metadata} />
+            <PostCard {...articlePNPMMetadata} />
             <PostCard {...article13Metadata} />
             <PostCard {...article12Metadata} />
             <PostCard {...article11Metadata} />
