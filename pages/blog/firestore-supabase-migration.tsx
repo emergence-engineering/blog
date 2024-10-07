@@ -66,7 +66,7 @@ These things were game changers: if you knew that what Firebase offers is enough
 
 PlaceOfCards needed a lot of migrations, SzamlaBridge needed queries for reporting. Supabase is based on PostgreSQL but supports both subscriptions and writing directly from the frontend using Row-level security (RLS) policies. We made the decision: let’s start with PlaceOfCards, a low-risk project where we can allow downtime then let’s do SzamlaBridge where we must avoid any downtime.
 
-## Migration Principles
+# Migration Principles
 
 ### Be as quick as possible
 
@@ -146,8 +146,7 @@ After these steps we can start the actual database migration, since we have ever
 To get through the migration faster and minimize blocking other features, our DB schema has the same structure as we had in Firestore. Nested objects are not “nice” in a relational database, but supported by JSONB - we’ll normalize the database progressively by adding migrations that parse these JSONB columns. We could do the same work here, but it breaks our principles: it could take a long time and with Firebase you can never be sure about the contents: you can deal with your inconsistent data later, step by step.
 
 - Putting the Supabase DB writes and RLS policies in place are needed before the first deploy.
-
-  - RLS policies are SQL-based compared to Firestore rules, which is Firestore’s own syntax, and also more capable to write more robust and complex policies
+- RLS policies are SQL-based compared to Firestore rules, which is Firestore’s own syntax, and also more capable to write more robust and complex policies
 
 ### Step 3: Data migration script
 
@@ -329,6 +328,8 @@ _seconds: number
 That means the data from Supabase won’t be the same as in Firebase if the nested object contains a \`Timestamp\`, so the frontend code would have to change. There’s a workaround for that:
 
 Write a \`convertToTimestamp\` recursive function that checks objects and looks for the object above and converts those to Firestore \`Timestamp\` and also converts \`ISOString\` to \`Timestamp\`. If every Supabase read is wrapped with that function then the frontend receives the same data, and the migration will be quicker. Later those calls to \`convertToTimestamp\` can be removed by rewriting the frontend parts to use what’s stored in Supabase.
+
+## The end
 
 If you are seeking for more information, or looking for a team to help you with your migration, feel free to reach out to us on the form below, or schedule a call.
 `;
