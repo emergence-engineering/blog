@@ -39,7 +39,7 @@ const TwBlog: FunctionComponent = () => {
             " experiences."
           : "Our solutions to tech challenges we faced"}
       </div>
-      <div className="flex flex-col gap-6 pb-20 md:pb-36">
+      <div className="flex w-full max-w-3xl flex-col gap-6 pb-20 md:pb-36">
         {tab === "article" && (
           <>
             <PostCard {...articlePMMetadata} />
