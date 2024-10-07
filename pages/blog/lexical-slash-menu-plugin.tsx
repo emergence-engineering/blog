@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
@@ -149,6 +150,15 @@ You can check out the code and find some more info about the usability at <https
 
 `;
 
+const imageStyle: React.CSSProperties = {
+    position: "relative",
+    display: "flex",
+    alignSelf: "center",
+    width: "80%",
+    maxWidth: "100%",
+    aspectRatio: "21 / 9",
+};
+
 const Article = () => (
   <ArticleWrapper>
     <ArticleShareOgTags
@@ -163,8 +173,14 @@ const Article = () => (
       timestamp={articleLexicalSlashMenuMetadata.timestamp}
       tags={articleLexicalSlashMenuMetadata.tags}
     />
-    <div>
-      <img src={"/illustrations/slash-menu.gif"} alt={""} />
+    <div style={imageStyle}>
+      <Image
+          src={"/illustrations/slash-menu.gif"}
+          alt="image"
+          fill
+          style={{ objectFit: "contain" }}
+          sizes="(max-width: 768px) 100vw, 60vw"
+      />
     </div>
     <Markdown source={MD0} />
     <EditorStyling>

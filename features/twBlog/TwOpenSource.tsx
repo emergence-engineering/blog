@@ -9,7 +9,7 @@ const TwOpenSource: FunctionComponent = () => {
         <span className="text-red-600">OPEN</span>&nbsp;<span>SOURCE</span>
       </h1>
 
-      <div className="my-3 flex flex-col gap-6 pb-20 md:pb-36">
+      <div className="my-3 flex w-full max-w-3xl flex-col gap-6 pb-20 md:pb-36">
         {projectDetails.map((i, idx) => {
           return (
             <ProjectCard
