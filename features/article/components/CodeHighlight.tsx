@@ -7,7 +7,8 @@ import styled from "styled-components";
 const Code = styled.code`
   padding: 0.2em 0.4em;
   margin: 0;
-  font-size: 85%;
+  font-size: 95%;
+  font-style: italic;
   white-space: break-spaces;
   background-color: rgba(175, 184, 193, 0.2);
   border-radius: 6px;

@@ -113,6 +113,7 @@
     "react-recaptcha": "^2.3.10",
     "react-responsive": "^9.0.2",
     "react-syntax-highlighter": "^15.5.0",
+    "react-youtube": "^10.1.0",
     "styled-components": "^5.3.6",
     "y-prosemirror": "^1.2.1",
     "y-protocols": "^1.0.5",

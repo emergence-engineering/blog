@@ -18,10 +18,11 @@ import { articlePNPMMetadata } from "../../pages/blog/monorepo-workspace-with-pn
 import { articleLexicalSlashMenuMetadata } from "../../pages/blog/lexical-slash-menu-plugin";
 import { articleProgrammerArchetypes } from "../../pages/blog/programmer-archetypes";
 import {article19Metadata} from "../../pages/blog/lexical-prosemirror-comparison";
+import { firestoreToSupabaseMigrationMetadata as firestoreToSupabaseMigrationMetadata } from "../../pages/blog/firestore-supabase-migration";
+import { articlePMMetadata } from "../../pages/blog/prosemirror";
 
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
-import { articlePMMetadata } from "../../pages/blog/prosemirror";
 
 const TwBlog: FunctionComponent = () => {
   const [tab, setTab] = useState<"article" | "tech">("tech");
@@ -42,6 +43,7 @@ const TwBlog: FunctionComponent = () => {
         {tab === "article" && <PostCard {...articleProgrammerArchetypes} />}
         {tab === "tech" && (
           <>
+            <PostCard {...firestoreToSupabaseMigrationMetadata} />
               <PostCard {...article19Metadata} />
               <PostCard {...articlePMMetadata} />
               <PostCard {...articlePNPMMetadata} />
