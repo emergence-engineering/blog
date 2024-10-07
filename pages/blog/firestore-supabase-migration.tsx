@@ -6,9 +6,12 @@ import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
+import RightArrow from "../../public/right-arrow.svg";
+import { Button } from "../../features/twLandingPage/twComponents/Button";
+import { scrollToContact } from "../../features/twLandingPage/utils/scrollToContact";
 
 export const firestoreToSupabaseMigrationMetadata: ArticleIntro = {
-  title: "Migrating from Firebase to Supabase: Lessons Learned",
+  title: "How to migrate from Firebase to Supabase?",
   author: "Viktor and matejcsok",
   authorLink: null,
   introText: /* language=md */ `Step-by-step guide for migrating a Firebase project to Supabase`,
@@ -24,7 +27,13 @@ const MD0 = /* language=md */ `
 
 ## TL;DR
 
-[SzamlaBridge](https://www.szamlabridge.com) - fixes legal issues with Stripe in Hungary - and [PlaceOfCards](https://www.placeofcards.com) - place cards for weddings and other events - both used Firebase, but we faced common problems: hard and tedious schema migrations and query issues. We decided to move to Supabase since we knew that it would solve these problems. Migrating projects is tedious, but we succeeded and learned a lot.
+If you're having performance issues with Firebase, switching to Supabase might be an option. However, you might already have some users therefore you don't want to shut down while you are migrating. We experienced the same with some of our products using Firebase so we decided to switch and write about the process. In this article, we provide a step-by-step guide to migrating your web app from Firebase to Supabase while keeping it live. 
+
+If you don't want to do this yourself, leave us a message. 
+
+## Introduction
+
+[SzamlaBridge](https://www.szamlabridge.com) - fixes legal issues with Stripe in Hungary - and [PlaceOfCards](https://www.placeofcards.com) - place cards for weddings and other events - both used Firebase, but we faced common problems: hard and tedious schema migrations and query issues. Therefore, we decided to move to Supabase since we knew that it would solve these problems. Migrating projects is tedious, but we succeeded and learned a lot.
 
 # When to go NoSQL
 
@@ -208,6 +217,10 @@ After this step, you no longer need to authenticate with the JWT endpoint, so yo
 
 Aaaand that’s it!
 
+`;
+
+const MD2 = /* language=md */ `
+
 ## What we learned
 
 ### Transactions
@@ -352,6 +365,21 @@ const Article = () => {
       <Markdown source={MD0} />
       <YouTube videoId="HaEPXoXVf2k" />
       <Markdown source={MD1} />
+      <div className="mb-4 flex w-full flex-col justify-between gap-4 self-center rounded-lg border p-8 lg:flex-row lg:gap-0">
+        <div className="text-center font-sans text-3xl font-bold">
+          Need help migrating to Supabase?
+        </div>
+        <div className="hidden lg:flex lg:flex-col lg:justify-center">
+          <RightArrow />
+        </div>
+        <Button
+          label="Contact us"
+          theme="primary"
+          handleClick={scrollToContact}
+          className="self-center"
+        />
+      </div>
+      <Markdown source={MD2} />
     </ArticleWrapper>
   );
 };

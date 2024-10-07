@@ -177,19 +177,18 @@ const Index: FunctionComponent = () => {
             className="my-4 self-center"
           />
 
-          <div className="mb-4 flex w-full flex-col justify-between self-center rounded-lg border p-8 lg:flex-row">
-            {/*<div className="flex items-center gap-2">*/}
+          <div className="mb-4 flex w-full flex-col justify-between gap-4 self-center rounded-lg border p-8 lg:flex-row lg:gap-0">
             <div className="text-center font-sans text-3xl font-bold">
               Talk to an expert
             </div>
-            <div className="flex flex-col justify-center">
+            <div className="hidden lg:flex lg:flex-col lg:justify-center">
               <RightArrow />
             </div>
-            {/*</div>*/}
             <Button
               label="Contact us"
               theme="primary"
               handleClick={scrollToContact}
+              className="self-center"
             />
           </div>
 
