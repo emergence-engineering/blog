@@ -61,7 +61,7 @@ export const TwOurReferences = () => {
               handleClick={() => setSelected(SelectOptions.OUR_PRODUCTS)}
             />
           </div>
-          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2">
             {filteredData
               ? filteredData.map((data) => (
                   <ProductCard key={data.key} product={data.key as Product} />

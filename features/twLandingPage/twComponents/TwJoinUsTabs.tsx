@@ -43,7 +43,7 @@ export const TwJoinUsTabs: FC = () => {
         <div className="absolute -top-20 left-3 hidden lg:flex">
           <HereIcon />
         </div>
-        <div className="absolute -left-0 -top-3 flex lg:hidden">
+        <div className="absolute -right-1 -top-1 flex lg:hidden">
           <HereIconMobile />
         </div>
         <IconWrapper
