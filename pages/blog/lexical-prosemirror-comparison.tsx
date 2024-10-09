@@ -1,10 +1,10 @@
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import ArticleWrapper from "../../features/article/components/ArticleWrapper";
 import { ArticleIntro } from "../../features/article/types";
 import Markdown from "../../features/article/components/Markdown";
 import ArticleShareOgTags from "../../features/article/components/ArticleShareOgTags";
 import ArticleHeader from "../../features/article/components/ArticleHeader";
+import { LightBox } from "../../features/twBlog/LightBox";
 
 export const article19Metadata: ArticleIntro = {
   title: "Rich Text Editors in Action: Stress Test On Lexical and ProseMirror",
@@ -13,18 +13,8 @@ export const article19Metadata: ArticleIntro = {
   introText: /* language=md */ `This article explores how Lexical and ProseMirror handle long-term use and heavy data stress.`,
   postId: "lexical-prosemirror-comparison",
   timestamp: 1728049303258,
-  imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-prosemirror-comparison",
   tags: ["ProseMirror", "Lexical", "performance test"],
-};
-
-const imageStyle: React.CSSProperties = {
-  position: "relative",
-  display: "flex",
-  alignSelf: "center",
-  width: "100%",
-  maxWidth: "100%",
-  aspectRatio: "16 / 9",
 };
 
 const MD0 = /* language=md */ `
@@ -33,6 +23,12 @@ const MD0 = /* language=md */ `
 We compared two rich text editors - Lexical and ProseMirror - to evaluate their performance under data load over time. The tests showed significant differences between the two editors depending on the amount of time we want to use them. Lexical performs better for short-term use, responding faster initially, but its performance degrades under very heavy use (likely) due to inefficient memory management. ProseMirror is designed for long-term use, offering a little bit slower responses but more predictable and stable performance over time.
 
 \_\_\_
+
+# Update: October 9, 2024
+XY drew our attention to Lexical's history plugin (it ensures that I can undo/redo my actions in the editor) -
+it's useful for general use cases, but in this scenario it just broke the test, because the plugin stores all the editor states as they are,
+without compressing or removing older ones over time. We re-ran the test without the plugin; please see the results below.
+
 
 # Introduction
 There are many online platforms where you can edit your rich text, such as Google Docs or the Slack or Discord input box. To create your own rich text editor, you will need a library that you can pull pre-built features from to streamline development and to save time, since building all the features from the ground up is really hard.
@@ -136,6 +132,10 @@ test(\`Lexical stress test\`, async () => {
 # Nodecount
 We saved the \`performance.now()\` timestamp after every 200 nodes, and it turned out that Lexical could achieve faster performance. It hit the first 200 nodes earlier in time and the first metric measurement (15sec) occurred at a higher node count. When it stopped at about 8200 words, the ProseMirror just passed the 7600 node counts. 
 That means Lexical is 8% faster than ProseMirror in this test.
+
+**Update**: With the history plugin disabled in the Lexical editor, the max node count was 13.928 here and 11.642 in the ProseMirror, which is a more promising 19,5% difference in speed by the end of the hour.
+
+*You can zoom in by clicking on the image.*
 `;
 
 const MD1 = /* language=md */ `
@@ -146,6 +146,10 @@ const MD1 = /* language=md */ `
 \**Lexical and ProseMirror\**: The ScriptDuration time increases with the node count in both editors, but Lexical’s graph rises more sharply. When experimental tracing files were analyzed in Chrome's performance profiler, it was found that Lexical performed almost twice as much minor garbage collection as ProseMirror.
 
 \**Conclusions\**: Lexical's total of script executing time increases faster than ProseMirror's, which is probably linked to its faster handling of increasing content and more frequent garbage collection. 
+
+**Update**: With the history plugin disabled in the Lexical editor, the rise of the blue line is a bit less steep, probably because logging the state updates took time.
+
+*You can zoom in by clicking on the image.*
 `;
 
 const MD2 = /* language=md */ `
@@ -156,6 +160,8 @@ const MD2 = /* language=md */ `
 \**Lexical and ProseMirror\**: The number of layout operations grows linearly with nodecount in both editors, though ProseMirror performs about 2-2.5 times more operations than Lexical.
 
 \**Conclusions\**: In ProseMirror, each user interaction or change generates a transaction, and the editor state is synchronized with the DOM after each transaction. Lexical, on the other hand, achieves the same thing with less. The main improvement of Lexical is the batched updates meaning updates are executed in a single step, instead of updating the editor after each change. This approach improves performance in the short term by reducing the frequency of layout recalculations, and could be beneficial for editors with many features.
+*You can zoom in by clicking on the image.*
+
 `;
 
 const MD3 = /* language=md */ `
@@ -169,12 +175,20 @@ const MD3 = /* language=md */ `
 \**ProseMirror\**: The JSHeapUsedSize for ProseMirror fluctuates slightly, but remains between 6 and 18 MB throughout the test. The fluctuations indicate minor changes in memory usage, but there is no significant increase or memory leak observed, demonstrating efficient memory management.
 
 \**Conclusions\**: Lexical users might initially experience responsive performance, but as memory usage increases, they could face lagging, slowdowns, and eventually crashes or unresponsiveness.
+
+**Update**: With the history plugin disabled in the Lexical editor, the Lexical graph resembles more to the ProseMirror graph. It still uses more memory, fluctuating between about 10 and 70 MB, but the garbage collection works well and lets the editor run for the whole hour without crashing or slowing down significantly. 
+
+*You can zoom in by clicking on the image.*
+
 `;
 
 const MD4 = /* language=md */ `
     
 # Results
-Depending on how you intend to use the editor you choose, you will have to make trade-offs; here we have collected information that can help you to make the best decision.  \n 
+Depending on how you intend to use the editor you choose, you will have to make trade-offs; here we have collected information that can help you to make the best decision.
+
+**Update**: It turned out that the Lexical's history plugin saves the editor states without compressing or discarding the old ones, causing the editor to crash under these circumstances. This test admittedly doesn't mimic a common use case, but since we wanted to test the editors with the same features, it meant we had to include this plugin as well.
+
 Lexical initially handles the data load better and provides faster content processing, performing operations more efficiently in the short term. This makes it a better choice for quick and small editing tasks. Meta likely designed it this way to benefit from these features in their live chat applications, but it can also be used for personal note-taking, kiosk applications, or short-lived web sessions.
 
 However, if you need an editor for heavier tasks, ProseMirror offers a stable and robust solution. Whether you are building a CMS (Content Management System), or just need an online editor for your blog, you can count on ProseMirror.
@@ -185,91 +199,178 @@ Also, there’s another part of the story: ProseMirror has very good and mature 
 Footnote: Here you find the [public repository](https://github.com/emergence-engineering/prosemirror-vs-lexical-performance-comparison) to which we’ve uploaded the test with some graph-generation options. Feel free to rerun them or use them as a starting point if you’ve got further ideas - and please tell us about it!
 `;
 
-const Article = () => (
-  <ArticleWrapper>
-    <ArticleShareOgTags
-      url={article19Metadata.url}
-      title={article19Metadata.title}
-      description={article19Metadata.introText}
-      imgSrc={""}
-    />
-    <ArticleHeader
-      title={article19Metadata.title}
-      author={article19Metadata.author}
-      timestamp={article19Metadata.timestamp}
-    />
+const Article = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeGraph, setActiveGraph] = useState<string | null>(null);
 
-    <Markdown source={MD0} />
-    <br />
+  const handleToggleImage = (src: string) => {
+    if (isOpen && activeGraph === src) {
+      setIsOpen(false);
+      setActiveGraph(null);
+    } else {
+      setActiveGraph(src);
+      setIsOpen(true);
+    }
+  };
 
-    <div style={{ ...imageStyle }}>
-      <Image
-        src="/article19-nodeCount.png"
-        alt="image"
-        fill
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 60vw"
+  const nodeCountImages = [
+    {
+      src: "/blog/article19/nodeCount.png",
+      title: "Lexical's history plugin ON",
+    },
+    {
+      src: "/blog/article19/nodeCount-noHistory.png",
+      title: "Lexical's history plugin OFF",
+    },
+  ];
+  const scriptDurImages = [
+    {
+      src: "/blog/article19/scriptDuration.png",
+      title: "Lexical's history plugin ON",
+    },
+    {
+      src: "/blog/article19/scriptDuration-noHistory.png",
+      title: "Lexical's history plugin OFF",
+    },
+  ];
+  const layoutCountImages = [
+    {
+      src: "/blog/article19/layoutCount.png",
+      title: "Lexical's history plugin ON",
+    },
+    {
+      src: "/blog/article19/layoutCount-noHistory.png",
+      title: "Lexical's history plugin OFF",
+    },
+  ];
+
+  const jsHeapImages1 = [
+    {
+      src: "/blog/article19/jsHeapUsedSize-lexical.png",
+      title: "Lexical's history plugin ON",
+    },
+    {
+      src: "/blog/article19/jsHeapUsedSize-pm.png",
+      title: "Lexical's history plugin ON",
+    },
+  ];
+  const jsHeapImages2 = [
+    {
+      src: "/blog/article19/jsHeapUsedSize.png",
+      title: "Lexical's history plugin ON",
+    },
+    {
+      src: "/blog/article19/jsHeapUsedSize-noHistory.png",
+      title: "Lexical's history plugin OFF",
+    },
+  ];
+
+  return (
+    <ArticleWrapper>
+      <ArticleShareOgTags
+        url={article19Metadata.url}
+        title={article19Metadata.title}
+        description={article19Metadata.introText}
+        imgSrc={article19Metadata.imgSrc}
       />
-    </div>
-
-    <Markdown source={MD1} />
-    <br />
-
-    <div style={imageStyle}>
-      <Image
-        src="/article19-scriptDuration.png"
-        alt="image"
-        fill
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 60vw"
+      <ArticleHeader
+        title={article19Metadata.title}
+        author={article19Metadata.author}
+        timestamp={article19Metadata.timestamp}
       />
-    </div>
 
-    <Markdown source={MD2} />
-    <br />
-    <div style={imageStyle}>
-      <Image
-        src={"/article19-layoutCount.png"}
-        alt="image"
-        fill
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 60vw"
-      />
-    </div>
+      <Markdown source={MD0} />
+      <br />
 
-    <Markdown source={MD3} />
-    <br />
-    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-      <div style={imageStyle}>
-        <Image
-          src={"/article19-lexical-jsHeapUsedSize.png"}
-          alt="image"
-          fill
-          style={{ objectFit: "contain" }}
-          sizes="(max-width: 768px) 100vw, 60vw"
-        />
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {nodeCountImages.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
       </div>
-      <div style={imageStyle}>
-        <Image
-          src={"/article19-pm-jsHeapUsedSize.png"}
-          alt="image"
-          fill
-          style={{ objectFit: "contain" }}
-          sizes="(max-width: 768px) 100vw, 60vw"
-        />
-      </div>
-    </div>
-    <div style={imageStyle}>
-      <Image
-        src={"/article19-jsHeapUsedSize.png"}
-        alt="image"
-        fill
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 60vw"
-      />
-    </div>
 
-    <Markdown source={MD4} />
-  </ArticleWrapper>
-);
+      <Markdown source={MD1} />
+      <br />
+
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {scriptDurImages.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
+
+      <Markdown source={MD2} />
+      <br />
+
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {layoutCountImages.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
+
+      <Markdown source={MD3} />
+      <br />
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {jsHeapImages1.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {jsHeapImages2.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
+
+      <Markdown source={MD4} />
+    </ArticleWrapper>
+  );
+};
 export default Article;
