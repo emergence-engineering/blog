@@ -86,8 +86,8 @@ const TwJoinUsColumns: FC = () => {
             <p className="text-center text-xl font-bold md:text-left md:text-4xl">
               You come to the right place if you need:
             </p>
-            <div className="flex flex-col">
-              <ul className="mt-4 list-outside list-disc pl-5 text-sm md:text-base">
+            <div className="flex flex-col items-center md:items-start">
+              <ul className="mt-4 list-outside list-disc pl-5">
                 <li className="font-montserrat">web application</li>
                 <li className="font-montserrat">payment or fintech solution</li>
                 <li className="font-montserrat">AI development</li>
@@ -102,7 +102,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
 
-          <div className="customAreaFour flex flex-col items-center md:items-start">
+          <div className="customAreaFour mt-4 flex flex-col items-center md:mt-0 md:items-start">
             <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[125%] lg:transform">
               <Image
                 src={"/illustrations/Arrow_Right.svg"}
@@ -146,7 +146,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className={`customAreaThree md:text-white`}>
-            <div className="mt-2 text-xl font-bold md:text-4xl">
+            <div className="mt-2 flex justify-center text-xl font-bold md:justify-start md:text-4xl">
               Hold your app in your hands for the first time
             </div>
           </div>
@@ -169,7 +169,7 @@ const TwJoinUsColumns: FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <p className="justify-self-center text-xl font-bold md:text-4xl">
+            <p className="mt-4 text-center text-xl font-bold md:mt-0 md:text-left md:text-4xl">
               How we build:
             </p>
             <div className="font-montserrat text-white md:text-descriptionGray">
@@ -370,7 +370,7 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className="customAreaThree md:text-white">
-            <div className="text-xl font-bold md:text-4xl">
+            <div className="mt-2 flex justify-center text-center text-xl font-bold md:justify-start md:text-left md:text-4xl">
               We will develop, deploy, test, evaluate and rebuild until
               everything works the way it should.
             </div>
@@ -394,7 +394,7 @@ const TwJoinUsColumns: FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <div className="my-3 justify-self-center text-xl font-bold md:text-4xl">
+            <div className="my-3 flex justify-center text-xl font-bold md:justify-start md:text-4xl">
               How we guarantee success:
             </div>
             <div className="my-1 font-montserrat font-semibold text-white md:text-custom-charcoal">
@@ -494,14 +494,26 @@ const TwJoinUsColumns: FC = () => {
           <div className="customAreaOne flex flex-col items-center md:items-start md:text-white">
             <div className="my-3 justify-self-center">
               <div className="w-fit rounded-full bg-tagGray px-4 py-2 font-sans text-xs uppercase">
-                Let&#39;s press the launch button. Shall we?:D
+                Let&#39;s press the launch button. Shall we? :D
               </div>
             </div>
-            <div className="my-3 flex items-center justify-self-center text-4xl md:flex-col md:items-start md:text-7xl">
-              <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
-                04
+            <div className="flex flex-1 flex-col items-center justify-between gap-4 md:flex-col md:items-start md:gap-8">
+              <div className="flex items-center text-4xl md:flex-col md:items-start md:text-7xl">
+                <div className="mr-4 w-fit bg-letter-background bg-clip-text font-bold text-transparent">
+                  04
+                </div>
+                <h1 className="font-extrabold">PRODUCT</h1>
               </div>
-              <h1 className="font-extrabold">PRODUCT</h1>
+              <div className="hidden flex-col gap-4 md:flex">
+                <div className="text-xl font-bold md:text-4xl">
+                  We did it! The product launch was successful.
+                </div>
+                <div className="font-montserrat font-normal">
+                  Congratulations! You have users and are also generating some
+                  revenue. Now we just need to maintain, add more features and
+                  scale the business to infinity and beyond.
+                </div>
+              </div>
             </div>
           </div>
           <div className="customAreaTwo flex items-center justify-center">
@@ -517,18 +529,21 @@ const TwJoinUsColumns: FC = () => {
             </div>
           </div>
           <div className="customAreaThree flex flex-col gap-4 md:text-white">
-            <div className="text-xl font-bold md:text-4xl">
-              We did it! The product launch was successful.
-            </div>
-            <div className="font-montserrat">
-              Congratulations! You have users and are also generating some
-              revenue. Now we just need to maintain, add more features and scale
-              the business to infinity and beyond.
+            <div className="flex flex-col gap-4 md:hidden">
+              <div className="text-center text-xl font-bold md:text-left md:text-4xl">
+                We did it! The product launch was successful.
+              </div>
+              <div className="text-center font-montserrat font-normal md:text-left">
+                Congratulations! You have users and are also generating some
+                revenue. Now we just need to maintain, add more features and
+                scale the business to infinity and beyond.
+              </div>
             </div>
             <Button
               label={"Launch"}
               theme={"primary"}
               handleClick={scrollToContact}
+              className="my-4 md:my-8"
             />
           </div>
           <div className="mt-3 flex w-full justify-center md:hidden">
@@ -541,7 +556,7 @@ const TwJoinUsColumns: FC = () => {
             />
           </div>
           <div className="customAreaFour flex flex-col">
-            <div className="hidden lg:relative lg:top-[0rem] lg:block lg:h-0 lg:-translate-x-[39.5%] lg:transform xl:-translate-x-[32%] 2xl:-translate-x-[26.5%]">
+            <div className="hidden lg:relative lg:top-[0.75rem] lg:block lg:h-0 lg:-translate-x-[39.5%] lg:transform xl:-translate-x-[32%] 2xl:-translate-x-[26.5%]">
               <Image
                 src={"/illustrations/Arrow_Right.svg"}
                 alt={"Right Arrow"}
@@ -550,14 +565,14 @@ const TwJoinUsColumns: FC = () => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <div className="font- my-3 justify-self-center text-xl font-bold md:text-4xl">
+            <div className="mb-3 mt-8 justify-self-center text-center text-xl font-bold md:text-left md:text-4xl">
               So, what was the lesson of the story?
               <br />
               <br />
               Was it the journey itself? The success at the end? Or maybe it was
               the friends we made along the way.....
             </div>
-            <Link href="/references" className="mt-4 self-start">
+            <Link href="/references" className="mt-4 self-center md:self-start">
               <Button label="References" theme="tertiary" />
             </Link>
           </div>
