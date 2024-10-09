@@ -25,7 +25,7 @@ We compared two rich text editors - Lexical and ProseMirror - to evaluate their 
 \_\_\_
 
 # Update: October 9, 2024
-XY drew our attention to Lexical's history plugin (it ensures that I can undo/redo my actions in the editor) -
+On the Lexical Discord server \`etrepum\` drew our attention to Lexical's history plugin (it ensures that I can undo/redo my actions in the editor) -
 it's useful for general use cases, but in this scenario it just broke the test, because the plugin stores all the editor states as they are,
 without compressing or removing older ones over time. We re-ran the test without the plugin; please see the results below.
 
