@@ -76,10 +76,10 @@ const TwAccordion: FC = () => {
       {accordionData.map((item, index) => (
         <div key={index} className="accordion-background w-full">
           <div
-            className="flex cursor-pointer items-center justify-between py-4"
+            className="flex cursor-pointer items-center justify-between py-2 md:py-4"
             onClick={() => handleAccordionClick(index)}
           >
-            <h2 className="text-2xl font-semibold">{item.title}</h2>
+            <h2 className="text-xl font-semibold md:text-2xl">{item.title}</h2>
             {activeIndex === index ? (
               <RemoveIcon className="svg-icon h-6 w-6" />
             ) : (
