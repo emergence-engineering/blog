@@ -15,8 +15,7 @@ export const article19Metadata: ArticleIntro = {
   timestamp: 1728049303258,
   imgSrc: "https://lexical.dev/img/logo.svg",
   url: "https://emergence-engineering.com/blog/lexical-prosemirror-comparison",
-    tags: ["ProseMirror", "Lexical", "performance test"],
-
+  tags: ["ProseMirror", "Lexical", "performance test"],
 };
 
 const imageStyle: React.CSSProperties = {
@@ -192,7 +191,7 @@ const Article = () => (
       url={article19Metadata.url}
       title={article19Metadata.title}
       description={article19Metadata.introText}
-      imgSrc={article19Metadata.imgSrc}
+      imgSrc={""}
     />
     <ArticleHeader
       title={article19Metadata.title}
@@ -203,7 +202,7 @@ const Article = () => (
     <Markdown source={MD0} />
     <br />
 
-    <div style={{ ...imageStyle}}>
+    <div style={{ ...imageStyle }}>
       <Image
         src="/article19-nodeCount.png"
         alt="image"
@@ -240,33 +239,33 @@ const Article = () => (
 
     <Markdown source={MD3} />
     <br />
-      <div style={{display: 'flex', justifyContent: "space-evenly"}}>
-        <div style={imageStyle}>
-          <Image
-            src={"/article19-lexical-jsHeapUsedSize.png"}
-            alt="image"
-            fill
-            style={{ objectFit: "contain" }}
-            sizes="(max-width: 768px) 100vw, 60vw"
-          />
-        </div>
-          <div style={imageStyle}>
-            <Image
-                src={"/article19-pm-jsHeapUsedSize.png"}
-                alt="image"
-                fill
-                style={{ objectFit: "contain" }}
-                sizes="(max-width: 768px) 100vw, 60vw"
-            />
-        </div>
-      </div>
-    <div style={imageStyle}>
-      <Image
-          src={"/article19-jsHeapUsedSize.png"}
+    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div style={imageStyle}>
+        <Image
+          src={"/article19-lexical-jsHeapUsedSize.png"}
           alt="image"
           fill
           style={{ objectFit: "contain" }}
           sizes="(max-width: 768px) 100vw, 60vw"
+        />
+      </div>
+      <div style={imageStyle}>
+        <Image
+          src={"/article19-pm-jsHeapUsedSize.png"}
+          alt="image"
+          fill
+          style={{ objectFit: "contain" }}
+          sizes="(max-width: 768px) 100vw, 60vw"
+        />
+      </div>
+    </div>
+    <div style={imageStyle}>
+      <Image
+        src={"/article19-jsHeapUsedSize.png"}
+        alt="image"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 60vw"
       />
     </div>
 
