@@ -11,11 +11,6 @@ declare module "@tiptap/core" {
   }
 }
 
-export type Choice = {
-  id: string;
-  isCorrect: boolean;
-};
-
 export const options = [
   "shuffle",
   "instantFeedback",
@@ -215,16 +210,55 @@ export const MultipleChoiceQuestion: Node<unknown, unknown> = Node.create({
 
   addNodeView() {
     return ({ view, node, getPos }) => {
-      const dom = document.createElement("div");
-      dom.style.border = "1px solid red";
-      // Give other elements containing text `contentEditable = false`
-      const label = document.createElement("span");
-      label.innerHTML = "Node view";
-      label.contentEditable = false;
+      let selected: "setup" | "options" = "setup";
+      const overlay = document.createElement("div");
+      overlay.style.position = "absolute";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.backgroundColor = "white";
+      overlay.style.display = "none";
+      overlay.style.zIndex = "100";
+      overlay.innerHTML = "overlay";
+      overlay.contentEditable = "false";
 
+      const updateOverlay = () => {
+        selected === "setup"
+          ? (overlay.style.display = "none")
+          : (overlay.style.display = "block");
+      };
+
+      const dom = document.createElement("div");
+
+      const contentRoot = document.createElement("div");
+      contentRoot.style.border = "1px solid red";
+      contentRoot.style.position = "relative";
       // Create a container for the content
       const content = document.createElement("div");
       const addNewOptionBtn = document.createElement("button");
+      const headerDiv = document.createElement("div");
+      const setupButton = document.createElement("button");
+      setupButton.innerHTML = "Setup";
+      setupButton.style.border = "1px solid black";
+      setupButton.onclick = () => {
+        selected = "setup";
+        updateOverlay();
+      };
+
+      const optionsButton = document.createElement("button");
+      optionsButton.innerHTML = "Options";
+      optionsButton.style.border = "1px solid black";
+      optionsButton.onclick = () => {
+        selected = "options";
+        console.log("options");
+        updateOverlay();
+      };
+
+      headerDiv.append(setupButton);
+      headerDiv.append(optionsButton);
+      headerDiv.style.display = "flex";
+
       addNewOptionBtn.innerHTML = "Add new option";
       addNewOptionBtn.style.border = "1px solid black";
       addNewOptionBtn.onclick = () => {
@@ -249,14 +283,36 @@ export const MultipleChoiceQuestion: Node<unknown, unknown> = Node.create({
         console.log("add new option");
       };
 
+      const pointsInput = document.createElement("input");
+      pointsInput.type = "number";
+      pointsInput.value = node.attrs.points;
+      pointsInput.onchange = (e) => {
+        const tr = view.state.tr;
+        tr.setNodeMarkup(getPos(), undefined, {
+          points: parseInt((e.target as HTMLInputElement).value),
+        });
+        view.dispatch(tr);
+      };
+
       // Append all elements to the node view container
-      dom.append(label, content);
-      dom.append(addNewOptionBtn);
+      dom.append(headerDiv);
+      contentRoot.append(content, addNewOptionBtn, pointsInput, overlay);
+      dom.append(contentRoot);
+
+      // dom.append(content);
+      // dom.append(addNewOptionBtn);
+      // dom.append(pointsInput);
+      // dom.append(overlay);
 
       return {
         // Pass the node view container …
         dom,
         contentDOM: content,
+        update: (node) => {
+          pointsInput.value = node.attrs.points;
+          return false;
+        },
+        ignoreMutation: () => true,
         // … and the content containe;
       };
     };
