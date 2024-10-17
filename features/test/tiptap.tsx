@@ -5,18 +5,45 @@ import {
   MultipleChoiceQuestion,
   MultipleChoiceTitle,
 } from "./MCQ";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
+import { Collaboration } from "@tiptap/extension-collaboration";
+import * as Y from "yjs";
+import { router } from "next/client";
+import { HocuspocusProvider } from "@hocuspocus/provider";
+import { StudentModeExtension } from "./StudentModeExtension";
 
 const extensions = [StarterKit];
 
 const content = "<p>Hello World!</p>";
 
 const Tiptap = () => {
+  const ydoc = useMemo(() => {
+    const doc = new Y.Doc();
+    return doc;
+  }, []);
+
+  const wsProvider = useMemo(() => {
+    const name =
+      typeof router.query.docid === "string" ? router.query.docid : "test";
+    return new HocuspocusProvider({
+      url: "ws://127.0.0.1:1234/example-document",
+      name: "example-document",
+      document: ydoc,
+      // token: "notoken",
+    });
+  }, []);
+
+  // console.log(wsProvider.document);
   const editor = useEditor({
     extensions: [
+      Collaboration.configure({
+        document: ydoc, // Configure Y.Doc for collaboration
+      }),
+
       MultipleChoiceOption,
       MultipleChoiceQuestion,
       MultipleChoiceTitle,
+      StudentModeExtension(false),
       ...extensions,
     ],
     content,

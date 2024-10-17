@@ -1,0 +1,47 @@
+{
+  "name": "hocuspocus-fly-service",
+  "version": "0.0.1",
+  "main": "server.js",
+  "keywords": [
+    "nodejs",
+    "hocuspocus"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "ts-node-dev --respawn --watch --transpile-only src/index.ts",
+    "run": "ts-node --transpile-only src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "deploy-dev": "flyctl deploy --config fly.dev.toml",
+    "deploy-prod": "flyctl deploy --config fly.prod.toml"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "@hocuspocus/extension-database": "^1.0.2",
+    "@hocuspocus/server": "^1.0.1",
+    "@supabase/supabase-js": "^2.8.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-ws": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/express-ws": "^3.0.5",
+    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "5.46.1",
+    "@typescript-eslint/parser": "5.46.1",
+    "eslint": "8.29.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.8.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}

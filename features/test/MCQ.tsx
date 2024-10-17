@@ -1,4 +1,5 @@
 import { Node } from "@tiptap/react";
+import { StudentModePluginKey } from "./StudentModeExtension";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
