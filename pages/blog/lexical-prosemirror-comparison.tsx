@@ -145,7 +145,7 @@ const MD1 = /* language=md */ `
 
 \**Lexical and ProseMirror\**: The ScriptDuration time increases with the node count in both editors, but Lexical’s graph rises more sharply. When experimental tracing files were analyzed in Chrome's performance profiler, it was found that Lexical performed almost twice as much minor garbage collection as ProseMirror.
 
-\**Conclusions\**: Lexical's total of script executing time increases surprisingly faster than ProseMirror's ~~which is probably linked to its faster handling of increasing content and more frequent garbage collection~~.
+\**Conclusions\**: Lexical's total of script executing time increases surprisingly faster than ProseMirror's (which is probably linked to its faster handling of increasing content and more frequent garbage collection).
 
 **Update**: With the history plugin disabled in the Lexical editor, the rise of the blue line is a bit less steep, probably because logging the state updates took time.
 
