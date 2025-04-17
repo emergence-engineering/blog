@@ -88,7 +88,9 @@ const Anchor = styled.div<{ active: boolean }>`
   font-weight: 500;
   font-size: 1.2rem;
   font-family: "Oswald", sans-serif;
-  transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
+  transition:
+    text-shadow 1s ease,
+    background-color 0.2s ease; // TODO!
   border-radius: 0.3rem;
   text-decoration: none;
   background-color: ${({ active }) =>
@@ -112,7 +114,9 @@ const ContactUsLink = styled.a`
   font-weight: 500;
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
-  transition: text-shadow 1s ease, background-color 0.2s ease; // TODO!
+  transition:
+    text-shadow 1s ease,
+    background-color 0.2s ease; // TODO!
   color: ${theme.color.tertiary};
   padding: 0.3rem 1.2rem;
   text-decoration: none;
@@ -187,16 +191,7 @@ const Header: FunctionComponent = () => (
       <ContentWrapper>
         <LeftContainer>
           <SiteTitle href="/">
-            <Image
-              src={EELogo}
-              alt="logo"
-              width={265}
-              height={48}
-              sizes="100vw"
-              style={{
-                objectFit: "cover",
-              }}
-            />
+            <EELogo className="h-auto w-64" />
           </SiteTitle>
         </LeftContainer>
         <RightContainer>
@@ -208,17 +203,7 @@ const Header: FunctionComponent = () => (
             <ContactUsLink href="/#contactUs">Contact Us</ContactUsLink>
             <PlatformWrapper>
               <GithubLogoWrapper onClick={() => redirectTo("github")}>
-                <Image
-                  src={GithubIcon}
-                  alt="github"
-                  width={32}
-                  height={32}
-                  sizes="100vw"
-                  // placeholder={"blur"}
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
+                <GithubIcon className="h-auto w-8" />
               </GithubLogoWrapper>
             </PlatformWrapper>
           </BigScreenContainer>

@@ -17,8 +17,9 @@ import AchillesPhoto from "../../../public/partners/achilles.png";
 import MarcPhoto from "../../../public/partners/marc.jpeg";
 import GregPhoto from "../../../public/partners/greg.jpeg";
 import { clickable } from "../../../utils/mixins";
-import Prev from "../../../public/arrow-prev.svg";
-import Next from "../../../public/arrow-next.svg";
+import ArrowPrev from "../../../public/arrow-prev.svg";
+import ArrowNext from "../../../public/arrow-next.svg";
+import { openSans, oswald, ptSans } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -89,7 +90,6 @@ const PartnerName = styled.div`
   padding: 0 1rem;
   border-radius: 0.3rem;
 
-  font-family: ${theme.fontFamily.title};
   font-weight: 800;
   font-size: 1.35rem;
   color: ${theme.color.fontWhite};
@@ -97,14 +97,12 @@ const PartnerName = styled.div`
 `;
 
 const PartnerJob = styled.div`
-  font-family: ${theme.fontFamily.title};
   font-size: 1.05rem;
   color: ${theme.color.gray1};
   font-style: italic;
 `;
 
 const Description = styled.div`
-  font-family: ${theme.fontFamily.general};
   color: ${theme.color.gray1};
   text-align: center;
   padding: 0 4rem;
@@ -299,28 +297,10 @@ const References: FunctionComponent = () => {
   return (
     <Root>
       <PrevContainer onClick={() => goPrev()}>
-        <Image
-          src={Prev.src}
-          alt="prev"
-          width={16}
-          height={32}
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <ArrowPrev />
       </PrevContainer>
       <NextContainer onClick={() => goNext()}>
-        <Image
-          src={Next.src}
-          alt="prev"
-          width={16}
-          height={32}
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <ArrowNext />
       </NextContainer>
 
       {/*<SectionTitle>Clients said about us</SectionTitle>*/}
@@ -342,9 +322,15 @@ const References: FunctionComponent = () => {
               />
             </FacePictureWrapper>
           )}
-          <PartnerName>{displayedPartner.partnerName}</PartnerName>
-          <PartnerJob>{displayedPartner.partnerJob}</PartnerJob>
-          <Description>{displayedPartner.saysThat}</Description>
+          <PartnerName className={`${ptSans.className}`}>
+            {displayedPartner.partnerName}
+          </PartnerName>
+          <PartnerJob className={`${oswald.className}`}>
+            {displayedPartner.partnerJob}
+          </PartnerJob>
+          <Description className={`${openSans.className}`}>
+            {displayedPartner.saysThat}
+          </Description>
         </PartnerRoot>
       </SectionContentRoot>
 
