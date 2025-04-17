@@ -17,8 +17,8 @@ import AchillesPhoto from "../../../public/partners/achilles.png";
 import MarcPhoto from "../../../public/partners/marc.jpeg";
 import GregPhoto from "../../../public/partners/greg.jpeg";
 import { clickable } from "../../../utils/mixins";
-import Prev from "../../../public/arrow-prev.svg";
-import Next from "../../../public/arrow-next.svg";
+import ArrowPrev from "../../../public/arrow-prev.svg";
+import ArrowNext from "../../../public/arrow-next.svg";
 import { openSans, oswald, ptSans } from "../../../utils/fonts";
 
 const Root = styled.div`
@@ -297,28 +297,10 @@ const References: FunctionComponent = () => {
   return (
     <Root>
       <PrevContainer onClick={() => goPrev()}>
-        <Image
-          src={Prev.src}
-          alt="prev"
-          width={16}
-          height={32}
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <ArrowPrev />
       </PrevContainer>
       <NextContainer onClick={() => goNext()}>
-        <Image
-          src={Next.src}
-          alt="prev"
-          width={16}
-          height={32}
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <ArrowNext />
       </NextContainer>
 
       {/*<SectionTitle>Clients said about us</SectionTitle>*/}
