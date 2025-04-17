@@ -4,6 +4,7 @@ import {
   JetBrains_Mono,
   PT_Sans,
   PT_Sans_Narrow,
+  Oswald,
 } from "next/font/google";
 
 export const ptSans = PT_Sans({
@@ -39,4 +40,11 @@ export const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-jetbrains-mono",
+});
+
+export const oswald = Oswald({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-oswald",
 });

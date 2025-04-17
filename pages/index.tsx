@@ -17,6 +17,7 @@ import WhatWeDoSection from "../features/landingPage/components/WhatWeDo";
 import References from "../features/landingPage/components/References";
 import AboutUsSection from "../features/landingPage/components/AboutUsSection";
 import { TwContact } from "../features/twLandingPage/twComponents/TwContact";
+import { oswald } from "../utils/fonts";
 
 const mainParagraphContent = `Emergence Engineering is a full-stack software development company from Budapest (🇪🇺)`;
 
@@ -77,12 +78,19 @@ const Index: FunctionComponent = () => {
       <LPSEO />
       <IntroductionSectionWrapper>
         <IntroductionSection>
-          <IntroductionParagraph>{mainParagraphContent}</IntroductionParagraph>
+          <IntroductionParagraph className={`${oswald.className} text-black`}>
+            {mainParagraphContent}
+          </IntroductionParagraph>
 
           <IntroductionFeatureWrapper>
-            <IntroductionFeatureStart>We build</IntroductionFeatureStart>
+            <IntroductionFeatureStart className={`${oswald.className}`}>
+              We build
+            </IntroductionFeatureStart>
             <IntroductionFeatureBox>
-              <IntroductionFeatures id="feature">
+              <IntroductionFeatures
+                className={`${oswald.className}`}
+                id="feature"
+              >
                 {featureList[currentFeatureIndex]}
               </IntroductionFeatures>
             </IntroductionFeatureBox>

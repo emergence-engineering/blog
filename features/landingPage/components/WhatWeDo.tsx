@@ -7,6 +7,7 @@ import {
   CapabilityBoxContainerWrapper,
 } from "./Capability";
 import CapabilityBox, { CapabilityImages } from "./CapabilityBox";
+import { oswald } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;

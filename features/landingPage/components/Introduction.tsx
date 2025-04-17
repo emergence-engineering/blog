@@ -35,7 +35,7 @@ export const IntroductionParagraph = styled.p`
 
 export const IntroductionH1 = styled.h1`
   font-size: 2rem;
-  font-family: ${theme.fontFamily.title};
+  //font-family: ${theme.fontFamily.title};
   font-weight: 500;
   color: ${theme.color.gray1};
   text-justify: newspaper;

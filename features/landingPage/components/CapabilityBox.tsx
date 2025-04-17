@@ -15,6 +15,7 @@ import ScalaImage from "../../../public/icons/scala.png";
 import KubernetesImage from "../../../public/icons/kubernetes.png";
 import ReactImage from "../../../public/icons/react.png";
 import TipTapImage from "../../../public/icons/tiptap.png";
+import { oswald } from "../../../utils/fonts";
 
 export enum CapabilityImages {
   TipTapImg = "TipTapImg",
@@ -75,7 +76,6 @@ const TitleContainer = styled.div`
   width: 100%;
   font-weight: 900;
   font-size: 1.7rem;
-  font-family: "Oswald", sans-serif;
 `;
 
 const BoxWrapper = styled.div`
@@ -111,7 +111,9 @@ const CapabilityBox: FunctionComponent<SkillBoxProps> = ({
   <BoxWrapper>
     <BoxRoot>
       <HeaderRow>
-        <TitleContainer>{title}</TitleContainer>
+        <TitleContainer className={`${oswald.className}`}>
+          {title}
+        </TitleContainer>
         <ImgWrapper>
           <Image
             alt="capabilityImage"
