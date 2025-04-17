@@ -19,6 +19,7 @@ import GregPhoto from "../../../public/partners/greg.jpeg";
 import { clickable } from "../../../utils/mixins";
 import Prev from "../../../public/arrow-prev.svg";
 import Next from "../../../public/arrow-next.svg";
+import { oswald, ptSans } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -89,7 +90,6 @@ const PartnerName = styled.div`
   padding: 0 1rem;
   border-radius: 0.3rem;
 
-  font-family: ${theme.fontFamily.title};
   font-weight: 800;
   font-size: 1.35rem;
   color: ${theme.color.fontWhite};
@@ -97,14 +97,12 @@ const PartnerName = styled.div`
 `;
 
 const PartnerJob = styled.div`
-  font-family: ${theme.fontFamily.title};
   font-size: 1.05rem;
   color: ${theme.color.gray1};
   font-style: italic;
 `;
 
 const Description = styled.div`
-  font-family: ${theme.fontFamily.general};
   color: ${theme.color.gray1};
   text-align: center;
   padding: 0 4rem;
@@ -342,9 +340,15 @@ const References: FunctionComponent = () => {
               />
             </FacePictureWrapper>
           )}
-          <PartnerName>{displayedPartner.partnerName}</PartnerName>
-          <PartnerJob>{displayedPartner.partnerJob}</PartnerJob>
-          <Description>{displayedPartner.saysThat}</Description>
+          <PartnerName className={`${ptSans.className}`}>
+            {displayedPartner.partnerName}
+          </PartnerName>
+          <PartnerJob className={`${oswald.className}`}>
+            {displayedPartner.partnerJob}
+          </PartnerJob>
+          <Description className={`${oswald.className}`}>
+            {displayedPartner.saysThat}
+          </Description>
         </PartnerRoot>
       </SectionContentRoot>
 

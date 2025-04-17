@@ -2,12 +2,12 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import theme, { sizes } from "../../../utils/theme";
+import { ptSans } from "../../../utils/fonts";
 import {
   CapabilityBoxContainer,
   CapabilityBoxContainerWrapper,
 } from "./Capability";
 import CapabilityBox, { CapabilityImages } from "./CapabilityBox";
-import { oswald } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -23,6 +23,8 @@ const Root = styled.div`
 
 const SectionTitle = styled.h1`
   color: ${theme.color.gray1};
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 export const FacePictureWrapper = styled.div`
@@ -74,7 +76,7 @@ const CapabilityBoxes = [
 
 const WhatWeDoSection: FunctionComponent = () => (
   <Root>
-    <SectionTitle>What We do</SectionTitle>
+    <SectionTitle className={`${ptSans.className}`}>What We do</SectionTitle>
     <CapabilityBoxContainerWrapper>
       <CapabilityBoxContainer>
         {CapabilityBoxes.map(({ title, content, iconSrc }) => (

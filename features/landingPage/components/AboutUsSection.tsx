@@ -15,6 +15,7 @@ import NorbiImage from "../../../public/bio/norbi.png";
 import PetraImage from "../../../public/bio/petra2.png";
 import KataImage from "../../../public/bio/kata.jpg";
 import { UnstyledLink } from "../../../utils/link";
+import { oswald, ptSans } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -30,6 +31,8 @@ const Root = styled.div`
 
 const SectionTitle = styled.h1`
   color: ${theme.color.gray1};
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 const SectionContentRoot = styled.div`
@@ -114,26 +117,22 @@ export const FacePicture: FunctionComponent<{
   </FacePictureWrapper>
 );
 const MemberName = styled.div`
-  font-family: ${theme.fontFamily.title};
   font-weight: 800;
   font-size: 1.35rem;
   color: ${theme.color.gray1};
 `;
 
 const MemberRole = styled.div`
-  font-family: ${theme.fontFamily.title};
   font-size: 1.05rem;
   color: ${theme.color.gray1};
 `;
 
 const MemberWorkArea = styled.div`
-  font-family: ${theme.fontFamily.title};
   color: ${theme.color.gray1};
   text-align: center;
 `;
 
 const MemberStack = styled.div`
-  font-family: ${theme.fontFamily.title};
   color: ${theme.color.gray1};
   text-align: center;
 `;
@@ -191,7 +190,7 @@ export const Member: FunctionComponent<{
   linkedInLink,
   githubLink,
 }) => (
-  <MemberRoot>
+  <MemberRoot className={`${oswald.className}`}>
     <FacePictureContainer>
       <FacePicture src={src} />
     </FacePictureContainer>
@@ -223,7 +222,7 @@ export const Member: FunctionComponent<{
 
 const AboutUsSection: FunctionComponent = () => (
   <Root>
-    <SectionTitle>About us</SectionTitle>
+    <SectionTitle className={`${ptSans.className}`}>About us</SectionTitle>
     <SectionContentRoot>
       <Member
         src={Members.viktor}
