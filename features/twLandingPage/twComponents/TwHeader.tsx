@@ -37,12 +37,12 @@ export const TwHeader: FC = () => {
               >
                 HOME
               </Link>
-              <Link
-                className={`-mb-6 border-b-4 p-1 pb-[15px] font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}
-                href="/#our-services-section"
-              >
-                SERVICES
-              </Link>
+              {/*<Link*/}
+              {/*  className={`-mb-6 border-b-4 p-1 pb-[15px] font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/services" ? "border-b-4 border-red-600" : "border-transparent"}`}*/}
+              {/*  href="/#our-services-section"*/}
+              {/*>*/}
+              {/*  SERVICES*/}
+              {/*</Link>*/}
               <Link
                 href="/blog"
                 className={`-mb-6 border-b-4 p-1 pb-[15px] font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/blog" ? "border-b-4 border-red-600" : "border-transparent"}`}

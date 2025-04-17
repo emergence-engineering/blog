@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react";
 
-import { TwContact } from "../twLandingPage/twComponents/TwContact";
 import { ProductCard } from "../twLandingPage/twComponents/TwProductCard";
 import {
   Product,
@@ -70,7 +69,6 @@ export const TwOurReferences = () => {
           </div>
         </div>
       </div>
-      <TwContact />
     </div>
   );
 };

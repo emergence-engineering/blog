@@ -29,6 +29,10 @@ export const IntroductionSection = styled.div`
   }
 `;
 
+export const IntroductionParagraph = styled.p`
+  font-size: 1.35rem;
+`;
+
 export const IntroductionH1 = styled.h1`
   font-size: 2rem;
   font-family: ${theme.fontFamily.title};

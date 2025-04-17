@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import theme from "../../../utils/theme";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import { TwHeader } from "../../twLandingPage/twComponents/TwHeader";
+import { TwFooter } from "../../twLandingPage/twComponents/TwFooter";
 
 const Root = styled.div`
   min-height: 100vh;
@@ -24,9 +24,9 @@ const ContentWrapper = styled.div`
 
 const Layout = ({ children }: PropsWithChildren) => (
   <Root>
-    <Header />
+    <TwHeader />
     <ContentWrapper>{children}</ContentWrapper>
-    <Footer />
+    <TwFooter />
   </Root>
 );
 
