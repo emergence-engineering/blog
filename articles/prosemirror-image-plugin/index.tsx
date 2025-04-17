@@ -1,9 +1,5 @@
-// eslint-disable-next-line no-use-before-define
 import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
-// @ts-ignore
 import { buildMenuItems, exampleSetup } from "prosemirror-example-setup";
-// @ts-ignore
-// import { applyDevTools } from "prosemirror-dev-toolkit";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import {
@@ -16,7 +12,6 @@ import { MenuItem } from "prosemirror-menu";
 import styled from "styled-components";
 
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
-// import { DevToolkit } from "../../features/common/components/PMUtils";
 
 import { initialDoc, imageSchema, imagePluginSettings } from "./schema";
 
@@ -147,7 +142,7 @@ const ProseMirrorLatex = () => {
           schema: imageSchema,
           menuContent: menu,
         }),
-        imagePlugin( { ...imagePluginSettings }),
+        imagePlugin({ ...imagePluginSettings }),
       ],
     });
     const view: EditorView = new EditorView(editorNode, {
