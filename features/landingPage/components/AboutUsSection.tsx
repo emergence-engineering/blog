@@ -15,7 +15,7 @@ import NorbiImage from "../../../public/bio/norbi.png";
 import PetraImage from "../../../public/bio/petra2.png";
 import KataImage from "../../../public/bio/kata.jpg";
 import { UnstyledLink } from "../../../utils/link";
-import { oswald, ptSans } from "../../../utils/fonts";
+import { oswald } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -190,14 +190,16 @@ export const Member: FunctionComponent<{
   linkedInLink,
   githubLink,
 }) => (
-  <MemberRoot className={`${oswald.className}`}>
+  <MemberRoot>
     <FacePictureContainer>
       <FacePicture src={src} />
     </FacePictureContainer>
-    <MemberName>{memberName}</MemberName>
-    <MemberRole>{memberRole}</MemberRole>
-    <MemberWorkArea>{memberWorkArea}</MemberWorkArea>
-    <MemberStack>{memberStack}</MemberStack>
+    <MemberName className={`${oswald.className}`}>{memberName}</MemberName>
+    <MemberRole className={`${oswald.className}`}>{memberRole}</MemberRole>
+    <MemberWorkArea className={`${oswald.className}`}>
+      {memberWorkArea}
+    </MemberWorkArea>
+    <MemberStack className={`${oswald.className}`}>{memberStack}</MemberStack>
     <MemberLinkSection>
       {cvLink ? (
         <MemberLink href={cvLink} faClassName="far fa-address-card" />
@@ -222,7 +224,7 @@ export const Member: FunctionComponent<{
 
 const AboutUsSection: FunctionComponent = () => (
   <Root>
-    <SectionTitle className={`${ptSans.className}`}>About us</SectionTitle>
+    <SectionTitle className={`${oswald.className}`}>About us</SectionTitle>
     <SectionContentRoot>
       <Member
         src={Members.viktor}
@@ -235,7 +237,7 @@ const AboutUsSection: FunctionComponent = () => (
         githubLink="https://github.com/ViktorVaczi90"
       />
     </SectionContentRoot>
-    <SectionTitle>Scala team</SectionTitle>
+    <SectionTitle className={`${oswald.className}`}>Scala team</SectionTitle>
     <SectionContentRoot>
       <Member
         src={Members.ksisu}

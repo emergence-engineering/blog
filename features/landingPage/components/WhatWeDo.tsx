@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 import theme, { sizes } from "../../../utils/theme";
-import { ptSans } from "../../../utils/fonts";
+import { oswald } from "../../../utils/fonts";
 import {
   CapabilityBoxContainer,
   CapabilityBoxContainerWrapper,
@@ -76,7 +76,7 @@ const CapabilityBoxes = [
 
 const WhatWeDoSection: FunctionComponent = () => (
   <Root>
-    <SectionTitle className={`${ptSans.className}`}>What We do</SectionTitle>
+    <SectionTitle className={`${oswald.className}`}>What We do</SectionTitle>
     <CapabilityBoxContainerWrapper>
       <CapabilityBoxContainer>
         {CapabilityBoxes.map(({ title, content, iconSrc }) => (

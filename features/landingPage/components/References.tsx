@@ -19,7 +19,7 @@ import GregPhoto from "../../../public/partners/greg.jpeg";
 import { clickable } from "../../../utils/mixins";
 import Prev from "../../../public/arrow-prev.svg";
 import Next from "../../../public/arrow-next.svg";
-import { oswald, ptSans } from "../../../utils/fonts";
+import { openSans, oswald, ptSans } from "../../../utils/fonts";
 
 const Root = styled.div`
   display: flex;
@@ -346,7 +346,7 @@ const References: FunctionComponent = () => {
           <PartnerJob className={`${oswald.className}`}>
             {displayedPartner.partnerJob}
           </PartnerJob>
-          <Description className={`${oswald.className}`}>
+          <Description className={`${openSans.className}`}>
             {displayedPartner.saysThat}
           </Description>
         </PartnerRoot>
