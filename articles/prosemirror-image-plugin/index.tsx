@@ -14,6 +14,9 @@ import styled from "styled-components";
 import ProseMirrorDiv from "../../features/prosemirror/ProseMirrorDiv";
 
 import { initialDoc, imageSchema, imagePluginSettings } from "./schema";
+import createMultipleSelectionPlugin from "./ActiveSelection";
+import DropCursorPlugin from "./DropCursorPlugin";
+import textBlockHandle from "./HandlesPlugin";
 
 const canInsert = (state: EditorState, nodeType: NodeType) => {
   const { $from } = state.selection;
@@ -142,6 +145,9 @@ const ProseMirrorLatex = () => {
           schema: imageSchema,
           menuContent: menu,
         }),
+        createMultipleSelectionPlugin(),
+        DropCursorPlugin,
+        textBlockHandle(),
         imagePlugin({ ...imagePluginSettings }),
       ],
     });

@@ -93,7 +93,7 @@ function dropCursor(
 
       apply(tr, set, state) {
         // get information transferred by dropCursor plugin.
-        const action = tr.getMeta(this);
+        const action = tr.getMeta(dropCursorKey);
 
         // Clean placeholders
         if (!action || action.dragend) {
@@ -178,8 +178,8 @@ function dropCursor(
       if (lastTr.getMeta("uiEvent") === "drop") {
         const { tr } = newState;
 
-        // @ts-ignore
         const dropLastPos: number =
+          // @ts-ignore
           lastTr.steps[1].to + lastTr.steps[1].slice.size;
         tr.setSelection(TextSelection.create(tr.doc, dropLastPos - 1));
         return tr;
@@ -257,6 +257,7 @@ class DropCursorView {
       "dragleave",
       "dragstart",
     ].map((name) => {
+      // @ts-ignore
       const handler = (e: Event) => this[name](e);
 
       editorView.dom.addEventListener(name, handler);

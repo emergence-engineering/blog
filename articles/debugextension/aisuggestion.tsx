@@ -1,5 +1,4 @@
 import { createNodeFromContent, Editor, Extension } from "@tiptap/core";
-import { ChangeSet, simplifyChanges } from "@tiptap/pm/changeset";
 import { EditorState, Plugin, PluginKey, Transaction } from "@tiptap/pm/state";
 import { Step } from "@tiptap/pm/transform";
 import { Decoration, DecorationSet, EditorView } from "@tiptap/pm/view";
@@ -13,7 +12,6 @@ import {
 import "@tiptap/core";
 import { recreateTransform } from "@fellow/prosemirror-recreate-transform";
 import { Mapping, ReplaceStep } from "prosemirror-transform";
-import { Change } from "prosemirror-changeset";
 import { AiSuggestionAction, AiSuggestionState, Suggestion } from "./types";
 import { aiSuggestionReducer } from "./aiSuggestionReducer";
 
@@ -21,60 +19,6 @@ import { aiSuggestionReducer } from "./aiSuggestionReducer";
 export const AiSuggestionPluginKey = new PluginKey<AiSuggestionState>(
   "aiSuggestion",
 );
-
-const processChange =
-  (originalDoc: ProseMirrorNode, processedNode: ProseMirrorNode) =>
-  (change: Change, index: number) => {
-    const deleteRange = { from: change.fromA, to: change.toA };
-    const addRange = { from: change.fromB, to: change.toB };
-
-    const replacementContent = processedNode.slice(
-      addRange.from,
-      addRange.to,
-    ).content;
-
-    // --- Refine Fragment ---
-    // Attempt to remove adjacent empty paragraph nodes often included by slice
-    let refinedContent = replacementContent;
-    if (refinedContent.childCount > 1) {
-      const firstChild = refinedContent.firstChild;
-      const lastChild = refinedContent.lastChild;
-
-      if (
-        lastChild?.type.name === "paragraph" &&
-        lastChild.content.size === 0
-      ) {
-        refinedContent = refinedContent.cut(
-          0,
-          refinedContent.size - lastChild.nodeSize,
-        );
-      } else if (
-        refinedContent.childCount > 1 &&
-        firstChild?.type.name === "paragraph" &&
-        firstChild.content.size === 0
-      ) {
-        refinedContent = refinedContent.cut(firstChild.nodeSize);
-      }
-    }
-    // --- End Refine Fragment ---
-    console.log({ deleteRange }, "change");
-    const deleteText = originalDoc.textBetween(
-      deleteRange.from,
-      deleteRange.to,
-      "",
-    );
-
-    // Create the suggestion object using the refined content
-    const suggestion: Suggestion | null = {
-      id: `suggestion-${Date.now()}-${deleteRange.from}-${deleteRange.to}-${index}`,
-      deleteRange: deleteRange,
-      deleteText: deleteText,
-      replacementOptions: [{ id: "1", content: refinedContent }], // Use refinedContent
-      isRejected: false,
-    };
-
-    return suggestion;
-  };
 
 const processStep = (originalDoc: ProseMirrorNode) => {
   let mapping = new Mapping();
@@ -112,8 +56,6 @@ const processStep = (originalDoc: ProseMirrorNode) => {
         refinedContent = refinedContent.cut(firstChild.nodeSize);
       }
     }
-    // --- End Refine Fragment ---
-    console.log({ deleteRange });
     const deleteText = originalDoc.textBetween(
       deleteRange.from,
       deleteRange.to,
@@ -153,13 +95,6 @@ function computeDiffSuggestions(
   const tr = editor.state.tr;
   tr.replaceWith(0, originalDoc.content.size, processedNode.content);
 
-  // Compute and simplify changes
-  const changeSet = ChangeSet.create(originalDoc).addSteps(
-    processedNode,
-    tr.steps.map((step: Step) => step.getMap()),
-    null,
-  );
-  const changes = simplifyChanges(changeSet.changes, tr.doc);
   const newTr = recreateTransform(originalDoc, processedNode, {
     wordDiffs: false,
     simplifyDiff: false,
@@ -167,10 +102,6 @@ function computeDiffSuggestions(
   });
   // Convert simplified changes into Suggestion objects
   const processStepsCb = processStep(originalDoc);
-
-  const changeSuggestions = changes.map(
-    processChange(originalDoc, processedNode),
-  );
 
   const suggestions = newTr.steps
     .map(processStepsCb)

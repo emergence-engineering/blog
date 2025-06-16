@@ -1,5 +1,4 @@
-import { NodeType, ResolvedPos } from "prosemirror-model";
-import { Schema } from "prosemirror-model";
+import { NodeType, ResolvedPos, Schema } from "prosemirror-model";
 import {
   EditorState,
   NodeSelection,
@@ -11,8 +10,8 @@ import {
 import { findParentNodeOfTypeClosestToPos } from "prosemirror-utils";
 import { Decoration, DecorationSet, EditorView } from "prosemirror-view";
 import React from "react";
-import ReactDOM from "react-dom";
 
+import { createRoot } from "react-dom/client";
 import depthByType from "./DepthByType";
 import nodeAt from "./nodeAt";
 import {
@@ -106,13 +105,17 @@ export function handlesFactory(
       pos &&
         tr.setSelection(NodeSelection.create(tr.doc, pos - (isBlock ? 0 : 1)));
       view.dispatch(tr);
+      setTimeout(() => {
+        debugger;
+      }, 1000);
     });
     container.addEventListener("mouseup", () => {
       onMouseUp?.();
       const pos = getPos();
       pos && selectTextBlockText(pos, view);
     });
-    ReactDOM.render(<DragHandle />, container);
+    const root = createRoot(container);
+    root.render(<DragHandle />);
     return container;
   };
 }
@@ -128,7 +131,8 @@ function mouseEventHandler(view: EditorView, event: any) {
 
   const allowedNode = findParentNodeWithSomeTypeClosestToPos(
     resPos,
-    ELEMENTS.map((name) => view.state.schema.nodes[name]),
+    // TODO: Check
+    ELEMENTS.map((name) => view.state.schema.nodes[name]).filter((i) => !!i),
     view.state.schema,
   );
 

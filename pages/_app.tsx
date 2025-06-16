@@ -3,6 +3,7 @@ import App, { AppProps } from "next/app";
 import Head from "next/head";
 import "../public/global.css";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
+import "../articles/prosemirror-image-plugin/skiff-drag-handle.css";
 import { Provider as UniqueIdGeneratorProvider } from "@inline-svg-unique-id/react";
 import {
   inter,

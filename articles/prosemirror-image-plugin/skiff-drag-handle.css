@@ -6,10 +6,11 @@
 .ProseMirror h5,
 .ProseMirror h6 {
   position: relative;
-  /* padding-left: var(--drag-handle-left-margin);
+
+  padding-left: 25px;
   margin-left: -25px;
   padding-right: 0;
-  margin-right: 0; */
+  margin-right: 0;
   outline: none;
 }
 
