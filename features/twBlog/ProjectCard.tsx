@@ -15,13 +15,9 @@ const ProjectCard: FC<OpenSourceProject> = ({
   const [isCopied, setIsCopied] = useState(false);
 
   const copyContent = async () => {
-    const commandText = document.getElementById("commandText")?.innerHTML;
-
     try {
-      if (commandText) {
-        await navigator.clipboard.writeText(commandText);
-        setIsCopied(true);
-      }
+      await navigator.clipboard.writeText(command);
+      setIsCopied(true);
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
@@ -35,10 +31,7 @@ const ProjectCard: FC<OpenSourceProject> = ({
         <Markdown source={description} formatLinks={true} />
         <div>
           <div className="mb-8 mt-3 flex justify-between rounded-md border border-gray-300 p-3">
-            <span
-              className={`mr-2 font-montserrat text-sm text-gray-500`}
-              id={"commandText"}
-            >
+            <span className="mr-2 font-montserrat text-sm text-gray-500">
               {command}
             </span>
             <div onClick={copyContent} className="cursor-pointer">
