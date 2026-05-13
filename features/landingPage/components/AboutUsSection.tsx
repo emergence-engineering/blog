@@ -14,6 +14,7 @@ import TorcsiImage from "../../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../../public/bio/norbi.png";
 import PetraImage from "../../../public/bio/petra2.png";
 import KataImage from "../../../public/bio/kata.jpg";
+import GregImage from "../../../public/bio/greg.jpeg";
 import { UnstyledLink } from "../../../utils/link";
 import { oswald } from "../../../utils/fonts";
 
@@ -75,6 +76,7 @@ export const FacePictureWrapper = styled.div`
 `;
 
 export enum Members {
+  greg = "greg",
   viktor = "viktor",
   matejcsok = "matejcsok",
   aron = "aron",
@@ -89,6 +91,7 @@ export enum Members {
 }
 
 const images = {
+  [Members.greg]: GregImage,
   [Members.viktor]: ViktorImage,
   [Members.matejcsok]: MatejcsokImage,
   [Members.aron]: AronImage,
@@ -227,37 +230,22 @@ const AboutUsSection: FunctionComponent = () => (
     <SectionTitle className={`${oswald.className}`}>About us</SectionTitle>
     <SectionContentRoot>
       <Member
+        src={Members.greg}
+        memberName="Greg Gillay"
+        memberRole="COO & Co-CEO"
+        memberWorkArea="Business Development"
+        memberStack=""
+        linkedInLink="https://hu.linkedin.com/in/gergely-gillay-0359b919b"
+      />
+      <Member
         src={Members.viktor}
         memberName="Viktor Váczi"
-        memberRole="CEO"
-        memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
-        memberStack="React.js Node.js Firebase"
+        memberRole="CTO & Co-CEO"
+        memberWorkArea="Engineering"
+        memberStack=""
         cvLink="/cv/viktor"
         linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
         githubLink="https://github.com/ViktorVaczi90"
-      />
-    </SectionContentRoot>
-    <SectionTitle className={`${oswald.className}`}>Scala team</SectionTitle>
-    <SectionContentRoot>
-      <Member
-        src={Members.ksisu}
-        memberName="Kristóf Horváth"
-        memberRole="Scala team lead"
-        memberWorkArea="Scala | DevOps | Fullstack JS"
-        memberStack="Scala Kubernetes"
-        cvLink="/cv/ksisu"
-        // linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
-        githubLink="https://github.com/Ksisu"
-      />
-      <Member
-        src={Members.torcsi}
-        memberName="Gergő Törcsvári"
-        memberRole="Scala team lead"
-        memberWorkArea="Scala | DevOps | Fullstack JS"
-        memberStack="Scala Kubernetes"
-        cvLink="/cv/torcsi"
-        // linkedInLink="https://www.linkedin.com/in/bal%C3%A1zs-horv%C3%A1th-493b5b105"
-        githubLink="https://github.com/tg44"
       />
     </SectionContentRoot>
   </Root>

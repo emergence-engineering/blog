@@ -10,11 +10,19 @@ export const TwTeamPage = () => {
         </h1>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
           <TwMember
+            src="greg"
+            memberName="Greg Gillay"
+            memberRole="COO & Co-CEO"
+            memberWorkArea="Business Development"
+            memberStack=""
+            linkedInLink="https://hu.linkedin.com/in/gergely-gillay-0359b919b"
+          />
+          <TwMember
             src="viktor"
             memberName="Viktor Váczi"
-            memberRole="CEO"
-            memberWorkArea="Fullstack JS | CI/CD | Electrical engineering"
-            memberStack="React Node.js Firebase"
+            memberRole="CTO & Co-CEO"
+            memberWorkArea="Engineering"
+            memberStack=""
             cvLink="/cv/viktor2"
             linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
             githubLink="https://github.com/ViktorVaczi90"

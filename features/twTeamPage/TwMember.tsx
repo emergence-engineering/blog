@@ -13,10 +13,12 @@ import TorcsiImage from "../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../public/bio/norbi.png";
 import PetraImage from "../../public/bio/petra2.png";
 import KataImage from "../../public/bio/kata.jpg";
+import GregImage from "../../public/bio/greg.jpeg";
 import GithubIcon from "../../public/icons/github-small.svg";
 import LinkedInIcon from "../../public/icons/linkedin-small.svg";
 
 enum TwMembers {
+  greg = "greg",
   viktor = "viktor",
   matejcsok = "matejcsok",
   aron = "aron",
@@ -31,6 +33,7 @@ enum TwMembers {
 }
 
 const images = {
+  [TwMembers.greg]: GregImage,
   [TwMembers.viktor]: ViktorImage,
   [TwMembers.matejcsok]: MatejcsokImage,
   [TwMembers.aron]: AronImage,
