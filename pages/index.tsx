@@ -15,7 +15,6 @@ import {
 import theme from "../utils/theme";
 import WhatWeDoSection from "../features/landingPage/components/WhatWeDo";
 import References from "../features/landingPage/components/References";
-import AboutUsSection from "../features/landingPage/components/AboutUsSection";
 import { TwContact } from "../features/twLandingPage/twComponents/TwContact";
 import { oswald } from "../utils/fonts";
 
@@ -110,12 +109,6 @@ const Index: FunctionComponent = () => {
       />
       <References />
 
-      <Separator
-        height={0.2}
-        color={theme.color.tertiary}
-        backGroundColor={theme.color.gray11}
-      />
-      <AboutUsSection />
       <Separator
         height={0.2}
         color={theme.color.tertiary}

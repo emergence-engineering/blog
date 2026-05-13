@@ -1,13 +1,9 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import theme, { sizes } from "../../../utils/theme";
+import theme, { screenSizes, sizes } from "../../../utils/theme";
 import { oswald } from "../../../utils/fonts";
-import {
-  CapabilityBoxContainer,
-  CapabilityBoxContainerWrapper,
-} from "./Capability";
-import CapabilityBox, { CapabilityImages } from "./CapabilityBox";
+import { Member, Members } from "./AboutUsSection";
 
 const Root = styled.div`
   display: flex;
@@ -16,79 +12,121 @@ const Root = styled.div`
   flex-direction: column;
   min-height: 20rem;
   background-color: ${theme.color.background2};
-  padding: 2rem ${sizes.sidePadding};
-  width: 100%;
   padding: 4rem ${sizes.sidePadding};
+  width: 100%;
 `;
 
 const SectionTitle = styled.h1`
   color: ${theme.color.gray1};
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 3rem;
 `;
 
-export const FacePictureWrapper = styled.div`
-  position: relative;
-  height: 10rem;
-  width: 10rem;
-  img {
-    border-radius: 50%;
+const BigAmpersand = styled.div`
+  color: ${theme.color.gray1};
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+  align-self: flex-start;
+  margin-top: 0;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    align-self: center;
+    font-size: 6rem;
+    margin: 1.5rem 0;
   }
 `;
 
-const CapabilityBoxes = [
-  {
-    title: "ProseMirror",
-    content: `Modern web based rich text editors, full of crazy features`,
-    iconSrc: CapabilityImages.ProsemirrorImg,
-  },
-  {
-    title: "TipTap",
-    content: `Headless, TypeScript based out of the box collaborative rich text editor with ProseMirror under the hood`,
-    iconSrc: CapabilityImages.TipTapImg,
-  },
-  {
-    title: "Collaborative UIs",
-    content: `Real time collaboration for your web app with Yjs, Hocuspocus, GraphQL or Firebase`,
-    iconSrc: CapabilityImages.GroupImg,
-  },
-  {
-    title: "React",
-    content: `The standard of current front-ends`,
-    iconSrc: CapabilityImages.ReactImg,
-  },
-  {
-    title: "Scala",
-    content: `If you want a robust backend that scales easily.`,
-    iconSrc: CapabilityImages.ScalaImg,
-  },
-  {
-    title: "Cloud",
-    content: `Experience with all of the major cloud providers and some more.`,
-    iconSrc: CapabilityImages.CloudImg,
-  },
-  {
-    title: "DevOps",
-    content: `From CI & CD to Kubernetes.`,
-    iconSrc: CapabilityImages.KubernetesImg,
-  },
+const ColumnsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: ${screenSizes.maxWidth}px;
+  @media screen and (max-width: ${screenSizes.medium}px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const Column = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+`;
+
+const ColumnTitle = styled.h2`
+  color: ${theme.color.gray1};
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+`;
+
+const ItemList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  color: ${theme.color.gray1};
+  font-size: 1.15rem;
+  line-height: 2;
+`;
+
+const engineeringItems = [
+  "ProseMirror / TipTap",
+  "YJS / collaborative applications",
+  "AI-first development",
+  "Hard engineering problems",
 ];
+
+const businessItems = ["Marketing", "Strategy", "Content", "E-commerce"];
 
 const WhatWeDoSection: FunctionComponent = () => (
   <Root>
     <SectionTitle className={`${oswald.className}`}>What We do</SectionTitle>
-    <CapabilityBoxContainerWrapper>
-      <CapabilityBoxContainer>
-        {CapabilityBoxes.map(({ title, content, iconSrc }) => (
-          <CapabilityBox
-            title={title}
-            content={content}
-            iconSrc={iconSrc}
-            key={title}
-          />
-        ))}
-      </CapabilityBoxContainer>
-    </CapabilityBoxContainerWrapper>
+    <ColumnsRow>
+      <Column>
+        <ColumnTitle className={`${oswald.className}`}>Engineering</ColumnTitle>
+        <ItemList className={`${oswald.className}`}>
+          {engineeringItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ItemList>
+        <Member
+          src={Members.viktor}
+          memberName="Viktor Váczi"
+          memberRole="CTO & Co-CEO"
+          memberWorkArea=""
+          memberStack=""
+          cvLink="/cv/viktor"
+          linkedInLink="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0"
+          githubLink="https://github.com/ViktorVaczi90"
+        />
+      </Column>
+      <BigAmpersand className={`${oswald.className}`}>&amp;</BigAmpersand>
+      <Column>
+        <ColumnTitle className={`${oswald.className}`}>
+          Business Development
+        </ColumnTitle>
+        <ItemList className={`${oswald.className}`}>
+          {businessItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ItemList>
+        <Member
+          src={Members.greg}
+          memberName="Greg Gillay"
+          memberRole="COO & Co-CEO"
+          memberWorkArea=""
+          memberStack=""
+          linkedInLink="https://hu.linkedin.com/in/gergely-gillay-0359b919b"
+        />
+      </Column>
+    </ColumnsRow>
   </Root>
 );
 
