@@ -1,57 +1,17 @@
-import Image from "next/image";
-import BGImage from "../../../public/lp/hyperspace.webp";
-import MobileBGImage from "../../../public/lp/hyperspace_mobile.webp";
 import { TwContactUs } from "./TwContactUs";
 import { TwScheduleACall } from "./TwScheaduleACall";
 
 export const TwContact = () => {
   return (
-    <div className="justify-centera flex w-full flex-col items-center bg-black text-white">
+    <div className="justify-centera flex w-full flex-col items-center bg-descriptionGray text-white">
       <div className="relative flex w-full justify-center">
-        <div className="hidden md:block">
-          <Image
-            src={BGImage.src}
-            alt="background"
-            sizes="100vw"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-              zIndex: 1,
-            }}
-            fill
-            priority
-          />
-        </div>
-
-        <div className="block md:hidden">
-          <Image
-            src={MobileBGImage.src}
-            alt="background"
-            sizes="100vw"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-              zIndex: 1,
-            }}
-            fill
-            priority
-          />
-        </div>
         <div className="z-10 flex w-full max-w-[540px] flex-col justify-center gap-16 px-3 py-3 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-36 2xl:max-w-[1320px]">
           <div
             id="contact-us-section"
             className="w-full max-w-4xl self-center p-6 pb-0 text-center text-4.5xl font-bold uppercase leading-none lg:p-0 lg:text-7.5xl"
           >
             Let’s build great apps
-            <span className="text-red-600">together.</span>
+            <span className="text-red-600">&nbsp;together.</span>
           </div>
           <div className="flex w-full flex-col gap-32 xl:flex-row xl:gap-16">
             <TwContactUs />
