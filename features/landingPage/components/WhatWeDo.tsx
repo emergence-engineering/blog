@@ -23,20 +23,6 @@ const SectionTitle = styled.h1`
   margin-bottom: 3rem;
 `;
 
-const BigAmpersand = styled.div`
-  color: ${theme.color.gray1};
-  font-size: 8rem;
-  font-weight: 700;
-  line-height: 1;
-  align-self: flex-start;
-  margin-top: 0;
-  @media screen and (max-width: ${screenSizes.medium}px) {
-    align-self: center;
-    font-size: 6rem;
-    margin: 1.5rem 0;
-  }
-`;
-
 const ColumnsRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -107,7 +93,6 @@ const WhatWeDoSection: FunctionComponent = () => (
           githubLink="https://github.com/ViktorVaczi90"
         />
       </Column>
-      <BigAmpersand className={`${oswald.className}`}>&amp;</BigAmpersand>
       <Column>
         <ColumnTitle className={`${oswald.className}`}>
           Business Development

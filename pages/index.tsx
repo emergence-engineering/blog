@@ -22,6 +22,7 @@ const mainParagraphContent = `Emergence Engineering is a full-stack software dev
 
 const featureList = [
   "ProseMirror editors",
+  "businesses",
   "AI and LLM apps",
   "collaborative UIs",
   "mobile applications",
