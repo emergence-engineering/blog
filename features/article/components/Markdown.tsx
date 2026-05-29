@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import CodeHighlight from "./CodeHighlight";
 
@@ -15,6 +16,7 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
 
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       components={{
         code: CodeHighlight,
         a: ({ node, ...props }) =>
@@ -75,9 +77,9 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             {props.children}
           </em>
         ),
-          hr: ( ) => (
-              <hr className="h-1 my-5 bg-gray-200 border-0 dark:bg-gray-200" />
-          ),
+        hr: () => (
+          <hr className="my-5 h-1 border-0 bg-gray-200 dark:bg-gray-200" />
+        ),
         strong: ({ ...props }) => (
           <strong {...props} className="font-montserrat font-bold">
             {props.children}
@@ -88,6 +90,29 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
             {props.children}
           </pre>
         ),
+        table: ({ ...props }) => (
+          <table
+            {...props}
+            className="my-4 w-full border-collapse font-montserrat"
+          >
+            {props.children}
+          </table>
+        ),
+        thead: ({ ...props }) => (
+          <thead {...props} className="border-b border-gray-300">
+            {props.children}
+          </thead>
+        ),
+        th: ({ ...props }) => (
+          <th {...props} className="px-3 py-2 text-left font-bold">
+            {props.children}
+          </th>
+        ),
+        td: ({ ...props }) => (
+          <td {...props} className="border-t border-gray-200 px-3 py-2">
+            {props.children}
+          </td>
+        ),
       }}
     >
       {source}
@@ -96,3 +121,4 @@ const Markdown: FunctionComponent<MarkDownProps> = (props: MarkDownProps) => {
 };
 
 export default Markdown;
+
