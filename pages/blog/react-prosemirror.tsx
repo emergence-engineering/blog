@@ -9,10 +9,10 @@ import { LightBox } from "../../features/twBlog/LightBox";
 
 export const articleReactProsemirrorMetadata: ArticleIntro = {
   title:
-    "React-Prosemirror vs Vanilla ProseMirror vs TipTap3 performance comparison",
+    "React-ProseMirror vs Vanilla ProseMirror vs TipTap performance comparison",
   author: "Viktor and matejcsok",
   authorLink: null,
-  introText: /* language=md */ `Can TipTap3 or React-Prosemirror beat vanilla ProseMirror?`,
+  introText: /* language=md */ `Can TipTap or React-ProseMirror beat vanilla ProseMirror?`,
   postId: "react-prosemirror",
   timestamp: 1780066915415,
   imgSrc:
@@ -22,57 +22,71 @@ export const articleReactProsemirrorMetadata: ArticleIntro = {
     "ProseMirror",
     "Plugin Development",
     "Comparison",
-    "React-Prosemirror",
-    "TipTap3",
+    "React-ProseMirror",
+    "TipTap",
   ],
 };
 
 const MD0 = /* language=md */ `
-# React-Prosemirror vs Vanilla Prosemirror vs TipTap3 performance comparison
+# React-ProseMirror vs Vanilla ProseMirror vs TipTap performance comparison
 
 ## TL;DR
-React-Prosemirror makes development much easier if working with ProseMirror and React.
-Can use all the same plugins and features. And if using nodeviews it is much easier, we can access react context, hooks and state. But it comes with a cost.
-As we add more and more nodes to the document it has to pay the react reconciler tax.
+React-ProseMirror makes development much easier if working with ProseMirror and React.
+Can use all the same plugins and features. And if using NodeViews it is much easier, we can access React context, hooks and state. But it comes with a cost.
+As we add more and more nodes to the document it has to pay the React reconciler tax.
 
-Vanilla ProseMirror is the fastest, but it needs the most amount of work for a full featured editor.
+Vanilla ProseMirror is the fastest, but it needs the most amount of work for a full-featured editor.
 
-TipTap3 is kind of a full featured editor from day 1 and performance wise almost identical to vanilla ProseMirror until we start adding nodeviews, we can use react context, hooks,
-state with \`ReactNodeViewRenderer\` to make it easier to develop, but it uses react Portals which adds tax.
-React-Proseirror performance issue becomes noticable at 5k nodes. TipTap3 performance issue becomes noticable around 2.5k-5k nodes with nodeviews.
+TipTap ships as a near-full-featured editor out of the box and performance wise almost identical to vanilla ProseMirror until we start adding NodeViews, we can use React context, hooks,
+state with \`ReactNodeViewRenderer\` to make it easier to develop, but it uses React Portals which adds tax.
+React-ProseMirror performance issue becomes noticeable at 5k nodes. TipTap performance issue becomes noticeable around 2.5k-5k nodes with NodeViews.
 
 ## Introduction
 
-Vanilla Prosemirror is the standard technology for rich text editing in the browser. It is a powerful and flexible library that provides a wide range of features and customization options. It comes with some basic plugins, but requires some work to make it a full featured online editor. On the other hand it has a huge community and there are a lot of free plugins made by other developers you can use to customize your editor.
+Vanilla ProseMirror is the standard technology for rich text editing in the browser. It is a powerful and flexible library that provides a wide range of features and customization options.
+It comes with some basic plugins, but requires some work to make it a full-featured online editor. On the other hand it has a huge community and there are a lot of free plugins made by other developers you can use to customize your editor.
 
-TipTap3 is an abstraction layer built on top of Prosemirror, which provides a lot of pre-built plugins to start with. Much easier to plug and play with the official plugins. It is also fully customizable, but the abstraction layer makes it harder to customize. It has a solution for easier custom node views using [ReactNodeviewRenderer](https://tiptap.dev/docs/editor/extensions/custom-extensions/node-views/react) which makes it possible to use React components as node views, and accessing state and context. But we will see that it comes with a cost.
+TipTap is an abstraction layer built on top of ProseMirror, which provides a lot of pre-built plugins to start with. Much easier to plug and play with the official plugins.
+It is also fully customizable, but the abstraction layer makes it harder to customize.
+It has a solution for easier custom NodeViews using [ReactNodeViewRenderer](https://tiptap.dev/docs/editor/extensions/custom-extensions/node-views/react) which makes it possible to use React components as NodeViews,
+and accessing state and context. But we will see that it comes with a cost.
 
-React-Prosemirror moved the rendering out of the editor view and into React. This makes it much easier to use ProseMirror with React: you can use plain React components for custom node views, share normal React context and hooks, and let the editor UI live in the same component tree as the rest of your app. You still get ProseMirror’s document model, transactions, plugins, and selection handling, but without fighting a separate DOM-rendering lifecycle.
-[_This library provides an alternate implementation of ProseMirror's EditorView. It uses React as the rendering engine, rather than ProseMirror's home-brewed DOM update system. This allows us to provide a more comfortable integration with ProseMirror's powerful data model, transformations, and event management systems._](https://github.com/handlewithcarecollective/react-prosemirror#the-solution)
+React-ProseMirror moved the rendering out of the editor view and into React.
+This makes it much easier to use ProseMirror with React: you can use plain React components for custom NodeViews, share normal React context and hooks,
+and let the editor UI live in the same component tree as the rest of your app. You still get ProseMirror's document model, transactions, plugins, and selection handling, but without fighting a separate DOM-rendering lifecycle.
+[_This library provides an alternate implementation of ProseMirror's EditorView.
+It uses React as the rendering engine, rather than ProseMirror's home-brewed DOM update system.
+This allows us to provide a more comfortable integration with ProseMirror's powerful data model, transformations, and event management systems._](https://github.com/handlewithcarecollective/react-prosemirror#the-solution)
 
 ## Test Cases
 
 ### Test Case 1: Engine throughput and the cost of holding state as the document grows
 
 #### What the test does:
-From an empty editor, in a single browser session, append paragraphs to the end of the document as fast as the engine allows. After every 200 appends, record a checkpoint (nodes, elapsedMs) and yield one animation frame so the browser can paint and the test harness can read CDP metrics. Every 2 seconds, an outer monitor polls Chrome's \`Performance.getMetrics\` and records the cumulative cost across six counters: ScriptDuration, TaskDuration, JSHeapUsedSize, Nodes (DOM), LayoutCount, RecalcStyleCount.
+From an empty editor, in a single browser session, append paragraphs to the end of the document as fast as the engine allows. After every 200 appends,
+record a checkpoint (nodes, elapsedMs) and yield one animation frame so the browser can paint and the test harness can read CDP metrics.
+Every 2 seconds, an outer monitor polls Chrome's \`Performance.getMetrics\` and records the cumulative cost across six counters: ScriptDuration, TaskDuration, JSHeapUsedSize, Nodes (DOM), LayoutCount, RecalcStyleCount.
 
-How each "keystroke" is fired. Inside \`page.evaluate\`, for each cycle we dispatch synthetic \`InputEvent("beforeinput", {inputType: "insertText", data})\` events for the characters in "typing ", followed by a synthetic \`KeyboardEvent("keydown", {key: "Enter"})\`. Each editor's input plugin handles them as it would a real keystroke. No real OS-level input pipeline, no IME, no focus management — just the editor's reaction to the event.
+How each "keystroke" is fired. Inside \`page.evaluate\`, for each cycle we dispatch synthetic \`InputEvent("beforeinput", {inputType: "insertText", data})\` events for the characters in "typing ",
+followed by a synthetic \`KeyboardEvent("keydown", {key: "Enter"})\`.
+Each editor's view-level DOM input handlers pick these up and apply them exactly as they would a real keystroke
+No real OS-level input pipeline, no IME, no focus management — just the editor's reaction to the event.
 
 - We keep going until a single 200-node batch exceeds 5s here, ≈40 nodes/sec - well past usable, or heap > 3.5 GB, or the renderer crashes, or a 50,000-node safety cap.
-- We don't measure per keystroke latency.
+- We don't measure per-keystroke latency.
 - We always append at the end of the document.
 - Synthetic events, we don't try to replicate a human typing experience, only pure engine throughput.
 `;
 
 const MD1 = `
 #### Conclusions:
-- React-Prosemirror pays a per transaction reconciler tax that scales with the document size. for every new paragraph react need to walk a growing tree, even when nothing has changed in the existing paragraphs
-- Vanilla ProseMirror and TipTap3 let the \`EditorView\` to handle DOM updates directly, the cost is proportional to "what has changed" , not to document size.
-- Memory usage scales with document size for Vanilla ProseMirror and TipTap3, but not for React-Prosemirror. For React-Prosemirror every paragraph in the document also exists as a React fibre - a JS object holding props, hooks, refs, parent/sibling pointers, and an alternate fibre for the next render.
+- React-ProseMirror pays a per-transaction reconciler tax that scales with the document size. for every new paragraph React needs to walk a growing tree, even when nothing has changed in the existing paragraphs
+- Vanilla ProseMirror and TipTap let the \`EditorView\` handle DOM updates directly, the cost is proportional to "what has changed" , not to document size.
+- Memory usage scales with document size for Vanilla ProseMirror and TipTap, but not for React-ProseMirror.
+For React-ProseMirror every paragraph in the document also exists as a React fiber - a JS object holding props, hooks, refs, parent/sibling pointers, and an alternate fiber for the next render.
 
 #### Disclosure:
-We needed to patch a memory leak in the official React-Prosemirror implementation, without it the memory usage skyrocketed, and the stress test ended pretty quick.
+We needed to patch a memory leak in the official React-ProseMirror implementation, without it the memory usage skyrocketed, and the stress test ended pretty quickly.
 `;
 
 const MD2 = `
@@ -85,7 +99,9 @@ const MD2 = `
 
 const MD3 = /* language=md */ `
 #### Conclusions:
-- Mount cost scales with how many React fibres your engine creates, not how many DOM nodes the browser holds. Vanilla ProseMirror has zero React fibres for nodes so it has a flat curve. The two React-rendered engines each pay a per-paragraph reconciler cost at mount; Tiptap's ReactNodeViewRenderer adds another layer on top, which is why it ends up worst.
+- Mount cost scales with how many React fibers your engine creates, not how many DOM nodes the browser holds.
+Vanilla ProseMirror has zero React fibers for nodes so it has a flat curve.
+The two React-rendered engines each pay a per-paragraph reconciler cost at mount; TipTap's ReactNodeViewRenderer adds another layer on top, which is why it ends up worst.
 `;
 
 const MD4 = `
@@ -93,18 +109,30 @@ const MD4 = `
 
 #### What the test does:
 - Find the document size where typing feels laggy
-- Increment doc size by 1k paragraphs with nodeview in each line
+- Increment doc size by 1k paragraphs with NodeView in each line
 - Fire 150 real Chromium keystrokes via \`page.keyboard.press("a")\`
 - Stop when p95 INP > 100 ms for two consecutive iterations.
 `;
 
 const MD5 = `
 #### Conclusions:
- - Vanilla ProseMirror's typing stays smooth ~5× longer than Tiptap with the same nodeview. Same per-paragraph React component, same paragraph schema, same keystrokes - the only thing different is what owns the editor surface. Vanilla ProseMirror applies the mutation directly to the DOM and updates the affected fibre; Tiptap's ReactNodeViewRenderer adds portal-bridge synchronization on top, which dominates per-keystroke cost at scale.
-  - A memoized React nodeview is not free at scale. Even with React.memo, the reconciler still has to visit each fibre on every keystroke to ask "should I render?" - it can skip the render phase, not the walk. At 30k+ fibres, that walk alone exceeds the 100 ms budget.
+ - Vanilla ProseMirror's typing stays smooth ~5× longer than TipTap with the same NodeView.
+ Same per-paragraph React component, same paragraph schema, same keystrokes - the only thing different is what owns the editor surface.
+ Vanilla ProseMirror applies the mutation directly to the DOM and updates the affected fiber; TipTap's ReactNodeViewRenderer adds portal-bridge synchronization on top, which dominates per-keystroke cost at scale.
+  - A memoized React NodeView is not free at scale. Even with React.memo, the reconciler still has to visit each fiber on every keystroke to ask "should I render?" - it can skip the render phase, not the walk.
+  At 30k+ fibers, that walk alone exceeds the 100 ms budget.
 `;
 
 const MD6 = /* language=md */ `
+### Verdict
+
+  - For most use cases React-ProseMirror is fine (blog posts, articles, even thesis or Moby Dick), no visual lags, but makes development much easier (React components/hooks/context).
+  - For extremely large content Vanilla ProseMirror or TipTap perform much better, until you have many Node Views, in that case Vanilla ProseMirror is the absolute winner.
+  - But even Vanilla ProseMirror can't handle the whole Bible, but at that point it is not even ProseMirror, but the \`contentEditable\` is the bottleneck.
+  A solution could be virtualization - which has not been implemented with ProseMirror yet - or splitting by chapters, and mounting one chapter at a time.
+`;
+
+const MD7 = /* language=md */ `
 ### Some reference:
 | Document | Paragraphs (≈) |
 |---|---|
@@ -135,11 +163,11 @@ const stress1 = [
 const stress2 = [
   {
     src: "/blog/react-prosemirror/node-count-vs-time-v3-v4-v5.png",
-    title: "React-Prosemirror's layout count",
+    title: "React-ProseMirror's layout count",
   },
   {
     src: "/blog/react-prosemirror/node-count-vs-time-v4-v5.png",
-    title: "React-Prosemirror's js heap used size",
+    title: "React-ProseMirror's js heap used size",
   },
 ];
 
@@ -263,6 +291,7 @@ const Article = () => {
       <Markdown source={MD5} />
 
       <Markdown source={MD6} />
+      <Markdown source={MD7} />
     </ArticleWrapper>
   );
 };
