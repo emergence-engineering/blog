@@ -1,0 +1,138 @@
+diff --git a/node_modules/@handlewithcare/react-prosemirror/dist/cjs/plugins/reactKeys.js b/node_modules/@handlewithcare/react-prosemirror/dist/cjs/plugins/reactKeys.js
+index 2bfe841..0e50870 100644
+--- a/node_modules/@handlewithcare/react-prosemirror/dist/cjs/plugins/reactKeys.js
++++ b/node_modules/@handlewithcare/react-prosemirror/dist/cjs/plugins/reactKeys.js
+@@ -44,21 +44,16 @@ function reactKeys() {
+                 return next;
+             },
+             /**
+-       * Keeps node keys stable across transactions.
+-       *
+-       * To accomplish this, we map each node position forwards
+-       * through the transaction to identify its current position,
+-       * and assign its key to that new position, dropping it if the
+-       * node was deleted.
+-       */ apply (tr, value, _, newState) {
++             * PATCH(memory): see dist/esm/plugins/reactKeys.js for the
++             * full rationale. Short version: mutate the existing plugin
++             * state in place so React fibers can't pin historical Maps.
++             */ apply (tr, value, _, newState) {
+                 if (!tr.docChanged || composing) {
+                     return value;
+                 }
+                 const overrides = tr.getMeta(reactKeysPluginKey)?.overrides;
+-                const next = {
+-                    posToKey: new Map(),
+-                    keyToPos: new Map()
+-                };
++                const nextPosToKey = new Map();
++                const nextKeyToPos = new Map();
+                 const posToKeyEntries = Array.from(value.posToKey.entries()).sort((param, param1)=>{
+                     let [a] = param, [b] = param1;
+                     return a - b;
+@@ -70,17 +65,21 @@ function reactKeys() {
+                         deleted: false
+                     };
+                     if (deleted) continue;
+-                    next.posToKey.set(newPos, key);
+-                    next.keyToPos.set(key, newPos);
++                    nextPosToKey.set(newPos, key);
++                    nextKeyToPos.set(key, newPos);
+                 }
+                 newState.doc.descendants((_, pos)=>{
+-                    if (next.posToKey.has(pos)) return true;
++                    if (nextPosToKey.has(pos)) return true;
+                     const key = createNodeKey();
+-                    next.posToKey.set(pos, key);
+-                    next.keyToPos.set(key, pos);
++                    nextPosToKey.set(pos, key);
++                    nextKeyToPos.set(key, pos);
+                     return true;
+                 });
+-                return next;
++                value.posToKey.clear();
++                value.keyToPos.clear();
++                for (const [k, v] of nextPosToKey) value.posToKey.set(k, v);
++                for (const [k, v] of nextKeyToPos) value.keyToPos.set(k, v);
++                return value;
+             }
+         },
+         props: {
+diff --git a/node_modules/@handlewithcare/react-prosemirror/dist/esm/plugins/reactKeys.js b/node_modules/@handlewithcare/react-prosemirror/dist/esm/plugins/reactKeys.js
+index 34f86a4..627a415 100644
+--- a/node_modules/@handlewithcare/react-prosemirror/dist/esm/plugins/reactKeys.js
++++ b/node_modules/@handlewithcare/react-prosemirror/dist/esm/plugins/reactKeys.js
+@@ -29,21 +29,34 @@ export const reactKeysPluginKey = new PluginKey("@handlewithcare/react-prosemirr
+                 return next;
+             },
+             /**
+-       * Keeps node keys stable across transactions.
+-       *
+-       * To accomplish this, we map each node position forwards
+-       * through the transaction to identify its current position,
+-       * and assign its key to that new position, dropping it if the
+-       * node was deleted.
+-       */ apply (tr, value, _, newState) {
++             * Keeps node keys stable across transactions.
++             *
++             * To accomplish this, we map each node position forwards
++             * through the transaction to identify its current position,
++             * and assign its key to that new position, dropping it if the
++             * node was deleted.
++             *
++             * PATCH(memory): the upstream implementation returns a freshly
++             * allocated `{ posToKey, keyToPos }` on every apply. React fiber
++             * memoizedState pins those objects for memoized node views, so
++             * each unchanged node ends up holding the plugin-state snapshot
++             * from the time it last rendered — at N nodes this retains
++             * Σ(1..N) Map entries (O(N²)). To break the chain we keep stable
++             * identity for the outer object *and* its two Maps by mutating
++             * them in place: compute the next contents in temporary Maps
++             * (so iteration over the old Map isn't disturbed), then clear
++             * and re-fill the originals. Mutation across an EditorState
++             * boundary is normally a smell, but prosemirror-history doesn't
++             * snapshot plugin state and the only consumer (`useReactKeys`)
++             * reads from `view.state` (always the latest), so observable
++             * behaviour is unchanged.
++             */ apply (tr, value, _, newState) {
+                 if (!tr.docChanged || composing) {
+                     return value;
+                 }
+                 const overrides = tr.getMeta(reactKeysPluginKey)?.overrides;
+-                const next = {
+-                    posToKey: new Map(),
+-                    keyToPos: new Map()
+-                };
++                const nextPosToKey = new Map();
++                const nextKeyToPos = new Map();
+                 const posToKeyEntries = Array.from(value.posToKey.entries()).sort((param, param1)=>{
+                     let [a] = param, [b] = param1;
+                     return a - b;
+@@ -55,17 +68,21 @@ export const reactKeysPluginKey = new PluginKey("@handlewithcare/react-prosemirr
+                         deleted: false
+                     };
+                     if (deleted) continue;
+-                    next.posToKey.set(newPos, key);
+-                    next.keyToPos.set(key, newPos);
++                    nextPosToKey.set(newPos, key);
++                    nextKeyToPos.set(key, newPos);
+                 }
+                 newState.doc.descendants((_, pos)=>{
+-                    if (next.posToKey.has(pos)) return true;
++                    if (nextPosToKey.has(pos)) return true;
+                     const key = createNodeKey();
+-                    next.posToKey.set(pos, key);
+-                    next.keyToPos.set(key, pos);
++                    nextPosToKey.set(pos, key);
++                    nextKeyToPos.set(key, pos);
+                     return true;
+                 });
+-                return next;
++                value.posToKey.clear();
++                value.keyToPos.clear();
++                for (const [k, v] of nextPosToKey) value.posToKey.set(k, v);
++                for (const [k, v] of nextKeyToPos) value.keyToPos.set(k, v);
++                return value;
+             }
+         },
+         props: {

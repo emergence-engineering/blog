@@ -20,12 +20,19 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/lib/*": ["articles/react-prosemirror/editors/lib/*"]
+    }
   },
   "include": [
     "."
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "articles/react-prosemirror/e2e",
+    "articles/react-prosemirror/scripts",
+    "articles/react-prosemirror/playwright.perf.config.ts"
   ]
 }

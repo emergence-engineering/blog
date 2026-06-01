@@ -160,6 +160,28 @@ export const IMPL_CONFIG: Record<EditorImpl, ImplConfig> = {
 };
 
 /**
+ * Maps an editor impl key to its human-readable Next.js page route in the blog.
+ *
+ *   v3      → /perf-react-prosemirror      (react-prosemirror, barebone)
+ *   v4      → /perf-vanilla-prosemirror    (vanilla ProseMirror)
+ *   v5      → /perf-tiptap                 (Tiptap 3)
+ *   *-snv   → same name + "-snv"           (static nodeview variant)
+ *   *-nv    → same name + "-nv"            (reactive nodeview variant; pages TBD)
+ */
+const IMPL_ROUTE_BASE: Record<"v3" | "v4" | "v5", string> = {
+  v3: "react-prosemirror",
+  v4: "vanilla-prosemirror",
+  v5: "tiptap",
+};
+
+export function routeFor(impl: EditorImpl): string {
+  const match = impl.match(/^(v[345])(-snv|-nv)?$/);
+  if (!match) throw new Error(`no blog route mapped for impl "${impl}"`);
+  const [, base, suffix] = match as unknown as [string, "v3" | "v4" | "v5", string | undefined];
+  return `/perf-${IMPL_ROUTE_BASE[base]}${suffix ?? ""}`;
+}
+
+/**
  * Returns the filename for a given impl+scenario+kind. For the default scenario
  * `"typing"` we keep the legacy filenames (no scenario suffix) so existing
  * graphs/runs are not disturbed.

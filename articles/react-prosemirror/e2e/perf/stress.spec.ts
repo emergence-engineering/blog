@@ -10,6 +10,7 @@ import {
   NODECOUNT_CHECKPOINT,
   PERF_SERVER_PORT,
   RESULTS_DIR,
+  routeFor,
   TIMEOUT,
 } from "./constants";
 
@@ -64,7 +65,7 @@ test(`[PERF] stress${WALL_MODE ? "-wall" : ""} ${cfg.label}`, async ({ browser }
   const page = await ctx.newPage();
 
   if (EDITOR_IMPL === "v3" || EDITOR_IMPL === "v4" || EDITOR_IMPL === "v5") {
-    await page.goto(`/perf-${EDITOR_IMPL}`);
+    await page.goto(routeFor(EDITOR_IMPL));
     await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 15_000 });
   } else {
     const create = await ctx.request.post(`${API}/api/documents`, {

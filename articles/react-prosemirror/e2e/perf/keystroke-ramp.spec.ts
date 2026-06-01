@@ -31,6 +31,7 @@ import {
   KEYSTROKE_RAMP_PRESSES,
   KEYSTROKE_RAMP_STEP,
   RESULTS_DIR,
+  routeFor,
   TIMEOUT,
 } from "./constants";
 import {
@@ -75,7 +76,7 @@ test(`[PERF] keystroke-ramp ${cfg?.label ?? EDITOR_IMPL}`, async ({ browser }) =
 
   // Single page load. Grow doc programmatically between iterations via the
   // window.__perfGrow(k) hook exposed by each -snv page.
-  await page.goto(`/perf-${EDITOR_IMPL}`);
+  await page.goto(routeFor(EDITOR_IMPL));
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 30_000 });
   await page.waitForFunction(
     () => typeof (window as unknown as { __perfGrow?: unknown }).__perfGrow === "function",

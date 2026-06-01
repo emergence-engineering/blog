@@ -1,12 +1,16 @@
 /// <reference types="node" />
+import { join } from "node:path";
 import { defineConfig, devices } from "@playwright/test";
-import {
-  EDITOR_IMPL,
-  GLOBALTIMEOUT,
-  PERF_SERVER_PORT,
-  PERF_WEB_PORT,
-  TIMEOUT,
-} from "./e2e/perf/constants";
+import { GLOBALTIMEOUT, PERF_WEB_PORT, TIMEOUT } from "./e2e/perf/constants";
+
+// Repo root (two levels up from articles/react-prosemirror). The perf editor
+// routes live in the main blog Next app, so we boot it directly — no separate
+// @proof/web / @proof/server processes like the original proof-stack config.
+const REPO_ROOT = join(__dirname, "..", "..");
+
+// Default to `next start` (production build — representative perf numbers).
+// Set PERF_DEV=1 to boot `next dev` instead (faster iteration, noisier perf).
+const DEV = process.env.PERF_DEV === "1";
 
 export default defineConfig({
   testDir: "./e2e/perf",
@@ -24,28 +28,13 @@ export default defineConfig({
     screenshot: "off",
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
-  webServer: [
-    {
-      command: "pnpm --filter @proof/server dev",
-      url: `http://localhost:${PERF_SERVER_PORT}/health`,
-      timeout: 120_000,
-      reuseExistingServer: false,
-      env: {
-        PORT: String(PERF_SERVER_PORT),
-        EDITOR_IMPL,
-        WEB_ORIGIN: `http://localhost:${PERF_WEB_PORT}`,
-        PROOF_SHARE_RATELIMIT_DISABLED: "1",
-      },
-    },
-    {
-      command: `pnpm --filter @proof/web exec next start -p ${PERF_WEB_PORT}`,
-      url: `http://localhost:${PERF_WEB_PORT}`,
-      timeout: 120_000,
-      reuseExistingServer: false,
-      env: {
-        NEXT_PUBLIC_EDITOR_IMPL: EDITOR_IMPL,
-        NEXT_PUBLIC_API_URL: `http://localhost:${PERF_SERVER_PORT}`,
-      },
-    },
-  ],
+  webServer: {
+    command: DEV
+      ? `npx next dev -p ${PERF_WEB_PORT}`
+      : `npx next start -p ${PERF_WEB_PORT}`,
+    cwd: REPO_ROOT,
+    url: `http://localhost:${PERF_WEB_PORT}/perf-react-prosemirror`,
+    timeout: 120_000,
+    reuseExistingServer: true,
+  },
 });

@@ -31,7 +31,15 @@ const MD0 = /* language=md */ `
 # React-Prosemirror vs Vanilla Prosemirror vs TipTap3 performance comparison
 
 ## TL;DR
-React-Prosemirror makes development much easier if working with ProseMirror and React. Can use all the same plugins and features. And if using nodeviews it is much easier, we can access react context, hooks and state. But it comes with a cost. As we add more and more nodes to the document it has to pay the react reconciler tax. Vanilla ProseMirror is the fastest, but it needs the most amount of work for a full featured editor. TipTap3 is kind of a full featured editor from day 1 and performance wise almost identical to vanilla ProseMirror until we start adding nodeviews, we can use react context hooks state with \`ReactNodeViewRenderer\` to make it easier to develop, but it uses react Portals which adds tax. React-Proseirror performance becomes noticable at 5k nodes. TipTap3 performance becomes noticable around 2.5k-5k nodes with nodeviews.
+React-Prosemirror makes development much easier if working with ProseMirror and React.
+Can use all the same plugins and features. And if using nodeviews it is much easier, we can access react context, hooks and state. But it comes with a cost.
+As we add more and more nodes to the document it has to pay the react reconciler tax.
+
+Vanilla ProseMirror is the fastest, but it needs the most amount of work for a full featured editor.
+
+TipTap3 is kind of a full featured editor from day 1 and performance wise almost identical to vanilla ProseMirror until we start adding nodeviews, we can use react context, hooks,
+state with \`ReactNodeViewRenderer\` to make it easier to develop, but it uses react Portals which adds tax.
+React-Proseirror performance issue becomes noticable at 5k nodes. TipTap3 performance issue becomes noticable around 2.5k-5k nodes with nodeviews.
 
 ## Introduction
 
@@ -51,7 +59,7 @@ From an empty editor, in a single browser session, append paragraphs to the end 
 
 How each "keystroke" is fired. Inside \`page.evaluate\`, for each cycle we dispatch synthetic \`InputEvent("beforeinput", {inputType: "insertText", data})\` events for the characters in "typing ", followed by a synthetic \`KeyboardEvent("keydown", {key: "Enter"})\`. Each editor's input plugin handles them as it would a real keystroke. No real OS-level input pipeline, no IME, no focus management — just the editor's reaction to the event.
 
-- We keep going until a single 200-node batch exceeds 5s here, ≈40 nodes/sec — well past usable, or heap > 3.5 GB, or the renderer crashes, or a 50,000-node safety cap.
+- We keep going until a single 200-node batch exceeds 5s here, ≈40 nodes/sec - well past usable, or heap > 3.5 GB, or the renderer crashes, or a 50,000-node safety cap.
 - We don't measure per keystroke latency.
 - We always append at the end of the document.
 - Synthetic events, we don't try to replicate a human typing experience, only pure engine throughput.

@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "noEmit": true,
+    "noUnusedLocals": false
+  },
+  "include": ["e2e", "scripts", "playwright.perf.config.ts"],
+  "exclude": ["../../node_modules"]
+}

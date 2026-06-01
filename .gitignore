@@ -30,3 +30,9 @@ public/workbox-*
 .yalc
 yalc.lock
 .vercel
+
+# react-prosemirror perf benchmark artifacts
+articles/react-prosemirror/e2e/perf/results
+test-results
+playwright-report
+*.tsbuildinfo

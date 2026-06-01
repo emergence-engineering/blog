@@ -23,6 +23,7 @@ import {
   PERF_SCENARIO,
   perfFileFor,
   RESULTS_DIR,
+  routeFor,
   TIMEOUT,
 } from "./constants";
 import { computeStats, formatStatsLine, groupInteractions } from "./inp-stats";
@@ -120,7 +121,7 @@ async function runTyping(
   page: import("@playwright/test").Page,
   session: CdpSession,
 ): Promise<void> {
-  await page.goto(`/perf-${EDITOR_IMPL}?${COMPLEXITY_PARAM}`);
+  await page.goto(`${routeFor(EDITOR_IMPL)}?${COMPLEXITY_PARAM}`);
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 15_000 });
   await page.locator(cfg.selector).click();
 
@@ -207,7 +208,7 @@ async function runColdLoad(
 
   for (const n of sizes) {
     const t0 = Date.now();
-    await page.goto(`/perf-${EDITOR_IMPL}?n=${n}&${COMPLEXITY_PARAM}`);
+    await page.goto(`${routeFor(EDITOR_IMPL)}?n=${n}&${COMPLEXITY_PARAM}`);
     await expect(page.locator(cfg.selector)).toBeVisible({ timeout: perSizeTimeoutMs });
     // Wait until the page has settled enough to expose all paragraphs.
     await page.waitForFunction(
@@ -240,7 +241,7 @@ async function runCursor(
   session: CdpSession,
 ): Promise<void> {
   const seedN = Number(process.env.PERF_CURSOR_N ?? 10_000);
-  await page.goto(`/perf-${EDITOR_IMPL}?n=${seedN}&${COMPLEXITY_PARAM}`);
+  await page.goto(`${routeFor(EDITOR_IMPL)}?n=${seedN}&${COMPLEXITY_PARAM}`);
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 60_000 });
   await page.waitForFunction(
     ([sel, target]) => {
@@ -294,7 +295,7 @@ async function runCtxFlip(
   session: CdpSession,
 ): Promise<void> {
   const seedN = Number(process.env.PERF_CTX_FLIP_N ?? 4_000);
-  await page.goto(`/perf-${EDITOR_IMPL}?n=${seedN}&${COMPLEXITY_PARAM}`);
+  await page.goto(`${routeFor(EDITOR_IMPL)}?n=${seedN}&${COMPLEXITY_PARAM}`);
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 60_000 });
   await page.waitForFunction(
     ([sel, target]) => {
@@ -343,7 +344,7 @@ async function runKeystrokeLatency(page: import("@playwright/test").Page): Promi
   const seedN = Number(process.env.PERF_KEYSTROKE_N ?? 2_000);
   const count = Number(process.env.PERF_KEYSTROKE_COUNT ?? 1_000);
 
-  await page.goto(`/perf-${EDITOR_IMPL}?n=${seedN}&${COMPLEXITY_PARAM}`);
+  await page.goto(`${routeFor(EDITOR_IMPL)}?n=${seedN}&${COMPLEXITY_PARAM}`);
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 60_000 });
   await page.waitForFunction(
     ([sel, target]) => {
@@ -444,7 +445,7 @@ async function runKeystrokeInp(page: import("@playwright/test").Page): Promise<v
   const count = Number(process.env.PERF_KEYSTROKE_COUNT ?? 200);
   const pacingMs = Number(process.env.PERF_KEYSTROKE_PACING_MS ?? 50);
 
-  await page.goto(`/perf-${EDITOR_IMPL}?n=${seedN}&${COMPLEXITY_PARAM}`);
+  await page.goto(`${routeFor(EDITOR_IMPL)}?n=${seedN}&${COMPLEXITY_PARAM}`);
   await expect(page.locator(cfg.selector)).toBeVisible({ timeout: 60_000 });
   await page.waitForFunction(
     ([sel, target]) => {
