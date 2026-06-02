@@ -123,6 +123,24 @@ const MD5 = `
   At 30k+ fibers, that walk alone exceeds the 100 ms budget.
 `;
 
+const MDff = /* language=md */ `
+### Does this hold on Firefox?
+  We re-ran the portable test cases on Firefox 148 — same specs, same machine, only the engine swapped.
+  Memory is gone on purpose: Firefox exposes no JS-heap API to a page (\`performance.memory\` and \`measureUserAgentSpecificMemory\` are both Chromium-only), so the heap and script-duration graphs above can't be reproduced.
+That leaves throughput, cold-load time-to-visible, and keystroke latency.
+
+  One thing to know before reading the latency chart: Firefox's INP floor is ~56ms on an empty document vs Chromium's ~16ms, almost entirely paint/vsync quantization reported in coarse 8ms steps.
+Don't compare the absolute numbers across engines - compare the slope above each engine's own
+  baseline.
+
+ #### What changed, what didn't:
+  - Vanilla ProseMirror and React-ProseMirror keep their ranking and their shape.
+    React-ProseMirror is ~1.5× slower at sustained typing on Firefox, but the per-keystroke cost grows at the same rate on both engines - the reconciler tax belongs to the engine, not the browser.
+  - Vanilla ProseMirror stays flat on both. No surprises.
+  - TipTap with NodeViews is the one real divergence. The \`ReactNodeViewRenderer\` portal bridge is meaningfully more expensive on Firefox: steeper cold-load, and a keystroke lag breakpoint that lands roughly twice as early.
+    If you ship React NodeViews through TipTap, Firefox is your worst case, not Chrome.
+`;
+
 const MD6 = /* language=md */ `
 ### Verdict
 
@@ -186,6 +204,24 @@ const inputLatency = [
   {
     src: "/blog/react-prosemirror/keystroke-ramp.png",
     title: "Keystroke latency",
+  },
+];
+
+const firefixDiagrams = [
+  {
+    src: "/blog/react-prosemirror/ff-vs-chrome-tc1-throughput.png",
+    title: "Firefox vs Chrome Test Case 1",
+  },
+  {
+    src: "/blog/react-prosemirror/ff-vs-chrome-tc2-coldload.png",
+    title: "Firefox vs Chrome Test Case 2",
+  },
+];
+
+const firefixDiagrams2 = [
+  {
+    src: "/blog/react-prosemirror/ff-vs-chrome-tc3-ramp.png",
+    title: "Firefox vs Chrome Test Case 3",
   },
 ];
 
@@ -289,6 +325,39 @@ const Article = () => {
         ))}
       </div>
       <Markdown source={MD5} />
+
+      <Markdown source={MDff} />
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {firefixDiagrams.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-evenly max-md:flex-wrap">
+        {firefixDiagrams2.map((image) => (
+          <div
+            key={image.src}
+            className="graph-image-wrapper"
+            onClick={() => handleToggleImage(image.src)}
+          >
+            <LightBox
+              src={image.src}
+              isOpen={isOpen && activeGraph === image.src}
+              title={image.title}
+            />
+          </div>
+        ))}
+      </div>
 
       <Markdown source={MD6} />
       <Markdown source={MD7} />
