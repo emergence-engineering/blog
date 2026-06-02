@@ -23,6 +23,7 @@ import { articlePMMetadata } from "../../pages/blog/prosemirror";
 
 import PostCard from "./PostCard";
 import TabComponent from "./TabComponent";
+import { articleReactProsemirrorMetadata } from "../../pages/blog/react-prosemirror";
 
 const TwBlog: FunctionComponent = () => {
   const [tab, setTab] = useState<"article" | "tech">("tech");
@@ -49,6 +50,7 @@ const TwBlog: FunctionComponent = () => {
         )}
         {tab === "tech" && (
           <>
+            <PostCard {...articleReactProsemirrorMetadata} />
             <PostCard {...article19Metadata} />
             <PostCard {...articlePNPMMetadata} />
             <PostCard {...article13Metadata} />
