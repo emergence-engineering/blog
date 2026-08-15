@@ -2,6 +2,8 @@ import React from "react";
 import App, { AppProps } from "next/app";
 import Head from "next/head";
 import "../public/global.css";
+import "../features/ge/styles/ge.css";
+import "../features/ge/styles/ge-pages.css";
 import "prosemirror-slash-menu-react/dist/styles/menu-style.css";
 import { Provider as UniqueIdGeneratorProvider } from "@inline-svg-unique-id/react";
 import {

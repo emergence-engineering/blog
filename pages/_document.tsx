@@ -9,9 +9,11 @@ import Document, {
 import { ServerStyleSheet } from "styled-components";
 
 import GeneralSEO from "../features/common/components/GeneralSEO";
+import { isGeRoute } from "../features/ge/routes";
 
 export default class MyDocument extends Document<{
   shouldRenderGeneralSEO: boolean;
+  locale?: string;
 }> {
   // from https://github.com/zeit/next.js/tree/canary/examples/with-styled-components
   static async getInitialProps(ctx: DocumentContext) {
@@ -28,7 +30,10 @@ export default class MyDocument extends Document<{
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
-        shouldRenderGeneralSEO: !ctx.pathname.includes("blog"),
+        // GE pages and blog articles provide their own SEO tags
+        shouldRenderGeneralSEO:
+          !ctx.pathname.includes("blog") && !isGeRoute(ctx.pathname),
+        locale: ctx.locale,
         styles: (
           <>
             {initialProps.styles}
@@ -43,7 +48,10 @@ export default class MyDocument extends Document<{
 
   render(): JSX.Element {
     return (
-      <Html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en">
+      <Html
+        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+        lang={this.props.locale ?? "en"}
+      >
         <Head>
           <link rel="stylesheet" type="text/css" href="/global.css" />
           <link

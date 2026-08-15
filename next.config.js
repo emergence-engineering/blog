@@ -13,6 +13,13 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  // Growth Engineers pages are bilingual: Hungarian visitors (Accept-Language)
+  // are redirected from / to /hu, everyone else gets the English version.
+  i18n: {
+    locales: ["en", "hu"],
+    defaultLocale: "en",
+    localeDetection: true,
+  },
   publicRuntimeConfig: {
     // Will be available on both server and client
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
