@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import en from "./en";
 
 /**
- * Growth Engineers translation helper.
+ * Growth Engineering translation helper.
  *
  * Mirrors the static site's i18n model: pages are authored in Hungarian and
  * the English dictionary overrides by key, falling back to the inline

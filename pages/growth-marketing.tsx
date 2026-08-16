@@ -13,9 +13,9 @@ const GrowthMarketing: NextPage = () => {
   return (
     <GeShell page="growth-marketing">
       <GeSEO
-        title={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineers")}
+        title={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineering")}
         description={t("md.gm", "Paid search, paid social, remarketing, CRO, analitika és e-mail egy rendszerben. Beépülünk a csapatodba, és a bevételért felelünk, nem a kampánystatisztikáért.")}
-        ogTitle={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineers")}
+        ogTitle={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineering")}
         ogDescription={t("od.gm", "Belülről dolgozunk: látjuk a margint, az értékesítést és a készletet is, nemcsak a hirdetési fiókot.")}
       />
       <section className="phero">
@@ -43,7 +43,7 @@ const GrowthMarketing: NextPage = () => {
               </div>
             </div>
             <div className="phero-art rv">
-              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt11", "Teljesítménymarketing és kampánymunka a Growth Engineerstől")} />
+              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt11", "Teljesítménymarketing és kampánymunka a Growth Engineeringtől")} />
             </div>
           </div>
         </div>
@@ -290,7 +290,7 @@ const GrowthMarketing: NextPage = () => {
           <div className="cases">
             <article className="case rv">
               <div className="case-media">
-                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt12", "A Plantart weboldala, webshopja és social kampányai a Growth Engineerstől")} />
+                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt12", "A Plantart weboldala, webshopja és social kampányai a Growth Engineeringtől")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("gm.cs1.h", "A Plantart iparági vezetővé és digitális bajnokká vált") }} />

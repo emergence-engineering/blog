@@ -13,9 +13,9 @@ const AiSeo: NextPage = () => {
   return (
     <GeShell page="ai-seo">
       <GeSEO
-        title={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineers")}
+        title={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineering")}
         description={t("md.aiseo", "Láthatóság ChatGPT-ben, Claude-ban és Geminiben. Entitás-optimalizálás, strukturált adat, idézhető tartalom és AI-említések követése.")}
-        ogTitle={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineers")}
+        ogTitle={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineering")}
         ogDescription={t("od.aiseo", "Az online keresések egyre nagyobb hányada AI eszközökben történik. Gondoskodunk róla, hogy a márkád a válasz része legyen, ne csak egy találat.")}
       />
       <section className="phero">

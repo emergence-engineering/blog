@@ -13,9 +13,9 @@ const Tartalomgyartas: NextPage = () => {
   return (
     <GeShell page="tartalomgyartas">
       <GeSEO
-        title={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineers")}
+        title={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
         description={t("md.content", "Üzenet, social-first vizuál, rövid videó és márkatörténet. Kreatív rendszer, ami a hirdetést, az e-mailt és az organikus láthatóságot is kiszolgálja.")}
-        ogTitle={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineers")}
+        ogTitle={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
         ogDescription={t("od.content", "A modern PPC legfontosabb változója a kreatív. Ha a hirdetés nem állítja meg a görgetést, a legjobb célzás sem segít.")}
       />
       <section className="phero">

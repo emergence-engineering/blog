@@ -1,7 +1,7 @@
-# Growth Engineers pages (`features/ge`)
+# Growth Engineering pages (`features/ge`)
 
 Port of the `growth-engineers-v4` static HTML bundle into this Next.js app.
-The Growth Engineers pages replaced the previous homepage; the legacy pages
+The Growth Engineering pages replaced the previous homepage; the legacy pages
 (blog, team, references, opensource, …) are untouched.
 
 ## How it works

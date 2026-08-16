@@ -13,9 +13,9 @@ const Webfejlesztes: NextPage = () => {
   return (
     <GeShell page="webfejlesztes">
       <GeSEO
-        title={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineers")}
+        title={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
         description={t("md.web", "MVP-től platformig: React, Next.js, TypeScript, Node, Supabase. Webshop, integrációk, AI/LLM funkciók, DevOps és rich text editor (ProseMirror, TipTap) szakértelem.")}
-        ogTitle={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineers")}
+        ogTitle={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
         ogDescription={t("od.web", "Ötlettől a termékig építünk szoftvert. A kód a tiétek, a repóitokban, dokumentálva.")}
       />
       <section className="phero">

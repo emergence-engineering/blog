@@ -12,9 +12,9 @@ const Rolunk: NextPage = () => {
   return (
     <GeShell page="rolunk">
       <GeSEO
-        title={t("mt.about", "Rólunk, Growth Engineers")}
+        title={t("mt.about", "Rólunk, Growth Engineering")}
         description={t("md.about", "Beépülünk a cégedbe, hozzáférünk a számokhoz, és a bevételért felelünk. Ismerd meg a growth engineering elveinket és a 13 fős csapatot.")}
-        ogTitle={t("mt.about", "Rólunk, Growth Engineers")}
+        ogTitle={t("mt.about", "Rólunk, Growth Engineering")}
         ogDescription={t("od.about", "Growth engineering elvek és a csapat mögötte. Beépülünk a cégedbe, és a bevételért felelünk.")}
       />
       <section className="phero">

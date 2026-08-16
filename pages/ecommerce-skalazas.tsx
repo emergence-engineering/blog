@@ -13,9 +13,9 @@ const EcommerceSkalazas: NextPage = () => {
   return (
     <GeShell page="ecommerce-skalazas" bodyClass="ecom">
       <GeSEO
-        title={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineers")}
+        title={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineering")}
         description={t("md.ecom", "A webshop-bevétel néhány szám szorzata. Egy konkrét levezetés arról, melyik eszköz melyik mérőszámot mozdítja, és miért épül a rendszer időben egyre olcsóbbá.")}
-        ogTitle={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineers")}
+        ogTitle={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineering")}
         ogDescription={t("od.ecom", "Három szerény javulás nem összeadódik, hanem összeszorzódik. Megmutatjuk, hogyan.")}
       />
       <section className="ec-hero">
@@ -32,7 +32,7 @@ const EcommerceSkalazas: NextPage = () => {
             <a href="#keplet" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("ec.cta2", "Nézd meg a levezetést") }} />
           </div>
           {/* ide: hero kiegészítő tartalom később */}
-          <p className="ec-brand" dangerouslySetInnerHTML={{ __html: t("ec.brand", "A Growth Engineers az <b>Emergence Engineering</b> üzletfejlesztési csapata. Ugyanaz a mérnöki gondolkodás, a bevételre alkalmazva.") }} />
+          <p className="ec-brand" dangerouslySetInnerHTML={{ __html: t("ec.brand", "A Growth Engineering az <b>Emergence Engineering</b> üzletfejlesztési csapata. Ugyanaz a mérnöki gondolkodás, a bevételre alkalmazva.") }} />
         </div>
       </section>
       <section className="sec">

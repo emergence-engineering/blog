@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useGeT } from "../i18n/useGeT";
 
 /**
- * Shared Growth Engineers footer, ported from the static pages. Minor per-page drift in the originals (missing UX/UI item on one page, FAQ vs Contact link on three) was normalized to the dominant variant.
+ * Shared Growth Engineering footer, ported from the static pages. Minor per-page drift in the originals (missing UX/UI item on one page, FAQ vs Contact link on three) was normalized to the dominant variant.
  */
 export const GeFooter: FunctionComponent = () => {
   const t = useGeT();
@@ -15,7 +15,7 @@ export const GeFooter: FunctionComponent = () => {
             <div>
               <Link href="/" className="logo">
                 <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
-                <span className="logo-wm">Growth<i>/</i><span className="w2">Engineers</span></span>
+                <span className="logo-wm">Growth<i>/</i><span className="w2">Engineering</span></span>
               </Link>
               <p style={{ maxWidth: "32ch", lineHeight: "1.6" }} dangerouslySetInnerHTML={{ __html: t("ft.tag", "A belső growth csapatod: stratégia, marketing, design és fejlesztés egy helyen.") }} />
               <p style={{ fontSize: ".9rem", marginTop: ".6rem" }} dangerouslySetInnerHTML={{ __html: t("ft.company", "Az Emergence Engineering Kft. üzletfejlesztési csapata · Budapest") }} />

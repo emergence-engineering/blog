@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 /**
- * Runtime behaviours of the Growth Engineers pages, ported from the static
+ * Runtime behaviours of the Growth Engineering pages, ported from the static
  * bundle's site.js (nav, reveal, tabs, blog filter). The markup is fully
  * server-rendered; this hook only attaches the same progressive enhancements
  * the original attached, and re-runs on client-side navigation.

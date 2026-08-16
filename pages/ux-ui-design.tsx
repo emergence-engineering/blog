@@ -13,9 +13,9 @@ const UxUiDesign: NextPage = () => {
   return (
     <GeShell page="ux-ui-design">
       <GeSEO
-        title={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineers")}
+        title={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineering")}
         description={t("md.ux", "UX kutatás, audit, információs architektúra, prototípus, arculat és tesztelés. A design nálunk konverzió, nem dekoráció.")}
-        ogTitle={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineers")}
+        ogTitle={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineering")}
         ogDescription={t("od.ux", "Kutatással kezdünk, hipotézist írunk, és mérjük, hogy bejött-e. A design nálunk konverzió, nem dekoráció.")}
       />
       <section className="phero">

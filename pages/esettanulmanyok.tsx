@@ -13,9 +13,9 @@ const Esettanulmanyok: NextPage = () => {
   return (
     <GeShell page="esettanulmanyok">
       <GeSEO
-        title={t("mt.cases", "Esettanulmányok, Growth Engineers")}
+        title={t("mt.cases", "Esettanulmányok, Growth Engineering")}
         description={t("md.cases", "Mérhető növekedési történetek: Plantart, VezessJól, Netamin, Számlabridge, Babalesz és startup projektek, az ügyfelek saját adataiból származó számokkal.")}
-        ogTitle={t("mt.cases", "Esettanulmányok, Growth Engineers")}
+        ogTitle={t("mt.cases", "Esettanulmányok, Growth Engineering")}
         ogDescription={t("od.cases", "Növekedési történetek, számokkal. A stratégiától a kivitelezésig végig ott voltunk.")}
       />
       <section className="phero">

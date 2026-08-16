@@ -13,9 +13,9 @@ const EsettanulmanyVezessjol: NextPage = () => {
   return (
     <GeShell page="esettanulmany-vezessjol">
       <GeSEO
-        title={t("mt.csvj", "VezessJól esettanulmány, +93% konverzió, feleannyi érdeklődőszerzési költség | Growth Engineers")}
+        title={t("mt.csvj", "VezessJól esettanulmány, +93% konverzió, feleannyi érdeklődőszerzési költség | Growth Engineering")}
         description={t("md.csvj", "Új üzleti modell, két weboldal, E-Titán integráció és teljes akvizíciós tölcsér a VezessJólnak. A beiratkozási űrlap újratervezése megduplázta a leadeket feleannyi költségen.")}
-        ogTitle={t("ot.csvj", "VezessJól esettanulmány, Growth Engineers")}
+        ogTitle={t("ot.csvj", "VezessJól esettanulmány, Growth Engineering")}
         ogDescription={t("od.csvj", "+35% bevétel, +93% konverzió, −50% érdeklődőszerzési költség a VezessJólnál.")}
       />
       <section className="cs-hero on-photo">

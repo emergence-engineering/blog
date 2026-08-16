@@ -13,9 +13,9 @@ const Index: NextPage = () => {
   return (
     <GeShell page="index">
       <GeSEO
-        title={t("mt.home", "Growth Engineers, Növekedési rendszerek webshopoknak és B2B cégeknek")}
+        title={t("mt.home", "Growth Engineering, Növekedési rendszerek webshopoknak és B2B cégeknek")}
         description={t("md.home", "A belső growth csapatod: e-mail automatizáció, teljesítménymarketing, fejlesztés és design egy helyen. Minden partnerünknél 16% fölé ment a profitnövekedés az első fél évben.")}
-        ogTitle={t("ot.home", "Growth Engineers, Mi fogja vissza céged növekedését?")}
+        ogTitle={t("ot.home", "Growth Engineering, Mi fogja vissza céged növekedését?")}
         ogDescription={t("od.home", "Rendszert építünk a cégedbe, ami a kampányok lefutása után is termel.")}
       />
       <section className="hero">
@@ -36,7 +36,7 @@ const Index: NextPage = () => {
                 <div className="cap" dangerouslySetInnerHTML={{ __html: t("hero.badges.cap", "Tanúsított partnerek") }} />
                 <Image src="/ge/img/badges@2x.webp" alt="Stripe Verified Partner, Google Partner, Klaviyo Advisor Silver" width={409} height={88} style={{ height: "88px" }} />
               </div>
-              <p className="rv" style={{ marginTop: "1.4rem", fontSize: ".85rem", color: "var(--muted)" }} dangerouslySetInnerHTML={{ __html: t("hero.brand", "A Growth Engineers az <b style=\"color:var(--ink)\">Emergence Engineering Kft.</b> üzletfejlesztési csapata.") }} />
+              <p className="rv" style={{ marginTop: "1.4rem", fontSize: ".85rem", color: "var(--muted)" }} dangerouslySetInnerHTML={{ __html: t("hero.brand", "A Growth Engineering az <b style=\"color:var(--ink)\">Emergence Engineering Kft.</b> üzletfejlesztési csapata.") }} />
             </div>
             <div className="mosaic rv">
               <Link className="tile tile-wide" href="/esettanulmany-vezessjol">

@@ -17,7 +17,7 @@ export const EnFooter: FunctionComponent = () => {
               </Link>
               <p style={{ maxWidth: "32ch", lineHeight: "1.6" }}>The engineers behind ambitious editors, real-time collaboration and browser-native web apps.</p>
               <p style={{ fontSize: ".9rem", marginTop: ".6rem" }}>Emergence Engineering Ltd. · Budapest, EU</p>
-              <p style={{ fontSize: ".9rem", marginTop: ".35rem" }}>Our business development practice: <Link href="/">Growth Engineers</Link></p>
+              <p style={{ fontSize: ".9rem", marginTop: ".35rem" }}>Our business development practice: <Link href="/">Growth Engineering</Link></p>
             </div>
             <div>
               <h5>What we build</h5>

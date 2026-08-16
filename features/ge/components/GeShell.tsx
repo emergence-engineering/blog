@@ -5,7 +5,7 @@ import { GeFooter } from "./GeFooter";
 import { useGeSite } from "../hooks/useGeSite";
 
 /**
- * Page shell for the Growth Engineers pages: scoping wrapper (all GE styles
+ * Page shell for the Growth Engineering pages: scoping wrapper (all GE styles
  * live under .ge, page-specific styles under .ge-p-<page>), shared header and
  * footer, and the ported site.js behaviours.
  */

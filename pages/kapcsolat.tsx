@@ -12,9 +12,9 @@ const Kapcsolat: NextPage = () => {
   return (
     <GeShell page="kapcsolat">
       <GeSEO
-        title={t("mt.contact", "Kapcsolat, Growth Engineers")}
+        title={t("mt.contact", "Kapcsolat, Growth Engineering")}
         description={t("md.contact", "Kezdjük egy 30 perces beszélgetéssel. Elmondod, hol tartasz és mit szeretnél elérni, mi megmondjuk, látunk-e reális utat odáig. Egy munkanapon belül válaszolunk.")}
-        ogTitle={t("mt.contact", "Kapcsolat, Growth Engineers")}
+        ogTitle={t("mt.contact", "Kapcsolat, Growth Engineering")}
         ogDescription={t("od.contact", "Kezdjük egy 30 perces beszélgetéssel. Prezentáció és sales script nélkül.")}
       />
       <section className="phero" id="urlap">

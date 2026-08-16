@@ -12,9 +12,9 @@ const EmailAutomatizacio: NextPage = () => {
   return (
     <GeShell page="email-automatizacio">
       <GeSEO
-        title={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineers")}
+        title={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineering")}
         description={t("md.email", "A legtöbb webshopnál az e-mail a bevétel 5–8%-át hozza. Egy jól felépített Klaviyo-fiókban 25–35%. Flow-k, szegmentáció, integráció és GDPR-tiszta felépítés.")}
-        ogTitle={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineers")}
+        ogTitle={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineering")}
         ogDescription={t("od.email", "A bevétel harmada e-mailből jöhet. Nálad most mennyi?")}
       />
       <section className="phero">

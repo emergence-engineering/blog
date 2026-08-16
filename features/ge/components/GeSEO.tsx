@@ -12,7 +12,7 @@ export interface GeSEOProps {
 }
 
 /**
- * Per-page SEO for the Growth Engineers pages. Emits the localized
+ * Per-page SEO for the Growth Engineering pages. Emits the localized
  * title/description/og tags plus hreflang alternates for the en/hu pair.
  */
 export const GeSEO: FunctionComponent<GeSEOProps> = ({

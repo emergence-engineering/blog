@@ -13,9 +13,9 @@ const EsettanulmanySzamlabridge: NextPage = () => {
   return (
     <GeShell page="esettanulmany-szamlabridge">
       <GeSEO
-        title={t("mt.szb", "Számlabridge esettanulmány: fejlesztői logika helyett üzleti felület | Growth Engineers")}
+        title={t("mt.szb", "Számlabridge esettanulmány: fejlesztői logika helyett üzleti felület | Growth Engineering")}
         description={t("md.szb", "A Stripe és a magyar NAV-bekötésű számlázás közti szakadékot áthidaló middleware UX-újratervezése: proaktív hibakezelés, érthető táblázat-szerkesztés és rugalmas szűrés.")}
-        ogTitle={t("ot.szb", "Számlabridge esettanulmány, Growth Engineers")}
+        ogTitle={t("ot.szb", "Számlabridge esettanulmány, Growth Engineering")}
         ogDescription={t("od.szb", "Fejlesztői logika helyett üzleti felület: így lett a technokrata MVP-ből magabiztos döntéseket támogató szoftver.")}
       />
       <section className="phero">

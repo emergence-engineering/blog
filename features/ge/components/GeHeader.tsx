@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useGeT } from "../i18n/useGeT";
 
 /**
- * Shared Growth Engineers header (ported from the static pages, where each
+ * Shared Growth Engineering header (ported from the static pages, where each
  * page carried a copy differing only in which link had aria-current).
  * The language toggle switches the Next.js locale instead of swapping
  * strings client-side like the original site.js did.
@@ -32,7 +32,7 @@ export const GeHeader: FunctionComponent = () => {
       <div className="wrap nav">
         <Link href="/" className="logo">
           <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
-          <span className="logo-wm">Growth<i>/</i><span className="w2">Engineers</span></span>
+          <span className="logo-wm">Growth<i>/</i><span className="w2">Engineering</span></span>
         </Link>
         <nav className="nav-links" id="navLinks">
           <div className="has-sub">
