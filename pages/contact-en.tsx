@@ -65,26 +65,6 @@ const ContactEn: NextPage = () => {
                     </div>
                   </div>
                   <div className="fld">
-                    <label htmlFor="en-topic">What do you need?</label>
-                    <select id="en-topic" name="subject">
-                      <option>Rich-text editor (ProseMirror, TipTap, Lexical)</option>
-                      <option>Real-time collaboration (YJS, CRDT)</option>
-                      <option>Desktop-grade software in the browser (WASM)</option>
-                      <option>AI-native product features</option>
-                      <option>Taking over an existing codebase</option>
-                      <option>Not sure yet, let’s talk</option>
-                    </select>
-                  </div>
-                  <div className="fld">
-                    <label htmlFor="en-stage">Where are you now?</label>
-                    <select id="en-stage" name="stage">
-                      <option>Idea or spec, nothing built yet</option>
-                      <option>Prototype or MVP in progress</option>
-                      <option>Live product, scaling it</option>
-                      <option>Live product, something is broken</option>
-                    </select>
-                  </div>
-                  <div className="fld">
                     <label htmlFor="en-msg">Short description</label>
                     <textarea id="en-msg" name="message" placeholder="Where are you now, and what needs to work in the next few months?" />
                   </div>
