@@ -452,7 +452,7 @@ const Index: NextPage = () => {
               <p dangerouslySetInnerHTML={{ __html: t("t1.p", "Havi stratégiai ülés, priorizálás és folyamatos elérhetőség. A végrehajtás nálatok marad, az irány és az ellenőrzés nálunk.") }} />
               <ul className="checks on-light">
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l1", "Havi stratégiai ülések és növekedési audit") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("t1.l2", "AIO és tartalom-ütemterv") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t1.l2", "Hirdetési struktúra felépítése") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l3", "KPI-követés és optimalizálási javaslatok") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l4", "Szakértői konzultáció igény szerint") }} />
               </ul>

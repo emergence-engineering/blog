@@ -1276,7 +1276,7 @@ const hu: Record<string, string> = {
   "szb.tk.p2": "Hiba esetén a passzív diagnózis helyett a rendszernek vezetett folyamatot kell kínálnia, amely az észlelés, a megértés és a beavatkozás lépésein visz végig, és biztosítja a döntéshozatal alapjait, hogy a speciális szaktudás nélküli ügyfél is magabiztos döntéshozóvá válhasson.",
   "t1.h": "Tanácsadói előfizetés",
   "t1.l1": "Havi stratégiai ülések és növekedési audit",
-  "t1.l2": "AIO és tartalom-ütemterv",
+  "t1.l2": "Hirdetési struktúra felépítése",
   "t1.l3": "KPI-követés és optimalizálási javaslatok",
   "t1.l4": "Szakértői konzultáció igény szerint",
   "t1.p": "Havi stratégiai ülés, priorizálás és folyamatos elérhetőség. A végrehajtás nálatok marad, az irány és az ellenőrzés nálunk.",

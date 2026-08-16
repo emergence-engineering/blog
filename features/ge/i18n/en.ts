@@ -1364,7 +1364,7 @@ const en: Record<string, string> = {
   "szb.tk.p2": "When errors occur, instead of passive diagnosis the system should offer a guided process through noticing, understanding and acting, giving clients without special expertise the grounds to become confident decision-makers.",
   "t1.h": "Consulting subscription",
   "t1.l1": "Monthly strategy sessions and growth audit",
-  "t1.l2": "AIO and content roadmap",
+  "t1.l2": "Marketing funnel build-out",
   "t1.l3": "KPI tracking and optimization guidance",
   "t1.l4": "Expert consultation on demand",
   "t1.p": "Monthly strategy session, prioritization and ongoing access. Execution stays with you; direction and oversight with us.",
