@@ -80,6 +80,9 @@ module.exports = {
       backgroundColor: {
         "ref-card-gray": "rgba(55, 55, 55, 1)",
         "product-card-yellow": "#FFD644",
+        // Page background shared with the Growth Engineers / startup pages
+        // (--paper in features/ge/styles/ge.css).
+        paper: "#FBF8F4",
       },
       boxShadow: {
         productCard: "-6px 6px 0px 0px #000000",

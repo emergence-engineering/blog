@@ -9,6 +9,22 @@ function getReleaseId(environment, commitId, appName) {
 
 const COMMIT_ID = gitCommitId();
 
+// Routes that exist in English only (the software side of the site, plus the
+// English startup landing pages). Keep in sync with pages/.
+const EN_ONLY_PREFIXES = [
+  "/blog",
+  "/blog/:slug*",
+  "/references",
+  "/opensource",
+  "/team",
+  "/case-studies",
+  "/rich-text-editor",
+  "/index-en",
+  "/contact-en",
+  "/cv/:slug*",
+  "/open/:slug*",
+];
+
 const nextConfig = {
   compiler: {
     styledComponents: true,
@@ -19,6 +35,17 @@ const nextConfig = {
     locales: ["en", "hu"],
     defaultLocale: "en",
     localeDetection: true,
+  },
+  // The English-only pages (blog, references, opensource, …) exist at one URL
+  // only. Locale routing would also serve them under /hu, which is duplicate
+  // content, so send those back to the canonical URL permanently.
+  async redirects() {
+    return EN_ONLY_PREFIXES.map((path) => ({
+      source: `/hu${path}`,
+      destination: path,
+      permanent: true,
+      locale: false,
+    }));
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

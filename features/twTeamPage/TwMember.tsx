@@ -78,7 +78,9 @@ export const TwMember: FunctionComponent<TwMemberProps> = ({
           height={160}
           sizes="100vw"
           alt="facePic"
-          className="rounded-full"
+          // the source photos are not all square; cover keeps every face
+          // circular and undistorted
+          className="h-40 w-40 rounded-full object-cover"
           priority
         />
       </div>
