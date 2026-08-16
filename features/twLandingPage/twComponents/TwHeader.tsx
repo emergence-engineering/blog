@@ -4,6 +4,7 @@ import Headroom from "react-headroom";
 import { useRouter } from "next/router";
 
 import EELogo from "../../../public/lp/ee_logo.svg";
+import { EE_HOME } from "../../ge/routes";
 import { scrollToContact } from "../utils/scrollToContact";
 import { Button } from "./Button";
 import { HamburgerMenu } from "./HamburgerMenu";
@@ -14,7 +15,7 @@ export const TwHeader: FC = () => {
     <Headroom className="z-30 w-full">
       <div className="flex w-full justify-center border-b-2 border-neutral-700 bg-black">
         <div className="grid w-full grid-flow-col items-center justify-between px-3 py-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:py-2 xl:max-w-[1140px] 2xl:max-w-[1320px]">
-          <Link href="/">
+          <Link href={EE_HOME}>
             <div className="flex flex-row items-center gap-1">
               <div className="cursor-pointer">
                 <EELogo />
@@ -32,8 +33,8 @@ export const TwHeader: FC = () => {
           <div className="flex flex-row items-center justify-between gap-3 xl:gap-5 2xl:gap-10">
             <div className="hidden xl:mb-2 xl:flex xl:gap-5 2xl:gap-10">
               <Link
-                href="/"
-                className={`-mb-6 border-b-4 p-1 pb-[15px] font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                href={EE_HOME}
+                className={`-mb-6 border-b-4 p-1 pb-[15px] font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === EE_HOME ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 HOME
               </Link>

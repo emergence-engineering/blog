@@ -24,3 +24,10 @@ export const GE_ROUTES = [
 
 export const isGeRoute = (pathname: string): boolean =>
   GE_ROUTES.includes(pathname);
+
+/**
+ * Home of the Emergence Engineering (software) site. The site root "/" now
+ * serves the Growth Engineers landing page, so the legacy EE pages (blog,
+ * team, references, opensource) link here instead.
+ */
+export const EE_HOME = "/index-en";

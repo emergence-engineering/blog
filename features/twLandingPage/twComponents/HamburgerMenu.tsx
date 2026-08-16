@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import MenuIcon from "../../../public/lp/menu.svg";
 import CloseIcon from "../../../public/lp/close.svg";
+import { EE_HOME } from "../../ge/routes";
 
 import { scrollToContact } from "../utils/scrollToContact";
 import { Button } from "./Button";
@@ -52,8 +53,8 @@ export const HamburgerMenu: FC = () => {
             </div>
             <div className="flex flex-col items-center gap-14 p-8 py-16 text-sm font-bold">
               <Link
-                href="/"
-                className={`-mb-7 border-b-4 p-1 px-4 font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === "/" ? "border-b-4 border-red-600" : "border-transparent"}`}
+                href={EE_HOME}
+                className={`-mb-7 border-b-4 p-1 px-4 font-sans text-xs font-bold text-amber-50 hover:border-b-4 hover:border-red-600 lg:text-base ${router.pathname === EE_HOME ? "border-b-4 border-red-600" : "border-transparent"}`}
               >
                 HOME
               </Link>

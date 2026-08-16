@@ -11,6 +11,7 @@ import HamburgerMenu from "../../hamburgerMenu/HamburgerMenu";
 import { UnstyledLink } from "../../../utils/link";
 import EELogo from "../../../public/ee-logo.svg";
 import GithubIcon from "../../../public/github-mark.svg";
+import { EE_HOME } from "../../ge/routes";
 
 const Headroom = styled(ReactHeadroom)`
   z-index: 5;
@@ -190,13 +191,13 @@ const Header: FunctionComponent = () => (
     <Root>
       <ContentWrapper>
         <LeftContainer>
-          <SiteTitle href="/">
+          <SiteTitle href={EE_HOME}>
             <EELogo className="h-auto w-64" />
           </SiteTitle>
         </LeftContainer>
         <RightContainer>
           <BigScreenContainer>
-            <HeaderLink href="/" caption="Home" />
+            <HeaderLink href={EE_HOME} caption="Home" />
             <HeaderLink href="/blog" caption="Blog" />
             <HeaderLink href="/team" caption="Team" />
             <HeaderLink href="/references" caption="References" />
@@ -209,7 +210,7 @@ const Header: FunctionComponent = () => (
           </BigScreenContainer>
           <MobileContainer>
             <HamburgerMenu>
-              <HeaderLink href="/" caption="Home" />
+              <HeaderLink href={EE_HOME} caption="Home" />
               <HeaderLink href="/blog" caption="Blog" />
               <HeaderLink href="/team" caption="Team" />
               <HeaderLink href="/references" caption="References" />
