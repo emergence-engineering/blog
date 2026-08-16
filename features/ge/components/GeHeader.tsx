@@ -53,7 +53,9 @@ export const GeHeader: FunctionComponent = () => {
           <Link href="/esettanulmanyok" aria-current={cur("/esettanulmanyok")} dangerouslySetInnerHTML={{ __html: t("nav.cases", "Esettanulmányok") }} />
           <Link href="/#arak" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
           <Link href="/rolunk" aria-current={cur("/rolunk")} dangerouslySetInnerHTML={{ __html: t("nav.about", "Rólunk") }} />
-          <Link href="/index-en" className="brandlink" dangerouslySetInnerHTML={{ __html: t("nav.forstartups", "Startupoknak →") }} />
+          {/* deliberately English in both locales: it points English-speaking
+              visitors to the startup-facing site */}
+          <Link href="/index-en" className="brandlink">For startups →</Link>
           <div className="lang" role="group" aria-label="Language / Nyelv">
             <button type="button" data-lang="hu" aria-pressed={locale === "hu"} onClick={() => switchLocale("hu")}>HU</button>
             <button type="button" data-lang="en" aria-pressed={locale !== "hu"} onClick={() => switchLocale("en")}>EN</button>
