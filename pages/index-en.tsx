@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { EnShell } from "../features/ge/components/EnShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { EnTestimonials } from "../features/ge/components/EnTestimonials";
 
 // Ported from growth-engineers-v4/index-en.html; DOM structure intentionally
 // mirrors the static original (see features/ge/README.md).
@@ -267,31 +268,7 @@ const IndexEn: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="on-navy">
-        <div className="wrap">
-          <div className="eyebrow rv">Testimonial</div>
-          <div className="quote-grid">
-            <div className="rv">
-              <blockquote><em>“</em>Emergence are exceptional. For any new projects and products they are my go-to dev house. They work fast and to super high quality. They have the rare ability to understand the needs of early stage product discovery as well as the ability to build robust, high quality applications that will scale.<em>”</em></blockquote>
-              <div className="attrib">
-                <div className="av">AM</div>
-                <div>
-                  <div className="who">Andrew Milich</div>
-                  <div className="role">Co-founder & CEO, Skiff (acquired by Notion)</div>
-                </div>
-              </div>
-            </div>
-            <div className="qside rv">
-              <h4>What we did</h4>
-              <ul>
-                <li>Product feature development for collaboration tools</li>
-                <li>Technical support for scale and adoption</li>
-              </ul>
-              <Link href="/contact-en" className="tlink">Start a project <span className="ar">→</span></Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnTestimonials />
       <section id="ownproducts">
         <div className="wrap">
           <div className="shead">

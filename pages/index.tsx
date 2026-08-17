@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeTestimonials } from "../features/ge/components/GeTestimonials";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/index.html; DOM structure intentionally
@@ -388,31 +389,7 @@ const Index: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="on-navy tight-top">
-        <div className="wrap">
-          <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ts.eyebrow", "Vélemények") }} />
-          <div className="quote-grid">
-            <div className="rv">
-              <blockquote dangerouslySetInnerHTML={{ __html: t("ts.quote", "<em>“</em>Az Emergence Engineering kivételes. Bármilyen új projektnél és terméknél ők az első választásom. Gyorsan és nagyon magas minőségben dolgoznak. Ritka képességük, hogy értik a korai fázisú termékfelfedezés igényeit, és közben robusztus, skálázható alkalmazásokat is építenek.<em>”</em>") }} />
-              <div className="attrib">
-                <div className="av">AM</div>
-                <div>
-                  <div className="who">Andrew Milich</div>
-                  <div className="role" dangerouslySetInnerHTML={{ __html: t("ts.role", "társalapító &amp; CEO, Skiff") }} />
-                </div>
-              </div>
-            </div>
-            <div className="qside rv">
-              <h4 dangerouslySetInnerHTML={{ __html: t("ts.title", "Kikkel dolgozunk?") }} />
-              <p style={{ color: "#A9B9CE", fontSize: ".92rem", lineHeight: "1.6", marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("ts.lede", "Olyan cégekkel dolgozunk, ahol valódi skálázási potenciál van, és a vezetés kész nagyobb stratégiai döntéseket is meghozni. Mivel mélyen beépülünk, egyszerre csak néhány partnert vállalunk.") }} />
-              <Link href="/kapcsolat" className="tlink">
-                <span dangerouslySetInnerHTML={{ __html: t("ts.cta", "Foglalj hívást") }} />
-                <span className="ar">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <GeTestimonials />
       <section id="arak">
         <div className="wrap">
           <div className="shead">
