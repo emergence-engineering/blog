@@ -69,6 +69,10 @@ module.exports = {
       colors: {
         "letter-red": "rgba(255, 27, 0, 1)", // You can name this color anything you like
         "product-card-gradient": "#FF1B00",
+        // Text colours shared with the Growth Engineering / startup pages
+        // (--ink and --coral in features/ge/styles/ge.css).
+        ink: "#0B1B33",
+        coral: "#EF4E32",
         customGray: "#373737",
         "custom-charcoal": "#585858",
         tagGray: "rgb(35, 33, 33)",

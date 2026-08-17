@@ -39,8 +39,8 @@ export const TwOurReferences = () => {
   return (
     <div className="flex flex-col bg-paper">
       <div className="flex w-full flex-col items-center justify-center gap-4 self-center bg-paper px-3 py-12 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] lg:gap-16 lg:py-16 xl:max-w-[1140px] 2xl:max-w-[1320px]">
-        <h1 className="px-3 text-center text-4.5xl font-bold lg:text-7.5xl">
-          OUR <span className="text-red-600">REFERENCES</span>
+        <h1 className="px-3 text-center text-4.5xl font-bold text-ink lg:text-7.5xl">
+          OUR <span className="text-coral">REFERENCES</span>
         </h1>
         <div className="flex w-full flex-col gap-4">
           <div className="flex w-full items-start gap-4">

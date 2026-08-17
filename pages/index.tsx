@@ -63,7 +63,7 @@ const Index: NextPage = () => {
               <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.1", "Hazai és nemzetközi partner, a Filteredtől a Plantartig") }} />
             </div>
             <div>
-              <div className="dnum">13</div>
+              <div className="dnum">8</div>
               <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.2", "Szakértői terület egy szerződés alatt") }} />
             </div>
             <div>

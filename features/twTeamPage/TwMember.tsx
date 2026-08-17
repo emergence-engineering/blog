@@ -85,20 +85,20 @@ export const TwMember: FunctionComponent<TwMemberProps> = ({
         />
       </div>
       <div className="flex flex-col items-center gap-3">
-        <div className="text-2xl font-bold leading-[28px] text-red-600">
+        <div className="text-2xl font-bold leading-[28px] text-coral">
           {memberName}
         </div>
         <div
-          className={`font-montserrat text-base font-bold leading-[23px] text-black`}
+          className={`font-montserrat text-base font-bold leading-[23px] text-ink`}
         >
           {memberRole}
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className={`text-center font-montserrat text-xs text-black`}>
+        <div className={`text-center font-montserrat text-xs text-ink`}>
           {memberStack}
         </div>
-        <div className={`text-center font-montserrat text-xs text-black`}>
+        <div className={`text-center font-montserrat text-xs text-ink`}>
           {memberWorkArea}
         </div>
       </div>
