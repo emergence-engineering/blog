@@ -310,6 +310,16 @@ const IndexEn: NextPage = () => {
                 <p className="rp">A platform we built to help users track and coach their progress on their fitness journey.</p>
               </div>
             </Link>
+            <a className="refcard" href="https://www.szamlabridge.com" rel="noopener">
+              <div className="shot">
+                <Image src="/ge/img/szb-hero.webp" alt="Számlabridge, invoicing automation for Stripe" width={680} height={645} />
+              </div>
+              <div className="rb">
+                <div className="rk">Invoicing automation</div>
+                <div className="rn">Számlabridge</div>
+                <p className="rp">Middleware that turns Stripe payments into compliant invoices automatically, with proactive error handling.</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
