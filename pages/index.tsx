@@ -59,20 +59,20 @@ const Index: NextPage = () => {
         <div className="wrap">
           <div className="proof-in">
             <div>
-              <div className="dnum">3×</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.1", "Bevételnövekedés a Plantartnál egy partnerségben") }} />
-            </div>
-            <div>
-              <div className="dnum">−67%</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.2", "Alacsonyabb konverziós költség, ugyanaz az ügyfél, első év") }} />
+              <div className="dnum">54+</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.1", "Hazai és nemzetközi partner, a Filteredtől a Plantartig") }} />
             </div>
             <div>
               <div className="dnum">13</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.3", "Growth-, fejlesztő- és designszakértő elérhető") }} />
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.2", "Szakértői terület egy szerződés alatt") }} />
             </div>
             <div>
-              <div className="dnum">Notion</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.4", "Felvásárolta a Skiffet, aminek a fejlesztésében részt vettünk") }} />
+              <div className="dnum">20+</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.3", "AI workflow és eszköz, átadva a csapatodnak a szerződés idejére") }} />
+            </div>
+            <div>
+              <div className="dnum">Képzések</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.4", "Fejlesztés és képzések a belső csapatnak, a projekt részeként") }} />
             </div>
           </div>
         </div>

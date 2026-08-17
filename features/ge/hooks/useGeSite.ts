@@ -63,9 +63,8 @@ export const useGeSite = () => {
     });
 
     /* ---------- scroll reveal ---------- */
-    const els = document.querySelectorAll(".rv");
     if (!("IntersectionObserver" in window)) {
-      els.forEach((e) => e.classList.add("in"));
+      document.querySelectorAll(".rv").forEach((e) => e.classList.add("in"));
     } else {
       const io = new IntersectionObserver(
         (entries) => {
@@ -81,8 +80,31 @@ export const useGeSite = () => {
         },
         { rootMargin: "0px 0px -6% 0px", threshold: 0.05 }
       );
-      els.forEach((e) => io.observe(e));
-      cleanups.push(() => io.disconnect());
+      const register = (el: Element) => {
+        if (el.classList.contains("in")) return;
+        // Anything already scrolled past would never intersect again (deep
+        // links, back navigation, a reload partway down the page), so reveal
+        // it straight away instead of leaving it invisible.
+        if (el.getBoundingClientRect().bottom < 0) el.classList.add("in");
+        else io.observe(el);
+      };
+      document.querySelectorAll(".rv").forEach(register);
+      // React can replace these nodes (client-side navigation, fast refresh);
+      // pick up any that appear later.
+      const mo = new MutationObserver((records) => {
+        records.forEach((r) =>
+          r.addedNodes.forEach((n) => {
+            if (!(n instanceof Element)) return;
+            if (n.classList.contains("rv")) register(n);
+            n.querySelectorAll?.(".rv").forEach(register);
+          })
+        );
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+      cleanups.push(() => {
+        io.disconnect();
+        mo.disconnect();
+      });
     }
 
     /* ---------- competency tabs ---------- */
