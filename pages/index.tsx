@@ -15,7 +15,7 @@ const Index: NextPage = () => {
       <GeSEO
         title={t("mt.home", "Growth Engineering, Növekedési rendszerek webshopoknak és B2B cégeknek")}
         description={t("md.home", "A belső growth csapatod: e-mail automatizáció, teljesítménymarketing, fejlesztés és design egy helyen. Minden partnerünknél 16% fölé ment a profitnövekedés az első fél évben.")}
-        ogTitle={t("ot.home", "Growth Engineering, Mi fogja vissza céged növekedését?")}
+        ogTitle={t("ot.home", "Growth Engineering, Mi fogja vissza a céged növekedését?")}
         ogDescription={t("od.home", "Rendszert építünk a cégedbe, ami a kampányok lefutása után is termel.")}
       />
       <section className="hero">
@@ -23,7 +23,7 @@ const Index: NextPage = () => {
           <div className="hero-grid">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("hero.eyebrow", "Growth engineering · Budapest, EU") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza<br>céged <mark>növekedését?</mark>") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza<br>a céged <mark>növekedését?</mark>") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztőként építjük meg veled a marketingrendszered. A célunk egy skálázható rendszer felépítése, ami a tiéd marad, és hosszú távon támogatja céged gyors növekedését.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
@@ -95,7 +95,7 @@ const Index: NextPage = () => {
             <article className="pcard">
               <span className="pnum">02</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.2.h", "A belső csapatod") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből. Ezért mi a csapatod részeként üzletfejlesztőként dolgozunk, hogy a lehető leggyorsabban a legjobb döntéseket hozzuk meg közösen.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből. Ezért mi a csapatod részeként üzletfejlesztőként dolgozunk, hogy a lehető leggyorsabban a legjobb döntéseket hozzuk meg közösen. Házon belül rendelkezünk minden specialistával, akire a projekt során szükség lehet.") }} />
             </article>
             <article className="pcard">
               <span className="pnum">03</span>

@@ -369,3 +369,9 @@
   .ge-p-contact-en footer .logo-ee .wm{color:#fff}
   .ge-p-contact-en footer .logo-ee .wm .w2{color:#9DB0C8}
 
+
+/* ---- hand-maintained, added after the port ---- */
+/* The e-commerce page runs on its own 840px editorial column. The shared
+   .feature block is a two-column grid that only stacks below a 900px
+   viewport, so inside the narrow column it has to be stacked explicitly. */
+.ge-p-ecommerce-skalazas .col .feature{grid-template-columns:1fr;gap:1.8rem}

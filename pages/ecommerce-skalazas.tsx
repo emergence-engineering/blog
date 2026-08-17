@@ -264,7 +264,8 @@ const EcommerceSkalazas: NextPage = () => {
         </div>
       </section>
       <section id="email">
-        <div className="wrap">
+        {/* col, not wrap: this page runs on a 840px editorial column */}
+        <div className="col">
           <div className="feature">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ec.kl.eyebrow", "Az LTV-motor közelről") }} />

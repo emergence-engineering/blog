@@ -1164,7 +1164,7 @@ const en: Record<string, string> = {
   "pr.1.h": "The campaign ends, the system stays",
   "pr.1.p": "A good campaign delivers for a few weeks. A well-built system, where the business concept, measurement, funnel and automation are wired into how the company runs, delivers for years. We build systems, because your company doesn't need two good weeks, it needs predictable performance.",
   "pr.2.h": "Your in-house team",
-  "pr.2.p": "An external agency often can&rsquo;t understand how your company works from a filled-out form and a few meetings. That&rsquo;s why we work inside your team as business developers, so together we make the best decisions as fast as possible.",
+  "pr.2.p": "An external agency often can&rsquo;t understand how your company works from a filled-out form and a few meetings. That&rsquo;s why we work inside your team as business developers, so together we make the best decisions as fast as possible. We have every specialist your project might need in-house.",
   "pr.3.h": "Business development, not marketing",
   "pr.3.p": "We think as business developers, not marketers, so scaling your ads won&rsquo;t necessarily be our advice. We want to reach your goal by the best and cheapest route, and that doesn&rsquo;t always mean sinking more budget into Google.",
   "pr.cta": "Meet the team",
