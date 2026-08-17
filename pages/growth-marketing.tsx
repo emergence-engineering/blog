@@ -315,20 +315,20 @@ const GrowthMarketing: NextPage = () => {
                 <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt12", "A Plantart weboldala, webshopja és social kampányai a Growth Engineeringtől")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("gm.cs1.h", "A Plantart iparági vezetővé és digitális bajnokká vált") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("gm.cs1.p", "A Plantartnál az egész digitális ökoszisztémát újraépítettük, a márkától és a weboldaltól a CRM-ig, az automatizációig és az akvizíciós tölcsérekig. Az eredmény: modern, adatvezérelt növekedési motor, ami egy megrekedt kkv-ból 2 milliárd forintos iparági vezetőt csinált, erős B2B és B2C bevétellel.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "Plantart piacvezető és digitális bajnok") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("case.pa.p", "A Plantart egy 4 éves üzletfejlesztési folyamaton ment át, aminek a végére a cég 700 millióról <strong>1,9 milliárdra</strong> nőtt, és eljutott az első cégfelvásárlásáig.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">3×</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs1.m1", "Bevételnövekedés") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} />
                   </div>
                   <div className="m">
                     <div className="dnum">+45M Ft</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs1.m2", "Webshop-bevétel az első évben") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m2", "Webshop-bevétel az első évben") }} />
                   </div>
                   <div className="m">
                     <div className="dnum">−67%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs1.m3", "Konverziós költség") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m3", "Alacsonyabb konverziós költség") }} />
                   </div>
                 </div>
                 <div className="chips">
@@ -349,20 +349,20 @@ const GrowthMarketing: NextPage = () => {
                 <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt13", "A VezessJól autósiskola weboldala és akvizíciós tölcsére")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("gm.cs2.h", "Konverziók felpörgetése egy autósiskolának") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("gm.cs2.p", "Segítettünk a VezessJólnak modernizálni a weboldalaikat, és célzott akvizíciós tölcsért építeni, ami több érdeklődőt hozott és csökkentette a diákonkénti költséget. A fókuszált landing oldalak és optimalizált kampányok folyamatos növekedést hoztak az új beiratkozásokban.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("case.vj.p", "Hogyan növeltük duplájára a konverziók számát a marketingköltés csökkentése mellett? Az üzleti audit és a visszamérések során megtaláltuk azokat a fő pontokat, ahol az üzleti modellt módosítani kellett. Az értékajánlat módosításával sikerült <strong>duplázni a konverziók számát 3 hónap alatt</strong>.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">+35%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs2.m1", "Bevételnövekedés") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m1", "Bevételnövekedés") }} />
                   </div>
                   <div className="m">
                     <div className="dnum">+93%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs2.m2", "Több konverzió") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m2", "Több konverzió") }} />
                   </div>
                   <div className="m">
                     <div className="dnum">−50%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs2.m3", "Érdeklődő-szerzési költség") }} />
+                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m3", "Érdeklődőszerzési költség") }} />
                   </div>
                 </div>
                 <div className="chips">

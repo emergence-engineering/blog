@@ -14,7 +14,7 @@ const EsettanulmanyPlantart: NextPage = () => {
     <GeShell page="esettanulmany-plantart">
       <GeSEO
         title={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
-        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +100 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
+        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +45 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
         ogTitle={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
         ogDescription={t("od.cspa", "A stagnálástól a kiszámítható, adatvezérelt növekedésig. Márka, webshop, CRM, automatizáció és több csatornás akvizíció.")}
       />
@@ -64,7 +64,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric1", "bevételnövekedés 4 év alatt") }} />
           </div>
           <div>
-            <div className="dnum">+100 millió Ft</div>
+            <div className="dnum">+45 millió Ft</div>
             <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric2", "webshop-bevétel az első évben") }} />
           </div>
           <div>
@@ -126,7 +126,7 @@ const EsettanulmanyPlantart: NextPage = () => {
               <div className="dot">02</div>
               <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
               <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph2.sub", "Weboldal, webshop, integrációk") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációkat építettünk a belső rendszerekhez. <strong>Az új webshop az első évében több mint 100 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációkat építettünk a belső rendszerekhez. <strong>Az új webshop az első évében több mint 45 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "Ez fordulópont volt: a Plantart statikus bemutatkozó oldalról egy jól teljesítő digitális ökoszisztémára váltott, ami több szegmens akvizícióját is kiszolgálja.") }} />
             </div>
             <div className="tlrow rv">
