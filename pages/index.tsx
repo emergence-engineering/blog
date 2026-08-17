@@ -317,8 +317,8 @@ const Index: NextPage = () => {
                 <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók egy autósiskolánál") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("case.vj.p", "A beiratkozási űrlap egyszerre kérte be az összes adatot, és sokan félúton kiszálltak. Előrehoztuk az elérhetőség bekérését, hogy őket is meg lehessen keresni. Ezzel <strong>megdupláztuk az érdeklődők számát, feleannyi költségen</strong>.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("case.vj.p", "Hogyan növeltük duplájára a konverziók számát a marketingköltés csökkentése mellett? Az üzleti audit és a visszamérések során megtaláltuk azokat a fő pontokat, ahol az üzleti modellt módosítani kellett. Az értékajánlat módosításával sikerült <strong>duplázni a konverziók számát 3 hónap alatt</strong>.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">+35%</div>
