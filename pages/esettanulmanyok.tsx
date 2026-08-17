@@ -56,7 +56,7 @@ const Esettanulmanyok: NextPage = () => {
                 </div>
                 <div className="chips">
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c1", "márkaújratervezés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c2", "tölcsérmarketing") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c2", "funnel marketing") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c3", "SEO &amp; AIO") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c4", "CRM") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("esl.pa.c5", "e-mail automatizáció") }} />

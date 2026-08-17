@@ -393,7 +393,7 @@ const EmailAutomatizacio: NextPage = () => {
             <article className="case rv">
               <div className="case-media">
                 <div className="stat stat-coral" style={{ width: "100%", minHeight: "220px", justifyContent: "center", gap: "1rem" }}>
-                  <div className="dnum" style={{ fontSize: "clamp(2.6rem,5vw,3.6rem)" }}>+100M Ft</div>
+                  <div className="dnum" style={{ fontSize: "clamp(2.6rem,5vw,3.6rem)" }}>+45M Ft</div>
                   <div className="lbl" style={{ fontSize: ".95rem", maxWidth: "22ch" }} dangerouslySetInnerHTML={{ __html: t("em.cs.stat", "webshop-bevétel az első évben") }} />
                 </div>
               </div>

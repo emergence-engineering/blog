@@ -31,7 +31,7 @@ const EsettanulmanyPlantart: NextPage = () => {
           <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("cspa.hero.h1", "A Plantartból piacvezető és digitális bajnok lett") }} />
           <div className="pills rv">
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill1", "Márkaújratervezés") }} />
-            <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Tölcsérmarketing") }} />
+            <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill3", "Hagyományos és AIO") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill4", "CRM bevezetés") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail automatizáció") }} />

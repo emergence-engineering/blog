@@ -299,7 +299,7 @@ const UxUiDesign: NextPage = () => {
                 <p dangerouslySetInnerHTML={{ __html: t("ux.cs.p", "A Plantartnál a designra épülő tölcséreket és landing oldalakat szegmensenként terveztük meg, kutatásból kiindulva. A kiszámíthatatlan, esetleges érdeklődés helyét egy mérhető, ismételhető rendszer vette át, a webshop az első évében több mint 100 millió forint bevételt termelt.") }} />
                 <div className="metrics">
                   <div className="m">
-                    <div className="dnum">+100M Ft</div>
+                    <div className="dnum">+45M Ft</div>
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("ux.cs.m1", "webshop-bevétel az első évben") }} />
                   </div>
                   <div className="m">

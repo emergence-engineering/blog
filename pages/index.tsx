@@ -279,15 +279,15 @@ const Index: NextPage = () => {
                 <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "A Plantartból piacvezető és digitális bajnok lett") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("case.pa.p", "Négy évig 500 millió forint körül állt az árbevétel. Újraépítettük a márkát, a weboldalt, a webshopot, a CRM-et és az akvizíciós tölcséreket. 2024-re az árbevétel <strong>2 milliárd forint fölé ment</strong>, B2B és B2C oldalon egyaránt.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "Plantart piacvezető és digitális bajnok") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("case.pa.p", "A Plantart egy 4 éves üzletfejlesztési folyamaton ment át, aminek a végére a cég 700 millióról <strong>1,9 milliárdra</strong> nőtt, és eljutott az első cégfelvásárlásáig.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">3×</div>
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} />
                   </div>
                   <div className="m">
-                    <div className="dnum">+100M Ft</div>
+                    <div className="dnum">+45M Ft</div>
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m2", "Webshop-bevétel az első évben") }} />
                   </div>
                   <div className="m">
@@ -295,11 +295,14 @@ const Index: NextPage = () => {
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m3", "Alacsonyabb konverziós költség") }} />
                   </div>
                 </div>
+                {/* same set as the badges on the Plantart case study page */}
                 <div className="chips">
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.rebrand", "márkaújratervezés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.funnel", "tölcsérmarketing") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.email", "e-mail automatizáció") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.webshop", "webshop fejlesztés") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill1", "Márkaújratervezés") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill3", "Hagyományos és AIO") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill4", "CRM bevezetés") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail automatizáció") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill6", "Webshop és webfejlesztés") }} />
                 </div>
                 <div>
                   <Link href="/esettanulmany-plantart" className="tlink">

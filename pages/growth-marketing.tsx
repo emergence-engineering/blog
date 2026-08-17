@@ -301,7 +301,7 @@ const GrowthMarketing: NextPage = () => {
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs1.m1", "Bevételnövekedés") }} />
                   </div>
                   <div className="m">
-                    <div className="dnum">+100M Ft</div>
+                    <div className="dnum">+45M Ft</div>
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("gm.cs1.m2", "Webshop-bevétel az első évben") }} />
                   </div>
                   <div className="m">
