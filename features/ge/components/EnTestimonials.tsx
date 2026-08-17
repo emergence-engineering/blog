@@ -1,7 +1,8 @@
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent } from "react";
 import Link from "next/link";
 
 import { testimonials } from "../data/testimonials";
+import { useCarousel } from "../hooks/useCarousel";
 
 /**
  * The testimonial section of the English (software) pages. Works the same
@@ -9,13 +10,7 @@ import { testimonials } from "../data/testimonials";
  * panel stays fixed while the quotes swipe.
  */
 export const EnTestimonials: FunctionComponent = () => {
-  const track = useRef<HTMLDivElement>(null);
-
-  const step = useCallback((direction: 1 | -1) => {
-    const el = track.current;
-    if (!el) return;
-    el.scrollBy({ left: direction * el.clientWidth, behavior: "smooth" });
-  }, []);
+  const { track, step } = useCarousel();
 
   const arrowClass =
     "h-10 w-10 shrink-0 rounded-full border border-white/25 text-white transition hover:border-coral hover:text-coral";

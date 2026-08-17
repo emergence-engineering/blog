@@ -1,7 +1,8 @@
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent } from "react";
 import Image from "next/image";
 
 import { testimonials } from "../data/testimonials";
+import { useCarousel } from "../hooks/useCarousel";
 
 interface TestimonialCardsProps {
   /** Heading text; the accent part is coloured. */
@@ -17,16 +18,7 @@ export const TestimonialCards: FunctionComponent<TestimonialCardsProps> = ({
   heading,
   headingAccent,
 }) => {
-  const track = useRef<HTMLDivElement>(null);
-
-  // one card plus the gap, so the arrows step card by card
-  const scrollByCard = useCallback((direction: 1 | -1) => {
-    const el = track.current;
-    if (!el) return;
-    const card = el.firstElementChild as HTMLElement | null;
-    const step = card ? card.offsetWidth + 16 : el.clientWidth;
-    el.scrollBy({ left: direction * step, behavior: "smooth" });
-  }, []);
+  const { track, step: scrollByCard } = useCarousel("card");
 
   return (
     <>

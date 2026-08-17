@@ -1,6 +1,7 @@
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent } from "react";
 import Link from "next/link";
 
+import { useCarousel } from "../hooks/useCarousel";
 import { useGeT } from "../i18n/useGeT";
 
 /**
@@ -11,13 +12,7 @@ import { useGeT } from "../i18n/useGeT";
  */
 export const GeTestimonials: FunctionComponent = () => {
   const t = useGeT();
-  const track = useRef<HTMLDivElement>(null);
-
-  const step = useCallback((direction: 1 | -1) => {
-    const el = track.current;
-    if (!el) return;
-    el.scrollBy({ left: direction * el.clientWidth, behavior: "smooth" });
-  }, []);
+  const { track, step } = useCarousel();
 
   const slides = [
     {
