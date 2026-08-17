@@ -90,7 +90,7 @@ const Index: NextPage = () => {
             <article className="pcard">
               <span className="pnum">01</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.1.h", "A kampány kifut, a rendszer marad") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Egy jó kampány pár hétig hoz. Egy jól felépített rendszer, ahol az üzleti koncepció, a mérés, a tölcsér és az automatizáció a cég működésébe van bekötve, évekig. Mi rendszert építünk, mert a cégednek nem két jó hétre van szüksége, hanem kiszámítható működésre.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Rendszerben gondolkozunk, nem kampányokban. A vezetéssel közösen olyan belső rendszert építünk, ami nem az ügynökségtől függ, hanem a céged saját kompetenciája marad.") }} />
             </article>
             <article className="pcard">
               <span className="pnum">02</span>
@@ -230,7 +230,7 @@ const Index: NextPage = () => {
             <div className="tabpanel" id="p5" role="tabpanel" aria-labelledby="t5" data-active="false">
               <div className="tab-split">
                 <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p5.h", "A következő vevőd lehet, hogy rád sem guglizik.") }} />
+                  <h3 dangerouslySetInnerHTML={{ __html: t("p5.h", "Mi van, ha a következő vevőd már nem Google-n keres rád?") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p5.p", "Az online keresések egyre nagyobb része már ChatGPT-ben, Claude-ban és Geminiben történik. Lehetsz első a Google-ben úgy is, hogy közben láthatatlan vagy ott, ahol az emberek ténylegesen kérdeznek.") }} />
                   <Link className="link-arrow" href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("p5.link", "AIO részletek") }} />
                 </div>
@@ -253,10 +253,10 @@ const Index: NextPage = () => {
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l1", "Pénzügyi analitika: margin, termék- és csatorna-jövedelmezőség") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l2", "Árazás és ajánlatstruktúra újragondolása") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l3", "Értékesítési folyamat és CRM hatékonyság") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l4", "Szűk keresztmetszetek feltérképezése") }} />
+                    <li dangerouslySetInnerHTML={{ __html: t("p6.l1", "Üzleti analitika és audit: margin, termék- és csatorna-jövedelmezőség") }} />
+                    <li dangerouslySetInnerHTML={{ __html: t("p6.l2", "Szűk keresztmetszetek feltérképezése") }} />
+                    <li dangerouslySetInnerHTML={{ __html: t("p6.l3", "Értékajánlat és ajánlatstruktúra") }} />
+                    <li dangerouslySetInnerHTML={{ __html: t("p6.l4", "Értékesítési folyamat fejlesztése") }} />
                   </ul>
                 </div>
               </div>
