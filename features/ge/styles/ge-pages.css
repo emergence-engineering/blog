@@ -383,3 +383,7 @@
 .ge-p-ecommerce-skalazas .col > .lede,
 .ge-p-ecommerce-skalazas .col > .prose{max-width:68ch}
 @media(max-width:720px){.ge-p-ecommerce-skalazas .col{padding-inline:20px}}
+
+/* The contact hero centres its two columns, which drops the form well below
+   the heading now that the left column is longer. Top-align it there. */
+.ge-p-kapcsolat .phero-grid{align-items:start}

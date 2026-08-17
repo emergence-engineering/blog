@@ -84,6 +84,28 @@ const GrowthMarketing: NextPage = () => {
           </div>
         </div>
       </section>
+      <section className="tight-bottom" id="ppc-guide">
+        <div className="wrap">
+          <div className="news rv" style={{ background: "transparent", border: "2px solid var(--rule)" }}>
+            <div>
+              <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("gm.lm.eyebrow", "Ingyenes útmutató") }} />
+              <h2 dangerouslySetInnerHTML={{ __html: t("gm.lm.h", "Claude PPC robot: beállítási útmutató") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("gm.lm.p", "A saját setupunk lépésről lépésre: hogyan futtatunk Claude-alapú funnel-elemzéseket az összes hirdetési és analitikai felületre – Google Ads, GA4, Meta, Klaviyo és a többi.") }} />
+            </div>
+            <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+              <div className="field">
+                <input type="email" required placeholder={t("gm.lm.f.ph", "E-mail-címed*")} aria-label={t("gm.lm.f.al", "E-mail-címed")} />
+                <button className="btn" type="submit" dangerouslySetInnerHTML={{ __html: t("gm.lm.f.submit", "Kérem az útmutatót") }} />
+              </div>
+              <label className="consent">
+                <input type="checkbox" required />
+                <span dangerouslySetInnerHTML={{ __html: t("gm.lm.f.consent", "Kérem az útmutatót, és hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+              </label>
+              <p className="ok" hidden dangerouslySetInnerHTML={{ __html: t("gm.lm.f.ok", "Köszönjük! Ez egy demó űrlap, éles környezetben innen megy ki az útmutató e-mailben.") }} />
+            </form>
+          </div>
+        </div>
+      </section>
       <section id="szolgaltatasok">
         <div className="wrap">
           <div className="shead">
