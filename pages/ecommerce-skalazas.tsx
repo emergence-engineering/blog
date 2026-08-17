@@ -325,7 +325,7 @@ const EcommerceSkalazas: NextPage = () => {
               <div className="body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("ec.cs3.h", "Rendszer: webshop, CRM, automatizáció") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("ec.cs3.p", "Kiépült a webshop, a CRM és az e-mail automatizáció, és több csatornán indult el az akvizíció, egy közös mérési rétegre kötve.") }} />
-                <div className="tmet" dangerouslySetInnerHTML={{ __html: t("ec.cs3.met", "+45 millió Ft webshop-bevétel az első évben") }} />
+                <div className="tmet" dangerouslySetInnerHTML={{ __html: t("ec.cs3.met", "+100 millió Ft webshop-bevétel az első évben") }} />
                 <Image className="tshot" src="/ge/img/s-plantartshop.jpg" alt="A Plantart webshop nyitóoldala" width={1280} height={800} />
                 <div className="tcap" dangerouslySetInnerHTML={{ __html: t("ec.cs3.cap", "A Plantart webshopja: a teljes rendszernek csak egy csatornája, a bevétel nagyobb része B2B") }} />
               </div>

@@ -14,7 +14,7 @@ const EsettanulmanyPlantart: NextPage = () => {
     <GeShell page="esettanulmany-plantart">
       <GeSEO
         title={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
-        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +45 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
+        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +100 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
         ogTitle={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
         ogDescription={t("od.cspa", "A stagnálástól a kiszámítható, adatvezérelt növekedésig. Márka, webshop, CRM, automatizáció és több csatornás akvizíció.")}
       />
@@ -47,8 +47,8 @@ const EsettanulmanyPlantart: NextPage = () => {
               <dd dangerouslySetInnerHTML={{ __html: t("cspa.meta.ind.v", "Beltéri növénydekoráció") }} />
             </div>
             <div>
-              <dt dangerouslySetInnerHTML={{ __html: t("cspa.meta.svc.k", "Szolgáltatások") }} />
-              <dd dangerouslySetInnerHTML={{ __html: t("cspa.meta.svc.v", "Márka, webshop, CRM, automatizáció, akvizíció") }} />
+              <dt dangerouslySetInnerHTML={{ __html: t("cspa.meta.web.k", "Weboldal") }} />
+              <dd dangerouslySetInnerHTML={{ __html: t("cspa.meta.web.v", "<a href=\"https://plantart.hu\" rel=\"noopener\">plantart.hu</a><br /><a href=\"https://plantart.hu/webshop/\" rel=\"noopener\">plantart.hu/webshop/</a>") }} />
             </div>
             <div>
               <dt dangerouslySetInnerHTML={{ __html: t("cspa.meta.time.k", "Időszak") }} />
@@ -64,12 +64,12 @@ const EsettanulmanyPlantart: NextPage = () => {
             <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric1", "bevételnövekedés 4 év alatt") }} />
           </div>
           <div>
-            <div className="dnum">+45 millió Ft</div>
-            <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric2", "webshop-bevétel az első évben") }} />
+            <div className="dnum">+90%</div>
+            <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric2", "több minősített érdeklődő") }} />
           </div>
           <div>
-            <div className="dnum">−67%</div>
-            <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric3", "alacsonyabb konverziós költség (27&nbsp;000&nbsp;Ft-ról 9&nbsp;000&nbsp;Ft-ra)") }} />
+            <div className="dnum">+234%</div>
+            <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric3", "növekedés a konverziós arányban") }} />
           </div>
         </div>
       </div>
@@ -77,8 +77,7 @@ const EsettanulmanyPlantart: NextPage = () => {
         <div className="wrap">
           <div className="split">
             <div className="rv">
-              <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.ov.eyebrow", "Áttekintés") }} />
-              <h2 dangerouslySetInnerHTML={{ __html: t("cspa.ov.h2", "Négyéves platóból 2 milliárd forint") }} />
+              <h2 dangerouslySetInnerHTML={{ __html: t("cspa.ov.h2", "Áttekintés") }} />
             </div>
             <div className="prose rv">
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p1", "A Plantart egy európai kkv a kertészeti piacon, amely egy teljes digitális átalakítással tört ki a négy éve tartó bevételi platóból. <strong>Az árbevétel 2020 és 2024 között 500 millió forintról több mint 2 milliárd forintra nőtt</strong>: a márka újradefiniálásával, a digitális ökoszisztéma újjáépítésével, CRM és automatizáció bevezetésével, az akvizíciós csatornák megerősítésével és az AI-alapú bővítés előkészítésével.") }} />
@@ -126,7 +125,7 @@ const EsettanulmanyPlantart: NextPage = () => {
               <div className="dot">02</div>
               <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
               <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph2.sub", "Weboldal, webshop, integrációk") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációkat építettünk a belső rendszerekhez. <strong>Az új webshop az első évében több mint 45 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációkat építettünk a belső rendszerekhez. <strong>Az új webshop az első évében több mint 100 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "Ez fordulópont volt: a Plantart statikus bemutatkozó oldalról egy jól teljesítő digitális ökoszisztémára váltott, ami több szegmens akvizícióját is kiszolgálja.") }} />
             </div>
             <div className="tlrow rv">
