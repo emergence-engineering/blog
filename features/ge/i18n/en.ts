@@ -56,7 +56,7 @@ const en: Record<string, string> = {
   "bento.lede": "Internal tools, AI assistants and integrations, for clients and for ourselves.",
   "bento.title": "Products and tools we developed",
   "case.eyebrow": "Case studies",
-  "case.lede": "Numbers we&rsquo;re accountable for, from partnerships that ran for years.",
+  "case.lede": "Stories that show how we work with companies.",
   "case.pa.h": "Plantart became an industry leader and digital champion",
   "case.pa.m1": "Revenue growth in four years",
   "case.pa.m2": "Ecommerce revenue in year one",

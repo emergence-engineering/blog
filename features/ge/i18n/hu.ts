@@ -40,7 +40,7 @@ const hu: Record<string, string> = {
   "audit.p": "Egyszeri, fix díjas átvilágítás az üzletről és a marketingről. A végén kapsz egy priorizált listát arról, mi hozza a legtöbb bevételt a következő 90 napban, akkor is, ha utána nem velünk dolgozol.",
   "audit.price": "490 000 Ft<small>egyszeri, fix díj</small>",
   "case.eyebrow": "Esettanulmányok",
-  "case.lede": "Számok, amelyekért felelősséget vállalunk, évekig tartó partnerségekből.",
+  "case.lede": "Történetek, amik bemutatják, hogyan dolgozunk együtt cégekkel.",
   "case.pa.h": "A Plantartból piacvezető és digitális bajnok lett",
   "case.pa.m1": "Bevételnövekedés négy év alatt",
   "case.pa.m2": "Webshop-bevétel az első évben",
