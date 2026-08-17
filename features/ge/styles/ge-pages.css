@@ -30,7 +30,7 @@
   /* ============ E-COMMERCE PAGE — SCOPED STYLES ONLY ============ */
   .ge-p-ecommerce-skalazas.ecom{--serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif}
   .ge-p-ecommerce-skalazas.ecom main{overflow:hidden}
-  .ge-p-ecommerce-skalazas .col{max-width:840px;margin-inline:auto;padding-inline:24px}
+  .ge-p-ecommerce-skalazas .col{max-width:var(--max);margin-inline:auto;padding-inline:40px}
   .ge-p-ecommerce-skalazas .sec{padding:3.2rem 0}
   .ge-p-ecommerce-skalazas .sec.band{background:var(--coral-soft);margin:1rem 0}
 
@@ -375,3 +375,11 @@
    .feature block is a two-column grid that only stacks below a 900px
    viewport, so inside the narrow column it has to be stacked explicitly. */
 .ge-p-ecommerce-skalazas .col .feature{grid-template-columns:1fr;gap:1.8rem}
+
+/* The page used a narrow 840px editorial column, which left its content out
+   of line with the header, footer and every other page. It now runs on the
+   site width; running text keeps a readable measure. */
+.ge-p-ecommerce-skalazas .col > p,
+.ge-p-ecommerce-skalazas .col > .lede,
+.ge-p-ecommerce-skalazas .col > .prose{max-width:68ch}
+@media(max-width:720px){.ge-p-ecommerce-skalazas .col{padding-inline:20px}}
