@@ -38,8 +38,8 @@ const Esettanulmanyok: NextPage = () => {
                 <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("esl.pa.h", "A Plantartból piacvezető és digitális bajnok lett") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("esl.pa.p", "Négy évig 500 millió forint körül állt az árbevétel. A márka, a weboldal, a webshop, a CRM, az automatizáció és az akvizíciós tölcsérek újjáépítése után 2024-re <strong>2 milliárd forint fölé ment</strong>, B2B és B2C oldalon egyaránt.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("esl.pa.h", "Plantart piacvezető és digitális bajnok") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("esl.pa.p", "A Plantart egy 4 éves üzletfejlesztési folyamaton ment át, aminek a végére a cég 700 millióról <strong>1,9 milliárdra</strong> nőtt, és eljutott az első cégfelvásárlásáig.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">3×</div>
@@ -75,8 +75,8 @@ const Esettanulmanyok: NextPage = () => {
                 <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
               </div>
               <div className="case-body">
-                <h3 dangerouslySetInnerHTML={{ __html: t("esl.vj.h", "Felpörgetett konverziók a vezetésoktatásban") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("esl.vj.p", "Két weboldal, új üzleti modell és pénzügyi analitika. A legnagyobb egyetlen nyereséget a beiratkozási űrlap átalakítása hozta: az elérhetőség előrehozásával <strong>feleződött az érdeklődőszerzés költsége</strong>.") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("esl.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("esl.vj.p", "Hogyan növeltük duplájára a konverziók számát a marketingköltés csökkentése mellett? Az üzleti audit és a visszamérések során megtaláltuk azokat a fő pontokat, ahol az üzleti modellt módosítani kellett. Az értékajánlat módosításával sikerült <strong>duplázni a konverziók számát 3 hónap alatt</strong>.") }} />
                 <div className="metrics">
                   <div className="m">
                     <div className="dnum">+35%</div>

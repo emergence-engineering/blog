@@ -24,7 +24,7 @@ const Index: NextPage = () => {
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("hero.eyebrow", "Growth engineering · Budapest, EU") }} />
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza<br>a céged <mark>növekedését?</mark>") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztőként építjük meg veled a marketingrendszered. A célunk egy skálázható rendszer felépítése, ami a tiéd marad, és hosszú távon támogatja céged gyors növekedését.") }} />
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged gyors növekedését.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
                   <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
