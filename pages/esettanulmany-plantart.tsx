@@ -75,11 +75,9 @@ const EsettanulmanyPlantart: NextPage = () => {
       </div>
       <section>
         <div className="wrap">
-          <div className="split">
-            <div className="rv">
-              <h2 dangerouslySetInnerHTML={{ __html: t("cspa.ov.h2", "Áttekintés") }} />
-            </div>
-            <div className="prose rv">
+          <div className="rv" style={{ background: "#fff", borderRadius: "24px", padding: "clamp(2rem,4vw,3.6rem)", maxWidth: "1060px", marginInline: "auto" }}>
+            <h2 style={{ textAlign: "center", marginBottom: "1.8rem" }} dangerouslySetInnerHTML={{ __html: t("cspa.ov.h2", "Áttekintés") }} />
+            <div className="prose" style={{ maxWidth: "none" }}>
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p1", "A Plantart egy európai kkv a kertészeti piacon, amely egy teljes digitális átalakítással tört ki a négy éve tartó bevételi platóból. <strong>Az árbevétel 2020 és 2024 között 500 millió forintról több mint 2 milliárd forintra nőtt</strong>: a márka újradefiniálásával, a digitális ökoszisztéma újjáépítésével, CRM és automatizáció bevezetésével, az akvizíciós csatornák megerősítésével és az AI-alapú bővítés előkészítésével.") }} />
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p2", "Ez az esettanulmány azt mutatja be, hogyan jutott el a Plantart a stagnálástól egy skálázható, adatvezérelt motorig, amely B2B és B2C szegmensben is kiszámítható bevételt termel.") }} />
             </div>
@@ -90,7 +88,7 @@ const EsettanulmanyPlantart: NextPage = () => {
         <div className="wrap">
           <div className="split flip">
             <div className="split-media rv">
-              <Image src="/ge/img/pa-site.webp" style={{ maxHeight: "640px", objectFit: "cover", objectPosition: "top" }} width={700} height={2118} alt={t("alt3", "Az újratervezett Plantart weboldal és webshop")} aria-label={t("cspa.ch.imgalt", "")} />
+              <Image src="/ge/img/plantart-site.png" width={629} height={422} alt={t("alt3", "Az újratervezett Plantart weboldal és webshop")} aria-label={t("cspa.ch.imgalt", "")} />
             </div>
             <div className="rv">
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.ch.eyebrow", "A kihívás") }} />
