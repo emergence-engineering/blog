@@ -218,18 +218,25 @@
   .ge-p-esettanulmany-vezessjol .devlist li{padding:1rem 0;border-top:1px solid var(--rule)}
   .ge-p-esettanulmany-vezessjol .devlist h4{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--ink);margin:0 0 .3rem;letter-spacing:-.01em}
   .ge-p-esettanulmany-vezessjol .devlist p{font-size:.98rem;line-height:1.55;color:var(--body);margin:0}
+  /* hero subtitle on the photo */
+  .ge-p-esettanulmany-vezessjol .cs-hero .hero-lede{max-width:52ch;margin:-0.6rem 0 1.6rem;
+    font-size:1.15rem;line-height:1.6;color:rgba(255,255,255,.92)}
   /* results close — plain */
-  .ge-p-esettanulmany-vezessjol .res-close{max-width:62ch;font-size:1.15rem;line-height:1.7;color:var(--ink);margin-top:1.2rem}
+  .ge-p-esettanulmany-vezessjol .res-close{max-width:62ch;font-size:1.15rem;line-height:1.7;color:var(--ink);margin-top:2rem;margin-inline:auto;text-align:center}
+  /* headline results as centred badges under the section head */
+  .ge-p-esettanulmany-vezessjol .res-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:1.8rem}
+  .ge-p-esettanulmany-vezessjol .res-badges span{background:#fff;border:1px solid var(--rule);border-radius:999px;
+    padding:.65rem 1.3rem;font-size:1.02rem;font-weight:600;color:var(--body);white-space:nowrap}
+  .ge-p-esettanulmany-vezessjol .res-badges b{color:var(--coral);font-weight:800;margin-right:.25rem}
   /* centered section head (about) — break the left-title/right-text template */
   .ge-p-esettanulmany-vezessjol .chead{max-width:760px;margin:0 auto;text-align:center}
   .ge-p-esettanulmany-vezessjol .chead .prose{text-align:justify;margin-top:1.6rem;margin-inline:auto}
   /* dark metrics bar, like the written case study */
   .ge-p-esettanulmany-vezessjol .cs-metrics{background:linear-gradient(100deg,var(--navy) 20%,#4A2340 100%)}
   .ge-p-esettanulmany-vezessjol .cs-metrics .dnum b{color:var(--coral-l);font-weight:800}
-  /* mini AIDA funnel */
-  .ge-p-esettanulmany-vezessjol .aida{display:flex;flex-direction:column;align-items:center;gap:5px;margin-top:1.6rem;max-width:420px}
-  .ge-p-esettanulmany-vezessjol .aida span{display:block;width:var(--w);min-width:150px;text-align:center;background:#fff;border:1px solid var(--rule);
-    border-radius:5px;padding:.5rem .9rem;font-size:.88rem;font-weight:600;color:var(--ink)}
+  /* AIDA funnel illustration — the section's left-column visual */
+  .ge-p-esettanulmany-vezessjol .funnel-fig{width:100%;max-width:520px;margin-inline:auto}
+  .ge-p-esettanulmany-vezessjol .funnel-fig svg{display:block;width:100%;height:auto}
   /* social bullets block */
   .ge-p-esettanulmany-vezessjol .socsec .bullets{max-width:640px}
 
@@ -387,3 +394,15 @@
 /* The contact hero centres its two columns, which drops the form well below
    the heading now that the left column is longer. Top-align it there. */
 .ge-p-kapcsolat .phero-grid{align-items:start}
+
+/* The VezessJol mockups are transparent PNGs exported from the design; the
+   generic media frame would draw a card edge around them. */
+.ge-p-esettanulmany-vezessjol .split-media img[src*="vj-desktop"]{border:0;border-radius:0;width:112%;max-width:112%;margin-left:-6%}
+@media(max-width:940px){.ge-p-esettanulmany-vezessjol .split-media img[src*="vj-desktop"]{width:100%;max-width:100%;margin-left:0}}
+
+/* The challenges section centres its two columns; the photo should start in
+   line with the bullet list instead of floating at the middle. */
+.ge-p-esettanulmany-vezessjol .band .split.flip{align-items:start}
+/* …except the challenges phone photo, which sits lower, centred against the
+   long bullet list. */
+.ge-p-esettanulmany-vezessjol .band .split.flip .split-media:has(img[src*="vj-phone"]){align-self:center}
