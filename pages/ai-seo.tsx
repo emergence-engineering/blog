@@ -1,9 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { AiVisibilityChecker } from "../features/ge/components/AiVisibilityChecker";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/ai-seo.html; DOM structure intentionally
@@ -42,8 +42,8 @@ const AiSeo: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("seo.trust2", "<b>Entity SEO</b> és strukturált adatok") }} />
               </div>
             </div>
-            <div className="phero-art rv">
-              <Image src="/ge/img/p-suggestcat.webp" width={800} height={538} alt={t("alt1", "AI-alapú keresőfelület, ahol a márka a válasz része")} />
+            <div className="rv">
+              <AiVisibilityChecker />
             </div>
           </div>
         </div>
