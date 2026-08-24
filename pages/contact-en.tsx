@@ -10,6 +10,7 @@ const ContactEn: NextPage = () => {
   return (
     <EnShell page="contact-en">
       <GeSEO
+        enOnly
         title="Book a call — Emergence Engineering"
         description="Tell us about your project: rich-text editors, real-time collaboration, browser-native software or AI-native features. A senior engineer joins the first call, and we reply within one business day."
         ogTitle="Book a call — Emergence Engineering"

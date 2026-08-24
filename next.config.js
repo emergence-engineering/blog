@@ -31,10 +31,11 @@ const nextConfig = {
   },
   // Growth Engineers pages are bilingual: Hungarian visitors (Accept-Language)
   // are redirected from / to /hu, everyone else gets the English version.
+  // localeDetection is on by default (the config option only accepts `false`,
+  // so it must be omitted rather than set to true).
   i18n: {
     locales: ["en", "hu"],
     defaultLocale: "en",
-    localeDetection: true,
   },
   // The English-only pages (blog, references, opensource, …) exist at one URL
   // only. Locale routing would also serve them under /hu, which is duplicate

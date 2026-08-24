@@ -12,6 +12,7 @@ const IndexEn: NextPage = () => {
   return (
     <EnShell page="index-en">
       <GeSEO
+        enOnly
         title="Emergence Engineering: Editors, real-time collaboration &amp; hard web apps for startups"
         description="We build the hard parts of modern web products: rich-text editors (ProseMirror, TipTap, Lexical), real-time collaboration, AI-native features, and desktop-grade software in the browser. Trusted by US startups, one acquired by Notion."
         ogTitle="Emergence Engineering, We build the web apps other teams can't"
