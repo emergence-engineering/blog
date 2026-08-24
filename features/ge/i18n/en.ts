@@ -1008,7 +1008,7 @@ const en: Record<string, string> = {
   "hero.cta1": "Book a call",
   "hero.cta2": "Get a free audit",
   "hero.eyebrow": "Growth engineering &middot; Budapest, EU",
-  "hero.lede": "We build your marketing system as your business development partner. We create scalable processes that stay yours and support your company&rsquo;s rapid growth for the long run.",
+  "hero.lede": "We build your marketing system as your business development partner. We create scalable processes that stay yours and support your company&rsquo;s growth for the long run.",
   "hero.stat.lbl": "Minimum profit growth<br>in the first six months",
   "hero.tile.pa": "Plantart &middot; 3&times; revenue",
   "hero.tile.vj": "VezessJol &middot; +93% conversions",

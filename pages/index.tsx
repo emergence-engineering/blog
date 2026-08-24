@@ -25,7 +25,7 @@ const Index: NextPage = () => {
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("hero.eyebrow", "Growth engineering · Budapest, EU") }} />
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza a céged<br><mark>növekedését?</mark>") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged gyors növekedését.") }} />
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged növekedését.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
                   <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
@@ -48,7 +48,7 @@ const Index: NextPage = () => {
             </div>
             <div className="mosaic rv">
               <Link className="tile tile-wide" href="/esettanulmany-vezessjol">
-                <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt14", "VezessJól autósiskola weboldal")} />
+                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt14", "VezessJól autósiskola weboldal")} />
                 <span className="tile-label" dangerouslySetInnerHTML={{ __html: t("hero.tile.vj", "VezessJól · +93% konverzió") }} />
               </Link>
               <div className="stat stat-coral">
@@ -56,7 +56,7 @@ const Index: NextPage = () => {
                 <div className="lbl" dangerouslySetInnerHTML={{ __html: t("hero.stat.lbl", "Minimum profitnövekedés<br>az első hat hónapban") }} />
               </div>
               <Link className="tile" href="/esettanulmany-plantart">
-                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt15", "Plantart webshop és kampányok")} />
+                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt15", "Plantart webshop és kampányok")} />
                 <span className="tile-label" dangerouslySetInnerHTML={{ __html: t("hero.tile.pa", "Plantart · 3× bevétel") }} />
               </Link>
             </div>
@@ -284,7 +284,7 @@ const Index: NextPage = () => {
           <div className="cases">
             <article className="case rv">
               <div className="case-media">
-                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
+                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "Plantart piacvezető és digitális bajnok") }} />
@@ -322,7 +322,7 @@ const Index: NextPage = () => {
             </article>
             <article className="case flip rv">
               <div className="case-media">
-                <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
+                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />

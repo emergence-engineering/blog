@@ -312,7 +312,7 @@ const GrowthMarketing: NextPage = () => {
           <div className="cases">
             <article className="case rv">
               <div className="case-media">
-                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt12", "A Plantart weboldala, webshopja és social kampányai a Growth Engineeringtől")} />
+                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt12", "A Plantart weboldala, webshopja és social kampányai a Growth Engineeringtől")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "Plantart piacvezető és digitális bajnok") }} />
@@ -346,7 +346,7 @@ const GrowthMarketing: NextPage = () => {
             </article>
             <article className="case flip rv">
               <div className="case-media">
-                <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt13", "A VezessJól autósiskola weboldala és akvizíciós tölcsére")} />
+                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt13", "A VezessJól autósiskola weboldala és akvizíciós tölcsére")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />

@@ -35,7 +35,7 @@ const Esettanulmanyok: NextPage = () => {
           <div className="cases">
             <article className="case rv">
               <div className="case-media">
-                <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
+                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("esl.pa.h", "Plantart piacvezető és digitális bajnok") }} />
@@ -72,7 +72,7 @@ const Esettanulmanyok: NextPage = () => {
             </article>
             <article className="case flip rv">
               <div className="case-media">
-                <Image src="/ge/img/m-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
+                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
               </div>
               <div className="case-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("esl.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />

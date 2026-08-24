@@ -888,7 +888,7 @@ const hu: Record<string, string> = {
   "hero.cta1": "Foglalj hívást",
   "hero.cta2": "Kérj ingyenes auditot",
   "hero.eyebrow": "Growth engineering · Budapest, EU",
-  "hero.lede": "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged gyors növekedését.",
+  "hero.lede": "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged növekedését.",
   "hero.stat.lbl": "Minimum profitnövekedés<br>az első hat hónapban",
   "hero.tile.pa": "Plantart · 3× bevétel",
   "hero.tile.vj": "VezessJól · +93% konverzió",
