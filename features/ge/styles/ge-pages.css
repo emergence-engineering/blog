@@ -242,13 +242,18 @@
 
 
 
-/* ---- centered home hero (index) ---- */
+/* ---- centered home hero (index, index-en) ---- */
 
-  .ge.ge-p-index .hero-grid{display:block;max-width:900px;margin:0 auto;text-align:center}
-  .ge.ge-p-index .hero .lede{max-width:52ch;margin-left:auto;margin-right:auto}
-  .ge.ge-p-index .hero-cta{justify-content:center}
+  .ge.ge-p-index .hero-grid,
+  .ge.ge-p-index-en .hero-grid{display:block;max-width:900px;margin:0 auto;text-align:center}
+  .ge.ge-p-index .hero .lede,
+  .ge.ge-p-index-en .hero .lede{max-width:52ch;margin-left:auto;margin-right:auto}
+  .ge.ge-p-index .hero-cta,
+  .ge.ge-p-index-en .hero-cta{justify-content:center}
   .ge.ge-p-index .badges .badgestrip{margin-left:auto;margin-right:auto}
-  .ge.ge-p-index .hero .mosaic{display:none}
+  .ge.ge-p-index-en .hero .trust{justify-content:center}
+  .ge.ge-p-index .hero .mosaic,
+  .ge.ge-p-index-en .hero .mosaic{display:none}
 
 /* ---- page-scoped styles from index-en.html ---- */
 
