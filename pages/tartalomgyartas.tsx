@@ -13,9 +13,9 @@ const Tartalomgyartas: NextPage = () => {
   return (
     <GeShell page="tartalomgyartas">
       <GeSEO
-        title={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
+        title={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
         description={t("md.content", "Üzenet, social-first vizuál, rövid videó és márkatörténet. Kreatív rendszer, ami a hirdetést, az e-mailt és az organikus láthatóságot is kiszolgálja.")}
-        ogTitle={t("mt.content", "Tartalomgyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
+        ogTitle={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
         ogDescription={t("od.content", "A modern PPC legfontosabb változója a kreatív. Ha a hirdetés nem állítja meg a görgetést, a legjobb célzás sem segít.")}
       />
       <section className="phero">
@@ -25,7 +25,7 @@ const Tartalomgyartas: NextPage = () => {
               <div className="crumbs rv">
                 <Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} />
                 <span>/</span>
-                <span dangerouslySetInnerHTML={{ __html: t("con.crumb", "Tartalomgyártás") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("con.crumb", "Kreatív- és videógyártás") }} />
               </div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("con.hero.eyebrow", "Kreatív · Social · Videó") }} />
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("con.hero.h1", "Tartalom, ami <mark>megállítja a görgetést</mark> és bizalmat épít") }} />

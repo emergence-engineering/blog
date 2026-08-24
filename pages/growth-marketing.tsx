@@ -13,10 +13,10 @@ const GrowthMarketing: NextPage = () => {
   return (
     <GeShell page="growth-marketing">
       <GeSEO
-        title={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineering")}
-        description={t("md.gm", "Paid search, paid social, remarketing, CRO, analitika és e-mail egy rendszerben. Beépülünk a csapatodba, és a bevételért felelünk, nem a kampánystatisztikáért.")}
-        ogTitle={t("mt.gm", "Teljesítménymarketing: teljes tölcsér, nem külön csatornák, Growth Engineering")}
-        ogDescription={t("od.gm", "Belülről dolgozunk: látjuk a margint, az értékesítést és a készletet is, nemcsak a hirdetési fiókot.")}
+        title={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        description={t("md.gm", "PPC hirdetéskezelés bevált munkafolyamattal: audit, beépülés a csapatodba, rendszerépítés és skálázás. A bevételért felelünk, nem a kampánystatisztikáért.")}
+        ogTitle={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        ogDescription={t("od.gm", "Audit, beépülés, rendszerépítés, skálázás: így kezeljük a PPC hirdetéseidet belülről, a bevételre optimalizálva.")}
       />
       <section className="phero">
         <div className="wrap">
@@ -25,11 +25,11 @@ const GrowthMarketing: NextPage = () => {
               <div className="crumbs rv">
                 <Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} />
                 <span>/</span>
-                <span dangerouslySetInnerHTML={{ __html: t("gm.crumb", "Teljesítménymarketing") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("gm.crumb", "PPC hirdetéskezelés") }} />
               </div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("gm.eyebrow", "Teljesítménymarketing") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("gm.h1", "<mark>Marketing</mark>, ami kapcsolatot teremt és konvertál") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("gm.lede", "Belülről dolgozunk: látjuk a margint, az értékesítést és a készletet is, nemcsak a hirdetési fiókot. Ezért tudjuk megmondani, hogy egy rossz ROAS mögött az ajánlat, a tölcsér vagy a mérés áll.") }} />
+              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("gm.eyebrow", "PPC hirdetéskezelés") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("gm.h1", "<mark>Marketing</mark>, ami márkát épít és konvertál") }} />
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("gm.lede", "Nem a büdzsé emelése a megoldás. Egy hirdetési fiók rövid távon optimalizálható, de a tartós növekedés nem ott dől el. Ezért a kampányainkat rendszerben, több eszközzel tervezzük, hogy ne csak kattintást hozzanak: márkát is építsenek, és profitot termeljenek.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
                   <span dangerouslySetInnerHTML={{ __html: t("gm.cta1", "Foglalj hívást") }} />
@@ -43,7 +43,7 @@ const GrowthMarketing: NextPage = () => {
               </div>
             </div>
             <div className="phero-art rv">
-              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt11", "Teljesítménymarketing és kampánymunka a Growth Engineeringtől")} />
+              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt11", "PPC hirdetéskezelés és kampánymunka a Growth Engineeringtől")} />
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const GrowthMarketing: NextPage = () => {
           </div>
           <div className="sblock rv">
             <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("gm.s1.h", "Teljesítménymarketing") }} />
+              <h3 dangerouslySetInnerHTML={{ __html: t("gm.s1.h", "PPC hirdetéskezelés") }} />
               <p dangerouslySetInnerHTML={{ __html: t("gm.s1.p", "Olyan kampányokat tervezünk és futtatunk, amiknek valódi üzleti eredménye van.") }} />
               <div>
                 <Link href="/kapcsolat" className="tlink">

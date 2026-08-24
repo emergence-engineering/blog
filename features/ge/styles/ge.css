@@ -164,6 +164,9 @@ html{scroll-behavior:smooth}
 .ge .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
 .ge .badges{margin-top:2.2rem}
 .ge .badges img{width:100%;max-width:360px}
+.ge .badges .badgestrip{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;background:#fff;
+  border-radius:14px;padding:19px 24px;width:fit-content;max-width:100%}
+.ge .badges .badgestrip img{width:auto;flex:none}
 .ge .badges .cap{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
   font-weight:600;margin-bottom:.8rem}
 

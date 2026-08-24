@@ -24,7 +24,7 @@ const Index: NextPage = () => {
           <div className="hero-grid">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("hero.eyebrow", "Growth engineering · Budapest, EU") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza<br>a céged <mark>növekedését?</mark>") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza a céged<br><mark>növekedését?</mark>") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged gyors növekedését.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
@@ -35,7 +35,14 @@ const Index: NextPage = () => {
               </div>
               <div className="badges rv">
                 <div className="cap" dangerouslySetInnerHTML={{ __html: t("hero.badges.cap", "Tanúsított partnerek") }} />
-                <Image src="/ge/img/badges@2x.webp" alt="Stripe Verified Partner, Google Partner, Klaviyo Advisor Silver" width={409} height={88} style={{ height: "88px" }} />
+                <div className="badgestrip">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/ge/img/badge-stripe.svg" alt="Stripe Verified Partner" height={30} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/ge/img/badge-google-partner.svg" alt="Google Partner" height={50} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/ge/img/badge-klaviyo.svg" alt="Klaviyo Advisor Silver" height={46} />
+                </div>
               </div>
               <p className="rv" style={{ marginTop: "1.4rem", fontSize: ".85rem", color: "var(--muted)" }} dangerouslySetInnerHTML={{ __html: t("hero.brand", "A Growth Engineering az <b style=\"color:var(--ink)\">Emergence Engineering Kft.</b> üzletfejlesztési csapata.") }} />
             </div>
@@ -118,13 +125,13 @@ const Index: NextPage = () => {
           <div className="tabs rv">
             <div className="tablist" role="tablist" aria-label="Kompetenciák">
               <button role="tab" id="t6" aria-controls="p6" aria-selected="true" dangerouslySetInnerHTML={{ __html: t("tab.biz", "Üzletfejlesztés") }} />
-              <button role="tab" id="t8" aria-controls="p8" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.ecom", "E-commerce skálázás") }} />
-              <button role="tab" id="t2" aria-controls="p2" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.growth", "Teljesítménymarketing") }} />
-              <button role="tab" id="t1" aria-controls="p1" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.email", "E-mail automatizáció") }} />
-              <button role="tab" id="t3" aria-controls="p3" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.web", "Webfejlesztés") }} />
-              <button role="tab" id="t7" aria-controls="p7" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.video", "Videós tartalom") }} />
+              <button role="tab" id="t8" aria-controls="p8" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.ecom", "CRO és E-commerce") }} />
+              <button role="tab" id="t2" aria-controls="p2" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.growth", "PPC hirdetéskezelés") }} />
+              <button role="tab" id="t1" aria-controls="p1" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.email", "E-mail marketing és automatizáció") }} />
+              <button role="tab" id="t3" aria-controls="p3" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.web", "Webshop- és webfejlesztés") }} />
+              <button role="tab" id="t7" aria-controls="p7" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.video", "Kreatív- és videógyártás") }} />
               <button role="tab" id="t4" aria-controls="p4" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.ux", "UX/UI design") }} />
-              <button role="tab" id="t5" aria-controls="p5" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.seo", "AIO") }} />
+              <button role="tab" id="t5" aria-controls="p5" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.seo", "SEO és AI keresőoptimalizálás") }} />
             </div>
             <div className="tabpanel" id="p1" role="tabpanel" aria-labelledby="t1" data-active="false">
               <div className="tab-split">
@@ -148,7 +155,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p2.h", "Egy csatorna teljesítménye önmagában semmit nem mond el.") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p2.p", "Paid search, paid social, remarketing és CRO ugyanabban a rendszerben. Először azt keressük meg, hol szivárog el a bevétel: az ajánlatnál, a tölcsérben vagy a mérésnél. Onnan indulunk.") }} />
-                  <Link className="link-arrow" href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("p2.link", "Teljesítménymarketing részletek") }} />
+                  <Link className="link-arrow" href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -233,7 +240,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p5.h", "Mi van, ha a következő vevőd már nem Google-n keres rád?") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p5.p", "Az online keresések egyre nagyobb része már ChatGPT-ben, Claude-ban és Geminiben történik. Lehetsz első a Google-ben úgy is, hogy közben láthatatlan vagy ott, ahol az emberek ténylegesen kérdeznek.") }} />
-                  <Link className="link-arrow" href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("p5.link", "AIO részletek") }} />
+                  <Link className="link-arrow" href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("p5.link", "SEO és AI keresőoptimalizálás részletek") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -302,7 +309,7 @@ const Index: NextPage = () => {
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill3", "Hagyományos és AIO") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill4", "CRM bevezetés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail automatizáció") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail marketing és automatizáció") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill6", "Webshop és webfejlesztés") }} />
                 </div>
                 <div>

@@ -12,9 +12,9 @@ const EmailAutomatizacio: NextPage = () => {
   return (
     <GeShell page="email-automatizacio">
       <GeSEO
-        title={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineering")}
+        title={t("mt.email", "E-mail marketing és automatizáció Klaviyóval, Growth Engineering")}
         description={t("md.email", "A legtöbb webshopnál az e-mail a bevétel 5–8%-át hozza. Egy jól felépített Klaviyo-fiókban 25–35%. Flow-k, szegmentáció, integráció és GDPR-tiszta felépítés.")}
-        ogTitle={t("mt.email", "E-mail automatizáció Klaviyóval, Growth Engineering")}
+        ogTitle={t("mt.email", "E-mail marketing és automatizáció Klaviyóval, Growth Engineering")}
         ogDescription={t("od.email", "A bevétel harmada e-mailből jöhet. Nálad most mennyi?")}
       />
       <section className="phero">
@@ -24,7 +24,7 @@ const EmailAutomatizacio: NextPage = () => {
               <div className="crumbs rv">
                 <Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} />
                 <span>/</span>
-                <span dangerouslySetInnerHTML={{ __html: t("em.crumb", "E-mail automatizáció") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("em.crumb", "E-mail marketing és automatizáció") }} />
               </div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.eyebrow", "E-commerce · Klaviyo") }} />
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("em.h1", "A bevétel harmada <mark>e-mailből</mark> jöhet. Nálad most mennyi?") }} />

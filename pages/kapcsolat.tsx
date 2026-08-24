@@ -71,12 +71,12 @@ const Kapcsolat: NextPage = () => {
                   <div className="fld">
                     <label htmlFor="fs" dangerouslySetInnerHTML={{ __html: t("kap.f.topic", "Miben segítsünk?") }} />
                     <select id="fs" name="subject">
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt1", "E-commerce e-mail automatizáció (Klaviyo)") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt2", "Teljesítménymarketing / teljes tölcsér") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt3", "Web- vagy appfejlesztés") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt1", "E-mail marketing és automatizáció (Klaviyo)") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt2", "PPC hirdetéskezelés / teljes tölcsér") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt3", "Webshop- és webfejlesztés") }} />
                       <option dangerouslySetInnerHTML={{ __html: t("kap.opt4", "UX/UI design") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt5", "AIO") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt6", "Tartalomgyártás") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt5", "SEO és AI keresőoptimalizálás") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt6", "Kreatív- és videógyártás") }} />
                       <option dangerouslySetInnerHTML={{ __html: t("kap.opt7", "Mély audit") }} />
                       <option dangerouslySetInnerHTML={{ __html: t("kap.opt8", "Még nem tudom, beszéljük meg") }} />
                     </select>

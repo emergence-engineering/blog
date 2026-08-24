@@ -35,7 +35,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill3", "Hagyományos és AIO") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill4", "CRM bevezetés") }} />
-            <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail automatizáció") }} />
+            <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail marketing és automatizáció") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill6", "Webshop és webfejlesztés") }} />
           </div>
           <dl className="cs-meta rv">
@@ -197,7 +197,7 @@ const EsettanulmanyPlantart: NextPage = () => {
                 <p dangerouslySetInnerHTML={{ __html: t("cspa.ph5.p1", "A belső rendszerek stabilizálása után több csatornán skáláztuk az akvizíciót.") }} />
                 <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph5.lbl", "Kulcskezdeményezések:") }} />
                 <ul className="bullets">
-                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l1", "Teljesítménymarketing-kampányok") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l1", "PPC-kampányok") }} />
                   <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l2", "Erős SEO-alapok és linképítés") }} />
                   <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l3", "Következetes organikus tartalomfejlesztés") }} />
                 </ul>

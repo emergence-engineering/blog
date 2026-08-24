@@ -13,9 +13,9 @@ const Webfejlesztes: NextPage = () => {
   return (
     <GeShell page="webfejlesztes">
       <GeSEO
-        title={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
-        description={t("md.web", "MVP-től platformig: React, Next.js, TypeScript, Node, Supabase. Webshop, integrációk, AI/LLM funkciók, DevOps és rich text editor (ProseMirror, TipTap) szakértelem.")}
-        ogTitle={t("mt.web", "Web- és appfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
+        title={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
+        description={t("md.web", "Ötlettől a termékig építünk szoftvert, webshopot, weblapot: megbízhatót, skálázhatót, felesleges körök nélkül. A kód a tiétek, a saját repóitokban, dokumentálva, hogy bármikor át tudjátok venni.")}
+        ogTitle={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
         ogDescription={t("od.web", "Ötlettől a termékig építünk szoftvert. A kód a tiétek, a repóitokban, dokumentálva.")}
       />
       <section className="phero">
@@ -25,10 +25,10 @@ const Webfejlesztes: NextPage = () => {
               <div className="crumbs rv">
                 <Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} />
                 <span>/</span>
-                <span dangerouslySetInnerHTML={{ __html: t("web.crumb", "Webfejlesztés") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("web.crumb", "Webshop- és webfejlesztés") }} />
               </div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("web.eyebrow", "Fejlesztés") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Web- és appfejlesztés, ami <mark>veled együtt</mark> skálázódik") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Webshop- és webfejlesztés, ami <mark>veled együtt</mark> skálázódik") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede", "Ötlettől a termékig építünk szoftvert: megbízhatót, skálázhatót, felesleges körök nélkül. A kód a tiétek, a saját repóitokban, dokumentálva, hogy bármikor át tudjátok venni.") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede2", "Akár MVP kell, akár egy meglévő platform felújítása, egy landing oldal vagy teljes webshop-fejlesztés. Ha félbehagyott projekt van, azt is átvesszük.") }} />
               <div className="hero-cta rv">
@@ -55,7 +55,7 @@ const Webfejlesztes: NextPage = () => {
           <div className="shead">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("web.ref.eyebrow", "Referenciák") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("web.ref.h", "Termékek és weboldalak, amiket építettünk") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("web.ref.h", "Webshopok, weblapok, termékek, amiket mi építettünk") }} />
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.ref.lede", "Startup-termékek, ahol korán csatlakoztunk, és hazai weboldalak, amiket mi terveztünk és fejlesztettünk.") }} />
           </div>

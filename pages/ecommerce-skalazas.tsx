@@ -13,15 +13,15 @@ const EcommerceSkalazas: NextPage = () => {
   return (
     <GeShell page="ecommerce-skalazas" bodyClass="ecom">
       <GeSEO
-        title={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineering")}
+        title={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája, Growth Engineering")}
         description={t("md.ecom", "A webshop-bevétel néhány szám szorzata. Egy konkrét levezetés arról, melyik eszköz melyik mérőszámot mozdítja, és miért épül a rendszer időben egyre olcsóbbá.")}
-        ogTitle={t("mt.ecom", "E-commerce skálázás: a bevétel matematikája, Growth Engineering")}
+        ogTitle={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája, Growth Engineering")}
         ogDescription={t("od.ecom", "Három szerény javulás nem összeadódik, hanem összeszorzódik. Megmutatjuk, hogyan.")}
       />
       <section className="ec-hero">
         <div className="col">
-          <div className="ec-crumbs"><Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} /> / <span dangerouslySetInnerHTML={{ __html: t("ec.crumb", "E-commerce skálázás") }} /></div>
-          <div className="ec-kick" dangerouslySetInnerHTML={{ __html: t("ec.kick", "E-commerce skálázás") }} />
+          <div className="ec-crumbs"><Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} /> / <span dangerouslySetInnerHTML={{ __html: t("ec.crumb", "CRO és E-commerce") }} /></div>
+          <div className="ec-kick" dangerouslySetInnerHTML={{ __html: t("ec.kick", "CRO és E-commerce") }} />
           <h1 className="ec-h1" dangerouslySetInnerHTML={{ __html: t("ec.h1", "Az e-commerce skálázás matematikája") }} />
           <p className="ec-sub" dangerouslySetInnerHTML={{ __html: t("ec.sub", "Egy webshop bevétele néhány szám szorzata. Ha érted, melyik számot mivel lehet mozdítani, a skálázás nem szerencse kérdése, hanem tervezhető folyamat. Lássuk egy konkrét példán, <em>lépésről lépésre</em>.") }} />
           <div className="ec-cta">

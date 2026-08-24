@@ -13,9 +13,9 @@ const AiSeo: NextPage = () => {
   return (
     <GeShell page="ai-seo">
       <GeSEO
-        title={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineering")}
+        title={t("mt.aiseo", "SEO és AI keresőoptimalizálás: legyél ott, ahol ma keresnek | Growth Engineering")}
         description={t("md.aiseo", "Láthatóság ChatGPT-ben, Claude-ban és Geminiben. Entitás-optimalizálás, strukturált adat, idézhető tartalom és AI-említések követése.")}
-        ogTitle={t("mt.aiseo", "AIO: legyél ott, ahol ma keresnek | Growth Engineering")}
+        ogTitle={t("mt.aiseo", "SEO és AI keresőoptimalizálás: legyél ott, ahol ma keresnek | Growth Engineering")}
         ogDescription={t("od.aiseo", "Az online keresések egyre nagyobb hányada AI eszközökben történik. Gondoskodunk róla, hogy a márkád a válasz része legyen, ne csak egy találat.")}
       />
       <section className="phero">
@@ -25,9 +25,9 @@ const AiSeo: NextPage = () => {
               <div className="crumbs rv">
                 <Link href="/" dangerouslySetInnerHTML={{ __html: t("crumb.home", "Főoldal") }} />
                 <span>/</span>
-                <span dangerouslySetInnerHTML={{ __html: t("seo.crumb", "AIO") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("seo.crumb", "SEO és AI keresőoptimalizálás") }} />
               </div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("seo.eyebrow", "AIO") }} />
+              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("seo.eyebrow", "SEO és AI keresőoptimalizálás") }} />
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("seo.h1", "Mi lesz, ha a következő vevőd <mark>rád sem guglizik</mark>?") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("seo.lede", "Az AI-asszisztensek nem listát adnak, hanem választ. Ha a márkád nincs a válaszban, a felhasználó nem is tud róla, hogy létezel.") }} />
               <div className="hero-cta rv">
