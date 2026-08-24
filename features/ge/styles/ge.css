@@ -515,6 +515,48 @@ html{scroll-behavior:smooth}
   .ge .cstl-row.flip .cstl-body{order:0}
 }
 
+/* Plantart timeline illustrations rebuilt from the Figma vectors; labels are
+   live localized text. --u converts one 576px-frame design pixel to the
+   current container width (see PlantartArt.tsx). */
+.ge .pa-illu{position:relative;width:100%;overflow:hidden;container-type:inline-size;--u:0.173611cqw}
+.ge .pa-illu img{max-width:none;border-radius:0}
+.ge .pa-abs{position:absolute}
+.ge .pa-chip{position:absolute;display:flex;align-items:center;gap:calc(18*var(--u));background:#fff;
+  border-radius:calc(8*var(--u));padding:calc(16*var(--u));font-family:var(--sans);font-weight:600;
+  line-height:1.5;color:#2F2651;white-space:nowrap}
+.ge .pa-chip.wrap{white-space:normal}
+.ge .pa-chip-ic{position:relative;flex:none;width:calc(34*var(--u));height:calc(34*var(--u))}
+.ge .pa-chip-ic img{position:absolute;left:calc(-17.6*var(--u));top:calc(-20.5*var(--u));
+  width:calc(79.1*var(--u));height:calc(76.3*var(--u))}
+.ge .pa-glass{border:calc(1.5*var(--u)) solid rgba(255,255,255,0);border-radius:calc(3*var(--u));
+  background:linear-gradient(38.9deg,rgba(255,255,255,.2) 12.6%,rgba(255,255,255,.5) 100%);
+  backdrop-filter:blur(calc(3.7*var(--u)));box-shadow:0 calc(5.9*var(--u)) calc(5.9*var(--u)) rgba(0,0,0,.25)}
+.ge .pa-chart-blur{background:linear-gradient(14.5deg,rgba(245,144,154,.8) 24%,rgba(124,105,200,.8) 79%);
+  filter:blur(calc(18.1*var(--u)))}
+.ge .pa-ecard{position:absolute;background:#fff;border-radius:calc(8.1*var(--u));overflow:hidden;
+  box-shadow:0 calc(14.2*var(--u)) calc(18.9*var(--u)) calc(-4.7*var(--u)) rgba(48,20,13,.08),
+    0 calc(4.7*var(--u)) calc(7.1*var(--u)) calc(-2.4*var(--u)) rgba(48,20,13,.03)}
+.ge .pa-ecard-photo{width:100%;aspect-ratio:1;object-fit:cover}
+.ge .pa-ecard-body{display:flex;flex-direction:column;gap:calc(9.4*var(--u));padding:calc(10.8*var(--u))}
+.ge .pa-bar{display:block;height:calc(7.5*var(--u));border-radius:999px;background:#EEE}
+.ge .pa-ecard-row{display:flex;align-items:center;justify-content:space-between}
+.ge .pa-cartbtn{display:flex;align-items:center;justify-content:center;width:calc(47.2*var(--u));
+  height:calc(47.2*var(--u));border:calc(1.2*var(--u)) solid #2F2651;border-radius:calc(9.4*var(--u))}
+.ge .pa-rev{position:absolute;background:#fff;border:calc(0.7*var(--u)) solid #fff;
+  border-radius:calc(8.1*var(--u));overflow:hidden;padding:calc(16.3*var(--u));
+  box-shadow:0 0 calc(29.5*var(--u)) rgba(0,0,0,.1)}
+.ge .pa-rev-txt{position:relative;color:#2F2651}
+.ge .pa-rev-txt .amt{font-family:var(--sans);font-weight:600;font-size:calc(23.6*var(--u));
+  line-height:1.4;margin:0;color:#2F2651;white-space:nowrap}
+.ge .pa-rev-txt .amt .plus{color:#CB5C40}
+.ge .pa-rev-txt .sub{font-size:calc(10.8*var(--u));line-height:1.5;margin:0;white-space:nowrap}
+.ge .pa-cartglass{position:absolute;border-radius:50%;overflow:hidden;border:calc(2*var(--u)) solid #fff;
+  background:linear-gradient(-39.9deg,rgba(255,255,255,0) 0.9%,rgba(255,255,255,.9) 98.6%);
+  backdrop-filter:blur(calc(8.3*var(--u)));box-shadow:0 calc(4.7*var(--u)) calc(28.3*var(--u)) rgba(0,0,0,.1)}
+.ge .pa-cartglass .blob{position:absolute;left:calc(25.9*var(--u));top:calc(21.3*var(--u));
+  width:calc(31.6*var(--u));height:calc(35.3*var(--u));filter:blur(calc(13*var(--u)));
+  background:linear-gradient(18deg,rgba(245,144,154,.8) 24%,rgba(124,105,200,.8) 79%)}
+
 /* case study results cards */
 .ge .cs-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6rem}
 .ge .cs-results > div{background:#fff;border:1px solid var(--rule);border-radius:20px;

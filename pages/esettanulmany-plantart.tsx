@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { PaAuditArt, PaCrmArt, PaEcomArt } from "../features/ge/components/PlantartArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/esettanulmany-plantart.html; DOM structure intentionally
@@ -114,7 +115,7 @@ const EsettanulmanyPlantart: NextPage = () => {
           <div className="cstl">
             <div className="cstl-row rv">
               <div className="cstl-media">
-                <Image src="/ge/img/pa-tl1.webp" width={576} height={605} alt={t("cspa.tl1.alt", "Audit-illusztráció: értékajánlat, ügyfélszerzési stratégia és szűk keresztmetszetek")} />
+                <PaAuditArt alt={t("cspa.tl1.alt", "Audit-illusztráció: értékajánlat, ügyfélszerzési stratégia és szűk keresztmetszetek")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph1.h", "Alapozás") }} />
@@ -131,7 +132,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <div className="cstl-row flip rv">
               <div className="cstl-media">
-                <Image src="/ge/img/pa-tl2.webp" width={576} height={485} alt={t("cspa.tl2.alt", "Webshop-termékkártya és 100 millió forint többletbevétel az első évben")} />
+                <PaEcomArt alt={t("cspa.tl2.alt", "Webshop-termékkártya és 100 millió forint többletbevétel az első évben")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
@@ -149,7 +150,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <div className="cstl-row rv">
               <div className="cstl-media">
-                <Image src="/ge/img/pa-tl3.webp" width={576} height={690} alt={t("cspa.tl3.alt", "A Plantart zuzmó- és mohafal landing oldala asztali és mobil nézetben")} />
+                <Image src="/ge/img/pa-tl3.webp" width={765} height={790} alt={t("cspa.tl3.alt", "A Plantart zuzmó- és mohafal landing oldala asztali és mobil nézetben")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph3.h", "Káoszból kiszámítható bevétel") }} />
@@ -166,7 +167,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <div className="cstl-row flip rv">
               <div className="cstl-media">
-                <Image src="/ge/img/pa-tl4.webp" width={576} height={605} alt={t("cspa.tl4.alt", "A belső motor illusztrációja: Salesforce CRM, értékesítési tréning és automatikus ajánlatgenerátor")} />
+                <PaCrmArt alt={t("cspa.tl4.alt", "A belső motor illusztrációja: Salesforce CRM, értékesítési tréning és automatikus ajánlatgenerátor")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph4.h", "A belső motor skálázása") }} />
@@ -188,7 +189,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <div className="cstl-row rv">
               <div className="cstl-media">
-                <Image src="/ge/img/pa-tl5.webp" width={656} height={576} alt={t("cspa.tl5.alt", "A Plantart Facebook-hirdetéskreatívjai")} />
+                <Image src="/ge/img/pa-tl5.webp" width={765} height={790} alt={t("cspa.tl5.alt", "A Plantart Facebook-hirdetéskreatívjai")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph5.h", "Növekedés hajtása") }} />
@@ -265,7 +266,7 @@ const EsettanulmanyPlantart: NextPage = () => {
         <div className="wrap">
           <div className="split">
             <div className="split-media rv" style={{ maxWidth: "480px", marginInline: "auto" }}>
-              <Image src="/ge/img/pa-concl.webp" width={542} height={514} alt={t("cspa.cl.imgalt", "Növekedési illusztráció: rakéta, fogaskerekek és emelkedő oszlopok")} style={{ border: 0 }} />
+              <Image src="/ge/img/pa-concl.webp" width={699} height={930} alt={t("cspa.cl.imgalt", "Növekedési illusztráció: rakéta, fogaskerekek és emelkedő oszlopok")} style={{ border: 0 }} />
             </div>
             <div className="rv">
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.cl.eyebrow", "Összegzés") }} />
