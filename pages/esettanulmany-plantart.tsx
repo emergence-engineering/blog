@@ -14,9 +14,9 @@ const EsettanulmanyPlantart: NextPage = () => {
   return (
     <GeShell page="esettanulmany-plantart">
       <GeSEO
-        title={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
-        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +100 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
-        ogTitle={t("mt.cspa", "Plantart esettanulmány: 500 millió forintból 2 milliárd négy év alatt, Growth Engineering")}
+        title={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt, Growth Engineering")}
+        description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +45 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
+        ogTitle={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt, Growth Engineering")}
         ogDescription={t("od.cspa", "A stagnálástól a kiszámítható, adatvezérelt növekedésig. Márka, webshop, CRM, automatizáció és több csatornás akvizíció.")}
       />
       <section className="cs-hero on-photo">
@@ -79,7 +79,7 @@ const EsettanulmanyPlantart: NextPage = () => {
           <div className="rv" style={{ background: "#fff", borderRadius: "24px", padding: "clamp(2rem,4vw,3.6rem)", maxWidth: "1060px", marginInline: "auto" }}>
             <h2 style={{ textAlign: "center", marginBottom: "1.8rem" }} dangerouslySetInnerHTML={{ __html: t("cspa.ov.h2", "Áttekintés") }} />
             <div className="prose" style={{ maxWidth: "none" }}>
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p1", "A Plantart egy európai kkv a kertészeti piacon, amely egy teljes digitális átalakítással tört ki a négy éve tartó bevételi platóból. <strong>Az árbevétel 2020 és 2024 között 500 millió forintról több mint 2 milliárd forintra nőtt</strong>: a márka újradefiniálásával, a digitális ökoszisztéma újjáépítésével, CRM és automatizáció bevezetésével, az akvizíciós csatornák megerősítésével és az AI-alapú bővítés előkészítésével.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p1", "A Plantart egy európai kkv a kertészeti piacon, amely egy teljes digitális átalakítással tört ki a négy éve tartó bevételi platóból. <strong>Az árbevétel 2020 és 2024 között 700 millió forintról 1,9 milliárd forintra nőtt</strong>: a márka újradefiniálásával, a digitális ökoszisztéma újjáépítésével, CRM és automatizáció bevezetésével, az akvizíciós csatornák megerősítésével és az AI-alapú bővítés előkészítésével.") }} />
               <p dangerouslySetInnerHTML={{ __html: t("cspa.ov.p2", "Ez az esettanulmány azt mutatja be, hogyan jutott el a Plantart a stagnálástól egy skálázható, adatvezérelt motorig, amely B2B és B2C szegmensben is kiszámítható bevételt termel.") }} />
             </div>
           </div>
@@ -95,7 +95,7 @@ const EsettanulmanyPlantart: NextPage = () => {
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.ch.eyebrow", "A kihívás") }} />
               <h2 dangerouslySetInnerHTML={{ __html: t("cspa.ch.h2", "Mi fogta vissza a növekedést?") }} />
               <div className="prose" style={{ marginTop: "1.4rem" }}>
-                <p dangerouslySetInnerHTML={{ __html: t("cspa.ch.p1", "A Plantart éveken át kis kkv-ként működött: erős szakmai tudással, hűséges ügyfelekkel és növényekért lelkesedő csapattal. A potenciál ellenére a bevétel <strong>négy egymást követő évben 500 millió forint körül állt</strong>.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ch.p1", "A Plantart éveken át kis kkv-ként működött: erős szakmai tudással, hűséges ügyfelekkel és növényekért lelkesedő csapattal. A potenciál ellenére a bevétel <strong>négy egymást követő évben 700 millió forint körül állt</strong>.") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("cspa.ch.p2", "A marketing minimális volt, az érdeklődőszerzés esetleges, és nem volt strukturált tölcsér vagy konverziós rendszer, ami a növekedést támogatta volna.") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("cspa.ch.p3", "A fordulat akkor jött, amikor a menedzsment irányt váltott: készen álltak újragondolni az egész működést, beruházni a digitális modernizációba, és <strong>stratégiai, adatvezérelt megközelítésre</strong> váltani.") }} />
               </div>
@@ -132,13 +132,13 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <div className="cstl-row flip rv">
               <div className="cstl-media">
-                <PaEcomArt alt={t("cspa.tl2.alt", "Webshop-termékkártya és 100 millió forint többletbevétel az első évben")} />
+                <PaEcomArt alt={t("cspa.tl2.alt", "Webshop-termékkártya és 45 millió forint többletbevétel az első évben")} />
               </div>
               <div className="cstl-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
                 <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph2.sub", "Weboldal, webshop, integrációk") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Ezután a Plantart teljes digitális átalakuláson ment át: megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációk épültek a belső rendszerekhez.") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "<strong>Az új webshop az első évében több mint 100 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "<strong>Az új webshop az első évében több mint 45 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p3", "Ez fordulópont volt: a Plantart statikus bemutatkozó oldalról egy jól teljesítő digitális ökoszisztémára váltott, ami több szegmens akvizícióját is kiszolgálja.") }} />
                 <div className="cstl-cta">
                   <Link href="/kapcsolat" className="btn">

@@ -288,7 +288,7 @@ const Index: NextPage = () => {
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} />
                   </div>
                   <div className="m">
-                    <div className="dnum">+100M Ft</div>
+                    <div className="dnum">+45M Ft</div>
                     <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m2", "Webshop-bevétel az első évben") }} />
                   </div>
                   <div className="m">

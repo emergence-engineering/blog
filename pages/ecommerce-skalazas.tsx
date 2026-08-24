@@ -325,7 +325,7 @@ const EcommerceSkalazas: NextPage = () => {
               <div className="body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("ec.cs3.h", "Rendszer: webshop, CRM, automatizáció") }} />
                 <p dangerouslySetInnerHTML={{ __html: t("ec.cs3.p", "Kiépült a webshop, a CRM és az e-mail automatizáció, és több csatornán indult el az akvizíció, egy közös mérési rétegre kötve.") }} />
-                <div className="tmet" dangerouslySetInnerHTML={{ __html: t("ec.cs3.met", "+100 millió Ft webshop-bevétel az első évben") }} />
+                <div className="tmet" dangerouslySetInnerHTML={{ __html: t("ec.cs3.met", "+45 millió Ft webshop-bevétel az első évben") }} />
                 <Image className="tshot" src="/ge/img/s-plantartshop.jpg" alt="A Plantart webshop nyitóoldala" width={1280} height={800} />
                 <div className="tcap" dangerouslySetInnerHTML={{ __html: t("ec.cs3.cap", "A Plantart webshopja: a teljes rendszernek csak egy csatornája, a bevétel nagyobb része B2B") }} />
               </div>
@@ -334,7 +334,7 @@ const EcommerceSkalazas: NextPage = () => {
               <div className="fig">2 Mrd Ft<span dangerouslySetInnerHTML={{ __html: t("ec.cs.now", "Ma") }} /></div>
               <div className="body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("ec.cs4.h", "Adatvezérelt iparági vezető") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("ec.cs4.p", "A megrekedt kkv-ból 2 milliárd forintos iparági vezető lett, erős B2B és B2C bevétellel. Nem egy kampány hozta, hanem az egész rendszer.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("ec.cs4.p", "A megrekedt kkv-ból 1,9 milliárd forintos iparági vezető lett, erős B2B és B2C bevétellel. Nem egy kampány hozta, hanem az egész rendszer.") }} />
                 <div className="tmet"><span dangerouslySetInnerHTML={{ __html: t("ec.cs4.met", "3× bevétel · −67% konverziós költség") }} /> · <Link href="/esettanulmany-plantart" dangerouslySetInnerHTML={{ __html: t("ec.cs.read", "a teljes esettanulmány →") }} /></div>
               </div>
             </li>

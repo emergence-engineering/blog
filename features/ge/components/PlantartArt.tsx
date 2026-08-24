@@ -98,7 +98,7 @@ export const PaEcomArt: FunctionComponent<{ alt: string }> = ({ alt }) => {
         <div className="pa-rev-txt">
           <p className="amt">
             <span className="plus">+ </span>
-            <span dangerouslySetInnerHTML={{ __html: t("cspa.art.rev", "100 millió Ft") }} />
+            <span dangerouslySetInnerHTML={{ __html: t("cspa.art.rev", "45 millió Ft") }} />
           </p>
           <p className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.art.revsub", "Árbevétel-növekedés") }} />
         </div>

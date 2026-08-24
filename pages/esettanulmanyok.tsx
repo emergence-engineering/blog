@@ -178,7 +178,7 @@ const Esettanulmanyok: NextPage = () => {
               <div className="rb">
                 <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r9.k", "Webshop <span class=\"etag\">E-commerce</span>") }} />
                 <div className="rn">Plantart webshop</div>
-                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r9.p", "Növény-webshop, amit mi terveztünk és fejlesztettünk: keresés, kategóriák és vásárlási út egy 2 milliárd forintos márkának.") }} />
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r9.p", "Növény-webshop, amit mi terveztünk és fejlesztettünk: keresés, kategóriák és vásárlási út egy 1,9 milliárd forintos márkának.") }} />
               </div>
             </a>
             <a className="refcard" href="https://vezessjolautosiskola.hu/" rel="noopener">
