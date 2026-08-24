@@ -18,9 +18,14 @@ export const useCarousel = (
       const el = track.current;
       if (!el) return;
 
+      // Measure the real (fractional) slide width: clientWidth rounds down,
+      // and the sub-pixel error accumulates across slides into a visible
+      // sliver of the neighboring slide along the track's edge.
       const card = el.firstElementChild as HTMLElement | null;
-      const distance =
-        stepSize === "card" && card ? card.offsetWidth + 16 : el.clientWidth;
+      const slideWidth = card
+        ? card.getBoundingClientRect().width
+        : el.clientWidth;
+      const distance = stepSize === "card" ? slideWidth + 16 : slideWidth;
 
       // 1px of slack: scrollLeft can land on a fraction after a smooth scroll
       const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
@@ -36,7 +41,11 @@ export const useCarousel = (
         el.scrollTo({ left: el.scrollWidth, behavior: "auto" });
         return;
       }
-      el.scrollBy({ left: direction * distance, behavior: "smooth" });
+      // Target an absolute slide boundary rather than scrollBy: relative steps
+      // accumulate the fractional offset a smooth scroll can settle on, which
+      // leaves a sliver of the neighboring slide visible along the edge.
+      const index = Math.round(el.scrollLeft / distance);
+      el.scrollTo({ left: (index + direction) * distance, behavior: "smooth" });
     },
     [stepSize]
   );

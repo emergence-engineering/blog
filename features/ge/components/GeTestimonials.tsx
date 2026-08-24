@@ -41,7 +41,7 @@ export const GeTestimonials: FunctionComponent<GeTestimonialsProps> = ({
       role: t("ts.r3", "vezérigazgató, Filtered"),
     },
     {
-      quote: t("ts.q4", "<em>“</em>Emergence Engineering was a fantastic partner for us to collaborate with on our collaborative editor and workspace. We had a great experience working on tough issues, from code editing to image embedding.<em>”</em>"),
+      quote: t("ts.q4", "<em>“</em>Az Emergence Engineering fantasztikus partner volt a kollaboratív szerkesztőnk és munkaterünk fejlesztésében. Nagyszerű volt együtt dolgozni a nehéz feladatokon, a kódszerkesztéstől a képbeágyazásig.<em>”</em>"),
       initials: "AM",
       name: "Andrew Milich",
       role: t("ts.r4", "társalapító &amp; CEO, Skiff"),
@@ -59,7 +59,7 @@ export const GeTestimonials: FunctionComponent<GeTestimonialsProps> = ({
       role: t("ts.r6", "CTO, relay.cc"),
     },
     {
-      quote: t("ts.q7", "<em>“</em>The Emergence Engineering team was very helpful in developing a Node.js script for a manufacturing test system for a Bluetooth product.<em>”</em>"),
+      quote: t("ts.q7", "<em>“</em>Az Emergence Engineering csapata nagy segítség volt egy Bluetooth-termék gyártási tesztrendszeréhez készült Node.js szkript fejlesztésében.<em>”</em>"),
       initials: "SK",
       name: "Sandeep Kamath",
       role: t("ts.r7", "alapító, Swaralink"),

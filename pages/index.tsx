@@ -14,9 +14,9 @@ const Index: NextPage = () => {
   return (
     <GeShell page="index">
       <GeSEO
-        title={t("mt.home", "Growth Engineering, Növekedési rendszerek webshopoknak és B2B cégeknek")}
+        title={t("mt.home", "Growth Engineering | Növekedési rendszerek webshopoknak és B2B cégeknek")}
         description={t("md.home", "A belső growth csapatod: e-mail automatizáció, teljesítménymarketing, fejlesztés és design egy helyen. Minden partnerünknél 16% fölé ment a profitnövekedés az első fél évben.")}
-        ogTitle={t("ot.home", "Growth Engineering, Mi fogja vissza a céged növekedését?")}
+        ogTitle={t("ot.home", "Growth Engineering | Mi fogja vissza a céged növekedését?")}
         ogDescription={t("od.home", "Rendszert építünk a cégedbe, ami a kampányok lefutása után is termel.")}
       />
       <section className="hero">
@@ -38,8 +38,6 @@ const Index: NextPage = () => {
                 <div className="badgestrip">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/ge/img/badge-stripe.svg" alt="Stripe Verified Partner" height={30} />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/ge/img/badge-google-partner.svg" alt="Google Partner" height={50} />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/ge/img/badge-klaviyo.svg" alt="Klaviyo Advisor Silver" height={46} />
                 </div>
@@ -79,7 +77,7 @@ const Index: NextPage = () => {
               <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.3", "AI workflow és eszköz, átadva a csapatodnak a szerződés idejére") }} />
             </div>
             <div>
-              <div className="dnum">Képzések</div>
+              <div className="dnum" dangerouslySetInnerHTML={{ __html: t("proof.4h", "Képzések") }} />
               <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.4", "Fejlesztés és képzések a belső csapatnak, a projekt részeként") }} />
             </div>
           </div>
@@ -342,8 +340,8 @@ const Index: NextPage = () => {
                   </div>
                 </div>
                 <div className="chips">
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.consult", "üzleti tanácsadás") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.redesign", "weboldal újratervezés") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.consult", "Üzleti tanácsadás") }} />
+                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.redesign", "Weboldal újratervezés") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.ux", "UX/UI") }} />
                   <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.ppc", "PPC") }} />
                 </div>
@@ -410,7 +408,7 @@ const Index: NextPage = () => {
             <div>
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("col.start", "Kiindulópont") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("audit.h", "Mély audit") }} />
-              <div className="price" style={{ margin: ".6rem 0 1rem" }} dangerouslySetInnerHTML={{ __html: t("audit.price", "490 000 Ft<small>egyszeri, fix díj</small>") }} />
+              <div className="price" style={{ margin: ".6rem 0 1rem" }} dangerouslySetInnerHTML={{ __html: t("audit.price", "490 000 Ft <small>egyszeri, fix díj</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("audit.p", "Egyszeri, fix díjas átvilágítás az üzletről és a marketingről. A végén kapsz egy priorizált listát arról, mi hozza a legtöbb bevételt a következő 90 napban, akkor is, ha utána nem velünk dolgozol.") }} />
               <div style={{ marginTop: "1.7rem" }}>
                 <Link href="/kapcsolat" className="btn">
@@ -602,7 +600,7 @@ const Index: NextPage = () => {
         <div className="wrap">
           <div className="cta">
             <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("fc.eyebrow", "Beszéljünk") }} />
-            <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("fc.title", "Mi tartja vissza a növekedésed?") }} />
+            <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("fc.title", "Mi fogja vissza a növekedésed?") }} />
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("fc.lede", "Beszéljünk arról, hol tartasz, hova akarsz eljutni, és mi áll az útban. Egyetlen hívással kezdődik.") }} />
             <div className="btns rv">
               <a href="mailto:info@emergence-engineering.com" className="btn">

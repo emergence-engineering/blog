@@ -72,13 +72,15 @@ export const useGeSite = () => {
             if (en.isIntersecting) {
               window.setTimeout(
                 () => en.target.classList.add("in"),
-                Math.min(i * 70, 260)
+                Math.min(i * 60, 180)
               );
               io.unobserve(en.target);
             }
           });
         },
-        { rootMargin: "0px 0px -6% 0px", threshold: 0.05 }
+        // The positive bottom margin starts the reveal just before the element
+        // scrolls into view, so fast scrolling never lands on a blank section.
+        { rootMargin: "0px 0px 12% 0px", threshold: 0.01 }
       );
       const register = (el: Element) => {
         if (el.classList.contains("in")) return;
