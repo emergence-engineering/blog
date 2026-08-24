@@ -10,7 +10,14 @@ import { useGeT } from "../i18n/useGeT";
  * dictionary); the arrows flank the quote and the "Kikkel dolgozunk?" side
  * panel stays fixed while the quotes swipe.
  */
-export const GeTestimonials: FunctionComponent = () => {
+export interface GeTestimonialsProps {
+  /** Drop the tight-top spacing when the preceding section is not navy. */
+  tightTop?: boolean;
+}
+
+export const GeTestimonials: FunctionComponent<GeTestimonialsProps> = ({
+  tightTop = true,
+}) => {
   const t = useGeT();
   const { track, step } = useCarousel();
 
@@ -63,7 +70,7 @@ export const GeTestimonials: FunctionComponent = () => {
     "h-10 w-10 shrink-0 rounded-full border border-white/25 text-white transition hover:border-coral hover:text-coral";
 
   return (
-    <section className="on-navy tight-top">
+    <section className={tightTop ? "on-navy tight-top" : "on-navy"}>
       <div className="wrap">
         <div className="eyebrow rv in" dangerouslySetInnerHTML={{ __html: t("ts.eyebrow", "Vélemények") }} />
         <div className="quote-grid">
