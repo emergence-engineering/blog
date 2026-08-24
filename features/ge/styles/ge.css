@@ -560,6 +560,35 @@ html{scroll-behavior:smooth}
   width:calc(31.6*var(--u));height:calc(35.3*var(--u));filter:blur(calc(13*var(--u)));
   background:linear-gradient(18deg,rgba(245,144,154,.8) 24%,rgba(124,105,200,.8) 79%)}
 
+/* Marketing hero artwork (browser mockup + floating service chips), rebuilt
+   from the Figma component; chip labels are live localized text. --u converts
+   one 615px-frame design pixel to the current container width
+   (see GmHeroArt.tsx). */
+.ge .gm-art{position:relative;width:100%;aspect-ratio:615/599;container-type:inline-size;--u:0.162602cqw}
+.ge .gm-art img{max-width:none;border-radius:0}
+.ge .gm-abs{position:absolute}
+.ge .gm-browser{background:rgba(255,255,255,.6);border-radius:calc(27*var(--u))}
+.ge .gm-browser-bar{display:flex;align-items:center;gap:calc(20.3*var(--u));
+  padding:calc(13.5*var(--u)) calc(18*var(--u));background:rgba(225,214,236,.5);
+  border-radius:calc(27*var(--u)) calc(27*var(--u)) 0 0}
+.ge .gm-browser-bar img{flex:none}
+.ge .gm-pill{flex:1;height:calc(15.8*var(--u));border-radius:999px;background:rgba(255,255,255,.6)}
+.ge .gm-skel{display:flex;flex-direction:column;gap:calc(9*var(--u))}
+.ge .gm-skel span{display:block;height:calc(22.5*var(--u));border-radius:calc(4*var(--u));background:#E1D6EC}
+.ge .gm-grad-btn{border-radius:999px;
+  background:radial-gradient(calc(118*var(--u)) calc(50*var(--u)) at calc(23*var(--u)) calc(13*var(--u)),#ED8065 0%,#C26E93 50%,#975BC0 100%)}
+.ge .gm-chip{position:absolute;display:flex;align-items:center;gap:calc(18*var(--u));
+  height:calc(90*var(--u));padding:calc(27*var(--u));background:#fff;border-radius:calc(18*var(--u));
+  font-family:var(--sans);font-weight:600;font-size:calc(20*var(--u));line-height:1.4;color:#2F2651;
+  white-space:nowrap;
+  box-shadow:0 calc(12*var(--u)) calc(16*var(--u)) calc(-4*var(--u)) rgba(48,20,13,.08),
+    0 calc(4*var(--u)) calc(6*var(--u)) calc(-2*var(--u)) rgba(48,20,13,.03)}
+.ge .gm-chip-ic{position:relative;flex:none;width:calc(36*var(--u));height:calc(36*var(--u))}
+.ge .gm-glow{background:linear-gradient(17deg,rgba(245,144,154,.8) 24%,rgba(124,105,200,.8) 79%)}
+.ge .gm-glass{border:calc(2.3*var(--u)) solid rgba(255,255,255,0);border-radius:calc(2*var(--u));
+  background:linear-gradient(38.9deg,rgba(255,255,255,.2) 12.6%,rgba(255,255,255,.5) 100%);
+  backdrop-filter:blur(calc(2.8*var(--u)));box-shadow:0 calc(4.5*var(--u)) calc(4.5*var(--u)) rgba(0,0,0,.25)}
+
 /* case study results cards */
 .ge .cs-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6rem}
 .ge .cs-results > div{background:#fff;border:1px solid var(--rule);border-radius:20px;

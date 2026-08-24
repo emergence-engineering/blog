@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="60.7953" height="11.2584" viewBox="0 0 60.7953 11.2584" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 2157">
+<circle id="Ellipse 92" cx="5.6292" cy="5.6292" r="5.06628" fill="white" fill-opacity="0.6" stroke="url(#paint0_linear_0_115)" stroke-width="1.12584"/>
+<circle id="Ellipse 93" cx="30.3977" cy="5.6292" r="5.06628" fill="white" fill-opacity="0.6" stroke="url(#paint1_linear_0_115)" stroke-width="1.12584"/>
+<circle id="Ellipse 94" cx="55.1661" cy="5.6292" r="5.06628" fill="white" fill-opacity="0.6" stroke="url(#paint2_linear_0_115)" stroke-width="1.12584"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_115" x1="10.1326" y1="12.3842" x2="6.79441e-08" y2="0.281459" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_115" x1="34.901" y1="12.3842" x2="24.7685" y2="0.281459" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_115" x1="59.6695" y1="12.3842" x2="49.5369" y2="0.281459" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>

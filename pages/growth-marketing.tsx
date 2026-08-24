@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GmHeroArt } from "../features/ge/components/GmHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/growth-marketing.html; DOM structure intentionally
@@ -42,8 +43,8 @@ const GrowthMarketing: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("gm.trust2", "<b>Bevétel</b>, nem kampánystatisztika") }} />
               </div>
             </div>
-            <div className="phero-art rv">
-              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt11", "PPC hirdetéskezelés és kampánymunka a Growth Engineeringtől")} />
+            <div className="rv">
+              <GmHeroArt />
             </div>
           </div>
         </div>

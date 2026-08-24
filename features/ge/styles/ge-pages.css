@@ -408,6 +408,10 @@
    the heading now that the left column is longer. Top-align it there. */
 .ge-p-kapcsolat .phero-grid{align-items:start}
 
+/* The marketing hero artwork bleeds past the right page edge by design
+   (the browser mockup runs off-canvas in Figma); clip it at the section. */
+.ge-p-growth-marketing .phero{overflow:hidden}
+
 /* The VezessJol mockups are transparent PNGs exported from the design; the
    generic media frame would draw a card edge around them. */
 .ge-p-esettanulmany-vezessjol .split-media img[src*="vj-desktop"]{border:0;border-radius:0;width:112%;max-width:112%;margin-left:-6%}
