@@ -141,16 +141,6 @@ const Esettanulmanyok: NextPage = () => {
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r10.p", "A gyakorló vezetés oldala, amit újraterveztünk: +93% konverzió és feleannyi érdeklődőszerzési költség.") }} />
               </div>
             </a>
-            <Link className="refcard" href="/esettanulmany-szamlabridge">
-              <div className="shot cover">
-                <Image src="/ge/img/s-szamlabridge.jpg" alt="A SzámlaBridge weboldala" width={1280} height={800} />
-              </div>
-              <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r13.k", "Webalkalmazás <span class=\"etag\">SaaS</span>") }} />
-                <div className="rn">SzámlaBridge</div>
-                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r13.p", "Middleware, ami a Stripe-fizetésekből automatikusan szabályos számlát készít, proaktív hibakezeléssel.") }} />
-              </div>
-            </Link>
             <a className="refcard" href="https://adagolas.netamin.hu/" rel="noopener">
               <div className="shot cover">
                 <Image src="/ge/img/s-netamin.jpg" alt="A Netamin napi vitamin tervezője" width={1280} height={800} />
