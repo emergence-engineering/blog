@@ -29,7 +29,7 @@ const EsettanulmanyPlantart: NextPage = () => {
             <span>/</span>
             <span>Plantart</span>
           </div>
-          <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("cspa.hero.h1", "A Plantartból piacvezető és digitális bajnok lett") }} />
+          <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("cspa.hero.h1", "Plantart piacvezető és digitális bajnok") }} />
           <div className="pills rv">
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill1", "Márkaújratervezés") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
