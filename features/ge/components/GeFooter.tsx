@@ -24,22 +24,22 @@ export const GeFooter: FunctionComponent = () => {
               <h5 dangerouslySetInnerHTML={{ __html: t("ft.services", "Szolgáltatások") }} />
               <ul>
                 <li>
-                  <Link href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("nav.growth", "Teljesítménymarketing") }} />
+                  <Link href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("nav.growth", "PPC hirdetéskezelés") }} />
                 </li>
                 <li>
-                  <Link href="/webfejlesztes" dangerouslySetInnerHTML={{ __html: t("nav.web", "Web- és appfejlesztés") }} />
+                  <Link href="/webfejlesztes" dangerouslySetInnerHTML={{ __html: t("nav.web", "Webshop- és webfejlesztés") }} />
                 </li>
                 <li>
-                  <Link href="/email-automatizacio" dangerouslySetInnerHTML={{ __html: t("nav.email", "E-mail automatizáció") }} />
+                  <Link href="/email-automatizacio" dangerouslySetInnerHTML={{ __html: t("nav.email", "E-mail marketing és automatizáció") }} />
                 </li>
                 <li>
                   <Link href="/ux-ui-design" dangerouslySetInnerHTML={{ __html: t("nav.ux", "UX/UI design") }} />
                 </li>
                 <li>
-                  <Link href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("nav.seo", "AIO") }} />
+                  <Link href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("nav.seo", "SEO és AI keresőoptimalizálás") }} />
                 </li>
                 <li>
-                  <Link href="/ecommerce-skalazas" dangerouslySetInnerHTML={{ __html: t("nav.ecom", "E-commerce skálázás") }} />
+                  <Link href="/ecommerce-skalazas" dangerouslySetInnerHTML={{ __html: t("nav.ecom", "CRO és E-commerce") }} />
                 </li>
               </ul>
             </div>

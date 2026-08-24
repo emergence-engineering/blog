@@ -41,13 +41,13 @@ export const GeHeader: FunctionComponent = () => {
               <span className="caret" aria-hidden="true">▾</span>
             </button>
             <div className="submenu">
-              <Link href="/growth-marketing" aria-current={cur("/growth-marketing")} dangerouslySetInnerHTML={{ __html: t("nav.growth", "Teljesítménymarketing") }} />
-              <Link href="/webfejlesztes" aria-current={cur("/webfejlesztes")} dangerouslySetInnerHTML={{ __html: t("nav.web", "Web- és appfejlesztés") }} />
-              <Link href="/email-automatizacio" aria-current={cur("/email-automatizacio")} dangerouslySetInnerHTML={{ __html: t("nav.email", "E-mail automatizáció") }} />
-              <Link href="/tartalomgyartas" aria-current={cur("/tartalomgyartas")} dangerouslySetInnerHTML={{ __html: t("nav.content", "Tartalomgyártás") }} />
+              <Link href="/growth-marketing" aria-current={cur("/growth-marketing")} dangerouslySetInnerHTML={{ __html: t("nav.growth", "PPC hirdetéskezelés") }} />
+              <Link href="/webfejlesztes" aria-current={cur("/webfejlesztes")} dangerouslySetInnerHTML={{ __html: t("nav.web", "Webshop- és webfejlesztés") }} />
+              <Link href="/email-automatizacio" aria-current={cur("/email-automatizacio")} dangerouslySetInnerHTML={{ __html: t("nav.email", "E-mail marketing és automatizáció") }} />
+              <Link href="/tartalomgyartas" aria-current={cur("/tartalomgyartas")} dangerouslySetInnerHTML={{ __html: t("nav.content", "Kreatív- és videógyártás") }} />
               <Link href="/ux-ui-design" aria-current={cur("/ux-ui-design")} dangerouslySetInnerHTML={{ __html: t("nav.ux", "UX/UI design") }} />
-              <Link href="/ai-seo" aria-current={cur("/ai-seo")} dangerouslySetInnerHTML={{ __html: t("nav.seo", "AIO") }} />
-              <Link href="/ecommerce-skalazas" aria-current={cur("/ecommerce-skalazas")} dangerouslySetInnerHTML={{ __html: t("nav.ecom", "E-commerce skálázás") }} />
+              <Link href="/ai-seo" aria-current={cur("/ai-seo")} dangerouslySetInnerHTML={{ __html: t("nav.seo", "SEO és AI keresőoptimalizálás") }} />
+              <Link href="/ecommerce-skalazas" aria-current={cur("/ecommerce-skalazas")} dangerouslySetInnerHTML={{ __html: t("nav.ecom", "CRO és E-commerce") }} />
             </div>
           </div>
           <Link href="/esettanulmanyok" aria-current={cur("/esettanulmanyok")} dangerouslySetInnerHTML={{ __html: t("nav.cases", "Esettanulmányok") }} />
