@@ -397,7 +397,7 @@ const Index: NextPage = () => {
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("col.title", "Hogyan dolgozunk együtt") }} />
             </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("col.start", "Kiindulópont mindig egy diagnózis. Utána te választod ki, mekkora felelősséget adsz át.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("col.lede", "Kiindulópont mindig egy diagnózis. Utána te választod ki, mekkora felelősséget adsz át.") }} />
           </div>
           <div className="audit rv">
             <div>
