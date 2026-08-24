@@ -409,8 +409,15 @@
 .ge-p-kapcsolat .phero-grid{align-items:start}
 
 /* The marketing hero artwork bleeds past the right page edge by design
-   (the browser mockup runs off-canvas in Figma); clip it at the section. */
-.ge-p-growth-marketing .phero{overflow:hidden}
+   (the browser mockup runs off-canvas in Figma); clip it at the section.
+   The web-development artwork's soft gradient backdrop bleeds the same way. */
+.ge-p-growth-marketing .phero,
+.ge-p-webfejlesztes .phero{overflow:hidden}
+
+/* The square hero artwork plus two full section paddings left a hole between
+   the hero and the references strip; tighten it. */
+.ge-p-webfejlesztes .phero{padding-bottom:0}
+.ge-p-webfejlesztes #work{padding-top:3rem}
 
 /* The VezessJol mockups are transparent PNGs exported from the design; the
    generic media frame would draw a card edge around them. */

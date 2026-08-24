@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { WebHeroArt } from "../features/ge/components/WebHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/webfejlesztes.html; DOM structure intentionally
@@ -28,9 +29,8 @@ const Webfejlesztes: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("web.crumb", "Webshop- és webfejlesztés") }} />
               </div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("web.eyebrow", "Fejlesztés") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Webshop- és webfejlesztés, ami <mark>veled együtt</mark> skálázódik") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede", "Ötlettől a termékig építünk szoftvert: megbízhatót, skálázhatót, felesleges körök nélkül. A kód a tiétek, a saját repóitokban, dokumentálva, hogy bármikor át tudjátok venni.") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede2", "Akár MVP kell, akár egy meglévő platform felújítása, egy landing oldal vagy teljes webshop-fejlesztés. Ha félbehagyott projekt van, azt is átvesszük.") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Webshop, webapp és webfejlesztés <mark>AI-integrációval</mark>") }} />
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede", "Cégünk lassan 10 éve dolgozik együtt nemzetközi technológiai startupokkal és magyar KKV-kkal. AI-alapú CRM-től kezdve számlázási platformon át webshopokig több száz webappot és weboldalt építettünk. Fejlesztői csapatunk nemzetközi szinten is az élvonalban van szaktudásban és tapasztalatban.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
                   <span dangerouslySetInnerHTML={{ __html: t("web.cta1", "Foglalj hívást") }} />
@@ -44,8 +44,8 @@ const Webfejlesztes: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("web.trust3", "<b>ProseMirror</b> nyílt forrású hozzájárulások") }} />
               </div>
             </div>
-            <div className="phero-art rv">
-              <Image src="/ge/img/p-stripe.webp" width={600} height={364} alt={t("alt29", "Számlázás-Stripe integráció, amit fejlesztettünk")} aria-label={t("web.hero.art.alt", "")} />
+            <div className="rv">
+              <WebHeroArt />
             </div>
           </div>
         </div>
@@ -81,6 +81,66 @@ const Webfejlesztes: NextPage = () => {
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r10.p", "A gyakorló vezetés oldala, amit újraterveztünk: +93% konverzió és feleannyi érdeklődőszerzési költség.") }} />
               </div>
             </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-skiff.png" alt="A Skiff kollaborációs szerkesztője" width={1624} height={1086} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r3.k", "A Notion felvásárolta") }} />
+                <div className="rn">Skiff</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r3.p", "Kulcsfunkciókat fejlesztettünk a végponttól végpontig titkosított kollaborációs platformhoz. Az eredmény: felvásárlás a Notion részéről.") }} />
+              </div>
+            </Link>
+            <a className="refcard" href="https://suggestcat.com" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-suggestcat.jpg" alt="A SuggestCat weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own2.k", "Saját termék · Open source AI") }} />
+                <div className="rn">SuggestCat</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own2.p", "AI-bővítmény rich-text szerkesztőkhöz: nyelvhelyesség-javítás és szövegkiegészítés, ProseMirrorra építve.") }} />
+              </div>
+            </a>
+            <a className="refcard" href="https://pcbjam.com" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-pcbjam.jpg" alt="A PCBJam weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own3.k", "Saját termék · KiCad a böngészőben") }} />
+                <div className="rn">PCBJam</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own3.p", "Teljes áramkörtervező csomag, ami WebAssemblyvel a böngészőben fut. A Hacker News címlapjára került.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-memrise.png" alt="A Memrise beszélgető nyelvi tutora" width={1300} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r4.k", "AI nyelvi tutor") }} />
+                <div className="rn">Memrise</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r4.p", "AI-alapú beszélgető tanár, amely azonnali visszajelzést ad a beszédre és a kiejtésre.") }} />
+              </div>
+            </Link>
+            <a className="refcard" href="https://plantart.hu/webshop/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-plantartshop.jpg" alt="A Plantart webshop nyitóoldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r9.k", "Webshop <span class=\"etag\">E-commerce</span>") }} />
+                <div className="rn">Plantart webshop</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r9.p", "Növény-webshop, amit mi terveztünk és fejlesztettünk: keresés, kategóriák és vásárlási út egy 1,9 milliárd forintos márkának.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-jumphigher.png" alt="A JumpHigher AI fitnesz alkalmazás" width={462} height={330} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own4.k", "Saját termék · AI fitnesz app") }} />
+                <div className="rn">JumpHigher</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own4.p", "Mozgáselemző platform, amit azért építettünk, hogy követse és eddze a felhasználók fejlődését.") }} />
+              </div>
+            </Link>
             <a className="refcard" href="https://adagolas.netamin.hu/" rel="noopener">
               <div className="shot cover">
                 <Image src="/ge/img/s-netamin.jpg" alt="A Netamin napi vitamin tervezője" width={1280} height={800} />
@@ -101,16 +161,6 @@ const Webfejlesztes: NextPage = () => {
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r2.p", "Irodai növények és növénygondozás szolgáltatás-oldala: konverzióra írt szöveg és letisztult ajánlatkérési út.") }} />
               </div>
             </a>
-            <a className="refcard" href="https://plantart.hu/webshop/" rel="noopener">
-              <div className="shot cover">
-                <Image src="/ge/img/s-plantartshop.jpg" alt="A Plantart webshop nyitóoldala" width={1280} height={800} />
-              </div>
-              <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r9.k", "Webshop <span class=\"etag\">E-commerce</span>") }} />
-                <div className="rn">Plantart webshop</div>
-                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r9.p", "Növény-webshop, amit mi terveztünk és fejlesztettünk: keresés, kategóriák és vásárlási út egy 1,9 milliárd forintos márkának.") }} />
-              </div>
-            </a>
             <a className="refcard" href="https://vezessjolautosiskola.hu/" rel="noopener">
               <div className="shot cover">
                 <Image src="/ge/img/s-vjautosiskola.jpg" alt="A VezessJól Autósiskola főoldala" width={1280} height={800} />
@@ -121,26 +171,6 @@ const Webfejlesztes: NextPage = () => {
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r12.p", "Az új autósiskola-üzletág oldala nulláról: beiratkozási tölcsérrel és E-Titán integrációval.") }} />
               </div>
             </a>
-            <Link className="refcard" href="/kapcsolat">
-              <div className="shot">
-                <Image src="/ge/img/r-skiff.png" alt="A Skiff kollaborációs szerkesztője" width={1624} height={1086} />
-              </div>
-              <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r3.k", "A Notion felvásárolta") }} />
-                <div className="rn">Skiff</div>
-                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r3.p", "Kulcsfunkciókat fejlesztettünk a végponttól végpontig titkosított kollaborációs platformhoz. Az eredmény: felvásárlás a Notion részéről.") }} />
-              </div>
-            </Link>
-            <Link className="refcard" href="/kapcsolat">
-              <div className="shot">
-                <Image src="/ge/img/r-memrise.png" alt="A Memrise beszélgető nyelvi tutora" width={1300} height={800} />
-              </div>
-              <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r4.k", "AI nyelvi tutor") }} />
-                <div className="rn">Memrise</div>
-                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r4.p", "AI-alapú beszélgető tanár, amely azonnali visszajelzést ad a beszédre és a kiejtésre.") }} />
-              </div>
-            </Link>
             <Link className="refcard" href="/kapcsolat">
               <div className="shot">
                 <Image src="/ge/img/r-axdraft.png" alt="Az Axdraft jogi szerkesztője" width={680} height={380} />
@@ -179,6 +209,16 @@ const Webfejlesztes: NextPage = () => {
                 <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r8.k", "Tartalomszervezés") }} />
                 <div className="rn">Filtered</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r8.p", "Megoldás, amivel cégek rendszerezik a tartalmaikat a könnyebb mindennapi használatért.") }} />
+              </div>
+            </Link>
+            <Link className="refcard" href="/esettanulmany-szamlabridge">
+              <div className="shot cover">
+                <Image src="/ge/img/s-szamlabridge.jpg" alt="A SzámlaBridge weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own1.k", "Saját termék <span class=\"etag\">SaaS</span>") }} />
+                <div className="rn">SzámlaBridge</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r13.p", "Middleware, ami a Stripe-fizetésekből automatikusan szabályos számlát készít, proaktív hibakezeléssel.") }} />
               </div>
             </Link>
           </div>

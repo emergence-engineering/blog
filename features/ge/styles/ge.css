@@ -589,6 +589,24 @@ html{scroll-behavior:smooth}
   background:linear-gradient(38.9deg,rgba(255,255,255,.2) 12.6%,rgba(255,255,255,.5) 100%);
   backdrop-filter:blur(calc(2.8*var(--u)));box-shadow:0 calc(4.5*var(--u)) calc(4.5*var(--u)) rgba(0,0,0,.25)}
 
+/* Web-development hero artwork rebuilt from the Figma vectors (600px frame,
+   no text layers); --u converts one design pixel to the current container
+   width (see WebHeroArt.tsx). */
+.ge .wd-art{position:relative;width:100%;aspect-ratio:1;container-type:inline-size;--u:0.166667cqw}
+.ge .wd-art img{max-width:none;border-radius:0}
+.ge .wd-abs{position:absolute}
+.ge .wd-glass{background:rgba(255,255,255,.6);backdrop-filter:blur(calc(5*var(--u)))}
+.ge .wd-bar{background:rgba(255,255,255,.6);border-radius:calc(5.76*var(--u))}
+.ge .wd-phone{border-radius:calc(5.58*var(--u));overflow:hidden;backdrop-filter:blur(calc(5*var(--u)));
+  box-shadow:0 calc(7.3*var(--u)) calc(9.7*var(--u)) rgba(48,20,13,.08),
+    0 calc(2.4*var(--u)) calc(3.6*var(--u)) rgba(48,20,13,.03)}
+.ge .wd-phone-bar{display:flex;align-items:center;gap:calc(11.2*var(--u));padding:calc(3.7*var(--u));
+  background:rgba(225,214,236,.5);box-shadow:0 calc(0.6*var(--u)) calc(1.2*var(--u)) rgba(0,0,0,.05)}
+.ge .wd-phone-pill{display:flex;align-items:center;flex:1;height:calc(13.5*var(--u));
+  padding:calc(4.7*var(--u));border-radius:999px;background:rgba(255,255,255,.6)}
+.ge .wd-cols{position:absolute;display:flex;align-items:flex-end;gap:calc(4*var(--u))}
+.ge .wd-cols span{display:block;width:calc(18*var(--u));border-radius:calc(3*var(--u));background:#fff}
+
 /* case study results cards */
 .ge .cs-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6rem}
 .ge .cs-results > div{background:#fff;border:1px solid var(--rule);border-radius:20px;
