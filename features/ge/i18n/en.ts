@@ -1748,6 +1748,16 @@ const en: Record<string, string> = {
   "web.trust1": "<b>React</b> &middot; Next.js &middot; TypeScript",
   "web.trust2": "<b>Node</b> &middot; Supabase &middot; PostgreSQL",
   "web.trust3": "<b>ProseMirror</b> open-source contributions",
+  "wwd.h": "Building Products and Growing Businesses",
+  "wwd.eng.h": "Engineering",
+  "wwd.eng.li2": "YJS / collaborative applications",
+  "wwd.eng.li3": "AI-first development",
+  "wwd.eng.li4": "Hard engineering problems",
+  "wwd.biz.h": "Business Development",
+  "wwd.biz.li1": "Marketing",
+  "wwd.biz.li2": "E-commerce",
+  "wwd.biz.li3": "Analytics",
+  "wwd.biz.li4": "Strategy",
 };
 
 export default en;

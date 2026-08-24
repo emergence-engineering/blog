@@ -544,6 +544,60 @@ const Index: NextPage = () => {
           </div>
         </div>
       </section>
+      <section className="band" id="csapat">
+        <div className="wrap">
+          <h2 className="rv" style={{ textAlign: "center", fontSize: "clamp(1.5rem,2.8vw,2.1rem)", marginBottom: "clamp(2rem,4vw,3rem)" }} dangerouslySetInnerHTML={{ __html: t("wwd.h", "Termékeket és vállalkozásokat építünk") }} />
+          <div className="wwd">
+            <div className="wwd-col rv">
+              <a className="wwd-brand" href="https://emergence-engineering.com" rel="noopener" title="Emergence Engineering">
+                <Image src="/ge/img/logo-emergence.png" alt="" width={22} height={22} />
+                <span>Emergence<i>/</i><span className="w2">Engineering</span></span>
+                <span className="ar">→</span>
+              </a>
+              <h3 dangerouslySetInnerHTML={{ __html: t("wwd.eng.h", "Fejlesztés") }} />
+              <ul>
+                <li>ProseMirror / TipTap</li>
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li2", "YJS / kollaboratív alkalmazások") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li3", "AI-first fejlesztés") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li4", "Nehéz technikai kihívások") }} />
+              </ul>
+              <div className="face">
+                <span className="ini">VV</span>
+                <Image src="/ge/img/viktor-vaczi.jpg" alt="Viktor Váczi" onError={(e) => e.currentTarget.remove()} width={225} height={219} />
+              </div>
+              <div className="nm">Viktor Váczi</div>
+              <div className="rl">CTO & Co-CEO</div>
+              <div className="socials">
+                <Link href="/cv/viktor" className="soc" rel="noopener" title="CV">CV</Link>
+                <a href="https://www.linkedin.com/" className="soc" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
+              </div>
+            </div>
+            <div className="wwd-col rv">
+              <div className="wwd-brand">
+                <Image src="/ge/img/logo-emergence.png" alt="" width={22} height={22} />
+                <span>Growth<i>/</i><span className="w2">Engineering</span></span>
+              </div>
+              <h3 dangerouslySetInnerHTML={{ __html: t("wwd.biz.h", "Üzletfejlesztés") }} />
+              <ul>
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Marketing") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "E-kereskedelem") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Analitika") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "Stratégia") }} />
+              </ul>
+              <div className="face gh">
+                <span className="ini">GG</span>
+                <Image src="/ge/img/greg-gillay.jpg" alt="Greg Gillay" onError={(e) => e.currentTarget.remove()} width={640} height={640} />
+              </div>
+              <div className="nm">Greg Gillay</div>
+              <div className="rl">COO & Co-CEO</div>
+              <div className="socials">
+                <a href="https://www.linkedin.com/in/greggillay/" className="soc" rel="noopener" title="LinkedIn">in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="on-navy" id="kapcsolat">
         <div className="wrap">
           <div className="cta">

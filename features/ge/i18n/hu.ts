@@ -1597,6 +1597,16 @@ const hu: Record<string, string> = {
   "web.trust1": "<b>React</b> · Next.js · TypeScript",
   "web.trust2": "<b>Node</b> · Supabase · PostgreSQL",
   "web.trust3": "<b>ProseMirror</b> nyílt forrású hozzájárulások",
+  "wwd.h": "Termékeket és vállalkozásokat építünk",
+  "wwd.eng.h": "Fejlesztés",
+  "wwd.eng.li2": "YJS / kollaboratív alkalmazások",
+  "wwd.eng.li3": "AI-first fejlesztés",
+  "wwd.eng.li4": "Nehéz technikai kihívások",
+  "wwd.biz.h": "Üzletfejlesztés",
+  "wwd.biz.li1": "Marketing",
+  "wwd.biz.li2": "E-kereskedelem",
+  "wwd.biz.li3": "Analitika",
+  "wwd.biz.li4": "Stratégia",
 };
 
 export default hu;
