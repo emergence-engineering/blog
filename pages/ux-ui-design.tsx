@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { UxHeroArt } from "../features/ge/components/UxHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/ux-ui-design.html; DOM structure intentionally
@@ -44,13 +45,13 @@ const UxUiDesign: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("ux.hero.trust3", "<b>Mérhető</b> eredmény, nem ízlésvita") }} />
               </div>
             </div>
-            <div className="phero-art rv">
-              <Image src="/ge/img/vj-phone.webp" width={720} height={900} style={{ height: "900px" }} alt={t("alt23", "Mobil UI képernyő terv")} />
+            <div className="rv">
+              <UxHeroArt />
             </div>
           </div>
         </div>
       </section>
-      <section className="band">
+      <section className="band sec-center">
         <div className="wrap">
           <div className="shead solo">
             <div>
@@ -70,6 +71,35 @@ const UxUiDesign: NextPage = () => {
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("ux.plan.p8", "Vizuális rendszerek") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("ux.plan.p9", "Social média grafika") }} />
             <span className="pill" dangerouslySetInnerHTML={{ __html: t("ux.plan.p10", "Marketing vizuálok") }} />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="wrap">
+          <div className="split">
+            <div>
+              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.eyebrow", "UX audit") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.h", "Két hét, egy priorizált lista, konkrét bevételi hatással") }} />
+              <p className="lede rv" style={{ margin: "1.1rem 0" }} dangerouslySetInnerHTML={{ __html: t("ux.audit.lede", "Végigmegyünk az analitikán, a tölcséren és a kritikus útvonalakon. A végén pontosan tudod, mi hozza a legtöbbet a következő 90 napban, és mennyit.") }} />
+              <form className="eform rv" onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+                <input type="email" name="email" required placeholder={t("ux.audit.emailph", "te@ceged.hu")} aria-label={t("ux.audit.email", "E-mail címed")} />
+                <button type="submit" className="btn">
+                  <span dangerouslySetInnerHTML={{ __html: t("ux.audit.cta", "Kérj ingyenes UX auditot") }} />
+                  <span className="ar">→</span>
+                </button>
+                <p className="ok" hidden dangerouslySetInnerHTML={{ __html: t("ux.audit.ok", "Köszönjük! Hamarosan jelentkezünk az e-mail címeden.") }} />
+              </form>
+            </div>
+            <div className="panel panel-peach rv">
+              <h4 dangerouslySetInnerHTML={{ __html: t("ux.audit.list.h", "Mit tartalmaz az audit") }} />
+              <ul className="checklist">
+                <li dangerouslySetInnerHTML={{ __html: t("ux.au1", "<strong>Analitika- és tölcsér-átvilágítás</strong>, hol és mennyi bevétel szivárog el") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("ux.au2", "<strong>Social listening és versenytárs-elemzés</strong>, mit mondanak a vásárlók, és mit csinál a piac") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("ux.au3", "<strong>Hőtérkép- és session-felvétel elemzés</strong>: mit néznek, mit hagynak ki") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("ux.au4", "<strong>Használhatósági teszt a kulcsútvonalakon</strong>, a kritikus lépések ellenőrzése") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("ux.au5", "<strong>Priorizált, becsült hatású lista</strong>, mit érdemes először javítani") }} />
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -167,85 +197,193 @@ const UxUiDesign: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="band">
+      <section className="band" id="referenciak">
         <div className="wrap">
-          <div className="split">
-            <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.eyebrow", "UX audit") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.h", "Két hét, egy priorizált lista, konkrét bevételi hatással") }} />
-              <p className="lede rv" style={{ margin: "1.1rem 0" }} dangerouslySetInnerHTML={{ __html: t("ux.audit.lede", "Végigmegyünk az analitikán, a tölcséren és a kritikus útvonalakon. A végén pontosan tudod, mi hozza a legtöbbet a következő 90 napban, és mennyit.") }} />
-              <Link className="btn rv" href="/kapcsolat">
-                <span dangerouslySetInnerHTML={{ __html: t("ux.audit.cta", "Kérj ingyenes UX auditot") }} />
-                <span className="ar">→</span>
-              </Link>
-            </div>
-            <div className="panel panel-peach rv">
-              <h4 dangerouslySetInnerHTML={{ __html: t("ux.audit.list.h", "Mit tartalmaz az audit") }} />
-              <ul className="checklist">
-                <li dangerouslySetInnerHTML={{ __html: t("ux.au1", "<strong>Analitika- és tölcsér-átvilágítás</strong>, hol és mennyi bevétel szivárog el") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.au2", "<strong>5–10 moderált felhasználói interjú</strong>, a valódi elakadások feltárása") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.au3", "<strong>Hőtérkép- és session-felvétel elemzés</strong>: mit néznek, mit hagynak ki") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.au4", "<strong>Használhatósági teszt a kulcsútvonalakon</strong>, a kritikus lépések ellenőrzése") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.au5", "<strong>Priorizált, becsült hatású lista</strong>, mit érdemes először javítani") }} />
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="wrap">
-          <div className="split flip">
-            <div className="split-media rv">
-              <Image src="/ge/img/pa-site.webp" width={900} height={640} style={{ height: "640px" }} alt={t("alt24", "Weboldal wireframe és információs architektúra")} />
-            </div>
-            <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ux.ia.eyebrow", "Információs architektúra") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("ux.ia.h", "A szerkezet, amit a felhasználó fejével rajzolunk") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("ux.ia.lede", "A jó felület a jó szerkezeten múlik. Előbb a tartalom és a navigáció áll össze, aztán jön a látvány, nem fordítva.") }} />
-              <ul className="bullets rv">
-                <li dangerouslySetInnerHTML={{ __html: t("ux.ia.b1", "Kártyarendezés és fastruktúra-teszt valós felhasználókkal") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.ia.b2", "Logikus navigáció és útvonalak a fő célokhoz") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.ia.b3", "Wireframe, ami a tartalomról szól, nem a díszítésről") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("ux.ia.b4", "Prototípus, amin mérni lehet, mielőtt fejlesztenénk") }} />
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="band">
-        <div className="wrap">
-          <div className="shead solo">
-            <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ux.brand.eyebrow", "Arculat és vizuális rendszerek") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("ux.brand.h", "A márka minden felületen ugyanaz marad") }} />
-              <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("ux.brand.lede", "Nem egy logó, hanem egy rendszer: színek, tipográfia, komponensek és szabályok, amikkel a csapatod is konzisztens marad, a landing oldaltól a termékfelületig.") }} />
-            </div>
-          </div>
-          <div className="logo-cards rv">
-            <article className="lcard">
-              <Image src="/ge/img/l-axdraft.webp" width={800} height={452} alt={t("alt25", "Design system komponensek")} />
-              <div className="lbody">
-                <div className="kick" dangerouslySetInnerHTML={{ __html: t("ux.b1.k", "Design system") }} />
-                <h4 dangerouslySetInnerHTML={{ __html: t("ux.b1.h", "Komponenskönyvtár") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("ux.b1.p", "Újrahasználható komponensek, tokenek és szabályok, amikre a fejlesztés is közvetlenül építhet.") }} />
+          <div className="cases">
+            <article className="case rv">
+              <div className="case-media">
+                <Image src="/ge/img/szb-ux-hero.png" width={600} height={600} alt={t("szb.hero.alt", "A Számlabridge weboldala böngészőben és mobilon")} />
+              </div>
+              <div className="case-body">
+                <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("ux.cs.eyebrow", "Esettanulmány") }} />
+                <h3 dangerouslySetInnerHTML={{ __html: t("ux.szb.h", "SzámlaBridge, fejlesztői logika helyett üzleti felület") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("ux.szb.p", "A Stripe és a magyar számlázás közti middleware felületét terveztük újra: proaktív hibakezelés, érthető táblázatszerkesztés és rugalmas szűrés. A technokrata MVP-ből magabiztos döntéseket támogató szoftver lett.") }} />
+                <Link href="/esettanulmany-szamlabridge" className="tlink">
+                  <span dangerouslySetInnerHTML={{ __html: t("ux.cs.read", "Teljes esettanulmány") }} />
+                  <span className="ar">→</span>
+                </Link>
               </div>
             </article>
-            <article className="lcard">
-              <Image src="/ge/img/l-memrise.webp" width={800} height={452} alt={t("alt26", "Vizuális nyelv és arculat")} />
-              <div className="lbody">
-                <div className="kick" dangerouslySetInnerHTML={{ __html: t("ux.b2.k", "Arculat") }} />
-                <h4 dangerouslySetInnerHTML={{ __html: t("ux.b2.h", "Vizuális nyelv") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("ux.b2.p", "Színek, tipográfia és motívumok, amik minden csatornán azonnal felismerhetők.") }} />
+          </div>
+          <div className="shead" style={{ marginTop: "3rem" }}>
+            <div>
+              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("web.ref.eyebrow", "Referenciák") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("web.ref.h", "Webshopok, weblapok, termékek, amiket mi építettünk") }} />
+            </div>
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.ref.lede", "Startup-termékek, ahol korán csatlakoztunk, és hazai weboldalak, amiket mi terveztünk és fejlesztettünk.") }} />
+          </div>
+          <div className="scrollhint rv" style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("web.ref.hint", "Görgess tovább <b>→</b>") }} />
+          <div className="refscroll rv">
+            <a className="refcard" href="https://grofie.com/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-grofie.jpg" alt="A Grofie weboldala" width={1280} height={800} />
               </div>
-            </article>
-            <article className="lcard">
-              <Image src="/ge/img/l-skiff.webp" width={800} height={452} alt={t("alt27", "Interaktív prototípusok")} />
-              <div className="lbody">
-                <div className="kick" dangerouslySetInnerHTML={{ __html: t("ux.b3.k", "Prototípus") }} />
-                <h4 dangerouslySetInnerHTML={{ __html: t("ux.b3.h", "Interaktív modellek") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("ux.b3.p", "Kattintható prototípusok, amelyeken a döntéseket még fejlesztés előtt tesztelni tudjuk.") }} />
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r1.k", "Weboldal · Növénydekoráció") }} />
+                <div className="rn">Grofie</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r1.p", "Prémium irodai növénydekorációs márka weboldala: tervezéstől a kivitelezésig vezetett út és ajánlatkérő tölcsér.") }} />
               </div>
-            </article>
+            </a>
+            <a className="refcard" href="https://vezessjol.hu/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-vezessjol.jpg" alt="A VezessJól főoldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r10.k", "Weboldal · Konverzió") }} />
+                <div className="rn">VezessJól</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r10.p", "A gyakorló vezetés oldala, amit újraterveztünk: +93% konverzió és feleannyi érdeklődőszerzési költség.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-skiff.png" alt="A Skiff kollaborációs szerkesztője" width={1624} height={1086} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r3.k", "A Notion felvásárolta") }} />
+                <div className="rn">Skiff</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r3.p", "Kulcsfunkciókat fejlesztettünk a végponttól végpontig titkosított kollaborációs platformhoz. Az eredmény: felvásárlás a Notion részéről.") }} />
+              </div>
+            </Link>
+            <a className="refcard" href="https://suggestcat.com" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-suggestcat.jpg" alt="A SuggestCat weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own2.k", "Saját termék · Open source AI") }} />
+                <div className="rn">SuggestCat</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own2.p", "AI-bővítmény rich-text szerkesztőkhöz: nyelvhelyesség-javítás és szövegkiegészítés, ProseMirrorra építve.") }} />
+              </div>
+            </a>
+            <a className="refcard" href="https://pcbjam.com" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-pcbjam.jpg" alt="A PCBJam weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own3.k", "Saját termék · KiCad a böngészőben") }} />
+                <div className="rn">PCBJam</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own3.p", "Teljes áramkörtervező csomag, ami WebAssemblyvel a böngészőben fut. A Hacker News címlapjára került.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-memrise.png" alt="A Memrise beszélgető nyelvi tutora" width={1300} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r4.k", "AI nyelvi tutor") }} />
+                <div className="rn">Memrise</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r4.p", "AI-alapú beszélgető tanár, amely azonnali visszajelzést ad a beszédre és a kiejtésre.") }} />
+              </div>
+            </Link>
+            <a className="refcard" href="https://plantart.hu/webshop/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-plantartshop.jpg" alt="A Plantart webshop nyitóoldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r9.k", "Webshop <span class=\"etag\">E-commerce</span>") }} />
+                <div className="rn">Plantart webshop</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r9.p", "Növény-webshop, amit mi terveztünk és fejlesztettünk: keresés, kategóriák és vásárlási út egy 1,9 milliárd forintos márkának.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-jumphigher.png" alt="A JumpHigher AI fitnesz alkalmazás" width={462} height={330} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own4.k", "Saját termék · AI fitnesz app") }} />
+                <div className="rn">JumpHigher</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.own4.p", "Mozgáselemző platform, amit azért építettünk, hogy követse és eddze a felhasználók fejlődését.") }} />
+              </div>
+            </Link>
+            <a className="refcard" href="https://adagolas.netamin.hu/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-netamin.jpg" alt="A Netamin napi vitamin tervezője" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r11.k", "Webalkalmazás <span class=\"etag\">E-commerce</span>") }} />
+                <div className="rn">Netamin adagolás</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r11.p", "Napi vitamin-tervező eszköz, amit a Netaminnak fejlesztettünk: személyre szabott adagolási terv pár kattintásból.") }} />
+              </div>
+            </a>
+            <a className="refcard" href="https://bizdrankazoldet.hu/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-bizdrank.jpg" alt="A Bízd Ránk a Zöldet weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r2.k", "Weboldal · Irodai növények") }} />
+                <div className="rn">Bízd Ránk a Zöldet</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r2.p", "Irodai növények és növénygondozás szolgáltatás-oldala: konverzióra írt szöveg és letisztult ajánlatkérési út.") }} />
+              </div>
+            </a>
+            <a className="refcard" href="https://vezessjolautosiskola.hu/" rel="noopener">
+              <div className="shot cover">
+                <Image src="/ge/img/s-vjautosiskola.jpg" alt="A VezessJól Autósiskola főoldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r12.k", "Weboldal · Autósiskola") }} />
+                <div className="rn">VezessJól Autósiskola</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r12.p", "Az új autósiskola-üzletág oldala nulláról: beiratkozási tölcsérrel és E-Titán integrációval.") }} />
+              </div>
+            </a>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-axdraft.png" alt="Az Axdraft jogi szerkesztője" width={680} height={380} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r5.k", "Kollaboratív jogi szerkesztő") }} />
+                <div className="rn">Axdraft</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r5.p", "Egyedi jogi dokumentumszerkesztő ügyvédi irodáknak, valós idejű közös munkára építve.") }} />
+              </div>
+            </Link>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-lex.png" alt="A Lex kollaboratív szövegszerkesztője" width={2340} height={1342} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r6.k", "Kollaboratív szerkesztő") }} />
+                <div className="rn">Lex</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r6.p", "Közös szövegszerkesztő íróknak és szerkesztőiknek.") }} />
+              </div>
+            </Link>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-swaralink.png" alt="SwaraLink Bluetooth tesztkeretrendszer" width={370} height={320} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r7.k", "Bluetooth tesztelés") }} />
+                <div className="rn">SwaraLink</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r7.p", "Tesztkeretrendszer egy új Bluetooth-termékhez, gyártósori minőségbiztosítással.") }} />
+              </div>
+            </Link>
+            <Link className="refcard" href="/kapcsolat">
+              <div className="shot">
+                <Image src="/ge/img/r-filtered.png" alt="Filtered tartalomszervező eszköz" width={858} height={557} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r8.k", "Tartalomszervezés") }} />
+                <div className="rn">Filtered</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r8.p", "Megoldás, amivel cégek rendszerezik a tartalmaikat a könnyebb mindennapi használatért.") }} />
+              </div>
+            </Link>
+            <Link className="refcard" href="/esettanulmany-szamlabridge">
+              <div className="shot cover">
+                <Image src="/ge/img/s-szamlabridge.jpg" alt="A SzámlaBridge weboldala" width={1280} height={800} />
+              </div>
+              <div className="rb">
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.own1.k", "Saját termék <span class=\"etag\">SaaS</span>") }} />
+                <div className="rn">SzámlaBridge</div>
+                <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r13.p", "Middleware, ami a Stripe-fizetésekből automatikusan szabályos számlát készít, proaktív hibakezeléssel.") }} />
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -283,36 +421,6 @@ const UxUiDesign: NextPage = () => {
               <h4 dangerouslySetInnerHTML={{ __html: t("ux.s5.h", "Növekedés") }} />
               <p dangerouslySetInnerHTML={{ __html: t("ux.s5.p", "Mérés, tesztelés, iteráció. A design akkor kész, ha a szám is mozdul.") }} />
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="band">
-        <div className="wrap">
-          <div className="cases">
-            <article className="case rv">
-              <div className="case-media">
-                <Image src="/ge/img/cover-plantart.webp" width={1500} height={1000} alt={t("alt28", "Plantart, UX/UI és tölcsér design")} />
-              </div>
-              <div className="case-body">
-                <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("ux.cs.eyebrow", "Esettanulmány") }} />
-                <h3 dangerouslySetInnerHTML={{ __html: t("ux.cs.h", "Plantart, a designból mérhető akvizíciós motor lett") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("ux.cs.p", "A Plantartnál a designra épülő tölcséreket és landing oldalakat szegmensenként terveztük meg, kutatásból kiindulva. A kiszámíthatatlan, esetleges érdeklődés helyét egy mérhető, ismételhető rendszer vette át, a webshop az első évében több mint 45 millió forint bevételt termelt.") }} />
-                <div className="metrics">
-                  <div className="m">
-                    <div className="dnum">+45M Ft</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("ux.cs.m1", "webshop-bevétel az első évben") }} />
-                  </div>
-                  <div className="m">
-                    <div className="dnum">3</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("ux.cs.m2", "fázis: stratégia, fejlesztés, tölcsér") }} />
-                  </div>
-                </div>
-                <Link href="/esettanulmanyok" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("ux.cs.read", "Teljes esettanulmány") }} />
-                  <span className="ar">→</span>
-                </Link>
-              </div>
-            </article>
           </div>
         </div>
       </section>

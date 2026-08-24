@@ -45,6 +45,36 @@ const Kapcsolat: NextPage = () => {
               </div>
             </div>
             <div className="rv">
+              <div className="formcard audit-mini">
+                <h4 dangerouslySetInnerHTML={{ __html: t("kap.audit.h", "Ingyenes audit") }} />
+                <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+                  <div className="fld">
+                    <label htmlFor="fat" dangerouslySetInnerHTML={{ __html: t("kap.audit.type", "Milyen auditot kérsz?") }} />
+                    <select id="fat" name="audit">
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o1", "UX audit") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o2", "Növekedési (üzleti) audit") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o3", "SEO és AI-láthatósági audit") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o4", "Klaviyo e-mail audit") }} />
+                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o5", "Kreatív audit") }} />
+                    </select>
+                  </div>
+                  <div className="frow">
+                    <div className="fld">
+                      <label htmlFor="fae" dangerouslySetInnerHTML={{ __html: t("kap.f.email", "E-mail*") }} />
+                      <input id="fae" type="email" name="email" required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
+                    </div>
+                    <div className="fld">
+                      <label htmlFor="faw" dangerouslySetInnerHTML={{ __html: t("kap.audit.web", "Weboldal*") }} />
+                      <input id="faw" name="website" required placeholder="https://" />
+                    </div>
+                  </div>
+                  <button className="btn" type="submit">
+                    <span dangerouslySetInnerHTML={{ __html: t("audit.cta", "Kérem az auditot") }} />
+                    <span className="ar">→</span>
+                  </button>
+                  <p className="ok" hidden style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.audit.ok", "Köszönjük! Hamarosan jelentkezünk az audit részleteivel.") }} />
+                </form>
+              </div>
               <div className="formcard">
                 <h3 style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("kap.form.h", "Írj nekünk") }} />
                 <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
