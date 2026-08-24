@@ -489,6 +489,40 @@ html{scroll-behavior:smooth}
 .ge .tlrow p + p{margin-top:.8rem}
 @media(max-width:600px){.ge .tlrow{padding-left:52px}.ge .tl::before{left:15px}.ge .tlrow .dot{width:32px;height:32px;font-size:.8rem}}
 
+/* case study timeline with alternating media (Figma: Portfolio timeline) */
+.ge .cstl{position:relative;margin-top:2.6rem}
+.ge .cstl::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:3px;margin-left:-1.5px;
+  background:var(--rule);border-radius:2px}
+.ge .cstl-row{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,9vw,10rem);
+  padding:1.2rem 0 3.6rem;align-items:start}
+.ge .cstl-row::after{content:"";position:absolute;left:50%;top:1.9rem;width:15px;height:15px;margin-left:-7.5px;
+  border-radius:50%;background:var(--coral)}
+.ge .cstl-row:last-child{padding-bottom:.5rem}
+.ge .cstl-row.flip .cstl-body{order:-1}
+.ge .cstl-media img{width:100%;height:auto;border-radius:20px}
+.ge .cstl-body{padding-top:.4rem}
+.ge .cstl-body .sub{font-size:1.05rem;font-weight:700;color:var(--ink);margin:.5rem 0 1.1rem}
+.ge .cstl-body p{font-size:.96rem;color:var(--body);line-height:1.65}
+.ge .cstl-body p + p,.ge .cstl-body ul + p{margin-top:.9rem}
+.ge .cstl-label{font-weight:700;color:var(--ink);margin-top:1rem}
+.ge .cstl-body .bullets{margin-top:.2rem}
+.ge .cstl-body .bullets li{border-bottom:0;padding:.3rem 0 .3rem 1.5rem}
+.ge .cstl-cta{margin-top:1.6rem}
+@media(max-width:940px){
+  .ge .cstl::before{left:8px}
+  .ge .cstl-row{grid-template-columns:1fr;gap:1.8rem;padding-left:44px;padding-bottom:3rem}
+  .ge .cstl-row::after{left:8px;margin-left:-6px;top:1.4rem}
+  .ge .cstl-row.flip .cstl-body{order:0}
+}
+
+/* case study results cards */
+.ge .cs-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6rem}
+.ge .cs-results > div{background:#fff;border:1px solid var(--rule);border-radius:20px;
+  padding:2.2rem 1.6rem;text-align:center}
+.ge .cs-results .dnum{color:var(--coral);font-size:clamp(2.2rem,3.8vw,3rem)}
+.ge .cs-results .lbl{font-size:.9rem;color:var(--body);margin-top:.6rem;line-height:1.4}
+@media(max-width:700px){.ge .cs-results{grid-template-columns:1fr}}
+
 /* ---------- blog ---------- */
 .ge .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
 .ge .tab{font-size:.86rem;font-weight:600;padding:.55rem 1.1rem;border-radius:999px;border:1.5px solid var(--rule);

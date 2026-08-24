@@ -111,82 +111,169 @@ const EsettanulmanyPlantart: NextPage = () => {
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("cspa.ap.lede", "Minden fázis azt a szűk keresztmetszetet oldotta fel, amit az előző feltárt.") }} />
           </div>
-          <div className="tl">
-            <div className="tlrow rv">
-              <div className="dot">01</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph1.h", "Alapozás") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph1.sub", "Audit, stratégia és márkaújratervezés") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph1.p1", "Az első fázis a tisztánlátásról szólt. Teljes üzleti auditot végeztünk, és pénzügyi analitikai rendszert építettünk, amiből láthatóvá váltak a margók, a termékteljesítmény és a növekedés valódi mozgatói.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph1.p2", "Újrafogalmaztuk a márkát és az értékajánlatot, újraterveztük a szolgáltatásportfóliót és az ügyfélszerzési stratégiát, és azonosítottuk a szűk keresztmetszeteket az értékesítésben, a marketingben és a működésben.") }} />
+          <div className="cstl">
+            <div className="cstl-row rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl1.webp" width={576} height={605} alt={t("cspa.tl1.alt", "Audit-illusztráció: értékajánlat, ügyfélszerzési stratégia és szűk keresztmetszetek")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph1.h", "Alapozás") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph1.sub", "Audit, stratégia és márkaújratervezés") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph1.p1", "Az első fázis a tisztánlátásról szólt. Teljes üzleti auditot végeztünk, és pénzügyi analitikai rendszert építettünk, amiből láthatóvá váltak a margók, a termékteljesítmény és a növekedés valódi mozgatói.") }} />
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph1.lbl", "A legfontosabb lépések:") }} />
+                <ul className="bullets">
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph1.l1", "Újrafogalmaztuk a márkát és az értékajánlatot") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph1.l2", "Újraterveztük a szolgáltatásportfóliót és az ügyfélszerzési stratégiát") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph1.l3", "Azonosítottuk a szűk keresztmetszeteket az értékesítésben, a marketingben és a működésben") }} />
+                </ul>
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph1.p2", "Ez a stratégiai alapozás teremtette meg a stabilitást és az irányt a következő fázisok skálázható végrehajtásához.") }} />
+              </div>
             </div>
-            <div className="tlrow rv">
-              <div className="dot">02</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph2.sub", "Weboldal, webshop, integrációk") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációkat építettünk a belső rendszerekhez. <strong>Az új webshop az első évében több mint 100 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "Ez fordulópont volt: a Plantart statikus bemutatkozó oldalról egy jól teljesítő digitális ökoszisztémára váltott, ami több szegmens akvizícióját is kiszolgálja.") }} />
+            <div className="cstl-row flip rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl2.webp" width={576} height={485} alt={t("cspa.tl2.alt", "Webshop-termékkártya és 100 millió forint többletbevétel az első évben")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph2.h", "A digitális gerinc újjáépítése") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph2.sub", "Weboldal, webshop, integrációk") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p1", "Ezután a Plantart teljes digitális átalakuláson ment át: megújult az arculat, elindult egy modern weboldal és webshop, és mély integrációk épültek a belső rendszerekhez.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p2", "<strong>Az új webshop az első évében több mint 100 millió forint bevételt termelt</strong>, és azóta is folyamatosan nő.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph2.p3", "Ez fordulópont volt: a Plantart statikus bemutatkozó oldalról egy jól teljesítő digitális ökoszisztémára váltott, ami több szegmens akvizícióját is kiszolgálja.") }} />
+                <div className="cstl-cta">
+                  <Link href="/kapcsolat" className="btn">
+                    <span dangerouslySetInnerHTML={{ __html: t("cspa.fc.cta1", "Foglalj hívást") }} />
+                    <span className="ar">→</span>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="tlrow rv">
-              <div className="dot">03</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph3.h", "Káoszból kiszámítható bevétel") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph3.sub", "Tölcsérek, e-mail, konverzió") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph3.p1", "Amikor a digitális alap készen állt, strukturált rendszereket építettünk a fenntartható bevételtermeléshez: magas szándékú érdeklődő-tölcséreket több szegmensre, automatizált e-mail marketinget és nurture-folyamatokat, valamint dedikált landing oldalakat minden felhasználási esethez és közönséghez.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph3.p2", "Ez váltotta le az esetleges, kiszámíthatatlan érdeklődéseket egy mérhető akvizíciós motorra.") }} />
+            <div className="cstl-row rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl3.webp" width={576} height={690} alt={t("cspa.tl3.alt", "A Plantart zuzmó- és mohafal landing oldala asztali és mobil nézetben")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph3.h", "Káoszból kiszámítható bevétel") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph3.sub", "Tölcsérek, e-mail, konverzió") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph3.p1", "Amikor a digitális alap készen állt, strukturált rendszereket építettünk a fenntartható bevételtermeléshez.") }} />
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph3.lbl", "Amit bevezettünk:") }} />
+                <ul className="bullets">
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph3.l1", "Magas vásárlási szándékú tölcsérek több szegmensre") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph3.l2", "Automatizált e-mail marketing és nurture-folyamatok") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph3.l3", "Dedikált landing oldalak minden felhasználási esethez és közönséghez") }} />
+                </ul>
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph3.p2", "Ez váltotta le az esetleges, kiszámíthatatlan érdeklődéseket egy mérhető akvizíciós motorra.") }} />
+              </div>
             </div>
-            <div className="tlrow rv">
-              <div className="dot">04</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph4.h", "A belső motor skálázása") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph4.sub", "CRM, automatizáció, értékesítés") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph4.p1", "Ahogy nőtt a bevétel, kiderült a következő szűk keresztmetszet: az értékesítési csapat nem bírta a terhelést. Bevezettük a Salesforce CRM-et teljes pipeline-láthatósággal, egyedi, automatikus ajánlatgenerátort a gyorsabb és következetesebb válaszokért, és értékesítési tréninget a konverzió és a csapat összehangolása érdekében.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph4.p2", "<strong>A konverziós költség 27 000 forintról 9 000 forintra esett, a nyerési arány pedig 32%-kal nőtt.</strong> Az értékesítés végre lépést tudott tartani a kereslettel.") }} />
+            <div className="cstl-row flip rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl4.webp" width={576} height={605} alt={t("cspa.tl4.alt", "A belső motor illusztrációja: Salesforce CRM, értékesítési tréning és automatikus ajánlatgenerátor")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph4.h", "A belső motor skálázása") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph4.sub", "CRM, automatizáció, értékesítés") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph4.p1", "Ahogy nőtt a bevétel, kiderült a következő szűk keresztmetszet: az értékesítési csapat nem bírta a terhelést.") }} />
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph4.lbl", "A következő növekedési szinthez bevezettük:") }} />
+                <ul className="bullets">
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph4.l1", "Salesforce CRM teljes pipeline-láthatósággal") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph4.l2", "Egyedi, automatikus ajánlatgenerátor a gyorsabb, következetesebb válaszokért") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph4.l3", "Értékesítési tréning a konverzióért és a csapat összehangolásáért") }} />
+                </ul>
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph4.lbl2", "Értékesítési hatékonyság:") }} />
+                <ul className="bullets">
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph4.e1", "A konverziós költség <strong>27 000 forintról 9 000 forintra</strong> esett") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph4.e2", "A nyerési arány <strong>32%-kal nőtt</strong>") }} />
+                </ul>
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph4.p2", "Az értékesítés végre lépést tudott tartani a kereslettel, és magabiztosan kezelte az érdeklődőket.") }} />
+              </div>
             </div>
-            <div className="tlrow rv">
-              <div className="dot">05</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph5.h", "Növekedés hajtása") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph5.sub", "Paid, SEO és organikus tartalom") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph5.p1", "A belső rendszerek stabilizálása után több csatornán skáláztuk az akvizíciót: teljesítménykampányok, erős SEO-alapok és linképítés, valamint következetes organikus tartalomfejlesztés.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph5.p2", "<strong>Az organikus forgalom évről évre közel megduplázódott</strong>, minőségi tartalomra és hosszú távú tekintélyépítésre alapozva.") }} />
+            <div className="cstl-row rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl5.webp" width={656} height={576} alt={t("cspa.tl5.alt", "A Plantart Facebook-hirdetéskreatívjai")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph5.h", "Növekedés hajtása") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph5.sub", "Paid, SEO és organikus tartalom") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph5.p1", "A belső rendszerek stabilizálása után több csatornán skáláztuk az akvizíciót.") }} />
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph5.lbl", "Kulcskezdeményezések:") }} />
+                <ul className="bullets">
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l1", "Teljesítménymarketing-kampányok") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l2", "Erős SEO-alapok és linképítés") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t("cspa.ph5.l3", "Következetes organikus tartalomfejlesztés") }} />
+                </ul>
+                <p className="cstl-label" dangerouslySetInnerHTML={{ __html: t("cspa.ph5.lbl2", "Organikus növekedés:") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph5.p2", "<strong>Az organikus forgalom évről évre közel megduplázódott</strong>, minőségi tartalomra és hosszú távú tekintélyépítésre alapozva.") }} />
+                <div className="cstl-cta">
+                  <Link href="/kapcsolat" className="btn">
+                    <span dangerouslySetInnerHTML={{ __html: t("cspa.fc.cta1", "Foglalj hívást") }} />
+                    <span className="ar">→</span>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="tlrow rv">
-              <div className="dot">06</div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph6.h", "Felkészülés a jövőre") }} />
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph6.sub", "AI Plant Shopper, indulás 2026") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph6.p1", "A Plantart most AI-alapú növényválasztó asszisztenssel bővíti a digitális ökoszisztémáját, hogy egyszerűbbé tegye a termékválasztást. Az eszköz a több mint <strong>20 000 termékből álló katalógust</strong> használja, és fényviszonyok, gondozási igény, kaspóstílus, költségkeret és helyiségtípus alapján ad személyre szabott ajánlást.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.ph6.p2", "Az MVP közvetlenül integrálódik a webshoppal, és 2026-ban indul, ezzel a Plantart az AI-vezérelt kiskereskedelmi innováció élére áll.") }} />
+            <div className="cstl-row flip rv">
+              <div className="cstl-media">
+                <Image src="/ge/img/pa-tl6.webp" width={576} height={576} alt={t("cspa.tl6.alt", "A Plantart AI Plant Shopper növényválasztó asszisztense mobilon")} />
+              </div>
+              <div className="cstl-body">
+                <h3 dangerouslySetInnerHTML={{ __html: t("cspa.ph6.h", "Felkészülés a jövőre") }} />
+                <div className="sub" dangerouslySetInnerHTML={{ __html: t("cspa.ph6.sub", "AI Plant Shopper, indulás 2026") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph6.p1", "A Plantart most AI-alapú növényválasztó asszisztenssel bővíti a digitális ökoszisztémáját, hogy egyszerűbbé tegye a termékválasztást. Az eszköz a több mint <strong>20 000 termékből álló katalógust</strong> használja, és fényviszonyok, gondozási igény, kaspóstílus, költségkeret és helyiségtípus alapján ad személyre szabott ajánlást.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.ph6.p2", "Az MVP közvetlenül integrálódik a webshoppal, és 2026-ban indul, ezzel a Plantart az AI-vezérelt kiskereskedelmi innováció élére áll.") }} />
+                <div className="cstl-cta">
+                  <Link href="/email-automatizacio" className="tlink">
+                    <span dangerouslySetInnerHTML={{ __html: t("cspa.ai.link", "Így építünk automatizált rendszereket") }} />
+                    <span className="ar">→</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <section className="band">
         <div className="wrap">
-          <div className="split">
-            <div className="split-media rv">
-              <Image src="/ge/img/m-plantart.webp" width={728} height={484} alt={t("alt4", "A Plantart AI Plant Shopper növényválasztó asszisztense")} aria-label={t("cspa.ai.imgalt", "")} />
+          <div className="shead solo" style={{ textAlign: "center", marginInline: "auto" }}>
+            <div>
+              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("cspa.res.eyebrow", "Eredmények") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("cspa.res.h2", "Négy év, kamatozó eredmények") }} />
             </div>
-            <div className="rv">
-              <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.ai.eyebrow", "Indulás 2026") }} />
-              <h2 dangerouslySetInnerHTML={{ __html: t("cspa.ai.h2", "AI Plant Shopper") }} />
-              <p className="lede" style={{ marginTop: "1.2rem" }} dangerouslySetInnerHTML={{ __html: t("cspa.ai.lede", "Személyre szabott ajánlás a több mint 20 000 termékes katalógusból, fényviszonyok, gondozási igény, kaspóstílus, költségkeret és helyiségtípus alapján, közvetlenül a webshopba integrálva.") }} />
-              <div style={{ marginTop: "1.6rem" }}>
-                <Link href="/email-automatizacio" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("cspa.ai.link", "Így építünk automatizált rendszereket") }} />
-                  <span className="ar">→</span>
-                </Link>
-              </div>
+            <p className="lede rv" style={{ marginInline: "auto" }} dangerouslySetInnerHTML={{ __html: t("cspa.res.lede", "A Plantart átalakulása négy év alatt jelentős, egymásra épülő eredményeket hozott.") }} />
+          </div>
+          <div className="cs-results rv">
+            <div>
+              <div className="dnum">3×</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric1", "bevételnövekedés 4 év alatt") }} />
+            </div>
+            <div>
+              <div className="dnum">+90%</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric2", "több minősített érdeklődő") }} />
+            </div>
+            <div>
+              <div className="dnum">+234%</div>
+              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("cspa.metric3", "növekedés a konverziós arányban") }} />
             </div>
           </div>
+          <p className="rv" style={{ textAlign: "center", marginTop: "2.4rem" }}>
+            <Link href="/kapcsolat" className="btn">
+              <span dangerouslySetInnerHTML={{ __html: t("cspa.fc.cta1", "Foglalj hívást") }} />
+              <span className="ar">→</span>
+            </Link>
+          </p>
         </div>
       </section>
       <section>
         <div className="wrap">
           <div className="split">
+            <div className="split-media rv" style={{ maxWidth: "480px", marginInline: "auto" }}>
+              <Image src="/ge/img/pa-concl.webp" width={542} height={514} alt={t("cspa.cl.imgalt", "Növekedési illusztráció: rakéta, fogaskerekek és emelkedő oszlopok")} style={{ border: 0 }} />
+            </div>
             <div className="rv">
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("cspa.cl.eyebrow", "Összegzés") }} />
               <h2 dangerouslySetInnerHTML={{ __html: t("cspa.cl.h2", "Kamatozó növekedés, nem kampányok") }} />
-            </div>
-            <div className="prose rv">
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.cl.p1", "A Plantart története megmutatja, mi válik lehetővé, ha egy cég stratégiába, rendszerekbe és végrehajtásba fektet. A márka megújításával, a digitális infrastruktúra újjáépítésével, a CRM és az automatizáció bevezetésével és az akvizíció skálázásával a Plantart a stagnálásból többéves, kamatozó növekedésbe váltott.") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("cspa.cl.p2", "Ma kiszámítható bevétellel és hosszú távú növekedési motorral működik, ami minden szegmensben a véletlenszerű érdeklődések helyére lépett.") }} />
+              <div className="prose" style={{ marginTop: "1.4rem" }}>
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.cl.p1", "A Plantart története megmutatja, mi válik lehetővé, ha egy cég stratégiába, rendszerekbe és végrehajtásba fektet. A márka megújításával, a digitális infrastruktúra újjáépítésével, a CRM és az automatizáció bevezetésével és az akvizíció skálázásával a Plantart a stagnálásból többéves, kamatozó növekedésbe váltott.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("cspa.cl.p2", "Ma kiszámítható bevétellel és hosszú távú növekedési motorral működik, ami minden szegmensben a véletlenszerű érdeklődések helyére lépett.") }} />
+              </div>
             </div>
           </div>
         </div>
