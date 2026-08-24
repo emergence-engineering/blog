@@ -14,9 +14,9 @@ const AiSeo: NextPage = () => {
     <GeShell page="ai-seo">
       <GeSEO
         title={t("mt.aiseo", "SEO és AI keresőoptimalizálás: legyél ott, ahol ma keresnek | Growth Engineering")}
-        description={t("md.aiseo", "Láthatóság ChatGPT-ben, Claude-ban és Geminiben. Entitás-optimalizálás, strukturált adat, idézhető tartalom és AI-említések követése.")}
+        description={t("md.aiseo", "Láthatóság ChatGPT-ben, Claude-ban és Geminiben. Entity-optimalizálás, strukturált adatok, idézhető tartalom és az AI-említések követése.")}
         ogTitle={t("mt.aiseo", "SEO és AI keresőoptimalizálás: legyél ott, ahol ma keresnek | Growth Engineering")}
-        ogDescription={t("od.aiseo", "Az online keresések egyre nagyobb hányada AI eszközökben történik. Gondoskodunk róla, hogy a márkád a válasz része legyen, ne csak egy találat.")}
+        ogDescription={t("od.aiseo", "Az online keresések egyre nagyobb hányada AI-eszközökben történik. Gondoskodunk róla, hogy a márkád a válasz része legyen, ne csak egy találat.")}
       />
       <section className="phero">
         <div className="wrap">
@@ -39,7 +39,7 @@ const AiSeo: NextPage = () => {
               </div>
               <div className="trust rv">
                 <span dangerouslySetInnerHTML={{ __html: t("seo.trust1", "<b>ChatGPT</b> · Claude · Gemini") }} />
-                <span dangerouslySetInnerHTML={{ __html: t("seo.trust2", "<b>Entitás-</b> és strukturáltadat-optimalizálás") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("seo.trust2", "<b>Entity SEO</b> és strukturált adatok") }} />
               </div>
             </div>
             <div className="phero-art rv">
@@ -53,11 +53,8 @@ const AiSeo: NextPage = () => {
           <div className="shift-c">
             <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.eyebrow", "A váltás") }} />
             <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.h", "A keresés megváltozott. Nagyon.") }} />
-            <div className="shift-stat rv">
-              <span className="pct">35%</span>{" "}
-              <span dangerouslySetInnerHTML={{ __html: t("seo.shift.stat", "az online kereséseknek ma már AI eszközökben történik, mint a ChatGPT, a Claude és a Gemini.") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.lede", "Az online keresések egyre nagyobb hányada már AI eszközökben történik: ChatGPT, Claude, Gemini. Ezek nem találati listát adnak, hanem kész választ.") }} />
+            <div className="shift-stat rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.stat", "Az online keresések <span class=\"pct\">35%-a</span> ma már AI-eszközökben történik, mint a ChatGPT, a Claude és a Gemini.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.lede", "Az online keresések egyre nagyobb hányada már AI-eszközökben történik: ChatGPT, Claude, Gemini. Ezek nem találati listát adnak, hanem kész választ.") }} />
             <p className="rv" dangerouslySetInnerHTML={{ __html: t("seo.shift.p", "Lehetsz továbbra is előkelő helyen a Google-ben, és közben láthatatlan ott, ahol az emberek ma kérdeznek. A két rendszer más jeleket használ, ezért külön munkát igényel.") }} />
           </div>
         </div>
@@ -68,7 +65,7 @@ const AiSeo: NextPage = () => {
             <div>
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("seo.method.eyebrow", "A módszer") }} />
               <h2 dangerouslySetInnerHTML={{ __html: t("seo.method.h", "Mi működik ma az AIO-ban?") }} />
-              <p style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("seo.method.lede", "Az AI-keresés kontextust és szándékot néz, nem kulcsszósűrűséget. Az számít, hogy a tartalmad válaszol-e olyan kérdésekre, amiket az emberek tényleg feltesznek: és hogy a gép meg tudja-e bízhatóan érteni, ki vagy.") }} />
+              <p style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("seo.method.lede", "Az AI-keresés kontextust és szándékot néz, nem kulcsszósűrűséget. Az számít, hogy a tartalmad válaszol-e olyan kérdésekre, amiket az emberek tényleg feltesznek, és hogy a gép megbízhatóan meg tudja-e érteni, ki vagy.") }} />
               <Link href="/kapcsolat" className="btn">
                 <span dangerouslySetInnerHTML={{ __html: t("seo.cta1", "Auditáljuk a weboldalad") }} />
                 <span className="ar">→</span>
@@ -78,36 +75,36 @@ const AiSeo: NextPage = () => {
               <div className="mrow">
                 <span className="n">01</span>
                 <div>
-                  <h4 dangerouslySetInnerHTML={{ __html: t("seo.m1.h", "Strukturált adat és entitások") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("seo.m1.p", "Úgy rendezzük az adataidat és a jelölést, hogy az AI rendszerek felismerjék a márkádat mint entitást, és összekössék azzal, amit az emberek kérdeznek.") }} />
+                  <h4 dangerouslySetInnerHTML={{ __html: t("seo.m1.h", "Strukturált adatok és entitások") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("seo.m1.p", "Úgy rendezzük az adataidat és a markupot, hogy az AI-rendszerek entitásként ismerjék fel a márkádat, és összekössék azzal, amit az emberek kérdeznek.") }} />
                 </div>
               </div>
               <div className="mrow">
                 <span className="n">02</span>
                 <div>
                   <h4 dangerouslySetInnerHTML={{ __html: t("seo.m2.h", "Idézhető, kérdésalapú tartalom") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("seo.m2.p", "Olyan tartalmat publikálunk, ami valódi kérdésekre válaszol világosan és szakértőn. A cél megtanítani az AI eszközöknek, hogy ki vagy és mit csinálsz.") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("seo.m2.p", "Olyan tartalmat publikálunk, ami világosan és szakértő módon válaszol valódi kérdésekre. A cél az, hogy az AI-eszközök megtanulják, ki vagy és mit csinálsz.") }} />
                 </div>
               </div>
               <div className="mrow">
                 <span className="n">03</span>
                 <div>
-                  <h4 dangerouslySetInnerHTML={{ __html: t("seo.m3.h", "Tekintély és hivatkozások") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("seo.m3.p", "Linkeket és említéseket építünk hiteles oldalakról. Az AI modellek ezekre a jelekre támaszkodnak, amikor eldöntik, melyik forrásban bízzanak.") }} />
+                  <h4 dangerouslySetInnerHTML={{ __html: t("seo.m3.h", "Authority és hivatkozások") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("seo.m3.p", "Linkeket és említéseket építünk hiteles oldalakról. Az AI-modellek ezekre a jelekre támaszkodnak, amikor eldöntik, melyik forrásban bízzanak.") }} />
                 </div>
               </div>
               <div className="mrow">
                 <span className="n">04</span>
                 <div>
                   <h4 dangerouslySetInnerHTML={{ __html: t("seo.m4.h", "Következetesség minden platformon") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("seo.m4.p", "A márkatörténeted, az adataid és a leírásaid minden platformon egyezzenek. A vegyes üzenet az embert és a gépet is összezavarja.") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("seo.m4.p", "A márkatörténeted, az adataid és a leírásaid minden platformon egyezzenek. Az ellentmondásos üzenet az embert és a gépet is összezavarja.") }} />
                 </div>
               </div>
               <div className="mrow">
                 <span className="n">05</span>
                 <div>
                   <h4 dangerouslySetInnerHTML={{ __html: t("seo.m5.h", "Folyamatos, friss tartalom") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("seo.m5.p", "Készítünk továbbra is hasznos, eredeti és aktuális tartalmat. A friss tudást gyorsabban veszik észre az AI rendszerek, és tovább is tartják.") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("seo.m5.p", "Folyamatosan készítünk hasznos, eredeti és aktuális tartalmat. A friss tudást az AI-rendszerek gyorsabban észreveszik, és tovább is megőrzik.") }} />
                 </div>
               </div>
             </div>
@@ -120,21 +117,21 @@ const AiSeo: NextPage = () => {
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("seo.help.eyebrow", "Miben segítünk?") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("seo.help.h", "Optimalizálás a keresés új korszakára") }} />
-              <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("seo.help.lede", "Gondoskodunk róla, hogy az AI tudja, ki vagy és mit csinálsz: és hogy téged idézzen, amikor a vevőd kérdez.") }} />
+              <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("seo.help.lede", "Gondoskodunk róla, hogy az AI tudja, ki vagy és mit csinálsz, és amikor a vevőd kérdez, téged idézzen.") }} />
             </div>
           </div>
           <div className="cards4 rv">
             <article className="pcard">
               <h4 dangerouslySetInnerHTML={{ __html: t("seo.h1c.h", "AI-optimalizálás a weboldaladra") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("seo.h1c.p", "Úgy rendezzük az adataidat, hogy az AI rendszerek könnyen felismerjék a márkádat, és összekössék azzal, amit az emberek kérdeznek.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("seo.h1c.p", "Úgy rendezzük az adataidat, hogy az AI-rendszerek könnyen felismerjék a márkádat, és összekössék azzal, amit az emberek kérdeznek.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("seo.h2c.h", "AI tartalomstratégia") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("seo.h2c.p", "Olyan tartalmat írunk, amit az emberek szeretnek, és az AI eszközök is értenek. A cél, hogy a márkád legyen a válasz mögötti megbízható forrás.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("seo.h2c.h", "AI-tartalomstratégia") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("seo.h2c.p", "Olyan tartalmat írunk, amit az emberek szeretnek, és az AI-eszközök is értenek. A cél, hogy a márkád legyen a válasz mögötti megbízható forrás.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("seo.h3c.h", "Tekintély- és entitás-SEO") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("seo.h3c.p", "Több platformon erősítjük az online jelenlétedet, hogy az AI a nagyobb kép részeként lásson, ne elszigetelt oldalként.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("seo.h3c.h", "Authority és entity SEO") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("seo.h3c.p", "Több platformon erősítjük az online jelenlétedet, hogy az AI összefüggő egészként lásson, ne elszigetelt oldalként.") }} />
             </article>
             <article className="pcard">
               <h4 dangerouslySetInnerHTML={{ __html: t("seo.h4c.h", "Teljesítménykövetés") }} />
@@ -154,7 +151,7 @@ const AiSeo: NextPage = () => {
           <div className="cta">
             <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("fc.eyebrow", "Beszéljünk") }} />
             <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("seo.fc.h", "Készen állsz megjelenni ott, ahol ma tényleg keresnek?") }} />
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("seo.fc.lede", "Megnézzük, hogyan teljesít a márkád az AI eszközökben, és megkeressük a leggyorsabban elérhető nyereségeket.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("seo.fc.lede", "Megnézzük, hogyan teljesít a márkád az AI-eszközökben, és megkeressük a leggyorsabban eredményt hozó lépéseket.") }} />
             <div className="btns rv">
               <Link href="/kapcsolat" className="btn">
                 <span dangerouslySetInnerHTML={{ __html: t("seo.fc.cta1", "Auditáljuk a weboldalad") }} />
@@ -183,15 +180,15 @@ const AiSeo: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("seo.faq.q2", "Miben más ez a hagyományos SEO-nál?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a2", "A hagyományos SEO a keresőmotoros helyezésekre fókuszál. Az AIO arra, hogy a ChatGPT vagy a Claude hivatkozzon rád, amikor válaszol a felhasználónak. A kettő a legjobb eredményt együtt hozza.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a2", "A hagyományos SEO a keresőmotoros helyezésekre fókuszál. Az AIO arra, hogy a ChatGPT vagy a Claude hivatkozzon rád, amikor válaszol a felhasználónak. A legjobb eredményt a kettő együtt hozza.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("seo.faq.q3", "Kisebb cégeknek is megéri?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a3", "Feltétlenül. Sőt, a korai adaptálók gyakran komoly előnyt szereznek, mielőtt a nagyobb versenytársak utolérnék őket.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a3", "Feltétlenül. Sőt, az early adopterek gyakran komoly előnyt szereznek, mielőtt a nagyobb versenytársak utolérnék őket.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("seo.faq.q4", "Hogyan mérhető az AI-láthatóság?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a4", "Figyeljük az AI-említéseket, a hivatkozási mintázatokat, és azt, hogyan foglalja össze vagy idézi a tartalmadat az AI-válasz. Ebből látszik, mi működik és hol van még tér.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a4", "Figyeljük az AI-említéseket, a hivatkozási mintázatokat, és azt, hogyan foglalja össze vagy idézi a tartalmadat az AI-válasz. Ebből látszik, mi működik, és hol lehet még javítani.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("seo.faq.q5", "Ez leváltja a hagyományos SEO-t?") }} />
@@ -199,7 +196,7 @@ const AiSeo: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("seo.faq.q6", "Mikor látok eredményt?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a6", "Jellemzően néhány hónapon belül indul a javulás, a jelenlegi láthatóságodtól és a tartalmad minőségétől függően. A friss, idézhető tartalmat az AI rendszerek gyorsabban veszik észre.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("seo.faq.a6", "Jellemzően néhány hónapon belül indul a javulás, a jelenlegi láthatóságodtól és a tartalmad minőségétől függően. A friss, idézhető tartalmat az AI-rendszerek gyorsabban veszik észre.") }} />
             </details>
             </div>
           </div>
