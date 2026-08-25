@@ -563,3 +563,10 @@
 .ge-p-adatkezeles .legal li,.ge-p-aszf .legal li{line-height:1.7;margin-bottom:.25rem}
 .ge-p-adatkezeles .legal a,.ge-p-aszf .legal a{color:var(--coral-d);text-decoration:underline}
 .ge-p-adatkezeles .legal .updated,.ge-p-aszf .legal .updated{font-size:.85rem;color:var(--muted);margin-top:2.5rem}
+/* GDPR checklist and the navy panel start on the same line: the section head
+   moved above the split, so the two columns top-align. */
+.ge-p-email-automatizacio .split{align-items:start}
+/* Green outcome badge at the end of the hero flow chips. */
+.ge-p-email-automatizacio .fchip .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;
+  color:#177A4B;background:#E4F4EA;padding:.28rem .6rem;border-radius:999px;white-space:nowrap}
+@media(max-width:420px){.ge-p-email-automatizacio .fchip .gain{display:none}}
