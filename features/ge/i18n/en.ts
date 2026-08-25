@@ -627,7 +627,7 @@ const en: Record<string, string> = {
   "em.int.cta": "Let&rsquo;s look at your stack",
   "em.int.eyebrow": "Integrations",
   "em.int.h": "Ready for most webshop platforms",
-  "em.int.lede": "For most webshops we recommend Klaviyo, but we work with other platforms too. In the Hungarian market Shoprenter, UNAS and custom systems dominate, and we build the integrations for those.",
+  "em.int.lede": "For most webshops we recommend Klaviyo, but we work with other platforms too. In Hungary WooCommerce, Shoprenter and UNAS are the most widespread, alongside many custom systems: where the off-the-shelf integration falls short, we build the missing pieces.",
   "em.int1.h": "Shopify",
   "em.int1.p": "Native integration, catalog feed, checkout events, Shopify Flow connection.",
   "em.int2.h": "Shoprenter",

@@ -545,7 +545,7 @@ const hu: Record<string, string> = {
   "em.int.cta": "Nézzük meg a rendszeredet",
   "em.int.eyebrow": "Integrációk",
   "em.int.h": "A legtöbb webshop-rendszerre fel vagyunk készülve",
-  "em.int.lede": "A legtöbb webshophoz a Klaviyót javasoljuk, de dolgozunk más platformokkal is. A magyar piacon Shoprenter, UNAS és egyedi rendszerek dominálnak, ezekhez mi fejlesztünk integrációt.",
+  "em.int.lede": "A legtöbb webshophoz a Klaviyót javasoljuk, de dolgozunk más platformokkal is. A magyar piacon a WooCommerce, a Shoprenter és az UNAS a legelterjedtebb, és sok az egyedi rendszer: ahol a kész integráció kevés, ott mi építjük meg a hiányzót.",
   "em.int1.h": "Shopify",
   "em.int1.p": "Natív integráció, katalógusfeed, checkout-események, Shopify Flow összekötés.",
   "em.int2.h": "Shoprenter",

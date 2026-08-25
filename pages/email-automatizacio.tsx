@@ -189,7 +189,7 @@ const EmailAutomatizacio: NextPage = () => {
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.int.eyebrow", "Integrációk") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.h", "A legtöbb webshop-rendszerre fel vagyunk készülve") }} />
-              <p className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.lede", "A legtöbb webshophoz a Klaviyót javasoljuk, de dolgozunk más platformokkal is. A magyar piacon Shoprenter, UNAS és egyedi rendszerek dominálnak, ezekhez mi fejlesztünk integrációt.") }} />
+              <p className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.lede", "A legtöbb webshophoz a Klaviyót javasoljuk, de dolgozunk más platformokkal is. A magyar piacon a WooCommerce, a Shoprenter és az UNAS a legelterjedtebb, és sok az egyedi rendszer: ahol a kész integráció kevés, ott mi építjük meg a hiányzót.") }} />
               <Link className="btn rv" href="/kapcsolat" dangerouslySetInnerHTML={{ __html: t("em.int.cta", "Nézzük meg a rendszeredet") }} />
             </div>
             <div className="ilist rv">
