@@ -37,7 +37,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <a href="#folyamat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.cta2", "Hogyan zajlik") }} />
               </div>
               <div className="trust rv">
-                <span dangerouslySetInnerHTML={{ __html: t("em.trust1", "<b>Klaviyo</b> Silver Advisor") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("em.trust1", "<b>Klaviyo</b> Silver Partner") }} />
                 <span dangerouslySetInnerHTML={{ __html: t("em.trust3", "<b>GDPR</b>-tiszta felépítés") }} />
               </div>
             </div>
@@ -53,7 +53,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <span className="ic">👋</span>
                 <span className="tx">
                   <b dangerouslySetInnerHTML={{ __html: t("em.chip2.h", "Üdvözlő sorozat") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip2.s", "5 e-mail, szegmentálva") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip2.s", "4–6 e-mail, szegmentálva") }} />
                 </span>
               </div>
               <div className="fchip">
@@ -67,7 +67,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <span className="ic">🔔</span>
                 <span className="tx">
                   <b dangerouslySetInnerHTML={{ __html: t("em.chip4.h", "Készletértesítő") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip4.s", "kihagyott bevétel visszafogása") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip4.s", "kihagyott bevétel visszaszerzése") }} />
                 </span>
               </div>
             </div>
@@ -78,7 +78,7 @@ const EmailAutomatizacio: NextPage = () => {
         <div className="wrap">
           <div className="shead solo">
             <div>
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.why.h", "Miért itt a legolcsóbb bevétel") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.why.h", "Miért ez a legolcsóbb bevételi csatorna?") }} />
               <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("em.why.lede", "A hirdetési költségek évek óta nőnek, az attribúció romlik. A lista, amit te birtokolsz, nem drágul, és nem függ egyetlen platform algoritmusától.") }} />
             </div>
           </div>
@@ -89,11 +89,11 @@ const EmailAutomatizacio: NextPage = () => {
             </div>
             <div className="bigstat">
               <b>0 Ft</b>
-              <span dangerouslySetInnerHTML={{ __html: t("em.why.s2", "médiaköltség a meglévő listádra küldött üzenetnél") }} />
+              <span dangerouslySetInnerHTML={{ __html: t("em.why.s2", "hirdetési költség a meglévő listádra küldött üzenetnél") }} />
             </div>
             <div className="bigstat">
               <b>5–7×</b>
-              <span dangerouslySetInnerHTML={{ __html: t("em.why.s3", "ennyibe kerül új vevőt szerezni ahhoz képest, mint visszahozni egy meglévőt") }} />
+              <span dangerouslySetInnerHTML={{ __html: t("em.why.s3", "szor drágább új vevőt szerezni, mint visszahozni egy meglévőt") }} />
             </div>
           </div>
           <p className="fine rv" style={{ textAlign: "center" }} dangerouslySetInnerHTML={{ __html: t("em.why.note", "A számok iparági nagyságrendek, nem ígéretek. Az auditban a te saját adataidból számolunk konkrét célt.") }} />
@@ -104,11 +104,11 @@ const EmailAutomatizacio: NextPage = () => {
           <div className="shead">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.sys.eyebrow", "A rendszer") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.sys.h", "Amit felépítünk") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.sys.h", "Mit építünk fel?") }} />
             </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("em.sys.lede", "Egy összefüggő rendszer, ahol minden e-mail egy konkrét viselkedésre válaszol.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("em.sys.lede", "Automatizált flow-kat, szegmentációt és adatgyűjtést, kampánynaptárat és tartalmat: egy összefüggő rendszert, ahol minden e-mail egy konkrét viselkedésre válaszol.") }} />
           </div>
-          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g1", "1. Automatizált flow-k") }} />
+          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g1", "<span class=\"gno\">1/3</span> Automatizált flow-k") }} />
           <div className="cards4 rv" style={{ marginBottom: "3rem" }}>
             <article className="pcard">
               <h4 dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Üdvözlő sorozat") }} />
@@ -143,7 +143,7 @@ const EmailAutomatizacio: NextPage = () => {
               <p dangerouslySetInnerHTML={{ __html: t("em.f8.p", "Születésnap, első vásárlás évfordulója, VIP-státusz elérése. Kis volumen, magas konverzió, alacsony karbantartási igény.") }} />
             </article>
           </div>
-          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g2", "2. Szegmentáció és adat") }} />
+          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g2", "<span class=\"gno\">2/3</span> Szegmentáció és adat") }} />
           <div className="panel panel-navy rv" style={{ marginBottom: "3rem" }}>
             <div className="cards2" style={{ gap: "0 clamp(1.5rem,4vw,3.5rem)" }}>
               <ul className="checklist">
@@ -153,14 +153,14 @@ const EmailAutomatizacio: NextPage = () => {
                 <li dangerouslySetInnerHTML={{ __html: t("em.seg4", "<strong>Prediktív adatok</strong>, várható következő rendelés és becsült élettartam-érték") }} />
               </ul>
               <ul className="checklist">
-                <li dangerouslySetInnerHTML={{ __html: t("em.seg5", "<strong>Nulladik és első felek adatai</strong>: kvíz, preferenciaközpont, profilbővítés") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("em.seg5", "<strong>Saját adatgyűjtés</strong>: kvíz, preferenciaközpont, profilbővítés") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("em.seg6", "<strong>Egyedi események</strong>, a saját rendszeredből küldött viselkedésadat") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("em.seg7", "<strong>Tiszta katalógusfeed</strong>, hogy a dinamikus termékblokkok tényleg jó terméket mutassanak") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("em.seg8", "<strong>Bevétel-attribúció</strong>: melyik flow mennyit hozott, önámítás nélkül") }} />
               </ul>
             </div>
           </div>
-          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g3", "3. Kampányok és tartalom") }} />
+          <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g3", "<span class=\"gno\">3/3</span> Kampányok és tartalom") }} />
           <div className="cards3 rv">
             <article className="pcard">
               <h4 dangerouslySetInnerHTML={{ __html: t("em.c1.h", "Kampánynaptár") }} />
@@ -182,7 +182,7 @@ const EmailAutomatizacio: NextPage = () => {
           <div className="sblock" style={{ borderTop: "0", paddingTop: "0" }}>
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.int.eyebrow", "Integrációk") }} />
-              <h3 className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.h", "A magyar webshop-környezetre is fel vagyunk készülve") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.h", "A magyar webshop-környezetre is fel vagyunk készülve") }} />
               <p className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.lede", "A Klaviyo natívan a Shopify-hoz illeszkedik a legjobban. A magyar piacon viszont Shoprenter, UNAS és egyedi rendszerek dominálnak, ezekhez mi fejlesztünk integrációt.") }} />
               <p className="rv muted" style={{ marginTop: "1rem", fontSize: ".92rem" }} dangerouslySetInnerHTML={{ __html: t("em.int.note", "Saját fejlesztőcsapatunk van, így ha nincs kész integráció, megírjuk. Ez az a pont, ahol a legtöbb e-mail ügynökség megáll.") }} />
               <Link className="btn rv" href="/kapcsolat" dangerouslySetInnerHTML={{ __html: t("em.int.cta", "Nézzük meg a rendszeredet") }} />
@@ -250,7 +250,7 @@ const EmailAutomatizacio: NextPage = () => {
           <div className="shead solo">
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.proc.eyebrow", "Folyamat") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.proc.h", "Az első élő flow-ig 2 hét, a teljes rendszerig 6") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.proc.h", "Az első élő flow-ig 2 hét, a teljes rendszerig 8") }} />
             </div>
           </div>
           <div className="tl rv">
@@ -268,13 +268,13 @@ const EmailAutomatizacio: NextPage = () => {
             </div>
             <div className="tlrow">
               <div className="dot">3</div>
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p3.k", "2–4. hét") }} />
+              <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p3.k", "2–5. hét") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("em.proc.p3.h", "Teljes flow-készlet") }} />
               <p dangerouslySetInnerHTML={{ __html: t("em.proc.p3.p", "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, magyar szövegezéssel.") }} />
             </div>
             <div className="tlrow">
               <div className="dot">4</div>
-              <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p4.k", "4–6. hét") }} />
+              <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p4.k", "5–8. hét") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("em.proc.p4.h", "Kampányritmus és mérés") }} />
               <p dangerouslySetInnerHTML={{ __html: t("em.proc.p4.p", "Kampánynaptár, riportsablon, a csapatod betanítása. Innentől vagy ti viszitek tovább, vagy mi futtatjuk havi együttműködésben.") }} />
             </div>
@@ -297,7 +297,7 @@ const EmailAutomatizacio: NextPage = () => {
           </div>
           <div className="tiers rv">
             <div className="tier">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.pkg1.h", "Klaviyo audit") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.pkg1.h", "E-mail marketing tervezés") }} />
               <div className="price" dangerouslySetInnerHTML={{ __html: t("em.pkg1.price", "190 000 Ft<small>egyszeri, 5 munkanap</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("em.pkg1.p", "Végigmegyünk a fiókodon, a listádon és a kézbesíthetőségen. Kapsz egy priorizált listát arról, mi hozza a legtöbb bevételt a következő 90 napban, és mennyit.") }} />
               <ul className="checks on-light">
@@ -309,7 +309,7 @@ const EmailAutomatizacio: NextPage = () => {
             </div>
             <div className="tier" style={{ borderColor: "var(--coral)" }}>
               <h4 dangerouslySetInnerHTML={{ __html: t("em.pkg2.h", "Rendszerépítés") }} />
-              <div className="price" dangerouslySetInnerHTML={{ __html: t("em.pkg2.price", "1 500 000 Ft-tól<small>egyszeri projekt, 4–6 hét</small>") }} />
+              <div className="price" dangerouslySetInnerHTML={{ __html: t("em.pkg2.price", "1 500 000 Ft-tól<small>egyszeri projekt, 6–8 hét</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("em.pkg2.p", "A teljes flow-készlet, szegmensek, sablonrendszer és integráció felépítése. A végén a fiók a tiéd, dokumentálva, a csapatod betanításával.") }} />
               <ul className="checks on-light">
                 <li dangerouslySetInnerHTML={{ __html: t("em.pkg2.l1", "8–12 flow magyarul, A/B teszttel") }} />
@@ -341,6 +341,7 @@ const EmailAutomatizacio: NextPage = () => {
               <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("em.kpi.lede", "Nem nyitási arányt. Azt, hogy melyik flow mennyi pénzt hozott.") }} />
             </div>
           </div>
+          <p className="scrollhint rv" dangerouslySetInnerHTML={{ __html: t("em.kpi.hint", "Görgess a táblázaton <b>→</b>") }} />
           <div className="table-wrap rv">
             <table>
               <thead>
@@ -354,7 +355,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <tr>
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r1a", "E-mail bevétel aránya") }} />
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r1b", "A teljes webshop-bevétel hány százaléka jön e-mailből") }} />
-                  <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r1c", "20–35%") }} />
+                  <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r1c", "25–35%") }} />
                 </tr>
                 <tr>
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r2a", "Flow-bevétel aránya") }} />
@@ -364,7 +365,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <tr>
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r3a", "Elhagyott kosár konverzió") }} />
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r3b", "A flow-t megkapók hány százaléka vásárol") }} />
-                  <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r3c", "5–12%") }} />
+                  <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r3c", "3–8%") }} />
                 </tr>
                 <tr>
                   <td dangerouslySetInnerHTML={{ __html: t("em.kpi.r4a", "Üdvözlő sorozat konverzió") }} />
@@ -454,7 +455,7 @@ const EmailAutomatizacio: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("em.faq.q8", "Mennyi időt kell rászánnunk?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a8", "Az induláskor egy kickoff megbeszélés és a hozzáférések átadása, utána hetente 30–45 perc. A tartalmi jóváhagyás a ti oldalatokon van, a többit mi visszük.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a8", "Az induláskor egy kickoff megbeszélés és a hozzáférések beállítása, utána hetente 30–45 perc. A tartalmi jóváhagyás a ti oldalatokon van, a többit mi visszük.") }} />
             </details>
           </div>
         </div>
@@ -464,12 +465,12 @@ const EmailAutomatizacio: NextPage = () => {
           <div className="cta">
             <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("fc.eyebrow", "Beszéljünk") }} />
             <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.fc.h", "Nézzük meg, mennyi pénz áll a listádban") }} />
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("em.fc.lede", "Küldj hozzáférést a Klaviyo-fiókodhoz vagy a webshop adataidhoz, és 5 munkanap alatt megmondjuk, mennyi bevételt hagysz az asztalon, és mi a legrövidebb út odáig.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("em.fc.lede", "Kérj ingyenes auditot: megnézzük a fiókodat és a webshopod adatait, és megmondjuk, mennyi bevételt hagysz az asztalon, és mi a legrövidebb út odáig.") }} />
             <div className="btns rv">
-              <a href="mailto:info@emergence-engineering.com" className="btn">
+              <Link href="/kapcsolat" className="btn">
                 <span dangerouslySetInnerHTML={{ __html: t("em.fc.cta1", "Foglalj hívást") }} />
                 <span className="ar">→</span>
-              </a>
+              </Link>
               <a href="mailto:info@emergence-engineering.com" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.fc.cta2", "Inkább e-mailben kezdenél?") }} />
             </div>
             <p className="rv" style={{ fontSize: ".88rem", color: "#8FA0B8" }} dangerouslySetInnerHTML={{ __html: t("em.fc.fine", "Ha az derül ki, hogy nálad ez most nem éri meg, azt is megmondjuk.") }} />

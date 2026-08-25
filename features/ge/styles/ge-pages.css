@@ -534,3 +534,21 @@
 /* …except the challenges phone photo, which sits lower, centred against the
    long bullet list. */
 .ge-p-esettanulmany-vezessjol .band .split.flip .split-media:has(img[src*="vj-phone"]){align-self:center}
+
+/* ---------- email-automatizacio ---------- */
+/* Keep the hyphenated "e-mailből" on one line in the hero headline. */
+.ge-p-email-automatizacio .phero h1 mark{white-space:nowrap}
+/* The integrations heading is an h2 for hierarchy but keeps the compact
+   sblock look the design was built around. */
+.ge-p-email-automatizacio .sblock h2{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.14;letter-spacing:-.03em;margin-bottom:.9rem}
+/* Mobile-only hint that the KPI table scrolls sideways. */
+.ge-p-email-automatizacio .scrollhint{display:none;font-size:.82rem;color:var(--muted);margin:0 0 .7rem}
+.ge-p-email-automatizacio .scrollhint b{color:var(--coral)}
+@media(max-width:760px){.ge-p-email-automatizacio .scrollhint{display:block}}
+/* The GDPR checklist and the "what we don't do" panel stay side by side down
+   to tablet width; the global .split breakpoint (940px) only stacks them on
+   phones here. */
+@media(min-width:761px) and (max-width:940px){
+  .ge-p-email-automatizacio .split{grid-template-columns:1fr 1fr;gap:1.6rem}
+}
+.ge-p-email-automatizacio .gno{color:var(--coral);margin-right:.35rem}
