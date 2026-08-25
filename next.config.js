@@ -41,12 +41,31 @@ const nextConfig = {
   // only. Locale routing would also serve them under /hu, which is duplicate
   // content, so send those back to the canonical URL permanently.
   async redirects() {
-    return EN_ONLY_PREFIXES.map((path) => ({
-      source: `/hu${path}`,
-      destination: path,
-      permanent: true,
-      locale: false,
-    }));
+    return [
+      ...EN_ONLY_PREFIXES.map((path) => ({
+        source: `/hu${path}`,
+        destination: path,
+        permanent: true,
+        locale: false,
+      })),
+      // Service slugs renamed to match the visible service names (SEO).
+      // Locale-aware: also covers the /hu/… variants.
+      {
+        source: "/growth-marketing",
+        destination: "/ppc-hirdeteskezeles",
+        permanent: true,
+      },
+      {
+        source: "/tartalomgyartas",
+        destination: "/kreativ-es-videogyartas",
+        permanent: true,
+      },
+      {
+        source: "/ecommerce-skalazas",
+        destination: "/cro-es-ecommerce",
+        permanent: true,
+      },
+    ];
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

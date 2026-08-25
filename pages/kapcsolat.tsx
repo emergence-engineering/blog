@@ -12,9 +12,9 @@ const Kapcsolat: NextPage = () => {
   return (
     <GeShell page="kapcsolat">
       <GeSEO
-        title={t("mt.contact", "Kapcsolat, Growth Engineering")}
+        title={t("mt.contact", "Kapcsolat | Growth Engineering")}
         description={t("md.contact", "Kezdjük egy 30 perces beszélgetéssel. Elmondod, hol tartasz és mit szeretnél elérni, mi megmondjuk, látunk-e reális utat odáig. Egy munkanapon belül válaszolunk.")}
-        ogTitle={t("mt.contact", "Kapcsolat, Growth Engineering")}
+        ogTitle={t("mt.contact", "Kapcsolat | Growth Engineering")}
         ogDescription={t("od.contact", "Kezdjük egy 30 perces beszélgetéssel. Prezentáció és sales script nélkül.")}
       />
       <section className="phero" id="urlap">
@@ -51,11 +51,11 @@ const Kapcsolat: NextPage = () => {
                   <div className="fld">
                     <label htmlFor="fat" dangerouslySetInnerHTML={{ __html: t("kap.audit.type", "Milyen auditot kérsz?") }} />
                     <select id="fat" name="audit">
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o1", "UX audit") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o2", "Növekedési (üzleti) audit") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o3", "SEO és AI-láthatósági audit") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o4", "Klaviyo e-mail audit") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.audit.o5", "Kreatív audit") }} />
+                      <option value="ux-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o1", "UX audit") }} />
+                      <option value="novekedesi-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o2", "Növekedési (üzleti) audit") }} />
+                      <option value="seo-ai-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o3", "SEO és AI-láthatósági audit") }} />
+                      <option value="klaviyo-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o4", "Klaviyo e-mail audit") }} />
+                      <option value="kreativ-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o5", "Kreatív audit") }} />
                     </select>
                   </div>
                   <div className="frow">
@@ -101,14 +101,14 @@ const Kapcsolat: NextPage = () => {
                   <div className="fld">
                     <label htmlFor="fs" dangerouslySetInnerHTML={{ __html: t("kap.f.topic", "Miben segítsünk?") }} />
                     <select id="fs" name="subject">
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt1", "E-mail marketing és automatizáció (Klaviyo)") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt2", "PPC hirdetéskezelés / teljes tölcsér") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt3", "Webshop- és webfejlesztés") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt4", "UX/UI design") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt5", "SEO és AI keresőoptimalizálás") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt6", "Kreatív- és videógyártás") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt7", "Mély audit") }} />
-                      <option dangerouslySetInnerHTML={{ __html: t("kap.opt8", "Még nem tudom, beszéljük meg") }} />
+                      <option value="email-automatizacio" dangerouslySetInnerHTML={{ __html: t("kap.opt1", "E-mail marketing és automatizáció (Klaviyo)") }} />
+                      <option value="ppc" dangerouslySetInnerHTML={{ __html: t("kap.opt2", "PPC hirdetéskezelés / teljes tölcsér") }} />
+                      <option value="webfejlesztes" dangerouslySetInnerHTML={{ __html: t("kap.opt3", "Webshop- és webfejlesztés") }} />
+                      <option value="ux-ui" dangerouslySetInnerHTML={{ __html: t("kap.opt4", "UX/UI design") }} />
+                      <option value="seo-ai" dangerouslySetInnerHTML={{ __html: t("kap.opt5", "SEO és AI keresőoptimalizálás") }} />
+                      <option value="kreativ-video" dangerouslySetInnerHTML={{ __html: t("kap.opt6", "Kreatív- és videógyártás") }} />
+                      <option value="mely-audit" dangerouslySetInnerHTML={{ __html: t("kap.opt7", "Mély audit") }} />
+                      <option value="egyeb" dangerouslySetInnerHTML={{ __html: t("kap.opt8", "Még nem tudom, beszéljük meg") }} />
                     </select>
                   </div>
                   <div className="fld">
@@ -117,7 +117,7 @@ const Kapcsolat: NextPage = () => {
                   </div>
                   <label className="consent" style={{ marginBottom: "1.3rem" }}>
                     <input type="checkbox" required />
-                    <span dangerouslySetInnerHTML={{ __html: t("kap.f.consent", "Hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat, és megkeressen a megkeresésemmel kapcsolatban.") }} />
+                    <span dangerouslySetInnerHTML={{ __html: t("kap.f.consent", "Hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat, és megkeressen a megkeresésemmel kapcsolatban.") }} />
                   </label>
                   <button className="btn" type="submit">
                     <span dangerouslySetInnerHTML={{ __html: t("kap.f.submit", "Küldés") }} />

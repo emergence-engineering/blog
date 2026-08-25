@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/email-automatizacio.html; DOM structure intentionally
@@ -11,10 +12,11 @@ const EmailAutomatizacio: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="email-automatizacio">
+      <GeFaqJsonLd prefix="em.faq." count={8} />
       <GeSEO
-        title={t("mt.email", "E-mail marketing és automatizáció Klaviyóval, Growth Engineering")}
+        title={t("mt.email", "E-mail marketing és automatizáció Klaviyóval | Growth Engineering")}
         description={t("md.email", "A legtöbb webshopnál az e-mail a bevétel 5–8%-át hozza. Egy jól felépített Klaviyo-fiókban 25–35%. Flow-k, szegmentáció, integráció és GDPR-tiszta felépítés.")}
-        ogTitle={t("mt.email", "E-mail marketing és automatizáció Klaviyóval, Growth Engineering")}
+        ogTitle={t("mt.email", "E-mail marketing és automatizáció Klaviyóval | Growth Engineering")}
         ogDescription={t("od.email", "A bevétel harmada e-mailből jöhet. Nálad most mennyi?")}
       />
       <section className="phero">

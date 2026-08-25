@@ -27,7 +27,7 @@ export default function GeneralSEO() {
         key="og:image"
         name="og:image"
         property="og:image"
-        content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
+        content="https://emergence-engineering.com/ee-icon-192192.png"
       />
 
       <meta
@@ -45,7 +45,7 @@ export default function GeneralSEO() {
       <meta
         key="twitter:image"
         name="twitter:image"
-        content="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"
+        content="https://emergence-engineering.com/ee-icon-192192.png"
       />
     </>
   );

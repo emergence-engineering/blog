@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { UxHeroArt } from "../features/ge/components/UxHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
@@ -13,10 +14,11 @@ const UxUiDesign: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="ux-ui-design">
+      <GeFaqJsonLd prefix="ux.faq." count={6} />
       <GeSEO
-        title={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineering")}
+        title={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja | Growth Engineering")}
         description={t("md.ux", "UX kutatás, audit, információs architektúra, prototípus, arculat és tesztelés. A design nálunk konverzió, nem dekoráció.")}
-        ogTitle={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja, Growth Engineering")}
+        ogTitle={t("mt.ux", "UX/UI design, ami a kutatást eredménnyé fordítja | Growth Engineering")}
         ogDescription={t("od.ux", "Kutatással kezdünk, hipotézist írunk, és mérjük, hogy bejött-e. A design nálunk konverzió, nem dekoráció.")}
       />
       <section className="phero">

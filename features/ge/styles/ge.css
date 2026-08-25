@@ -693,7 +693,7 @@ html{scroll-behavior:smooth}
 /* ---------- reveal ---------- */
 .ge .rv{opacity:0;transform:translateY(14px);
   transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1)}
-.ge .rv.in{opacity:1;transform:none}
+.ge .rv.in,.ge .rv[data-in]{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .ge .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}

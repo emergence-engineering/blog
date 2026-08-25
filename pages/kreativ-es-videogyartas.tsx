@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/tartalomgyartas.html; DOM structure intentionally
@@ -12,10 +13,11 @@ const Tartalomgyartas: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="tartalomgyartas">
+      <GeFaqJsonLd prefix="con.faq." count={8} />
       <GeSEO
-        title={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
+        title={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít | Growth Engineering")}
         description={t("md.content", "Üzenet, social-first vizuál, rövid videó és márkatörténet. Kreatív rendszer, ami a hirdetést, az e-mailt és az organikus láthatóságot is kiszolgálja.")}
-        ogTitle={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít, Growth Engineering")}
+        ogTitle={t("mt.content", "Kreatív- és videógyártás: figyelmet szerez, bizalmat épít | Growth Engineering")}
         ogDescription={t("od.content", "A modern PPC legfontosabb változója a kreatív. Ha a hirdetés nem állítja meg a görgetést, a legjobb célzás sem segít.")}
       />
       <section className="phero">

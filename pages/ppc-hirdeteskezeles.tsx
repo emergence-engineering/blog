@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { GmHeroArt } from "../features/ge/components/GmHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
@@ -13,10 +14,11 @@ const GrowthMarketing: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="growth-marketing">
+      <GeFaqJsonLd prefix="gm.faq." count={8} />
       <GeSEO
-        title={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        title={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig | Growth Engineering")}
         description={t("md.gm", "PPC hirdetéskezelés bevált munkafolyamattal: audit, beépülés a csapatodba, rendszerépítés és skálázás. A bevételért felelünk, nem a kampánystatisztikáért.")}
-        ogTitle={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        ogTitle={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig | Growth Engineering")}
         ogDescription={t("od.gm", "Audit, beépülés, rendszerépítés, skálázás: így kezeljük a PPC hirdetéseidet belülről, a bevételre optimalizálva.")}
       />
       <section className="phero">
@@ -100,7 +102,7 @@ const GrowthMarketing: NextPage = () => {
               </div>
               <label className="consent">
                 <input type="checkbox" required />
-                <span dangerouslySetInnerHTML={{ __html: t("gm.lm.f.consent", "Kérem az útmutatót, és hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("gm.lm.f.consent", "Kérem az útmutatót, és hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
               </label>
               <p className="ok" hidden dangerouslySetInnerHTML={{ __html: t("gm.lm.f.ok", "Köszönjük! Ez egy demó űrlap, éles környezetben innen megy ki az útmutató e-mailben.") }} />
             </form>

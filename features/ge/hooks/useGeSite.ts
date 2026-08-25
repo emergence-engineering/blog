@@ -63,17 +63,18 @@ export const useGeSite = () => {
     });
 
     /* ---------- scroll reveal ---------- */
+    // Revealed state is a data attribute rather than a class: React re-renders
+    // and hydration diff the className prop, so a script-added class triggers
+    // "Prop className did not match" warnings; unknown attributes are ignored.
+    const reveal = (el: Element) => el.setAttribute("data-in", "");
     if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".rv").forEach((e) => e.classList.add("in"));
+      document.querySelectorAll(".rv").forEach(reveal);
     } else {
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((en, i) => {
             if (en.isIntersecting) {
-              window.setTimeout(
-                () => en.target.classList.add("in"),
-                Math.min(i * 60, 180)
-              );
+              window.setTimeout(() => reveal(en.target), Math.min(i * 60, 180));
               io.unobserve(en.target);
             }
           });
@@ -83,11 +84,11 @@ export const useGeSite = () => {
         { rootMargin: "0px 0px 12% 0px", threshold: 0.01 }
       );
       const register = (el: Element) => {
-        if (el.classList.contains("in")) return;
+        if (el.classList.contains("in") || el.hasAttribute("data-in")) return;
         // Anything already scrolled past would never intersect again (deep
         // links, back navigation, a reload partway down the page), so reveal
         // it straight away instead of leaving it invisible.
-        if (el.getBoundingClientRect().bottom < 0) el.classList.add("in");
+        if (el.getBoundingClientRect().bottom < 0) reveal(el);
         else io.observe(el);
       };
       document.querySelectorAll(".rv").forEach(register);

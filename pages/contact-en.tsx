@@ -71,7 +71,7 @@ const ContactEn: NextPage = () => {
                   </div>
                   <label className="consent" style={{ marginBottom: "1.3rem" }}>
                     <input type="checkbox" required />
-                    <span>I agree that Emergence Engineering Kft. may handle my data per the <a href="#">privacy policy</a> and contact me about my enquiry.</span>
+                    <span>I agree that Emergence Engineering Kft. may handle my data per the <Link href="/adatkezeles">privacy policy</Link> and contact me about my enquiry.</span>
                   </label>
                   <button className="btn" type="submit">Send <span className="ar">→</span></button>
                   <p className="ok" hidden style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }}>Thanks! This is a demo form; in production it posts to the CRM. We’ll get back to you within one business day.</p>

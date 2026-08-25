@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { GeTestimonials } from "../features/ge/components/GeTestimonials";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
@@ -13,6 +14,7 @@ const Index: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="index">
+      <GeFaqJsonLd prefix="faq." count={9} />
       <GeSEO
         title={t("mt.home", "Growth Engineering | Növekedési rendszerek webshopoknak és B2B cégeknek")}
         description={t("md.home", "A belső growth csapatod: e-mail automatizáció, teljesítménymarketing, fejlesztés és design egy helyen. Minden partnerünknél 16% fölé ment a profitnövekedés az első fél évben.")}
@@ -153,7 +155,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p2.h", "Egy csatorna teljesítménye önmagában semmit nem mond el.") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p2.p", "Paid search, paid social, remarketing és CRO ugyanabban a rendszerben. Először azt keressük meg, hol szivárog el a bevétel: az ajánlatnál, a tölcsérben vagy a mérésnél. Onnan indulunk.") }} />
-                  <Link className="link-arrow" href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
+                  <Link className="link-arrow" href="/ppc-hirdeteskezeles" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -187,7 +189,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p7.h", "A kreatív ma a legnagyobb növekedési kar.") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p7.p", "A modern PPC legfontosabb változója a kreatív: ha a videó nem állítja meg a görgetést, a legjobb célzás sem segít. Social-first videókat és kreatív rendszert gyártunk, ami a hirdetést, az organikus jelenlétet és a márkát egyszerre szolgálja ki.") }} />
-                  <Link className="link-arrow" href="/tartalomgyartas" dangerouslySetInnerHTML={{ __html: t("p7.link", "Nézd meg, mit gyártunk") }} />
+                  <Link className="link-arrow" href="/kreativ-es-videogyartas" dangerouslySetInnerHTML={{ __html: t("p7.link", "Nézd meg, mit gyártunk") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -204,7 +206,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p8.h", "A webshop bevétele néhány szám szorzata.") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Három szerény javulás nem összeadódik, hanem összeszorzódik: a vége akár háromszoros bevétel ugyanabból a shopból. Megkeressük, melyik számodon van a legnagyobb tartalék, és azt mozdítjuk először.") }} />
-                  <Link className="link-arrow" href="/ecommerce-skalazas" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
+                  <Link className="link-arrow" href="/cro-es-ecommerce" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -484,7 +486,7 @@ const Index: NextPage = () => {
               </div>
               <label className="consent">
                 <input type="checkbox" required />
-                <span dangerouslySetInnerHTML={{ __html: t("lm.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("lm.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
               </label>
               <p className="ok" hidden style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("lm.ok", "Köszönjük! Ez egy demó űrlap, éles környezetben ide kerül a Klaviyo / CRM beküldés.") }} />
             </form>

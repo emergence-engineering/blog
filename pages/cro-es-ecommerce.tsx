@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/ecommerce-skalazas.html; DOM structure intentionally
@@ -12,10 +13,11 @@ const EcommerceSkalazas: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="ecommerce-skalazas" bodyClass="ecom">
+      <GeFaqJsonLd prefix="ec.faq." count={5} />
       <GeSEO
-        title={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája, Growth Engineering")}
+        title={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája | Growth Engineering")}
         description={t("md.ecom", "A webshop-bevétel néhány szám szorzata. Egy konkrét levezetés arról, melyik eszköz melyik mérőszámot mozdítja, és miért épül a rendszer időben egyre olcsóbbá.")}
-        ogTitle={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája, Growth Engineering")}
+        ogTitle={t("mt.ecom", "CRO és E-commerce: a bevétel matematikája | Growth Engineering")}
         ogDescription={t("od.ecom", "Három szerény javulás nem összeadódik, hanem összeszorzódik. Megmutatjuk, hogyan.")}
       />
       <section className="ec-hero">
@@ -233,7 +235,7 @@ const EcommerceSkalazas: NextPage = () => {
             <tbody>
               <tr>
                 <td>
-                  <Link href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("ec.r1.a", "Videó és PPC") }} />
+                  <Link href="/ppc-hirdeteskezeles" dangerouslySetInnerHTML={{ __html: t("ec.r1.a", "Videó és PPC") }} />
                 </td>
                 <td className="met" dangerouslySetInnerHTML={{ __html: t("ec.r1.b", "Látogató") }} />
                 <td dangerouslySetInnerHTML={{ __html: t("ec.r1.c", "Több minőségi forgalom, olcsóbb megtekintéssel.") }} />

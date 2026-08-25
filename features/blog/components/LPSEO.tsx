@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const title = "Emergence Engineering";
 const description =
@@ -7,10 +8,17 @@ const description =
 const url = "https://emergence-engineering.com";
 
 export function LPSEO() {
+  // Canonicalize to the page's own URL: this component is shared by several
+  // pages (references, opensource, …), which must not all point at the root.
+  const { asPath } = useRouter();
+  const path = asPath.split("#")[0].split("?")[0];
+  const canonical = `${url}${path === "/" ? "" : path}`;
   return (
     <Head>
       <title>{title}</title>
-      <meta key="og:url" name="og:url" property="og:url" content={url} />
+      <link rel="canonical" href={canonical} />
+      <meta key="description" name="description" content={description} />
+      <meta key="og:url" name="og:url" property="og:url" content={canonical} />
       <meta key="og:type" name="og:type" property="og:type" content="website" />
       <meta
         key="og:title"
