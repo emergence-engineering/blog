@@ -188,7 +188,12 @@ const IndexEn: NextPage = () => {
                   <span className="url">pcbjam.com</span>
                 </div>
                 <div className="browserbody">
-                  <span className="chip">KiCad, running in your browser</span>
+                  <Image
+                    src="/ge/img/pcbjam-editor.jpg"
+                    alt="PCBJam: KiCad's PCB editor running in a browser tab, editing an Arduino Mega 2560 board"
+                    width={1600}
+                    height={970}
+                  />
                 </div>
               </div>
             </div>
