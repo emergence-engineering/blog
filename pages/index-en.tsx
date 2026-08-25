@@ -24,7 +24,7 @@ const IndexEn: NextPage = () => {
             <div>
               <div className="eyebrow rv">Software engineering · Budapest, EU</div>
               <h1 className="rv">We build the <mark>web apps</mark><br />other teams can’t.</h1>
-              <p className="lede rv">US startups hire us for the hard parts: rich-text editors, real-time collaboration, AI-native features, and desktop-grade software running in the browser. One of our clients was acquired by Notion.</p>
+              <p className="lede rv">Startups hire us for the hard parts: rich-text editors, real-time collaboration, AI-native features, and desktop-grade software running in the browser.</p>
               <div className="hero-cta rv">
                 <Link href="/contact-en" className="btn">Book a call <span className="ar">→</span></Link>
                 <a href="#opensource" className="btn btn-line">Explore our open source</a>
