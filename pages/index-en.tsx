@@ -14,7 +14,7 @@ const IndexEn: NextPage = () => {
       <GeSEO
         enOnly
         title="Emergence Engineering: Editors, real-time collaboration &amp; hard web apps for startups"
-        description="We build the hard parts of modern web products: rich-text editors (ProseMirror, TipTap, Lexical), real-time collaboration, AI-native features, and desktop-grade software in the browser. Trusted by US startups, one acquired by Notion."
+        description="We build the hard parts of modern web products: rich-text editors (ProseMirror, TipTap, Lexical), real-time collaboration, AI-native features, and desktop-grade software in the browser."
         ogTitle="Emergence Engineering, We build the web apps other teams can't"
         ogDescription="Rich-text editors, real-time collaboration, AI features, and desktop software in the browser, for ambitious startups."
       />
@@ -32,7 +32,6 @@ const IndexEn: NextPage = () => {
               <div className="trust rv">
                 <span><b>Stripe</b> Verified Partner</span>
                 <span><b>Open-source</b> ProseMirror maintainers</span>
-                <span><b>Show HN</b>, KiCad in the browser</span>
               </div>
             </div>
             <div className="mosaic rv">
@@ -41,8 +40,8 @@ const IndexEn: NextPage = () => {
                 <span className="tile-label">SuggestCat · AI in the editor</span>
               </a>
               <div className="stat stat-coral">
-                <div className="dnum">Notion</div>
-                <div className="lbl">acquired Skiff, a product we helped build</div>
+                <div className="dnum">Show HN</div>
+                <div className="lbl">front page with PCBJam, KiCad in the browser</div>
               </div>
               <a className="tile" href="#work">
                 <Image src="/ge/img/l-axdraft.webp" alt="Axdraft collaborative legal drafting editor" width={728} height={484} />
