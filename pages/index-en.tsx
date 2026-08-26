@@ -99,7 +99,7 @@ const IndexEn: NextPage = () => {
               <div className="rl">CTO & Co-CEO</div>
               <div className="socials">
                 <Link href="/cv/viktor" className="soc" rel="noopener" title="CV">CV</Link>
-                <a href="https://www.linkedin.com/" className="soc" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" className="soc" rel="noopener" title="LinkedIn">in</a>
                 <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
               </div>
             </div>

@@ -30,7 +30,7 @@ const Esettanulmanyok: NextPage = () => {
           <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl.lede", "Az alábbi projektekben a stratégiától a kivitelezésig végig ott voltunk. Minden szám az ügyfél saját rendszeréből származik.") }} />
         </div>
       </section>
-      <section>
+      <section className="tight-top">
         <div className="wrap">
           <div className="cases">
             <article className="case rv">

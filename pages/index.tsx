@@ -92,7 +92,7 @@ const Index: NextPage = () => {
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("pr.eyebrow", "Rólunk") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("pr.title", "Growth engineering <mark>alapelvek</mark>") }} />
             </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("pr.lede", "Azért alapítottuk a céget, mert hisszük, hogy a magyar cégek nemzetközi szinten is kiemelkedőek tudnak lenni. Üzletfejlesztői és marketingtapasztalatunkkal szeretnénk hozzájárulni a potenciállal rendelkező kis- és középvállalkozásaink növekedéséhez.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("pr.lede", "Azért dolgozunk, mert hisszük, hogy a magyar cégek nemzetközi szinten is kiemelkedőek tudnak lenni. Üzletfejlesztői, programozói és marketing tapasztalatunkkal szeretnénk hozzájárulni a potenciállal rendelkező kis- és középvállalkozásaink növekedéséhez.") }} />
           </div>
           <div className="cards3 rv">
             <article className="pcard">
@@ -205,7 +205,7 @@ const Index: NextPage = () => {
               <div className="tab-split">
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p8.h", "Az e-commerce értékesítés rendszerben működik jól.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Egy jól felépített brand visszamérésekkel, hatékony ügyfélszerzéssel és -megtartással, valamint erős informatikai háttérrel megtámogatva tud igazán sikeres lenni hosszú távon.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Hosszú távon az a webshop nyer, amelyik mögött erős márka, pontos mérés, működő vevőszerzés és vevőmegtartás, valamint stabil technológiai alap áll. Mi ezt egy rendszerként építjük fel.") }} />
                   <Link className="link-arrow" href="/cro-es-ecommerce" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
                 </div>
                 <div className="panel panel-peach">
@@ -569,7 +569,7 @@ const Index: NextPage = () => {
               <div className="rl">CTO & Co-CEO</div>
               <div className="socials">
                 <Link href="/cv/viktor" className="soc" rel="noopener" title="CV">CV</Link>
-                <a href="https://www.linkedin.com/" className="soc" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" className="soc" rel="noopener" title="LinkedIn">in</a>
                 <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
               </div>
             </div>
@@ -580,10 +580,10 @@ const Index: NextPage = () => {
               </div>
               <h3 dangerouslySetInnerHTML={{ __html: t("wwd.biz.h", "Üzletfejlesztés") }} />
               <ul>
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Marketing") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "E-kereskedelem") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Analitika") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "Stratégia") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Üzletfejlesztés") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "Pénzügy és analitika") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Marketing") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "E-kereskedelem") }} />
               </ul>
               <div className="face gh">
                 <span className="ini">GG</span>
