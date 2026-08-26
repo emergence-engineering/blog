@@ -53,7 +53,9 @@ export default class MyDocument extends Document<{
         lang={this.props.locale ?? "en"}
       >
         <Head>
-          <link rel="stylesheet" type="text/css" href="/global.css" />
+          {/* global.css is imported in _app.tsx, which is what compiles its
+              Tailwind directives. Linking public/global.css here as well
+              served the browser the raw, uncompiled source. */}
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             rel="stylesheet"
