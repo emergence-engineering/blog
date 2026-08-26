@@ -191,82 +191,26 @@ const Tartalomgyartas: NextPage = () => {
             </div>
           </div>
           <div className="steps s4 rv">
-            <div className="step step-1">
-              <b dangerouslySetInnerHTML={{ __html: t("con.proc1.k", "1. lépés") }} />
-              <h5 dangerouslySetInnerHTML={{ __html: t("con.proc1.h", "Felfedezés és üzenet") }} />
+            <div className="step">
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc1.k", "1. LÉPÉS") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("con.proc1.h", "Felfedezés és üzenet") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc1.p", "Megismerjük a terméket, a vevőt és a piacot. Kijelöljük a márkahangot és azokat az üzeneteket, amelyekre a kreatív épül.") }} />
             </div>
             <div className="step">
-              <b dangerouslySetInnerHTML={{ __html: t("con.proc2.k", "2. lépés") }} />
-              <h5 dangerouslySetInnerHTML={{ __html: t("con.proc2.h", "Koncepció és forgatókönyv") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc2.k", "2. LÉPÉS") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("con.proc2.h", "Koncepció és forgatókönyv") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc2.p", "Hook-ok, kreatívirányok és forgatókönyvek. Platformonként külön gondolkodunk, mert nem ugyanaz működik Reelsben és LinkedInen.") }} />
             </div>
             <div className="step">
-              <b dangerouslySetInnerHTML={{ __html: t("con.proc3.k", "3. lépés") }} />
-              <h5 dangerouslySetInnerHTML={{ __html: t("con.proc3.h", "Gyártás és vágás") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc3.k", "3. LÉPÉS") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("con.proc3.h", "Gyártás és vágás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc3.p", "Forgatás, UGC, vágás és magyar szövegezés. A kész anyag mobilra optimalizált, és több variánsban áll rendelkezésre a teszthez.") }} />
             </div>
             <div className="step">
-              <b dangerouslySetInnerHTML={{ __html: t("con.proc4.k", "4. lépés") }} />
-              <h5 dangerouslySetInnerHTML={{ __html: t("con.proc4.h", "Teszt, mérés, skálázás") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc4.k", "4. LÉPÉS") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("con.proc4.h", "Teszt, mérés, skálázás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc4.p", "A hirdetési oldalon mérjük, melyik hook hozza a legolcsóbb érdeklődőt, a nyerteseket skálázzuk, a tanulságot visszaforgatjuk.") }} />
             </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="wrap">
-          <div className="shead">
-            <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("con.wild.eyebrow", "Kreatív a gyakorlatban") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("con.wild.h", "Kampánykreatív, amit gyártottunk") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("con.wild.lede", "A VezessJól számára készített hirdetéskreatív, ugyanaz az üzenet fut a landing oldalakon, hogy a kattintás és az oldal ne mondjon ellent egymásnak.") }} />
-          </div>
-          <div className="split rv">
-            <div className="split-media">
-              <Image src="/ge/img/vj-social.webp" width={760} height={810} alt={t("alt22", "A VezessJól kampányhoz gyártott social hirdetéskreatívok")} />
-            </div>
-            <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("con.wild.sh", "Hirdetéstől a landing oldalig összehangolva") }} />
-              <p className="lede" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("con.wild.p", "A célunk az volt, hogy a VezessJól elérje a megfelelő közönséget, és az érdeklődésből mérhető eredmény legyen.") }} />
-              <ul className="bullets">
-                <li dangerouslySetInnerHTML={{ __html: t("con.wild.b1", "Célzott social kampányok, testre szabott vizuállal és több szövegvariánssal.") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("con.wild.b2", "A hirdetés üzenetét összehangoltuk az újratervezett landing oldalakkal a magasabb konverzióért.") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("con.wild.b3", "Az eredményeket szorosan követtük, és gyors korrekciókkal javítottuk a teljesítményt.") }} />
-              </ul>
-              <div style={{ marginTop: "1.6rem" }}>
-                <Link href="/esettanulmanyok" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("con.wild.cta", "Olvasd el az esettanulmányt") }} />
-                  <span className="ar">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="band">
-        <div className="wrap">
-          <div className="cases">
-            <article className="case rv">
-              <div className="case-media">
-                <div className="stat stat-coral" style={{ width: "100%", minHeight: "220px", justifyContent: "center", gap: "1rem" }}>
-                  <div className="dnum" style={{ fontSize: "clamp(2.6rem,5vw,3.6rem)" }}>107 Ft</div>
-                  <div className="lbl" style={{ fontSize: ".95rem", maxWidth: "24ch" }} dangerouslySetInnerHTML={{ __html: t("con.cs.stat", "legalacsonyabb landing­oldal-megtekintési költség") }} />
-                </div>
-              </div>
-              <div className="case-body">
-                <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("con.cs.eyebrow", "Esettanulmány") }} />
-                <h3 dangerouslySetInnerHTML={{ __html: t("con.cs.h", "Babalesz, hogyan találtuk meg a nyerő vizuális hookot") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.cs.p", "Egy 30 napos, ingyenes e-könyvre épülő kampányban több kreatív megközelítést teszteltünk: vágyott állapot, kontextus és termékfókusz. A jógatanár ajánlására épülő verzió hozta a legalacsonyabb konverziós költséget, míg a fiatal várandós nőt ábrázoló kreatív bizonyult a legjobban skálázhatónak.") }} />
-                <div style={{ marginTop: "1.4rem" }}>
-                  <Link href="/esettanulmanyok" className="tlink">
-                    <span dangerouslySetInnerHTML={{ __html: t("con.cs.read", "Több esettanulmány") }} />
-                    <span className="ar">→</span>
-                  </Link>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
       </section>

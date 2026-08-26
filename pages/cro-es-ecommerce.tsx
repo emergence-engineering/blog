@@ -48,7 +48,7 @@ const EcommerceSkalazas: NextPage = () => {
             <span className="l" dangerouslySetInnerHTML={{ __html: t("ec.dg.kick", "A diagnózis") }} />
           </div>
           <h2 className="sech" dangerouslySetInnerHTML={{ __html: t("ec.dg.h", "Ismerős számok?") }} />
-          <p className="sec-intro" dangerouslySetInnerHTML={{ __html: t("ec.dg.p", "Ha webshopot viszel, ezeket a mintákat nem kell bemutatnunk. Mind ugyanannak a rendszernek a tünete — és mindegyik mérhető, javítható és tesztelhető.") }} />
+          <p className="sec-intro" dangerouslySetInnerHTML={{ __html: t("ec.dg.p", "Ha webshopot viszel, ezeket a mintákat nem kell bemutatnunk. Mind ugyanannak a rendszernek a tünete, és mindegyik mérhető, javítható és tesztelhető.") }} />
           <ol className="factors rv">
             <li>
               <a href="#folyamat">
@@ -65,7 +65,7 @@ const EcommerceSkalazas: NextPage = () => {
                 <span className="fn">02</span>
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("ec.dg2.h", "A termékoldal nem ad kosarat") }} />
-                  <p dangerouslySetInnerHTML={{ __html: t("ec.dg2.p", "A látogatók 90%-a úgy megy el, hogy kosárba se tett semmit. Kép, ár-kommunikáció, készlet, bizalmi elemek — mérhető, melyik hiányzik.") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("ec.dg2.p", "A látogatók 90%-a úgy megy el, hogy kosárba se tett semmit. Kép, ár-kommunikáció, készlet, bizalmi elemek: mérhető, melyik hiányzik.") }} />
                 </div>
                 <span className="go">→</span>
               </a>
@@ -150,7 +150,7 @@ const EcommerceSkalazas: NextPage = () => {
               <div className="rl" dangerouslySetInnerHTML={{ __html: t("ec.ue.res.lbl", "eredmény vásárlónként · LTGP:CAC ≈ 4:1") }} />
             </div>
           </div>
-          <p className="p" dangerouslySetInnerHTML={{ __html: t("ec.ue.p3", "Ez az az arány, amit Alex Hormozi LTGP:CAC-ként emleget: az élettartam-fedezet osztva az ügyfélszerzési költséggel. E-commerce-ben 4:1 fölött van miből skálázni, 3:1 alatt a növekedés a fedezetet eszi. És van egy ráadás: ha már az első rendelés fedezete kitermeli a CAC-ot, a vásárló megfinanszírozza a saját megszerzését — a büdzsé visszaforog, és a skálázást nem a tőke korlátozza, hanem a rendszer.") }} />
+          <p className="p" dangerouslySetInnerHTML={{ __html: t("ec.ue.p3", "Ez az az arány, amit Alex Hormozi LTGP:CAC-ként emleget: az élettartam-fedezet osztva az ügyfélszerzési költséggel. E-commerce-ben 4:1 fölött van miből skálázni, 3:1 alatt a növekedés a fedezetet eszi. És van egy ráadás: ha már az első rendelés fedezete kitermeli a CAC-ot, a vásárló megfinanszírozza a saját megszerzését. A büdzsé visszaforog, és a skálázást nem a tőke korlátozza, hanem a rendszer.") }} />
           <p className="anno" dangerouslySetInnerHTML={{ __html: t("ec.ue.anno", "Ökölszabály: legalább 4:1 arány és fél éven belül megtérülő CAC kell a nyugodt skálázáshoz. Ha az arány 3 alatt van, nem több hirdetés kell, hanem magasabb LTV.") }} />
         </div>
       </section>
@@ -159,8 +159,8 @@ const EcommerceSkalazas: NextPage = () => {
           <div className="secn">
             <span className="l" dangerouslySetInnerHTML={{ __html: t("ec.pr.kick", "A folyamat") }} />
           </div>
-          <h2 className="sech" dangerouslySetInnerHTML={{ __html: t("ec.pr.h", "Kutatás, hipotézis, teszt — kéthetes ciklusokban") }} />
-          <p className="sec-intro" dangerouslySetInnerHTML={{ __html: t("ec.pr.p", "A CRO nálunk nem tippek listája, hanem mérnöki ciklus. Először a mérést tesszük rendbe — GA4, szerveroldali események, tiszta konverziós pontok —, mert enélkül minden döntés vakrepülés. Utána a ciklus viszi magát:") }} />
+          <h2 className="sech" dangerouslySetInnerHTML={{ __html: t("ec.pr.h", "Kutatás, hipotézis, teszt, kéthetes ciklusokban") }} />
+          <p className="sec-intro" dangerouslySetInnerHTML={{ __html: t("ec.pr.p", "A CRO nálunk nem tippek listája, hanem mérnöki ciklus. Először a mérést tesszük rendbe (GA4, szerveroldali események, tiszta konverziós pontok), mert enélkül minden döntés vakrepülés. Utána a ciklus viszi magát:") }} />
           <div className="loop rv">
             <div className="lrow">
               <div className="lnode">
@@ -183,9 +183,9 @@ const EcommerceSkalazas: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("ec.pr.n4", "Ahol van elég forgalom, A/B teszt. Ahol nincs, kontrollált before/after mérés. Az eredmény dokumentálva.") }} />
               </div>
             </div>
-            <div className="lreturn" dangerouslySetInnerHTML={{ __html: t("ec.pr.ret", "↑ minden ciklus az előzőek tanulságaira épül — ezért gyorsul időben") }} />
+            <div className="lreturn" dangerouslySetInnerHTML={{ __html: t("ec.pr.ret", "↑ minden ciklus az előzőek tanulságaira épül, ezért gyorsul időben") }} />
           </div>
-          <p className="anno" dangerouslySetInnerHTML={{ __html: t("ec.pr.anno", "Konkrét példa: egy ügyfelünknél a rendelési űrlap 11 mezőből állt. A kapcsolati adatokat az első lépésbe hoztuk előre, a többit későbbre halasztottuk — 48%-kal csökkent a félbehagyás.") }} />
+          <p className="anno" dangerouslySetInnerHTML={{ __html: t("ec.pr.anno", "Konkrét példa: egy ügyfelünknél a rendelési űrlap 11 mezőből állt. A kapcsolati adatokat az első lépésbe hoztuk előre, a többit későbbre halasztottuk, és 48%-kal csökkent a félbehagyás.") }} />
           <p className="pull" dangerouslySetInnerHTML={{ __html: t("ec.pr.quote", "Nem véleményt adunk. <span class=\"hl\">Mért eredményt.</span>") }} />
         </div>
       </section>
@@ -229,7 +229,7 @@ const EcommerceSkalazas: NextPage = () => {
                   <a href="#email" dangerouslySetInnerHTML={{ __html: t("ec.r4.a", "E-mail flow-k") }} />
                 </td>
                 <td className="met" dangerouslySetInnerHTML={{ __html: t("ec.r4.b", "LTV és kosárérték") }} />
-                <td dangerouslySetInnerHTML={{ __html: t("ec.r4.c", "Üdvözlő, elhagyott kosár, visszacsábítás, készletértesítő — a megszerzett vásárló többször és többet vásárol.") }} />
+                <td dangerouslySetInnerHTML={{ __html: t("ec.r4.c", "Üdvözlő, elhagyott kosár, visszacsábítás, készletértesítő: a megszerzett vásárló többször és többet vásárol.") }} />
               </tr>
               <tr>
                 <td>
@@ -333,7 +333,7 @@ const EcommerceSkalazas: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("ec.faq.q2", "Milyen stackkel dolgoztok?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("ec.faq.a2", "GA4 és szerveroldali mérés, Microsoft Clarity vagy Hotjar a session recordinghoz és a heatmapekhez, Klaviyo az e-mailhez. Platformfüggetlenül: Shopify, WooCommerce, UNAS és egyedi motor egyaránt, és ha platformváltás kell, azt is visszük.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("ec.faq.a2", "GA4 és szerveroldali mérés, Microsoft Clarity vagy Hotjar a session recordinghoz és a heatmapekhez, Klaviyo az e-mailhez. Platformfüggetlenül: Shopify, WooCommerce, UNAS és egyedi motor egyaránt, platformváltásban is tudunk segíteni. A marketing toolok legtöbbjét már használtuk, van ajánlott technológia különböző eszközökre, de nagyrészt tudunk dolgozni meglévő infrastruktúrával.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("ec.faq.q3", "Mennyi idő alatt látszik eredmény?") }} />
@@ -355,7 +355,7 @@ const EcommerceSkalazas: NextPage = () => {
           <div className="cta">
             <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("fc.eyebrow", "Beszéljünk") }} />
             <h2 dangerouslySetInnerHTML={{ __html: t("ec.fc.h", "Kezdjük egy audittal") }} />
-            <p className="lede" dangerouslySetInnerHTML={{ __html: t("ec.fc.p", "Két hét alatt átvilágítjuk a mérést, a tölcsért és az e-mail-alapot, és számokkal mutatjuk meg, melyik ponton mennyi bevétel marad az asztalon — és mit hozna a javítása.") }} />
+            <p className="lede" dangerouslySetInnerHTML={{ __html: t("ec.fc.p", "Két hét alatt átvilágítjuk a mérést, a tölcsért és az e-mail-alapot, és számokkal mutatjuk meg, melyik ponton mennyi bevétel marad az asztalon, és mit hozna a javítása.") }} />
             <div className="btns">
               <Link href="/kapcsolat" className="btn">
                 <span dangerouslySetInnerHTML={{ __html: t("ec.fc.cta1", "Kérj CRO-auditot") }} />

@@ -30,7 +30,8 @@
   /* ============ E-COMMERCE PAGE — SCOPED STYLES ONLY ============ */
   .ge-p-ecommerce-skalazas.ecom{--serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif}
   .ge-p-ecommerce-skalazas.ecom main{overflow:hidden}
-  .ge-p-ecommerce-skalazas .col{max-width:var(--max);margin-inline:auto;padding-inline:40px}
+  /* 840px editorial column: narrower than the site-wide --max on purpose */
+  .ge-p-ecommerce-skalazas .col{max-width:840px;margin-inline:auto;padding-inline:40px}
   .ge-p-ecommerce-skalazas .sec{padding:3.2rem 0}
   .ge-p-ecommerce-skalazas .sec.band{background:var(--coral-soft);margin:1rem 0}
 
