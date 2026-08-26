@@ -16,13 +16,15 @@ const ArticleShareOgTags: FunctionComponent<OgTags> = ({
 }) => (
   <Head>
     <title>{`Emergence Engineering - ${title}`}</title>
+    <link rel="canonical" href={url} />
+    <meta key="description" name="description" content={description.trim()} />
     <meta property="og:url" key="og:url" name="og:url" content={url} />
     <meta property="og:type" key="og:type" name="og:type" content="article" />
     <meta
       property="og:title"
       key="og:title"
       name="og:title"
-      content={"Emergence Engineering - Blog"}
+      content={title ?? "Emergence Engineering - Blog"}
     />
     <meta property="og:description" content={description} />
     <meta
@@ -37,7 +39,7 @@ const ArticleShareOgTags: FunctionComponent<OgTags> = ({
     <meta
       key="twitter:title"
       name="twitter:title"
-      content={"Emergence Engineering - Blog"}
+      content={title ?? "Emergence Engineering - Blog"}
     />
     <meta
       key="twitter:description"

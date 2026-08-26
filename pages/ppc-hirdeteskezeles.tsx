@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { GmHeroArt } from "../features/ge/components/GmHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
@@ -17,10 +18,11 @@ const GrowthMarketing: NextPage = () => {
   const auditForm = useLeadForm({ kind: "capture", source: "/growth-marketing audit" });
   return (
     <GeShell page="growth-marketing">
+      <GeFaqJsonLd prefix="gm.faq." count={8} />
       <GeSEO
-        title={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        title={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig | Growth Engineering")}
         description={t("md.gm", "PPC hirdetéskezelés bevált munkafolyamattal: audit, beépülés a csapatodba, rendszerépítés és skálázás. A bevételért felelünk, nem a kampánystatisztikáért.")}
-        ogTitle={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig, Growth Engineering")}
+        ogTitle={t("mt.gm", "PPC hirdetéskezelés: az audittól a skálázásig | Growth Engineering")}
         ogDescription={t("od.gm", "Audit, beépülés, rendszerépítés, skálázás: így kezeljük a PPC hirdetéseidet belülről, a bevételre optimalizálva.")}
       />
       <section className="phero">
@@ -105,7 +107,7 @@ const GrowthMarketing: NextPage = () => {
               </div>
               <label className="consent">
                 <input type="checkbox" name="consent" required />
-                <span dangerouslySetInnerHTML={{ __html: t("gm.lm.f.consent", "Kérem az útmutatót, és hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("gm.lm.f.consent", "Kérem az útmutatót, és hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
               </label>
               <p className="ok" hidden={guideForm.state !== "ok"} dangerouslySetInnerHTML={{ __html: t("gm.lm.f.ok", "Köszönjük! Hamarosan küldjük az útmutatót e-mailben.") }} />
               <p className="err" hidden={guideForm.state !== "error"} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />

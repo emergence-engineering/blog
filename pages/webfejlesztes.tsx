@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { WebHeroArt } from "../features/ge/components/WebHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
@@ -13,10 +14,11 @@ const Webfejlesztes: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="webfejlesztes">
+      <GeFaqJsonLd prefix="web.faq." count={11} />
       <GeSEO
-        title={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
+        title={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik | Growth Engineering")}
         description={t("md.web", "Ötlettől a termékig építünk szoftvert, webshopot, weblapot: megbízhatót, skálázhatót, felesleges körök nélkül. A kód a tiétek, a saját repóitokban, dokumentálva, hogy bármikor át tudjátok venni.")}
-        ogTitle={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik, Growth Engineering")}
+        ogTitle={t("mt.web", "Webshop- és webfejlesztés, ami veled együtt skálázódik | Growth Engineering")}
         ogDescription={t("od.web", "Ötlettől a termékig építünk szoftvert. A kód a tiétek, a repóitokban, dokumentálva.")}
       />
       <section className="phero">

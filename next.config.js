@@ -58,6 +58,23 @@ const nextConfig = {
         permanent: true,
         locale: false,
       })),
+      // Service slugs renamed to match the visible service names (SEO).
+      // Locale-aware: also covers the /hu/… variants.
+      {
+        source: "/growth-marketing",
+        destination: "/ppc-hirdeteskezeles",
+        permanent: true,
+      },
+      {
+        source: "/tartalomgyartas",
+        destination: "/kreativ-es-videogyartas",
+        permanent: true,
+      },
+      {
+        source: "/ecommerce-skalazas",
+        destination: "/cro-es-ecommerce",
+        permanent: true,
+      },
     ];
   },
   publicRuntimeConfig: {

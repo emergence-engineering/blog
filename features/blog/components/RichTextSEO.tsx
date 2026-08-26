@@ -10,6 +10,8 @@ export function RichTextSEO() {
   return (
     <Head>
       <title>{title}</title>
+      <link rel="canonical" href={url} />
+      <meta key="description" name="description" content={description} />
       <meta key="og:url" name="og:url" property="og:url" content={url} />
       <meta key="og:type" name="og:type" property="og:type" content="website" />
       <meta

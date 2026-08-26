@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { AiVisibilityChecker } from "../features/ge/components/AiVisibilityChecker";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
@@ -12,6 +13,7 @@ const AiSeo: NextPage = () => {
   const t = useGeT();
   return (
     <GeShell page="ai-seo">
+      <GeFaqJsonLd prefix="seo.faq." count={6} />
       <GeSEO
         title={t("mt.aiseo", "SEO és AI keresőoptimalizálás: legyél ott, ahol ma keresnek | Growth Engineering")}
         description={t("md.aiseo", "Láthatóság ChatGPT-ben, Claude-ban és Geminiben. Entity-optimalizálás, strukturált adatok, idézhető tartalom és az AI-említések követése.")}

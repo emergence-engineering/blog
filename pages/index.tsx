@@ -14,7 +14,7 @@ const IndexEn: NextPage = () => {
       <GeSEO
         enOnly
         title="Emergence Engineering: Editors, real-time collaboration &amp; hard web apps for startups"
-        description="We build the hard parts of modern web products: rich-text editors (ProseMirror, TipTap, Lexical), real-time collaboration, AI-native features, and desktop-grade software in the browser. Trusted by US startups, one acquired by Notion."
+        description="We build the hard parts of modern web products: rich-text editors (ProseMirror, TipTap, Lexical), real-time collaboration, AI-native features, and desktop-grade software in the browser."
         ogTitle="Emergence Engineering, We build the web apps other teams can't"
         ogDescription="Rich-text editors, real-time collaboration, AI features, and desktop software in the browser, for ambitious startups."
       />
@@ -24,7 +24,7 @@ const IndexEn: NextPage = () => {
             <div>
               <div className="eyebrow rv">Software engineering · Budapest, EU</div>
               <h1 className="rv">We build the <mark>web apps</mark><br />other teams can’t.</h1>
-              <p className="lede rv">US startups hire us for the hard parts: rich-text editors, real-time collaboration, AI-native features, and desktop-grade software running in the browser. One of our clients was acquired by Notion.</p>
+              <p className="lede rv">Startups hire us for the hard parts: rich-text editors, real-time collaboration, AI-native features, and desktop-grade software running in the browser.</p>
               <div className="hero-cta rv">
                 <Link href="/contact-en" className="btn">Book a call <span className="ar">→</span></Link>
                 <a href="#opensource" className="btn btn-line">Explore our open source</a>
@@ -32,7 +32,6 @@ const IndexEn: NextPage = () => {
               <div className="trust rv">
                 <span><b>Stripe</b> Verified Partner</span>
                 <span><b>Open-source</b> ProseMirror maintainers</span>
-                <span><b>Show HN</b>, KiCad in the browser</span>
               </div>
             </div>
             <div className="mosaic rv">
@@ -41,8 +40,8 @@ const IndexEn: NextPage = () => {
                 <span className="tile-label">SuggestCat · AI in the editor</span>
               </a>
               <div className="stat stat-coral">
-                <div className="dnum">Notion</div>
-                <div className="lbl">acquired Skiff, a product we helped build</div>
+                <div className="dnum">Show HN</div>
+                <div className="lbl">front page with PCBJam, KiCad in the browser</div>
               </div>
               <a className="tile" href="#work">
                 <Image src="/ge/img/l-axdraft.webp" alt="Axdraft collaborative legal drafting editor" width={728} height={484} />
@@ -100,7 +99,7 @@ const IndexEn: NextPage = () => {
               <div className="rl">CTO & Co-CEO</div>
               <div className="socials">
                 <Link href="/cv/viktor" className="soc" rel="noopener" title="CV">CV</Link>
-                <a href="https://www.linkedin.com/" className="soc" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" className="soc" rel="noopener" title="LinkedIn">in</a>
                 <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
               </div>
             </div>
@@ -141,22 +140,18 @@ const IndexEn: NextPage = () => {
           </div>
           <div className="cards2 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3>Rich-text editors</h3>
               <p>The editor <em>is</em> the product in writing tools, docs, and AI apps: and it’s deceptively hard: every keystroke, paste, undo and copy has to behave perfectly. We build production editors on <strong>ProseMirror, TipTap and Lexical</strong>, and we maintain the open-source plugins the rest of the industry uses.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3>Real-time collaboration</h3>
               <p><strong>What it means:</strong> many people editing the same document at once, like Google Docs or Figma, with no conflicts and nothing lost, even when someone goes offline and comes back. <strong>How we do it:</strong> CRDTs and <strong>YJS</strong>, the hard sync math that merges everyone’s changes correctly instead of overwriting them.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3>Desktop-grade software in the browser</h3>
               <p><strong>What it means:</strong> heavy software that normally needs an install, a CAD tool, an editor, a design suite, running in a plain browser tab, nothing to download. <strong>How we do it:</strong> we compile C++ to <strong>WebAssembly</strong> and render it ourselves. We did exactly this with KiCad, a full PCB-design suite (see PCBJam below).</p>
             </article>
             <article className="pcard">
-              <span className="pnum">04</span>
               <h3>AI-native product engineering</h3>
               <p>LLM features that actually ship, not demos: in-editor assistants, grammar and completion (our <strong>SuggestCat</strong> plugin), retrieval and summarization, wired into real products with the latency, streaming and UX that make them usable.</p>
             </article>
@@ -188,7 +183,12 @@ const IndexEn: NextPage = () => {
                   <span className="url">pcbjam.com</span>
                 </div>
                 <div className="browserbody">
-                  <span className="chip">KiCad, running in your browser</span>
+                  <Image
+                    src="/ge/img/pcbjam-editor.jpg"
+                    alt="PCBJam: KiCad's PCB editor running in a browser tab, editing an Arduino Mega 2560 board"
+                    width={1600}
+                    height={970}
+                  />
                 </div>
               </div>
             </div>
@@ -335,17 +335,14 @@ const IndexEn: NextPage = () => {
           </div>
           <div className="cards3 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3>Specialists, not generalists</h3>
               <p>Editors, collaboration and browser-native engineering are our home turf. You skip the ramp-up and the “let’s research this” months.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3>AI-first, in production</h3>
               <p>We build LLM features that survive real users, streaming, latency, guardrails, not just a nice demo.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3>Embedded with your team</h3>
               <p>Your repo, your CI, your standups. We transfer the know-how so the system is yours, documented, when we’re done.</p>
             </article>

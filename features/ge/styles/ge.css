@@ -223,20 +223,19 @@ html{scroll-behavior:smooth}
   .ge .proof-in > div:nth-child(3){padding-left:0}
 }
 
-/* ---------- generic cards ---------- */
-.ge .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.ge .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.ge .cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+/* ---------- generic cards: open editorial columns, no boxes ---------- */
+.ge .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem clamp(1.6rem,3.2vw,2.8rem)}
+.ge .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4rem clamp(1.3rem,2.6vw,2.2rem)}
+.ge .cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:2.4rem clamp(1.6rem,3.2vw,2.8rem)}
 @media(max-width:1000px){.ge .cards4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){.ge .cards3,.ge .cards2{grid-template-columns:1fr}}
-@media(max-width:600px){.ge .cards4{grid-template-columns:1fr}}
-.ge .pcard{background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.9rem 1.7rem 2rem;
-  transition:transform .22s ease,box-shadow .22s ease}
-.ge .pcard:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(11,27,51,.28)}
-.ge .pnum{font-family:var(--display);font-weight:800;font-size:.9rem;color:var(--coral);margin-bottom:1.5rem;display:block}
-.ge .pcard h3,.ge .pcard h4{margin-bottom:.75rem}
-.ge .pcard p{font-size:.94rem;color:var(--body);line-height:1.62}
-.ge .on-navy .pcard{background:var(--navy-2);border-color:rgba(255,255,255,.1)}
+@media(max-width:900px){.ge .cards3,.ge .cards2{grid-template-columns:1fr;gap:1.9rem}}
+@media(max-width:600px){.ge .cards4{grid-template-columns:1fr;gap:1.9rem}}
+.ge .pcard{position:relative;border-top:1px solid var(--rule-2);padding:1.35rem 0 0}
+.ge .pcard::before{content:"";position:absolute;top:-1px;left:0;width:2.4rem;height:2px;background:var(--coral)}
+.ge .pcard h3,.ge .pcard h4{margin-bottom:.7rem}
+.ge .pcard h3{font-size:clamp(1.15rem,1.7vw,1.35rem)}
+.ge .pcard p{font-size:.95rem;color:var(--body);line-height:1.65}
+.ge .on-navy .pcard{border-top-color:rgba(255,255,255,.16)}
 .ge .on-navy .pcard p{color:#A2B1C7}
 
 /* ---------- service block (heading left, items right) ---------- */
@@ -700,7 +699,7 @@ html{scroll-behavior:smooth}
 /* ---------- reveal ---------- */
 .ge .rv{opacity:0;transform:translateY(14px);
   transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1)}
-.ge .rv.in{opacity:1;transform:none}
+.ge .rv.in,.ge .rv[data-in]{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .ge .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}

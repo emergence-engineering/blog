@@ -108,7 +108,7 @@ const WhatWeDoSection: FunctionComponent = () => (
           memberRole="COO & Co-CEO"
           memberWorkArea=""
           memberStack=""
-          linkedInLink="https://hu.linkedin.com/in/gergely-gillay-0359b919b"
+          linkedInLink="https://www.linkedin.com/in/greggillay/"
         />
       </Column>
     </ColumnsRow>

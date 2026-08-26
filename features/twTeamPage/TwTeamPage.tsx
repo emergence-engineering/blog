@@ -15,7 +15,7 @@ export const TwTeamPage = () => {
             memberRole="COO & Co-CEO"
             memberWorkArea="Business Development"
             memberStack=""
-            linkedInLink="https://hu.linkedin.com/in/gergely-gillay-0359b919b"
+            linkedInLink="https://www.linkedin.com/in/greggillay/"
           />
           <TwMember
             src="viktor"

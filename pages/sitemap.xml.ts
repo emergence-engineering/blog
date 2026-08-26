@@ -22,13 +22,13 @@ const ORIGIN = "https://emergence-engineering.com";
 // Bilingual Growth Engineering pages: each exists at /<path> and /hu/<path>.
 const BILINGUAL_PATHS = [
   "/growth",
-  "/growth-marketing",
+  "/ppc-hirdeteskezeles",
   "/webfejlesztes",
   "/email-automatizacio",
-  "/tartalomgyartas",
+  "/kreativ-es-videogyartas",
   "/ux-ui-design",
   "/ai-seo",
-  "/ecommerce-skalazas",
+  "/cro-es-ecommerce",
   "/esettanulmanyok",
   "/esettanulmany-plantart",
   "/esettanulmany-szamlabridge",

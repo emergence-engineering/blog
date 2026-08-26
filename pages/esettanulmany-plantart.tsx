@@ -14,9 +14,9 @@ const EsettanulmanyPlantart: NextPage = () => {
   return (
     <GeShell page="esettanulmany-plantart">
       <GeSEO
-        title={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt, Growth Engineering")}
+        title={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt | Growth Engineering")}
         description={t("md.cspa", "Teljes digitális átalakítás: márka, webshop, CRM, automatizáció és akvizíció. 3× bevétel, +45 millió Ft webshop-bevétel az első évben, −67% konverziós költség.")}
-        ogTitle={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt, Growth Engineering")}
+        ogTitle={t("mt.cspa", "Plantart esettanulmány: 700 millió forintból 1,9 milliárd négy év alatt | Growth Engineering")}
         ogDescription={t("od.cspa", "A stagnálástól a kiszámítható, adatvezérelt növekedésig. Márka, webshop, CRM, automatizáció és több csatornás akvizíció.")}
       />
       <section className="cs-hero on-photo">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
 import { GeTestimonials } from "../features/ge/components/GeTestimonials";
 import { useGeT } from "../features/ge/i18n/useGeT";
 import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
@@ -16,6 +17,7 @@ const Index: NextPage = () => {
   const auditForm = useLeadForm({ kind: "capture", source: "/ growth audit" });
   return (
     <GeShell page="index">
+      <GeFaqJsonLd prefix="faq." count={9} />
       <GeSEO
         title={t("mt.home", "Growth Engineering | Növekedési rendszerek webshopoknak és B2B cégeknek")}
         description={t("md.home", "A belső growth csapatod: e-mail automatizáció, teljesítménymarketing, fejlesztés és design egy helyen. Minden partnerünknél 16% fölé ment a profitnövekedés az első fél évben.")}
@@ -93,21 +95,18 @@ const Index: NextPage = () => {
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("pr.eyebrow", "Rólunk") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("pr.title", "Growth engineering <mark>alapelvek</mark>") }} />
             </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("pr.lede", "Azért alapítottuk a céget, mert hisszük, hogy a magyar cégek nemzetközi szinten is kiemelkedőek tudnak lenni. Üzletfejlesztői és marketingtapasztalatunkkal szeretnénk hozzájárulni a potenciállal rendelkező kis- és középvállalkozásaink növekedéséhez.") }} />
+            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("pr.lede", "Azért dolgozunk, mert hisszük, hogy a magyar cégek nemzetközi szinten is kiemelkedőek tudnak lenni. Üzletfejlesztői, programozói és marketing tapasztalatunkkal szeretnénk hozzájárulni a potenciállal rendelkező kis- és középvállalkozásaink növekedéséhez.") }} />
           </div>
           <div className="cards3 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.1.h", "A kampány kifut, a rendszer marad") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Rendszerben gondolkozunk, nem kampányokban. A vezetéssel közösen olyan belső rendszert építünk, ami nem az ügynökségtől függ, hanem a céged saját kompetenciája marad.") }} />
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.2.h", "A belső csapatod") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből. Ezért mi a csapatod részeként üzletfejlesztőként dolgozunk, hogy a lehető leggyorsabban a legjobb döntéseket hozzuk meg közösen. Házon belül rendelkezünk minden specialistával, akire a projekt során szükség lehet.") }} />
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.3.h", "Üzletfejlesztés, nem marketing") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.3.p", "Üzletfejlesztőként gondolkozunk, nem marketingesként, így nem biztos, hogy a hirdetés skálázását fogjuk tanácsolni. A lehető legjobb és legolcsóbb úton szeretnénk eljutni a kijelölt célodig, ami nem biztos, hogy azt jelenti, hogy a Google-be kell több költséget süllyeszteni.") }} />
             </article>
@@ -138,7 +137,7 @@ const Index: NextPage = () => {
               <div className="tab-split">
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p1.h", "A meglévő vevőidben van a legolcsóbb bevétel.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p1.p", "Egy jól felépített Klaviyo-fiók a webshop bevételének 25–35%-át hozza, hirdetési költés nélkül. Elhagyott kosár, böngészés-újraindítás, vásárlás utáni sorozat, visszacsábítás, készlet- és árértesítő: mind automatikusan fut, a te hangodon.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p1.p", "Egy jól felépített e-mail marketing rendszer a webshop bevételének 25–35%-át hozza, hirdetési költés nélkül. Elhagyott kosár, böngészés-újraindítás, vásárlás utáni sorozat, visszacsábítás, készlet- és árértesítő: mind automatikusan fut, a te hangodon.") }} />
                   <Link className="link-arrow" href="/email-automatizacio" dangerouslySetInnerHTML={{ __html: t("p1.link", "Nézd meg, hogyan építjük fel") }} />
                 </div>
                 <div className="panel panel-peach">
@@ -156,7 +155,7 @@ const Index: NextPage = () => {
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p2.h", "Egy csatorna teljesítménye önmagában semmit nem mond el.") }} />
                   <p className="lede" dangerouslySetInnerHTML={{ __html: t("p2.p", "Paid search, paid social, remarketing és CRO ugyanabban a rendszerben. Először azt keressük meg, hol szivárog el a bevétel: az ajánlatnál, a tölcsérben vagy a mérésnél. Onnan indulunk.") }} />
-                  <Link className="link-arrow" href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
+                  <Link className="link-arrow" href="/ppc-hirdeteskezeles" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -189,8 +188,8 @@ const Index: NextPage = () => {
               <div className="tab-split">
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p7.h", "A kreatív ma a legnagyobb növekedési kar.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p7.p", "A modern PPC legfontosabb változója a kreatív: ha a videó nem állítja meg a görgetést, a legjobb célzás sem segít. Social-first videókat és kreatív rendszert gyártunk, ami a hirdetést, az organikus jelenlétet és a márkát egyszerre szolgálja ki.") }} />
-                  <Link className="link-arrow" href="/tartalomgyartas" dangerouslySetInnerHTML={{ __html: t("p7.link", "Nézd meg, mit gyártunk") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p7.p", "A modern marketing legfontosabb változója a kreatív: ha a videó nem állítja meg a görgetést, a legjobb célzás sem segít. Social-first videókat és kreatív rendszert gyártunk, ami a hirdetést, az organikus jelenlétet és a márkát egyszerre szolgálja ki.") }} />
+                  <Link className="link-arrow" href="/kreativ-es-videogyartas" dangerouslySetInnerHTML={{ __html: t("p7.link", "Nézd meg, mit gyártunk") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -205,9 +204,9 @@ const Index: NextPage = () => {
             <div className="tabpanel" id="p8" role="tabpanel" aria-labelledby="t8" data-active="false">
               <div className="tab-split">
                 <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p8.h", "A webshop bevétele néhány szám szorzata.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Három szerény javulás nem összeadódik, hanem összeszorzódik: a vége akár háromszoros bevétel ugyanabból a shopból. Megkeressük, melyik számodon van a legnagyobb tartalék, és azt mozdítjuk először.") }} />
-                  <Link className="link-arrow" href="/ecommerce-skalazas" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
+                  <h3 dangerouslySetInnerHTML={{ __html: t("p8.h", "Az e-commerce értékesítés rendszerben működik jól.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Hosszú távon az a webshop nyer, amelyik mögött erős márka, pontos mérés, működő vevőszerzés és vevőmegtartás, valamint stabil technológiai alap áll. Mi ezt egy rendszerként építjük fel.") }} />
+                  <Link className="link-arrow" href="/cro-es-ecommerce" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
                 </div>
                 <div className="panel panel-peach">
                   <ul className="checklist">
@@ -222,8 +221,8 @@ const Index: NextPage = () => {
             <div className="tabpanel" id="p4" role="tabpanel" aria-labelledby="t4" data-active="false">
               <div className="tab-split">
                 <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p4.h", "A bevétel nagy része a pénztárfolyamatnál dől el.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p4.p", "Kutatással kezdünk. Megnézzük, hol akadnak el a felhasználók, és onnan tervezünk vissza: pénztárfolyamat, navigáció, üzenet.") }} />
+                  <h3 dangerouslySetInnerHTML={{ __html: t("p4.h", "Design, ami összeköti a vásárlót a termékkel.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p4.p", "A legtöbb márkánál a design a látványról szól, nálunk az eredményről. Olyan felületeket tervezünk, amiket magától értetődő használni, és amik a nézelődőből vásárlót csinálnak.") }} />
                   <Link className="link-arrow" href="/ux-ui-design" dangerouslySetInnerHTML={{ __html: t("p4.link", "UX/UI megközelítésünk") }} />
                 </div>
                 <div className="panel panel-peach">
@@ -257,7 +256,7 @@ const Index: NextPage = () => {
               <div className="tab-split">
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: t("p6.h", "A növekedés legtöbbször nem marketingkérdés.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p6.p", "Az árazás, a margin és az értékesítési folyamat többet mozdít a profiton, mint bármelyik hirdetési fiók. Ezért kezdünk mindig a pénzügyi számokkal.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p6.p", "Az árazás, a margin és az értékesítési folyamat többet mozdít a profiton, mint bármelyik hirdetési fiók. Ezért kezdünk mindig üzleti felméréssel és analitikával.") }} />
                   <Link className="link-arrow" href="/kapcsolat" dangerouslySetInnerHTML={{ __html: t("p6.link", "Kezdd egy ingyenes audittal") }} />
                 </div>
                 <div className="panel panel-peach">
@@ -488,7 +487,7 @@ const Index: NextPage = () => {
               </div>
               <label className="consent">
                 <input type="checkbox" name="consent" required />
-                <span dangerouslySetInnerHTML={{ __html: t("lm.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                <span dangerouslySetInnerHTML={{ __html: t("lm.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
               </label>
               <p className="ok" hidden={auditForm.state !== "ok"} style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("lm.ok", "Köszönjük! Hamarosan jelentkezünk az e-mail címeden.") }} />
               <p className="err" hidden={auditForm.state !== "error"} style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
@@ -572,7 +571,7 @@ const Index: NextPage = () => {
               <div className="rl">CTO & Co-CEO</div>
               <div className="socials">
                 <Link href="/cv/viktor" locale="en" className="soc" rel="noopener" title="CV">CV</Link>
-                <a href="https://www.linkedin.com/" className="soc" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" className="soc" rel="noopener" title="LinkedIn">in</a>
                 <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
               </div>
             </div>
@@ -583,10 +582,10 @@ const Index: NextPage = () => {
               </div>
               <h3 dangerouslySetInnerHTML={{ __html: t("wwd.biz.h", "Üzletfejlesztés") }} />
               <ul>
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Marketing") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "E-kereskedelem") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Analitika") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "Stratégia") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Üzletfejlesztés") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "Pénzügy és analitika") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Marketing") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "E-kereskedelem") }} />
               </ul>
               <div className="face gh">
                 <span className="ini">GG</span>

@@ -1,0 +1,37 @@
+# Growth Engineering / Emergence Engineering
+
+> Growth Engineering is the business-development (growth) team of Emergence Engineering Kft., Budapest, EU. We build marketing systems for webshops and B2B companies: business audits, PPC ad management, email marketing automation (Klaviyo), CRO & e-commerce, webshop and web development, UX/UI design, creative & video production, and SEO & AI search optimization. Emergence Engineering is also a full-stack software development company known for ProseMirror/TipTap rich-text editors, collaborative (YJS) applications, and AI-first development.
+
+The site is bilingual: Hungarian pages live under /hu, English pages at the root. Case studies include Plantart (revenue grew from ~HUF 700M to HUF 1.9B in four years, +45M HUF first-year webshop revenue) and VezessJól (+93% conversions with lower ad spend).
+
+## Services (Hungarian)
+
+- [Főoldal](https://emergence-engineering.com/hu): Növekedési rendszerek webshopoknak és B2B cégeknek
+- [PPC hirdetéskezelés](https://emergence-engineering.com/hu/ppc-hirdeteskezeles): Google, Meta, TikTok, LinkedIn kampánykezelés az audittól a skálázásig
+- [E-mail marketing és automatizáció](https://emergence-engineering.com/hu/email-automatizacio): Klaviyo flow-k és kampányok webshopoknak
+- [CRO és E-commerce](https://emergence-engineering.com/hu/cro-es-ecommerce): konverzióoptimalizálás és webshop-skálázás
+- [Webshop- és webfejlesztés](https://emergence-engineering.com/hu/webfejlesztes): MVP-től platformfejlesztésig
+- [UX/UI design](https://emergence-engineering.com/hu/ux-ui-design): kutatásalapú tervezés
+- [Kreatív- és videógyártás](https://emergence-engineering.com/hu/kreativ-es-videogyartas): social-first videók és hirdetési kreatívok
+- [SEO és AI keresőoptimalizálás](https://emergence-engineering.com/hu/ai-seo): hagyományos SEO és AI-válaszokban való láthatóság (AIO)
+- [Esettanulmányok](https://emergence-engineering.com/hu/esettanulmanyok): Plantart, VezessJól, Számlabridge
+- [Rólunk](https://emergence-engineering.com/hu/rolunk)
+- [Kapcsolat](https://emergence-engineering.com/hu/kapcsolat)
+
+## Software development (English)
+
+- [Emergence Engineering for startups](https://emergence-engineering.com/index-en): product development partner for early-stage teams
+- [Rich text editors](https://emergence-engineering.com/rich-text-editor): ProseMirror and TipTap expertise
+- [References](https://emergence-engineering.com/references): Filtered, Skiff, Memrise, Axdraft, and more
+- [Open source](https://emergence-engineering.com/opensource): ProseMirror plugins and other packages
+- [Team](https://emergence-engineering.com/team)
+
+## Blog
+
+- [Engineering blog](https://emergence-engineering.com/blog): articles on ProseMirror, Lexical, PostGraphile, Supabase, and full-stack development
+
+## Contact
+
+- Email: info@emergence-engineering.com
+- [LinkedIn](https://www.linkedin.com/company/emergence-engineering/)
+- Budapest, EU

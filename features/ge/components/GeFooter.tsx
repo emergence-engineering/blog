@@ -24,7 +24,7 @@ export const GeFooter: FunctionComponent = () => {
               <h5 dangerouslySetInnerHTML={{ __html: t("ft.services", "Szolgáltatások") }} />
               <ul>
                 <li>
-                  <Link href="/growth-marketing" dangerouslySetInnerHTML={{ __html: t("nav.growth", "PPC hirdetéskezelés") }} />
+                  <Link href="/ppc-hirdeteskezeles" dangerouslySetInnerHTML={{ __html: t("nav.growth", "PPC hirdetéskezelés") }} />
                 </li>
                 <li>
                   <Link href="/webfejlesztes" dangerouslySetInnerHTML={{ __html: t("nav.web", "Webshop- és webfejlesztés") }} />
@@ -33,13 +33,16 @@ export const GeFooter: FunctionComponent = () => {
                   <Link href="/email-automatizacio" dangerouslySetInnerHTML={{ __html: t("nav.email", "E-mail marketing és automatizáció") }} />
                 </li>
                 <li>
+                  <Link href="/kreativ-es-videogyartas" dangerouslySetInnerHTML={{ __html: t("nav.content", "Kreatív- és videógyártás") }} />
+                </li>
+                <li>
                   <Link href="/ux-ui-design" dangerouslySetInnerHTML={{ __html: t("nav.ux", "UX/UI design") }} />
                 </li>
                 <li>
                   <Link href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("nav.seo", "SEO és AI keresőoptimalizálás") }} />
                 </li>
                 <li>
-                  <Link href="/ecommerce-skalazas" dangerouslySetInnerHTML={{ __html: t("nav.ecom", "CRO és E-commerce") }} />
+                  <Link href="/cro-es-ecommerce" dangerouslySetInnerHTML={{ __html: t("nav.ecom", "CRO és E-commerce") }} />
                 </li>
               </ul>
             </div>
@@ -77,13 +80,13 @@ export const GeFooter: FunctionComponent = () => {
             <div dangerouslySetInnerHTML={{ __html: t("ft.rights", "© 2026 Emergence Engineering Kft. Minden jog fenntartva.") }} />
             <ul>
               <li>
-                <a href="#" dangerouslySetInnerHTML={{ __html: t("ft.privacy", "Adatkezelési tájékoztató") }} />
+                <Link href="/adatkezeles" dangerouslySetInnerHTML={{ __html: t("ft.privacy", "Adatkezelési tájékoztató") }} />
               </li>
               <li>
-                <a href="#" dangerouslySetInnerHTML={{ __html: t("ft.terms", "ÁSZF") }} />
+                <Link href="/aszf" dangerouslySetInnerHTML={{ __html: t("ft.terms", "ÁSZF") }} />
               </li>
               <li>
-                <a href="#" dangerouslySetInnerHTML={{ __html: t("ft.cookies", "Süti-beállítások") }} />
+                <Link href="/adatkezeles#sutik" dangerouslySetInnerHTML={{ __html: t("ft.cookies", "Süti-beállítások") }} />
               </li>
             </ul>
           </div>

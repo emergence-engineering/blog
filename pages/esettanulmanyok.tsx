@@ -13,9 +13,9 @@ const Esettanulmanyok: NextPage = () => {
   return (
     <GeShell page="esettanulmanyok">
       <GeSEO
-        title={t("mt.cases", "Esettanulmányok, Growth Engineering")}
+        title={t("mt.cases", "Esettanulmányok | Growth Engineering")}
         description={t("md.cases", "Mérhető növekedési történetek: Plantart, VezessJól, Netamin, Számlabridge, Babalesz és startup projektek, az ügyfelek saját adataiból származó számokkal.")}
-        ogTitle={t("mt.cases", "Esettanulmányok, Growth Engineering")}
+        ogTitle={t("mt.cases", "Esettanulmányok | Growth Engineering")}
         ogDescription={t("od.cases", "Növekedési történetek, számokkal. A stratégiától a kivitelezésig végig ott voltunk.")}
       />
       <section className="phero">
@@ -30,7 +30,7 @@ const Esettanulmanyok: NextPage = () => {
           <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl.lede", "Az alábbi projektekben a stratégiától a kivitelezésig végig ott voltunk. Minden szám az ügyfél saját rendszeréből származik.") }} />
         </div>
       </section>
-      <section>
+      <section className="tight-top">
         <div className="wrap">
           <div className="cases">
             <article className="case rv">
