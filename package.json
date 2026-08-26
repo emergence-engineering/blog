@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next",
-    "build": "node scripts/generate-sitemap.js && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit && next lint",
     "upgrade-interactive": "npm-check --update",
