@@ -6,11 +6,14 @@ import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
 import { GeTestimonials } from "../features/ge/components/GeTestimonials";
 import { useGeT } from "../features/ge/i18n/useGeT";
+import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
+import { useLeadForm } from "../features/ge/hooks/useLeadForm";
 
 // Ported from growth-engineers-v4/index.html; DOM structure intentionally
 // mirrors the static original (see features/ge/README.md).
 const Index: NextPage = () => {
   const t = useGeT();
+  const auditForm = useLeadForm({ kind: "capture", source: "/ growth audit" });
   return (
     <GeShell page="index">
       <GeSEO
@@ -477,16 +480,18 @@ const Index: NextPage = () => {
               <h2 dangerouslySetInnerHTML={{ __html: t("lm.h", "Találd meg, hol szivárog el a bevétel") }} />
               <p dangerouslySetInnerHTML={{ __html: t("lm.p", "Átnézzük a márkádat, az üzleti modelledet és a marketinged, aztán kapsz egy listát arról, mit javíts először. És arról is, mivel ne foglalkozz.") }} />
             </div>
-            <form id="lmForm" onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+            <form id="lmForm" onSubmit={auditForm.onSubmit}>
+              <LeadFormGuards />
               <div className="field">
-                <input type="email" aria-label="E-mail" required placeholder={t("lm.ph", "te@ceged.hu")} />
-                <button className="btn" type="submit" dangerouslySetInnerHTML={{ __html: t("lm.btn", "Kérem az auditot") }} />
+                <input type="email" name="email" aria-label="E-mail" required placeholder={t("lm.ph", "te@ceged.hu")} />
+                <button className="btn" type="submit" disabled={auditForm.state === "sending"} dangerouslySetInnerHTML={{ __html: auditForm.state === "sending" ? t("form.sending", "Küldés…") : t("lm.btn", "Kérem az auditot") }} />
               </div>
               <label className="consent">
-                <input type="checkbox" required />
+                <input type="checkbox" name="consent" required />
                 <span dangerouslySetInnerHTML={{ __html: t("lm.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
               </label>
-              <p className="ok" hidden style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("lm.ok", "Köszönjük! Ez egy demó űrlap, éles környezetben ide kerül a Klaviyo / CRM beküldés.") }} />
+              <p className="ok" hidden={auditForm.state !== "ok"} style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("lm.ok", "Köszönjük! Hamarosan jelentkezünk az e-mail címeden.") }} />
+              <p className="err" hidden={auditForm.state !== "error"} style={{ marginTop: ".9rem", fontSize: ".85rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
             </form>
           </div>
         </div>

@@ -407,10 +407,17 @@ html{scroll-behavior:smooth}
 
 /* inline email capture */
 .ge .eform{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;max-width:34rem}
-.ge .eform input{flex:1;min-width:220px;font-family:var(--sans);font-size:.95rem;padding:.92rem 1.3rem;
+/* :not(checkbox) so the consent tickbox keeps its native look instead of the
+   pill styling meant for the email field */
+.ge .eform input:not([type="checkbox"]){flex:1;min-width:220px;font-family:var(--sans);font-size:.95rem;padding:.92rem 1.3rem;
   border:1.5px solid var(--rule);border-radius:999px;background:#fff;color:var(--ink)}
 .ge .eform input:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(239,78,50,.14)}
 .ge .eform .ok{width:100%;font-size:.9rem;font-weight:600;color:#1E7B4F;margin:0}
+.ge .eform .err{width:100%;font-size:.9rem;font-weight:600;color:var(--coral-d);margin:0}
+/* the consent row breaks onto its own line under the input + button */
+.ge .eform .consent{width:100%}
+.ge form .err a{color:inherit;text-decoration:underline}
+.ge .btn[disabled]{opacity:.6;cursor:progress;transform:none}
 
 .ge .formcard{background:#fff;border:1px solid var(--rule);border-radius:24px;padding:clamp(1.8rem,3.4vw,2.8rem)}
 .ge .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}

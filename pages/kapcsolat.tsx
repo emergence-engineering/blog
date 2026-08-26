@@ -4,11 +4,15 @@ import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
 import { useGeT } from "../features/ge/i18n/useGeT";
+import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
+import { useLeadForm } from "../features/ge/hooks/useLeadForm";
 
 // Ported from growth-engineers-v4/kapcsolat.html; DOM structure intentionally
 // mirrors the static original (see features/ge/README.md).
 const Kapcsolat: NextPage = () => {
   const t = useGeT();
+  const auditForm = useLeadForm({ kind: "capture", source: "/kapcsolat audit" });
+  const contactForm = useLeadForm({ kind: "enquiry", source: "/kapcsolat" });
   return (
     <GeShell page="kapcsolat">
       <GeSEO
@@ -47,7 +51,8 @@ const Kapcsolat: NextPage = () => {
             <div className="rv">
               <div className="formcard audit-mini">
                 <h4 dangerouslySetInnerHTML={{ __html: t("kap.audit.h", "Ingyenes audit") }} />
-                <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+                <form onSubmit={auditForm.onSubmit}>
+                  <LeadFormGuards />
                   <div className="fld">
                     <label htmlFor="fat" dangerouslySetInnerHTML={{ __html: t("kap.audit.type", "Milyen auditot kérsz?") }} />
                     <select id="fat" name="audit">
@@ -68,16 +73,22 @@ const Kapcsolat: NextPage = () => {
                       <input id="faw" name="website" required placeholder="https://" />
                     </div>
                   </div>
-                  <button className="btn" type="submit">
-                    <span dangerouslySetInnerHTML={{ __html: t("audit.cta", "Kérem az auditot") }} />
+                  <label className="consent" style={{ marginBottom: "1.1rem" }}>
+                    <input type="checkbox" name="consent" required />
+                    <span dangerouslySetInnerHTML={{ __html: t("form.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                  </label>
+                  <button className="btn" type="submit" disabled={auditForm.state === "sending"}>
+                    <span dangerouslySetInnerHTML={{ __html: auditForm.state === "sending" ? t("form.sending", "Küldés…") : t("audit.cta", "Kérem az auditot") }} />
                     <span className="ar">→</span>
                   </button>
-                  <p className="ok" hidden style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.audit.ok", "Köszönjük! Hamarosan jelentkezünk az audit részleteivel.") }} />
+                  <p className="ok" hidden={auditForm.state !== "ok"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.audit.ok", "Köszönjük! Hamarosan jelentkezünk az audit részleteivel.") }} />
+                  <p className="err" hidden={auditForm.state !== "error"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
                 </form>
               </div>
               <div className="formcard">
                 <h3 style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("kap.form.h", "Írj nekünk") }} />
-                <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+                <form onSubmit={contactForm.onSubmit}>
+                  <LeadFormGuards />
                   <div className="frow">
                     <div className="fld">
                       <label htmlFor="fn" dangerouslySetInnerHTML={{ __html: t("kap.f.name", "Neved*") }} />
@@ -116,14 +127,15 @@ const Kapcsolat: NextPage = () => {
                     <textarea id="fm" name="message" placeholder={t("kap.f.msgph", "Hol tartasz most, és mit szeretnél elérni a következő 6 hónapban?")} />
                   </div>
                   <label className="consent" style={{ marginBottom: "1.3rem" }}>
-                    <input type="checkbox" required />
+                    <input type="checkbox" name="consent" required />
                     <span dangerouslySetInnerHTML={{ __html: t("kap.f.consent", "Hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat, és megkeressen a megkeresésemmel kapcsolatban.") }} />
                   </label>
-                  <button className="btn" type="submit">
-                    <span dangerouslySetInnerHTML={{ __html: t("kap.f.submit", "Küldés") }} />
+                  <button className="btn" type="submit" disabled={contactForm.state === "sending"}>
+                    <span dangerouslySetInnerHTML={{ __html: contactForm.state === "sending" ? t("form.sending", "Küldés…") : t("kap.f.submit", "Küldés") }} />
                     <span className="ar">→</span>
                   </button>
-                  <p className="ok" hidden style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.f.ok", "Köszönjük! Ez egy demó űrlap, éles környezetben ide kerül a CRM-beküldés. Egy munkanapon belül válaszolunk.") }} />
+                  <p className="ok" hidden={contactForm.state !== "ok"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.f.ok", "Köszönjük! Egy munkanapon belül válaszolunk.") }} />
+                  <p className="err" hidden={contactForm.state !== "error"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
                 </form>
               </div>
             </div>

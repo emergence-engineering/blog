@@ -3,10 +3,13 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { EnShell } from "../features/ge/components/EnShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
+import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
+import { useLeadForm } from "../features/ge/hooks/useLeadForm";
 
 // Ported from growth-engineers-v4/contact-en.html; DOM structure intentionally
 // mirrors the static original (see features/ge/README.md).
 const ContactEn: NextPage = () => {
+  const form = useLeadForm({ kind: "enquiry", source: "/contact-en" });
   return (
     <EnShell page="contact-en">
       <GeSEO
@@ -44,7 +47,8 @@ const ContactEn: NextPage = () => {
             <div className="rv">
               <div className="formcard">
                 <h3 style={{ marginBottom: "1.4rem" }}>Tell us about your project</h3>
-                <form onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+                <form onSubmit={form.onSubmit}>
+                  <LeadFormGuards />
                   <div className="frow">
                     <div className="fld">
                       <label htmlFor="en-name">Your name*</label>
@@ -70,11 +74,12 @@ const ContactEn: NextPage = () => {
                     <textarea id="en-msg" name="message" placeholder="Where are you now, and what needs to work in the next few months?" />
                   </div>
                   <label className="consent" style={{ marginBottom: "1.3rem" }}>
-                    <input type="checkbox" required />
+                    <input type="checkbox" name="consent" required />
                     <span>I agree that Emergence Engineering Kft. may handle my data per the <a href="#">privacy policy</a> and contact me about my enquiry.</span>
                   </label>
-                  <button className="btn" type="submit">Send <span className="ar">→</span></button>
-                  <p className="ok" hidden style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }}>Thanks! This is a demo form; in production it posts to the CRM. We’ll get back to you within one business day.</p>
+                  <button className="btn" type="submit" disabled={form.state === "sending"}>{form.state === "sending" ? "Sending…" : "Send"} <span className="ar">→</span></button>
+                  <p className="ok" hidden={form.state !== "ok"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }}>Thanks! We’ll get back to you within one business day.</p>
+                  <p className="err" hidden={form.state !== "error"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }}>Something went wrong on our side. Please email us directly at <a href="mailto:contact@emergence-engineering.com">contact@emergence-engineering.com</a>.</p>
                 </form>
               </div>
             </div>

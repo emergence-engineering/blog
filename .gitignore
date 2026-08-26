@@ -30,3 +30,8 @@ public/workbox-*
 .yalc
 yalc.lock
 .vercel
+
+# Google service-account keys - never commit
+emergence-engineering-blog-*.json
+*service-account*.json
+*.serviceaccount.json

@@ -6,11 +6,14 @@ import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
 import { UxHeroArt } from "../features/ge/components/UxHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
+import { LeadFormGuards } from "../features/ge/components/LeadFormGuards";
+import { useLeadForm } from "../features/ge/hooks/useLeadForm";
 
 // Ported from growth-engineers-v4/ux-ui-design.html; DOM structure intentionally
 // mirrors the static original (see features/ge/README.md).
 const UxUiDesign: NextPage = () => {
   const t = useGeT();
+  const auditForm = useLeadForm({ kind: "capture", source: "/ux-ui-design audit" });
   return (
     <GeShell page="ux-ui-design">
       <GeSEO
@@ -81,13 +84,19 @@ const UxUiDesign: NextPage = () => {
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.eyebrow", "UX audit") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("ux.audit.h", "Két hét, egy priorizált lista, konkrét bevételi hatással") }} />
               <p className="lede rv" style={{ margin: "1.1rem 0" }} dangerouslySetInnerHTML={{ __html: t("ux.audit.lede", "Végigmegyünk az analitikán, a tölcséren és a kritikus útvonalakon. A végén pontosan tudod, mi hozza a legtöbbet a következő 90 napban, és mennyit.") }} />
-              <form className="eform rv" onSubmit={(e) => { e.preventDefault(); const ok = e.currentTarget.querySelector<HTMLElement>(".ok"); if (ok) ok.hidden = false; }}>
+              <form className="eform rv" onSubmit={auditForm.onSubmit}>
+                <LeadFormGuards />
                 <input type="email" name="email" required placeholder={t("ux.audit.emailph", "te@ceged.hu")} aria-label={t("ux.audit.email", "E-mail címed")} />
-                <button type="submit" className="btn">
-                  <span dangerouslySetInnerHTML={{ __html: t("ux.audit.cta", "Kérj ingyenes UX auditot") }} />
+                <button type="submit" className="btn" disabled={auditForm.state === "sending"}>
+                  <span dangerouslySetInnerHTML={{ __html: auditForm.state === "sending" ? t("form.sending", "Küldés…") : t("ux.audit.cta", "Kérj ingyenes UX auditot") }} />
                   <span className="ar">→</span>
                 </button>
-                <p className="ok" hidden dangerouslySetInnerHTML={{ __html: t("ux.audit.ok", "Köszönjük! Hamarosan jelentkezünk az e-mail címeden.") }} />
+                <label className="consent">
+                  <input type="checkbox" name="consent" required />
+                  <span dangerouslySetInnerHTML={{ __html: t("form.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
+                </label>
+                <p className="ok" hidden={auditForm.state !== "ok"} dangerouslySetInnerHTML={{ __html: t("ux.audit.ok", "Köszönjük! Hamarosan jelentkezünk az e-mail címeden.") }} />
+                <p className="err" hidden={auditForm.state !== "error"} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
               </form>
             </div>
             <div className="panel panel-peach rv">
