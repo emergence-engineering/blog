@@ -140,22 +140,18 @@ const IndexEn: NextPage = () => {
           </div>
           <div className="cards2 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3>Rich-text editors</h3>
               <p>The editor <em>is</em> the product in writing tools, docs, and AI apps: and it’s deceptively hard: every keystroke, paste, undo and copy has to behave perfectly. We build production editors on <strong>ProseMirror, TipTap and Lexical</strong>, and we maintain the open-source plugins the rest of the industry uses.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3>Real-time collaboration</h3>
               <p><strong>What it means:</strong> many people editing the same document at once, like Google Docs or Figma, with no conflicts and nothing lost, even when someone goes offline and comes back. <strong>How we do it:</strong> CRDTs and <strong>YJS</strong>, the hard sync math that merges everyone’s changes correctly instead of overwriting them.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3>Desktop-grade software in the browser</h3>
               <p><strong>What it means:</strong> heavy software that normally needs an install, a CAD tool, an editor, a design suite, running in a plain browser tab, nothing to download. <strong>How we do it:</strong> we compile C++ to <strong>WebAssembly</strong> and render it ourselves. We did exactly this with KiCad, a full PCB-design suite (see PCBJam below).</p>
             </article>
             <article className="pcard">
-              <span className="pnum">04</span>
               <h3>AI-native product engineering</h3>
               <p>LLM features that actually ship, not demos: in-editor assistants, grammar and completion (our <strong>SuggestCat</strong> plugin), retrieval and summarization, wired into real products with the latency, streaming and UX that make them usable.</p>
             </article>
@@ -339,17 +335,14 @@ const IndexEn: NextPage = () => {
           </div>
           <div className="cards3 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3>Specialists, not generalists</h3>
               <p>Editors, collaboration and browser-native engineering are our home turf. You skip the ramp-up and the “let’s research this” months.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3>AI-first, in production</h3>
               <p>We build LLM features that survive real users, streaming, latency, guardrails, not just a nice demo.</p>
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3>Embedded with your team</h3>
               <p>Your repo, your CI, your standups. We transfer the know-how so the system is yours, documented, when we’re done.</p>
             </article>

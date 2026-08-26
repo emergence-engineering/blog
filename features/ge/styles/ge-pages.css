@@ -540,6 +540,13 @@
 /* ---------- email-automatizacio ---------- */
 /* Keep the hyphenated "e-mailből" on one line in the hero headline. */
 .ge-p-email-automatizacio .phero h1 mark{white-space:nowrap}
+/* this page keeps the original boxed cards; the open-column pcard restyle applies elsewhere */
+.ge-p-email-automatizacio .cards4,.ge-p-email-automatizacio .cards3,.ge-p-email-automatizacio .cards2{gap:14px}
+.ge-p-email-automatizacio .pcard{background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.9rem 1.7rem 2rem;
+  transition:transform .22s ease,box-shadow .22s ease}
+.ge-p-email-automatizacio .pcard::before{content:none}
+.ge-p-email-automatizacio .pcard:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(11,27,51,.28)}
+.ge-p-email-automatizacio .pcard p{font-size:.94rem;line-height:1.62}
 /* The integrations heading is an h2 for hierarchy but keeps the compact
    sblock look the design was built around. */
 .ge-p-email-automatizacio .sblock h2{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.14;letter-spacing:-.03em;margin-bottom:.9rem}

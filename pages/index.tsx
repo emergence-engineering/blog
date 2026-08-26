@@ -96,17 +96,14 @@ const Index: NextPage = () => {
           </div>
           <div className="cards3 rv">
             <article className="pcard">
-              <span className="pnum">01</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.1.h", "A kampány kifut, a rendszer marad") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Rendszerben gondolkozunk, nem kampányokban. A vezetéssel közösen olyan belső rendszert építünk, ami nem az ügynökségtől függ, hanem a céged saját kompetenciája marad.") }} />
             </article>
             <article className="pcard">
-              <span className="pnum">02</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.2.h", "A belső csapatod") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből. Ezért mi a csapatod részeként üzletfejlesztőként dolgozunk, hogy a lehető leggyorsabban a legjobb döntéseket hozzuk meg közösen. Házon belül rendelkezünk minden specialistával, akire a projekt során szükség lehet.") }} />
             </article>
             <article className="pcard">
-              <span className="pnum">03</span>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.3.h", "Üzletfejlesztés, nem marketing") }} />
               <p dangerouslySetInnerHTML={{ __html: t("pr.3.p", "Üzletfejlesztőként gondolkozunk, nem marketingesként, így nem biztos, hogy a hirdetés skálázását fogjuk tanácsolni. A lehető legjobb és legolcsóbb úton szeretnénk eljutni a kijelölt célodig, ami nem biztos, hogy azt jelenti, hogy a Google-be kell több költséget süllyeszteni.") }} />
             </article>
