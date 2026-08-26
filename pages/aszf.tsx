@@ -5,7 +5,6 @@ import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
 
 // Hungarian-only legal page; see pages/adatkezeles.tsx for the rationale.
-// Company registration details are placeholders — fill before go-live.
 const Aszf: NextPage = () => (
   <GeShell page="aszf">
     <GeSEO
@@ -26,10 +25,10 @@ const Aszf: NextPage = () => (
 
           <h2>1. A Szolgáltató adatai</h2>
           <ul>
-            <li>Név: Emergence Engineering Kft.</li>
-            <li>Székhely: [székhely címe]</li>
-            <li>Cégjegyzékszám: [cégjegyzékszám]</li>
-            <li>Adószám: [adószám]</li>
+            <li>Név: Emergence-Engineering Kft.</li>
+            <li>Székhely: 1123 Budapest, Nagyenyed utca 5. pinceszint</li>
+            <li>Cégjegyzékszám: 01-09-380162</li>
+            <li>Adószám: 29043424-2-43</li>
             <li>
               E-mail:{" "}
               <a href="mailto:info@emergence-engineering.com">

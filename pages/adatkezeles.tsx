@@ -5,7 +5,6 @@ import { GeSEO } from "../features/ge/components/GeSEO";
 
 // Hungarian-only legal page: the controller is a Hungarian entity, so the
 // same text is served on both locales until an English translation exists.
-// Company registration details are placeholders — fill before go-live.
 const Adatkezeles: NextPage = () => (
   <GeShell page="adatkezeles">
     <GeSEO
@@ -27,10 +26,10 @@ const Adatkezeles: NextPage = () => (
 
           <h2>1. Az adatkezelő</h2>
           <ul>
-            <li>Név: Emergence Engineering Kft.</li>
-            <li>Székhely: [székhely címe]</li>
-            <li>Cégjegyzékszám: [cégjegyzékszám]</li>
-            <li>Adószám: [adószám]</li>
+            <li>Név: Emergence-Engineering Kft.</li>
+            <li>Székhely: 1123 Budapest, Nagyenyed utca 5. pinceszint</li>
+            <li>Cégjegyzékszám: 01-09-380162</li>
+            <li>Adószám: 29043424-2-43</li>
             <li>
               E-mail:{" "}
               <a href="mailto:info@emergence-engineering.com">
@@ -89,8 +88,9 @@ const Adatkezeles: NextPage = () => (
               anonimizált weboldal-analitika (EU-ban tárolt adatok).
             </li>
             <li>
-              <strong>Tárhelyszolgáltató:</strong> [tárhelyszolgáltató neve és
-              címe]
+              <strong>Vercel Inc.</strong> (440 N Barranca Ave #4133, Covina,
+              CA 91723, USA) — tárhely- és üzemeltetési szolgáltató (EU–US
+              adatvédelmi keretrendszer szerint).
             </li>
           </ul>
           <p>
