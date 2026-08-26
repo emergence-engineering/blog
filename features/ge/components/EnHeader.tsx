@@ -29,7 +29,7 @@ export const EnHeader: FunctionComponent = () => {
             <Link href="/blog" rel="noopener" aria-current={cur("/blog")}>Blog</Link>
             <Link href="/references" rel="noopener" aria-current={cur("/references")}>References</Link>
             <Link href="/opensource" rel="noopener" aria-current={cur("/opensource")}>Open source</Link>
-            <Link href="/" className="brandlink">For SMEs →</Link>
+            <Link href="/growth" className="brandlink">For SMEs →</Link>
           </nav>
           <button className="nav-toggle" id="navToggle" aria-expanded="false">
             <span>Menu</span>

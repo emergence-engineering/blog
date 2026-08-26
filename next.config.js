@@ -19,7 +19,6 @@ const EN_ONLY_PREFIXES = [
   "/team",
   "/case-studies",
   "/rich-text-editor",
-  "/index-en",
   "/contact-en",
   "/cv/:slug*",
   "/open/:slug*",
@@ -29,24 +28,37 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  // Growth Engineers pages are bilingual: Hungarian visitors (Accept-Language)
-  // are redirected from / to /hu, everyone else gets the English version.
-  // localeDetection is on by default (the config option only accepts `false`,
-  // so it must be omitted rather than set to true).
+  // The site root is the English-only engineering page; the bilingual Growth
+  // Engineering pages live at /growth (en) and /hu/growth (hu). Hungarian
+  // first-time visitors on / are redirected to /hu/growth by middleware.ts,
+  // which owns all locale detection — hence localeDetection: false (the
+  // built-in behaviour could only map / to /hu, not to a different path).
   i18n: {
     locales: ["en", "hu"],
     defaultLocale: "en",
+    localeDetection: false,
   },
   // The English-only pages (blog, references, opensource, …) exist at one URL
   // only. Locale routing would also serve them under /hu, which is duplicate
   // content, so send those back to the canonical URL permanently.
+  // /hu itself is handled by middleware.ts (config redirects run before
+  // middleware, so putting it here would conflict).
   async redirects() {
-    return EN_ONLY_PREFIXES.map((path) => ({
-      source: `/hu${path}`,
-      destination: path,
-      permanent: true,
-      locale: false,
-    }));
+    return [
+      // The engineering page moved from /index-en to the site root. No
+      // `locale: false` here: with i18n, a locale-false source matches only
+      // the literal path *after* locale normalization strips the default
+      // locale, so bare /index-en never matched. Locale-aware matching
+      // covers /index-en and /hu/index-en in one rule (the /hu variant lands
+      // on /hu, which middleware then forwards to /hu/growth).
+      { source: "/index-en", destination: "/", permanent: true },
+      ...EN_ONLY_PREFIXES.map((path) => ({
+        source: `/hu${path}`,
+        destination: path,
+        permanent: true,
+        locale: false,
+      })),
+    ];
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

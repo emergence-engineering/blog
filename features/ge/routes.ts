@@ -18,7 +18,7 @@ export const GE_ROUTES = [
   "/esettanulmany-vezessjol",
   "/rolunk",
   "/kapcsolat",
-  "/index-en",
+  "/growth",
   "/contact-en",
 ];
 
@@ -26,8 +26,7 @@ export const isGeRoute = (pathname: string): boolean =>
   GE_ROUTES.includes(pathname);
 
 /**
- * Home of the Emergence Engineering (software) site. The site root "/" now
- * serves the Growth Engineering landing page, so the legacy EE pages (blog,
- * team, references, opensource) link here instead.
+ * Home of the Emergence Engineering (software) site: the site root. The
+ * Growth Engineering landing page lives at /growth (and /hu/growth).
  */
-export const EE_HOME = "/index-en";
+export const EE_HOME = "/";

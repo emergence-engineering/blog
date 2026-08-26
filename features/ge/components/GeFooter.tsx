@@ -13,7 +13,7 @@ export const GeFooter: FunctionComponent = () => {
         <div className="wrap">
           <div className="fgrid">
             <div>
-              <Link href="/" className="logo">
+              <Link href="/growth" className="logo">
                 <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
                 <span className="logo-wm">Growth<i>/</i><span className="w2">Engineering</span></span>
               </Link>
@@ -53,10 +53,10 @@ export const GeFooter: FunctionComponent = () => {
                   <Link href="/esettanulmanyok" dangerouslySetInnerHTML={{ __html: t("ft.cases", "Esettanulmányok") }} />
                 </li>
                 <li>
-                  <Link href="/#arak" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
+                  <Link href="/growth#arak" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
                 </li>
                 <li>
-                  <Link href="/#gyik" dangerouslySetInnerHTML={{ __html: t("ft.faq", "GYIK") }} />
+                  <Link href="/growth#gyik" dangerouslySetInnerHTML={{ __html: t("ft.faq", "GYIK") }} />
                 </li>
               </ul>
             </div>

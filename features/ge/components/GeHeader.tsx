@@ -30,7 +30,7 @@ export const GeHeader: FunctionComponent = () => {
   return (
     <header id="hdr">
       <div className="wrap nav">
-        <Link href="/" className="logo">
+        <Link href="/growth" className="logo">
           <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
           <span className="logo-wm">Growth<i>/</i><span className="w2">Engineering</span></span>
         </Link>
@@ -51,11 +51,13 @@ export const GeHeader: FunctionComponent = () => {
             </div>
           </div>
           <Link href="/esettanulmanyok" aria-current={cur("/esettanulmanyok")} dangerouslySetInnerHTML={{ __html: t("nav.cases", "Esettanulmányok") }} />
-          <Link href="/#arak" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
+          <Link href="/growth#arak" dangerouslySetInnerHTML={{ __html: t("col.eyebrow", "Együttműködés") }} />
           <Link href="/rolunk" aria-current={cur("/rolunk")} dangerouslySetInnerHTML={{ __html: t("nav.about", "Rólunk") }} />
           {/* deliberately English in both locales: it points English-speaking
               visitors to the startup-facing site */}
-          <Link href="/index-en" className="brandlink">For startups →</Link>
+          {/* locale="en": on /hu/* pages a bare "/" would resolve to /hu,
+              which redirects straight back to the marketing site */}
+          <Link href="/" locale="en" className="brandlink">For startups →</Link>
           <div className="lang" role="group" aria-label="Language / Nyelv">
             <button type="button" data-lang="hu" aria-pressed={locale === "hu"} onClick={() => switchLocale("hu")}>HU</button>
             <button type="button" data-lang="en" aria-pressed={locale !== "hu"} onClick={() => switchLocale("en")}>EN</button>

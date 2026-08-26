@@ -11,13 +11,13 @@ export const EnFooter: FunctionComponent = () => {
         <div className="wrap">
           <div className="fgrid">
             <div>
-              <Link href="/index-en" className="logo">
+              <Link href="/" className="logo">
                 <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
                 <span className="logo-wm">Emergence<i>/</i><span className="w2">Engineering</span></span>
               </Link>
               <p style={{ maxWidth: "32ch", lineHeight: "1.6" }}>The engineers behind ambitious editors, real-time collaboration and browser-native web apps.</p>
               <p style={{ fontSize: ".9rem", marginTop: ".6rem" }}>Emergence Engineering Ltd. · Budapest, EU</p>
-              <p style={{ fontSize: ".9rem", marginTop: ".35rem" }}>Our business development practice: <Link href="/">Growth Engineering</Link></p>
+              <p style={{ fontSize: ".9rem", marginTop: ".35rem" }}>Our business development practice: <Link href="/growth">Growth Engineering</Link></p>
             </div>
             <div>
               <h5>What we build</h5>
@@ -46,7 +46,7 @@ export const EnFooter: FunctionComponent = () => {
                   <Link href="/opensource" rel="noopener">Open source</Link>
                 </li>
                 <li>
-                  <Link href="/">Growth & business dev</Link>
+                  <Link href="/growth">Growth & business dev</Link>
                 </li>
                 <li>
                   <Link href="/contact-en">Contact</Link>
@@ -70,7 +70,7 @@ export const EnFooter: FunctionComponent = () => {
             <div>© 2026 Emergence Engineering Ltd. All rights reserved.</div>
             <ul>
               <li>
-                <Link href="/">Magyar oldal</Link>
+                <Link href="/growth" locale="hu">Magyar oldal</Link>
               </li>
             </ul>
           </div>
