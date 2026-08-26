@@ -1699,7 +1699,7 @@ const en: Record<string, string> = {
   "web.fe3.p": "Type safety that catches errors early and keeps the code maintainable.",
   "web.fe4.h": "ProseMirror and TipTap",
   "web.fe4.p": "Custom rich text editors with a strict document model, real-time collaboration and AI features.",
-  "web.h1": "Webshop, web app and web development with <mark>AI integration</mark>",
+  "web.h1": "Webshop, web app and <mark>web development</mark>",
   "web.hero.art.alt": "An invoicing-Stripe integration we built",
   "web.lede": "For almost a decade we have been working with international tech startups and Hungarian SMEs. From AI-based CRMs through invoicing platforms to webshops, we have built hundreds of web apps and websites. Our engineering team is at the international forefront in expertise and experience.",
   "web.lede2": "Whether you need an MVP, a core platform upgrade, a landing page or full e-commerce development. If there&rsquo;s an unfinished project, we&rsquo;ll take that on too.",

@@ -31,7 +31,7 @@ const Webfejlesztes: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("web.crumb", "Webshop- és webfejlesztés") }} />
               </div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("web.eyebrow", "Fejlesztés") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Webshop, webapp és webfejlesztés <mark>AI-integrációval</mark>") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("web.h1", "Webshop, webapp és <mark>webfejlesztés</mark>") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("web.lede", "Cégünk lassan 10 éve dolgozik együtt nemzetközi technológiai startupokkal és magyar KKV-kkal. AI-alapú CRM-től kezdve számlázási platformon át webshopokig több száz webappot és weboldalt építettünk. Fejlesztői csapatunk nemzetközi szinten is az élvonalban van szaktudásban és tapasztalatban.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">

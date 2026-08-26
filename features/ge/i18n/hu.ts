@@ -1565,7 +1565,7 @@ const hu: Record<string, string> = {
   "web.fe3.p": "Típusbiztonság, ami korán elkapja a hibákat és karbantarthatóvá teszi a kódot.",
   "web.fe4.h": "ProseMirror és TipTap",
   "web.fe4.p": "Egyedi szövegszerkesztők szigorú dokumentummodellel, valós idejű együttműködéssel és AI funkciókkal.",
-  "web.h1": "Webshop, webapp és webfejlesztés <mark>AI-integrációval</mark>",
+  "web.h1": "Webshop, webapp és <mark>webfejlesztés</mark>",
   "web.hero.art.alt": "",
   "web.lede": "Cégünk lassan 10 éve dolgozik együtt nemzetközi technológiai startupokkal és magyar KKV-kkal. AI-alapú CRM-től kezdve számlázási platformon át webshopokig több száz webappot és weboldalt építettünk. Fejlesztői csapatunk nemzetközi szinten is az élvonalban van szaktudásban és tapasztalatban.",
   "web.lede2": "Akár MVP kell, akár egy meglévő platform felújítása, egy landing oldal vagy teljes webshop-fejlesztés. Ha félbehagyott projekt van, azt is átvesszük.",
