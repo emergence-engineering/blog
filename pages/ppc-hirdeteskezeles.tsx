@@ -159,7 +159,7 @@ const GrowthMarketing: NextPage = () => {
               <h3 dangerouslySetInnerHTML={{ __html: t("gm.s2.h", "Tartalom és SEO") }} />
               <p dangerouslySetInnerHTML={{ __html: t("gm.s2.p", "Megtalálnak, megbíznak benned, és maradnak.") }} />
               <div>
-                <Link href="/#szolgaltatasok" className="tlink">
+                <Link href="/ai-seo" className="tlink">
                   <span dangerouslySetInnerHTML={{ __html: t("gm.s2.link", "Nézd meg, hogyan illik ide az AIO") }} />
                   <span className="ar">→</span>
                 </Link>
@@ -189,8 +189,8 @@ const GrowthMarketing: NextPage = () => {
               <h3 dangerouslySetInnerHTML={{ __html: t("gm.s3.h", "Videó és közösségimédia-marketing") }} />
               <p dangerouslySetInnerHTML={{ __html: t("gm.s3.p", "Ott jelenünk meg, ahol a közönséged már úgyis idejét tölti. Social-first tartalmat és videót gyártunk, ami bizalmat épít, elköteleződést hajt és támogatja a teljesítményt.") }} />
               <div>
-                <Link href="/#szolgaltatasok" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("gm.s3.link", "Több a tartalomgyártásról") }} />
+                <Link href="/kreativ-es-videogyartas" className="tlink">
+                  <span dangerouslySetInnerHTML={{ __html: t("gm.s3.link", "Több a kreatív- és videógyártásról") }} />
                   <span className="ar">→</span>
                 </Link>
               </div>

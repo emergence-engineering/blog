@@ -843,7 +843,7 @@ const hu: Record<string, string> = {
   "gm.s2d.h": "Linképítés és tekintély",
   "gm.s2d.p": "Minőségi hivatkozások, biztonságos és stratégiai megkeresésekkel, hogy hosszú távon nőjön a láthatóságod.",
   "gm.s3.h": "Videó és közösségimédia-marketing",
-  "gm.s3.link": "Több a tartalomgyártásról",
+  "gm.s3.link": "Több a kreatív- és videógyártásról",
   "gm.s3.p": "Ott jelenünk meg, ahol a közönséged már úgyis idejét tölti. Social-first tartalmat és videót gyártunk, ami bizalmat épít, elköteleződést hajt és támogatja a teljesítményt.",
   "gm.s3a.h": "Csatornastratégia",
   "gm.s3a.p": "Social tartalomterv, üzenetek és platform-natív ötletek.",

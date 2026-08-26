@@ -960,7 +960,7 @@ const en: Record<string, string> = {
   "gm.s2d.h": "Link building &amp; authority",
   "gm.s2d.p": "Quality backlinks through safe, strategic outreach, so your visibility grows over the long term.",
   "gm.s3.h": "Video &amp; social media marketing",
-  "gm.s3.link": "More on content creation",
+  "gm.s3.link": "More on creative and video production",
   "gm.s3.p": "We show up where your audience already spends its time. We produce social-first content and video that builds trust, drives engagement and supports performance.",
   "gm.s3a.h": "Channel strategy",
   "gm.s3a.p": "Social content planning, messaging and platform-native ideas.",

@@ -161,7 +161,7 @@ const Rolunk: NextPage = () => {
             </article>
           </div>
           <p className="rv" style={{ textAlign: "center", marginTop: "2rem" }}>
-            <Link href="/#arak" className="tlink">
+            <Link href="/growth#arak" className="tlink">
               <span dangerouslySetInnerHTML={{ __html: t("rol.coll.link", "Részletes összehasonlítás és árak") }} />
               <span className="ar">→</span>
             </Link>

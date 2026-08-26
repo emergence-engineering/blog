@@ -139,7 +139,7 @@ const Tartalomgyartas: NextPage = () => {
               <h3 dangerouslySetInnerHTML={{ __html: t("con.s3.h", "Social stratégia, blog és tartalom") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.s3.p", "Ott jelenj meg, ahol a közönséged már úgyis időt tölt.") }} />
               <div>
-                <Link href="/#szolgaltatasok" className="tlink">
+                <Link href="/ppc-hirdeteskezeles" className="tlink">
                   <span dangerouslySetInnerHTML={{ __html: t("con.s3.cta", "Hogyan táplálja a paid oldalt") }} />
                   <span className="ar">→</span>
                 </Link>
