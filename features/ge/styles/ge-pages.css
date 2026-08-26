@@ -111,7 +111,8 @@
   .ge-p-ecommerce-skalazas .lnode b{color:var(--coral-l);display:block;font-family:var(--display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
   .ge-p-ecommerce-skalazas .larr{align-self:center;color:var(--coral);font-weight:800;font-size:1.15rem}
   .ge-p-ecommerce-skalazas .lreturn{margin-top:.7rem;border-top:1px dashed var(--rule);padding-top:.6rem;font-family:var(--serif);font-style:italic;color:var(--body);text-align:center;font-size:1.02rem}
-  @media(max-width:640px){.ge-p-ecommerce-skalazas .lrow{flex-direction:column}.ge-p-ecommerce-skalazas .larr{align-self:flex-start;transform:rotate(90deg)}}
+  /* column direction turns the 150px flex-basis into a forced height, so reset it */
+  @media(max-width:640px){.ge-p-ecommerce-skalazas .lrow{flex-direction:column}.ge-p-ecommerce-skalazas .lnode{flex-basis:auto}.ge-p-ecommerce-skalazas .larr{align-self:flex-start;transform:rotate(90deg);margin-left:1.1rem}}
   .ge-p-ecommerce-skalazas .pull{font-family:var(--serif);font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.34;color:var(--ink);letter-spacing:-.01em;max-width:24ch;margin:2rem 0 0}
   .ge-p-ecommerce-skalazas .pull .hl{color:var(--coral-d)}
 
