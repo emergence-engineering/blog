@@ -64,7 +64,6 @@ const nextConfig = {
       ...[
         "/growth",
         "/ppc-hirdeteskezeles",
-        "/chatgpt-ads-hirdeteskezeles",
         "/webfejlesztes",
         "/email-automatizacio",
         "/kreativ-es-videogyartas",

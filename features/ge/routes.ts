@@ -6,7 +6,6 @@
 export const GE_ROUTES = [
   "/",
   "/ppc-hirdeteskezeles",
-  "/chatgpt-ads-hirdeteskezeles",
   "/webfejlesztes",
   "/email-automatizacio",
   "/kreativ-es-videogyartas",
