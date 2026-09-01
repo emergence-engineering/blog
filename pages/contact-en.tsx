@@ -42,7 +42,7 @@ const ContactEn: NextPage = () => {
                 <li>You get a technical read on feasibility, scope and rough timeline</li>
                 <li>We reply within one business day</li>
               </ul>
-              <div className="cmeta"><b>Emergence Engineering Kft.</b><br /> Budapest, EU<br /> <a href="mailto:info@emergence-engineering.com">info@emergence-engineering.com</a> <p style={{ marginTop: "1.2rem", fontSize: ".9rem", color: "var(--muted)" }}>Looking for growth and business development instead? That’s our sister practice: <Link href="/growth">Growth Engineering</Link>.</p></div>
+              <div className="cmeta"><b>Emergence Engineering Kft.</b><br /> Budapest, EU<br /> <a href="mailto:info@emergence-engineering.com">info@emergence-engineering.com</a></div>
             </div>
             <div className="rv">
               <div className="formcard">

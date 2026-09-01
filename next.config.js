@@ -58,6 +58,26 @@ const nextConfig = {
         permanent: true,
         locale: false,
       })),
+      // The Growth Engineering side is hidden for now: every GE URL lands on
+      // the engineering homepage. To re-enable, delete this block and restore
+      // middleware.ts, the sitemap's bilingual list and the EN-side GE links.
+      ...[
+        "/growth",
+        "/ppc-hirdeteskezeles",
+        "/chatgpt-ads-hirdeteskezeles",
+        "/webfejlesztes",
+        "/email-automatizacio",
+        "/kreativ-es-videogyartas",
+        "/ux-ui-design",
+        "/ai-seo",
+        "/cro-es-ecommerce",
+        "/esettanulmanyok",
+        "/esettanulmany-plantart",
+        "/esettanulmany-szamlabridge",
+        "/esettanulmany-vezessjol",
+        "/rolunk",
+        "/kapcsolat",
+      ].map((path) => ({ source: path, destination: "/", permanent: false })),
       // Service slugs renamed to match the visible service names (SEO).
       // Locale-aware: also covers the /hu/… variants.
       {
