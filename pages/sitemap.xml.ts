@@ -23,6 +23,7 @@ const ORIGIN = "https://emergence-engineering.com";
 const BILINGUAL_PATHS = [
   "/growth",
   "/ppc-hirdeteskezeles",
+  "/chatgpt-ads-hirdeteskezeles",
   "/webfejlesztes",
   "/email-automatizacio",
   "/kreativ-es-videogyartas",
