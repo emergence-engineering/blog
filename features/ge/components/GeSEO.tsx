@@ -43,8 +43,7 @@ const SERVICE_ROUTES = new Set([
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  // GE side hidden: the public brand is Emergence Engineering for now.
-  name: "Emergence Engineering",
+  name: "Growth Engineering",
   legalName: "Emergence Engineering Kft.",
   url: ORIGIN,
   logo: DEFAULT_OG_IMAGE,
@@ -142,7 +141,7 @@ export const GeSEO: FunctionComponent<GeSEOProps> = ({
           areaServed: ["HU", "EU"],
           provider: {
             "@type": "Organization",
-            name: "Emergence Engineering",
+            name: "Growth Engineering",
             legalName: "Emergence Engineering Kft.",
             url: ORIGIN,
           },
@@ -161,7 +160,7 @@ export const GeSEO: FunctionComponent<GeSEOProps> = ({
       />
       <meta key="og:type" property="og:type" content="website" />
       <meta key="og:url" property="og:url" content={canonical} />
-      <meta key="og:site_name" property="og:site_name" content="Emergence Engineering" />
+      <meta key="og:site_name" property="og:site_name" content="Growth Engineering" />
       <meta key="og:image" property="og:image" content={ogImageUrl} />
       <meta
         key="og:locale"

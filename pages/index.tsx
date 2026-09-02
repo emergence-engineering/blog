@@ -104,6 +104,11 @@ const IndexEn: NextPage = () => {
               </div>
             </div>
             <div className="wwd-col rv">
+              <Link className="wwd-brand" href="/growth" title="Growth Engineering, business development">
+                <Image src="/ge/img/logo-emergence.png" alt="" width={22} height={22} />
+                <span>Growth<i>/</i><span className="w2">Engineering</span></span>
+                <span className="ar">→</span>
+              </Link>
               <h3>Business Development</h3>
               <ul>
                 <li>Marketing</li>
