@@ -17,7 +17,6 @@ export const EnFooter: FunctionComponent = () => {
               </Link>
               <p style={{ maxWidth: "32ch", lineHeight: "1.6" }}>The engineers behind ambitious editors, real-time collaboration and browser-native web apps.</p>
               <p style={{ fontSize: ".9rem", marginTop: ".6rem" }}>Emergence Engineering Ltd. · Budapest, EU</p>
-              <p style={{ fontSize: ".9rem", marginTop: ".35rem" }}>Our business development practice: <Link href="/growth">Growth Engineering</Link></p>
             </div>
             <div>
               <h5>What we build</h5>
@@ -46,9 +45,6 @@ export const EnFooter: FunctionComponent = () => {
                   <Link href="/opensource" rel="noopener">Open source</Link>
                 </li>
                 <li>
-                  <Link href="/growth">Growth & business dev</Link>
-                </li>
-                <li>
                   <Link href="/contact-en">Contact</Link>
                 </li>
               </ul>
@@ -68,11 +64,6 @@ export const EnFooter: FunctionComponent = () => {
           </div>
           <div className="fbot">
             <div>© 2026 Emergence Engineering Ltd. All rights reserved.</div>
-            <ul>
-              <li>
-                <Link href="/growth" locale="hu">Magyar oldal</Link>
-              </li>
-            </ul>
           </div>
         </div>
       </footer>
