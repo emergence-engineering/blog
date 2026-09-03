@@ -605,7 +605,7 @@ const hu: Record<string, string> = {
   "em.proc.p2.p": "Integráció, katalógusfeed, események, domain-beállítás. Élesedik az elhagyott kosár és az üdvözlő sorozat, ez a két flow adja jellemzően az automatizált bevétel felét.",
   "em.proc.p3.h": "Teljes flow-készlet",
   "em.proc.p3.k": "2–5. hét",
-  "em.proc.p3.p": "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, magyar szövegezéssel.",
+  "em.proc.p3.p": "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, szövegezéssel.",
   "em.proc.p4.h": "Kampányritmus és mérés",
   "em.proc.p4.k": "5–8. hét",
   "em.proc.p4.p": "Kampánynaptár, riportsablon, a csapatod betanítása. Innentől vagy ti viszitek tovább, vagy mi futtatjuk havi együttműködésben.",

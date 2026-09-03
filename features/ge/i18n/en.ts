@@ -682,7 +682,7 @@ const en: Record<string, string> = {
   "em.proc.p2.p": "Integration, catalog feed, events, domain setup. Abandoned cart and welcome series go live, these two flows typically bring half of automated revenue.",
   "em.proc.p3.h": "Full flow set",
   "em.proc.p3.k": "Week 2&ndash;5",
-  "em.proc.p3.p": "Browse abandonment, post-purchase series, win-back, back-in-stock, sunset. Building the template system and segments, with native copy.",
+  "em.proc.p3.p": "Browse abandonment, post-purchase series, win-back, back-in-stock, sunset. Building the template system and segments, with copywriting.",
   "em.proc.p4.h": "Campaign rhythm &amp; reporting",
   "em.proc.p4.k": "Week 5&ndash;8",
   "em.proc.p4.p": "Campaign calendar, reporting template, training your team. From here you either run it, or we run it in a monthly engagement.",

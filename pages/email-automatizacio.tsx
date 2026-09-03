@@ -279,7 +279,7 @@ const EmailAutomatizacio: NextPage = () => {
               <div className="dot">3</div>
               <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p3.k", "2–5. hét") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("em.proc.p3.h", "Teljes flow-készlet") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p3.p", "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, magyar szövegezéssel.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p3.p", "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, szövegezéssel.") }} />
             </div>
             <div className="tlrow">
               <div className="dot">4</div>
