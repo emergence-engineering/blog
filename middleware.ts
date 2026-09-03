@@ -18,7 +18,11 @@ export function middleware(req: NextRequest): NextResponse {
   const { pathname, locale } = req.nextUrl;
 
   if (pathname === "/" && locale === "hu") {
-    return NextResponse.redirect(new URL("/", req.url), 307);
+    // In dev the GE side stays browsable (next.config skips the hide there
+    // too), so /hu keeps forwarding to the Hungarian marketing homepage.
+    const target =
+      process.env.NODE_ENV === "production" ? "/" : "/hu/growth";
+    return NextResponse.redirect(new URL(target, req.url), 307);
   }
 
   return NextResponse.next();
