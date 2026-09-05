@@ -20,9 +20,22 @@ import { ARTICLES } from "../features/blog/articleList";
 const ORIGIN = "https://emergence-engineering.com";
 
 // Bilingual Growth Engineering pages: each exists at /<path> and /hu/<path>.
-// The GE side is hidden for now (its URLs redirect to /, see next.config.js),
-// and redirecting URLs must not be listed — restore the list when GE returns.
-const BILINGUAL_PATHS: string[] = [];
+const BILINGUAL_PATHS = [
+  "/growth",
+  "/ppc-hirdeteskezeles",
+  "/webfejlesztes",
+  "/email-automatizacio",
+  "/kreativ-es-videogyartas",
+  "/ux-ui-design",
+  "/ai-seo",
+  "/cro-es-ecommerce",
+  "/esettanulmanyok",
+  "/esettanulmany-plantart",
+  "/esettanulmany-szamlabridge",
+  "/esettanulmany-vezessjol",
+  "/rolunk",
+  "/kapcsolat",
+];
 
 // English-only pages (the engineering side). /hu versions of these redirect
 // back and so must stay out of the sitemap.

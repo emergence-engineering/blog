@@ -58,29 +58,6 @@ const nextConfig = {
         permanent: true,
         locale: false,
       })),
-      // The Growth Engineering side is hidden in production: every GE URL
-      // lands on the engineering homepage. `next dev` skips the block so the
-      // GE pages stay browsable on localhost. To re-enable publicly, delete
-      // this block and restore middleware.ts, the sitemap's bilingual list
-      // and the EN-side GE links.
-      ...(process.env.NODE_ENV === "production"
-        ? [
-            "/growth",
-            "/ppc-hirdeteskezeles",
-            "/webfejlesztes",
-            "/email-automatizacio",
-            "/kreativ-es-videogyartas",
-            "/ux-ui-design",
-            "/ai-seo",
-            "/cro-es-ecommerce",
-            "/esettanulmanyok",
-            "/esettanulmany-plantart",
-            "/esettanulmany-szamlabridge",
-            "/esettanulmany-vezessjol",
-            "/rolunk",
-            "/kapcsolat",
-          ].map((path) => ({ source: path, destination: "/", permanent: false }))
-        : []),
       // Service slugs renamed to match the visible service names (SEO).
       // Locale-aware: also covers the /hu/… variants.
       {
