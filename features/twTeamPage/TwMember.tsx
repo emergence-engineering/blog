@@ -12,7 +12,6 @@ import KsisuImage from "../../public/bio/ksisu.png";
 import TorcsiImage from "../../public/bio/torcsi.jpeg";
 import NorbiImage from "../../public/bio/norbi.png";
 import PetraImage from "../../public/bio/petra2.png";
-import KataImage from "../../public/bio/kata.jpg";
 import GregImage from "../../public/bio/greg.jpeg";
 import GithubIcon from "../../public/icons/github-small.svg";
 import LinkedInIcon from "../../public/icons/linkedin-small.svg";
@@ -29,7 +28,6 @@ enum TwMembers {
   torcsi = "torcsi",
   norbi = "norbi",
   petra = "petra",
-  kata = "kata",
 }
 
 const images = {
@@ -44,7 +42,6 @@ const images = {
   [TwMembers.torcsi]: TorcsiImage,
   [TwMembers.norbi]: NorbiImage,
   [TwMembers.petra]: PetraImage,
-  [TwMembers.kata]: KataImage,
 };
 
 interface TwMemberProps {
