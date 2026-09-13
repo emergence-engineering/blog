@@ -502,7 +502,7 @@ const hu: Record<string, string> = {
   "em.fg3.h": "Jelzések és karbantartás",
   "em.fg3.p": "Ritka, de erős jelzésekre válaszol, és rendben tartja a listát.",
   "em.f1.k": "Üdvözlő e-mail, majd 3–4 részes bemutatkozó sorozat",
-  "em.f2.k": "A fizetés előtt kilépőket hozza vissza, SMS-sel is",
+  "em.f2.k": "A fizetés előtt kilépőket hozza vissza, SMS‑sel is",
   "em.f3.k": "Emlékeztető a kosárban hagyott termékekre",
   "em.f4.k": "Köszönet, útmutató, véleménykérés, kapcsolódó termékek",
   "em.f5.k": "Újdonság vagy kedvezmény a hónapok óta nem rendelőknek",

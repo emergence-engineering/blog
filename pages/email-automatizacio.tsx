@@ -122,7 +122,7 @@ const EmailAutomatizacio: NextPage = () => {
                 <p dangerouslySetInnerHTML={{ __html: t("em.fg1.p", "Itt dől el, hogy az érdeklődőből vevő lesz‑e.") }} />
               </div>
               <div className="flowrows">
-                <details className="flowrow" open>
+                <details className="flowrow">
                   <summary>
                     <span className="flowrow-tx">
                       <span className="flowrow-t">
@@ -139,7 +139,7 @@ const EmailAutomatizacio: NextPage = () => {
                       <span className="flowrow-t">
                         <b dangerouslySetInnerHTML={{ __html: t("em.f2.h", "Elhagyott pénztár flow") }} />
                       </span>
-                      <small dangerouslySetInnerHTML={{ __html: t("em.f2.k", "A fizetés előtt kilépőket hozza vissza, SMS-sel is") }} />
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f2.k", "A fizetés előtt kilépőket hozza vissza, SMS‑sel is") }} />
                     </span>
                   </summary>
                   <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f2.p", "A vásárlók átlagosan 25–30%-a közvetlenül a fizetés előtt hagyja el a webshopot. Ők már eljutottak a döntési folyamat utolsó lépéséig, így velük van a legnagyobb esélyed a konverzióra. Néhány pontosan időzített, meggyőző emlékeztető e-mail segítségével a kosárelhagyási arány akár a felére is csökkenthető, közvetlenül növelve a bevételedet. Hozzájárult vásárlóknál ez SMS-értesítéssel is kiegészülhet.") }} />

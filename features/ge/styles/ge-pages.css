@@ -600,8 +600,16 @@
 .ge-p-email-automatizacio .flowrow-tx b{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.04rem}
 .ge-p-email-automatizacio .flowrow-tx small{font-family:var(--sans);font-weight:400;letter-spacing:0;font-size:.86rem;color:var(--muted);margin-top:.2rem}
 .ge-p-email-automatizacio .flowrow .ans{padding:0 2.4rem 1.3rem 0;max-width:62ch}
-@media(max-width:940px){.ge-p-email-automatizacio .fgroup{grid-template-columns:1fr;gap:.4rem;padding:1.5rem 0 .8rem}
-  .ge-p-email-automatizacio .fgroup-head{position:static;padding-bottom:.4rem}}
+/* Mobile: the label column stacks above the rows, so the group needs its own
+   signal (coral tick + larger title) and the rows sit in a white panel. */
+@media(max-width:940px){.ge-p-email-automatizacio .fgroup{grid-template-columns:1fr;gap:.9rem;padding:1.4rem 0 1.2rem;border-top:0}
+  .ge-p-email-automatizacio .fgroup:last-child{border-bottom:0}
+  .ge-p-email-automatizacio .fgroup-head{position:static;padding-bottom:0}
+  .ge-p-email-automatizacio .fgroup-head h4{position:relative;font-size:1.3rem;padding-top:.85rem;margin-bottom:.35rem}
+  .ge-p-email-automatizacio .fgroup-head h4::before{content:"";position:absolute;top:0;left:0;width:2.4rem;height:2px;background:var(--coral)}
+  .ge-p-email-automatizacio .flowrows{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:0 1rem}
+  .ge-p-email-automatizacio .flowrow summary{padding:.95rem 2.2rem .95rem 0}
+  .ge-p-email-automatizacio .flowrow .ans{padding-right:.4rem}}
 
 /* ==========================================================================
    Creative & video production page (tartalomgyartas)
