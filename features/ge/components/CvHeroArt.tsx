@@ -5,14 +5,16 @@ import { useGeT } from "../i18n/useGeT";
 
 const UX = "/ge/img/ux-hero";
 const GM = "/ge/img/gm-hero";
+const CV = "/ge/img/cv-hero";
 
 /**
  * The creative & video production page hero artwork, composed in the same
  * family as the marketing / UX / web hero arts (600×600 design frame): a
- * phone playing a vertical video in the middle, two tilted creative variants
- * behind it, and three platform chips with live, localized labels. Everything
- * is CSS plus the vector layers the sibling arts already ship, so it stays
- * sharp at any size and shows no client work. All coordinates are design
+ * phone playing the OTP Bank TikTok video in the middle, the Plantart and
+ * Netamin Instagram reels as tilted cards behind it, and three chips with
+ * live, localized labels (two platforms and the TikTok view count). The
+ * frames live in public/ge/img/cv-hero; everything else is CSS plus the
+ * vector layers the sibling arts already ship. All coordinates are design
  * pixels; --u (set in ge.css) converts one design pixel to the container
  * width.
  */
@@ -39,10 +41,18 @@ const Chip: FunctionComponent<{ x: number; y: number; label: string }> = ({ x, y
   </div>
 );
 
-/* A tilted "creative variant" card behind the phone: media block + caption bars. */
-const Variant: FunctionComponent<{ x: number; y: number; tilt: number }> = ({ x, y, tilt }) => (
+/* A tilted reel card behind the phone: the cover frame plus caption bars. */
+const Reel: FunctionComponent<{ x: number; y: number; tilt: number; src: string; alt: string }> = ({
+  x,
+  y,
+  tilt,
+  src,
+  alt,
+}) => (
   <div className="cv-abs cv-card" style={{ ...box(x, y, 168, 300), transform: `rotate(${tilt}deg)` }}>
-    <span className="cv-abs cv-media" style={box(12, 12, 144, 196)} />
+    <span className="cv-abs cv-media" style={box(12, 12, 144, 196)}>
+      <img src={src} alt={alt} loading="eager" />
+    </span>
     <span className="cv-abs ux-bar" style={box(12, 224, 104, 10)} />
     <span className="cv-abs ux-bar" style={box(12, 242, 132, 10)} />
     <span className="cv-abs ux-bar" style={box(12, 260, 76, 10)} />
@@ -58,10 +68,10 @@ export const CvHeroArt: FunctionComponent = () => {
       <img className="cv-abs" src={`${UX}/star1.svg`} alt="" style={box(38, 62, 35.1, 33.6)} />
       <img className="cv-abs" src={`${UX}/star2.svg`} alt="" style={box(528, 336, 49.1, 47)} />
 
-      <Variant x={48} y={128} tilt={-7} />
-      <Variant x={384} y={150} tilt={7} />
+      <Reel x={48} y={128} tilt={-7} src={`${CV}/plantart-reel.jpg`} alt={t("con.hero.alt2", "Plantart Instagram-reel")} />
+      <Reel x={384} y={150} tilt={7} src={`${CV}/netamin-reel.jpg`} alt={t("con.hero.alt3", "Netamin Instagram-reel")} />
 
-      {/* phone playing a vertical video */}
+      {/* phone playing the OTP Bank TikTok video */}
       <div className="cv-abs cv-phone" style={box(207, 52, 186, 404)}>
         <div className="ux-phone-bar">
           <img src={`${UX}/ic-back.svg`} alt="" style={{ width: px(13.8), height: px(13.8) }} />
@@ -71,6 +81,7 @@ export const CvHeroArt: FunctionComponent = () => {
           <img src={`${UX}/ic-add.svg`} alt="" style={{ width: px(13.8), height: px(13.8) }} />
         </div>
         <div className="cv-abs cv-video" style={box(0, 34, 186, 290)}>
+          <img src={`${CV}/otp-tiktok.jpg`} alt={t("con.hero.alt1", "OTP Bank TikTok-videó")} loading="eager" />
           <span className="cv-abs cv-playbtn" style={box(67, 119, 52, 52)}>
             <span className="cv-play" />
           </span>
@@ -83,9 +94,9 @@ export const CvHeroArt: FunctionComponent = () => {
         <span className="cv-abs gm-grad-btn" style={box(14, 380, 88, 26)} />
       </div>
 
-      <Chip x={2} y={392} label={t("con.hero.chip1", "Reels")} />
+      <Chip x={2} y={392} label={t("con.hero.chip1", "Instagram")} />
       <Chip x={400} y={8} label={t("con.hero.chip2", "TikTok")} />
-      <Chip x={372} y={470} label={t("con.hero.chip3", "LinkedIn")} />
+      <Chip x={286} y={476} label={t("con.hero.chip3", "500 000 megtekintés")} />
     </div>
   );
 };
