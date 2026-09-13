@@ -127,7 +127,6 @@ const EmailAutomatizacio: NextPage = () => {
                     <span className="flowrow-tx">
                       <span className="flowrow-t">
                         <b dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Köszöntő flow") }} />
-                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f1.g", "8–18% konverzió") }} />
                       </span>
                       <small dangerouslySetInnerHTML={{ __html: t("em.f1.k", "Üdvözlő e-mail, majd 3–4 részes bemutatkozó sorozat") }} />
                     </span>
@@ -150,7 +149,6 @@ const EmailAutomatizacio: NextPage = () => {
                     <span className="flowrow-tx">
                       <span className="flowrow-t">
                         <b dangerouslySetInnerHTML={{ __html: t("em.f3.h", "Elhagyott kosár flow") }} />
-                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f3.g", "+35% visszatérés") }} />
                       </span>
                       <small dangerouslySetInnerHTML={{ __html: t("em.f3.k", "Emlékeztető a kosárban hagyott termékekre") }} />
                     </span>
@@ -200,7 +198,6 @@ const EmailAutomatizacio: NextPage = () => {
                     <span className="flowrow-tx">
                       <span className="flowrow-t">
                         <b dangerouslySetInnerHTML={{ __html: t("em.f6.h", "Áresés- és készletértesítő") }} />
-                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f6.g", "5–12% konverzió") }} />
                       </span>
                       <small dangerouslySetInnerHTML={{ __html: t("em.f6.k", "Értesítés, ha csökken az ár vagy újra kapható") }} />
                     </span>
