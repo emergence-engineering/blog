@@ -36,7 +36,7 @@ const EmailAutomatizacio: NextPage = () => {
                   <span dangerouslySetInnerHTML={{ __html: t("em.cta1", "Kérj ingyenes e-mail auditot") }} />
                   <span className="ar">→</span>
                 </Link>
-                <a href="#folyamat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.cta2", "Hogyan zajlik?") }} />
+                <a href="#folyamat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.cta2", "Hogyan dolgozunk") }} />
               </div>
               <div className="trust rv">
                 <span dangerouslySetInnerHTML={{ __html: t("em.trust1", "<b>Klaviyo</b> Silver Partner") }} />
@@ -115,39 +115,122 @@ const EmailAutomatizacio: NextPage = () => {
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("em.sys.lede", "Automatizált flow-kat, szegmentációt és adatgyűjtést, kampánynaptárat és tartalmat: egy összefüggő rendszert, ahol minden e-mail egy konkrét viselkedésre válaszol.") }} />
           </div>
           <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g1", "<span class=\"gno\">1/3</span> Automatizált flow-k") }} />
-          <div className="cards4 rv" style={{ marginBottom: "3rem" }}>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Köszöntő flow") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f1.p", "Új feliratkozóidat automatikus üdvözlő e-maillel fogadjuk, amelyben akár kedvezményt is kínálhatsz. Ezt egy 3–4 részes sorozat követi, amely bemutatja a márkádat és a termékeidet, miközben világossá teszi, milyen értékes tartalomra számíthatnak tőled. Így már az első pillanattól elkötelezett, hűséges közösséget építhetsz.") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f2.h", "Elhagyott pénztár flow") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f2.p", "A vásárlók átlagosan 25–30%-a közvetlenül a fizetés előtt hagyja el a webshopot. Ők már eljutottak a döntési folyamat utolsó lépéséig, így velük van a legnagyobb esélyed a konverzióra. Néhány pontosan időzített, meggyőző emlékeztető e-mail segítségével a kosárelhagyási arány akár a felére is csökkenthető, közvetlenül növelve a bevételedet. Hozzájárult vásárlóknál ez SMS-értesítéssel is kiegészülhet.") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f3.h", "Elhagyott kosár flow") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f3.p", "A webshopok látogatóinak átlagosan 70%-a otthagyja a kosarát anélkül, hogy véglegesítené a vásárlást. Ezek a vásárlók már kifejezték az érdeklődésüket, így egy rövid, célzott emlékeztető e-maillel könnyen visszacsábíthatod őket, és komoly bevételt menthetsz meg. Emellett ez a flow tökéletes arra is, hogy korábbi vásárlásaik alapján kiegészítő termékeket ajánlj, így növelve az átlagos kosárértéket.") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f4.h", "Vásárlás utáni flow") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f4.p", "A vásárlás utáni kapcsolattartás az egyik legfontosabb eleme annak, hogy a vásárló később visszatérjen hozzád. Köszönetnyilvánítás, részletes útmutató, vélemény kérése, a korábbi vásárláshoz kapcsolódó termékek ajánlása. Mintha minden vásárlás után te magad gondoskodnál arról, hogy a vásárlód a legjobb élményben részesüljön.") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f5.h", "Visszacsábítási flow") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f5.p", "Vannak vásárlók, akik már jó pár hónapja nem rendeltek? Kapd el őket újdonságokkal vagy egy személyes kedvezménnyel, mielőtt teljesen megfeledkeznének rólad. Eddig vajon hány vásárlód veszett el, mert egyszerűen megfeledkeztek rólad?") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f6.h", "Áresés- és készletértesítő") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f6.p", "Van olyan termék, amit egy vásárló gyakran néz, de mégsem vásárolja meg? Azonnal értesítőt kap róla, ha csökkent az ára. Esetleg nincs raktáron a vágyott szín vagy méret? Egy gombnyomással kérhet értesítést, amint a termék ismét elérhető. Csupán 1–1 e-mail, ami erős vásárlói igényre válaszol. Emellett ez kifejezetten jól működik SMS-en keresztül is! Alacsony kiküldés, magas konverzió, és a vásárlók is imádják!") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f7.h", "E-mail-lista tisztántartása") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f7.p", "Van, hogy bizonyos feliratkozók egy idő után nem kíváncsiak rád. Ez teljesen normális. Ha hosszabb idő után sem nyitották meg az e-mailjeidet, kérdezd meg tőlük, hogy érdekled-e még őket. Ha erre sem reagálnak, automatikusan leiratkoztathatod őket. Javul a kézbesítési arány, tiszta marad a listád, nem fizetsz inaktív profilokért, és az érdektelen vásárlók sem kapnak tőled kelletlen üzeneteket. Win-win szituáció, mindez automatizálva.") }} />
-            </article>
-            <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f8.h", "Egyéb életciklus-események") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f8.p", "Ajándék kupon a vásárlódnak pont a születésnapja előtt? Vagy személyre szabott ajánlat az első vásárlás ünneplésére? Ki ne örülne ezeknek! Ez és még sok más olyan vásárlói életciklus-értesítő, amivel mosolyt csalhatsz vásárlóid arcára, és magas konverziós arányt is érhetsz el!") }} />
-            </article>
+          <div className="flowmap rv" style={{ marginBottom: "3rem" }}>
+            <div className="fgroup">
+              <div className="fgroup-head">
+                <h4 dangerouslySetInnerHTML={{ __html: t("em.fg1.h", "Feliratkozástól az első vásárlásig") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.fg1.p", "Itt dől el, hogy az érdeklődőből vevő lesz‑e.") }} />
+              </div>
+              <div className="flowrows">
+                <details className="flowrow" open>
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Köszöntő flow") }} />
+                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f1.g", "8–18% konverzió") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f1.k", "Üdvözlő e-mail, majd 3–4 részes bemutatkozó sorozat") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f1.p", "Új feliratkozóidat automatikus üdvözlő e-maillel fogadjuk, amelyben akár kedvezményt is kínálhatsz. Ezt egy 3–4 részes sorozat követi, amely bemutatja a márkádat és a termékeidet, miközben világossá teszi, milyen értékes tartalomra számíthatnak tőled. Így már az első pillanattól elkötelezett, hűséges közösséget építhetsz.") }} />
+                </details>
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f2.h", "Elhagyott pénztár flow") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f2.k", "A fizetés előtt kilépőket hozza vissza, SMS-sel is") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f2.p", "A vásárlók átlagosan 25–30%-a közvetlenül a fizetés előtt hagyja el a webshopot. Ők már eljutottak a döntési folyamat utolsó lépéséig, így velük van a legnagyobb esélyed a konverzióra. Néhány pontosan időzített, meggyőző emlékeztető e-mail segítségével a kosárelhagyási arány akár a felére is csökkenthető, közvetlenül növelve a bevételedet. Hozzájárult vásárlóknál ez SMS-értesítéssel is kiegészülhet.") }} />
+                </details>
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f3.h", "Elhagyott kosár flow") }} />
+                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f3.g", "+35% visszatérés") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f3.k", "Emlékeztető a kosárban hagyott termékekre") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f3.p", "A webshopok látogatóinak átlagosan 70%-a otthagyja a kosarát anélkül, hogy véglegesítené a vásárlást. Ezek a vásárlók már kifejezték az érdeklődésüket, így egy rövid, célzott emlékeztető e-maillel könnyen visszacsábíthatod őket, és komoly bevételt menthetsz meg. Emellett ez a flow tökéletes arra is, hogy korábbi vásárlásaik alapján kiegészítő termékeket ajánlj, így növelve az átlagos kosárértéket.") }} />
+                </details>
+              </div>
+            </div>
+            <div className="fgroup">
+              <div className="fgroup-head">
+                <h4 dangerouslySetInnerHTML={{ __html: t("em.fg2.h", "Vásárlás után") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.fg2.p", "A második rendelést olcsóbb megszerezni, mint az elsőt volt.") }} />
+              </div>
+              <div className="flowrows">
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f4.h", "Vásárlás utáni flow") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f4.k", "Köszönet, útmutató, véleménykérés, kapcsolódó termékek") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f4.p", "A vásárlás utáni kapcsolattartás az egyik legfontosabb eleme annak, hogy a vásárló később visszatérjen hozzád. Köszönetnyilvánítás, részletes útmutató, vélemény kérése, a korábbi vásárláshoz kapcsolódó termékek ajánlása. Mintha minden vásárlás után te magad gondoskodnál arról, hogy a vásárlód a legjobb élményben részesüljön.") }} />
+                </details>
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f5.h", "Visszacsábítási flow") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f5.k", "Újdonság vagy kedvezmény a hónapok óta nem rendelőknek") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f5.p", "Vannak vásárlók, akik már jó pár hónapja nem rendeltek? Kapd el őket újdonságokkal vagy egy személyes kedvezménnyel, mielőtt teljesen megfeledkeznének rólad. Eddig vajon hány vásárlód veszett el, mert egyszerűen megfeledkeztek rólad?") }} />
+                </details>
+              </div>
+            </div>
+            <div className="fgroup">
+              <div className="fgroup-head">
+                <h4 dangerouslySetInnerHTML={{ __html: t("em.fg3.h", "Jelzések és karbantartás") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.fg3.p", "Ritka, de erős jelzésekre válaszol, és rendben tartja a listát.") }} />
+              </div>
+              <div className="flowrows">
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f6.h", "Áresés- és készletértesítő") }} />
+                        <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.f6.g", "5–12% konverzió") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f6.k", "Értesítés, ha csökken az ár vagy újra kapható") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f6.p", "Van olyan termék, amit egy vásárló gyakran néz, de mégsem vásárolja meg? Azonnal értesítőt kap róla, ha csökkent az ára. Esetleg nincs raktáron a vágyott szín vagy méret? Egy gombnyomással kérhet értesítést, amint a termék ismét elérhető. Csupán 1–1 e-mail, ami erős vásárlói igényre válaszol. Emellett ez kifejezetten jól működik SMS-en keresztül is! Alacsony kiküldés, magas konverzió, és a vásárlók is imádják!") }} />
+                </details>
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f7.h", "E-mail-lista tisztántartása") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f7.k", "Aki sokáig nem nyit, azt megkérdezzük, majd leválasztjuk") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f7.p", "Van, hogy bizonyos feliratkozók egy idő után nem kíváncsiak rád. Ez teljesen normális. Ha hosszabb idő után sem nyitották meg az e-mailjeidet, kérdezd meg tőlük, hogy érdekled-e még őket. Ha erre sem reagálnak, automatikusan leiratkoztathatod őket. Javul a kézbesítési arány, tiszta marad a listád, nem fizetsz inaktív profilokért, és az érdektelen vásárlók sem kapnak tőled kelletlen üzeneteket. Win-win szituáció, mindez automatizálva.") }} />
+                </details>
+                <details className="flowrow">
+                  <summary>
+                    <span className="flowrow-tx">
+                      <span className="flowrow-t">
+                        <b dangerouslySetInnerHTML={{ __html: t("em.f8.h", "Egyéb életciklus-események") }} />
+                      </span>
+                      <small dangerouslySetInnerHTML={{ __html: t("em.f8.k", "Születésnap, első vásárlás évfordulója, VIP-státusz") }} />
+                    </span>
+                  </summary>
+                  <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.f8.p", "Ajándék kupon a vásárlódnak pont a születésnapja előtt? Vagy személyre szabott ajánlat az első vásárlás ünneplésére? Ki ne örülne ezeknek! Ez és még sok más olyan vásárlói életciklus-értesítő, amivel mosolyt csalhatsz vásárlóid arcára, és magas konverziós arányt is érhetsz el!") }} />
+                </details>
+              </div>
+            </div>
           </div>
           <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g2", "<span class=\"gno\">2/3</span> Szegmentáció és adat") }} />
           <div className="panel panel-navy rv" style={{ marginBottom: "3rem" }}>

@@ -576,7 +576,7 @@
    moved above the split, so the two columns top-align. */
 .ge-p-email-automatizacio .split{align-items:start}
 /* Green outcome badge at the end of the hero flow chips. */
-.ge-p-email-automatizacio .fchip .gain,.ge-p-email-automatizacio .flowrow .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;
+.ge-p-email-automatizacio .fchip .gain,.ge-p-email-automatizacio .flowrow .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;font-variant-numeric:tabular-nums;
   color:#177A4B;background:#E4F4EA;padding:.28rem .6rem;border-radius:999px;white-space:nowrap}
 @media(max-width:420px){.ge-p-email-automatizacio .fchip .gain{display:none}}
 /* Inline link inside a FAQ answer (Klaviyo pricing). */
@@ -585,7 +585,7 @@
 /* Flow map under "1/3 Automatizált flow-k": three lifecycle groups, each a
    sticky label column plus expandable rows, so eight long paragraphs never
    sit side by side in narrow card columns. */
-.ge-p-email-automatizacio .fgroup{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);
+.ge-p-email-automatizacio .fgroup{display:grid;grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr);
   gap:clamp(1.4rem,4vw,3.6rem);padding:2rem 0 1.2rem;border-top:1px solid var(--rule-2)}
 .ge-p-email-automatizacio .fgroup:last-child{border-bottom:1px solid var(--rule-2)}
 .ge-p-email-automatizacio .fgroup-head{position:sticky;top:104px;align-self:start;padding-bottom:1rem}
@@ -593,14 +593,16 @@
 .ge-p-email-automatizacio .fgroup-head p{font-size:.94rem;color:var(--muted);line-height:1.55;max-width:36ch}
 .ge-p-email-automatizacio .flowrow{border-bottom:1px solid var(--rule-2)}
 .ge-p-email-automatizacio .flowrow:last-child{border-bottom:0}
-.ge-p-email-automatizacio .flowrow summary{display:flex;align-items:center;gap:1rem;padding:1rem 2.4rem 1rem 0;font-size:1rem}
-.ge-p-email-automatizacio .flowrow-tx{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.ge-p-email-automatizacio .flowrow summary{display:flex;align-items:center;gap:1rem;padding:1rem 2.4rem 1rem 0;font-size:1rem;touch-action:manipulation}
+.ge-p-email-automatizacio .flowrow-tx{display:flex;flex-direction:column;min-width:0;line-height:1.3;overflow-wrap:break-word}
+.ge-p-email-automatizacio .flowrow-t{display:flex;align-items:center;flex-wrap:wrap;gap:.35rem .7rem}
+.ge-p-email-automatizacio .flowrow .gain{margin-left:0}
+.ge-p-email-automatizacio .flowrow summary:hover .flowrow-tx b{color:var(--coral)}
 .ge-p-email-automatizacio .flowrow-tx b{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.04rem}
 .ge-p-email-automatizacio .flowrow-tx small{font-family:var(--sans);font-weight:400;letter-spacing:0;font-size:.86rem;color:var(--muted);margin-top:.2rem}
 .ge-p-email-automatizacio .flowrow .ans{padding:0 2.4rem 1.3rem 0;max-width:62ch}
 @media(max-width:940px){.ge-p-email-automatizacio .fgroup{grid-template-columns:1fr;gap:.4rem;padding:1.5rem 0 .8rem}
   .ge-p-email-automatizacio .fgroup-head{position:static;padding-bottom:.4rem}}
-@media(max-width:480px){.ge-p-email-automatizacio .flowrow .gain{display:none}}
 
 /* ==========================================================================
    Creative & video production page (tartalomgyartas)

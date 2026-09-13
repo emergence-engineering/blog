@@ -575,7 +575,7 @@ const en: Record<string, string> = {
   "em.fg2.h": "After the purchase",
   "em.fg2.p": "The second order is cheaper to win than the first was.",
   "em.fg3.h": "Signals and upkeep",
-  "em.fg3.p": "Low volume, high conversion, a clean list.",
+  "em.fg3.p": "Answers rare but strong signals, and keeps the list in order.",
   "em.f1.k": "A welcome email, then a 3&ndash;4 part introduction series",
   "em.f1.g": "8&ndash;18% conversion",
   "em.f2.k": "Brings back shoppers who leave before paying, SMS included",
