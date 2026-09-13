@@ -36,7 +36,7 @@ const EmailAutomatizacio: NextPage = () => {
                   <span dangerouslySetInnerHTML={{ __html: t("em.cta1", "Kérj ingyenes e-mail auditot") }} />
                   <span className="ar">→</span>
                 </Link>
-                <a href="#folyamat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.cta2", "Hogyan zajlik") }} />
+                <a href="#folyamat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("em.cta2", "Hogyan zajlik?") }} />
               </div>
               <div className="trust rv">
                 <span dangerouslySetInnerHTML={{ __html: t("em.trust1", "<b>Klaviyo</b> Silver Partner") }} />
@@ -45,36 +45,36 @@ const EmailAutomatizacio: NextPage = () => {
             </div>
             <div className="flow-chips rv">
               <div className="fchip">
-                <span className="ic">🛒</span>
-                <span className="tx">
-                  <b dangerouslySetInnerHTML={{ __html: t("em.chip1.h", "Elhagyott kosár") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip1.s", "3 lépcső") }} />
-                </span>
-                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip1.g", "+0,3% konverzió") }} />
-              </div>
-              <div className="fchip">
                 <span className="ic">👋</span>
                 <span className="tx">
-                  <b dangerouslySetInnerHTML={{ __html: t("em.chip2.h", "Üdvözlő sorozat") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip2.s", "4–6 e-mail, szegmentálva") }} />
+                  <b dangerouslySetInnerHTML={{ __html: t("em.chip2.h", "Köszöntő flow") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip2.s", "Új feliratkozók jutalmazása + brand bemutatása") }} />
                 </span>
-                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip2.g", "+20% visszatérés") }} />
+                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip2.g", "8–18% konverzió") }} />
+              </div>
+              <div className="fchip">
+                <span className="ic">🛒</span>
+                <span className="tx">
+                  <b dangerouslySetInnerHTML={{ __html: t("em.chip1.h", "Kosárelhagyó flow") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip1.s", "Szerezd vissza az elveszett vásárlásokat") }} />
+                </span>
+                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip1.g", "+35% visszatérés") }} />
               </div>
               <div className="fchip">
                 <span className="ic">🔄</span>
                 <span className="tx">
-                  <b dangerouslySetInnerHTML={{ __html: t("em.chip3.h", "Reactivation flow") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip3.s", "vásárlási ciklushoz időzítve") }} />
+                  <b dangerouslySetInnerHTML={{ __html: t("em.chip3.h", "Újravásárlási flow") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip3.s", "Emlékeztető, pont mielőtt a vásárlónak elfogyna") }} />
                 </span>
-                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip3.g", "×1,7 vásárlási frekvencia") }} />
+                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip3.g", "8–15% újravásárlás") }} />
               </div>
               <div className="fchip">
                 <span className="ic">🔔</span>
                 <span className="tx">
                   <b dangerouslySetInnerHTML={{ __html: t("em.chip4.h", "Back-in-stock") }} />
-                  <small dangerouslySetInnerHTML={{ __html: t("em.chip4.s", "értesítés, ha újra kapható") }} />
+                  <small dangerouslySetInnerHTML={{ __html: t("em.chip4.s", "Értesítsd az érdeklődőket, ha újra van raktáron") }} />
                 </span>
-                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip4.g", "gyorsabb készletforgás") }} />
+                <span className="gain" dangerouslySetInnerHTML={{ __html: t("em.chip4.g", "5–12% konverzió") }} />
               </div>
             </div>
           </div>
@@ -84,22 +84,22 @@ const EmailAutomatizacio: NextPage = () => {
         <div className="wrap">
           <div className="shead solo">
             <div>
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.why.h", "Miért ez a legolcsóbb bevételi csatorna?") }} />
-              <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("em.why.lede", "A hirdetési költségek évek óta nőnek, az attribúció romlik. A lista, amit te birtokolsz, nem drágul, és nem függ egyetlen platform algoritmusától.") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.why.h", "Miért ez a leghatékonyabb bevételi csatorna?") }} />
+              <p className="lede rv" style={{ marginTop: "1rem" }} dangerouslySetInnerHTML={{ __html: t("em.why.lede", "A hirdetési költségek évek óta nőnek, a pénzed pedig jórészt az átláthatatlan algoritmus működésére van bízva. Itt valós aktivitási adatok alapján tudsz skálázható és önműködő rendszert építeni, ahol az ügyfél-érintkezési pontok jól időzített és személyre szabott üzenetekkel vannak lefedve. Itt nem a több e-mail küldése a fókusz, hanem a vásárlói élettartam-érték növelése.") }} />
             </div>
           </div>
           <div className="stats3 rv">
             <div className="bigstat">
-              <b>25–35%</b>
-              <span dangerouslySetInnerHTML={{ __html: t("em.why.s1", "a webshop bevételéből e-mailből és SMS-ből, jól felépített fiókban") }} />
+              <b>30–45%</b>
+              <span dangerouslySetInnerHTML={{ __html: t("em.why.s1", "a visszatérési arány jól felépített automatizációkkal. Nélkülük ez átlagosan 18–25%.") }} />
             </div>
             <div className="bigstat">
-              <b>0 Ft</b>
-              <span dangerouslySetInnerHTML={{ __html: t("em.why.s2", "hirdetési költség a meglévő listádra küldött üzenetnél") }} />
+              <b>40–50%</b>
+              <span dangerouslySetInnerHTML={{ __html: t("em.why.s2", "az e-mailekből jött bevételből automatizált, ráadásul ez az összes kiküldés csupán 5,3%-a. Ez a skálázható személyre szabás a gyakorlatban.") }} />
             </div>
             <div className="bigstat">
               <b>5–7×</b>
-              <span dangerouslySetInnerHTML={{ __html: t("em.why.s3", "szor drágább új vevőt szerezni, mint visszahozni egy meglévőt") }} />
+              <span dangerouslySetInnerHTML={{ __html: t("em.why.s3", "drágább új vevőt szerezni, mint visszahozni egy meglévőt") }} />
             </div>
           </div>
           <p className="fine rv" style={{ textAlign: "center" }} dangerouslySetInnerHTML={{ __html: t("em.why.note", "A számok iparági nagyságrendek, nem ígéretek. Az auditban a te saját adataidból számolunk konkrét célt.") }} />
@@ -117,36 +117,36 @@ const EmailAutomatizacio: NextPage = () => {
           <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g1", "<span class=\"gno\">1/3</span> Automatizált flow-k") }} />
           <div className="cards4 rv" style={{ marginBottom: "3rem" }}>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Üdvözlő sorozat") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f1.p", "Az új feliratkozó a legmelegebb kontaktod. 4–6 e-mail: márkatörténet, bizalomépítés, első vásárlási ajánlat, közösségi bizonyíték. Külön ág annak, aki lead magnetért iratkozott fel, és annak, aki kedvezményért.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f1.h", "Köszöntő flow") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f1.p", "Új feliratkozóidat automatikus üdvözlő e-maillel fogadjuk, amelyben akár kedvezményt is kínálhatsz. Ezt egy 3–4 részes sorozat követi, amely bemutatja a márkádat és a termékeidet, miközben világossá teszi, milyen értékes tartalomra számíthatnak tőled. Így már az első pillanattól elkötelezett, hűséges közösséget építhetsz.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f2.h", "Elhagyott kosár") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f2.p", "3 lépcső: emlékeztető 1 óra, akadályelhárítás 24 óra (szállítás, fizetés, garancia), ösztönző 48 óra után. SMS-sel kiegészítve ott, ahol van hozzájárulás. A kedvezmény csak a harmadik körben jelenik meg, különben a vevő megtanulja, hogy megéri kosarat hagyni.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f2.h", "Elhagyott pénztár flow") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f2.p", "A vásárlók átlagosan 25–30%-a közvetlenül a fizetés előtt hagyja el a webshopot. Ők már eljutottak a döntési folyamat utolsó lépéséig, így velük van a legnagyobb esélyed a konverzióra. Néhány pontosan időzített, meggyőző emlékeztető e-mail segítségével a kosárelhagyási arány akár a felére is csökkenthető, közvetlenül növelve a bevételedet. Hozzájárult vásárlóknál ez SMS-értesítéssel is kiegészülhet.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f3.h", "Böngészés-elhagyás") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f3.p", "Termékoldali szándék alapján. Külön logika a magas és alacsony kosárértékű kategóriákra, mert nem ugyanaz a döntési idő egy 8 000 és egy 180 000 forintos terméknél.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f3.h", "Elhagyott kosár flow") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f3.p", "A webshopok látogatóinak átlagosan 70%-a otthagyja a kosarát anélkül, hogy véglegesítené a vásárlást. Ezek a vásárlók már kifejezték az érdeklődésüket, így egy rövid, célzott emlékeztető e-maillel könnyen visszacsábíthatod őket, és komoly bevételt menthetsz meg. Emellett ez a flow tökéletes arra is, hogy korábbi vásárlásaik alapján kiegészítő termékeket ajánlj, így növelve az átlagos kosárértéket.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f4.h", "Vásárlás utáni sorozat") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f4.p", "Használati tipp, várható kézbesítés, értékelés-kérés a becsült megérkezés után, majd cross-sell a termékhez logikusan illeszkedő kiegészítővel. Ez csökkenti a visszaküldést és a support terhelését is.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f4.h", "Vásárlás utáni flow") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f4.p", "A vásárlás utáni kapcsolattartás az egyik legfontosabb eleme annak, hogy a vásárló később visszatérjen hozzád. Köszönetnyilvánítás, részletes útmutató, vélemény kérése, a korábbi vásárláshoz kapcsolódó termékek ajánlása. Mintha minden vásárlás után te magad gondoskodnál arról, hogy a vásárlód a legjobb élményben részesüljön.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f5.h", "Visszacsábítás (winback)") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f5.p", "A termékkategória tényleges újravásárlási ciklusához igazítjuk. Étrend-kiegészítőnél 25–35 nap, tartós terméknél 6–12 hónap. A fix 90 napos sablon az egyik felét sürgeti, a másik felét lekési.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f5.h", "Visszacsábítási flow") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f5.p", "Vannak vásárlók, akik már jó pár hónapja nem rendeltek? Kapd el őket újdonságokkal vagy egy személyes kedvezménnyel, mielőtt teljesen megfeledkeznének rólad. Eddig vajon hány vásárlód veszett el, mert egyszerűen megfeledkeztek rólad?") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f6.h", "Készlet- és árértesítő") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f6.p", "„Értesíts, ha újra lesz” és árcsökkenés-riasztás. Ez a legritkábban bevezetett flow, pedig kimondott szándékra épül, ezért gyakran a legmagasabb konverziós arányú.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f6.h", "Áresés- és készletértesítő") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f6.p", "Van olyan termék, amit egy vásárló gyakran néz, de mégsem vásárolja meg? Azonnal értesítőt kap róla, ha csökkent az ára. Esetleg nincs raktáron a vágyott szín vagy méret? Egy gombnyomással kérhet értesítést, amint a termék ismét elérhető. Csupán 1–1 e-mail, ami erős vásárlói igényre válaszol. Emellett ez kifejezetten jól működik SMS-en keresztül is! Alacsony kiküldés, magas konverzió, és a vásárlók is imádják!") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f7.h", "Sunset és listatisztítás") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f7.p", "Aki 4–6 hónapja nem nyit, azt fokozatosan leválasztjuk. A lista így rövidül, viszont javul a kézbesíthetőség, és csökken az e-mail platform díja is.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f7.h", "E-mail-lista tisztántartása") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f7.p", "Van, hogy bizonyos feliratkozók egy idő után nem kíváncsiak rád. Ez teljesen normális. Ha hosszabb idő után sem nyitották meg az e-mailjeidet, kérdezd meg tőlük, hogy érdekled-e még őket. Ha erre sem reagálnak, automatikusan leiratkoztathatod őket. Javul a kézbesítési arány, tiszta marad a listád, nem fizetsz inaktív profilokért, és az érdektelen vásárlók sem kapnak tőled kelletlen üzeneteket. Win-win szituáció, mindez automatizálva.") }} />
             </article>
             <article className="pcard">
-              <h4 dangerouslySetInnerHTML={{ __html: t("em.f8.h", "Életciklus-események") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.f8.p", "Születésnap, első vásárlás évfordulója, VIP-státusz elérése. Kis volumen, magas konverzió, alacsony karbantartási igény.") }} />
+              <h4 dangerouslySetInnerHTML={{ __html: t("em.f8.h", "Egyéb életciklus-események") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.f8.p", "Ajándék kupon a vásárlódnak pont a születésnapja előtt? Vagy személyre szabott ajánlat az első vásárlás ünneplésére? Ki ne örülne ezeknek! Ez és még sok más olyan vásárlói életciklus-értesítő, amivel mosolyt csalhatsz vásárlóid arcára, és magas konverziós arányt is érhetsz el!") }} />
             </article>
           </div>
           <h3 className="rv" style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("em.sys.g2", "<span class=\"gno\">2/3</span> Szegmentáció és adat") }} />
@@ -178,7 +178,7 @@ const EmailAutomatizacio: NextPage = () => {
             </article>
             <article className="pcard">
               <h4 dangerouslySetInnerHTML={{ __html: t("em.c2.h", "Sablonrendszer") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.c2.p", "Moduláris, márkakonzisztens sablonkészlet, ami mobilon is jól néz ki, sötét módban sem esik szét, és a te csapatod is tudja szerkeszteni.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.c2.p", "Moduláris, márkakonzisztens sablonkészlet, ami mobilon is jól néz ki, és a te csapatod is tudja szerkeszteni.") }} />
             </article>
           </div>
         </div>
@@ -188,34 +188,26 @@ const EmailAutomatizacio: NextPage = () => {
           <div className="sblock" style={{ borderTop: "0", paddingTop: "0" }}>
             <div>
               <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("em.int.eyebrow", "Integrációk") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.h", "A legtöbb webshop-rendszerre fel vagyunk készülve") }} />
-              <p className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.lede", "A legtöbb webshophoz a Klaviyót javasoljuk, de dolgozunk más platformokkal is. A magyar piacon a WooCommerce, a Shoprenter és az UNAS a legelterjedtebb, és sok az egyedi rendszer: ahol a kész integráció kevés, ott mi építjük meg a hiányzót.") }} />
+              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.h", "A legtöbb webshop-motorra fel vagyunk készülve") }} />
+              <p className="rv" dangerouslySetInnerHTML={{ __html: t("em.int.lede", "Piacvezető révén leginkább a Klaviyót ajánljuk e-commerce webshopokhoz, de szükség esetén más platformokkal is dolgozunk. Hosszú távú megoldást keresünk, ami skálázható, és a legjobban kiegészíti az üzletedet.") }} />
               <Link className="btn rv" href="/kapcsolat" dangerouslySetInnerHTML={{ __html: t("em.int.cta", "Nézzük meg a rendszeredet") }} />
             </div>
             <div className="ilist rv">
               <article className="icard">
                 <h4 dangerouslySetInnerHTML={{ __html: t("em.int1.h", "Shopify") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int1.p", "Natív integráció, katalógusfeed, checkout-események, Shopify Flow összekötés.") }} />
-              </article>
-              <article className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("em.int2.h", "Shoprenter") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int2.p", "API-alapú összekötés: vásárlás, kosár, termékadat és feliratkozás szinkron.") }} />
-              </article>
-              <article className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("em.int3.h", "UNAS") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int3.p", "Egyedi middleware a rendelési és vevőadatok kétirányú átadására.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.int1.p", "A Klaviyo a kezdetektől arra lett építve, hogy a Shopify-jal a lehető legjobban működjön együtt, így ez a legjobb választás ilyen alapú webshopokhoz.") }} />
               </article>
               <article className="icard">
                 <h4 dangerouslySetInnerHTML={{ __html: t("em.int4.h", "WooCommerce") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int4.p", "Bővítmény plusz egyedi események, ha a sablonmegoldás nem elég.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.int4.p", "Népszerű webshop-motor a magyar piacon, és a Klaviyóval is natívan integrálódik. Remek kombináció, jól működnek együtt.") }} />
               </article>
               <article className="icard">
                 <h4 dangerouslySetInnerHTML={{ __html: t("em.int5.h", "Egyedi rendszer") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int5.p", "Webhook és API integráció bármilyen saját fejlesztésű shophoz vagy ERP-hez.") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.int5.p", "Amennyiben egyedi fejlesztésű a rendszered, meg tudjuk építeni hozzá a szükséges API-integrációt.") }} />
               </article>
               <article className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("em.int6.h", "Kiegészítők") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.int6.p", "Számlázás, hűségprogram, értékelésgyűjtő, SMS-szolgáltató, Meta és Google közönségszinkron.") }} />
+                <h4 dangerouslySetInnerHTML={{ __html: t("em.int6.h", "Egyéb kiegészítők") }} />
+                <p dangerouslySetInnerHTML={{ __html: t("em.int6.p", "Számlázóprogram, hűségprogram, kiszállítási értesítések, Meta és Google Ads közönségek szinkronizálása? Ezek mind integrálhatók, és a Klaviyóval együtt használva sokat hozzátesznek.") }} />
               </article>
             </div>
           </div>
@@ -267,7 +259,7 @@ const EmailAutomatizacio: NextPage = () => {
               <div className="dot">1</div>
               <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p1.k", "0–1. hét") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("em.proc.p1.h", "Audit és adat") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p1.p", "Átnézzük a jelenlegi fiókot, a listát, a kézbesíthetőséget és a bevétel-attribúciót. Megnézzük a webshop adatait: mi az újravásárlási ciklus, mik a legjobb belépő termékek, hol a legnagyobb kosárelhagyás. Ebből jön ki, milyen sorrendben építünk.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p1.p", "Átnézzük a jelenlegi fiókot, a listát, a kézbesíthetőséget és a bevétel-attribúciót. Megnézzük a webshop adatait: mi az újravásárlási ciklus, mik a legjobb belépő termékek, hol a legnagyobb kosárelhagyás. Ebből jön ki, milyen sorrendben építünk. A sablonrendszert is már itt állítjuk fel, még mielőtt bármilyen e-mail készülne.") }} />
             </div>
             <div className="tlrow">
               <div className="dot">2</div>
@@ -279,7 +271,7 @@ const EmailAutomatizacio: NextPage = () => {
               <div className="dot">3</div>
               <div className="sub" dangerouslySetInnerHTML={{ __html: t("em.proc.p3.k", "2–5. hét") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("em.proc.p3.h", "Teljes flow-készlet") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p3.p", "Böngészés-elhagyás, vásárlás utáni sorozat, winback, készletértesítő, sunset. Sablonrendszer és szegmensek felépítése, szövegezéssel.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("em.proc.p3.p", "Elhagyott pénztár, vásárlás utáni sorozat, winback, készletértesítő, sunset. Szegmensek felépítése, szövegezéssel.") }} />
             </div>
             <div className="tlrow">
               <div className="dot">4</div>
@@ -440,7 +432,7 @@ const EmailAutomatizacio: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("em.faq.q2", "Mennyibe kerül maga az e-mail platform?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a2", "A platformok a díjukat jellemzően az aktív profilok és a küldött üzenetek száma alapján számolják, ez tőlünk független költség. A Klaviyónál például 5 000 profilnál nagyságrendileg havi 70–100 dollár, 20 000-nél 300–400 dollár. Az egyik első lépésünk pont a listatisztítás, mert az inaktív profilokért is fizetsz.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a2", "A platform díja az aktív profilok és a küldött üzenetek száma alapján alakul, ez tőlünk független költség. A pontos összeget a <a href=\"https://www.klaviyo.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Klaviyo árazási oldalán</a> lévő kalkulátorral tudod kiszámolni.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("em.faq.q3", "Shoprenteren vagyunk, oda is működik?") }} />
@@ -460,7 +452,7 @@ const EmailAutomatizacio: NextPage = () => {
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("em.faq.q7", "Mi van, ha egy másik platformot használunk?") }} />
-              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a7", "Dolgozunk Mailchimp, Brevo, ActiveCampaign és Omnisend rendszerekkel is. A Klaviyót e-commerce-re ajánljuk, mert a terméktörzs, a viselkedésadat és a prediktív szegmentálás ott a legerősebb. Ha a migráció nem éri meg, azt is megmondjuk, az audit után látni fogod a különbséget számokban.") }} />
+              <div className="ans" dangerouslySetInnerHTML={{ __html: t("em.faq.a7", "Az audit közben felmérjük, mi a számodra legmegfelelőbb platform. Ezeknek a rendszereknek a működési elve hasonló, de a funkciók listája nagyban különbözhet. Ha van jobb megoldás számotokra, és hosszú távon megéri beruházni, azt az auditban elmondjuk.") }} />
             </details>
             <details>
               <summary dangerouslySetInnerHTML={{ __html: t("em.faq.q8", "Mennyi időt kell rászánnunk?") }} />

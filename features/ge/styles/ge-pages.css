@@ -579,3 +579,6 @@
 .ge-p-email-automatizacio .fchip .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;
   color:#177A4B;background:#E4F4EA;padding:.28rem .6rem;border-radius:999px;white-space:nowrap}
 @media(max-width:420px){.ge-p-email-automatizacio .fchip .gain{display:none}}
+/* Inline link inside a FAQ answer (Klaviyo pricing). */
+.ge-p-email-automatizacio details .ans a{color:var(--coral);text-decoration:underline;text-underline-offset:.16em;text-decoration-thickness:1px}
+.ge-p-email-automatizacio details .ans a:hover,.ge-p-email-automatizacio details .ans a:focus-visible{color:var(--ink);text-decoration-thickness:2px}
