@@ -58,12 +58,12 @@
 </filter>
 <clipPath id="bgblur_2_0_34_clip_path" transform="translate(-43.3523 -18.1271)"><path d="M55.7728 18.2389C56.4205 17.906 57.1955 18.3549 57.2289 19.0825L57.4357 23.5915C57.4472 23.8418 57.5523 24.0787 57.7301 24.2553L60.933 27.4358C61.4498 27.949 61.2622 28.8247 60.5807 29.0813L56.3562 30.6714C56.1217 30.7597 55.9289 30.9328 55.8159 31.1564L53.7808 35.1855C53.4524 35.8355 52.5616 35.9278 52.107 35.3588L49.2892 31.8325C49.1328 31.6368 48.9086 31.5069 48.661 31.4685L44.2003 30.7781C43.4806 30.6667 43.1175 29.8479 43.5181 29.2397L46.0011 25.4702C46.139 25.261 46.1932 25.0076 46.1532 24.7602L45.4314 20.3045C45.315 19.5856 45.9814 18.9873 46.6836 19.1804L51.036 20.377C51.2776 20.4435 51.5353 20.4168 51.7582 20.3022L55.7728 18.2389Z"/>
 </clipPath><linearGradient id="paint0_linear_0_34" x1="59.101" y1="60.016" x2="52.1736" y2="81.2676" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F5909A"/>
-<stop offset="1" stop-color="#7C69C8"/>
+<stop stop-color="#8FA7C9"/>
+<stop offset="1" stop-color="#132B4B"/>
 </linearGradient>
 <linearGradient id="paint1_linear_0_34" x1="59.136" y1="51.3358" x2="47.6523" y2="43.5351" gradientUnits="userSpaceOnUse">
-<stop stop-color="#ED8065"/>
-<stop offset="1" stop-color="#975BC0"/>
+<stop stop-color="#5B7FB0"/>
+<stop offset="1" stop-color="#1E3A61"/>
 </linearGradient>
 <linearGradient id="paint2_linear_0_34" x1="22.5891" y1="62.9558" x2="45.1861" y2="29.0204" gradientUnits="userSpaceOnUse">
 <stop stop-color="white" stop-opacity="0.2"/>

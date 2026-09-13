@@ -30,8 +30,7 @@ const Kapcsolat: NextPage = () => {
                 <span>/</span>
                 <span dangerouslySetInnerHTML={{ __html: t("kap.crumb", "Kapcsolat") }} />
               </div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("nav.contact", "Kapcsolat") }} />
-              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("kap.h1", "Kezdjük egy <mark>30 perces</mark> beszélgetéssel") }} />
+              <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("kap.h1", "Kezdjük egy 30 perces beszélgetéssel") }} />
               <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("kap.lede", "Elmondod, hol tartasz és mit szeretnél elérni. Mi megmondjuk, látunk-e reális utat odáig, és mi lenne az első három lépés. Ha nem mi vagyunk a jó partner, azt is.") }} />
               <ul className="checklist rv" style={{ marginTop: "1.4rem" }}>
                 <li dangerouslySetInnerHTML={{ __html: t("kap.c1", "Nincs prezentáció és nincs sales script") }} />
@@ -44,7 +43,7 @@ const Kapcsolat: NextPage = () => {
                   <p style={{ marginTop: ".6rem" }}>
                     <a href="mailto:info@emergence-engineering.com" className="tlink">info@emergence-engineering.com</a>
                   </p>
-                  <p className="muted" style={{ marginTop: ".5rem", fontSize: ".88rem" }} dangerouslySetInnerHTML={{ __html: t("kap.direct.hours", "Emergence Engineering Kft. · Budapest · Hétfőtől péntekig 9:00–17:00") }} />
+                  <p className="muted" style={{ marginTop: ".5rem", fontSize: ".88rem" }} dangerouslySetInnerHTML={{ __html: t("kap.direct.hours", "Emergence Engineering Kft., Budapest. Hétfőtől péntekig 9:00–17:00") }} />
                 </article>
               </div>
             </div>
@@ -66,11 +65,11 @@ const Kapcsolat: NextPage = () => {
                   <div className="frow">
                     <div className="fld">
                       <label htmlFor="fae" dangerouslySetInnerHTML={{ __html: t("kap.f.email", "E-mail*") }} />
-                      <input id="fae" type="email" name="email" required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
+                      <input id="fae" type="email" name="email" autoComplete="email" spellCheck={false} required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
                     </div>
                     <div className="fld">
                       <label htmlFor="faw" dangerouslySetInnerHTML={{ __html: t("kap.audit.web", "Weboldal*") }} />
-                      <input id="faw" name="website" required placeholder="https://" />
+                      <input id="faw" name="website" inputMode="url" autoComplete="url" spellCheck={false} required placeholder="https://" />
                     </div>
                   </div>
                   <label className="consent" style={{ marginBottom: "1.1rem" }}>
@@ -79,7 +78,6 @@ const Kapcsolat: NextPage = () => {
                   </label>
                   <button className="btn" type="submit" disabled={auditForm.state === "sending"}>
                     <span dangerouslySetInnerHTML={{ __html: auditForm.state === "sending" ? t("form.sending", "Küldés…") : t("audit.cta", "Kérem az auditot") }} />
-                    <span className="ar">→</span>
                   </button>
                   <p className="ok" hidden={auditForm.state !== "ok"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.audit.ok", "Köszönjük! Hamarosan jelentkezünk az audit részleteivel.") }} />
                   <p className="err" hidden={auditForm.state !== "error"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
@@ -92,21 +90,21 @@ const Kapcsolat: NextPage = () => {
                   <div className="frow">
                     <div className="fld">
                       <label htmlFor="fn" dangerouslySetInnerHTML={{ __html: t("kap.f.name", "Neved*") }} />
-                      <input id="fn" name="name" required />
+                      <input id="fn" name="name" autoComplete="name" required />
                     </div>
                     <div className="fld">
                       <label htmlFor="fc" dangerouslySetInnerHTML={{ __html: t("kap.f.company", "Cég") }} />
-                      <input id="fc" name="company" />
+                      <input id="fc" name="company" autoComplete="organization" />
                     </div>
                   </div>
                   <div className="frow">
                     <div className="fld">
                       <label htmlFor="fe" dangerouslySetInnerHTML={{ __html: t("kap.f.email", "E-mail*") }} />
-                      <input id="fe" type="email" name="email" required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
+                      <input id="fe" type="email" name="email" autoComplete="email" spellCheck={false} required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
                     </div>
                     <div className="fld">
                       <label htmlFor="fw" dangerouslySetInnerHTML={{ __html: t("kap.f.web", "Weboldal") }} />
-                      <input id="fw" name="website" placeholder="https://" />
+                      <input id="fw" name="website" inputMode="url" autoComplete="url" spellCheck={false} placeholder="https://" />
                     </div>
                   </div>
                   <div className="fld">
@@ -131,7 +129,6 @@ const Kapcsolat: NextPage = () => {
                     <span dangerouslySetInnerHTML={{ __html: t("kap.f.consent", "Hozzájárulok, hogy az Emergence Engineering Kft. az <a href=\"/adatkezeles\">adatkezelési tájékoztató</a> szerint kezelje az adataimat, és megkeressen a megkeresésemmel kapcsolatban.") }} />                  </label>
                   <button className="btn" type="submit" disabled={contactForm.state === "sending"}>
                     <span dangerouslySetInnerHTML={{ __html: contactForm.state === "sending" ? t("form.sending", "Küldés…") : t("kap.f.submit", "Küldés") }} />
-                    <span className="ar">→</span>
                   </button>
                   <p className="ok" hidden={contactForm.state !== "ok"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.f.ok", "Köszönjük! Egy munkanapon belül válaszolunk.") }} />
                   <p className="err" hidden={contactForm.state !== "error"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
@@ -145,29 +142,28 @@ const Kapcsolat: NextPage = () => {
         <div className="wrap">
           <div className="shead">
             <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("kap.proc.eyebrow", "Mi történik ezután") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("kap.proc.h", "Mi történik a hívás után?") }} />
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("kap.proc.lede", "Egy héten belül tudni fogod, van-e itt valódi lehetőség, és mibe kerülne kiaknázni.") }} />
           </div>
           <div className="steps s4 rv">
             <article className="step">
-              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s1.k", "1. NAP") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s1.k", "1. nap") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s1.h", "Hívás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s1.p", "Harminc perc, kötetlenül. Megnézzük, hol vannak a szűk keresztmetszetek.") }} />
             </article>
             <article className="step">
-              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s2.k", "2–3. NAP") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s2.k", "2–3. nap") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s2.h", "Rövid összefoglaló") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s2.p", "Írásban megkapod, amit láttunk, és mit javaslunk elsőként.") }} />
             </article>
             <article className="step">
-              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s3.k", "1. HÉT") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s3.k", "1. hét") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s3.h", "Ajánlat") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s3.p", "Ha van közös munka, konkrét hatókört, időtervet és árat kapsz.") }} />
             </article>
             <article className="step">
-              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s4.k", "2. HÉT") }} />
+              <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s4.k", "2. hét") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s4.h", "Indulás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s4.p", "Kickoff, hozzáférések, első mérföldkő. Innentől heti ritmus.") }} />
             </article>
@@ -179,7 +175,6 @@ const Kapcsolat: NextPage = () => {
         <div className="wrap">
           <div className="shead">
             <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("faq.title", "GYIK") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("kap.faq.h", "Mielőtt írsz") }} />
             </div>
             <div className="rv">

@@ -25,8 +25,7 @@ const Esettanulmanyok: NextPage = () => {
             <span>/</span>
             <span dangerouslySetInnerHTML={{ __html: t("esl.crumb", "Esettanulmányok") }} />
           </div>
-          <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("esl.eyebrow", "Esettanulmányok") }} />
-          <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("esl.h1", "Növekedési történetek, <mark>számokkal</mark>") }} />
+          <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("esl.h1", "Növekedési történetek, számokkal") }} />
           <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl.lede", "Az alábbi projektekben a stratégiától a kivitelezésig végig ott voltunk. Minden szám az ügyfél saját rendszeréből származik.") }} />
         </div>
       </section>
@@ -65,7 +64,6 @@ const Esettanulmanyok: NextPage = () => {
                 <div>
                   <Link href="/esettanulmany-plantart" className="tlink">
                     <span dangerouslySetInnerHTML={{ __html: t("esl.pa.read", "Esettanulmány elolvasása") }} />
-                    <span className="ar">→</span>
                   </Link>
                 </div>
               </div>
@@ -102,7 +100,6 @@ const Esettanulmanyok: NextPage = () => {
                 <div>
                   <Link href="/esettanulmany-vezessjol" className="tlink">
                     <span dangerouslySetInnerHTML={{ __html: t("esl.vj.read", "Esettanulmány elolvasása") }} />
-                    <span className="ar">→</span>
                   </Link>
                 </div>
               </div>
@@ -114,19 +111,17 @@ const Esettanulmanyok: NextPage = () => {
         <div className="wrap">
           <div className="shead">
             <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("esl2.web.eyebrow", "Weblapfejlesztés") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("esl2.web.h", "Weboldalak, amiket terveztünk és fejlesztettünk") }} />
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl2.web.lede", "Hazai márkák, ahol a tervezéstől a fejlesztésen át a konverzióig mi vittük a webet.") }} />
           </div>
-          <div className="scrollhint rv" style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("web.ref.hint", "Görgess tovább <b>→</b>") }} />
           <div className="refscroll rv">
             <a className="refcard" href="https://grofie.com/" rel="noopener">
               <div className="shot cover">
                 <Image src="/ge/img/s-grofie.jpg" alt="A Grofie weboldala" width={1280} height={800} />
               </div>
               <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r1.k", "Weboldal · Növénydekoráció") }} />
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r1.k", "Weboldal / Növénydekoráció") }} />
                 <div className="rn">Grofie</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r1.p", "Prémium irodai növénydekorációs márka weboldala: tervezéstől a kivitelezésig vezetett út és ajánlatkérő tölcsér.") }} />
               </div>
@@ -136,7 +131,7 @@ const Esettanulmanyok: NextPage = () => {
                 <Image src="/ge/img/s-vezessjol.jpg" alt="A VezessJól főoldala" width={1280} height={800} />
               </div>
               <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r10.k", "Weboldal · Konverzió") }} />
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r10.k", "Weboldal / Konverzió") }} />
                 <div className="rn">VezessJól</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r10.p", "A gyakorló vezetés oldala, amit újraterveztünk: +93% konverzió és feleannyi érdeklődőszerzési költség.") }} />
               </div>
@@ -156,7 +151,7 @@ const Esettanulmanyok: NextPage = () => {
                 <Image src="/ge/img/s-bizdrank.jpg" alt="A Bízd Ránk a Zöldet weboldala" width={1280} height={800} />
               </div>
               <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r2.k", "Weboldal · Irodai növények") }} />
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r2.k", "Weboldal / Irodai növények") }} />
                 <div className="rn">Bízd Ránk a Zöldet</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r2.p", "Irodai növények és növénygondozás szolgáltatás-oldala: konverzióra írt szöveg és letisztult ajánlatkérési út.") }} />
               </div>
@@ -176,7 +171,7 @@ const Esettanulmanyok: NextPage = () => {
                 <Image src="/ge/img/s-vjautosiskola.jpg" alt="A VezessJól Autósiskola főoldala" width={1280} height={800} />
               </div>
               <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r12.k", "Weboldal · Autósiskola") }} />
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("web.r12.k", "Weboldal / Autósiskola") }} />
                 <div className="rn">VezessJól Autósiskola</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("web.r12.p", "Az új autósiskola-üzletág oldala nulláról: beiratkozási tölcsérrel és E-Titán integrációval.") }} />
               </div>
@@ -188,12 +183,10 @@ const Esettanulmanyok: NextPage = () => {
         <div className="wrap">
           <div className="shead">
             <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("esl2.app.eyebrow", "Appfejlesztés") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("esl2.app.h", "Startupok, akikkel dolgoztunk") }} />
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl2.app.lede", "Nemzetközi startupok, ahol korán csatlakoztunk, és a skálázáson át velük maradtunk.") }} />
           </div>
-          <div className="scrollhint rv" style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("web.ref.hint", "Görgess tovább <b>→</b>") }} />
           <div className="refscroll rv">
             <Link className="refcard" href="/kapcsolat">
               <div className="shot">
@@ -262,19 +255,17 @@ const Esettanulmanyok: NextPage = () => {
         <div className="wrap">
           <div className="shead">
             <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("esl2.own.eyebrow", "Saját termékek") }} />
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("esl2.own.h", "Saját fejlesztésű applikációink") }} />
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl2.own.lede", "Ha nincs megvehető eszköz arra, amire szükségünk van, megépítjük, és gyakran nyílt forráskódúvá tesszük.") }} />
           </div>
-          <div className="scrollhint rv" style={{ marginTop: "1.1rem" }} dangerouslySetInnerHTML={{ __html: t("web.ref.hint", "Görgess tovább <b>→</b>") }} />
           <div className="refscroll rv">
             <Link className="refcard" href="/esettanulmany-szamlabridge">
               <div className="shot cover">
                 <Image src="/ge/img/p-stripe.webp" alt="A SzámlaBridge felülete: Stripe-számlázás automatizáció" width={600} height={364} />
               </div>
               <div className="rb">
-                <div className="rk" dangerouslySetInnerHTML={{ __html: t("esl.szb.eyebrow", "SaaS · Pénzügy") }} />
+                <div className="rk" dangerouslySetInnerHTML={{ __html: t("esl.szb.eyebrow", "SaaS / Pénzügy") }} />
                 <div className="rn">SzámlaBridge</div>
                 <p className="rp" dangerouslySetInnerHTML={{ __html: t("esl2.szb.p", "A Stripe és a magyar NAV-bekötésű számlázás közti szakadékot áthidaló middleware, amit mi terveztünk és fejlesztettünk.") }} />
               </div>
@@ -315,13 +306,11 @@ const Esettanulmanyok: NextPage = () => {
       <section className="on-navy">
         <div className="wrap">
           <div className="cta">
-            <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("fc.eyebrow", "Beszéljünk") }} />
             <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("esl.cta.h", "A tiéd lehet a következő történet") }} />
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("esl.cta.lede", "Beszéljünk arról, hol tartasz, hova akarsz eljutni, és mi áll az útban. Egyetlen hívással kezdődik.") }} />
             <div className="btns rv">
               <Link href="/kapcsolat" className="btn">
                 <span dangerouslySetInnerHTML={{ __html: t("esl.cta.b1", "Foglalj hívást") }} />
-                <span className="ar">→</span>
               </Link>
               <a href="mailto:info@emergence-engineering.com" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("esl.cta.b2", "Inkább e-mailben kezdenél?") }} />
             </div>

@@ -3,6 +3,7 @@
 //   npm run screenshot -- /                 desktop + mobile of the home page
 //   npm run screenshot -- /blog hero        adds a label to the file names
 //   npm run screenshot -- /kapcsolat --desktop-only
+//   npm run screenshot -- /kapcsolat --width=1920   only that width
 //
 // Output: screenshots/<page>-<viewport>[-label]-N.png (auto-incremented, gitignored).
 //
@@ -18,6 +19,9 @@ const [, , path = "/", ...rest] = process.argv;
 const label = rest.find((a) => !a.startsWith("--"));
 const desktopOnly = rest.includes("--desktop-only");
 const mobileOnly = rest.includes("--mobile-only");
+// --width=1920 captures one extra desktop viewport at that width (e.g. ultra-wide check)
+const widthArg = rest.find((a) => a.startsWith("--width="));
+const customWidth = widthArg ? Number(widthArg.slice(8)) : null;
 const base = process.env.SCREENSHOT_BASE_URL ?? "http://localhost:3000";
 const url = path.startsWith("http") ? path : base + path;
 
@@ -33,6 +37,13 @@ const viewports = [
 ].filter((v) =>
   desktopOnly ? v.name === "desktop" : mobileOnly ? v.name === "mobile" : true,
 );
+if (customWidth) {
+  viewports.splice(0, viewports.length, {
+    name: `w${customWidth}`,
+    width: customWidth,
+    height: 1080,
+  });
+}
 
 let chromium;
 try {

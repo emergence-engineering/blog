@@ -32,7 +32,7 @@ export const GeHeader: FunctionComponent = () => {
       <div className="wrap nav">
         <Link href="/growth" className="logo">
           <Image className="logo-flower" src="/ge/img/logo-emergence.png" alt="" width={30} height={30} />
-          <span className="logo-wm">Growth<i>/</i><span className="w2">Engineering</span></span>
+          <span className="logo-wm" translate="no">Growth<i>/</i><span className="w2">Engineering</span></span>
         </Link>
         <nav className="nav-links" id="navLinks">
           <div className="has-sub">
@@ -57,7 +57,7 @@ export const GeHeader: FunctionComponent = () => {
               visitors to the startup-facing site */}
           {/* locale="en": on /hu/* pages a bare "/" would resolve to /hu,
               which redirects straight back to the marketing site */}
-          <Link href="/" locale="en" className="brandlink">For startups →</Link>
+          <Link href="/" locale="en" className="brandlink">For startups</Link>
           <div className="lang" role="group" aria-label="Language / Nyelv">
             <button type="button" data-lang="hu" aria-pressed={locale === "hu"} onClick={() => switchLocale("hu")}>HU</button>
             <button type="button" data-lang="en" aria-pressed={locale !== "hu"} onClick={() => switchLocale("en")}>EN</button>
