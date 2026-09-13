@@ -417,7 +417,7 @@
 .ge-p-kapcsolat .audit-mini .fld input,.ge-p-kapcsolat .audit-mini .fld select{background:#fff}
 .ge-p-kapcsolat .audit-mini h4{margin-bottom:.9rem}
 .ge-p-kapcsolat .audit-mini .fld{margin-bottom:.7rem;gap:.3rem}
-.ge-p-kapcsolat .audit-mini .frow{margin-bottom:0;gap:.8rem}
+.ge-p-kapcsolat .audit-mini .flowrow{margin-bottom:0;gap:.8rem}
 .ge-p-kapcsolat .audit-mini .fld label{font-size:.75rem}
 .ge-p-kapcsolat .audit-mini .fld input,.ge-p-kapcsolat .audit-mini .fld select{padding:.6rem .85rem;font-size:.9rem}
 .ge-p-kapcsolat .audit-mini .btn{padding:.68rem 1.25rem;font-size:.88rem;margin-top:.4rem}
@@ -576,9 +576,70 @@
    moved above the split, so the two columns top-align. */
 .ge-p-email-automatizacio .split{align-items:start}
 /* Green outcome badge at the end of the hero flow chips. */
-.ge-p-email-automatizacio .fchip .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;
+.ge-p-email-automatizacio .fchip .gain,.ge-p-email-automatizacio .flowrow .gain{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;
   color:#177A4B;background:#E4F4EA;padding:.28rem .6rem;border-radius:999px;white-space:nowrap}
 @media(max-width:420px){.ge-p-email-automatizacio .fchip .gain{display:none}}
 /* Inline link inside a FAQ answer (Klaviyo pricing). */
 .ge-p-email-automatizacio details .ans a{color:var(--coral);text-decoration:underline;text-underline-offset:.16em;text-decoration-thickness:1px}
 .ge-p-email-automatizacio details .ans a:hover,.ge-p-email-automatizacio details .ans a:focus-visible{color:var(--ink);text-decoration-thickness:2px}
+/* Flow map under "1/3 Automatizált flow-k": three lifecycle groups, each a
+   sticky label column plus expandable rows, so eight long paragraphs never
+   sit side by side in narrow card columns. */
+.ge-p-email-automatizacio .fgroup{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);
+  gap:clamp(1.4rem,4vw,3.6rem);padding:2rem 0 1.2rem;border-top:1px solid var(--rule-2)}
+.ge-p-email-automatizacio .fgroup:last-child{border-bottom:1px solid var(--rule-2)}
+.ge-p-email-automatizacio .fgroup-head{position:sticky;top:104px;align-self:start;padding-bottom:1rem}
+.ge-p-email-automatizacio .fgroup-head h4{font-size:clamp(1.15rem,1.8vw,1.4rem);margin-bottom:.5rem;text-wrap:balance}
+.ge-p-email-automatizacio .fgroup-head p{font-size:.94rem;color:var(--muted);line-height:1.55;max-width:36ch}
+.ge-p-email-automatizacio .flowrow{border-bottom:1px solid var(--rule-2)}
+.ge-p-email-automatizacio .flowrow:last-child{border-bottom:0}
+.ge-p-email-automatizacio .flowrow summary{display:flex;align-items:center;gap:1rem;padding:1rem 2.4rem 1rem 0;font-size:1rem}
+.ge-p-email-automatizacio .flowrow-tx{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.ge-p-email-automatizacio .flowrow-tx b{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.04rem}
+.ge-p-email-automatizacio .flowrow-tx small{font-family:var(--sans);font-weight:400;letter-spacing:0;font-size:.86rem;color:var(--muted);margin-top:.2rem}
+.ge-p-email-automatizacio .flowrow .ans{padding:0 2.4rem 1.3rem 0;max-width:62ch}
+@media(max-width:940px){.ge-p-email-automatizacio .fgroup{grid-template-columns:1fr;gap:.4rem;padding:1.5rem 0 .8rem}
+  .ge-p-email-automatizacio .fgroup-head{position:static;padding-bottom:.4rem}}
+@media(max-width:480px){.ge-p-email-automatizacio .flowrow .gain{display:none}}
+
+/* ==========================================================================
+   Creative & video production page (tartalomgyartas)
+   ========================================================================== */
+/* The hero artwork's soft backdrop bleeds past the page edge; clip it. */
+.ge-p-tartalomgyartas .phero{overflow:hidden}
+
+/* Services: the section intro stays pinned on the left while the four
+   service blocks scroll past on the right. Each block lists its three items
+   as open, rule-marked columns instead of boxed cards. */
+.ge-p-tartalomgyartas .svc-index{display:grid;grid-template-columns:.78fr 1.22fr;
+  gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.ge-p-tartalomgyartas .svc-index > .shead{display:block;position:sticky;top:104px;margin-bottom:0}
+.ge-p-tartalomgyartas .svc-index > .shead .lede{margin-top:1.2rem;max-width:36ch}
+.ge-p-tartalomgyartas .svc-index .sblock{grid-template-columns:1fr;gap:1.5rem;
+  padding:clamp(1.9rem,3.4vw,2.8rem) 0}
+.ge-p-tartalomgyartas .svc-index .sblock:first-of-type{padding-top:0}
+.ge-p-tartalomgyartas .svc-index .sblock > div > p{max-width:52ch}
+.ge-p-tartalomgyartas .svc-index .sblock .tlink{margin-top:1rem}
+.ge-p-tartalomgyartas .svc-index .ilist{grid-template-columns:repeat(3,1fr);gap:1.4rem 1.6rem}
+.ge-p-tartalomgyartas .svc-index .icard{background:transparent;border:0;border-top:1px solid var(--rule-2);
+  border-radius:0;padding:1rem 0 0;position:relative}
+.ge-p-tartalomgyartas .svc-index .icard::before{content:"";position:absolute;top:-1px;left:0;width:2rem;height:2px;
+  background:var(--coral)}
+@media(max-width:940px){
+  .ge-p-tartalomgyartas .svc-index{grid-template-columns:1fr;gap:1.6rem}
+  .ge-p-tartalomgyartas .svc-index > .shead{position:static;margin-bottom:.8rem}
+}
+@media(max-width:660px){.ge-p-tartalomgyartas .svc-index .ilist{grid-template-columns:1fr;gap:1.2rem}}
+
+/* Process: four steps on an open timeline on the paper band; navy is kept
+   for the final CTA only. */
+.ge-p-tartalomgyartas .ptl{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2rem clamp(1.4rem,3vw,2.6rem)}
+.ge-p-tartalomgyartas .pstep{position:relative;border-top:2px solid var(--rule);padding-top:1.9rem}
+.ge-p-tartalomgyartas .pstep::before{content:"";position:absolute;left:0;top:-9px;width:16px;height:16px;
+  border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px var(--paper-2)}
+.ge-p-tartalomgyartas .pstep .n{font-family:var(--display);font-weight:800;font-size:.76rem;letter-spacing:.14em;
+  color:var(--coral-d);margin-bottom:.9rem}
+.ge-p-tartalomgyartas .pstep h4{font-size:1.18rem;margin-bottom:.7rem;max-width:16ch}
+.ge-p-tartalomgyartas .pstep p{font-size:.93rem;line-height:1.6;color:var(--body)}
+@media(max-width:1040px){.ge-p-tartalomgyartas .ptl{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ge-p-tartalomgyartas .ptl{grid-template-columns:1fr;gap:1.8rem}}

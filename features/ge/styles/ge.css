@@ -646,6 +646,35 @@ html{scroll-behavior:smooth}
   text-align:center;transform:translateX(-50%)}
 .ge .ux-flip{transform:scaleX(-1)}
 
+/* Creative & video hero artwork (600px frame), composed from the sibling
+   arts' vectors plus CSS; chip labels are live localized text (see
+   CvHeroArt.tsx). It reuses the gm-chip / ux-phone-bar / ux-bar / gm-grad-btn
+   primitives, which scale with this container's --u. */
+.ge .cv-art{position:relative;width:100%;aspect-ratio:1;container-type:inline-size;--u:0.166667cqw}
+.ge .cv-art img{max-width:none;border-radius:0}
+.ge .cv-abs{position:absolute}
+.ge .cv-card{background:rgba(255,255,255,.72);border-radius:calc(14*var(--u));
+  box-shadow:0 calc(12*var(--u)) calc(16*var(--u)) calc(-4*var(--u)) rgba(48,20,13,.08),
+    0 calc(4*var(--u)) calc(6*var(--u)) calc(-2*var(--u)) rgba(48,20,13,.03)}
+.ge .cv-media{border-radius:calc(8*var(--u));
+  background:linear-gradient(198deg,rgba(245,144,154,.55) 24%,rgba(124,105,200,.55) 79%)}
+.ge .cv-phone{background:#fff;border-radius:calc(16*var(--u));overflow:hidden;
+  box-shadow:0 calc(18*var(--u)) calc(28*var(--u)) calc(-8*var(--u)) rgba(48,20,13,.18),
+    0 calc(4*var(--u)) calc(8*var(--u)) calc(-2*var(--u)) rgba(48,20,13,.05)}
+.ge .cv-video{background:linear-gradient(198deg,rgba(245,144,154,.9) 10%,rgba(124,105,200,.9) 90%)}
+.ge .cv-video::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 55%,rgba(48,20,13,.22) 100%)}
+.ge .cv-playbtn{display:flex;align-items:center;justify-content:center;border-radius:50%;z-index:1;
+  background:rgba(255,255,255,.28);border:calc(1.5*var(--u)) solid rgba(255,255,255,.7);
+  backdrop-filter:blur(calc(4*var(--u)))}
+.ge .cv-play{display:block;width:0;height:0;margin-left:calc(4*var(--u));
+  border-top:calc(9*var(--u)) solid transparent;border-bottom:calc(9*var(--u)) solid transparent;
+  border-left:calc(15*var(--u)) solid #fff}
+.ge .cv-play-sm{margin:0;border-top-width:calc(8.5*var(--u));border-bottom-width:calc(8.5*var(--u));
+  border-left:calc(14*var(--u)) solid #fff;filter:drop-shadow(0 calc(1*var(--u)) calc(2*var(--u)) rgba(48,20,13,.25))}
+.ge .cv-track{background:rgba(255,255,255,.4);border-radius:999px;z-index:1;overflow:hidden}
+.ge .cv-fill{display:block;width:38%;height:100%;background:#fff;border-radius:999px}
+
 /* case study results cards */
 .ge .cs-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.6rem}
 .ge .cs-results > div{background:#fff;border:1px solid var(--rule);border-radius:20px;

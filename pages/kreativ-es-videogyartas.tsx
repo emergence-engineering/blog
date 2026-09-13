@@ -1,10 +1,10 @@
 import React from "react";
 import { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { GeShell } from "../features/ge/components/GeShell";
 import { GeSEO } from "../features/ge/components/GeSEO";
 import { GeFaqJsonLd } from "../features/ge/components/GeFaqJsonLd";
+import { CvHeroArt } from "../features/ge/components/CvHeroArt";
 import { useGeT } from "../features/ge/i18n/useGeT";
 
 // Ported from growth-engineers-v4/tartalomgyartas.html; DOM structure intentionally
@@ -44,8 +44,8 @@ const Tartalomgyartas: NextPage = () => {
                 <span dangerouslySetInnerHTML={{ __html: t("con.hero.trust2", "<b>Magyar</b> szövegezés és forgatás") }} />
               </div>
             </div>
-            <div className="phero-art rv">
-              <Image src="/ge/img/vj-social.webp" width={760} height={810} alt={t("alt21", "Social hirdetéskreatívok, amelyeket egy ügyfélkampányhoz gyártottunk")} />
+            <div className="rv">
+              <CvHeroArt />
             </div>
           </div>
         </div>
@@ -81,105 +81,109 @@ const Tartalomgyartas: NextPage = () => {
       </section>
       <section>
         <div className="wrap">
-          <div className="shead">
-            <div>
-              <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("con.do.eyebrow", "Amit csinálunk") }} />
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("con.do.h", "Üzenettől a videón át az adatig") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("con.do.lede", "Négy összefüggő terület, egyetlen csapattal, amely elég közel ül az üzletedhez ahhoz, hogy a te hangodon szólaljon meg.") }} />
-          </div>
-          <div className="sblock rv">
-            <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("con.s1.h", "Márka- és kommunikációs stratégia") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("con.s1.p", "Egy hang, amit fel lehet ismerni hirdetésben, e-mailben és a weboldalon is.") }} />
+          <div className="svc-index">
+            <div className="shead">
               <div>
-                <Link href="/kapcsolat" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("con.s1.cta", "Kérd az auditot") }} />
-                  <span className="ar">→</span>
-                </Link>
+                <div className="eyebrow rv" dangerouslySetInnerHTML={{ __html: t("con.do.eyebrow", "Amit csinálunk") }} />
+                <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("con.do.h", "Üzenettől a videón át az adatig") }} />
               </div>
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("con.do.lede", "Négy összefüggő terület, egyetlen csapattal, amely elég közel ül az üzletedhez ahhoz, hogy a te hangodon szólaljon meg.") }} />
             </div>
-            <div className="ilist">
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s1a.h", "Mély integráció") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s1a.p", "Elég sokáig ülünk a csapatoddal ahhoz, hogy lássuk a valódi korlátokat és a vevői valóságot.") }} />
-              </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s1b.h", "Emberközpontú üzenet") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s1b.p", "Hasznos, jól megírt tartalom, ami emberi hangon szól és bizalmat épít, nem hangerővel győz.") }} />
-              </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s1c.h", "Stratégiai útitervek") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s1c.p", "Az egyszerű kampánykezelésen túllépve skálázható kreatív rendszereket építünk.") }} />
-              </div>
-            </div>
-          </div>
-          <div className="sblock rv">
             <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("con.s2.h", "Kreatívfejlesztés és social-first videó") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("con.s2.p", "Social-first tartalom, ami gyors figyelemre és tisztaságra épül.") }} />
-            </div>
-            <div className="ilist">
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s2a.h", "Vizuális történetmesélés") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s2a.p", "A teljes kivitelezést visszük: forgatókönyv, forgatási irány és vágás.") }} />
+              <div className="sblock rv">
+                <div>
+                  <h3 dangerouslySetInnerHTML={{ __html: t("con.s1.h", "Márka- és kommunikációs stratégia") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("con.s1.p", "Egy hang, amit fel lehet ismerni hirdetésben, e-mailben és a weboldalon is.") }} />
+                  <div>
+                    <Link href="/kapcsolat" className="tlink">
+                      <span dangerouslySetInnerHTML={{ __html: t("con.s1.cta", "Kérd az auditot") }} />
+                      <span className="ar">→</span>
+                    </Link>
+                  </div>
+                </div>
+                <div className="ilist">
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s1a.h", "Mély integráció") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s1a.p", "Elég sokáig ülünk a csapatoddal ahhoz, hogy lássuk a valódi korlátokat és a vevői valóságot.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s1b.h", "Emberközpontú üzenet") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s1b.p", "Hasznos, jól megírt tartalom, ami emberi hangon szól és bizalmat épít, nem hangerővel győz.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s1c.h", "Stratégiai útitervek") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s1c.p", "Az egyszerű kampánykezelésen túllépve skálázható kreatív rendszereket építünk.") }} />
+                  </div>
+                </div>
               </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s2b.h", "UGC és performance tartalom") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s2b.p", "Social-first kreatívok, amik megállítják a görgetést és cselekvéssé alakítják a figyelmet.") }} />
+              <div className="sblock rv">
+                <div>
+                  <h3 dangerouslySetInnerHTML={{ __html: t("con.s2.h", "Kreatívfejlesztés és social-first videó") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("con.s2.p", "Social-first tartalom, ami gyors figyelemre és tisztaságra épül.") }} />
+                </div>
+                <div className="ilist">
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s2a.h", "Vizuális történetmesélés") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s2a.p", "A teljes kivitelezést visszük: forgatókönyv, forgatási irány és vágás.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s2b.h", "UGC és performance tartalom") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s2b.p", "Social-first kreatívok, amik megállítják a görgetést és cselekvéssé alakítják a figyelmet.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s2c.h", "Rövid videó") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s2c.p", "TikTok-, Reels- és LinkedIn-klipek, amik másodpercek alatt átadják az üzenetet.") }} />
+                  </div>
+                </div>
               </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s2c.h", "Rövid videó") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s2c.p", "TikTok-, Reels- és LinkedIn-klipek, amik másodpercek alatt átadják az üzenetet.") }} />
+              <div className="sblock rv">
+                <div>
+                  <h3 dangerouslySetInnerHTML={{ __html: t("con.s3.h", "Social stratégia, blog és tartalom") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("con.s3.p", "Ott jelenj meg, ahol a közönséged már úgyis időt tölt.") }} />
+                  <div>
+                    <Link href="/ppc-hirdeteskezeles" className="tlink">
+                      <span dangerouslySetInnerHTML={{ __html: t("con.s3.cta", "Hogyan táplálja a paid oldalt") }} />
+                      <span className="ar">→</span>
+                    </Link>
+                  </div>
+                </div>
+                <div className="ilist">
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s3a.h", "Platformra szabott ötletek") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s3a.p", "Olyan tartalomra és videóra fókuszálunk, ami bizalmat épít és bevonódást hoz.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s3b.h", "Blog és szerkesztői tartalom") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s3b.p", "Megkeressük, mire keres valójában a közönséged, és olyan cikkeket írunk, amiket el is olvasnak.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s3c.h", "Tekintélyépítés") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s3c.p", "A stratégiánk erősíti a relevanciádat és hosszú távon növeli a láthatóságodat.") }} />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="sblock rv">
-            <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("con.s3.h", "Social stratégia, blog és tartalom") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("con.s3.p", "Ott jelenj meg, ahol a közönséged már úgyis időt tölt.") }} />
-              <div>
-                <Link href="/ppc-hirdeteskezeles" className="tlink">
-                  <span dangerouslySetInnerHTML={{ __html: t("con.s3.cta", "Hogyan táplálja a paid oldalt") }} />
-                  <span className="ar">→</span>
-                </Link>
+              <div className="sblock rv">
+                <div>
+                  <h3 dangerouslySetInnerHTML={{ __html: t("con.s4.h", "Adat és adatvezérelt kreatív rendszerek") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("con.s4.p", "Megnézzük, melyik hook hozta a legolcsóbb érdeklődőt, és abból építünk tovább.") }} />
+                </div>
+                <div className="ilist">
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s4a.h", "Kreatívelemzés") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s4a.p", "Lebontjuk a teljes utat, hogy lássuk, melyik hook és melyik történet mozdítja a számot.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s4b.h", "Strukturált kísérletezés") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s4b.p", "Rendesen teszteljük a kreatív ötleteket, hogy kiderüljön, mi működik és mi csak zaj.") }} />
+                  </div>
+                  <div className="icard">
+                    <h4 dangerouslySetInnerHTML={{ __html: t("con.s4c.h", "Hatásalapú mutatók") }} />
+                    <p dangerouslySetInnerHTML={{ __html: t("con.s4c.p", "Nemet mondunk a lájkok ünneplésére, és azokra a számokra nézünk, amik valódi üzleti hatást tükröznek.") }} />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="ilist">
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s3a.h", "Platformra szabott ötletek") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s3a.p", "Olyan tartalomra és videóra fókuszálunk, ami bizalmat épít és bevonódást hoz.") }} />
               </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s3b.h", "Blog és szerkesztői tartalom") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s3b.p", "Megkeressük, mire keres valójában a közönséged, és olyan cikkeket írunk, amiket el is olvasnak.") }} />
               </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s3c.h", "Tekintélyépítés") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s3c.p", "A stratégiánk erősíti a relevanciádat és hosszú távon növeli a láthatóságodat.") }} />
-              </div>
-            </div>
-          </div>
-          <div className="sblock rv">
-            <div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("con.s4.h", "Adat és adatvezérelt kreatív rendszerek") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("con.s4.p", "Megnézzük, melyik hook hozta a legolcsóbb érdeklődőt, és abból építünk tovább.") }} />
-            </div>
-            <div className="ilist">
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s4a.h", "Kreatívelemzés") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s4a.p", "Lebontjuk a teljes utat, hogy lássuk, melyik hook és melyik történet mozdítja a számot.") }} />
-              </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s4b.h", "Strukturált kísérletezés") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s4b.p", "Rendesen teszteljük a kreatív ötleteket, hogy kiderüljön, mi működik és mi csak zaj.") }} />
-              </div>
-              <div className="icard">
-                <h4 dangerouslySetInnerHTML={{ __html: t("con.s4c.h", "Hatásalapú mutatók") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("con.s4c.p", "Nemet mondunk a lájkok ünneplésére, és azokra a számokra nézünk, amik valódi üzleti hatást tükröznek.") }} />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="band" id="folyamat">
@@ -190,23 +194,23 @@ const Tartalomgyartas: NextPage = () => {
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("con.proc.h", "Az ötlettől az élő kampányig") }} />
             </div>
           </div>
-          <div className="steps s4 rv">
-            <div className="step">
+          <div className="ptl rv">
+            <div className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc1.k", "1. LÉPÉS") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("con.proc1.h", "Felfedezés és üzenet") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc1.p", "Megismerjük a terméket, a vevőt és a piacot. Kijelöljük a márkahangot és azokat az üzeneteket, amelyekre a kreatív épül.") }} />
             </div>
-            <div className="step">
+            <div className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc2.k", "2. LÉPÉS") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("con.proc2.h", "Koncepció és forgatókönyv") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc2.p", "Hook-ok, kreatívirányok és forgatókönyvek. Platformonként külön gondolkodunk, mert nem ugyanaz működik Reelsben és LinkedInen.") }} />
             </div>
-            <div className="step">
+            <div className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc3.k", "3. LÉPÉS") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("con.proc3.h", "Gyártás és vágás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc3.p", "Forgatás, UGC, vágás és magyar szövegezés. A kész anyag mobilra optimalizált, és több variánsban áll rendelkezésre a teszthez.") }} />
             </div>
-            <div className="step">
+            <div className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("con.proc4.k", "4. LÉPÉS") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("con.proc4.h", "Teszt, mérés, skálázás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("con.proc4.p", "A hirdetési oldalon mérjük, melyik hook hozza a legolcsóbb érdeklődőt, a nyerteseket skálázzuk, a tanulságot visszaforgatjuk.") }} />
