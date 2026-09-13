@@ -469,31 +469,6 @@ const EmailAutomatizacio: NextPage = () => {
           <p className="fine rv" dangerouslySetInnerHTML={{ __html: t("em.kpi.note", "A célértékek iparágtól és kosárértéktől függenek. Az auditban a te kategóriádra szabjuk őket.") }} />
         </div>
       </section>
-      <section>
-        <div className="wrap">
-          <div className="cases">
-            <article className="case rv">
-              <div className="case-media">
-                <div className="stat stat-coral" style={{ width: "100%", minHeight: "220px", justifyContent: "center", gap: "1rem" }}>
-                  <div className="dnum" style={{ fontSize: "clamp(2.6rem,5vw,3.6rem)" }}>+45M Ft</div>
-                  <div className="lbl" style={{ fontSize: ".95rem", maxWidth: "22ch" }} dangerouslySetInnerHTML={{ __html: t("em.cs.stat", "webshop-bevétel az első évben") }} />
-                </div>
-              </div>
-              <div className="case-body">
-                <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("em.cs.eyebrow", "Esettanulmány") }} />
-                <h3 dangerouslySetInnerHTML={{ __html: t("em.cs.h", "Plantart, az e-mail mint kiszámítható bevételi csatorna") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("em.cs.p", "A Plantartnál a digitális átalakítás harmadik fázisa szólt a tölcsérekről és az e-mailről. Automatizált nurture-folyamatokat és szegmensenkénti landing oldalakat építettünk, amivel a kiszámíthatatlan, esetleges érdeklődés helyét egy mérhető akvizíciós motor vette át. A webshop az első évében több mint 45 millió forint bevételt termelt.") }} />
-                <div style={{ marginTop: "1.4rem" }}>
-                  <Link href="/esettanulmanyok" className="tlink">
-                    <span dangerouslySetInnerHTML={{ __html: t("em.cs.read", "Teljes esettanulmány") }} />
-                    <span className="ar">→</span>
-                  </Link>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
       <section id="gyik">
         <div className="wrap">
           <div className="shead">
