@@ -1,13 +1,20 @@
 {
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "21st@21st-dev": true
+  },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "21st-dev": {
+      "source": {
+        "source": "github",
+        "repo": "21st-dev/magic-mcp"
+      }
     }
-  },
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
   }
 }

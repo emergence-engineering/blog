@@ -28,11 +28,13 @@ description: Rules for building or changing any UI on the Emergence Engineering 
 ## Mode A — Reference match (a screenshot, Figma export, or mockup was provided)
 
 - Match layout, spacing, typography, and color exactly. Do not improve, add, or omit anything.
+- Load the `image-to-code` skill for the extraction pass (text, type, spacing, color, components). Skip its image-generation steps; work from the images provided.
 - Map the reference onto existing tokens where they match within a few percent; otherwise use the exact values from the reference and flag the mismatch.
 - The **Design guardrails** below do not apply in this mode. The **Quality floor** does.
 
 ## Mode B — Design from scratch (no reference)
 
+- Load the `design-taste-frontend` skill and write its one-line Design Read first. Ignore its design-system install advice; the stack here is fixed.
 - Follow the `frontend-design` skill's process: identify subject, audience, and the page's one job; write a short plan (palette from existing tokens, type roles, ASCII layout, one principle that makes this page specific); review it against the brief; then build.
 - Spend boldness in one place. One memorable element, everything else quiet.
 - The **Design guardrails** and the **Quality floor** both apply.
@@ -80,7 +82,8 @@ These are the tells of generated design. Avoid them unless the brief asks for on
 3. Read each PNG with the Read tool and critique it. Be numeric: "h1 is 64px but the reference shows about 48px", "card gap is 16px, should be 24px".
 4. Fix, re-screenshot, repeat. Minimum two rounds. Stop only when no visible differences remain (Mode A) or the self-critique finds nothing to cut (Mode B).
 5. For GE pages, check both locales: `/PATH` and `/hu/PATH`.
-6. Also check 1920 wide once before finishing a new page (`SCREENSHOT_BASE_URL` and viewport are in `scripts/screenshot.mjs` if you need to adjust).
+6. Before finishing, run the `web-design-guidelines` skill on the changed files and fix what it flags.
+7. Also check 1920 wide once before finishing a new page (`SCREENSHOT_BASE_URL` and viewport are in `scripts/screenshot.mjs` if you need to adjust).
 
 ## Never
 
