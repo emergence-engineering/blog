@@ -246,16 +246,20 @@
 
 /* ---- centered home hero (index, index-en) ---- */
 
-  .ge.ge-p-index .hero-grid,
   .ge.ge-p-index-en .hero-grid{display:block;max-width:900px;margin:0 auto;text-align:center}
-  .ge.ge-p-index .hero .lede,
   .ge.ge-p-index-en .hero .lede{max-width:52ch;margin-left:auto;margin-right:auto}
-  .ge.ge-p-index .hero-cta,
   .ge.ge-p-index-en .hero-cta{justify-content:center}
-  .ge.ge-p-index .badges .badgestrip{margin-left:auto;margin-right:auto}
   .ge.ge-p-index-en .hero .trust{justify-content:center}
-  .ge.ge-p-index .hero .mosaic,
   .ge.ge-p-index-en .hero .mosaic{display:none}
+  /* HU home: headline left, two real client results right */
+  .ge.ge-p-index .hero{padding-top:clamp(28px,4vw,56px)}
+  .ge.ge-p-index .hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}
+  .ge.ge-p-index .hero h1{font-size:clamp(2.2rem,3.8vw,3.3rem)}
+  @media(max-width:980px){.ge.ge-p-index .hero-grid{grid-template-columns:1fr;gap:2rem}}
+  .ge.ge-p-index .hero .lede{max-width:46ch}
+  .ge.ge-p-index .badges{margin-top:1.8rem}
+  .ge.ge-p-index .badges .badgestrip{padding:14px 18px;gap:14px 22px}
+  .ge.ge-p-index .badges .badgestrip img{height:26px;width:auto}
 
 /* ---- page-scoped styles from index-en.html ---- */
 
