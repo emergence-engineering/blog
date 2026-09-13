@@ -337,6 +337,23 @@ html{scroll-behavior:smooth}
 @media(max-width:1040px){.ge .steps,.ge .steps.s4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.ge .steps,.ge .steps.s3,.ge .steps.s4{grid-template-columns:1fr}}
 
+/* ---------- process timeline: open steps on a rule with a coral dot ---------- */
+.ge .ptl{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2rem clamp(1.4rem,3vw,2.6rem)}
+.ge .pstep{position:relative;border-top:2px solid var(--rule);padding-top:1.9rem}
+.ge .pstep::before{content:"";position:absolute;left:0;top:-9px;width:16px;height:16px;
+  border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px var(--paper-2)}
+.ge .pstep .n{font-family:var(--display);font-weight:800;font-size:.76rem;letter-spacing:.14em;
+  color:var(--coral-d);margin-bottom:.9rem}
+.ge .pstep h4{font-size:1.18rem;margin-bottom:.7rem;max-width:16ch}
+.ge .pstep p{font-size:.93rem;line-height:1.6;color:var(--body)}
+@media(max-width:1040px){.ge .ptl{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ge .ptl{grid-template-columns:1fr;gap:1.8rem}}
+.ge .on-navy .pstep{border-top-color:rgba(255,255,255,.18)}
+.ge .on-navy .pstep::before{box-shadow:0 0 0 4px var(--navy)}
+.ge .on-navy .pstep .n{color:var(--coral-l)}
+.ge .on-navy .pstep h4{color:#fff}
+.ge .on-navy .pstep p{color:#A9B9CE}
+
 /* ---------- quote ---------- */
 .ge .quote-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
 @media(max-width:900px){.ge .quote-grid{grid-template-columns:1fr;gap:2.2rem}}
@@ -429,6 +446,15 @@ html{scroll-behavior:smooth}
 .ge .fld textarea{min-height:130px;resize:vertical}
 .ge .fld input:focus,.ge .fld select:focus,.ge .fld textarea:focus{outline:none;border-color:var(--coral);
   box-shadow:0 0 0 3px rgba(239,78,50,.14)}
+
+/* ---------- form success panel (replaces the form once sent) ---------- */
+.ge .form-done h3{margin-bottom:.9rem;max-width:18ch}
+.ge .form-done .lede{max-width:40ch;margin-bottom:1.4rem}
+.ge .done-steps{list-style:none;margin:0 0 1.4rem;padding:0;border-top:1px solid var(--rule-2)}
+.ge .done-steps li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;align-items:baseline;
+  padding:.7rem 0;border-bottom:1px solid var(--rule-2);font-size:.95rem;color:var(--ink);font-weight:600}
+.ge .done-steps b{font-family:var(--display);font-weight:800;font-size:.74rem;letter-spacing:.14em;color:var(--coral-d)}
+.ge .form-done .muted{font-size:.9rem}
 
 /* ---------- faq ---------- */
 .ge .faq{border-top:1px solid var(--rule-2)}

@@ -11,7 +11,6 @@ import { useLeadForm } from "../features/ge/hooks/useLeadForm";
 // mirrors the static original (see features/ge/README.md).
 const Kapcsolat: NextPage = () => {
   const t = useGeT();
-  const auditForm = useLeadForm({ kind: "capture", source: "/kapcsolat audit" });
   const contactForm = useLeadForm({ kind: "enquiry", source: "/kapcsolat" });
   return (
     <GeShell page="kapcsolat">
@@ -49,45 +48,10 @@ const Kapcsolat: NextPage = () => {
               </div>
             </div>
             <div className="rv">
-              <div className="formcard audit-mini">
-                <h4 dangerouslySetInnerHTML={{ __html: t("kap.audit.h", "Ingyenes audit") }} />
-                <form onSubmit={auditForm.onSubmit}>
-                  <LeadFormGuards />
-                  <div className="fld">
-                    <label htmlFor="fat" dangerouslySetInnerHTML={{ __html: t("kap.audit.type", "Milyen auditot kérsz?") }} />
-                    <select id="fat" name="audit">
-                      <option value="ux-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o1", "UX audit") }} />
-                      <option value="novekedesi-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o2", "Növekedési (üzleti) audit") }} />
-                      <option value="seo-ai-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o3", "SEO és AI-láthatósági audit") }} />
-                      <option value="klaviyo-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o4", "Klaviyo e-mail audit") }} />
-                      <option value="kreativ-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o5", "Kreatív audit") }} />
-                    </select>
-                  </div>
-                  <div className="frow">
-                    <div className="fld">
-                      <label htmlFor="fae" dangerouslySetInnerHTML={{ __html: t("kap.f.email", "E-mail*") }} />
-                      <input id="fae" type="email" name="email" required placeholder={t("kap.f.emailph", "te@ceged.hu")} />
-                    </div>
-                    <div className="fld">
-                      <label htmlFor="faw" dangerouslySetInnerHTML={{ __html: t("kap.audit.web", "Weboldal*") }} />
-                      <input id="faw" name="website" required placeholder="https://" />
-                    </div>
-                  </div>
-                  <label className="consent" style={{ marginBottom: "1.1rem" }}>
-                    <input type="checkbox" name="consent" required />
-                    <span dangerouslySetInnerHTML={{ __html: t("form.consent", "Hozzájárulok, hogy e-mailben megkeressetek, és az Emergence Engineering Kft. az <a href=\"#\">adatkezelési tájékoztató</a> szerint kezelje az adataimat.") }} />
-                  </label>
-                  <button className="btn" type="submit" disabled={auditForm.state === "sending"}>
-                    <span dangerouslySetInnerHTML={{ __html: auditForm.state === "sending" ? t("form.sending", "Küldés…") : t("audit.cta", "Kérem az auditot") }} />
-                    <span className="ar">→</span>
-                  </button>
-                  <p className="ok" hidden={auditForm.state !== "ok"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.audit.ok", "Köszönjük! Hamarosan jelentkezünk az audit részleteivel.") }} />
-                  <p className="err" hidden={auditForm.state !== "error"} style={{ marginTop: ".8rem", fontSize: ".88rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
-                </form>
-              </div>
               <div className="formcard">
-                <h3 style={{ marginBottom: "1.4rem" }} dangerouslySetInnerHTML={{ __html: t("kap.form.h", "Írj nekünk") }} />
-                <form onSubmit={contactForm.onSubmit}>
+                {/* One form: the audit types the old mini form offered now sit in the topic list. */}
+                <h3 style={{ marginBottom: "1.4rem" }} hidden={contactForm.state === "ok"} dangerouslySetInnerHTML={{ __html: t("kap.form.h", "Írj nekünk") }} />
+                <form onSubmit={contactForm.onSubmit} hidden={contactForm.state === "ok"}>
                   <LeadFormGuards />
                   <div className="frow">
                     <div className="fld">
@@ -120,6 +84,13 @@ const Kapcsolat: NextPage = () => {
                       <option value="kreativ-video" dangerouslySetInnerHTML={{ __html: t("kap.opt6", "Kreatív- és videógyártás") }} />
                       <option value="mely-audit" dangerouslySetInnerHTML={{ __html: t("kap.opt7", "Mély audit") }} />
                       <option value="egyeb" dangerouslySetInnerHTML={{ __html: t("kap.opt8", "Még nem tudom, beszéljük meg") }} />
+                      <optgroup label={t("kap.audit.h", "Ingyenes audit")}>
+                        <option value="ux-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o1", "UX audit") }} />
+                        <option value="novekedesi-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o2", "Növekedési (üzleti) audit") }} />
+                        <option value="seo-ai-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o3", "SEO és AI-láthatósági audit") }} />
+                        <option value="klaviyo-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o4", "Klaviyo e-mail audit") }} />
+                        <option value="kreativ-audit" dangerouslySetInnerHTML={{ __html: t("kap.audit.o5", "Kreatív audit") }} />
+                      </optgroup>
                     </select>
                   </div>
                   <div className="fld">
@@ -133,9 +104,22 @@ const Kapcsolat: NextPage = () => {
                     <span dangerouslySetInnerHTML={{ __html: contactForm.state === "sending" ? t("form.sending", "Küldés…") : t("kap.f.submit", "Küldés") }} />
                     <span className="ar">→</span>
                   </button>
-                  <p className="ok" hidden={contactForm.state !== "ok"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("kap.f.ok", "Köszönjük! Egy munkanapon belül válaszolunk.") }} />
                   <p className="err" hidden={contactForm.state !== "error"} style={{ marginTop: "1rem", fontSize: ".9rem", color: "var(--coral-d)", fontWeight: "600" }} dangerouslySetInnerHTML={{ __html: t("form.err", "Valami hiba történt nálunk. Írj közvetlenül: <a href=\"mailto:contact@emergence-engineering.com\">contact@emergence-engineering.com</a>.") }} />
                 </form>
+                {/* Success state replaces the form with what happens next (same strings as the timeline below). */}
+                <div className="form-done" hidden={contactForm.state !== "ok"} role="status">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("kap.f.ok", "Köszönjük! Egy munkanapon belül válaszolunk.") }} />
+                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("kap.proc.lede", "Egy héten belül tudni fogod, van-e itt valódi lehetőség, és mibe kerülne kiaknázni.") }} />
+                  <ol className="done-steps">
+                    <li><b dangerouslySetInnerHTML={{ __html: t("kap.s1.k", "1. NAP") }} /><span dangerouslySetInnerHTML={{ __html: t("kap.s1.h", "Hívás") }} /></li>
+                    <li><b dangerouslySetInnerHTML={{ __html: t("kap.s2.k", "2–3. NAP") }} /><span dangerouslySetInnerHTML={{ __html: t("kap.s2.h", "Rövid összefoglaló") }} /></li>
+                    <li><b dangerouslySetInnerHTML={{ __html: t("kap.s3.k", "1. HÉT") }} /><span dangerouslySetInnerHTML={{ __html: t("kap.s3.h", "Ajánlat") }} /></li>
+                    <li><b dangerouslySetInnerHTML={{ __html: t("kap.s4.k", "2. HÉT") }} /><span dangerouslySetInnerHTML={{ __html: t("kap.s4.h", "Indulás") }} /></li>
+                  </ol>
+                  <p className="muted">
+                    <a href="mailto:info@emergence-engineering.com" className="tlink">info@emergence-engineering.com</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -150,23 +134,23 @@ const Kapcsolat: NextPage = () => {
             </div>
             <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("kap.proc.lede", "Egy héten belül tudni fogod, van-e itt valódi lehetőség, és mibe kerülne kiaknázni.") }} />
           </div>
-          <div className="steps s4 rv">
-            <article className="step">
+          <div className="ptl rv">
+            <article className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s1.k", "1. NAP") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s1.h", "Hívás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s1.p", "Harminc perc, kötetlenül. Megnézzük, hol vannak a szűk keresztmetszetek.") }} />
             </article>
-            <article className="step">
+            <article className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s2.k", "2–3. NAP") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s2.h", "Rövid összefoglaló") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s2.p", "Írásban megkapod, amit láttunk, és mit javaslunk elsőként.") }} />
             </article>
-            <article className="step">
+            <article className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s3.k", "1. HÉT") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s3.h", "Ajánlat") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s3.p", "Ha van közös munka, konkrét hatókört, időtervet és árat kapsz.") }} />
             </article>
-            <article className="step">
+            <article className="pstep">
               <div className="n" dangerouslySetInnerHTML={{ __html: t("kap.s4.k", "2. HÉT") }} />
               <h4 dangerouslySetInnerHTML={{ __html: t("kap.s4.h", "Indulás") }} />
               <p dangerouslySetInnerHTML={{ __html: t("kap.s4.p", "Kickoff, hozzáférések, első mérföldkő. Innentől heti ritmus.") }} />

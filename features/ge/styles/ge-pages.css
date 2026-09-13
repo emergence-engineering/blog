@@ -412,15 +412,6 @@
 .ge-p-kapcsolat .phero-grid{align-items:start}
 
 /* compact free-audit card above the main contact form */
-.ge-p-kapcsolat .audit-mini{padding:1.2rem 1.4rem 1.4rem;margin-bottom:16px;
-  background:var(--coral-soft);border-color:transparent}
-.ge-p-kapcsolat .audit-mini .fld input,.ge-p-kapcsolat .audit-mini .fld select{background:#fff}
-.ge-p-kapcsolat .audit-mini h4{margin-bottom:.9rem}
-.ge-p-kapcsolat .audit-mini .fld{margin-bottom:.7rem;gap:.3rem}
-.ge-p-kapcsolat .audit-mini .flowrow{margin-bottom:0;gap:.8rem}
-.ge-p-kapcsolat .audit-mini .fld label{font-size:.75rem}
-.ge-p-kapcsolat .audit-mini .fld input,.ge-p-kapcsolat .audit-mini .fld select{padding:.6rem .85rem;font-size:.9rem}
-.ge-p-kapcsolat .audit-mini .btn{padding:.68rem 1.25rem;font-size:.88rem;margin-top:.4rem}
 
 /* The marketing hero artwork bleeds past the right page edge by design
    (the browser mockup runs off-canvas in Figma); clip it at the section.
@@ -639,16 +630,3 @@
   .ge-p-tartalomgyartas .svc-index > .shead{position:static;margin-bottom:.8rem}
 }
 @media(max-width:660px){.ge-p-tartalomgyartas .svc-index .ilist{grid-template-columns:1fr;gap:1.2rem}}
-
-/* Process: four steps on an open timeline on the paper band; navy is kept
-   for the final CTA only. */
-.ge-p-tartalomgyartas .ptl{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2rem clamp(1.4rem,3vw,2.6rem)}
-.ge-p-tartalomgyartas .pstep{position:relative;border-top:2px solid var(--rule);padding-top:1.9rem}
-.ge-p-tartalomgyartas .pstep::before{content:"";position:absolute;left:0;top:-9px;width:16px;height:16px;
-  border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px var(--paper-2)}
-.ge-p-tartalomgyartas .pstep .n{font-family:var(--display);font-weight:800;font-size:.76rem;letter-spacing:.14em;
-  color:var(--coral-d);margin-bottom:.9rem}
-.ge-p-tartalomgyartas .pstep h4{font-size:1.18rem;margin-bottom:.7rem;max-width:16ch}
-.ge-p-tartalomgyartas .pstep p{font-size:.93rem;line-height:1.6;color:var(--body)}
-@media(max-width:1040px){.ge-p-tartalomgyartas .ptl{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.ge-p-tartalomgyartas .ptl{grid-template-columns:1fr;gap:1.8rem}}
