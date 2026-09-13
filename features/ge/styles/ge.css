@@ -671,8 +671,7 @@ html{scroll-behavior:smooth}
 .ge .cv-play{display:block;width:0;height:0;margin-left:calc(4*var(--u));
   border-top:calc(9*var(--u)) solid transparent;border-bottom:calc(9*var(--u)) solid transparent;
   border-left:calc(15*var(--u)) solid #fff}
-.ge .cv-play-sm{margin:0;border-top-width:calc(8.5*var(--u));border-bottom-width:calc(8.5*var(--u));
-  border-left:calc(14*var(--u)) solid #fff;filter:drop-shadow(0 calc(1*var(--u)) calc(2*var(--u)) rgba(48,20,13,.25))}
+.ge .cv-brand{object-fit:contain;z-index:1}
 .ge .cv-track{background:rgba(255,255,255,.4);border-radius:999px;z-index:1;overflow:hidden}
 .ge .cv-fill{display:block;width:38%;height:100%;background:#fff;border-radius:999px}
 

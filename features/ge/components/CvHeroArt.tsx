@@ -11,8 +11,8 @@ const CV = "/ge/img/cv-hero";
  * The creative & video production page hero artwork, composed in the same
  * family as the marketing / UX / web hero arts (600×600 design frame): a
  * phone playing the OTP Bank TikTok video in the middle, the Plantart and
- * Netamin Instagram reels as tilted cards behind it, and three chips with
- * live, localized labels (two platforms and the TikTok view count). The
+ * Netamin Instagram reels as tilted cards behind it, and three platform
+ * chips (Reels, TikTok, LinkedIn) with their marks and live labels. The
  * frames live in public/ge/img/cv-hero; everything else is CSS plus the
  * vector layers the sibling arts already ship. All coordinates are design
  * pixels; --u (set in ge.css) converts one design pixel to the container
@@ -27,7 +27,13 @@ const box = (x: number, y: number, w: number, h?: number): React.CSSProperties =
   height: h === undefined ? undefined : px(h),
 });
 
-const Chip: FunctionComponent<{ x: number; y: number; label: string }> = ({ x, y, label }) => (
+/* Platform chip: glow + glass square with the platform's mark, label live text. */
+const Chip: FunctionComponent<{ x: number; y: number; icon: string; label: string }> = ({
+  x,
+  y,
+  icon,
+  label,
+}) => (
   <div className="gm-chip" style={{ left: px(x), top: px(y) }}>
     <span className="gm-chip-ic">
       <span
@@ -35,7 +41,7 @@ const Chip: FunctionComponent<{ x: number; y: number; label: string }> = ({ x, y
         style={{ ...box(0.3, 0.3, 34.3, 34.3), filter: `blur(${px(14.5)})` }}
       />
       <span className="gm-abs gm-glass" style={box(0.9, 7.3, 34.3, 26.5)} />
-      <span className="gm-abs cv-play cv-play-sm" style={box(9.5, 12, 17, 17)} />
+      <img src={`${CV}/ic-${icon}.svg`} alt="" className="gm-abs cv-brand" style={box(8, 8, 20, 20)} />
     </span>
     <span dangerouslySetInnerHTML={{ __html: label }} />
   </div>
@@ -94,9 +100,9 @@ export const CvHeroArt: FunctionComponent = () => {
         <span className="cv-abs gm-grad-btn" style={box(14, 380, 88, 26)} />
       </div>
 
-      <Chip x={2} y={392} label={t("con.hero.chip1", "Instagram")} />
-      <Chip x={400} y={8} label={t("con.hero.chip2", "TikTok")} />
-      <Chip x={286} y={476} label={t("con.hero.chip3", "500 000 megtekintés")} />
+      <Chip x={2} y={392} icon="instagram" label={t("con.hero.chip1", "Reels")} />
+      <Chip x={400} y={8} icon="tiktok" label={t("con.hero.chip2", "TikTok")} />
+      <Chip x={372} y={470} icon="linkedin" label={t("con.hero.chip3", "LinkedIn")} />
     </div>
   );
 };
