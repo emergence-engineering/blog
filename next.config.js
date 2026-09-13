@@ -1,13 +1,25 @@
 /* eslint-disable */
 const { name } = require("./package.json");
 
-const gitCommitId = require("git-commit-id");
+const { execSync } = require("child_process");
 
 function getReleaseId(environment, commitId, appName) {
   return `${appName}-${environment}-${commitId}`;
 }
 
-const COMMIT_ID = gitCommitId();
+// git-commit-id reads .git/HEAD as a file, which fails inside a git worktree
+// (there .git is a pointer file). Ask git itself and fall back gracefully.
+function readCommitId() {
+  try {
+    return execSync("git rev-parse HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+  } catch {
+    return process.env.VERCEL_GIT_COMMIT_SHA || "unknown";
+  }
+}
+
+const COMMIT_ID = readCommitId();
 
 // Routes that exist in English only (the software side of the site, plus the
 // English startup landing pages). Keep in sync with pages/.

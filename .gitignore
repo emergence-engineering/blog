@@ -35,3 +35,6 @@ yalc.lock
 emergence-engineering-blog-*.json
 *service-account*.json
 *.serviceaccount.json
+
+# Playwright screenshots used for visual review
+screenshots/

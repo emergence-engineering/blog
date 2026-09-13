@@ -44,9 +44,9 @@ html{scroll-behavior:smooth}
 @media(max-width:720px){.ge .wrap,.ge .wrap-narrow{padding:0 20px}.ge{font-size:16px}}
 
 /* ---------- type ---------- */
-.ge h1,.ge h2,.ge h3,.ge h4,.ge .dnum{font-family:var(--display);font-weight:800;letter-spacing:-.035em;margin:0;line-height:1}
-.ge h1{font-size:clamp(2.6rem,5.6vw,4.7rem);line-height:.98}
-.ge h2{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.04}
+.ge h1,.ge h2,.ge h3,.ge h4,.ge .dnum{font-family:var(--display);font-weight:700;letter-spacing:-.03em;margin:0;line-height:1}
+.ge h1{font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.02}
+.ge h2{font-size:clamp(1.85rem,3.6vw,2.9rem);line-height:1.08}
 .ge h3{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.14;letter-spacing:-.03em}
 .ge h4{font-size:1.08rem;line-height:1.22;letter-spacing:-.025em;font-weight:700}
 .ge p{margin:0}
@@ -165,6 +165,7 @@ html{scroll-behavior:smooth}
 .ge .hero h1{margin-bottom:1.4rem}
 .ge .hero .lede{max-width:34ch}
 .ge .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.ge .hero-cta .btn{padding:.7rem 1.25rem;font-size:.88rem;line-height:1.25}
 .ge .badges{margin-top:2.2rem}
 .ge .badges img{width:100%;max-width:360px}
 .ge .badges .badgestrip{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;background:#fff;
