@@ -29,12 +29,12 @@ const Index: NextPage = () => {
           <div className="hero-grid">
             <div>
               <h1 className="rv" dangerouslySetInnerHTML={{ __html: t("hero.title", "Mi fogja vissza a céged<br>növekedését?") }} />
-              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered. Skálázható folyamatokat hozunk létre, amik a tiéid maradnak, és hosszú távon támogatják céged növekedését.") }} />
+              <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("hero.lede", "Üzletfejlesztő partnerként építjük meg a marketingrendszered.") }} />
               <div className="hero-cta rv">
                 <Link href="/kapcsolat" className="btn">
                   <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
                 </Link>
-                <Link href="/kapcsolat" className="btn btn-line" dangerouslySetInnerHTML={{ __html: t("hero.cta2", "Kérj ingyenes auditot") }} />
+                <Link href="/kapcsolat" className="tlink" dangerouslySetInnerHTML={{ __html: t("hero.cta2", "Kérj ingyenes auditot") }} />
               </div>
               <div className="badges rv">
                 <div className="cap" dangerouslySetInnerHTML={{ __html: t("hero.badges.cap", "Tanúsított partnerek") }} />
@@ -47,307 +47,136 @@ const Index: NextPage = () => {
               </div>
               <p className="rv" style={{ marginTop: "1.4rem", fontSize: ".85rem", color: "var(--muted)" }} dangerouslySetInnerHTML={{ __html: t("hero.brand", "A Growth Engineering az <b style=\"color:var(--ink)\">Emergence Engineering Kft.</b> üzletfejlesztési csapata.") }} />
             </div>
-            <div className="hero-proof rv">
-              <Link className="pcase" href="/esettanulmany-vezessjol">
-                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt14", "VezessJól autósiskola weboldal")} priority />
-                <span className="pcase-cap" dangerouslySetInnerHTML={{ __html: t("hero.tile.vj", "VezessJól: +93% konverzió") }} />
-              </Link>
-              <Link className="pcase" href="/esettanulmany-plantart">
-                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt15", "Plantart webshop és kampányok")} priority />
-                <span className="pcase-cap" dangerouslySetInnerHTML={{ __html: t("hero.tile.pa", "Plantart: 3× bevétel") }} />
-              </Link>
-              <p className="pcase-note">
-                <b>16%</b>
-                <span dangerouslySetInnerHTML={{ __html: t("hero.stat.lbl", "minimum profitnövekedés az első hat hónapban") }} />
-              </p>
-            </div>
+            <Link className="hp-shot rv" href="/esettanulmany-vezessjol">
+              <span className="hp-shot-frame">
+                <Image src="/ge/img/cover-vezessjol.webp" width={1500} height={1002} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} priority />
+              </span>
+              <span className="hp-chip"><b>+93%</b> <span dangerouslySetInnerHTML={{ __html: t("case.vj.m2", "Több konverzió") }} /></span>
+              <span className="hp-shot-cap">VezessJól <span dangerouslySetInnerHTML={{ __html: t("hp.shotcap", "autósiskola, esettanulmány") }} /></span>
+            </Link>
           </div>
         </div>
       </section>
-      <div className="proof">
+      <div className="hp-results">
         <div className="wrap">
-          <div className="proof-in">
-            <div>
-              <div className="dnum">54+</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.1", "Hazai és nemzetközi partner, a Filteredtől a Plantartig") }} />
-            </div>
-            <div>
-              <div className="dnum">8</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.2", "Szakértői terület egy szerződés alatt") }} />
-            </div>
-            <div>
-              <div className="dnum">20+</div>
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.3", "AI workflow és eszköz, átadva a csapatodnak a szerződés idejére") }} />
-            </div>
-            <div>
-              <div className="dnum" dangerouslySetInnerHTML={{ __html: t("proof.4h", "Képzések") }} />
-              <div className="lbl" dangerouslySetInnerHTML={{ __html: t("proof.4", "Fejlesztés és képzések a belső csapatnak, a projekt részeként") }} />
-            </div>
-          </div>
+          <ul className="hp-results-in">
+            <li><b>3×</b><span dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} /><small>Plantart</small></li>
+            <li><b dangerouslySetInnerHTML={{ __html: t("res.revnum", "1,9 Mrd Ft") }} /><span dangerouslySetInnerHTML={{ __html: t("res.rev", "Éves árbevétel négy év után") }} /><small>Plantart</small></li>
+            <li><b>+93%</b><span dangerouslySetInnerHTML={{ __html: t("case.vj.m2", "Több konverzió") }} /><small>VezessJól</small></li>
+            <li><b>−50%</b><span dangerouslySetInnerHTML={{ __html: t("case.vj.m3", "Érdeklődőszerzési költség") }} /><small>VezessJól</small></li>
+          </ul>
         </div>
       </div>
       <section id="rolunk">
         <div className="wrap">
-          <div className="shead">
-            <div>
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("pr.title", "Growth engineering alapelvek") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("pr.lede", "Azért dolgozunk, mert hisszük, hogy a magyar cégek nemzetközi szinten is kiemelkedőek tudnak lenni. Üzletfejlesztői, programozói és marketing tapasztalatunkkal szeretnénk hozzájárulni a potenciállal rendelkező kis- és középvállalkozásaink növekedéséhez.") }} />
-          </div>
-          <div className="cards3 rv">
-            <article className="pcard">
+          <div className="hp-manifesto">
+            <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("pr.title", "Growth engineering alapelvek") }} />
+            <ol className="hp-claims rv">
+            <li>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.1.h", "A kampány kifut, a rendszer marad") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Rendszerben gondolkozunk, nem kampányokban. A vezetéssel közösen olyan belső rendszert építünk, ami nem az ügynökségtől függ, hanem a céged saját kompetenciája marad.") }} />
-            </article>
-            <article className="pcard">
+              <p dangerouslySetInnerHTML={{ __html: t("pr.1.p", "Rendszerben gondolkozunk, nem kampányokban.") }} />
+            </li>
+            <li>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.2.h", "A belső csapatod") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből. Ezért mi a csapatod részeként üzletfejlesztőként dolgozunk, hogy a lehető leggyorsabban a legjobb döntéseket hozzuk meg közösen. Házon belül rendelkezünk minden specialistával, akire a projekt során szükség lehet.") }} />
-            </article>
-            <article className="pcard">
+              <p dangerouslySetInnerHTML={{ __html: t("pr.2.p", "Egy külsős cég sokszor nem tudja megérteni a céged működését egy kitöltött formból és pár meetingből.") }} />
+            </li>
+            <li>
               <h3 dangerouslySetInnerHTML={{ __html: t("pr.3.h", "Üzletfejlesztés, nem marketing") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("pr.3.p", "Üzletfejlesztőként gondolkozunk, nem marketingesként, így nem biztos, hogy a hirdetés skálázását fogjuk tanácsolni. A lehető legjobb és legolcsóbb úton szeretnénk eljutni a kijelölt célodig, ami nem biztos, hogy azt jelenti, hogy a Google-be kell több költséget süllyeszteni.") }} />
-            </article>
+              <p dangerouslySetInnerHTML={{ __html: t("pr.3.p", "Üzletfejlesztőként gondolkozunk, nem marketingesként, így nem biztos, hogy a hirdetés skálázását fogjuk tanácsolni.") }} />
+            </li>
+            </ol>
           </div>
         </div>
       </section>
       <section className="band" id="szolgaltatasok">
         <div className="wrap">
-          <div className="shead">
-            <div>
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("svc.title", "Növekedési kompetenciák") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("svc.lede", "Egy csapat, nyolc terület. A fejlesztés, a design, a hirdetés és az e-mail ugyanazokra a számokra dolgozik, mert ugyanaz a csapat viszi mindet.") }} />
+          <div className="shead solo">
+            <div><h2 className="rv" dangerouslySetInnerHTML={{ __html: t("svc.title", "Növekedési kompetenciák") }} /></div>
           </div>
-          <div className="tabs rv">
-            <div className="tablist" role="tablist" aria-label="Kompetenciák">
-              <button role="tab" id="t6" aria-controls="p6" aria-selected="true" dangerouslySetInnerHTML={{ __html: t("tab.biz", "Üzletfejlesztés") }} />
-              <button role="tab" id="t8" aria-controls="p8" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.ecom", "CRO és E-commerce") }} />
-              <button role="tab" id="t2" aria-controls="p2" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.growth", "PPC hirdetéskezelés") }} />
-              <button role="tab" id="t1" aria-controls="p1" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.email", "E-mail marketing és automatizáció") }} />
-              <button role="tab" id="t3" aria-controls="p3" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.web", "Webshop- és webfejlesztés") }} />
-              <button role="tab" id="t7" aria-controls="p7" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.video", "Kreatív- és videógyártás") }} />
-              <button role="tab" id="t4" aria-controls="p4" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.ux", "UX/UI design") }} />
-              <button role="tab" id="t5" aria-controls="p5" aria-selected="false" dangerouslySetInnerHTML={{ __html: t("tab.seo", "SEO és AI keresőoptimalizálás") }} />
-            </div>
-            <div className="tabpanel" id="p1" role="tabpanel" aria-labelledby="t1" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p1.h", "A meglévő vevőidben van a legolcsóbb bevétel.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p1.p", "Egy jól felépített e-mail marketing rendszer a webshop bevételének 25–35%-át hozza, hirdetési költés nélkül. Elhagyott kosár, böngészés-újraindítás, vásárlás utáni sorozat, visszacsábítás, készlet- és árértesítő: mind automatikusan fut, a te hangodon.") }} />
-                  <Link className="link-arrow" href="/email-automatizacio" dangerouslySetInnerHTML={{ __html: t("p1.link", "Nézd meg, hogyan építjük fel") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p1.l1", "<strong>12–18 alap flow</strong> magyar és angol nyelven, A/B teszteléssel") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p1.l2", "<strong>Szegmentáció</strong> vásárlási gyakoriság, kosárérték és termékkategória szerint") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p1.l3", "<strong>Shoprenter, UNAS, Shopify, WooCommerce</strong> és egyedi rendszer integráció") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p1.l4", "<strong>GDPR-tiszta</strong> feliratkozás, dupla opt-in, auditálható hozzájárulás") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p2" role="tabpanel" aria-labelledby="t2" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p2.h", "Egy csatorna teljesítménye önmagában semmit nem mond el.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p2.p", "Paid search, paid social, remarketing és CRO ugyanabban a rendszerben. Először azt keressük meg, hol szivárog el a bevétel: az ajánlatnál, a tölcsérben vagy a mérésnél. Onnan indulunk.") }} />
-                  <Link className="link-arrow" href="/ppc-hirdeteskezeles" dangerouslySetInnerHTML={{ __html: t("p2.link", "PPC hirdetéskezelés részletek") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p2.l1", "Google, Meta, TikTok, LinkedIn kampánykezelés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p2.l2", "Konverzióoptimalizálás és strukturált A/B tesztelés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p2.l3", "GA4, szerveroldali mérés, tiszta attribúció") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p2.l4", "Riport ROAS-ra, CAC-ra és LTV-re") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p3" role="tabpanel" aria-labelledby="t3" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p3.h", "Amit a marketing megígér, azt valakinek meg is kell építenie.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p3.p", "MVP-től platformfejlesztésig. Webshop-integrációk, számlázás, CRM-bekötés és AI funkciók, amiket a marketingcsapat is használni tud.") }} />
-                  <Link className="link-arrow" href="/webfejlesztes" dangerouslySetInnerHTML={{ __html: t("p3.link", "Fejlesztési szolgáltatások") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p3.l1", "Webshop és egyedi platform fejlesztés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p3.l2", "API-k, ERP, CRM és fizetési integrációk") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p3.l3", "AI és LLM funkciók: kereső, asszisztens, összefoglaló") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p3.l4", "Rich text editor szakértelem (ProseMirror, TipTap)") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p7" role="tabpanel" aria-labelledby="t7" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p7.h", "A kreatív ma a legnagyobb növekedési kar.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p7.p", "A modern marketing legfontosabb változója a kreatív: ha a videó nem állítja meg a görgetést, a legjobb célzás sem segít. Social-first videókat és kreatív rendszert gyártunk, ami a hirdetést, az organikus jelenlétet és a márkát egyszerre szolgálja ki.") }} />
-                  <Link className="link-arrow" href="/kreativ-es-videogyartas" dangerouslySetInnerHTML={{ __html: t("p7.link", "Nézd meg, mit gyártunk") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p7.l1", "Rövid videók: TikTok, Reels, Shorts, LinkedIn") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p7.l2", "Görgetést megállító hirdetési kreatívok PPC-hez") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p7.l3", "Forgatókönyv, forgatás, vágás és márkás történetmesélés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p7.l4", "Kreatív tesztelés: a legjobban konvertáló hook megtalálása") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p8" role="tabpanel" aria-labelledby="t8" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p8.h", "Az e-commerce értékesítés rendszerben működik jól.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p8.p", "Látogató × konverzió × kosárérték. Hosszú távon az a webshop nyer, amelyik mögött erős márka, pontos mérés, működő vevőszerzés és vevőmegtartás, valamint stabil technológiai alap áll. Mi ezt egy rendszerként építjük fel.") }} />
-                  <Link className="link-arrow" href="/cro-es-ecommerce" dangerouslySetInnerHTML={{ __html: t("p8.link", "Nézd meg a levezetést") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p8.l1", "Forgalom: olcsóbb megtekintés, több minőségi látogató") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p8.l2", "Konverzió: gyorsabb oldal, tisztább vásárlási út, jobb checkout") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p8.l3", "Kosárérték és LTV: upsell, elhagyott kosár, visszacsábítás") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p8.l4", "Fenntarthatóság: organikus forgalom, ami olcsóbbá teszi az egészet") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p4" role="tabpanel" aria-labelledby="t4" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p4.h", "Design, ami összeköti a vásárlót a termékkel.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p4.p", "A legtöbb márkánál a design a látványról szól, nálunk az eredményről. Olyan felületeket tervezünk, amiket magától értetődő használni, és amik a nézelődőből vásárlót csinálnak.") }} />
-                  <Link className="link-arrow" href="/ux-ui-design" dangerouslySetInnerHTML={{ __html: t("p4.link", "UX/UI megközelítésünk") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p4.l1", "UX audit, hőtérkép- és viselkedéselemzés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p4.l2", "Mélyinterjúk és használhatósági tesztek") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p4.l3", "Információs architektúra, prototípus, design system") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p4.l4", "Arculat és vizuális rendszerek") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p5" role="tabpanel" aria-labelledby="t5" data-active="false">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p5.h", "Mi van, ha a következő vevőd már nem Google-n keres rád?") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p5.p", "Az online keresések egyre nagyobb része már ChatGPT-ben, Claude-ban és Geminiben történik. Lehetsz első a Google-ben úgy is, hogy közben láthatatlan vagy ott, ahol az emberek ténylegesen kérdeznek.") }} />
-                  <Link className="link-arrow" href="/ai-seo" dangerouslySetInnerHTML={{ __html: t("p5.link", "SEO és AI keresőoptimalizálás részletek") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p5.l1", "Strukturált adat és entitás-optimalizálás") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p5.l2", "Kérdésalapú tartalom, amit az AI idézni tud") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p5.l3", "Hivatkozás- és tekintélyépítés") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p5.l4", "AI-említések követése és riportálása") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="tabpanel" id="p6" role="tabpanel" aria-labelledby="t6" data-active="true">
-              <div className="tab-split">
-                <div>
-                  <h3 dangerouslySetInnerHTML={{ __html: t("p6.h", "A növekedés legtöbbször nem marketingkérdés.") }} />
-                  <p className="lede" dangerouslySetInnerHTML={{ __html: t("p6.p", "Az árazás, a margin és az értékesítési folyamat többet mozdít a profiton, mint bármelyik hirdetési fiók. Ezért kezdünk mindig üzleti felméréssel és analitikával.") }} />
-                  <Link className="link-arrow" href="/kapcsolat" dangerouslySetInnerHTML={{ __html: t("p6.link", "Kezdd egy ingyenes audittal") }} />
-                </div>
-                <div className="panel panel-peach">
-                  <ul className="checklist">
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l1", "Üzleti analitika és audit: margin, termék- és csatorna-jövedelmezőség") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l2", "Szűk keresztmetszetek feltérképezése") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l3", "Értékajánlat és ajánlatstruktúra") }} />
-                    <li dangerouslySetInnerHTML={{ __html: t("p6.l4", "Értékesítési folyamat fejlesztése") }} />
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="hp-bento rv">
+              <Link className="hp-cb hp-cb-wide" href="/webfejlesztes">
+                <span className="hp-cb-media"><Image src="/ge/img/vj-desktop-top.png" width={1296} height={505} alt={t("alt14", "VezessJól autósiskola weboldal")} /></span>
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.web", "Webshop- és webfejlesztés") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p3.h", "Amit a marketing megígér, azt valakinek meg is kell építenie.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/kapcsolat">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.biz", "Üzletfejlesztés") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p6.h", "A növekedés legtöbbször nem marketingkérdés.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/cro-es-ecommerce">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.ecom", "CRO és E-commerce") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p8.h", "Az e-commerce értékesítés rendszerben működik jól.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/ppc-hirdeteskezeles">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.growth", "PPC hirdetéskezelés") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p2.h", "Egy csatorna teljesítménye önmagában semmit nem mond el.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/email-automatizacio">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.email", "E-mail marketing és automatizáció") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p1.h", "A meglévő vevőidben van a legolcsóbb bevétel.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb hp-cb-img" href="/kreativ-es-videogyartas">
+                <span className="hp-cb-media"><Image src="/ge/img/vj-social.webp" width={760} height={810} alt={t("alt21", "Social hirdetéskreatívok, amelyeket egy ügyfélkampányhoz gyártottunk")} /></span>
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.video", "Kreatív- és videógyártás") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p7.h", "A kreatív ma a legnagyobb növekedési kar.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/ux-ui-design">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.ux", "UX/UI design") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p4.h", "Design, ami összeköti a vásárlót a termékkel.") }} />
+                </span>
+              </Link>
+              <Link className="hp-cb" href="/ai-seo">
+                <span className="hp-cb-txt">
+                  <h3 dangerouslySetInnerHTML={{ __html: t("tab.seo", "SEO és AI keresőoptimalizálás") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("p5.h", "Mi van, ha a következő vevőd már nem Google-n keres rád?") }} />
+                </span>
+              </Link>
           </div>
         </div>
       </section>
-      <section className="band" id="esettanulmanyok">
+      <section id="esettanulmanyok">
         <div className="wrap">
-          <div className="shead">
-            <div>
-              <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("case.title", "Növekedési történetek") }} />
-            </div>
-            <p className="lede rv" dangerouslySetInnerHTML={{ __html: t("case.lede", "Történetek, amik bemutatják, hogyan dolgozunk együtt cégekkel.") }} />
+          <div className="shead solo">
+            <div><h2 className="rv" dangerouslySetInnerHTML={{ __html: t("case.title", "Növekedési történetek") }} /></div>
           </div>
-          <div className="cases">
-            <article className="case rv">
-              <div className="case-media">
-                <Image src="/ge/img/case-plantart.webp" width={728} height={484} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} />
-              </div>
-              <div className="case-body">
+          <div className="hp-stories">
+            <Link className="hp-story rv" href="/esettanulmany-plantart">
+              <span className="hp-story-img"><Image src="/ge/img/cover-plantart.webp" width={1500} height={1000} alt={t("alt9", "Plantart weboldal, webshop és social kampányok")} /></span>
+              <span className="hp-story-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.pa.h", "Plantart piacvezető és digitális bajnok") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("case.pa.p", "A Plantart egy 4 éves üzletfejlesztési folyamaton ment át, aminek a végére a cég 700 millióról <strong>1,9 milliárdra</strong> nőtt, és eljutott az első cégfelvásárlásáig.") }} />
-                <div className="metrics">
-                  <div className="m">
-                    <div className="dnum">3×</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} />
-                  </div>
-                  <div className="m">
-                    <div className="dnum">+45M Ft</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m2", "Webshop-bevétel az első évben") }} />
-                  </div>
-                  <div className="m">
-                    <div className="dnum">−67%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.pa.m3", "Alacsonyabb konverziós költség") }} />
-                  </div>
-                </div>
-                {/* same set as the badges on the Plantart case study page */}
-                <div className="chips">
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill1", "Márkaújratervezés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill2", "Funnel marketing") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill3", "Hagyományos és AIO") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill4", "CRM bevezetés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill5", "E-mail marketing és automatizáció") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("cspa.pill6", "Webshop és webfejlesztés") }} />
-                </div>
-                <div>
-                  <Link href="/esettanulmany-plantart" className="tlink">
-                    <span dangerouslySetInnerHTML={{ __html: t("case.pa.read", "Esettanulmány elolvasása") }} />
-                  </Link>
-                </div>
-              </div>
-            </article>
-            <article className="case flip rv">
-              <div className="case-media">
-                <Image src="/ge/img/case-vezessjol.webp" width={733} height={484} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} />
-              </div>
-              <div className="case-body">
+                <dl className="hp-nums">
+                  <div><dt>3×</dt><dd dangerouslySetInnerHTML={{ __html: t("case.pa.m1", "Bevételnövekedés négy év alatt") }} /></div>
+                  <div><dt>+45M Ft</dt><dd dangerouslySetInnerHTML={{ __html: t("case.pa.m2", "Webshop-bevétel az első évben") }} /></div>
+                  <div><dt>−67%</dt><dd dangerouslySetInnerHTML={{ __html: t("case.pa.m3", "Alacsonyabb konverziós költség") }} /></div>
+                </dl>
+                <span className="tlink" dangerouslySetInnerHTML={{ __html: t("case.pa.read", "Esettanulmány elolvasása") }} />
+              </span>
+            </Link>
+            <Link className="hp-story hp-story-flip rv" href="/esettanulmany-vezessjol">
+              <span className="hp-story-img"><Image src="/ge/img/cover-vezessjol.webp" width={1500} height={1002} alt={t("alt10", "VezessJól autósiskola weboldal és akvizíciós tölcsér")} /></span>
+              <span className="hp-story-body">
                 <h3 dangerouslySetInnerHTML={{ __html: t("case.vj.h", "Felpörgetett konverziók vezetésoktatásban") }} />
-                <p dangerouslySetInnerHTML={{ __html: t("case.vj.p", "Hogyan növeltük duplájára a konverziók számát a marketingköltés csökkentése mellett? Az üzleti audit és a visszamérések során megtaláltuk azokat a fő pontokat, ahol az üzleti modellt módosítani kellett. Az értékajánlat módosításával sikerült <strong>duplázni a konverziók számát 3 hónap alatt</strong>.") }} />
-                <div className="metrics">
-                  <div className="m">
-                    <div className="dnum">+35%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m1", "Bevételnövekedés") }} />
-                  </div>
-                  <div className="m">
-                    <div className="dnum">+93%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m2", "Több konverzió") }} />
-                  </div>
-                  <div className="m">
-                    <div className="dnum">−50%</div>
-                    <div className="d" dangerouslySetInnerHTML={{ __html: t("case.vj.m3", "Érdeklődőszerzési költség") }} />
-                  </div>
-                </div>
-                <div className="chips">
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.consult", "Üzleti tanácsadás") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.redesign", "Weboldal újratervezés") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.ux", "UX/UI") }} />
-                  <span className="chip" dangerouslySetInnerHTML={{ __html: t("chip.ppc", "PPC") }} />
-                </div>
-                <div>
-                  <Link href="/esettanulmany-vezessjol" className="tlink">
-                    <span dangerouslySetInnerHTML={{ __html: t("case.vj.read", "Esettanulmány elolvasása") }} />
-                  </Link>
-                </div>
-              </div>
-            </article>
+                <dl className="hp-nums">
+                  <div><dt>+35%</dt><dd dangerouslySetInnerHTML={{ __html: t("case.vj.m1", "Bevételnövekedés") }} /></div>
+                  <div><dt>+93%</dt><dd dangerouslySetInnerHTML={{ __html: t("case.vj.m2", "Több konverzió") }} /></div>
+                  <div><dt>−50%</dt><dd dangerouslySetInnerHTML={{ __html: t("case.vj.m3", "Érdeklődőszerzési költség") }} /></div>
+                </dl>
+                <span className="tlink" dangerouslySetInnerHTML={{ __html: t("case.vj.read", "Esettanulmány elolvasása") }} />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -395,110 +224,57 @@ const Index: NextPage = () => {
             <div>
               <h2 className="rv" dangerouslySetInnerHTML={{ __html: t("col.title", "Hogyan dolgozunk együtt") }} />
             </div>
-            <p className="lede rv" style={{ marginTop: "-1.4rem" }} dangerouslySetInnerHTML={{ __html: t("col.lede", "Kiindulópont mindig egy diagnózis. Utána te választod ki, mekkora felelősséget adsz át.") }} />
           </div>
-          <div className="rates rv">
-            <div className="labels" aria-hidden="true">
-              <div className="rl rl-h" />
-              <div className="rl" dangerouslySetInnerHTML={{ __html: t("rate.fee", "Díj") }} />
-              <div className="rl" dangerouslySetInnerHTML={{ __html: t("rate.for", "Mire való") }} />
-              <div className="rl" dangerouslySetInnerHTML={{ __html: t("rate.incl", "Mit tartalmaz") }} />
-              <div className="rl rl-cta" />
-            </div>
+          <div className="hp-auditbar rv">
             <div>
-              <h3 className="rc rc-h" dangerouslySetInnerHTML={{ __html: t("audit.h", "Mély audit") }} />
-              <div className="rc" data-label={t("rate.fee", "Díj")}>
-                <div className="price" dangerouslySetInnerHTML={{ __html: t("audit.price", "490 000 Ft <small>egyszeri, fix díj</small>") }} />
-              </div>
-              <div className="rc" data-label={t("rate.for", "Mire való")}>
-                <p dangerouslySetInnerHTML={{ __html: t("audit.p", "Egyszeri, fix díjas átvilágítás az üzletről és a marketingről. A végén kapsz egy priorizált listát arról, mi hozza a legtöbb bevételt a következő 90 napban, akkor is, ha utána nem velünk dolgozol.") }} />
-              </div>
-              <div className="rc" data-label={t("rate.incl", "Mit tartalmaz")}>
-                <ul className="checks on-light">
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l1", "Piaci pozíció és növekedési potenciál elemzése") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l2", "Google Ads, Meta Ads és SEO teljesítmény-audit") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l3", "Teljes tölcsér átvizsgálása, bevételszivárgás azonosítása") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l4", "Versenytárs-láthatóság és benchmark") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l5", "Csatorna-ROI bontás és büdzsé-átcsoportosítás") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l6", "Értékesítési folyamat és CRM hatékonyság") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l7", "Márka- és üzenetteszt: érti-e egy kívülálló, mit csináltok") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l8", "Mérés, analitika és attribúció pontossága") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l9", "Árazás, margin és működési szűk keresztmetszetek") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("audit.l10", "E-mail lista egészsége és AIO audit") }} />
-                </ul>
-              </div>
-              <div className="rc rc-cta">
-                <Link href="/kapcsolat" className="btn">
-                  <span dangerouslySetInnerHTML={{ __html: t("audit.cta", "Kérem az auditot") }} />
-                </Link>
-              </div>
+              <span className="hp-ab-k" dangerouslySetInnerHTML={{ __html: t("col.start", "Kiindulópont") }} />
+              <h3 dangerouslySetInnerHTML={{ __html: t("audit.h", "Mély audit") }} />
             </div>
-            <div>
-              <h3 className="rc rc-h" dangerouslySetInnerHTML={{ __html: t("t1.h", "Tanácsadói előfizetés") }} />
-              <div className="rc" data-label={t("rate.fee", "Díj")}>
-                <div className="price" dangerouslySetInnerHTML={{ __html: t("t1.price", "650 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
-              </div>
-              <div className="rc" data-label={t("rate.for", "Mire való")}>
-                <p dangerouslySetInnerHTML={{ __html: t("t1.p", "Havi stratégiai ülés, priorizálás és folyamatos elérhetőség. A végrehajtás nálatok marad, az irány és az ellenőrzés nálunk.") }} />
-              </div>
-              <div className="rc" data-label={t("rate.incl", "Mit tartalmaz")}>
-                <ul className="checks on-light">
-                  <li dangerouslySetInnerHTML={{ __html: t("t1.l1", "Havi stratégiai ülések és növekedési audit") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t1.l2", "Hirdetési struktúra felépítése") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t1.l3", "KPI-követés és optimalizálási javaslatok") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t1.l4", "Szakértői konzultáció igény szerint") }} />
-                </ul>
-              </div>
-              <div className="rc rc-cta">
-                <Link href="/kapcsolat" className="btn btn-line">
-                  <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
-                </Link>
-              </div>
+            <div className="price" dangerouslySetInnerHTML={{ __html: t("audit.price", "490 000 Ft <small>egyszeri, fix díj</small>") }} />
+            <p dangerouslySetInnerHTML={{ __html: t("audit.p", "Egyszeri, fix díjas átvilágítás az üzletről és a marketingről.") }} />
+            <Link href="/kapcsolat" className="btn">
+              <span dangerouslySetInnerHTML={{ __html: t("audit.cta", "Kérem az auditot") }} />
+            </Link>
+          </div>
+          <div className="hp-plans rv">
+            <div className="hp-plan">
+              <h3 dangerouslySetInnerHTML={{ __html: t("t1.h", "Tanácsadói előfizetés") }} />
+              <div className="price" dangerouslySetInnerHTML={{ __html: t("t1.price", "650 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("t1.p", "Havi stratégiai ülés, priorizálás és folyamatos elérhetőség.") }} />
+              <ul className="checks on-light">
+                <li dangerouslySetInnerHTML={{ __html: t("t1.l1", "Havi stratégiai ülések és növekedési audit") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t1.l2", "Hirdetési struktúra felépítése") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t1.l3", "KPI-követés és optimalizálási javaslatok") }} />
+              </ul>
+              <Link href="/kapcsolat" className="btn btn-line">
+                <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
+              </Link>
             </div>
-            <div>
-              <h3 className="rc rc-h" dangerouslySetInnerHTML={{ __html: t("t2.h", "Szakértői menedzsment") }} />
-              <div className="rc" data-label={t("rate.fee", "Díj")}>
-                <div className="price" dangerouslySetInnerHTML={{ __html: t("t2.price", "1 450 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
-              </div>
-              <div className="rc" data-label={t("rate.for", "Mire való")}>
-                <p dangerouslySetInnerHTML={{ __html: t("t2.p", "Átvesszük a stratégiát, a végrehajtást és a riportolást. Marketingtől a fejlesztésig a mi csapatunk visz mindent, és az eredményért is mi felelünk.") }} />
-                <p className="anchor" dangerouslySetInnerHTML={{ __html: t("t2.anchor", "Egy senior marketinges, egy fejlesztő és egy designer teljes bérköltsége havi 3 millió forint fölött van. Ennek a feléért egy egész csapatot kapsz, felvétel és felmondás nélkül.") }} />
-              </div>
-              <div className="rc" data-label={t("rate.incl", "Mit tartalmaz")}>
-                <ul className="checks on-light">
-                  <li dangerouslySetInnerHTML={{ __html: t("t2.l1", "Gyorsan megszüntetett szűk keresztmetszetek") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t2.l2", "Skálázható rendszerek építése") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t2.l3", "Napi szintű közös munka a csapatoddal") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t2.l4", "Kiszámítható, mérhető eredmények") }} />
-                </ul>
-              </div>
-              <div className="rc rc-cta">
-                <Link href="/kapcsolat" className="btn btn-line">
-                  <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
-                </Link>
-              </div>
+            <div className="hp-plan hp-plan-featured">
+              <h3 dangerouslySetInnerHTML={{ __html: t("t2.h", "Szakértői menedzsment") }} />
+              <div className="price" dangerouslySetInnerHTML={{ __html: t("t2.price", "1 450 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("t2.p", "Átvesszük a stratégiát, a végrehajtást és a riportolást.") }} />
+              <ul className="checks on-light">
+                <li dangerouslySetInnerHTML={{ __html: t("t2.l1", "Gyorsan megszüntetett szűk keresztmetszetek") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t2.l2", "Skálázható rendszerek építése") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t2.l3", "Napi szintű közös munka a csapatoddal") }} />
+              </ul>
+              <Link href="/kapcsolat" className="btn">
+                <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
+              </Link>
             </div>
-            <div>
-              <h3 className="rc rc-h" dangerouslySetInnerHTML={{ __html: t("t3.h", "Growth inkubátor") }} />
-              <div className="rc" data-label={t("rate.fee", "Díj")}>
-                <div className="price" dangerouslySetInnerHTML={{ __html: t("t3.price", "Bevételmegosztás vagy részesedés<small>egyedi megállapodás alapján</small>") }} />
-              </div>
-              <div className="rc" data-label={t("rate.for", "Mire való")}>
-                <p dangerouslySetInnerHTML={{ __html: t("t3.p", "Bevételmegosztásos partnerség. Kevesebb előzetes költség nálad, nagyobb közös érdekeltség az eredményben.") }} />
-              </div>
-              <div className="rc" data-label={t("rate.incl", "Mit tartalmaz")}>
-                <ul className="checks on-light">
-                  <li dangerouslySetInnerHTML={{ __html: t("t3.l1", "Teljesítményalapú partnerség") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t3.l2", "Folyamatos optimalizálás") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t3.l3", "Skálázható eredmény fix retainer nélkül") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t("t3.l4", "Ideiglenes csapattagok a te oldaladon") }} />
-                </ul>
-              </div>
-              <div className="rc rc-cta">
-                <Link href="/kapcsolat" className="btn btn-line">
-                  <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
-                </Link>
-              </div>
+            <div className="hp-plan">
+              <h3 dangerouslySetInnerHTML={{ __html: t("t3.h", "Growth inkubátor") }} />
+              <div className="price" dangerouslySetInnerHTML={{ __html: t("t3.price", "Bevételmegosztás vagy részesedés<small>egyedi megállapodás alapján</small>") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("t3.p", "Bevételmegosztásos partnerség.") }} />
+              <ul className="checks on-light">
+                <li dangerouslySetInnerHTML={{ __html: t("t3.l1", "Teljesítményalapú partnerség") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t3.l2", "Folyamatos optimalizálás") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("t3.l3", "Skálázható eredmény fix retainer nélkül") }} />
+              </ul>
+              <Link href="/kapcsolat" className="btn btn-line">
+                <span dangerouslySetInnerHTML={{ __html: t("hero.cta1", "Foglalj hívást") }} />
+              </Link>
             </div>
           </div>
           <p className="fine rv" dangerouslySetInnerHTML={{ __html: t("price.fine", "*A feltüntetett ár a szolgáltatás minimumára. A végleges ár a projekt hatókörétől, méretétől és összetettségétől függ.") }} />
@@ -510,7 +286,7 @@ const Index: NextPage = () => {
             <div>
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("lm.eyebrow", "Ingyenes növekedési audit") }} />
               <h2 dangerouslySetInnerHTML={{ __html: t("lm.h", "Találd meg, hol szivárog el a bevétel") }} />
-              <p dangerouslySetInnerHTML={{ __html: t("lm.p", "Átnézzük a márkádat, az üzleti modelledet és a marketinged, aztán kapsz egy listát arról, mit javíts először. És arról is, mivel ne foglalkozz.") }} />
+              <p dangerouslySetInnerHTML={{ __html: t("lm.p", "Átnézzük a márkádat, az üzleti modelledet és a marketinged, aztán kapsz egy listát arról, mit javíts először.") }} />
             </div>
             <form id="lmForm" onSubmit={auditForm.onSubmit}>
               <LeadFormGuards />
@@ -580,52 +356,30 @@ const Index: NextPage = () => {
       </section>
       <section className="band" id="csapat">
         <div className="wrap">
-          <h2 className="rv" style={{ textAlign: "center", fontSize: "clamp(1.5rem,2.8vw,2.1rem)", marginBottom: "clamp(2rem,4vw,3rem)" }} dangerouslySetInnerHTML={{ __html: t("wwd.h", "Termékeket és vállalkozásokat építünk") }} />
-          <div className="wwd">
-            <div className="wwd-col rv">
-              <a className="wwd-brand" href="https://emergence-engineering.com" rel="noopener" title="Emergence Engineering">
-                <Image src="/ge/img/logo-emergence.png" alt="" width={22} height={22} />
-                <span>Emergence<i>/</i><span className="w2">Engineering</span></span>
-              </a>
-              <h3 dangerouslySetInnerHTML={{ __html: t("wwd.eng.h", "Fejlesztés") }} />
-              <ul>
-                <li>ProseMirror / TipTap</li>
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li2", "YJS / kollaboratív alkalmazások") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li3", "AI-first fejlesztés") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.eng.li4", "Nehéz technikai kihívások") }} />
-              </ul>
-              <div className="face">
-                <span className="ini">VV</span>
-                <Image src="/ge/img/viktor-vaczi.jpg" alt="Viktor Váczi" onError={(e) => e.currentTarget.remove()} width={225} height={219} />
-              </div>
-              <div className="nm">Viktor Váczi</div>
-              <div className="rl">CTO & Co-CEO</div>
-              <div className="socials">
-                <Link href="/cv/viktor" locale="en" className="soc" rel="noopener" title="CV">CV</Link>
-                <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" className="soc" rel="noopener" title="LinkedIn">in</a>
-                <a href="https://github.com/emergence-engineering" className="soc" rel="noopener" title="GitHub">GH</a>
+          <div className="shead solo">
+            <div><h2 className="rv" dangerouslySetInnerHTML={{ __html: t("wwd.h", "Termékeket és vállalkozásokat építünk") }} /></div>
+          </div>
+          <div className="hp-founders rv">
+            <div className="hp-founder">
+              <Image src="/ge/img/viktor-vaczi.jpg" alt="Viktor Váczi" width={225} height={219} />
+              <div>
+                <div className="nm">Viktor Váczi</div>
+                <div className="rl">CTO &amp; Co-CEO, Emergence Engineering</div>
+                <div className="hp-links">
+                  <Link href="/cv/viktor" locale="en" rel="noopener">CV</Link>
+                  <a href="https://www.linkedin.com/in/viktor-v%C3%A1czi-58054ba0" rel="noopener">LinkedIn</a>
+                  <a href="https://github.com/emergence-engineering" rel="noopener">GitHub</a>
+                </div>
               </div>
             </div>
-            <div className="wwd-col rv">
-              <div className="wwd-brand">
-                <Image src="/ge/img/logo-emergence.png" alt="" width={22} height={22} />
-                <span>Growth<i>/</i><span className="w2">Engineering</span></span>
-              </div>
-              <h3 dangerouslySetInnerHTML={{ __html: t("wwd.biz.h", "Üzletfejlesztés") }} />
-              <ul>
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li1", "Üzletfejlesztés") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li2", "Pénzügy és analitika") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li3", "Marketing") }} />
-                <li dangerouslySetInnerHTML={{ __html: t("wwd.biz.li4", "E-kereskedelem") }} />
-              </ul>
-              <div className="face gh">
-                <span className="ini">GG</span>
-                <Image src="/ge/img/greg-gillay.jpg" alt="Greg Gillay" onError={(e) => e.currentTarget.remove()} width={640} height={640} />
-              </div>
-              <div className="nm">Greg Gillay</div>
-              <div className="rl">COO & Co-CEO</div>
-              <div className="socials">
-                <a href="https://www.linkedin.com/in/greggillay/" className="soc" rel="noopener" title="LinkedIn">in</a>
+            <div className="hp-founder">
+              <Image src="/ge/img/greg-gillay.jpg" alt="Greg Gillay" width={640} height={640} />
+              <div>
+                <div className="nm">Greg Gillay</div>
+                <div className="rl">COO &amp; Co-CEO, Growth Engineering</div>
+                <div className="hp-links">
+                  <a href="https://www.linkedin.com/in/greggillay/" rel="noopener">LinkedIn</a>
+                </div>
               </div>
             </div>
           </div>
