@@ -165,6 +165,7 @@ html{scroll-behavior:smooth}
 .ge .hero h1{margin-bottom:1.4rem}
 .ge .hero .lede{max-width:34ch}
 .ge .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.ge .hero-cta .btn{padding:.7rem 1.25rem;font-size:.88rem;line-height:1.25}
 .ge .badges{margin-top:2.2rem}
 .ge .badges img{width:100%;max-width:360px}
 .ge .badges .badgestrip{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;background:#fff;
