@@ -410,7 +410,6 @@ const Index: NextPage = () => {
             <div>
               <div className="eyebrow" dangerouslySetInnerHTML={{ __html: t("col.start", "Kiindulópont") }} />
               <h3 dangerouslySetInnerHTML={{ __html: t("audit.h", "Mély audit") }} />
-              <div className="price" style={{ margin: ".6rem 0 1rem" }} dangerouslySetInnerHTML={{ __html: t("audit.price", "490 000 Ft <small>egyszeri, fix díj</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("audit.p", "Egyszeri, fix díjas átvilágítás az üzletről és a marketingről. A végén kapsz egy priorizált listát arról, mi hozza a legtöbb bevételt a következő 90 napban, akkor is, ha utána nem velünk dolgozol.") }} />
               <div style={{ marginTop: "1.7rem" }}>
                 <Link href="/kapcsolat" className="btn">
@@ -435,7 +434,6 @@ const Index: NextPage = () => {
           <div className="tiers rv">
             <div className="tier">
               <h4 dangerouslySetInnerHTML={{ __html: t("t1.h", "Tanácsadói előfizetés") }} />
-              <div className="price" dangerouslySetInnerHTML={{ __html: t("t1.price", "650 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("t1.p", "Havi stratégiai ülés, priorizálás és folyamatos elérhetőség. A végrehajtás nálatok marad, az irány és az ellenőrzés nálunk.") }} />
               <ul className="checks on-light">
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l1", "Havi stratégiai ülések és növekedési audit") }} />
@@ -443,10 +441,15 @@ const Index: NextPage = () => {
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l3", "KPI-követés és optimalizálási javaslatok") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("t1.l4", "Szakértői konzultáció igény szerint") }} />
               </ul>
+              <div className="tier-cta">
+                <Link href="/kapcsolat" className="btn btn-line">
+                  <span dangerouslySetInnerHTML={{ __html: t("tier.cta", "Kérj ajánlatot") }} />
+                  <span className="ar">→</span>
+                </Link>
+              </div>
             </div>
             <div className="tier">
               <h4 dangerouslySetInnerHTML={{ __html: t("t2.h", "Szakértői menedzsment") }} />
-              <div className="price" dangerouslySetInnerHTML={{ __html: t("t2.price", "1 450 000 Ft-tól / hó<small>*minimálár, a hatókör függvényében</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("t2.p", "Átvesszük a stratégiát, a végrehajtást és a riportolást. Marketingtől a fejlesztésig a mi csapatunk visz mindent, és az eredményért is mi felelünk.") }} />
               <p style={{ fontSize: ".88rem", color: "var(--muted)", lineHeight: "1.55", marginTop: ".7rem" }} dangerouslySetInnerHTML={{ __html: t("t2.anchor", "Egy senior marketinges, egy fejlesztő és egy designer teljes bérköltsége havi 3 millió forint fölött van. Ennek a feléért egy egész csapatot kapsz, felvétel és felmondás nélkül.") }} />
               <ul className="checks on-light">
@@ -455,10 +458,15 @@ const Index: NextPage = () => {
                 <li dangerouslySetInnerHTML={{ __html: t("t2.l3", "Napi szintű közös munka a csapatoddal") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("t2.l4", "Kiszámítható, mérhető eredmények") }} />
               </ul>
+              <div className="tier-cta">
+                <Link href="/kapcsolat" className="btn btn-line">
+                  <span dangerouslySetInnerHTML={{ __html: t("tier.cta", "Kérj ajánlatot") }} />
+                  <span className="ar">→</span>
+                </Link>
+              </div>
             </div>
             <div className="tier">
               <h4 dangerouslySetInnerHTML={{ __html: t("t3.h", "Growth inkubátor") }} />
-              <div className="price" dangerouslySetInnerHTML={{ __html: t("t3.price", "Bevételmegosztás vagy részesedés<small>egyedi megállapodás alapján</small>") }} />
               <p dangerouslySetInnerHTML={{ __html: t("t3.p", "Bevételmegosztásos partnerség. Kevesebb előzetes költség nálad, nagyobb közös érdekeltség az eredményben.") }} />
               <ul className="checks on-light">
                 <li dangerouslySetInnerHTML={{ __html: t("t3.l1", "Teljesítményalapú partnerség") }} />
@@ -466,9 +474,14 @@ const Index: NextPage = () => {
                 <li dangerouslySetInnerHTML={{ __html: t("t3.l3", "Skálázható eredmény fix retainer nélkül") }} />
                 <li dangerouslySetInnerHTML={{ __html: t("t3.l4", "Ideiglenes csapattagok a te oldaladon") }} />
               </ul>
+              <div className="tier-cta">
+                <Link href="/kapcsolat" className="btn btn-line">
+                  <span dangerouslySetInnerHTML={{ __html: t("tier.cta", "Kérj ajánlatot") }} />
+                  <span className="ar">→</span>
+                </Link>
+              </div>
             </div>
           </div>
-          <p className="fine rv" dangerouslySetInnerHTML={{ __html: t("price.fine", "*A feltüntetett ár a szolgáltatás minimumára. A végleges ár a projekt hatókörétől, méretétől és összetettségétől függ.") }} />
         </div>
       </section>
       <section className="tight-bottom">

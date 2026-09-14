@@ -389,11 +389,9 @@ html{scroll-behavior:smooth}
 .ge .tier{background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:2rem 1.7rem 2.1rem;
   display:flex;flex-direction:column}
 .ge .tier h4{margin-bottom:.6rem;font-size:1.16rem}
-.ge .tier .price{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.04em;
-  color:var(--coral);margin-bottom:1rem}
-.ge .tier .price small{display:block;margin-top:.4rem;font-family:var(--sans);font-weight:500;font-size:.78rem;color:var(--muted);letter-spacing:0}
 .ge .tier > p{font-size:.88rem;color:var(--body);line-height:1.6;margin-bottom:1.3rem}
 .ge .tier .checks{color:var(--body);font-size:.85rem;margin-top:1.1rem}
+.ge .tier .tier-cta{margin-top:auto;padding-top:1.7rem}
 .ge .fine{font-size:.8rem;color:var(--muted);margin-top:1.3rem;font-style:italic}
 
 /* ---------- team ---------- */
