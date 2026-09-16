@@ -70,13 +70,6 @@ export const TwTeamPage = () => {
             memberWorkArea="Fullstack JS"
             linkedInLink="https://www.linkedin.com/in/norbert-aschenbrenner-b5009012a/"
           />
-          <TwMember
-            src="kata"
-            memberName="Katalin Zsófia Csillag"
-            memberRole="front-end developer"
-            memberStack="React CSS HTML"
-            memberWorkArea=""
-          />
         </div>
       </div>
     </div>
